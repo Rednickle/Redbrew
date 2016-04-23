@@ -49,8 +49,7 @@ class Gcc < Formula
 
   depends_on "zlib" unless OS.mac?
   depends_on "binutils" if build.with? "glibc"
-  depends_on "glibc" => Formula["glibc"].installed? || !GlibcRequirement.new.satisfied? ?
-    :recommended : :optional
+  depends_on "glibc" => Formula["glibc"].installed? || (OS.linux? && !GlibcRequirement.new.satisfied?) ? :recommended : :optional
   depends_on "gmp"
   depends_on "libmpc"
   depends_on "mpfr"
