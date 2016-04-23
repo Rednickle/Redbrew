@@ -5,6 +5,12 @@ class Povray < Formula
   sha256 "bf68861d648e3acafbd1d83a25016a0c68547b257e4fa79fb36eb5f08d665f27"
   revision 1
 
+  bottle do
+    sha256 "17740eda794d7dc4e3badf1c9a0718549d2b8d763a636527c468261629c9b677" => :el_capitan
+    sha256 "056812e8c4bbe7d1045431439d0a50636366f06cd90fb076936a25cffe9ffdc4" => :yosemite
+    sha256 "52f022ad4eff0369a0fa189d7e821a6f208a096df83a845f05450db8569c4bc7" => :mavericks
+  end
+
   deprecated_option "use-openexr" => "with-openexr"
 
   depends_on :macos => :lion
@@ -66,6 +72,12 @@ class Povray < Formula
 
     args << "--with-openexr=#{HOMEBREW_PREFIX}" if build.with? "openexr"
 
+    # Adjust some scripts to search for `etc` in HOMEBREW_PREFIX.
+    %w[allanim allscene portfolio].each do |script|
+      inreplace "unix/scripts/#{script}.sh",
+                /^DEFAULT_DIR=.*$/, "DEFAULT_DIR=#{HOMEBREW_PREFIX}"
+    end
+
     cd "unix" do
       system "./prebuild.sh"
     end
@@ -75,7 +87,12 @@ class Povray < Formula
   end
 
   test do
-    ohai "Rendering all test scenes; this may take a while"
-    system "#{share}/povray-3.7/scripts/allscene.sh", "-o", "."
+    # Condensed version of `share/povray-3.7/scripts/allscene.sh` that only
+    # renders variants of the famous Utah teapot as a quick smoke test.
+    scenes = Dir["#{share}/povray-3.7/scenes/advanced/teapot/*.pov"]
+    assert !scenes.empty?, "Failed to find test scenes."
+    scenes.each do |scene|
+      system "#{share}/povray-3.7/scripts/render_scene.sh", ".", scene
+    end
   end
 end

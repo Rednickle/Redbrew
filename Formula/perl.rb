@@ -1,20 +1,18 @@
 class Perl < Formula
   desc "Highly capable, feature-rich programming language"
   homepage "https://www.perl.org/"
-  url "http://www.cpan.org/src/5.0/perl-5.22.1.tar.gz"
+  url "http://www.cpan.org/src/5.0/perl-5.22.1.tar.xz"
   mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/p/perl/perl_5.22.1.orig.tar.xz"
-  sha256 "2b475d0849d54c4250e9cba4241b7b7291cffb45dfd083b677ca7b5d38118f27"
+  sha256 "9e87317d693ce828095204be0d09af8d60b8785533fadea1a82b6f0e071e5c79"
+  revision 1
 
   head "https://perl5.git.perl.org/perl.git", :branch => "blead"
 
   bottle do
-    sha256 "a1bbae429655d663bfa47ccad7ec10b0412f07702abf1ed442ccc37e014de3bb" => :el_capitan
-    sha256 "0e7a6aea826e32f2f3b77a1889a26457dfb8d72e6382d350590f8391b89ef3d4" => :yosemite
-    sha256 "b6c3b4aa11cd78191840029502763b9249c74e63d58412a82854fec4350ac5a3" => :mavericks
+    sha256 "0e2be2de0d24806763d6f6f97c1686bea9cd753a04709af63816f6ce74beae15" => :el_capitan
+    sha256 "410801e02a37ca7d63ec3af56f84a56c271d911477731bcccc26f9dae7ccc697" => :yosemite
+    sha256 "6d595837aa06cb8c1d4e878efbb3b2d6ca5ca1f1e0045dfb8c672c12f8c177f9" => :mavericks
   end
-
-  keg_only :provided_by_osx,
-    "OS X ships Perl and overriding that can cause unintended issues"
 
   option "with-dtrace", "Build with DTrace probes"
   option "without-test", "Skip running the build test suite"
@@ -38,8 +36,8 @@ class Perl < Formula
     system "./Configure", *args
     system "make"
 
-    # OS X El Capitan's SIP feature prevents DYLD_LIBRARY_PATH from being passed to child
-    # processes, which causes the make test step to fail.
+    # OS X El Capitan's SIP feature prevents DYLD_LIBRARY_PATH from being
+    # passed to child processes, which causes the make test step to fail.
     # https://rt.perl.org/Ticket/Display.html?id=126706
     # https://github.com/Homebrew/homebrew/issues/41716
     if MacOS.version < :el_capitan
@@ -51,7 +49,7 @@ class Perl < Formula
 
   def caveats; <<-EOS.undent
     By default Perl installs modules in your HOME dir. If this is an issue run:
-      `#{bin}/cpan o conf init`
+      `#{opt_bin}/cpan o conf init`
     EOS
   end
 

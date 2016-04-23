@@ -1,17 +1,15 @@
 class Sqlite < Formula
   desc "Command-line interface for SQLite"
   homepage "https://sqlite.org/"
-  url "https://sqlite.org/2016/sqlite-autoconf-3110000.tar.gz"
-  version "3.11.0"
-  sha256 "508d4dcbcf7a7181e95c717a1dc4ae3c0880b3d593be0c4b40abb6c3a0e201fb"
-  revision 1
+  url "https://sqlite.org/2016/sqlite-autoconf-3120200.tar.gz"
+  version "3.12.2"
+  sha256 "fd00770c9afd39db555c78400e52f55e8bd6568c78be23561abb472a22d09abb"
 
   bottle do
     cellar :any
-    sha256 "6098794c163ac80a69a114df47760597e0e5c62e9be495cb8e84137bc0cc7e99" => :el_capitan
-    sha256 "53838ce48a237a001d1e9fe9617d9bb4b926550f08f8c55f3b2b103874250ed2" => :yosemite
-    sha256 "b139227fcf4d30a7f7a84400a70b1c5853ddb3723e0af6d094d9f6ec9973b679" => :mavericks
-    sha256 "ea409fbefb5fc33064738db192c11d26de399a8521386d1229aa61ecf104a73b" => :x86_64_linux
+    sha256 "9a9994a425c28eaffef4bc42ae1c19fb323c42bb9472643eee29cd88bc407f99" => :el_capitan
+    sha256 "30c9cf4ddeb791248a565e7933ef52a91ee2171197190b9eae86b0764080e316" => :yosemite
+    sha256 "441d07d78376f2c87fc605c77541d15f786ecaaa93258464c8d054529796d59c" => :mavericks
   end
 
   keg_only :provided_by_osx, "OS X provides an older sqlite3."
@@ -32,15 +30,15 @@ class Sqlite < Formula
   depends_on "icu4c" => :optional
 
   resource "functions" do
-    url "https://www.sqlite.org/contrib/download/extension-functions.c?get=25", :using => :nounzip
+    url "https://sqlite.org/contrib/download/extension-functions.c?get=25", :using => :nounzip
     version "2010-01-06"
     sha256 "991b40fe8b2799edc215f7260b890f14a833512c9d9896aa080891330ffe4052"
   end
 
   resource "docs" do
-    url "https://sqlite.org/2016/sqlite-doc-3110000.zip"
-    version "3.11.0"
-    sha256 "4a942d89d5bf0aa70c0a01267a52961632b27512c293eb6452f6efe909dcec50"
+    url "https://sqlite.org/2016/sqlite-doc-3120200.zip"
+    version "3.12.2"
+    sha256 "67c640c4b01b961016717db61e3e43c63c33248c78ce0de9f10b88ea7ce97670"
   end
 
   def install
@@ -95,7 +93,7 @@ class Sqlite < Formula
         In your application, call sqlite3_enable_load_extension(db,1) to
         allow loading external libraries.  Then load the library libsqlitefunctions
         using sqlite3_load_extension; the third argument should be 0.
-        See https://www.sqlite.org/loadext.html.
+        See https://sqlite.org/loadext.html.
         Select statements may now use these functions, as in
         SELECT cos(radians(inclination)) FROM satsum WHERE satnum = 25544;
 

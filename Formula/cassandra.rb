@@ -1,15 +1,14 @@
 class Cassandra < Formula
   desc "Eventually consistent, distributed key-value store"
   homepage "https://cassandra.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=/cassandra/3.3/apache-cassandra-3.3-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/cassandra/3.3/apache-cassandra-3.3-bin.tar.gz"
-  sha256 "d98e685857d80f9eb93529f7b4f0f2c369ef40974866c8f8ad8edd3d6e0bf7e3"
-  revision 1
+  url "https://www.apache.org/dyn/closer.lua/cassandra/3.5/apache-cassandra-3.5-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/cassandra/3.5/apache-cassandra-3.5-bin.tar.gz"
+  sha256 "b575990dfa53567bc67407318330f9406750f4543a9d385b0fce326eb430bf4f"
 
   bottle do
-    sha256 "ab54a208389af7deeeec5bc293a606f957b8f8d17e389f334f40e4a2bb661f75" => :el_capitan
-    sha256 "b77535cee4b8056430b9c48e84c4fbeb20fe6fec2100978e33e7b673c4086727" => :yosemite
-    sha256 "a4609d78fb13f2b2d370f12f2a1c2c03cf96ab26d70f3f922acf88ec25021ba9" => :mavericks
+    sha256 "1ee1f606696f6210ca500e52e87c8c84ae604912cf9b8408b99783b31e5e82d8" => :el_capitan
+    sha256 "107f947e10105c61bfec68e3fbd32487cb1c69c26aaad34d33396c3d40fe936b" => :yosemite
+    sha256 "674a7b2969039a671e75551f4a70c86a02b0d18889366ac345d730c141c03b7c" => :mavericks
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -120,6 +119,8 @@ class Cassandra < Formula
     rm bin/"cqlsh" # Remove existing exec script
     (bin/"cqlsh").write_env_script libexec/"bin/cqlsh", :PYTHONPATH => pypath
   end
+
+  plist_options :manual => "cassandra start"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

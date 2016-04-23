@@ -3,12 +3,12 @@ class Rust < Formula
   homepage "https://www.rust-lang.org/"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.7.0-src.tar.gz"
-    sha256 "6df96059d87b718676d9cd879672e4e22418b6093396b4ccb5b5b66df37bf13a"
+    url "https://static.rust-lang.org/dist/rustc-1.8.0-src.tar.gz"
+    sha256 "af4466147e8d4db4de2a46e07494d2dc2d96313c5b37da34237f511c905f7449"
 
     resource "cargo" do
       # git required because of submodules
-      url "https://github.com/rust-lang/cargo.git", :tag => "0.9.0", :revision => "8fc3fd8df3857f3e77454c992458cd7baeeb622b"
+      url "https://github.com/rust-lang/cargo.git", :tag => "0.10.0", :revision => "10ddd7d5b3080fb0fa6c720cedca64407d4ca2f9"
     end
 
     # name includes date to satisfy cache
@@ -21,6 +21,13 @@ class Rust < Formula
         sha256 "500d1af7c5f54074fef5e393195e9dfd6d42b41bb709caa81a3b52cfd8d27ea4"
       end
     end
+
+    # Build on Xcode 7.3
+    # https://github.com/rust-lang/rust/issues/32442
+    patch do
+      url "https://github.com/rust-lang/rust/commit/79da64a.diff"
+      sha256 "78ebf373cb19be5fef053776729109824cc7bbbd2bd375e9c444bef7ea41faf7"
+    end
   end
 
   head do
@@ -31,9 +38,9 @@ class Rust < Formula
   end
 
   bottle do
-    sha256 "d494a5570ef0203c6072d38e97d8cc799c13da65bc97e448e2b8da4137bff032" => :el_capitan
-    sha256 "508af8e550717eb07676979675e69cff842563685caba68c1f00523463b036e1" => :yosemite
-    sha256 "56199b13a9822d6a617b998b2a0c5b8d68cac5520ca76fff88d41e44bf2cba6e" => :mavericks
+    sha256 "03e67aa150b81d8b00c0e82ffc76e9b38e6d07eb8e0adef7795fafe25bea8a64" => :el_capitan
+    sha256 "c1e88294e0056b25bc73a21396fb206914ce733bffe2a5e94bfeaca5e4998479" => :yosemite
+    sha256 "645c4d3fbd6760936582a0cef017c0dfb9885f83b32b110382d39c757084ce9a" => :mavericks
   end
 
   option "with-llvm", "Build with brewed LLVM. By default, Rust's LLVM will be used."

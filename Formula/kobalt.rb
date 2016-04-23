@@ -1,8 +1,8 @@
 class Kobalt < Formula
   desc "Build system"
   homepage "http://beust.com/kobalt"
-  url "https://github.com/cbeust/kobalt/releases/download/0.683/kobalt-0.683.zip"
-  sha256 "f9c08269f3065aaa4a13362e62f2ed85f077ab34e2b61f66e158d36c3f535d85"
+  url "https://github.com/cbeust/kobalt/releases/download/0.737/kobalt-0.737.zip"
+  sha256 "f511aa9f68c9f7ddbd60ea044f5c2970627e11e584c578770387b02d73836e98"
 
   bottle :unneeded
 
@@ -40,6 +40,5 @@ class Kobalt < Formula
     system "#{bin}/kobaltw", "assemble"
     output = "kobaltBuild/libs/test-1.0.jar"
     assert File.exist?(output), "Couldn't find #{output}"
-
   end
 end

@@ -1,15 +1,20 @@
 class Node < Formula
   desc "Platform built on the V8 JavaScript runtime to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v5.10.0/node-v5.10.0.tar.xz"
-  sha256 "e3cc8e84b38b2d86ddf802f690eacabd97f5e32d37b9c70e19ecfdd2bef6e13a"
+  url "https://nodejs.org/dist/v5.11.0/node-v5.11.0.tar.xz"
+  sha256 "083766aff72fc5c78f6999dd0d00bc0340a052ab270fd60d6928b719ca2b3fd1"
   head "https://github.com/nodejs/node.git"
 
   bottle do
-    sha256 "959140970f2d8946c0b0ba097c4aca90ee2aa32e4247f69452da6bb008308774" => :el_capitan
-    sha256 "5595181540718620781c29700b5afaf7ed52a8580c8271035ff46eba28511cb8" => :yosemite
-    sha256 "df877e4660311cee19f1fe7b4ee0ac016dbadb574fe06c561579e5b861908456" => :mavericks
-    sha256 "f41fc5f0cfdcf976f6baef21858b4ca28c9b64e9e53c13dcacfa338a49878056" => :x86_64_linux
+    sha256 "2df9da24389b7b01851b1d794d0ea8ddcce0af2d084233f7382b678defb1a53c" => :el_capitan
+    sha256 "da56a1850d323d090545de46950d986ed29c9cc63efc24b43669f9c6e3effbe7" => :yosemite
+    sha256 "8254c09259aa2d869279f580e489d82181aec17b7555c2f434c290e2625906d1" => :mavericks
+  end
+
+  devel do
+    url "https://nodejs.org/download/rc/v6.0.0-rc.3/node-v6.0.0-rc.3.tar.xz"
+    sha256 "472ae46a205fb65cd784b22825b7354cddb4da5f46c1974272be43e55745ce6e"
+    version "6.0.0-rc.3"
   end
 
   option "with-debug", "Build with debugger hooks"
@@ -37,8 +42,8 @@ class Node < Formula
   # We will accept *important* npm patch releases when necessary.
   # https://github.com/Homebrew/homebrew/pull/46098#issuecomment-157802319
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-3.8.3.tgz"
-    sha256 "0ff5109e80732aa74d648882c1f5ef86ce6ef7123c0c95fa18845e8a262a13d4"
+    url "https://registry.npmjs.org/npm/-/npm-3.8.6.tgz"
+    sha256 "29bc9d6f6123c9281914b298e863f683fd98ac2762632a55458308bb88b005e8"
   end
 
   resource "icu4c" do
@@ -57,6 +62,8 @@ class Node < Formula
     else
       args << "--with-intl=small-icu"
     end
+    args << "--tag=rc.3" << "--release-urlbase=https://nodejs.org/download/rc/" if build.devel?
+    args << "--tag=head" if build.head?
     # Fix collect2: fatal error: cannot find 'ld'
     # The snapshot feature requires the gold linker.
     # See https://github.com/nodejs/node/issues/4212
@@ -162,11 +169,12 @@ class Node < Formula
     if build.with? "npm"
       # make sure npm can find node
       ENV.prepend_path "PATH", opt_bin
+      ENV.delete "NVM_NODEJS_ORG_MIRROR"
       assert_equal which("node"), opt_bin/"node"
       assert (HOMEBREW_PREFIX/"bin/npm").exist?, "npm must exist"
       assert (HOMEBREW_PREFIX/"bin/npm").executable?, "npm must be executable"
       system "#{HOMEBREW_PREFIX}/bin/npm", "--verbose", "install", "npm@latest"
-      system "#{HOMEBREW_PREFIX}/bin/npm", "--verbose", "install", "bignum"
+      system "#{HOMEBREW_PREFIX}/bin/npm", "--verbose", "install", "bignum" unless build.head?
     end
   end
 end

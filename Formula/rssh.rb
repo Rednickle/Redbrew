@@ -4,8 +4,14 @@ class Rssh < Formula
   url "https://downloads.sourceforge.net/project/rssh/rssh/2.3.4/rssh-2.3.4.tar.gz"
   sha256 "f30c6a760918a0ed39cf9e49a49a76cb309d7ef1c25a66e77a41e2b1d0b40cd9"
 
+  bottle do
+    sha256 "23891b0317ef29a36b0b8ee9f140193d17ae616983c13f2179d5b317b33e1eee" => :el_capitan
+    sha256 "a63ead463b79c5375e0b919976173db13a236fcea06c4fa038a719375a550ca9" => :yosemite
+    sha256 "8b36773d40fb20e51fc0f277fe7930540dfc6e1cec0f6c5d19d20242ce1de3b9" => :mavericks
+  end
+
   # Submitted upstream:
-  # http://sourceforge.net/p/rssh/mailman/message/32251335/
+  # https://sourceforge.net/p/rssh/mailman/message/32251335/
   patch do
     url "https://gist.githubusercontent.com/arminsch/9230011/raw/f0c5ed95bbba0be28ce2b5f0d1080de84ec317ab/rsshconf-log-rename.diff"
     sha256 "abd625a8dc24f3089b177fd0318ffc1cf4fcb08d0c149191bb45943ad55f6934"

@@ -1,15 +1,14 @@
 class Qscintilla2 < Formula
   desc "Port to Qt of the Scintilla editing component"
   homepage "https://www.riverbankcomputing.com/software/qscintilla/intro"
-  url "https://downloads.sf.net/project/pyqt/QScintilla2/QScintilla-2.8.4/QScintilla-gpl-2.8.4.tar.gz"
-  sha256 "9b7b2d7440cc39736bbe937b853506b3bd218af3b79095d4f710cccb0fabe80f"
+  url "https://downloads.sf.net/project/pyqt/QScintilla2/QScintilla-2.9.2/QScintilla_gpl-2.9.2.tar.gz"
+  sha256 "f2c8ccdc9d3dbb90764ceed53ea096da9bb13b6260da1324e6ab4ecea29e620a"
 
   bottle do
     cellar :any
-    revision 1
-    sha256 "4f277db7d148508ed19c15deb5be481a259fb9484f8228b8beef8d5deb62e3e8" => :el_capitan
-    sha256 "c671e7416f6cb55f7eaf3fabeed866dc0abefe7921470dc592ff515fb1c90bef" => :yosemite
-    sha256 "372eb0774903e20c4e3bcf67fbebb9ae7b880e5d12729c50e9eca264b2b7c96e" => :mavericks
+    sha256 "4f4654cd52bb7c248b3a842cf0c7ee80b2f328655934a0521be54d4c16a6f4a6" => :el_capitan
+    sha256 "60fc2962adec3242ffff0f373c681f8d9bd4d3a278389bdbf344e1067dd38f9a" => :yosemite
+    sha256 "2eabd5ae2713d198c41c33d8fc7ae1f1c99a2b1a398b228602b5e26301a225c9" => :mavericks
   end
 
   option "without-plugin", "Skip building the Qt Designer plugin"
@@ -73,7 +72,7 @@ class Qscintilla2 < Formula
       cd "designer-Qt4Qt5" do
         inreplace "designer.pro" do |s|
           s.sub! "$$[QT_INSTALL_PLUGINS]", "#{lib}/qt4/plugins"
-          s.sub! "$$[QT_INSTALL_LIBS]", "#{lib}"
+          s.sub! "$$[QT_INSTALL_LIBS]", lib
         end
         system "qmake", "designer.pro", *args
         system "make"

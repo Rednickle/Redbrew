@@ -3,16 +3,16 @@ class GstPluginsGood < Formula
   homepage "https://gstreamer.freedesktop.org/"
 
   stable do
-    url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.8.0.tar.xz"
-    sha256 "c20c134d47dbc238d921707a3b66da709c2b4dd89f9d267cec13d1ddf16e9f4d"
+    url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.8.1.tar.xz"
+    sha256 "2103e17921d67894e82eafdd64fb9b06518599952fd93e625bfbc83ffead0972"
 
     depends_on "check" => :optional
   end
 
   bottle do
-    sha256 "d95d88e4355f0319d84d168299f8bde72a741207c7653c9343ed88006e64b5f6" => :el_capitan
-    sha256 "776af71fc8207152af28ca730afeb7e251a29982a6ccd21a45d95b83018fe466" => :yosemite
-    sha256 "76c232b8015d6e3448d0d7738553f4d55cec970f798c8115494b004be5fdeabe" => :mavericks
+    sha256 "d94a7322450eeb694be83ca46023c1ed6f34db449b14c564a952ade37fc3e6bb" => :el_capitan
+    sha256 "51e8cb64c76a3dd97d299330ed088c78ca4229324b99289a5d7f2761be218dce" => :yosemite
+    sha256 "6be28b878e51399c4812446965fe6d02acd37a39dbaa92148e5b6ad6c6c0f8ef" => :mavericks
   end
 
   head do
@@ -48,6 +48,7 @@ class GstPluginsGood < Formula
   depends_on "libpng" => :optional
   depends_on "libvpx" => :optional
   depends_on "pulseaudio" => :optional
+  depends_on "jack" => :optional
 
   depends_on "libogg" if build.with? "flac"
 
@@ -82,5 +83,11 @@ class GstPluginsGood < Formula
     system "./configure", *args
     system "make"
     system "make", "install"
+  end
+
+  test do
+    gst = Formula["gstreamer"].opt_bin/"gst-inspect-1.0"
+    output = shell_output("#{gst} --plugin cairo")
+    assert_match version.to_s, output
   end
 end

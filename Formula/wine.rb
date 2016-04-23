@@ -1,9 +1,9 @@
 # NOTE: When updating Wine, please check Wine-Gecko and Wine-Mono for updates
 # too:
-#  - http://wiki.winehq.org/Gecko
-#  - http://wiki.winehq.org/Mono
+#  - https://wiki.winehq.org/Gecko
+#  - https://wiki.winehq.org/Mono
 class Wine < Formula
-  desc "Wine Is Not an Emulator"
+  desc "Run Windows applications without a copy of Microsoft Windows"
   homepage "https://www.winehq.org/"
   head "git://source.winehq.org/git/wine.git"
 
@@ -27,9 +27,9 @@ class Wine < Formula
   end
 
   devel do
-    url "https://dl.winehq.org/wine/source/1.9/wine-1.9.6.tar.bz2"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-1.9.6.tar.bz2"
-    sha256 "3d2b862feefd89eca954c1cbc16a28e0ce851aeea1555bc1842ffc9aab2c1557"
+    url "https://dl.winehq.org/wine/source/1.9/wine-1.9.8.tar.bz2"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-1.9.8.tar.bz2"
+    sha256 "8bf34e8dd68e7187ed11fb06a55a76789073dda6ab2db6b84e194acf4f561a1d"
   end
 
   # note that all wine dependencies should declare a --universal option in their formula,

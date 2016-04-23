@@ -1,29 +1,21 @@
 class CppNetlib < Formula
   desc "C++ libraries for high level network programming"
   homepage "http://cpp-netlib.org"
-  url "http://downloads.cpp-netlib.org/0.11.2/cpp-netlib-0.11.2-final.tar.gz"
-  version "0.11.2"
-  sha256 "71953379c5a6fab618cbda9ac6639d87b35cab0600a4450a7392bc08c930f2b1"
+  url "https://github.com/cpp-netlib/cpp-netlib/archive/cpp-netlib-0.12.0-final.tar.gz"
+  version "0.12.0"
+  sha256 "d66e264240bf607d51b8d0e743a1fa9d592d96183d27e2abdaf68b0a87e64560"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5669a528afe56b310179af07d0191b96491f90a2365b5b9e7f1d26daa011b463" => :el_capitan
-    sha256 "2ddb407f33dd6a8c8ec1e3a8afd67a3afb1666f843794e72632f203fb5b42ecb" => :yosemite
-    sha256 "0913efd07660f359ee7d043f06a25ccb9fc3010f42b15f4dbd43b558f2161bb1" => :mavericks
-    sha256 "093cc615abf08eeb6d698d85e9d4bb8003e536548f925246d86baa7f1ec45506" => :mountain_lion
-  end
-
-  devel do
-    url "https://github.com/cpp-netlib/cpp-netlib/archive/cpp-netlib-0.12.0-rc1.tar.gz"
-    version "0.12.0-rc1"
-    sha256 "f692253c57219b52397a886af769afe207e9cf2eda8ad22ed0e9e48bb483fc03"
-
-    # Version 0.12.0+ moves from boost::asio to asio.
-    depends_on "asio"
+    sha256 "1823d6f6dfb79ef8a658ed867ca81f0ba21cd60954633c76585fcba1393954ef" => :el_capitan
+    sha256 "7ab5e0a4dedba2954579394c98211b79680fe55acf8151a3a4ceb49971f27d25" => :yosemite
+    sha256 "0bf00fa7b6f4fc414349b1ae221cd1aede049055b2c68734d9772fb95b73e535" => :mavericks
   end
 
   depends_on "cmake" => :build
   depends_on "openssl"
+  depends_on "asio"
 
   if MacOS.version < :mavericks
     depends_on "boost" => "c++11"
@@ -63,7 +55,6 @@ class CppNetlib < Formula
       "-L#{Formula["boost"].lib}",
       "-lssl",
       "-lcrypto",
-      "-lboost_thread-mt",
       "-lboost_system-mt",
       "-lcppnetlib-uri",
       "-lcppnetlib-client-connections",

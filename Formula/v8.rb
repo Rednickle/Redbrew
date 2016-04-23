@@ -2,15 +2,15 @@
 # https://omahaproxy.appspot.com/
 class V8 < Formula
   desc "Google's JavaScript engine"
-  homepage "https://code.google.com/p/v8/"
-  url "https://github.com/v8/v8-git-mirror/archive/4.9.385.28.tar.gz"
-  sha256 "c77c5f9d5b6c77186485a99da459c604738d1d2d299c8224a4781cbe8227a8b9"
+  homepage "https://github.com/v8/v8/wiki"
+  url "https://github.com/v8/v8-git-mirror/archive/5.0.71.33.tar.gz"
+  sha256 "dcf7c818b9f95e3edd4c5f2774c841225e8fe8ab08e444e74d6d185e813f6b49"
 
   bottle do
     cellar :any
-    sha256 "30a37d1bfc3a819457db2afedf76cefb97c38d44baef691cf7b9acd389dd7de1" => :el_capitan
-    sha256 "61957622c695e53d47feabdb5ba46b656bd3068a4594653e38e6b2466fc3552d" => :yosemite
-    sha256 "b13b322eaf159c3a7dfd7eeca1d383e27a1d9ab61c47486594b2c082af3a1108" => :mavericks
+    sha256 "72641de6d747677d77ca7382844c17f57de7adbebadd469e8a20cf9da5b22deb" => :el_capitan
+    sha256 "d07c00132e3e731318f6724f118db730f870e1f1d44ef630abea2f5ea420b432" => :yosemite
+    sha256 "6145b18619e2c9f34af30e5e40375022bd9d720c1467ff8ccd64173dd285f379" => :mavericks
   end
 
   option "with-readline", "Use readline instead of libedit"
@@ -29,27 +29,27 @@ class V8 < Formula
   # Note that we don't require the "test" DEPS because we don't run the tests.
   resource "gyp" do
     url "https://chromium.googlesource.com/external/gyp.git",
-        :revision => "b85ad3e578da830377dbc1843aa4fbc5af17a192"
+        :revision => "ed163ce233f76a950dce1751ac851dbe4b1c00cc"
   end
 
   resource "icu" do
     url "https://chromium.googlesource.com/chromium/deps/icu.git",
-        :revision => "8d342a405be5ae8aacb1e16f0bc31c3a4fbf26a2"
+        :revision => "e466f6ac8f60bb9697af4a91c6911c6fc4aec95f"
   end
 
   resource "buildtools" do
     url "https://chromium.googlesource.com/chromium/buildtools.git",
-        :revision => "0f8e6e4b126ee88137930a0ae4776c4741808740"
+        :revision => "97b5c485707335dd2952c05bf11412ada3f4fb6f"
   end
 
   resource "common" do
     url "https://chromium.googlesource.com/chromium/src/base/trace_event/common.git",
-        :revision => "d83d44b13d07c2fd0a40101a7deef9b93b841732"
+        :revision => "4b09207e447ae5bd34643b4c6321bee7b76d35f9"
   end
 
   resource "swarming_client" do
     url "https://chromium.googlesource.com/external/swarming.client.git",
-        :revision => "9cdd76171e517a430a72dcd7d66ade67e109aa00"
+        :revision => "0b908f18767c8304dc089454bc1c91755d21f1f5"
   end
 
   resource "gtest" do
@@ -64,7 +64,7 @@ class V8 < Formula
 
   resource "clang" do
     url "https://chromium.googlesource.com/chromium/src/tools/clang.git",
-        :revision => "24e8c1c92fe54ef8ed7651b5850c056983354a4a"
+        :revision => "a8adb78c8eda9bddb2aa9c51f3fee60296de1ad4"
   end
 
   def install

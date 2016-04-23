@@ -3,22 +3,19 @@ require "language/go"
 class Telegraf < Formula
   desc "Server-level metric gathering agent for InfluxDB"
   homepage "https://influxdata.com"
-  url "https://github.com/influxdata/telegraf/archive/0.11.1.tar.gz"
-  sha256 "71ead75f02cb744b52bce56188ed37524e315b06f87dfb9c00fc338ecb0212e4"
+  url "https://github.com/influxdata/telegraf/archive/0.12.1.tar.gz"
+  sha256 "af323e4557698965f675dadf99ef46dd51662a21b704f776ad773040b48b7cd3"
+
+  head "https://github.com/influxdata/telegraf.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4f2bbee7e57d8d46209de380f2951851a3159e1c87b3f957ae29c170b93a068b" => :el_capitan
-    sha256 "b4d0ee3913f292b9bc8af4f958fb04e5c1b16c8b917767ff1d98474b18413d26" => :yosemite
-    sha256 "03b42f99a8dbf2439c0384785ad7b1e1caa0a84484473b53ec0faf6c86e927e4" => :mavericks
+    sha256 "73520bc1211e6d64a3cb3d181020193bc99e4b528ddf4d029a13748835a625b1" => :el_capitan
+    sha256 "c4ae42d582056bb059905688ddb17d054c75d2c77e532b234e200821161bb28a" => :yosemite
+    sha256 "07d1cc79f23ca8cd29d4e68f0c59d390116d9c74569907b12de4c70916456450" => :mavericks
   end
 
   depends_on "go" => :build
-
-  go_resource "git.eclipse.org/gitroot/paho/org.eclipse.paho.mqtt.golang.git" do
-    url "git://git.eclipse.org/gitroot/paho/org.eclipse.paho.mqtt.golang.git",
-    :revision => "617c801af238c3af2d9e72c5d4a0f02edad03ce5"
-  end
 
   go_resource "github.com/Shopify/sarama" do
     url "https://github.com/Shopify/sarama.git",
@@ -50,6 +47,21 @@ class Telegraf < Formula
     :revision => "4dc77674aceaabba2c7e3da25d4c823edfb73f99"
   end
 
+  go_resource "github.com/couchbase/go-couchbase" do
+    url "https://github.com/couchbase/go-couchbase.git",
+    :revision => "cb664315a324d87d19c879d9cc67fda6be8c2ac1"
+  end
+
+  go_resource "github.com/couchbase/gomemcached" do
+    url "https://github.com/couchbase/gomemcached.git",
+    :revision => "a5ea6356f648fec6ab89add00edd09151455b4b2"
+  end
+
+  go_resource "github.com/couchbase/goutils" do
+    url "https://github.com/couchbase/goutils.git",
+    :revision => "5823a0cbaaa9008406021dc5daf80125ea30bba6"
+  end
+
   go_resource "github.com/dancannon/gorethink" do
     url "https://github.com/dancannon/gorethink.git",
     :revision => "e7cac92ea2bc52638791a021f212145acfedb1fc"
@@ -58,6 +70,21 @@ class Telegraf < Formula
   go_resource "github.com/davecgh/go-spew" do
     url "https://github.com/davecgh/go-spew.git",
     :revision => "5215b55f46b2b919f50a1df0eaa5886afe4e3b3d"
+  end
+
+  go_resource "github.com/docker/engine-api" do
+    url "https://github.com/docker/engine-api.git",
+    :revision => "8924d6900370b4c7e7984be5adc61f50a80d7537"
+  end
+
+  go_resource "github.com/docker/go-connections" do
+    url "https://github.com/docker/go-connections.git",
+    :revision => "f549a9393d05688dff0992ef3efd8bbe6c628aeb"
+  end
+
+  go_resource "github.com/docker/go-units" do
+    url "https://github.com/docker/go-units.git",
+    :revision => "5d2041e26a699eaca682e2ea41c8f891e1060444"
   end
 
   go_resource "github.com/eapache/go-resiliency" do
@@ -70,9 +97,9 @@ class Telegraf < Formula
     :revision => "ded5959c0d4e360646dc9e9908cff48666781367"
   end
 
-  go_resource "github.com/fsouza/go-dockerclient" do
-    url "https://github.com/fsouza/go-dockerclient.git",
-    :revision => "a49c8269a6899cae30da1f8a4b82e0ce945f9967"
+  go_resource "github.com/eclipse/paho.mqtt.golang" do
+    url "https://github.com/eclipse/paho.mqtt.golang.git",
+    :revision => "0f7a459f04f13a41b7ed752d47944528d4bf9a86"
   end
 
   go_resource "github.com/go-sql-driver/mysql" do
@@ -197,7 +224,7 @@ class Telegraf < Formula
 
   go_resource "github.com/shirou/gopsutil" do
     url "https://github.com/shirou/gopsutil.git",
-    :revision => "1de1357e7737a536c7f4ff6be7bd27977db4d2cb"
+    :revision => "1f32ce1bb380845be7f5d174ac641a2c592c0c42"
   end
 
   go_resource "github.com/soniah/gosnmp" do
@@ -217,7 +244,7 @@ class Telegraf < Formula
 
   go_resource "github.com/wvanbergen/kafka" do
     url "https://github.com/wvanbergen/kafka.git",
-    :revision => "1a8639a45164fcc245d5c7b4bd3ccfbd1a0ffbf3"
+    :revision => "46f9a1cf3f670edec492029fadded9c2d9e18866"
   end
 
   go_resource "github.com/wvanbergen/kazoo-go" do

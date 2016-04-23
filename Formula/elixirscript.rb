@@ -1,24 +1,31 @@
 class Elixirscript < Formula
   desc "Elixir to JavaScript compiler"
   homepage "https://github.com/bryanjos/elixirscript"
-  url "https://github.com/bryanjos/elixirscript/archive/v0.16.0.tar.gz"
-  sha256 "1ccc52501be1d762e823c6174aa5db1de200f4edc96b39f1057fa8aefeb6212e"
+  url "https://github.com/bryanjos/elixirscript/archive/v0.18.0.tar.gz"
+  sha256 "1c9518a61abc2b587bd392bdaecfce75e6c399e5c5e21d64ed818f340a25a0ad"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "22425ee9bec8269a44a80eefaa2b9d70852a5bacc34e6a49c57212fb40160688" => :el_capitan
-    sha256 "27b64e956363db52fb136c3f7a4ca082999fe3a1fa1ce0d125aea54d73bed75e" => :yosemite
-    sha256 "a037a9ba19e3740bcb43023d4363864cde664178f46942ddff5a194bac43f6cc" => :mavericks
+    sha256 "ba05da26a6b8881204a99f68efe5c471af0c06e3c34030c9449e44a3bc63f778" => :el_capitan
+    sha256 "b83a7ff7be1c83be931c9e9b38c6b4888fe1c0d3513cec855bc5d68e7a879807" => :yosemite
+    sha256 "2af0d3128636e63856a0c822d09a2804397a1f4d96eb6da99653f0eb075dc8c6" => :mavericks
   end
 
   depends_on "elixir" => :build
+  depends_on "node" => :build
 
   def install
+    ENV.prepend_path "PATH", "#{Formula["node"].opt_libexec}/npm/bin"
+
     system "mix", "local.hex", "--force"
     system "mix", "deps.get"
-    system "mix", "escript.build"
+    system "npm", "install"
+    system "mix", "std_lib"
+    system "mix", "clean"
+    system "mix", "compile"
+    system "mix", "dist"
     bin.install "elixirscript"
-    prefix.install "priv/Elixir.js", "LICENSE"
+    prefix.install Dir["priv/*"], "LICENSE"
   end
 
   test do

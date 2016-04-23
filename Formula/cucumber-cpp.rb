@@ -1,14 +1,14 @@
 class CucumberCpp < Formula
   desc "Support for writing Cucumber step definitions in C++"
   homepage "https://cucumber.io"
-  url "https://github.com/cucumber/cucumber-cpp/archive/v0.3.tar.gz"
-  sha256 "1c0f9949627e7528017bf00cbe49693ba9cbc3e11087f70aa33b21df93f341d6"
+  url "https://github.com/cucumber/cucumber-cpp/archive/v0.3.1.tar.gz"
+  sha256 "442c3fc3020c709f5609e33b76e25c3c9fc9166911e74f590590f794f24f8a9b"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3edd3a357ca5f0461e82129ed4a45a79c4561480da164a16b41608090d6eec25" => :el_capitan
-    sha256 "1cb739294fe06cfee8cc3721cee292c9ec066a00a08295bbeb2657b210195a37" => :yosemite
-    sha256 "2fbe84f026a5211bf9573dfe1fed4c334c966b730de14339aca7e5895c4d59eb" => :mavericks
+    sha256 "9c96d9ddee79b5980c4d5a3f6684df8dd8ea92ef1bf9ad6a095d82cf271ddae7" => :el_capitan
+    sha256 "cf126f51d0fe8c517781f6f39489887af74b633308048a8004aeac08157d795c" => :yosemite
+    sha256 "8a40752cb6a8797b376825512cc73dad20c2c5537bf80cadb0a3978aa5078d36" => :mavericks
   end
 
   depends_on "cmake" => :build
@@ -52,7 +52,7 @@ class CucumberCpp < Formula
       }
     EOS
     system ENV.cxx, "test.cpp", "-L#{lib}", "-lcucumber-cpp", "-o", "test",
-      "-lboost_regex", "-lboost_system"
+      "-lboost_regex", "-lboost_system", "-lboost_program_options"
     begin
       pid = fork { exec "./test" }
       expected = <<-EOS.undent
