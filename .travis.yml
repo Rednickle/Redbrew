@@ -3,6 +3,7 @@ rvm: 2.0.0
 
 before_install:
   # Fix error: Incorrect file permissions (664)
+  - chmod 644 Formula/*.rb
   - umask 022
   - export TRAVIS_COMMIT="$(git rev-parse --verify -q HEAD)"
   - if [ -f ".git/shallow" ]; then
