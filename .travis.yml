@@ -1,5 +1,6 @@
 language: ruby
 rvm: 2.0.0
+sudo: required
 
 before_install:
   # Fix error: Incorrect file permissions (664)
@@ -9,7 +10,10 @@ before_install:
   - if [ -f ".git/shallow" ]; then
       travis_retry git fetch --unshallow;
     fi
-  - mkdir -p $HOME/.linuxbrew
+  - HOME=/home/linuxbrew
+  - sudo mkdir $HOME
+  - sudo chown "$USER:" $HOME
+  - mkdir $HOME/.linuxbrew
   - curl -L https://github.com/Linuxbrew/brew/tarball/master | tar xz -m --strip 1 -C $HOME/.linuxbrew
   - PATH="$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:$PATH"
   - rm -rf "$(brew --repo $TRAVIS_REPO_SLUG)"
