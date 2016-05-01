@@ -5,6 +5,11 @@ class Libcap < Formula
   sha256 "693c8ac51e983ee678205571ef272439d83afe62dd8e424ea14ad9790bc35162"
   # tag "linuxbrew"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "3892f036977db5de038b2379203c12ccae9beb21841dadbb36c44c047954301c" => :x86_64_linux
+  end
+
   def install
     system "make", "install", "prefix=#{prefix}", "lib=lib", "RAISE_SETFCAP=no"
   end
