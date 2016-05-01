@@ -6,6 +6,10 @@ class UtilLinux < Formula
   head "https://github.com/karelzak/util-linux.git"
   # tag "linuxbrew"
 
+  bottle do
+    sha256 "e2a6b0ec0f81341af1033eaf6756e102c4bd39f31cce374c61d18272240c14a8" => :x86_64_linux
+  end
+
   def install
     system "./configure",
       "--disable-debug",
