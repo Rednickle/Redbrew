@@ -9,6 +9,7 @@ class Libusb < Formula
     sha256 "f04c366717f0ddeef3871f767242f50cf07aefc16f260e11e2f916fe7c17d6fd" => :el_capitan
     sha256 "f041c11fe5402b585f2617640cd374b032fb314bebeadc2ad0202bf306bc4532" => :yosemite
     sha256 "a156b5968853363f5465d7a281cdc536d03d77f26fd98ed7196363b0af41bbb0" => :mavericks
+    sha256 "21dad470d300842c02e9525e02297b8438cfc59c042129d272a35adf4a16fea3" => :x86_64_linux
   end
 
   head do
