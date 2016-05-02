@@ -1,12 +1,15 @@
 class Iotop < Formula
   desc "Top-like UI used to show which process is using the I/O"
   homepage "http://guichaz.free.fr/iotop/"
-  # tag "linuxbrew"
-
   url "http://guichaz.free.fr/iotop/files/iotop-0.6.tar.bz2"
   sha256 "3adea2a24eda49bbbaeb4e6ed2042355b441dbd7161e883067a02bfc8dcef75b"
-
   head "git://repo.or.cz/iotop.git"
+  # tag "linuxbrew"
+
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "a099a58316e17abfcc763fda46a4e66046c9abb4a9cfccf9d466eb51a2cf5311" => :x86_64_linux
+  end
 
   depends_on :python
 
