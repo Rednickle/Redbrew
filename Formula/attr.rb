@@ -5,6 +5,10 @@ class Attr < Formula
   sha256 "25772f653ac5b2e3ceeb89df50e4688891e21f723c460636548971652af0a859"
   # tag "linuxbrew"
 
+  bottle do
+    sha256 "adf64e505f9639762be936223ff0b625598191a197ac69818f658c27ddc32558" => :x86_64_linux
+  end
+
   depends_on "gettext" => :build
 
   def install
