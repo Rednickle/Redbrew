@@ -5,6 +5,10 @@ class Elfutils < Formula
   sha256 "7c774f1eef329309f3b05e730bdac50013155d437518a2ec0e24871d312f2e23"
   # tag "linuxbrew"
 
+  bottle do
+    sha256 "99c141bcce532d5f70a3754028faf3c6c93ed3e6c6861ad633173ad334afef5e" => :x86_64_linux
+  end
+
   depends_on "xz"
   depends_on "bzip2" unless OS.mac?
   depends_on "zlib" unless OS.mac?
