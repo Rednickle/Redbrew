@@ -6,6 +6,10 @@ class Libfuse < Formula
   head "https://github.com/libfuse/libfuse.git"
   # tag "linuxbrew"
 
+  bottle do
+    sha256 "1c29503e1008d72d58bc2d6efc4ac38500116b3f5794f4aaf16b81afb25827d9" => :x86_64_linux
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
