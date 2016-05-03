@@ -3,72 +3,20 @@ require "language/go"
 class Leaps < Formula
   desc "Collaborative web-based text editing service written in Golang"
   homepage "https://github.com/jeffail/leaps"
-  url "https://github.com/Jeffail/leaps/archive/v0.5.0.tar.gz"
+  url "https://github.com/Jeffail/leaps.git",
+    :tag => "v0.5.0",
+    :revision => "5cf7328a8c498041d2a887e89f22f138498f4621"
   sha256 "5f3fe0bb1a0ca75616ba2cb6cba7b11c535ac6c732e83c71f708dc074e489b1f"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3c7a244d9941192d0cfaa0b0f57af5d584c5642376dcf5ea29314c92474b668b" => :el_capitan
-    sha256 "7ce694ecb5e3a526bf1714d5ac85c502753c0b58d2e80e98fd3dee55383a6c47" => :yosemite
-    sha256 "3975e86b263d019d0e298306f6ca560decf03ab88b22164ffeaac9a50bc929aa" => :mavericks
+    revision 1
+    sha256 "fa920e95afa37d1a2690e3d5ac2cd6010f0b8c67f56c989250c542867cfc8825" => :el_capitan
+    sha256 "dcaf8dd1314c3b3d1b3e904e7c37f3b251cd5d3e7fc5e58fc49bec09418a9c29" => :yosemite
+    sha256 "b7d162e71b1daa2ff79218c0ea9caf51f8bd0f6d003c7c605c713f76a559daf1" => :mavericks
   end
 
   depends_on "go" => :build
-
-  go_resource "github.com/jeffail/gabs" do
-    url "https://github.com/jeffail/gabs.git",
-      :revision => "ee1575a53249b51d636e62464ca43a13030afdb5"
-  end
-
-  go_resource "github.com/ajaxorg/ace-builds" do
-    url "https://github.com/ajaxorg/ace-builds.git",
-      :revision => "e3ccd2c654cf45ee41ffb09d0e7fa5b40cf91a8f"
-  end
-
-  go_resource "github.com/elazarl/go-bindata-assetfs" do
-    url "https://github.com/elazarl/go-bindata-assetfs.git",
-      :revision => "57eb5e1fc594ad4b0b1dbea7b286d299e0cb43c2"
-  end
-
-  go_resource "github.com/jteeuwen/go-bindata" do
-    url "https://github.com/jteeuwen/go-bindata.git",
-      :revision => "a0ff2567cfb70903282db057e799fd826784d41d"
-  end
-
-  go_resource "github.com/garyburd/redigo" do
-    url "https://github.com/garyburd/redigo.git",
-      :revision => "8873b2f1995f59d4bcdd2b0dc9858e2cb9bf0c13"
-  end
-
-  go_resource "github.com/go-sql-driver/mysql" do
-    url "https://github.com/go-sql-driver/mysql.git",
-      :revision => "527bcd55aab2e53314f1a150922560174b493034"
-  end
-
-  go_resource "github.com/jeffail/util" do
-    url "https://github.com/jeffail/util.git",
-      :revision => "48ada8ff9fcae546b5986f066720daa9033ad523"
-  end
-
-  go_resource "github.com/lib/pq" do
-    url "https://github.com/lib/pq.git",
-      :revision => "3cd0097429be7d611bb644ef85b42bfb102ceea4"
-  end
-
-  go_resource "github.com/satori/go.uuid" do
-    url "https://github.com/satori/go.uuid.git",
-      :revision => "f9ab0dce87d815821e221626b772e3475a0d2749"
-  end
-
-  go_resource "github.com/amir/raidman" do
-    url "https://github.com/amir/raidman.git",
-      :revision => "91c20f3f475cab75bb40ad7951d9bbdde357ade7"
-  end
-
-  go_resource "github.com/golang/protobuf" do
-    url "https://github.com/golang/protobuf.git",
-      :revision => "bf531ff1a004f24ee53329dfd5ce0b41bfdc17df"
-  end
 
   go_resource "golang.org/x/net" do
     url "https://go.googlesource.com/net.git",
@@ -84,7 +32,7 @@ class Leaps < Formula
     ln_sf buildpath, buildpath/"src/github.com/jeffail/leaps"
     Language::Go.stage_deps resources, buildpath/"src"
 
-    system "go", "build", "-o", "#{bin}/leaps", "./cmd/leaps"
+    system "go", "build", "-o", "#{bin}/leaps", "github.com/jeffail/leaps/cmd/leaps"
   end
 
   test do

@@ -3,13 +3,13 @@ require "language/go"
 class Mongodb < Formula
   desc "High-performance, schema-free, document-oriented database"
   homepage "https://www.mongodb.org/"
-  url "https://fastdl.mongodb.org/src/mongodb-src-r3.2.5.tar.gz"
-  sha256 "e99e00ee243945309c1a779bd3bc73d4fdf09ece900b14b5fa429e02142d1385"
+  url "https://fastdl.mongodb.org/src/mongodb-src-r3.2.6.tar.gz"
+  sha256 "0415a9b503f62e40d2ba87f555b553757a14fac281d1d6a583d8d880b8720921"
 
   bottle do
-    sha256 "899ec3662b9997cffae792d1b2816514f1166872565fe3492013ca7b34af3750" => :el_capitan
-    sha256 "de2154cea6e845fe7a377b2abe6f4a3d5b7a1ce36f46ecb6a917c37dcac1c91f" => :yosemite
-    sha256 "6f13d4f97aa4c7ee2ebdab4b20c9a064f125fb8495510cf7647ff534851a9705" => :mavericks
+    sha256 "fda0a97f40d04a93d8938482fdb9aae47136b7ab062e5015a5d708dae5006e16" => :el_capitan
+    sha256 "8a21559dbda8aa1194c6659a7961605b8b7f79ebfe4b238fa6d781613b29d237" => :yosemite
+    sha256 "a10b249f46289ec5a71a8d5a140131a41d3bbe5295aaf67506171d6e468411c6" => :mavericks
   end
 
   option "with-boost", "Compile using installed boost, not the version shipped with mongodb"

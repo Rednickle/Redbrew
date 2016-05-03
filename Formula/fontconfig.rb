@@ -31,7 +31,7 @@ class Fontconfig < Formula
   depends_on "bzip2" => :recommended unless OS.mac?
   depends_on "expat" unless OS.mac?
 
-  # Reverts commit http://cgit.freedesktop.org/fontconfig/commit/?id=7a6622f25cdfab5ab775324bef1833b67109801b,
+  # Reverts commit https://cgit.freedesktop.org/fontconfig/commit/?id=7a6622f25cdfab5ab775324bef1833b67109801b,
   # which breaks caching font directories containing subdirectories
   # See: https://github.com/Homebrew/homebrew/issues/28111
   # Reported upstream, message to mailing list is waiting moderation.

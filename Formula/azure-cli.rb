@@ -1,3 +1,5 @@
+require "language/node"
+
 class AzureCli < Formula
   desc "Official Azure CLI"
   homepage "https://github.com/azure/azure-xplat-cli"
@@ -19,21 +21,19 @@ class AzureCli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "79f03aa46d772bbcdb0fdfe1690370d482e04ce1a57770a8324f8bcf5d44035d" => :el_capitan
-    sha256 "95095ad262172e48c2af2c43641a3b91573b1d6f2539d44ae4d04c2de552fdf8" => :yosemite
-    sha256 "667e4b13f85b636ecec675d490d123f633c29bb25b41db8cb2ef9babc08141c3" => :mavericks
+    revision 1
+    sha256 "eb2d3bdf148b0d5d13be5800470a3f17e9718f75084bdbf0334640528b4c75c6" => :el_capitan
+    sha256 "ce2ccac2be213d123f1ed7e72627d05ea34d2184a15fb6e7d6739c3a40a7e292" => :yosemite
+    sha256 "ee86e87e4f8a18f0f807802625e9d6774d013178292dba94355d59651a111bf7" => :mavericks
   end
 
   depends_on "node"
+  depends_on :python => :build
 
   def install
-    ENV.prepend_path "PATH", "#{Formula["node"].opt_libexec}/npm/bin"
-    # install node dependencies
-    system "npm", "install"
-    # remove windows stuff
     rm_rf "bin/windows"
-    (prefix/"src").install Dir["lib", "node_modules", "package.json", "bin"]
-    bin.install_symlink (prefix/"src/bin/azure")
+    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    bin.install_symlink Dir["#{libexec}/bin/*"]
     (bash_completion/"azure").write `#{bin}/azure --completion`
   end
 

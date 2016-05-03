@@ -1,22 +1,22 @@
 class Openssl < Formula
   desc "SSL/TLS cryptography library"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-1.0.2g.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2g.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.0.2g.tar.gz"
-  sha256 "b784b1b3907ce39abf4098702dade6365522a253ad1552e267a9a0e89594aa33"
+  url "https://www.openssl.org/source/openssl-1.0.2h.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2h.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.0.2h.tar.gz"
+  sha256 "1d4007e53aad94a5b2002fe045ee7bb0b3d98f1a47f8b2bc851dcd1c74332919"
 
   bottle do
-    sha256 "b1de0682c7a838a75da3a06ddad2b9700d208b2faaaa1b51c0889ba403c7dd22" => :el_capitan
-    sha256 "68e5432c7b863341bc0c42c9a9391c11ba244519f110ba7c5ef4d97eb5c6b8fa" => :yosemite
-    sha256 "cdb9ddcc2bc683afa836b40258acbd40fa82dc67b68b245b7413d85e18d98ca0" => :mavericks
-    sha256 "eff9ab74aeac09d3dba70e1274d85050b7e93368e8fe2cb5b7c5c5404c8193c8" => :x86_64_linux
+    sha256 "28320f60a208f1aba5420957148458d59b00bcac62fcb550ba88e737c07c27b4" => :el_capitan
+    sha256 "8c21504d03f0ff40a2acc232028b4b03df28ded12c0014cd57dc4602a7f93245" => :yosemite
+    sha256 "fef69163e044fbf71c1878de4bdd416afbbbf7cb7265ee0c6fedb4ba7c861525" => :mavericks
   end
 
   resource "cacert" do
-    # homepage "http://curl.haxx.se/docs/caextract.html", "https://github.com/bagder/ca-bundle"
-    url "https://raw.githubusercontent.com/bagder/ca-bundle/bff056d04b9e2c92ea8c83b2e39be9c8d0501039/ca-bundle.crt"
-    sha256 "0f119da204025da7808273fab42ed8e030cafb5c7ea4e1deda4e75f066f528fb"
+    # Update post_install when you update this resource.
+    # homepage "http://curl.haxx.se/docs/caextract.html"
+    url "https://curl.haxx.se/ca/cacert-2016-04-20.pem"
+    sha256 "2c6d4960579b0d4fd46c6cbf135545116e76f2dbb7490e24cf330f2565770362"
   end
 
   keg_only :provided_by_osx,
@@ -29,19 +29,6 @@ class Openssl < Formula
 
   depends_on "makedepend" => :build
   depends_on "zlib" unless OS.mac?
-
-  # Replace with upstream url if they merge the more robust fix
-  # https://github.com/openssl/openssl/pull/597
-  if MacOS.version <= :snow_leopard
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/patches/3f1dc8ea145a70543aded8101a0c725abf82fc45/openssl/revert-pass-pure-constants-verbatim.patch"
-      sha256 "e38f84181a56e70028ade8408ad70aaffaea386b7e1b35de55728ae878d544aa"
-    end
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/patches/3f1dc8ea145a70543aded8101a0c725abf82fc45/openssl/tshort-asm.patch"
-      sha256 "f161e2fc1395efcb53d785004d67d4962d28aa8ce282a91020f12809c03b2afd"
-    end
-  end
 
   def arch_args
     return { :i386  => %w[linux-generic32], :x86_64 => %w[linux-x86_64] } if OS.linux?
@@ -145,7 +132,7 @@ class Openssl < Formula
   def post_install
     unless OS.mac?
       # Download and install cacert.pem from curl.haxx.se
-      (etc/"openssl").install resource("cacert").files("ca-bundle.crt" => "cert.pem")
+      (etc/"openssl").install resource("cacert").files("cacert-2016-04-20.pem" => "cert.pem")
       return
     end
 
