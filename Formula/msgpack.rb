@@ -9,6 +9,7 @@ class Msgpack < Formula
     sha256 "ab5e719c5c0e82c16da78e28e54ca44d63e90571bac3ac07a8b3c42e3c2b86f1" => :el_capitan
     sha256 "3b7b6cca59c935e0fc1bedfad8507167c0f20bdd4b45d776d94f43b90113a35d" => :yosemite
     sha256 "8d0cacd65a1a32fc34895c84387a639d2af4a9770568e4351ec479bfa9a570d2" => :mavericks
+    sha256 "bdd3973a1ffab6cf3b78b3be89ec1f6b068dd0ef4650463f4de9c9894458c101" => :x86_64_linux
   end
 
   head do
