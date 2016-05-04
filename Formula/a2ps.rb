@@ -21,7 +21,7 @@ class A2ps < Formula
   patch :p0 do
     url "https://raw.githubusercontent.com/Homebrew/patches/0ae366e6/a2ps/patch-contrib_sample_Makefile.in"
     sha256 "5a34c101feb00cf52199a28b1ea1bca83608cf0a1cb123e6af2d3d8992c6011f"
-  end
+  end if OS.mac?
 
   patch :p0 do
     url "https://raw.githubusercontent.com/Homebrew/patches/0ae366e6/a2ps/patch-lib__xstrrpl.c"
