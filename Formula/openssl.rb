@@ -30,6 +30,7 @@ class Openssl < Formula
 
   depends_on "makedepend" => :build
   depends_on "zlib" unless OS.mac?
+  depends_on :perl => ["5.0", :build] unless OS.mac?
 
   def arch_args
     return { :i386  => %w[linux-generic32], :x86_64 => %w[linux-x86_64] } if OS.linux?
