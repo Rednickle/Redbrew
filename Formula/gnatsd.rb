@@ -3,28 +3,22 @@ require "language/go"
 class Gnatsd < Formula
   desc "Lightweight cloud messaging system"
   homepage "https://nats.io"
-  url "https://github.com/nats-io/gnatsd/archive/v0.7.2.tar.gz"
-  sha256 "f71d77ff31fc31770cf8e140d084ecfa91f7a8333f945bac1ff44732901680b5"
+  url "https://github.com/nats-io/gnatsd/archive/v0.8.0.tar.gz"
+  sha256 "a2b19de7679b7c5004c75d0c39b8d5d0bd26590a574284e48660eec3a4f9f0d0"
   head "https://github.com/apcera/gnatsd.git"
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "8f2ed4766107495ba638febfdaf5f225d5ed3393021d2d2b98056ed0d8ffd971" => :el_capitan
-    sha256 "f0aa019cb44ed19334585450a70be74a3a22dd96c5f0af14769f1f6ff43a5b59" => :yosemite
-    sha256 "9c12dceb0b70351db64ebf3d3ac9725d2be4e761936ddad97235d8f5d8510638" => :mavericks
+    sha256 "2d99d697d76d14242333953722c54bc131b609187398177962d2f7286385f1f3" => :el_capitan
+    sha256 "7fcc05bbba92843bb0c8dec5f51d8a0501a73853c9adf4510773076d6c15d9a6" => :yosemite
+    sha256 "878c5ed548a057dc3674a38f0931e7e8e7ef92a6038c0a7e0ad27a4243452e3d" => :mavericks
   end
 
   depends_on "go" => :build
 
   go_resource "github.com/nats-io/nats" do
     url "https://github.com/nats-io/nats.git",
-    :revision => "355b5b97e0842dc94f1106729aa88e33e06317ca"
-  end
-
-  go_resource "golang.org/x/crypto" do
-    url "https://go.googlesource.com/crypto.git",
-    :revision => "f18420efc3b4f8e9f3d51f6bd2476e92c46260e9"
+    :revision => "f46ea4b68042c929eda9a7e3b961f453929d8d9d"
   end
 
   def install
@@ -34,7 +28,7 @@ class Gnatsd < Formula
     mkdir_p "src/github.com/nats-io"
     ln_s buildpath, "src/github.com/nats-io/gnatsd"
     system "go", "install", "github.com/nats-io/gnatsd"
-    system "go", "build", "-o", bin/"gnatsd", "gnatsd.go"
+    system "go", "build", "-o", bin/"gnatsd", "main.go"
   end
 
   plist_options :manual => "gnatsd"

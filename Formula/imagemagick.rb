@@ -4,17 +4,16 @@ class Imagemagick < Formula
   # Please always keep the Homebrew mirror as the primary URL as the
   # ImageMagick site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://dl.bintray.com/homebrew/mirror/ImageMagick-6.9.3-7.tar.xz"
-  mirror "https://www.imagemagick.org/download/ImageMagick-6.9.3-7.tar.xz"
-  sha256 "6731c414b5b939713a73a088840ed68c22c91d1335514d228d6687d07ce2e1c8"
+  url "https://dl.bintray.com/homebrew/mirror/ImageMagick-6.9.4-1.tar.xz"
+  mirror "https://www.imagemagick.org/download/ImageMagick-6.9.4-1.tar.xz"
+  sha256 "2ea0fef839cd5d6f134502b7cf7ee0e57a3f230b19771515d4aa44354f4c6b3b"
 
   head "http://git.imagemagick.org/repos/ImageMagick.git"
 
   bottle do
-    sha256 "69bb41b7508782d9872dacbce53d8d9788a52ab74573c5e5e23a9004879c275a" => :el_capitan
-    sha256 "c6849cde7067a0a11dcbb6ff44bac17f659ff67f75597836246fc6ef621a099a" => :yosemite
-    sha256 "0a5367b1ffbda4793a7d86ccbe06fc36395769b468f54a4c2316aa25ec44e8ee" => :mavericks
-    sha256 "c244594af8a72f37db3dd7fb3a2e627533d168c802f5447f3aca5d9b93fb4e3a" => :x86_64_linux
+    sha256 "70df3e54ce2122e9786635846816148c3839722533d32fc416b3607cbdf8b941" => :el_capitan
+    sha256 "5869870a8f3c1e019f08a1a4ed4fa6a1d08663abac781e769f2bf62d57a1d602" => :yosemite
+    sha256 "06610ec0c7bd2cf1b56df1424d9a6435ab73ca9b9c658049dbe2adc0be460eaa" => :mavericks
   end
 
   deprecated_option "enable-hdri" => "with-hdri"
@@ -57,6 +56,14 @@ class Imagemagick < Formula
   needs :openmp if build.with? "openmp"
 
   skip_clean :la
+
+  # Disables vulnerable coders: https://medium.com/@rhuber/imagemagick-is-on-fire-cve-2016-3714-379faf762247#.2tjfb3iks
+  # Next release will probably have a patch for the coders themselves,
+  # allowing us to remove this workaround.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/patches/2e4d1d1c2b13cca6292ab534b8a68cb2ac334c6c/imagemagick/disable-coders.diff"
+    sha256 "8824d64bd62b75c2cff4c54bc0afc874f3e1b1a11b8916daadafe799600b6f6a"
+  end
 
   def install
     args = %W[
