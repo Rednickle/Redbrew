@@ -23,6 +23,7 @@ class Jack < Formula
   depends_on "berkeley-db"
   depends_on "libsndfile"
   depends_on "libsamplerate"
+  depends_on "util-linux" if OS.linux? # for libuuid
 
   # Change pThread header include from CarbonCore
   patch :p0, :DATA if MacOS.version >= :mountain_lion
