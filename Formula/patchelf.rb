@@ -5,10 +5,11 @@ class Patchelf < Formula
 
   url "http://nixos.org/releases/patchelf/patchelf-0.9/patchelf-0.9.tar.gz"
   sha256 "f2aa40a6148cb3b0ca807a1bf836b081793e55ec9e5540a5356d800132be7e0a"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "40eb31a429ae5d81f1f13999663d9f87099bb11d65273691642429c5d525132e" => :x86_64_linux
+    sha256 "0907f06c6c67f4b67a6f078034c50bf3d86fdd6b88d80a3c7341e970b21e4231" => :x86_64_linux
   end
 
   head do
@@ -21,6 +22,11 @@ class Patchelf < Formula
   option "without-static-libstdc++", "Link libstdc++ dynamically"
 
   def install
+    # Fixes error: cannot find section
+    # See https://github.com/NixOS/patchelf/pull/95
+    inreplace "src/patchelf.cc",
+      "string sectionName = getSectionName(shdr);",
+      'string sectionName = getSectionName(shdr); if (sectionName == "") continue;'
     system "./bootstrap.sh" if build.head?
     system "./configure", "--prefix=#{prefix}",
       if build.with?("static") then "CXXFLAGS=-static"
