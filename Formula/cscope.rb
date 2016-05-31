@@ -11,6 +11,8 @@ class Cscope < Formula
     sha256 "cb2f63522d072307cacf63e8eabf4c284f2e8c1b2ff8c6de3aeb6fb8759a1212" => :mavericks
   end
 
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--mandir=#{man}"
