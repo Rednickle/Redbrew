@@ -26,6 +26,7 @@ before_install:
   - cd "$(brew --repo)"
   - export HOMEBREW_DEVELOPER="1"
   - ulimit -n 1024
+  - brew tap linuxbrew/xorg
 
 script:
   - brew test-bot
