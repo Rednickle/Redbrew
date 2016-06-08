@@ -10,6 +10,7 @@ class Libconfig < Formula
     sha256 "04d66c5f07d74f31a5b57a6bb50d0c2b73222876e6c4ba40470bfb852e6f7b99" => :yosemite
     sha256 "b48857221d7df42fdfb5a1e8a61da669ca2d30331539797e57d436d8cd78f4c9" => :mavericks
     sha256 "3053bef646c2eb74d9f9a723a496a09d786a3e46e193993a0c10281b28500e50" => :mountain_lion
+    sha256 "2434449b1449d91405a64d13b3e13d7f6a621a4b12b8d6420f65b4561964cac0" => :x86_64_linux
   end
 
   head do
