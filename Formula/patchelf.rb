@@ -9,7 +9,7 @@ class Patchelf < Formula
 
   bottle do
     cellar :any
-    sha256 "0907f06c6c67f4b67a6f078034c50bf3d86fdd6b88d80a3c7341e970b21e4231" => :x86_64_linux
+    sha256 "00c02e6c700f4427da40a82e2a5d88427cfb28a79b3ac69f441d69d8377254f4" => :x86_64_linux
   end
 
   head do
