@@ -6,6 +6,10 @@ class Libunwind < Formula
   head "git://git.sv.gnu.org/libunwind.git"
   # tag "linuxbrew"
 
+  bottle do
+    sha256 "caabeb18f79a24a02caf5c3f706c144173310410bddd470160909b3eda391a41" => :x86_64_linux
+  end
+
   def install
     system "./configure", "--prefix=#{prefix}",
       "--disable-debug", "--disable-dependency-tracking", "--disable-silent-rules"
