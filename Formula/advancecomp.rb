@@ -12,6 +12,9 @@ class Advancecomp < Formula
     sha256 "119316cdf32ce8129a09e786a31bd6c21d3b153eadd6cd55e098f78b6f1ed884" => :mavericks
   end
 
+  depends_on "bzip2" unless OS.mac?
+  depends_on "zlib" unless OS.mac?
+
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--enable-bzip2", "--prefix=#{prefix}", "--mandir=#{man}"
