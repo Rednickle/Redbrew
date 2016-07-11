@@ -9,6 +9,7 @@ class GnomeDocUtils < Formula
     sha256 "747018c8a51d92be291e2e6a8e843a77b9d298c0f06f5795673d259a756294d7" => :yosemite
     sha256 "9d20b2f1c18ce7fbec8bfdff70c721394474caad1daef5d49733ed27362b9de2" => :mavericks
     sha256 "db7e01f8a1cd568210dc884bc2a54c17c55157d2bab5fa3661b1bde99a824cd8" => :mountain_lion
+    sha256 "4972d1c1c8637fa372cab22e50a1c3a95fd302b60b7e022f6b1e99eb083baa2f" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
