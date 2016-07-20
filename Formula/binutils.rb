@@ -10,6 +10,7 @@ class Binutils < Formula
     sha256 "61d1a4e3bdc1846267c984b478e3a5a822a8a14a1169153670a9a61402ab1d40" => :el_capitan
     sha256 "daeccb1d2c5c4b324aa5ea38c6813ead25d9bfea8a84e093cc96687fa152b3e0" => :yosemite
     sha256 "f2ae1527a595586195d773323a661135ce5a8eb96ec171ef5c387d1da5592d80" => :mavericks
+    sha256 "745b61cf9012e393d2c83cf242aa2384bfb13a0a056f21130718e57c25e74acb" => :x86_64_linux
   end
 
   # No --default-names option as it interferes with Homebrew builds.
