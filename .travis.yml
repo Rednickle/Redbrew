@@ -25,6 +25,7 @@ before_install:
   - export TRAVIS_BUILD_DIR="$(brew --repo $TRAVIS_REPO_SLUG)"
   - cd "$(brew --repo)"
   - export HOMEBREW_DEVELOPER="1"
+  - export HOMEBREW_NO_AUTO_UPDATE=1
   - ulimit -n 1024
   - brew tap homebrew/dupes
   - brew tap linuxbrew/xorg
