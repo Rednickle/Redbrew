@@ -12,6 +12,7 @@ class Td < Formula
     sha256 "38428b68601f84a7cf0360bea09b17d891bd5bb2a5d6fbc6bce420011de698d2" => :yosemite
     sha256 "f73a1a4e82115217791c73e95938f474f906f5215164abd71d71c9304674895e" => :mavericks
     sha256 "c3e12ecfa1b4c9530f2f27c6707cf8e493377ca6132170814476d715564c536f" => :mountain_lion
+    sha256 "c1475c7a12e9bcca2c586eb7c77311b6105cbb8930dab7390d38836630f80b95" => :x86_64_linux
   end
 
   depends_on "go" => :build
