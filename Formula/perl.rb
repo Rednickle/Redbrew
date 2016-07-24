@@ -31,6 +31,7 @@ class Perl < Formula
   end
 
   depends_on "gdbm" => "with-libgdbm-compat" unless OS.mac?
+  depends_on "berkeley-db" unless OS.mac?
 
   def install
     args = %W[
