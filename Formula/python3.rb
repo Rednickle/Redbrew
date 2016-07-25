@@ -24,6 +24,7 @@ class Python3 < Formula
   option :universal
   option "with-tcl-tk", "Use Homebrew's Tk instead of OS X Tk (has optional Cocoa and threads support)"
   option "with-quicktest", "Run `make quicktest` after the build"
+  option "with-sphinx-doc", "Build HTML documentation"
 
   deprecated_option "quicktest" => "with-quicktest"
   deprecated_option "with-brewed-tk" => "with-tcl-tk"
@@ -36,6 +37,7 @@ class Python3 < Formula
   depends_on "xz" => :recommended # for the lzma module added in 3.3
   depends_on "homebrew/dupes/tcl-tk" => :optional
   depends_on :x11 if build.with?("tcl-tk") && Tab.for_name("homebrew/dupes/tcl-tk").with?("x11")
+  depends_on "sphinx-doc" => [:build, :optional]
   depends_on "bzip2" unless OS.mac?
 
   skip_clean "bin/pip3", "bin/pip-3.4", "bin/pip-3.5"
@@ -225,6 +227,13 @@ class Python3 < Formula
 
     %w[setuptools pip wheel].each do |r|
       (libexec/r).install resource(r)
+    end
+
+    if build.with? "sphinx-doc"
+      cd "Doc" do
+        system "make", "html"
+        doc.install Dir["build/html/*"]
+      end
     end
   end
 

@@ -1,26 +1,14 @@
 class Corectl < Formula
   desc "CoreOS over OS X made very simple"
   homepage "https://github.com/TheNewNormal/corectl"
+  url "https://github.com/TheNewNormal/corectl/archive/v0.7.13.tar.gz"
+  sha256 "2fefce853a39b00722c2e2b50b5cde106328915e367f5c8e2e8c216a7d721e0b"
   head "https://github.com/TheNewNormal/corectl.git", :branch => "golang"
-
-  stable do
-    url "https://github.com/TheNewNormal/corectl/archive/v0.7.12.tar.gz"
-    sha256 "fd4b5faba23dbc193c62e24d4927e51304e552eb93c708779d8b55c14dbd9c38"
-
-    # until 0.7.13 is out
-    # "trims Makefile logic so that qcow-tool doesn't ends being built twice"
-    # while simplifying the whole picture we actually need this patch here
-    # as otherwise Formula wouldn't build
-    patch do
-      url "https://github.com/TheNewNormal/corectl/commit/4b2876efe6e173a8b47d6bc6580f495d1131d772.patch"
-      sha256 "dc249885e78b474eeac9be0cb1ddf2faf16f94f0f8c3c794463f5e5ef88a9245"
-    end
-  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "abc5239afa2baed2c13c8c6202e41fb4f8e34a8e0bcbb1496d2e5b3dc350734d" => :el_capitan
-    sha256 "f63e731861bf5f59bdb8f1297c8d1b55347cd3262c569081ce244c49099b872d" => :yosemite
+    sha256 "b90ea3256110447226c42fd1d20ef7b329a807a007d14ed62180ee4f17ce537d" => :el_capitan
+    sha256 "ff07b9f225eaed736d72b2b0eb4f6f8cdf7bf668ebe372e16cca894ec809c906" => :yosemite
   end
 
   depends_on "go" => :build

@@ -35,6 +35,7 @@ class GnuSmalltalk < Formula
   depends_on "readline"
   depends_on "gnutls"
   depends_on "gdbm"
+  depends_on "gmp" => :linked
   depends_on "libffi" => :recommended
   depends_on "libsigsegv" => :recommended
   depends_on "glew" => :optional
@@ -52,7 +53,7 @@ class GnuSmalltalk < Formula
       --disable-debug
       --disable-dependency-tracking
       --prefix=#{prefix}
-      --with-lispdir=#{share}/emacs/site-lisp/#{name}
+      --with-lispdir=#{elisp}
       --disable-gtk
       --with-readline=#{Formula["readline"].opt_lib}
     ]
