@@ -8,6 +8,7 @@ class GdkPixbuf < Formula
     sha256 "2457c164f46d315b58ed69358973c78139af3422205f7376a777d16e43ceb7da" => :el_capitan
     sha256 "15096f218ea453b77ae40d88752610742d78d199b2b90fa1c5323eeb547dd394" => :yosemite
     sha256 "57cc04ff998e51dc3004656c2f44cf2820d5002cfdc18f7a7dc6e04e674315ab" => :mavericks
+    sha256 "4e6ba442772c80efc74dc70ad0f038be91e07bf31b603588534b8684582a0714" => :x86_64_linux
   end
 
   option :universal
