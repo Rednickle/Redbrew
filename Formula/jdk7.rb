@@ -6,6 +6,7 @@ end
 
 class Jdk7 < Formula
   homepage "http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html"
+  # tag "linuxbrew"
 
   version "1.7.0.75"
   if OS.linux?
@@ -13,12 +14,15 @@ class Jdk7 < Formula
       :using => JdkDownloadStrategy
     sha1 "912996f71f19635d9c85f3016c918f2b359a8011"
   elsif OS.mac?
-    url "jdk", :using => JdkDownloadStrategy
+    url "http://java.com/"
   end
+
+  bottle :unneeded
 
   conflicts_with "jdk", :because => "both install bin/java"
 
   def install
+    odie "Use 'brew cask install Caskroom/versions/java7' on Mac OS" if OS.mac?
     prefix.install Dir["*"]
   end
 
