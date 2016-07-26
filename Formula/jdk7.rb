@@ -12,7 +12,7 @@ class Jdk7 < Formula
   if OS.linux?
     url "http://download.oracle.com/otn-pub/java/jdk/7u75-b13/jdk-7u75-linux-x64.tar.gz",
       :using => JdkDownloadStrategy
-    sha1 "912996f71f19635d9c85f3016c918f2b359a8011"
+    sha256 "460959219b534dc23e34d77abc306e180b364069b9fc2b2265d964fa2c281610"
   elsif OS.mac?
     url "http://java.com/"
   end
