@@ -6,6 +6,7 @@ end
 
 class Jdk < Formula
   homepage "http://www.oracle.com/technetwork/java/javase/downloads/index.html"
+  # tag "linuxbrew"
 
   version "1.8.0-60"
   if OS.linux?
@@ -13,12 +14,13 @@ class Jdk < Formula
       :using => JdkDownloadStrategy
     sha256 "ebe51554d2f6c617a4ae8fc9a8742276e65af01bd273e96848b262b3c05424e5"
   elsif OS.mac?
-    url "jdk", :using => JdkDownloadStrategy
-  else
-    raise "Unknown operating system"
+    url "http://java.com/"
   end
 
+  bottle :unneeded
+
   def install
+    odie "Use 'brew cask install java' on Mac OS" if OS.mac?
     prefix.install Dir["*"]
   end
 
