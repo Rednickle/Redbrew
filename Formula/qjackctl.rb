@@ -6,14 +6,23 @@ class Qjackctl < Formula
   head "http://git.code.sf.net/p/qjackctl/code", :using => :git
 
   bottle do
-    sha256 "881297bbb05a0367be914b6c696a1fd38b1591906dfd08077a827f6c28dda692" => :el_capitan
-    sha256 "2d86adb7ea68a8b7dd18c7f00a53aa7191c910bf0d985b931a76587e91f864ca" => :yosemite
-    sha256 "41f607f3a331eaa2c5be1aaaf3e7f173b58975e24a3d4d78aaa8f21a74d70025" => :mavericks
+    revision 1
+    sha256 "e27bb026a0a677ce7dbe4483fbf53a0bdad929da0007166790b6006cee0cf27a" => :el_capitan
+    sha256 "531fcdb68a7436858e2b891dd0edacceed7bf084b0aadba046879d44fbf03bcd" => :yosemite
+    sha256 "1b12ec7026cf50ed6b29726c60731f4bb1f22e39e62efe1569547dcb0f2b239a" => :mavericks
   end
 
   depends_on "autoconf" => :build
   depends_on "qt5"
   depends_on "jack"
+  depends_on "portaudio" => :linked
+
+  # Fixes varaible length array error with LLVM/Clang
+  # Reported upstream: https://github.com/rncbc/qjackctl/issues/17
+  patch do
+    url "https://github.com/rncbc/qjackctl/commit/e92de08f7fd7c62ff1fb4f0330583f321a2a9aae.patch"
+    sha256 "cbb7cc72e0086b8e6df24c8c3a462dc0e9297f095573adb7a3cf98502a1902d4"
+  end
 
   def install
     system "./autogen.sh"
@@ -21,7 +30,8 @@ class Qjackctl < Formula
                           "--enable-qt5",
                           "--disable-dbus",
                           "--disable-xunique",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--with-qt5=#{Formula["qt5"].opt_prefix}"
 
     system "make", "install"
     prefix.install bin/"qjackctl.app"
