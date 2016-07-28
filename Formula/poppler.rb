@@ -32,6 +32,9 @@ class Poppler < Formula
   depends_on "qt5" => :optional
   depends_on "little-cms2" => :optional
 
+  # workaround for incorrect X11 dependency propogation by cairo
+  depends_on :x11 unless OS.mac?
+
   conflicts_with "pdftohtml", :because => "both install `pdftohtml` binaries"
 
   resource "font-data" do
