@@ -14,6 +14,7 @@ class Openjpeg < Formula
     sha256 "c9cc5b4f37fdf8b8fc1b043597ab6ac4aa30bfa8fde94b7b0d67a30f03a3cb1b" => :yosemite
     sha256 "92badbf4968bfda26318855b28940f564e60c701fe3b4e29bc4f173748da7476" => :mavericks
     sha256 "a30aa5b0a7ebcc1daba910671183084d69afb1d30cb85bfeb8b213f8e7a617d7" => :mountain_lion
+    sha256 "9d55f232c51608c424588d89eccd4fa680130cf155b4ea4dbce24efacf6542cf" => :x86_64_linux
   end
 
   option "with-static", "Build a static library."
