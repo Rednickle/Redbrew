@@ -1,21 +1,20 @@
 class Libmill < Formula
   desc "Go-style concurrency in C"
   homepage "http://libmill.org/"
-  url "http://libmill.org/libmill-1.1.tar.gz"
-  sha256 "146add8283cb88f3d42418e4666211d4a085f57c317a24a56e9afab8167db77d"
+  url "http://libmill.org/libmill-1.14.tar.gz"
+  sha256 "eb990ac8a5847180ee4e7352ab83a6da69bca4be53435f0e44fcb537632bf375"
   head "https://github.com/sustrik/libmill.git"
 
   bottle do
     cellar :any
-    sha256 "f5b5974a8cdc1d8701e184a412c8438f9ad1f13665b33db30a52439287d626cc" => :el_capitan
-    sha256 "652e19d0eea9b7bd9ea009eb03c025ed5a3a393d5ba899e375109aad3bf06b73" => :yosemite
-    sha256 "c8bc0246d358809bc9c429b8f91ed01b44c60ebe1720a2d83a735a50f6239df3" => :mavericks
+    sha256 "b1aa8a0679fbdc70e749f467927f12d58e49e70d085e2f11891f449000e84401" => :el_capitan
+    sha256 "be6ebc549150ebfb1fb4bd52806d998e63a0e059c3c1c5cefeca5417f5e98ae9" => :yosemite
+    sha256 "cb09ad58657e9f165210ac4da2f790fb8876d6f598902492ce3c0d16e9d17918" => :mavericks
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "cmake" => :build
 
   def install
     system "./autogen.sh" if build.head?

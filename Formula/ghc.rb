@@ -132,7 +132,7 @@ class Ghc < Formula
     # https://mail.haskell.org/pipermail/ghc-devs/2016-April/011862.html
     # LLVM itself has already fixed the bug: llvm-mirror/llvm@ae7cf585
     # rdar://25311883 and rdar://25299678
-    args << "--with-nm=#{`xcrun --find nm-classic`.chomp}" if OS.mac? && MacOS.clang_build_version >= 703
+    args << "--with-nm=#{`xcrun --find nm-classic`.chomp}" if OS.mac? && DevelopmentTools.clang_build_version >= 703
 
     resource("binary").stage do
       # Change the dynamic linker and RPATH of the binary executables.

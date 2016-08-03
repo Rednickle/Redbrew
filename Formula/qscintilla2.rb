@@ -1,14 +1,14 @@
 class Qscintilla2 < Formula
   desc "Port to Qt of the Scintilla editing component"
   homepage "https://www.riverbankcomputing.com/software/qscintilla/intro"
-  url "https://downloads.sf.net/project/pyqt/QScintilla2/QScintilla-2.9.2/QScintilla_gpl-2.9.2.tar.gz"
-  sha256 "f2c8ccdc9d3dbb90764ceed53ea096da9bb13b6260da1324e6ab4ecea29e620a"
+  url "https://downloads.sf.net/project/pyqt/QScintilla2/QScintilla-2.9.3/QScintilla_gpl-2.9.3.tar.gz"
+  sha256 "98aab93d73b05635867c2fc757acb383b5856a0b416e3fd7659f1879996ddb7e"
 
   bottle do
     cellar :any
-    sha256 "4f4654cd52bb7c248b3a842cf0c7ee80b2f328655934a0521be54d4c16a6f4a6" => :el_capitan
-    sha256 "60fc2962adec3242ffff0f373c681f8d9bd4d3a278389bdbf344e1067dd38f9a" => :yosemite
-    sha256 "2eabd5ae2713d198c41c33d8fc7ae1f1c99a2b1a398b228602b5e26301a225c9" => :mavericks
+    sha256 "88019f0cd020fe1262fc2fd96a82004e8a907af25c0fd2c4731c788ea5a09a0c" => :el_capitan
+    sha256 "331d6955aa4a5bea0ad2587266100b4ba9fb7bcdb237cd40ad40ca1d8cba3ea5" => :yosemite
+    sha256 "a2a4e459bc424996597fdd75bd597c279e157f8818c6e106107dce516ab46c24" => :mavericks
   end
 
   option "without-plugin", "Skip building the Qt Designer plugin"
@@ -26,7 +26,8 @@ class Qscintilla2 < Formula
   end
 
   def install
-    # On Mavericks we want to target libc++, this requires a unsupported/macx-clang-libc++ flag
+    # On Mavericks we want to target libc++, this requires an
+    # unsupported/macx-clang-libc++ flag.
     if ENV.compiler == :clang && MacOS.version >= :mavericks
       spec = "unsupported/macx-clang-libc++"
     else
@@ -38,8 +39,8 @@ class Qscintilla2 < Formula
       inreplace "qscintilla.pro" do |s|
         s.gsub! "$$[QT_INSTALL_LIBS]", lib
         s.gsub! "$$[QT_INSTALL_HEADERS]", include
-        s.gsub! "$$[QT_INSTALL_TRANSLATIONS]", "#{prefix}/trans"
-        s.gsub! "$$[QT_INSTALL_DATA]", "#{prefix}/data"
+        s.gsub! "$$[QT_INSTALL_TRANSLATIONS]", prefix/"trans"
+        s.gsub! "$$[QT_INSTALL_DATA]", prefix/"data"
       end
 
       inreplace "features/qscintilla2.prf" do |s|
@@ -53,7 +54,7 @@ class Qscintilla2 < Formula
     end
 
     # Add qscintilla2 features search path, since it is not installed in Qt keg's mkspecs/features/
-    ENV["QMAKEFEATURES"] = "#{prefix}/data/mkspecs/features"
+    ENV["QMAKEFEATURES"] = prefix/"data/mkspecs/features"
 
     if build.with?("python") || build.with?("python3")
       cd "Python" do

@@ -4,15 +4,15 @@ class GitlabCiMultiRunner < Formula
   desc "The official GitLab CI runner written in Go"
   homepage "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner"
   url "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git",
-    :tag => "v1.4.0",
-    :revision => "5dd9b2fdfe118bd146b06f905dfa0f3346e2a575"
+    :tag => "v1.4.1",
+    :revision => "fae8f189cd367d870c3d41471ba569070acee2e1"
   head "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d57de95a63af132f8a0db2dc994d01063180d58e95d981aa4714108371fa08cc" => :el_capitan
-    sha256 "db6b30291c2170f3a8e9911b8acc979aca5976516f7c89d734ea8f039ff5f29b" => :yosemite
-    sha256 "355b06fb8e9861789e2848eb465856801fb4663e417772b99d24dc049a5cfb26" => :mavericks
+    sha256 "e53560eaaa87ad35190bf7c91bf065e9716f17e49ebd522cd075722afeeecce0" => :el_capitan
+    sha256 "e9e80e854a1da2c3190a50eb04d9ac8842384f5e15e2e8f683cdf41e75748671" => :yosemite
+    sha256 "65950a28a0308fdb1c326fe52bbfcdfc66b356a222888e057266e50acb306105" => :mavericks
   end
 
   depends_on "go" => :build
@@ -24,10 +24,10 @@ class GitlabCiMultiRunner < Formula
   end
 
   resource "prebuilt-x86_64.tar.gz" do
-    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v1.4.0/docker/prebuilt-x86_64.tar.gz",
+    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v1.4.1/docker/prebuilt-x86_64.tar.gz",
       :using => :nounzip
-    version "1.4.0"
-    sha256 "01246d4b97ff91e3ce7de258bf0987bee265ed71d647e5dbf10b104b7073a645"
+    version "1.4.1"
+    sha256 "297a732c527a272635b49fba8b91e32a04404b2be696be77206a269acd1c97ff"
   end
 
   def install
@@ -51,7 +51,8 @@ class GitlabCiMultiRunner < Formula
       end
 
       commit = Utils.popen_read("git", "rev-parse", "--short", "HEAD")
-      branch = Utils.popen_read("git", "name-rev", "--name-only", "HEAD")
+      branch = Utils.popen_read("git", "branch", "-a", "--contains", "HEAD")
+      branch = branch[/remotes\/origin\/([a-zA-Z1-9-]+)\n/]
       ldflags = %W[
         --ldflags=
         -X #{proj}/common.NAME=gitlab-ci-multi-runner

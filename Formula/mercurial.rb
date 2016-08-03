@@ -3,15 +3,14 @@
 class Mercurial < Formula
   desc "Scalable distributed version control system"
   homepage "https://mercurial-scm.org/"
-  url "https://mercurial-scm.org/release/mercurial-3.8.4.tar.gz"
-  sha256 "4b2e3ef19d34fa1d781cb7425506a05d4b6b1172bab69d6ea78874175fdf3da6"
+  url "https://mercurial-scm.org/release/mercurial-3.9.tar.gz"
+  sha256 "834f25dcff44994198fb8a7ba161a6e24204dbd63c8e6270577e06e6cedbdabc"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5b0083c13264bef0a98ba30d231f5c65ebfa8ca2c75daad028559c73afe2aa74" => :el_capitan
-    sha256 "713df1a367af55b03e5c3a853e5a963f32d8cf33dcb8c0ddb6c388603a3d8cc3" => :yosemite
-    sha256 "b038a222b9da243d0c14b88e370f4912cd5b790b7ae1cf4bc14f0fa1c24120e2" => :mavericks
-    sha256 "088c4e091d12c89cdb21dae3f327da31ae614d7b291406a52ef1e26bef91c9e4" => :x86_64_linux
+    sha256 "db15d3613d2fd98424501aa3447b9f4c29c59fe08f8468ae072bec6bbabf3116" => :el_capitan
+    sha256 "550f5dd794f7933892ff2e8da1891662aa3ef87d44e56a3389941c766fc16ea3" => :yosemite
+    sha256 "8934a8fc26c36e56f017d99ac43a0ebe9d6922f8276c1dfccd9ccb980ae05e45" => :mavericks
   end
 
   depends_on :python unless OS.mac?

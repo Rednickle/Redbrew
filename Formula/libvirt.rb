@@ -1,13 +1,13 @@
 class Libvirt < Formula
   desc "C virtualization API"
   homepage "https://www.libvirt.org"
-  url "https://libvirt.org/sources/libvirt-2.0.0.tar.xz"
-  sha256 "10e90af55e613953c0ddc60b4ac3a10c73c0f3493d7014259e3f012b2ffc9acb"
+  url "https://libvirt.org/sources/libvirt-2.1.0.tar.xz"
+  sha256 "1a799562337472ab00f76aa30a53d54c623c96633070ec53286c9cc2a456316b"
 
   bottle do
-    sha256 "7acc4fefda57345d86297de6bfd267f5abcbc902daf4b976fc45807525ec5440" => :el_capitan
-    sha256 "8d26242b5803553bff45752d5df616be38efe6be902a937fc319a09ef47f1968" => :yosemite
-    sha256 "cef64589bd74610e97526c7e9f0c1178fd30bfbda26e7b0db393579f8271e759" => :mavericks
+    sha256 "49b0bbb4918ab1b29fbb12deb0d57ee9115bb069c47f52dd5676e915c4361e42" => :el_capitan
+    sha256 "d8068db824e0090c657caf952b6d8cb3a5ca95f92cc7c032405cf25f00b0f1b4" => :yosemite
+    sha256 "852894798a30c9712d8608b5975cb8f1f01a101bef156f17024f75a98a136d35" => :mavericks
   end
 
   option "without-libvirtd", "Build only the virsh client and development libraries"
@@ -27,10 +27,6 @@ class Libvirt < Formula
     build 2326
     cause "Undefined symbols when linking"
   end
-
-  # Fixes compile failure.  Will be in next upstream release:
-  #  https://www.redhat.com/archives/libvir-list/2016-July/msg00815.html
-  patch :p1, :DATA
 
   def install
     args = %W[
@@ -74,20 +70,3 @@ class Libvirt < Formula
     assert_match version.to_s, output
   end
 end
-
-__END__
-diff --git a/src/util/virsystemd.c b/src/util/virsystemd.c
-index 969cd68..7d6985b 100644
---- a/src/util/virsystemd.c
-+++ b/src/util/virsystemd.c
-@@ -41,6 +41,10 @@
-
- VIR_LOG_INIT("util.systemd");
-
-+#ifndef MSG_NOSIGNAL
-+# define MSG_NOSIGNAL 0
-+#endif
-+
- static void virSystemdEscapeName(virBufferPtr buf,
-                                  const char *name)
- {

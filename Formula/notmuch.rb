@@ -22,9 +22,6 @@ class Notmuch < Formula
   depends_on :ruby => ["1.9", :optional]
   depends_on "zlib" unless OS.mac?
 
-  depends_on "gettext" => :linked
-  depends_on "glib" => :linked
-
   # Requires zlib >= 1.2.5.2
   resource "zlib" do
     url "http://zlib.net/zlib-1.2.8.tar.gz"

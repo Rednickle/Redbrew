@@ -24,7 +24,17 @@ class Subversion < Formula
   option "without-serf", "Build without the serf HTTP library"
 
   depends_on "pkg-config" => :build
-  depends_on :apr => :build
+
+  # macOS Sierra ships the APR libraries & headers, but has removed the
+  # apr-1-config & apu-1-config executables which serf demands to find
+  # those elements. We may need to adopt a broader solution if this problem
+  # expands, but currently subversion is the only breakage as a result.
+  if MacOS.version >= :sierra
+    depends_on "apr-util"
+    depends_on "apr"
+  else
+    depends_on :apr => :build
+  end
 
   resource "serf" do
     url "https://archive.apache.org/dist/serf/serf-1.3.8.tar.bz2"
@@ -75,7 +85,7 @@ class Subversion < Formula
   end
 
   def install
-    serf_prefix = OS.mac? ? libexec+"serf" : prefix
+    serf_prefix = OS.mac? ? libexec/"serf" : prefix
 
     resource("serf").stage do
       # SConstruct merges in gssapi linkflags using scons's MergeFlags,
@@ -91,7 +101,7 @@ class Subversion < Formula
                 CFLAGS=#{ENV.cflags} LINKFLAGS=#{ENV.ldflags}
                 OPENSSL=#{Formula["openssl"].opt_prefix}]
 
-      unless OS.mac? && MacOS::CLT.installed?
+      if !OS.mac? || MacOS.version >= :sierra || !MacOS::CLT.installed?
         args << "APR=#{Formula["apr"].opt_prefix}"
         args << "APU=#{Formula["apr-util"].opt_prefix}"
       end
@@ -134,7 +144,7 @@ class Subversion < Formula
     args << "--enable-javahl" << "--without-jikes" if build.with? "java"
     args << "--without-gpg-agent" if build.without? "gpg-agent"
 
-    if OS.mac? && MacOS::CLT.installed?
+    if OS.mac? && MacOS::CLT.installed? && MacOS.version < :sierra
       args << "--with-apr=/usr"
       args << "--with-apr-util=/usr"
     else

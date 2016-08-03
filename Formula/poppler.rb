@@ -3,12 +3,12 @@ class Poppler < Formula
   homepage "https://poppler.freedesktop.org/"
   url "https://poppler.freedesktop.org/poppler-0.46.0.tar.xz"
   sha256 "967d35d13d61dee2fee656b80efef9e388a9e752bc79b7123f15b49c7769e487"
+  revision 1
 
   bottle do
-    sha256 "b646131621704dc93d7a7af4d79fd939a1858dd00457eb5a4cacb92af022ed93" => :el_capitan
-    sha256 "f4623c192f6ee5b02841408cd29db8beff7f5dd6ea28f43f52845d68266693ca" => :yosemite
-    sha256 "57fc82fc1129fda38278c282d835b4509821f6f72fb5e1d81aebf001c4a2c923" => :mavericks
-    sha256 "a7a41c466451c06f1e915fc139820f756a524da1fb5c291a4992d5f3c48e4357" => :x86_64_linux
+    sha256 "0de1a3dcdf6af3c8dae42c75e19bb8a937e0cc01b0d187ed7d01d198db85b15e" => :el_capitan
+    sha256 "99aa461128d5435261c0a3f6b3f710a67f82a632c07cc3c7f11792419835d58c" => :yosemite
+    sha256 "7d2162da9a64111a7bbc9ace335d78a4eb5ef48e65eb26aa5f21eaec73e40939" => :mavericks
   end
 
   option "with-qt", "Build Qt backend"
@@ -45,7 +45,7 @@ class Poppler < Formula
 
   def install
     ENV.cxx11 if MacOS.version < :mavericks
-    ENV["LIBOPENJPEG_CFLAGS"] = "-I#{Formula["openjpeg"].opt_include}/openjpeg-1.5"
+    ENV["LIBOPENJPEG_CFLAGS"] = "-I#{Formula["openjpeg"].opt_include}/openjpeg-2.1"
 
     args = %W[
       --disable-dependency-tracking

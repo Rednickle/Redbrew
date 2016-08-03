@@ -24,9 +24,9 @@ class Go < Formula
   end
 
   devel do
-    url "https://storage.googleapis.com/golang/go1.7rc3.src.tar.gz"
-    version "1.7rc3"
-    sha256 "6df6425ec3ac23fe9bcc52e1950f3a5829e5ed5a964d396d7f662a3d2fa95232"
+    url "https://storage.googleapis.com/golang/go1.7rc5.src.tar.gz"
+    version "1.7rc5"
+    sha256 "206c90e797e66335fe134052568f63a493f27b86f765087add390d5fb4c596c4"
 
     go_version = "1.7"
     resource "gotools" do
@@ -51,11 +51,11 @@ class Go < Formula
 
   resource "gobootstrap" do
     if OS.linux?
-      url "https://storage.googleapis.com/golang/go1.4.2.linux-amd64.tar.gz"
+      url "https://storage.googleapis.com/golang/go1.4.3.linux-amd64.tar.gz"
       sha256 "141b8345932641483c2437bdbd65488a269282ac85f91170805c273f03dd223b"
     elsif MacOS.version > :lion
-      url "https://storage.googleapis.com/golang/go1.4.2.darwin-amd64-osx10.8.tar.gz"
-      sha256 "c2f53983fc8fe5159d811081022ebc401b8111759ce008f91193abdae82cdbc9"
+      url "https://storage.googleapis.com/golang/go1.4.3.darwin-amd64.tar.gz"
+      sha256 "c360f195b6bc0eeb4ebd4d590e5a11be830ebb11f28eaa2da107047a8cae4c24"
     else
       url "https://storage.googleapis.com/golang/go1.4.2.darwin-amd64-osx10.6.tar.gz"
       sha256 "da40e85a2c9bda9d2c29755c8b57b8d5932440ba466ca366c2a667697a62da4c"
