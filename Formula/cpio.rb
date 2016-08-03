@@ -1,10 +1,9 @@
-require "formula"
-
 class Cpio < Formula
   homepage "http://www.gnu.org/software/cpio/"
   url "http://ftpmirror.gnu.org/cpio/cpio-2.11.tar.bz2"
   mirror "http://ftp.gnu.org/gnu/cpio/cpio-2.11.tar.bz2"
-  sha1 "6f1934b0079dc1e85ddff89cabdf01adb3a74abb"
+  sha256 "bb820bfd96e74fc6ce43104f06fe733178517e7f5d1cdee553773e8eff7d5bbd"
+  # tag "linuxbrew"
 
   # Fix the error:
   # ./stdio.h:358:1: error: 'gets' undeclared here (not in a function)
