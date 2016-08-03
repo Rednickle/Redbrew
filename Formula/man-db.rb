@@ -1,9 +1,8 @@
-require "formula"
-
 class ManDb < Formula
   homepage "http://man-db.nongnu.org/"
   url "http://download.savannah.gnu.org/releases/man-db/man-db-2.6.7.1.tar.xz"
-  sha1 "4c6f322529b929fb70263584f79dff6d615908ec"
+  sha256 "8d65559838fccca774e3ef7c15c073180c786e728785c735e136297facca41fc"
+  # tag "linuxbrew"
 
   head do
     url "git://git.sv.gnu.org/man-db.git"
