@@ -1,6 +1,7 @@
 class Libpipeline < Formula
+  desc "Library for manipulating pipelines of subprocesses"
   homepage "http://libpipeline.nongnu.org/"
-  url "http://download.savannah.gnu.org/releases/libpipeline/libpipeline-1.3.1.tar.gz"
+  url "https://download.savannah.gnu.org/releases/libpipeline/libpipeline-1.3.1.tar.gz"
   sha256 "5cad1b446f135ec3800d32c8c951a1114f4c438609a4c52b262c30301bc8e692"
   # tag "linuxbrew"
 
