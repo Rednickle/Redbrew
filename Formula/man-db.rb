@@ -1,6 +1,7 @@
 class ManDb < Formula
+  desc "Unix documentation system"
   homepage "http://man-db.nongnu.org/"
-  url "http://download.savannah.gnu.org/releases/man-db/man-db-2.6.7.1.tar.xz"
+  url "https://download.savannah.gnu.org/releases/man-db/man-db-2.6.7.1.tar.xz"
   sha256 "8d65559838fccca774e3ef7c15c073180c786e728785c735e136297facca41fc"
   # tag "linuxbrew"
 
@@ -12,7 +13,7 @@ class ManDb < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "groff" if OS.linux?
+  depends_on "groff" unless OS.mac?
   depends_on "libpipeline"
 
   def install
@@ -25,6 +26,6 @@ class ManDb < Formula
   end
 
   test do
-    system "#{bin}/man --version"
+    system "#{bin}/man", "--version"
   end
 end
