@@ -52,7 +52,7 @@ class Go < Formula
   resource "gobootstrap" do
     if OS.linux?
       url "https://storage.googleapis.com/golang/go1.4.3.linux-amd64.tar.gz"
-      sha256 "141b8345932641483c2437bdbd65488a269282ac85f91170805c273f03dd223b"
+      sha256 "ce3140662f45356eb78bc16a88fc7cfb29fb00e18d7c632608245b789b2086d2"
     elsif MacOS.version > :lion
       url "https://storage.googleapis.com/golang/go1.4.3.darwin-amd64.tar.gz"
       sha256 "c360f195b6bc0eeb4ebd4d590e5a11be830ebb11f28eaa2da107047a8cae4c24"
