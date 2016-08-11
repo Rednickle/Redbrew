@@ -44,6 +44,9 @@ class Glibc < Formula
     # Fix permissions
     chmod 0755, [lib/"ld-#{version}.so", lib/"libc-#{version}.so"]
 
+    # Install ld.so symlink.
+    ln_sf lib/"ld-linux-x86-64.so.2", HOMEBREW_PREFIX/"lib/ld.so"
+
     # Compile locale definition files
     mkdir_p lib/"locale"
     locales = ENV.map { |k, v| v if k[/^LANG$|^LC_/] && v != "C" }.compact
@@ -61,9 +64,6 @@ class Glibc < Formula
     sys_localtime = Pathname.new "/etc/localtime"
     brew_localtime = Pathname.new prefix/"etc/localtime"
     (prefix/"etc").install_symlink sys_localtime if sys_localtime.exist? && !brew_localtime.exist?
-
-    # Install ld.so symlink.
-    ln_sf lib/"ld-linux-x86-64.so.2", HOMEBREW_PREFIX/"lib/ld.so"
   end
 
   test do
