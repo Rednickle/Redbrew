@@ -5,6 +5,11 @@ class Bsdmainutils < Formula
   sha256 "48868ac99c8dd92a69bb430e6bdf865602522ad3a2f5a0dd9cae77b46fc93b57"
   # tag "linuxbrew"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "6a86b57b37b08fb3a3797a6e3eef2a9f444fb6748fbffb051d5a501a343a1705" => :x86_64_linux
+  end
+
   depends_on "homebrew/dupes/ncurses" unless OS.mac?
 
   def install
