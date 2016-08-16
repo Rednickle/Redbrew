@@ -5,26 +5,15 @@ class GitAnnex < Formula
 
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
+  url "https://hackage.haskell.org/package/git-annex-6.20160808/git-annex-6.20160808.tar.gz"
+  sha256 "c729decece3dfc05366879b72328b5ebe4a86e77a32f634fcfa4dbebbb8799fd"
   head "git://git-annex.branchable.com/"
-
-  stable do
-    url "https://hackage.haskell.org/package/git-annex-6.20160619/git-annex-6.20160619.tar.gz"
-    sha256 "5acc80dfb86d8f568819256a428f04794bff4c654389692f27a7bf0877ebe12f"
-
-    # Upstream commit "cabal constraints for aws and esqueleto"
-    # Upstream aws issue: https://github.com/aristidb/aws/issues/206
-    # Upstream esqueleto issue: https://github.com/prowdsponsor/esqueleto/issues/137
-    patch do
-      url "https://github.com/joeyh/git-annex/commit/18e458db.patch"
-      sha256 "75c3f7426e492ea48062f9922badae5c7809f2494f128e41f9d3e148fb9daa50"
-    end
-  end
 
   bottle do
     cellar :any
-    sha256 "9627ba509decc32a187afcc3fda6dcab2974db69a3c04e5005dde9bd3eae88ba" => :el_capitan
-    sha256 "73f8961b8fd9a93e871dd1ff1379f63d3c78ee239782d1ffe79e7a4749779b4b" => :yosemite
-    sha256 "33d9184557f8d18fb772310b75ec8ec797b86d96240627cac49931ac4453713e" => :mavericks
+    sha256 "772c139ff5123997f0b609fe1931a98ef6b77876001810a946282377b853c97b" => :el_capitan
+    sha256 "cca5befc5a33ac7da5243eb487cd2364011a795c63dd9e178dee1a70130255fd" => :yosemite
+    sha256 "ca301112f74fd03a88da5cbfce70a074599290a2ba18cf7e0faf59b8742d8b5a" => :mavericks
   end
 
   option "with-git-union-merge", "Build the git-union-merge tool"
@@ -37,6 +26,13 @@ class GitAnnex < Formula
   depends_on "libmagic"
   depends_on "gnutls"
   depends_on "quvi"
+
+  # Fixes CI timeout by providing a more specific hint for Solver
+  # Reported 9 Aug 2016: "git-annex.cabal: persistent ==2.2.4.1"
+  patch do
+    url "https://github.com/joeyh/git-annex/pull/56.patch"
+    sha256 "62ad81e3019f5c639708c679783e3f93e20996db1dc3577553ce90ab55fac9cf"
+  end
 
   def install
     install_cabal_package :using => ["alex", "happy", "c2hs"], :flags => ["s3", "webapp"] do

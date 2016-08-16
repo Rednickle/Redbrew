@@ -6,10 +6,10 @@ class Global < Formula
   sha256 "af16e0a686a46f759156cb685e25f345680703f43f93af1ce8d834caaf541da6"
 
   bottle do
-    sha256 "02cbcdec74c631e5c9136748570eaaa10d492c7bfe48a2a914c0245c91a84f33" => :el_capitan
-    sha256 "1228a3bb9625f8dbc7700b7846cc5f96e3bbe369ed6f0884840c4d8dacd05980" => :yosemite
-    sha256 "37948700d06490f5b8a8fce8ca4f869e98c5e6be4c2b14bf70a28b908f971c5a" => :mavericks
-    sha256 "efad5f8b25ff8e0e8e2a74a6b9ea82bf18dd749e6511a35c1fd548fb8852b1f1" => :x86_64_linux
+    revision 2
+    sha256 "b3210dcfc79345c62594110cca80ec252285ab149aa95214ca79000490d3b179" => :el_capitan
+    sha256 "a747a41990ed2455483658672c971465a55bbfb99f3b1b6dfa24282cf6497e41" => :yosemite
+    sha256 "776433a65c48183e5a1161ed57c375f9e150b7c6d8c4e8c2ad811dd71253ff69" => :mavericks
   end
 
   head do
@@ -17,6 +17,10 @@ class Global < Formula
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
+    depends_on "bison" => :build
+    depends_on "flex" => :build
+    ## gperf is provided by OSX Command Line Tools.
+    depends_on "homebrew/dupes/gperf" => :build unless OS.mac?
     depends_on "libtool" => :build
   end
 
@@ -32,8 +36,8 @@ class Global < Formula
   skip_clean "lib/gtags"
 
   resource "pygments" do
-    url "https://pypi.python.org/packages/source/P/Pygments/Pygments-2.1.tar.gz"
-    sha256 "13a0ef5fafd7b16cf995bc28fe7aab0780dab1b2fda0fc89e033709af8b8a47b"
+    url "https://pypi.python.org/packages/source/P/Pygments/Pygments-2.1.3.tar.gz"
+    sha256 "88e4c8a91b2af5962bfa5ea2447ec6dd357018e86e94c7d14bd8cacbc5b55d81"
   end
 
   def install
@@ -92,6 +96,7 @@ class Global < Formula
         assert_match "test.c", shell_output("#{bin}/global -d c2func")
         assert_match "test.c", shell_output("#{bin}/global -r c2func")
         assert_match "test.py", shell_output("#{bin}/global -d pyfunc")
+        assert_match "test.py", shell_output("#{bin}/global -d py2func")
         assert_match "test.py", shell_output("#{bin}/global -r py2func")
       else
         # Everything is a symbol in this case

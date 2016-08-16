@@ -3,55 +3,31 @@ require "language/go"
 class SSearch < Formula
   desc "Web search from the terminal"
   homepage "https://github.com/zquestz/s"
-  url "https://github.com/zquestz/s/archive/v0.5.4.tar.gz"
-  sha256 "d607d44642b136a6a8dbc27a7867e97a92075ba32e66680a977717a930360ed9"
+  url "https://github.com/zquestz/s/archive/v0.5.6.tar.gz"
+  sha256 "259dd724e7c76019c25d0eed5c5d01f69368508d3967cdb84c995d18476185ba"
   head "https://github.com/zquestz/s.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7e954448bc00858a107909b877f9ca32805f335a422f01e684bca95f8d56cdaa" => :el_capitan
-    sha256 "ff2a734c8692aa395cc042e7bf3690528138d79bf319b259915ea035fc670ad5" => :yosemite
-    sha256 "e9ffc82434562e3b08f93e398ba8a417908894728b8afec56cf0314824248565" => :mavericks
+    sha256 "658e3935d2c6e914915658173937f97e394d1d98ca6dd250fa90c44ed18a2c08" => :el_capitan
+    sha256 "e63dbaa27b6130a90c095a80020ff92eb4775e9e3bc6b34a6df784fb4eee6a95" => :yosemite
+    sha256 "9618a7a43b833541e8293c8234c672a7c8753627adbf0d5bed01629f096185bf" => :mavericks
   end
 
   depends_on "go" => :build
 
-  go_resource "github.com/NYTimes/gziphandler" do
-    url "https://github.com/NYTimes/gziphandler.git",
-    :revision => "63027b26b87e2ae2ce3810393d4b81021cfd3a35"
-  end
-
-  go_resource "github.com/mitchellh/go-homedir" do
-    url "https://github.com/mitchellh/go-homedir.git",
-    :revision => "756f7b183b7ab78acdbbee5c7f392838ed459dda"
-  end
-
-  go_resource "github.com/spf13/cobra" do
-    url "https://github.com/spf13/cobra.git",
-    :revision => "6a8bd97bdb1fc0d08a83459940498ea49d3e8c93"
-  end
-
-  go_resource "github.com/spf13/pflag" do
-    url "https://github.com/spf13/pflag.git",
-    :revision => "367864438f1b1a3c7db4da06a2f55b144e6784e0"
-  end
-
-  go_resource "github.com/zquestz/go-ucl" do
-    url "https://github.com/zquestz/go-ucl.git",
-    :revision => "ec59c7af0062f62671cdc1e974aa857771f105d2"
-  end
-
-  go_resource "golang.org/x/text" do
-    url "https://go.googlesource.com/text.git",
-    :revision => "ce78b075c2fbd48520f4995b173eb9fe18b56ef3"
+  go_resource "github.com/FiloSottile/gvt" do
+    url "https://github.com/FiloSottile/gvt.git",
+        :revision => "945672cd8cb7d1fe502c627952ebf6fcb1f883f1"
   end
 
   def install
     ENV["GOPATH"] = buildpath
+    Language::Go.stage_deps resources, buildpath/"src"
+    cd("src/github.com/FiloSottile/gvt") { system "go", "install" }
     (buildpath/"src/github.com/zquestz").mkpath
     ln_s buildpath, "src/github.com/zquestz/s"
-    Language::Go.stage_deps resources, buildpath/"src"
-
+    system buildpath/"bin/gvt", "restore"
     system "go", "build", "-o", bin/"s"
   end
 

@@ -20,7 +20,7 @@ class Squashfs < Formula
   # Also clang fixes, extra endianness knowledge and a bundle of other OS X fixes.
   # Originally from https://github.com/plougher/squashfs-tools/pull/3
   patch do
-    url "https://raw.githubusercontent.com/DomT4/scripts/master/Homebrew_Resources/Squashfs/squashfs.diff"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/05ae0eb1/squashfs/squashfs-osx-bundle.diff"
     sha256 "276763d01ec675793ddb0ae293fbe82cbf96235ade0258d767b6a225a84bc75f"
   end
 
@@ -29,15 +29,20 @@ class Squashfs < Formula
       XATTR_SUPPORT=0
       EXTRA_CFLAGS=-std=gnu89
       LZO_SUPPORT=1
-      LZO_DIR=#{HOMEBREW_PREFIX}
+      LZO_DIR=#{Formula["lzo"].opt_prefix}
       XZ_SUPPORT=1
-      XZ_DIR=#{HOMEBREW_PREFIX}
+      XZ_DIR=#{Formula["xz"].opt_prefix}
     ]
     args << "LZ4_SUPPORT=1" if build.with? "lz4"
+
     cd "squashfs-tools" do
       system "make", *args
       bin.install %w[mksquashfs unsquashfs]
     end
-    doc.install %w[ACKNOWLEDGEMENTS CHANGES COPYING INSTALL OLD-READMEs PERFORMANCE.README README README-4.3]
+    doc.install %w[ACKNOWLEDGEMENTS INSTALL OLD-READMEs PERFORMANCE.README README-4.3]
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/unsquashfs -v", 1)
   end
 end

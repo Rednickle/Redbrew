@@ -3,23 +3,32 @@ class Pdnsrec < Formula
   homepage "https://www.powerdns.com/recursor.html"
   url "https://downloads.powerdns.com/releases/pdns-recursor-4.0.1.tar.bz2"
   sha256 "472db541307c8ca83a846d260ecfc854fd8e879c1bb2ce5683a8df5d21e860b0"
+  revision 1
 
   bottle do
-    sha256 "31428673a49cfd7d9499e98154daefc493da5e4457adb3ff58ea5f60fdd08ba2" => :el_capitan
-    sha256 "e08235e2eac088be0bd6a6ec69536874173a0ff02a2707d1a63e19132bc30f1a" => :yosemite
-    sha256 "32433ecf6ab52d6c4f2c4f1bcb9f7d56102766fa23d316a9354932d86ed9f255" => :mavericks
+    sha256 "6d1db92d6832f010a0e4e4f466a2fa3003320acbbffaf4bf3345f74f2ea706a3" => :el_capitan
+    sha256 "b4cb635ee48914b7e59e643c17bcc23a23e6c5ca74c1e76da9a3489dd11fc525" => :yosemite
+    sha256 "48cae0fd08da1919154a6b867906a836ccc82626939402690b120ebe3f7cfa87" => :mavericks
   end
 
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "openssl"
   depends_on "lua"
+  depends_on "gcc" if MacOS.version <= :mavericks
 
   needs :cxx11
 
   fails_with :clang do
     build 600
     cause "incomplete C++11 support"
+  end
+
+  # boost 1.61.0 compat
+  # upstream commit "fix type"; remove for > 4.0.1
+  patch :p2 do
+    url "https://github.com/PowerDNS/pdns/commit/33f13fde.patch"
+    sha256 "f7944b9fd573619bdeb20bc211b3eb5fd4f129cb0e691ece686d213ebf6e5393"
   end
 
   def install

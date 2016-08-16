@@ -2,15 +2,14 @@ class Vim < Formula
   desc "Vi \"workalike\" with many additional features"
   homepage "http://www.vim.org/"
   # *** Vim should be updated no more than once every 7 days ***
-  url "https://github.com/vim/vim/archive/v7.4.2109.tar.gz"
-  sha256 "fdf03f17bda80fe63313ce549a2ddf4ffb1e2ac344949e185928477142e3a8ae"
+  url "https://github.com/vim/vim/archive/v7.4.2210.tar.gz"
+  sha256 "5ac86cdb4e7f0c7cdcd4a62858d07724dccb61ad727d769ee21fcc6ef7187b7b"
   head "https://github.com/vim/vim.git"
 
   bottle do
-    sha256 "25803331c389a61e804ed32e5a544763e7bf5edbd801da5cd818a911a61cc967" => :el_capitan
-    sha256 "ce39d986f34c1df7bc5f3276b4e40267742418966f787e79dc994b170be4908f" => :yosemite
-    sha256 "41cf42a35dc4035ec170af6d0c614743f180cf95accd8d687b44a13cd01fb146" => :mavericks
-    sha256 "aab9390285ebcaf78c0b9561e5c30bd3b8db21f26196f9520144aa4b6352c0b3" => :x86_64_linux
+    sha256 "b8d39ead08f0c6661f7f265035b3a94297f27bb40fa6c1d821631c8490c140e7" => :el_capitan
+    sha256 "39bb57082b8162e481b7f87fc6cb30474d06a50679eb484098517993e7d60001" => :yosemite
+    sha256 "329f368564fa8ebaf08c1f2d486e8a5fb683064cbe9d5de8bbfa773f77fd20e0" => :mavericks
   end
 
   deprecated_option "disable-nls" => "without-nls"
@@ -45,7 +44,6 @@ class Vim < Formula
   depends_on "luajit" => :optional
   depends_on :x11 if build.with? "client-server"
   depends_on "homebrew/dupes/ncurses" unless OS.mac?
-  depends_on "gtk+" => :optional
 
   conflicts_with "ex-vi",
     :because => "vim and ex-vi both install bin/ex and bin/view"
@@ -78,7 +76,7 @@ class Vim < Formula
     end
 
     opts << "--disable-nls" if build.without? "nls"
-    opts << "--enable-gui=" + (build.with?("gtk+") ? "gtk2" : "no")
+    opts << "--enable-gui=no"
 
     if build.with? "client-server"
       opts << "--with-x"
@@ -113,7 +111,6 @@ class Vim < Formula
   end
 
   test do
-    system bin/"vim", "--version"
     # Simple test to check if Vim was linked to Python version in $PATH
     if OS.mac? && build.with?("python")
       vim_path = bin/"vim"

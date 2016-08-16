@@ -5,16 +5,21 @@ class Mercurial < Formula
   homepage "https://mercurial-scm.org/"
   url "https://mercurial-scm.org/release/mercurial-3.9.tar.gz"
   sha256 "834f25dcff44994198fb8a7ba161a6e24204dbd63c8e6270577e06e6cedbdabc"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "db15d3613d2fd98424501aa3447b9f4c29c59fe08f8468ae072bec6bbabf3116" => :el_capitan
-    sha256 "550f5dd794f7933892ff2e8da1891662aa3ef87d44e56a3389941c766fc16ea3" => :yosemite
-    sha256 "8934a8fc26c36e56f017d99ac43a0ebe9d6922f8276c1dfccd9ccb980ae05e45" => :mavericks
-    sha256 "5b0a8e6d1ddcce909f66f78e4d8e3dbe7e70b430f3e5a14d780350f3e9c072cb" => :x86_64_linux
+    sha256 "8f32d90b3412192134bf5e48c07e50130aaef677af2a2b3004c28e29ff713d37" => :el_capitan
+    sha256 "c0c0f949b11df8b62e8c3cbba6b17809a497df40e3bdcf7b8e44de35a0178442" => :yosemite
+    sha256 "ce8763d3a99538bc6bb5097e2d4f1894e54c31d6fe0a21b9ab31b0cdd14f19a3" => :mavericks
   end
 
-  depends_on :python unless OS.mac?
+  option "with-custom-python", "Install against the python in PATH instead of Homebrew's python"
+  if build.with? "custom-python"
+    depends_on :python
+  else
+    depends_on "python"
+  end
 
   def install
     ENV.minimal_optimization if MacOS.version <= :snow_leopard
@@ -27,6 +32,20 @@ class Mercurial < Formula
     # install the completion scripts
     bash_completion.install "contrib/bash_completion" => "hg-completion.bash"
     zsh_completion.install "contrib/zsh_completion" => "_hg"
+  end
+
+  def caveats
+    return unless (opt_bin/"hg").exist?
+    cacerts_configured = `#{opt_bin}/hg config web.cacerts`.strip
+    return if cacerts_configured.empty?
+    <<-EOS.undent
+      Homebrew has detected that Mercurial is configured to use a certificate
+      bundle file as its trust store for TLS connections instead of using the
+      default OpenSSL store. If you have trouble connecting to remote
+      repositories, consider unsetting the `web.cacerts` property. You can
+      determine where the property is being set by running:
+        hg config --debug web.cacerts
+    EOS
   end
 
   test do

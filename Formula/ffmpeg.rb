@@ -1,16 +1,15 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-3.1.1.tar.bz2"
-  sha256 "a5bca50a90a37b983eaa17c483a387189175f37ca678ae7e51d43e7610b4b3b4"
+  url "https://ffmpeg.org/releases/ffmpeg-3.1.2.tar.bz2"
+  sha256 "62eb8d810b93c1ffc23739c0824a91eabfe5e7be81fab34ce740736a110b70f7"
+
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
-    revision 1
-    sha256 "d9c62b83a65367759a8885acab27553e104fad73d3b16c4e763f43cb9a2bb65b" => :el_capitan
-    sha256 "242c3f30bb3992784c373c163f41168ead5630e8a370aa97d24ddca13ed134a7" => :yosemite
-    sha256 "b0c090350f3628ee5c70c16fecddeea19332a89a4a047787333ac23b1788fa16" => :mavericks
-    sha256 "53546b7e7af72484eb1c3628c3fc0b245e7d265a7e7144f192ca38c1e8d51496" => :x86_64_linux
+    sha256 "1489a9a34835d041ffe6da6ce253b7b202b6a3bd4dd7e9aad8e61a0c085265dd" => :el_capitan
+    sha256 "6c3c9d51b26eb5bdb1e61bbd713902b8313032ec9d5e16b3512f9af23f16620b" => :yosemite
+    sha256 "24e11e16f578621a22f96c8b7f4e7369f2f1d5e49b2ccc798082cc7a67e5ee88" => :mavericks
   end
 
   option "without-x264", "Disable H.264 encoder"
@@ -162,7 +161,7 @@ class Ffmpeg < Formula
     if build.with? "openjpeg"
       args << "--enable-libopenjpeg"
       args << "--disable-decoder=jpeg2000"
-      args << "--extra-cflags=" + `pkg-config --cflags libopenjpeg`.chomp
+      args << "--extra-cflags=" + `pkg-config --cflags libopenjp2`.chomp
     end
 
     # These librares are GPL-incompatible, and require ffmpeg be built with

@@ -14,8 +14,6 @@ class Talloc < Formula
     sha256 "834c45b1f2b56a7d15755d7a9d1abbf19e0f0e084063a808a25bdd76c4ca91d3" => :x86_64_linux
   end
 
-  conflicts_with "samba", :because => "both install `include/talloc.h`"
-
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--disable-rpath",

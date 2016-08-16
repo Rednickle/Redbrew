@@ -4,15 +4,15 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://files.pythonhosted.org/packages/fd/81/d417eb199627ad9d3db8ebf966835677d92a9a8308b588a6d2b17f6583f8/awscli-1.10.51.tar.gz"
-  sha256 "98690bcc6d6ecc10212ab7b838a45940b25c01e240409c3d03f172cb9dc9c7a6"
+  url "https://files.pythonhosted.org/packages/8b/38/c3cb424d6117c1f096496ba6f26dd05635b6c5660ee4acef00369641f007/awscli-1.10.56.tar.gz"
+  sha256 "adbc8812e75f0be53c4a414aeb181be6838befcd2869427074e116cf0cc6f7a2"
 
   bottle do
     cellar :any_skip_relocation
     revision 1
-    sha256 "1c5fdbacca082b12dc93025ef04f9643b33c5f62bfcbd028a4187396fc28402e" => :el_capitan
-    sha256 "e1ab6bdea23c6db65f37100282997ac573944ef8cc67579a94cff03ef5af1f32" => :yosemite
-    sha256 "8915f7e04781cf1e48f254542877c77fd9b429b8d90d5c09330a9b3929969423" => :mavericks
+    sha256 "bce9a139fa2a7d0d7d5d61a4eca3f0bc2f514b758cbb2fdbca9cba67b7d02a42" => :el_capitan
+    sha256 "5c8c58f7a9532b2ec01de2a9c846be2f78cde416eb5cba41be405347369de1c0" => :yosemite
+    sha256 "ca2356860c6c7cf3ad3f9ab014346e60cf199e6ab51a3b113376ad43f1231c3a" => :mavericks
   end
 
   head do
@@ -36,8 +36,8 @@ class Awscli < Formula
   depends_on :python if MacOS.version <= :lion
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/85/d4/1700f65e544c9be35171dba3dd96f8a3ea115a633506cabfeccf7e3bf17b/botocore-1.4.41.tar.gz"
-    sha256 "da37c2b9c942ff280e47122e48e1e9af827c81191da919e9c434c69e455e6a30"
+    url "https://files.pythonhosted.org/packages/df/2b/c0dec83c2bccb9d0f1c3cc33dc4bd0752b76a2e4d30fb46061063cf3d7ea/botocore-1.4.46.tar.gz"
+    sha256 "844dbd090b4127678c25342635485c87d86bca4a4f8a7c2295d715f7c830700c"
   end
 
   resource "colorama" do
@@ -76,8 +76,8 @@ class Awscli < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/6e/12/5d0ea478e6d261857a461af921b78f3bc6f92c479ffe57076f4fc9a362ab/s3transfer-0.0.1.tar.gz"
-    sha256 "2bb9ed8db58af94dfa78f75f554d646dfe4b4741fc87f63a20c2bfb3f70f4355"
+    url "https://files.pythonhosted.org/packages/27/58/c3c67734ac87ef83fdffb6e1167531d584111232ad5e13b5514831a5de35/s3transfer-0.1.1.tar.gz"
+    sha256 "6b9131b704819b0e559a97eec373ff6cc8a9b258e4c8f58ad339650b5019f00f"
   end
 
   resource "six" do
@@ -88,29 +88,23 @@ class Awscli < Formula
   def install
     virtualenv_install_with_resources
 
-    # Install zsh completion
-    zsh_completion.install "bin/aws_zsh_completer.sh" => "_aws"
-
-    # Install the examples
     pkgshare.install "awscli/examples"
+
+    bash_completion.install "bin/aws_bash_completer"
+    zsh_completion.install "bin/aws_zsh_completer.sh" => "_aws"
   end
 
   def caveats; <<-EOS.undent
     The "examples" directory has been installed to:
       #{HOMEBREW_PREFIX}/share/awscli/examples
 
-    Add the following to ~/.bashrc to enable bash completion:
-      complete -C aws_completer aws
-
-    Add the following to ~/.zshrc to enable zsh completion:
-      source #{HOMEBREW_PREFIX}/share/zsh/site-functions/_aws
-
-    Before using awscli, you need to tell it about your AWS credentials.
-    The easiest way to do this is to run:
+    Before using aws-cli, you need to tell it about your AWS credentials.
+    The quickest way to do this is to run:
       aws configure
 
     More information:
       https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html
+      https://pypi.python.org/pypi/awscli#getting-started
     EOS
   end
 

@@ -43,9 +43,9 @@ class Wine < Formula
   end
 
   devel do
-    url "https://dl.winehq.org/wine/source/1.9/wine-1.9.15.tar.bz2"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-1.9.15.tar.bz2"
-    sha256 "cf992ac991b0e49fd0b186305021acf6e612d5df18d30e3d5808fa6f6731adda"
+    url "https://dl.winehq.org/wine/source/1.9/wine-1.9.16.tar.bz2"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-1.9.16.tar.bz2"
+    sha256 "e120d6673aada93935c6661b75c2edc835a45a8e658b80934c36434b56940f04"
   end
 
   # note that all wine dependencies should declare a --universal option in their formula,
@@ -67,7 +67,6 @@ class Wine < Formula
   depends_on "sane-backends"
   depends_on "gnutls"
   depends_on "libgsm" => :optional
-  depends_on "samba" => :optional
 
   # Patch to fix texture compression issues. Still relevant on 1.8.
   # https://bugs.winehq.org/show_bug.cgi?id=14939
@@ -133,7 +132,7 @@ class Wine < Formula
     args << "--enable-win64" if build.with? "win64"
 
     # 64-bit builds of mpg123 are incompatible with 32-bit builds of Wine
-    args << "--without-mpg123" if Hardware.is_64_bit?
+    args << "--without-mpg123" if Hardware::CPU.is_64_bit?
 
     args << "--without-x" if build.without? "x11"
 

@@ -4,15 +4,15 @@ class GitlabCiMultiRunner < Formula
   desc "The official GitLab CI runner written in Go"
   homepage "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner"
   url "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git",
-    :tag => "v1.4.1",
-    :revision => "fae8f189cd367d870c3d41471ba569070acee2e1"
+    :tag => "v1.4.2",
+    :revision => "bcc1794f6dd7edf8e3984bfbf37c2baf9887f03a"
   head "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e53560eaaa87ad35190bf7c91bf065e9716f17e49ebd522cd075722afeeecce0" => :el_capitan
-    sha256 "e9e80e854a1da2c3190a50eb04d9ac8842384f5e15e2e8f683cdf41e75748671" => :yosemite
-    sha256 "65950a28a0308fdb1c326fe52bbfcdfc66b356a222888e057266e50acb306105" => :mavericks
+    sha256 "b21543cb6cf82656e325aecbf82e0e7febeed1877b63581d5967c5ed441e82af" => :el_capitan
+    sha256 "f28d8e0a677d382f643e51dc869e6bb309bd5dedd26e17a6254ba89cb45e9059" => :yosemite
+    sha256 "b34cceead147eae07026264022f86e0a92cccf1245f4079040e49abc79816c67" => :mavericks
   end
 
   depends_on "go" => :build
@@ -24,43 +24,39 @@ class GitlabCiMultiRunner < Formula
   end
 
   resource "prebuilt-x86_64.tar.gz" do
-    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v1.4.1/docker/prebuilt-x86_64.tar.gz",
+    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v1.4.2/docker/prebuilt-x86_64.tar.gz",
       :using => :nounzip
-    version "1.4.1"
-    sha256 "297a732c527a272635b49fba8b91e32a04404b2be696be77206a269acd1c97ff"
+    version "1.4.2"
+    sha256 "cb2225591fb379cba8e8e3a6f5b9f7eda3cac9d04973a9b03cda02de20a6e7e0"
   end
 
   def install
     ENV["GOPATH"] = buildpath
-    proj = "gitlab.com/gitlab-org/gitlab-ci-multi-runner"
-    dir = buildpath/"src/#{proj}"
+    dir = buildpath/"src/gitlab.com/gitlab-org/gitlab-ci-multi-runner"
     dir.install buildpath.children
     ENV.prepend_create_path "PATH", buildpath/"bin"
     Language::Go.stage_deps resources, buildpath/"src"
 
-    cd buildpath/"src/github.com/jteeuwen/go-bindata/go-bindata" do
+    cd "src/github.com/jteeuwen/go-bindata/go-bindata" do
       system "go", "install"
     end
 
     cd dir do
       resource("prebuilt-x86_64.tar.gz").stage do
-        system "go-bindata", "-pkg", "docker",
-               "-nocompress", "-nomemcopy", "-nometadata",
-               "-o", dir/"executors/docker/bindata.go",
-               "prebuilt-x86_64.tar.gz"
+        system *%W[go-bindata -pkg docker -nocompress -nomemcopy -nometadata
+                   -o #{dir}/executors/docker/bindata.go prebuilt-x86_64.tar.gz]
       end
 
-      commit = Utils.popen_read("git", "rev-parse", "--short", "HEAD")
-      branch = Utils.popen_read("git", "branch", "-a", "--contains", "HEAD")
-      branch = branch[/remotes\/origin\/([a-zA-Z1-9-]+)\n/]
-      ldflags = %W[
-        --ldflags=
-        -X #{proj}/common.NAME=gitlab-ci-multi-runner
-        -X #{proj}/common.VERSION=#{version}
-        -X #{proj}/common.REVISION=#{commit}
-        -X #{proj}/common.BRANCH=#{branch.strip_prefix("remotes/origin/").chomp}
-      ]
-      system "go", "build", ldflags.join(" ")
+      proj = "gitlab.com/gitlab-org/gitlab-ci-multi-runner"
+      commit = Utils.popen_read("git", "rev-parse", "--short", "HEAD").chomp
+      branch = version.to_s.split(".")[0..1].join("-") + "-stable"
+      system "go", "build", "-ldflags", <<-EOS.undent
+             -X #{proj}/common.NAME=gitlab-ci-multi-runner
+             -X #{proj}/common.VERSION=#{version}
+             -X #{proj}/common.REVISION=#{commit}
+             -X #{proj}/common.BRANCH=#{branch}
+      EOS
+
       bin.install "gitlab-ci-multi-runner"
       bin.install_symlink bin/"gitlab-ci-multi-runner" => "gitlab-runner"
       prefix.install_metafiles
@@ -68,7 +64,6 @@ class GitlabCiMultiRunner < Formula
   end
 
   test do
-    assert_match "Version:      #{version}", shell_output("#{bin}/gitlab-ci-multi-runner --version")
-    assert_match "Version:      #{version}", shell_output("#{bin}/gitlab-runner --version")
+    assert_match version.to_s, shell_output("#{bin}/gitlab-runner --version")
   end
 end

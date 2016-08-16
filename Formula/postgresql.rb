@@ -1,20 +1,19 @@
 class Postgresql < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v9.5.3/postgresql-9.5.3.tar.bz2"
-  sha256 "7385c01dc58acba8d7ac4e6ad42782bd7c0b59272862a3a3d5fe378d4503a0b4"
+  url "https://ftp.postgresql.org/pub/source/v9.5.4/postgresql-9.5.4.tar.bz2"
+  sha256 "cf5e571164ad66028ecd7dd8819e3765470d45bcd440d258b686be7e69c76ed0"
 
   bottle do
-    sha256 "5e238fdf3e7e2c8ac74f23dfc92f50d7c4598e05f89cc3e7c7e0da26fe2542e3" => :el_capitan
-    sha256 "bc90e7b53017314e559b7110bfa1257f01457d4097eebf2690195ae5c013875b" => :yosemite
-    sha256 "eeb7a800b5b93cb9d24b82e78664645d3b899166fe0b3cf25d1e42e91cdb37bf" => :mavericks
-    sha256 "7e967df95fe4b265267fe4349067c65ad4f9b64273d0e9ec9116e69b114fc5ca" => :x86_64_linux
+    sha256 "35b58b633e8babf25c08b2c29763d4f90d29bbd3de02a599e6a190fc1f038c03" => :el_capitan
+    sha256 "0cdbe520b5519be1852d348c67a755bd7108e8b4ae659e07b65e7dc2c5ebe3d2" => :yosemite
+    sha256 "5ece29bc0919d1f67dde503c606f8a164d0f05ac02d9f1ae3777036db474bb27" => :mavericks
   end
 
   devel do
-    url "https://ftp.postgresql.org/pub/source/v9.6beta2/postgresql-9.6beta2.tar.gz"
-    version "9.6beta2"
-    sha256 "fe4b75548ebccea7140f3285f2a4b118fa0651f18dd1f63a6c41ef9046042cb1"
+    url "https://ftp.postgresql.org/pub/source/v9.6beta4/postgresql-9.6beta4.tar.gz"
+    version "9.6beta4"
+    sha256 "6fb1bdade1754f3f29626e8e4cbf3f269e107e0d496ed07e8b693175afc44562"
   end
 
   option "32-bit"
@@ -68,9 +67,9 @@ class Postgresql < Formula
       --sysconfdir=#{etc}
       --docdir=#{doc}
       --enable-thread-safety
-      --with-openssl
       --with-libxml
       --with-libxslt
+      --with-openssl
     ]
     args += %W[
       --with-bonjour

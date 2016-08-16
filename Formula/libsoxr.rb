@@ -15,8 +15,6 @@ class Libsoxr < Formula
 
   depends_on "cmake" => :build
 
-  conflicts_with "sox", :because => "Sox contains soxr. Soxr is purely the resampler."
-
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
