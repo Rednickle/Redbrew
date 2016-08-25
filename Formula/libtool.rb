@@ -44,7 +44,7 @@ class Libtool < Formula
   end
 
   test do
-    system "#{bin}/glibtool", "execute", "/usr/bin/true"
+    system "#{bin}/glibtool", "execute", File.executable?("/usr/bin/true") ? "/usr/bin/true" : "/bin/true"
     (testpath/"hello.c").write <<-EOS
       #include <stdio.h>
       int main() { puts("Hello, world!"); return 0; }
