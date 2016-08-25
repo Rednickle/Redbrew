@@ -2,13 +2,12 @@ class AndroidNdk < Formula
   desc "Android native-code language toolset"
   homepage "https://developer.android.com/ndk/index.html"
   if OS.mac?
-    url "https://dl.google.com/android/repository/android-ndk-r12-darwin-x86_64.zip"
-    sha256 "fe10b64a65f3e818b852862975ea7b5896295cd1301d1acdbeb1294d9592fb19"
+    url "https://dl.google.com/android/repository/android-ndk-r12b-darwin-x86_64.zip"
+    sha256 "2bdef9143a2c7680fcb7c9fd54fe85013d591f106aea43831eba5e13e10db77e"
   elsif OS.linux?
-    url "https://dl.google.com/android/repository/android-ndk-r12-linux-x86_64.zip"
-    sha256 "7876e3b99f3596a3215ecf4e9f152d24b82dfdf2bbe7d3a38c423ae6a3edee79"
+    url "https://dl.google.com/android/repository/android-ndk-r12b-linux-x86_64.zip"
+    sha256 "eafae2d614e5475a3bcfd7c5f201db5b963cc1290ee3e8ae791ff0c66757781e"
   end
-  version "r12"
 
   bottle :unneeded
 
@@ -50,5 +49,11 @@ class AndroidNdk < Formula
     For more documentation on Android NDK, please check:
       #{prefix}/docs
     EOS
+  end
+
+  test do
+    (testpath/"test.c").write("int main() { return 0; }")
+    cc = Utils.popen_read("#{bin}/ndk-which gcc").strip
+    system cc, "-c", "test.c", "-o", "test"
   end
 end

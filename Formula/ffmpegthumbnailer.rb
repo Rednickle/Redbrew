@@ -1,16 +1,15 @@
 class Ffmpegthumbnailer < Formula
   desc "Create thumbnails for your video files"
   homepage "https://github.com/dirkvdb/ffmpegthumbnailer"
-  url "https://github.com/dirkvdb/ffmpegthumbnailer/archive/2.1.1.tar.gz"
-  sha256 "e43d8aae7e80771dc700b3d960a0717d5d28156684a8ddc485572cbcbc4365e9"
-  revision 1
+  url "https://github.com/dirkvdb/ffmpegthumbnailer/releases/download/2.1.2/ffmpegthumbnailer-2.1.2.tar.bz2"
+  sha256 "f536035c3f2c2455b3180559e3fb3082db275d9264565271053028221dc6d2cd"
   head "https://github.com/dirkvdb/ffmpegthumbnailer.git"
 
   bottle do
     cellar :any
-    sha256 "7865ae4c722196f8bb9700d4f36f875832cfd6d53e1adec4711b313e2c2d539d" => :el_capitan
-    sha256 "79a11e926a3333c7d310e1b04a3bdc6de539ab0db5bdb9e1ae68eecd0f8491c1" => :yosemite
-    sha256 "ff2f37d29fdcee104e219718ba94b53118b85b4b6cc862a55bb3885607957c71" => :mavericks
+    sha256 "f7dd9d286e2854cdaee94767a255f05141093b3ec3f8caf4264ffde081eb7974" => :el_capitan
+    sha256 "fd4a9d200943492c268220bfa775ed6bd26f5c116c7ff383c0fe2f5565a6733f" => :yosemite
+    sha256 "5c2e7827b8148d3c9009f4dd7e201b23dced73743299257e6fd16ad140faa06d" => :mavericks
   end
 
   depends_on "cmake" => :build
@@ -32,8 +31,11 @@ class Ffmpegthumbnailer < Formula
   end
 
   test do
-    system "#{bin}/ffmpegthumbnailer", "-i", test_fixtures("test.jpg"),
-      "-o", "out.jpg"
-    assert File.exist?(testpath/"out.jpg")
+    f = Formula["ffmpeg"].opt_bin/"ffmpeg"
+    png = test_fixtures("test.png")
+    system *%W[#{f} -loop 1 -i #{png} -c:v libx264 -t 30 -pix_fmt yuv420p v.mp4]
+    assert File.exist?("v.mp4"), "Failed to generate source video!"
+    system *%W[#{bin}/ffmpegthumbnailer -i v.mp4 -o out.jpg]
+    assert File.exist?("out.jpg"), "Failed to create thumbnail!"
   end
 end

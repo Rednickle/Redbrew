@@ -18,11 +18,11 @@ class Libmpc < Formula
   depends_on "mpfr"
 
   def install
-    args = [
-      "--prefix=#{prefix}",
-      "--disable-dependency-tracking",
-      "--with-gmp=#{Formula["gmp"].opt_prefix}",
-      "--with-mpfr=#{Formula["mpfr"].opt_prefix}"
+    args = %W[
+      --prefix=#{prefix}
+      --disable-dependency-tracking
+      --with-gmp=#{Formula["gmp"].opt_prefix}
+      --with-mpfr=#{Formula["mpfr"].opt_prefix}
     ]
 
     system "./configure", *args

@@ -102,7 +102,10 @@ class Python < Formula
   end
 
   def install
+    ENV.permit_weak_imports
+
     if OS.mac? && build.with?("poll")
+
       opoo "The given option --with-poll enables a somewhat broken poll() on OS X (https://bugs.python.org/issue5154)."
     end
 

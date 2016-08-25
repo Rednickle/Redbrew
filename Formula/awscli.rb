@@ -4,15 +4,14 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://files.pythonhosted.org/packages/8b/38/c3cb424d6117c1f096496ba6f26dd05635b6c5660ee4acef00369641f007/awscli-1.10.56.tar.gz"
-  sha256 "adbc8812e75f0be53c4a414aeb181be6838befcd2869427074e116cf0cc6f7a2"
+  url "https://files.pythonhosted.org/packages/6c/86/64d343393526bcfc6d3142ef0f9eab879d78383f5ffd0f43910519055ffa/awscli-1.10.59.tar.gz"
+  sha256 "270b8d7626f398e5867d777b75d16d0d48154d28e45dd309ac96597fa35c15f9"
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "bce9a139fa2a7d0d7d5d61a4eca3f0bc2f514b758cbb2fdbca9cba67b7d02a42" => :el_capitan
-    sha256 "5c8c58f7a9532b2ec01de2a9c846be2f78cde416eb5cba41be405347369de1c0" => :yosemite
-    sha256 "ca2356860c6c7cf3ad3f9ab014346e60cf199e6ab51a3b113376ad43f1231c3a" => :mavericks
+    sha256 "0eb2fe8272937674ec8c0f6a023e918e082ba76da51d34f16a18efa99203b4b5" => :el_capitan
+    sha256 "eebdc2bac588c3bee7ff8007599a65b3cf89b4cecadf30c27b7958216c093c6d" => :yosemite
+    sha256 "c3e10308f8c92c1647217d8c6ed29690f5a839835ea4697de52ae8b9662061d0" => :mavericks
   end
 
   head do
@@ -36,8 +35,8 @@ class Awscli < Formula
   depends_on :python if MacOS.version <= :lion
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/df/2b/c0dec83c2bccb9d0f1c3cc33dc4bd0752b76a2e4d30fb46061063cf3d7ea/botocore-1.4.46.tar.gz"
-    sha256 "844dbd090b4127678c25342635485c87d86bca4a4f8a7c2295d715f7c830700c"
+    url "https://files.pythonhosted.org/packages/55/9d/9f118d87220121bf3028317853236b1d2e6e27ba4600bf67a8bbf17a2bfe/botocore-1.4.49.tar.gz"
+    sha256 "c7804efb622f340593ae49cc552481f2820de2088199a0010d469cf0dfb94731"
   end
 
   resource "colorama" do
@@ -76,8 +75,8 @@ class Awscli < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/27/58/c3c67734ac87ef83fdffb6e1167531d584111232ad5e13b5514831a5de35/s3transfer-0.1.1.tar.gz"
-    sha256 "6b9131b704819b0e559a97eec373ff6cc8a9b258e4c8f58ad339650b5019f00f"
+    url "https://files.pythonhosted.org/packages/b1/04/27bfb9ceda7dad27c32cc6c260371d56d97b733fb4ad6fd5b01c1b75900a/s3transfer-0.1.2.tar.gz"
+    sha256 "779d0cd9aa30fa65c6e8da8dc203d165ef7aa6cab0b7faa502b850e6cb9236dc"
   end
 
   resource "six" do

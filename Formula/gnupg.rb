@@ -1,15 +1,14 @@
 class Gnupg < Formula
   desc "GNU Pretty Good Privacy (PGP) package"
   homepage "https://www.gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-1.4.20.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-1.4.20.tar.bz2"
-  sha256 "04988b1030fa28ddf961ca8ff6f0f8984e0cddcb1eb02859d5d8fe0fe237edcc"
-  revision 2
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-1.4.21.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-1.4.21.tar.bz2"
+  sha256 "6b47a3100c857dcab3c60e6152e56a997f2c7862c1b8b2b25adf3884a1ae2276"
 
   bottle do
-    sha256 "9becdec079dcfbae99917b30cf676c772b28e91c1a3fe6ea129b4071b25a26d4" => :el_capitan
-    sha256 "a5a80017b1d7f37ee88cd2d16b7b004d286259b48336f2073330ea42f8d2cc61" => :yosemite
-    sha256 "6f5ed43c01c4dbbd3b8b5787da018d4b3f4a66e7d39cfb39719e124d228e5760" => :mavericks
+    sha256 "3f38d8eda8e95d2561d788e4a4823686d0bf7e0fe2a40d3a62150c68e121cf7c" => :el_capitan
+    sha256 "b78cbae927f7cb72c9af535d6477222a23fcf649436a221f7b4b4ab59400d471" => :yosemite
+    sha256 "c557e753568c5582e79249324261a0d695f91c032660dd2554d6e73953bac417" => :mavericks
   end
 
   depends_on "curl" if MacOS.version <= :mavericks
@@ -43,7 +42,7 @@ class Gnupg < Formula
 
   def caveats; <<-EOS.undent
     This formula does not install either `gpg` or `gpgv` executables into
-    into the PATH.
+    the PATH.
 
     If you simply require `gpg` and `gpgv` executables without explicitly
     needing GnuPG 1.x we recommend:

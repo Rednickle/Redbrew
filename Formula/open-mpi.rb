@@ -1,14 +1,13 @@
 class OpenMpi < Formula
   desc "High performance message passing library"
   homepage "https://www.open-mpi.org/"
-  url "https://www.open-mpi.org/software/ompi/v1.10/downloads/openmpi-1.10.3.tar.bz2"
-  sha256 "7484bb664312082fd12edc2445b42362089b53b17fb5fce12efd4fe452cc254d"
+  url "https://www.open-mpi.org/software/ompi/v2.0/downloads/openmpi-2.0.0.tar.bz2"
+  sha256 "08b64cf8e3e5f50a50b4e5655f2b83b54653787bd549b72607d9312be44c18e0"
 
   bottle do
-    sha256 "9c16c39c8f018b2388d18ea22ca896a852304d319768561968af3ea9fa6162fd" => :el_capitan
-    sha256 "52468af526b700cb30d15297dba58307502e35e06c5d9358faf279c53e26fac4" => :yosemite
-    sha256 "cb47bf0d061ed913668bfe24718b6cb94eb0f2967c8a3866e434a80824ded971" => :mavericks
-    sha256 "f5ab4ff090bca548955209b441dedc2c9acaf163d7bf92e6291137a062bdfdaf" => :x86_64_linux
+    sha256 "88dfa37918addcd325007528c3d550e9a23ba3a66f833d16b32cf7b5be3779d4" => :el_capitan
+    sha256 "bc4fa208f068238b76cbecdfb98753aac52e1f66bf16853f46189c737d5f90b0" => :yosemite
+    sha256 "7448a3ede17b7da492423c79828490793dd7b78429273929a8399981004a79ea" => :mavericks
   end
 
   head do
@@ -18,11 +17,12 @@ class OpenMpi < Formula
     depends_on "libtool" => :build
   end
 
+  option "with-mpi-thread-multiple", "Enable MPI_THREAD_MULTIPLE"
+  option "with-cxx-bindings", "Enable C++ MPI bindings (deprecated as of MPI-3.0)"
+  option :cxx11
+
   deprecated_option "disable-fortran" => "without-fortran"
   deprecated_option "enable-mpi-thread-multiple" => "with-mpi-thread-multiple"
-
-  option "with-mpi-thread-multiple", "Enable MPI_THREAD_MULTIPLE"
-  option :cxx11
 
   depends_on :fortran => :recommended
   depends_on :java => :optional
@@ -46,6 +46,7 @@ class OpenMpi < Formula
     args << "--disable-mpi-fortran" if build.without? "fortran"
     args << "--enable-mpi-thread-multiple" if build.with? "mpi-thread-multiple"
     args << "--enable-mpi-java" if build.with? "java"
+    args << "--enable-mpi-cxx" if build.with? "cxx-bindings"
 
     system "./autogen.pl" if build.head?
     system "./configure", *args
@@ -57,12 +58,6 @@ class OpenMpi < Formula
     # (Fortran header) in `lib` that need to be moved to `include`.
     if build.with? "fortran"
       include.install Dir["#{lib}/*.mod"]
-    end
-
-    if build.stable?
-      # Move vtsetup.jar from bin to libexec.
-      libexec.install bin/"vtsetup.jar"
-      inreplace bin/"vtsetup", "$bindir/vtsetup.jar", "$prefix/libexec/vtsetup.jar"
     end
   end
 
@@ -84,9 +79,9 @@ class OpenMpi < Formula
         return 0;
       }
     EOS
-    system "#{bin}/mpicc", "hello.c", "-o", "hello"
+    system bin/"mpicc", "hello.c", "-o", "hello"
     system "./hello"
-    system "#{bin}/mpirun", "-np", "4", "./hello"
+    system bin/"mpirun", "-np", "4", "./hello"
     (testpath/"hellof.f90").write <<-EOS.undent
       program hello
       include 'mpif.h'
@@ -98,8 +93,8 @@ class OpenMpi < Formula
       call MPI_FINALIZE(ierror)
       end
     EOS
-    system "#{bin}/mpif90", "hellof.f90", "-o", "hellof"
+    system bin/"mpif90", "hellof.f90", "-o", "hellof"
     system "./hellof"
-    system "#{bin}/mpirun", "-np", "4", "./hellof"
+    system bin/"mpirun", "-np", "4", "./hellof"
   end
 end

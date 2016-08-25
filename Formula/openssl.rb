@@ -95,11 +95,10 @@ class Openssl < Formula
         opoo "Skipping `make check` due to unavailable `cmp`"
       end
 
-      if build.universal?
-        cp "include/openssl/opensslconf.h", dir
-        cp Dir["*.?.?.?.dylib", "*.a", "apps/openssl"], dir
-        cp Dir["engines/**/*.dylib"], "#{dir}/engines"
-      end
+      next unless build.universal?
+      cp "include/openssl/opensslconf.h", dir
+      cp Dir["*.?.?.?.dylib", "*.a", "apps/openssl"], dir
+      cp Dir["engines/**/*.dylib"], "#{dir}/engines"
     end
 
     system "make", "install", "MANDIR=#{man}", "MANSUFFIX=ssl"

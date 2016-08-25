@@ -16,10 +16,6 @@ class Coreutils < Formula
   option "with-default-names", "Do not prepend 'g' to the binary" if OS.linux?
   deprecated_option "default-names" => "with-default-names"
 
-  conflicts_with "ganglia", :because => "both install `gstat` binaries"
-  conflicts_with "idutils", :because => "both install `gid` and `gid.1`"
-  conflicts_with "aardvark_shell_utils", :because => "both install `realpath` binaries"
-
   head do
     url "git://git.sv.gnu.org/coreutils"
 
@@ -34,6 +30,10 @@ class Coreutils < Formula
   end
 
   depends_on "gmp" => :optional
+
+  conflicts_with "ganglia", :because => "both install `gstat` binaries"
+  conflicts_with "idutils", :because => "both install `gid` and `gid.1`"
+  conflicts_with "aardvark_shell_utils", :because => "both install `realpath` binaries"
 
   def install
     # Work around unremovable, nested dirs bug that affects lots of

@@ -55,6 +55,8 @@ class Go < Formula
   end
 
   def install
+    ENV.permit_weak_imports
+
     # Fix error: unknown relocation type 42; compiled without -fpic?
     # See https://github.com/Linuxbrew/linuxbrew/issues/1057
     ENV["CGO_ENABLED"] = "0" if OS.linux?

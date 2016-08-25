@@ -1,13 +1,13 @@
 class GstPluginsUgly < Formula
   desc "GStreamer plugins (well-supported, possibly problematic for distributors)"
   homepage "https://gstreamer.freedesktop.org/"
-  url "https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-1.8.2.tar.xz"
-  sha256 "9c5b33a2a98fc1d6d6c99a1b536b1fb2de45f53cc8bf8ab85a8b8141fed1a8ac"
+  url "https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-1.8.3.tar.xz"
+  sha256 "6fa2599fdd072d31fbaf50c34af406e2be944a010b1f4eab67a5fe32a0310693"
 
   bottle do
-    sha256 "398939cdc1731d76fbd85fd4cb70d823e9d86aba190eedfd24308e71b1f1ef75" => :el_capitan
-    sha256 "a988d99b7a3a6c896617923f9d779294c9ce31a715dd4aba3e874d8da3f7bdcb" => :yosemite
-    sha256 "fe5e6102fadea604a9663df3a96703137055d226d385181004e1ce71f4403332" => :mavericks
+    sha256 "b6ecf35ea61cac83275d43f10479459a4b2679aae4f09a52579c65001a39cf98" => :el_capitan
+    sha256 "cb93791fd100e84fd8fe2f08d433f074018cf2ce977267f8655ce70cc28669de" => :yosemite
+    sha256 "a94e5b415765f994266769754abc20f910880bf8eb71f51c84ee22335964f9d6" => :mavericks
   end
 
   head do

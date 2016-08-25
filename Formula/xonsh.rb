@@ -1,15 +1,16 @@
 class Xonsh < Formula
+  include Language::Python::Virtualenv
+
   desc "Python-ish, BASHwards-compatible shell language and command prompt"
   homepage "http://xon.sh"
-  url "https://github.com/xonsh/xonsh/archive/0.4.4.tar.gz"
-  sha256 "c029b831615ea4f5f032172c10bb08c472ceda669fa119e190233e045ea434d3"
+  url "https://github.com/xonsh/xonsh/archive/0.4.5.tar.gz"
+  sha256 "1887206a62fab7ed24088f0d00cf549c4a69d6bfd638bde516a43e8102470a3b"
   head "https://github.com/scopatz/xonsh.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "fd2d818066ffc5c1ab6bf650c0a678879d1eb7027846de7c2d57359944eea767" => :el_capitan
-    sha256 "fddc95ffaa18123dcf8601caf3393cc41b015e4caa89ef5e32d00ef7aa7c8cb8" => :yosemite
-    sha256 "ca5e7b8e4e0af43fbf0a695285fa2a2903d363b30cc347cad6803b5299a2b95b" => :mavericks
+    sha256 "a85d1a4414354de501d6889c0a4976126cd5ca0fcbddd352f87c5af0d075577e" => :el_capitan
+    sha256 "fc01919f818b245adf1ffda020cb78abc538b307ba4b9ed7f8bc351bfebce84e" => :yosemite
+    sha256 "a393e5202ea15888343b568d5d740a223221b6a909fb43f57c403e58e923e6c5" => :mavericks
   end
 
   depends_on :python3
@@ -20,17 +21,8 @@ class Xonsh < Formula
   end
 
   def install
-    version = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{version}/site-packages"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{version}/site-packages"
-
-    resource("ply").stage do
-      system "python3", *Language::Python.setup_install_args(libexec/"vendor")
-    end
-
-    system "python3", *Language::Python.setup_install_args(libexec)
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_create(libexec, "python3")
+    virtualenv_install_with_resources
   end
 
   test do

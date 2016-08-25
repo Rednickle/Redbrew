@@ -43,6 +43,7 @@ class Scons < Formula
       int main()
       {
         printf("Homebrew");
+        return 0;
       }
     EOS
     (testpath/"SConstruct").write "Program('test.c')"
