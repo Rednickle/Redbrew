@@ -5,6 +5,10 @@ class AlsaLib < Formula
   sha256 "d38dacd9892b06b8bff04923c380b38fb2e379ee5538935ff37e45b395d861d6"
   # tag "linuxbrew"
 
+  bottle do
+    sha256 "1adadace25e90c1dd8ae1253477868e85ba6f11668ed1c4624dcbc91f18ac499" => :x86_64_linux
+  end
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
