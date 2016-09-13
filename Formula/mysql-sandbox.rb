@@ -1,15 +1,15 @@
 class MysqlSandbox < Formula
   desc "Install one or more MySQL servers"
   homepage "http://mysqlsandbox.net"
-  url "https://github.com/datacharmer/mysql-sandbox/releases/download/3.1.13/MySQL-Sandbox-3.1.13.tar.gz"
-  sha256 "504b4e7d1c134759aebff607f8e8350f47e68ff5833f8ba28c4f72bb494e4525"
+  url "https://github.com/datacharmer/mysql-sandbox/archive/3.2.00.tar.gz"
+  sha256 "a9b06d13a773a5be544bc113b52517a2e18341e9ace749bd6f3713b85cbaff79"
   head "https://github.com/datacharmer/mysql-sandbox.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9455903a6ff6230ef1fd9ad4e68a682a279070456dbd77bbe0cb16ad2a292eca" => :el_capitan
-    sha256 "5584c1b21951293307553e2b98383d30ff96165b662914002d5218f00acd553a" => :yosemite
-    sha256 "fd5405c7d64a9fb2b459931953eab3333d4c84f87392b1ccd085c1761f40d169" => :mavericks
+    sha256 "64035c68f186826da58b7c5960589e472cb3a9a87c0708ec3f66851a4a51216c" => :el_capitan
+    sha256 "e7523eabf61bcd519c1d7d7faa7c28d28c562bb946594c37f6e1a22c2138a9d6" => :yosemite
+    sha256 "226208df982aa899b9835cf8938d40151d4e8256392098aba057b4211299f167" => :mavericks
   end
 
   def install

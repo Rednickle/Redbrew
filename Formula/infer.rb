@@ -2,18 +2,18 @@ class Infer < Formula
   desc "Static analyzer for Java, C and Objective-C"
   homepage "http://fbinfer.com/"
   if OS.mac?
-    url "https://github.com/facebook/infer/releases/download/v0.8.1/infer-osx-v0.8.1.tar.xz"
-    sha256 "0cd33936966fcb4761251279aa737ca07352fb8a8e864697a1d2cc5735c56ae7"
+    url "https://github.com/facebook/infer/releases/download/v0.9.2/infer-osx-v0.9.2.tar.xz"
+    sha256 "3935f8be25982a023aba306b66804d73a7316ab833296277c1ec6c3694bfc7c7"
   elsif OS.linux?
-    url "https://github.com/facebook/infer/releases/download/v0.8.1/infer-linux64-v0.8.1.tar.xz"
-    sha256 "7f75ae69d91fb9a8c43163f02a9b2a4919b8ebc42dfb2f729722201a0b18ea6b"
+    url "https://github.com/facebook/infer/releases/download/v0.9.2/infer-linux64-v0.9.2.tar.xz"
+    sha256 "5"
   end
 
   bottle do
     cellar :any
-    sha256 "feb6fd20c3d964ea19e52d3182819c10d133c9505e959c2758c58beeb0640ae1" => :el_capitan
-    sha256 "2dd905ed0bf9bf53195578d4b9b2d0e1902373cb8267f0ac38d08966d21668c7" => :yosemite
-    sha256 "9ef2468c8129a84032c543e87c125a4a7c0d453058abd1f11f46eff07b17a360" => :mavericks
+    sha256 "2b1dd1bdebf2550f01ad9c6d5e6ee463f24b740e28ece126787f2f08b2276818" => :el_capitan
+    sha256 "d65405a47ead42e33e751f33ba4766e90005ea0b59f7aeadf860828bfcf4a3ff" => :yosemite
+    sha256 "7ce4996fd1da93d8f325c3abb2bc6804fd5af12d09953f67f643fca5c6dc889e" => :mavericks
   end
 
   option "without-clang", "Build without C/Objective-C analyzer"
@@ -34,14 +34,12 @@ class Infer < Formula
     ENV["OPAMROOT"] = opamroot
     ENV["OPAMYES"] = "1"
 
-    system "opam", "init", "--no-setup"
-    system "opam", "update"
+    # Some of the libraries installed by ./build-infer.sh do not
+    # support parallel builds, eg OCaml itself. ./build-infer.sh
+    # builds in its own parallelization logic to mitigate that.
+    ENV.deparallelize
 
-    system "opam", "install", "ocamlfind"
-    system "opam", "install", "sawja>=1.5.1"
-    system "opam", "install", "atdgen>=1.6.0"
-    system "opam", "install", "extlib>=1.5.4"
-    system "opam", "install", "oUnit>=2.0.0"
+    ENV["INFER_CONFIGURE_OPTS"] = "--prefix=#{prefix} --disable-ocaml-annot --disable-ocaml-binannot"
 
     target_platform = if build.without?("clang")
       "java"
@@ -50,13 +48,9 @@ class Infer < Formula
     else
       "all"
     end
+
     system "./build-infer.sh", target_platform, "--yes"
-
-    rm "infer/tests/.inferconfig"
-    libexec.install "facebook-clang-plugins" if build.with?("clang")
-    libexec.install "infer"
-
-    bin.install_symlink libexec/"infer/bin/infer"
+    system "opam", "config", "exec", "--switch=infer-4.02.3", "--", "make", "install"
   end
 
   test do

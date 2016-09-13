@@ -18,6 +18,7 @@ class Ruby < Formula
   end
 
   bottle do
+    sha256 "b6c5bc13963494454101687611b4f35f2e7221addcf667af65a82aa3417d1b6c" => :sierra
     sha256 "e40f882e477f0e97c1650d952af368274f4df994ecca66db4b1146b56fbb4f24" => :el_capitan
     sha256 "f0dfef7b1f179d4a3f39a8bc910938f0c838dc9a7c5399d3a5dbb2367bd8ddbf" => :yosemite
     sha256 "6825cfee4ed3625d3b2c99d2de7ee22c59a70c0ea1efbf1883de966881ddf68b" => :mavericks
@@ -25,9 +26,9 @@ class Ruby < Formula
   end
 
   devel do
-    url "https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.0-preview1.tar.xz"
-    version "2.4.0-beta1"
-    sha256 "62942c7300727469fe3d2b43e5a5c772d4836cf624a1d644bdece2afaca472c8"
+    url "https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.0-preview2.tar.xz"
+    version "2.4.0-beta2"
+    sha256 "6c2d25bedc50c2f19b0e349f0ffd9b9a83000d9cb6a677bf5372fb493d33e16a"
   end
 
   head do

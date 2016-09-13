@@ -2,15 +2,15 @@ class Vim < Formula
   desc "Vi \"workalike\" with many additional features"
   homepage "http://www.vim.org/"
   # *** Vim should be updated no more than once every 7 days ***
-  url "https://github.com/vim/vim/archive/v7.4.2235.tar.gz"
-  sha256 "aa105201a8cf27550ac95e5e91daa8556ed8f52cc7e36f8c377ff3e2648f90cc"
+  url "https://github.com/vim/vim/archive/v8.0.0002.tar.gz"
+  sha256 "f74391256aa127b7c4002b5ec1f39a8026f6c9f22abab9b062ecd280dd2afd27"
   head "https://github.com/vim/vim.git"
 
   bottle do
-    sha256 "6dee3364f96bbea8e329943933bfb9dd8eeee71b7592d427a68e33d637c7ddb9" => :el_capitan
-    sha256 "e14090bcc82ba5d2ca9b72283d73d16de0c1015c115aa395c26b7203ba5e609e" => :yosemite
-    sha256 "7284c73bb0e82984a8872fc150dcaadd6803fa2ab72948650c479c25e91cc45a" => :mavericks
-    sha256 "c47d3c8a704e53879c4a4260928d93fef2f7b2d8f80d4467597a1c120b49550d" => :x86_64_linux
+    sha256 "ee5958445dbe53b31b0d72be34c53163be57bfc19037da87d2769fe41ccc8d1c" => :sierra
+    sha256 "f1d2d6e9755888a50af571ed189592fe3f69108484586968ca6ce4cb628e4991" => :el_capitan
+    sha256 "2846b30fb6e29a2d5c5228a6f826d1c6547772f2e49cdfd12a84e2fc24eec53b" => :yosemite
+    sha256 "a112fc4c629a08b65da012e915e092fc1fa468c8d0e4327491a593453ff89c5e" => :mavericks
   end
 
   deprecated_option "disable-nls" => "without-nls"
@@ -44,7 +44,6 @@ class Vim < Formula
   depends_on "lua" => :optional
   depends_on "luajit" => :optional
   depends_on :x11 if build.with? "client-server"
-  depends_on "homebrew/dupes/ncurses" unless OS.mac?
 
   conflicts_with "ex-vi",
     :because => "vim and ex-vi both install bin/ex and bin/view"
@@ -104,10 +103,13 @@ class Vim < Formula
                           "--with-compiledby=Homebrew",
                           *opts
     system "make"
+    # Parallel install could miss some symlinks
+    # https://github.com/vim/vim/issues/1031
+    ENV.deparallelize
     # If stripping the binaries is enabled, vim will segfault with
     # statically-linked interpreters like ruby
     # https://github.com/vim/vim/issues/114
-    system "make", "install", "prefix=#{prefix}", "STRIP=true"
+    system "make", "install", "prefix=#{prefix}", "STRIP=#{which "true"}"
     bin.install_symlink "vim" => "vi" if build.with? "override-system-vi"
   end
 

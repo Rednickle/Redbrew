@@ -1,14 +1,14 @@
 class Hyperscan < Formula
   desc "High-performance regular expression matching library"
   homepage "https://01.org/hyperscan"
-  url "https://github.com/01org/hyperscan/archive/v4.3.0.tar.gz"
-  sha256 "842527a578f58e4a8e441e6adbfd3a43667399125913ed5df20c72b94c9ccad7"
+  url "https://github.com/01org/hyperscan/archive/v4.3.1.tar.gz"
+  sha256 "a7bce1287c06d53d1fb34266d024331a92ee24cbb2a7a75061b4ae50a30bae97"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fce72d370fd54c6ebbd734dc8fb0f416279f866efe7d50f286a80c5ad92a901c" => :el_capitan
-    sha256 "f22c23824462f248d10e9ef1a92ab0284b7acdd078f722d55fe0e314bbdab83f" => :yosemite
-    sha256 "a1c74aabd1ee0f2539c23b324cc2360528d25d77a5cd5d223e2db3d71e8574b3" => :mavericks
+    sha256 "98c09016eae2cd8ac7b757efd97dc13b25577d993b5c2a33892ba07060d38834" => :el_capitan
+    sha256 "51a0f38350e24d8c45e39504c604e2af3b4cbfa8d3db339864cc84cf19366edb" => :yosemite
+    sha256 "10d6c0f07c56d706c8c568963e937fa96bdcd7d2117cadb64046210c8b1235ab" => :mavericks
   end
 
   option "with-debug", "Build with debug symbols"

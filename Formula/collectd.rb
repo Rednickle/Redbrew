@@ -3,15 +3,15 @@ class Collectd < Formula
   homepage "https://collectd.org/"
 
   stable do
-    url "https://collectd.org/files/collectd-5.5.2.tar.bz2"
+    url "https://collectd.org/files/collectd-5.6.0.tar.bz2"
     mirror "http://pkgs.fedoraproject.org/repo/pkgs/collectd/collectd-5.5.2.tar.bz2/40b83343f72089e0330f53965f1140bd/collectd-5.5.2.tar.bz2"
-    sha256 "017f3a4062187e594d8ab6af685655fb82a8a942dc574668e68242bdb8ba820f"
+    sha256 "f0ffbbd91fac3682bd324a74b9b4c9eabe781394b303b5cfd457c4cfbe748623"
   end
 
   bottle do
-    sha256 "c900ddfddd81a599628c62953aaff0aa1b9de38e6f2e239d0c4d702cccb76103" => :el_capitan
-    sha256 "44cfb6fca258823ba87f153991bed68ea1b7618381048982cef9745ce739db6a" => :yosemite
-    sha256 "da6ca2835f8eafb1515300e46a871bd008d1446e390cdae5bb65f2c2030eb33d" => :mavericks
+    sha256 "2242b0eb2d8d3084a00645de928918258ee834b2e12e732f20232aea579daf6d" => :el_capitan
+    sha256 "7f379ca2df5e5692074bf9b31cd5e9c9fccccb78da3e3f007b420e2feda725a5" => :yosemite
+    sha256 "cead1ed09197cd8f504203d46aeb9e152f44e455d85add5f66123a5dab730b4a" => :mavericks
   end
 
   head do
@@ -32,7 +32,7 @@ class Collectd < Formula
   depends_on "pkg-config" => :build
   depends_on "protobuf-c" => :optional
   depends_on :java => :optional
-  depends_on "openssl"
+  depends_on "net-snmp"
 
   fails_with :clang do
     build 318

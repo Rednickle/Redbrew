@@ -1,15 +1,15 @@
 class Planck < Formula
   desc "Stand-alone ClojureScript REPL"
   homepage "http://planck-repl.org/"
-  url "https://github.com/mfikes/planck/archive/1.16.tar.gz"
-  sha256 "fca6e97ff8b59b6fc36a54798fcb6323ccc56a2dc44b7656eea9d0633fad35fb"
+  url "https://github.com/mfikes/planck/archive/1.17.tar.gz"
+  sha256 "f088acecc25412f901b512478d9fd5acf38c1ff0276f18d45f78ad9a5ce37596"
   head "https://github.com/mfikes/planck.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5ffbf5a9439d756896b01d09951d35c10ebc5db1eb711e4316d8e317f757435c" => :el_capitan
-    sha256 "1b2944dc62383551126f4584e4b977644de642b3ed19dd2a7199b453c5935846" => :yosemite
-    sha256 "446f24b245d33c54c8d5c2c4362c9d70091433500db72fd4f5f0954158e91586" => :mavericks
+    sha256 "338db78620d60b90ee0ab18b32873a1b17782948c57d5cfc074d3e902380013e" => :el_capitan
+    sha256 "4544586aa9c310f34060dba25a4cd558aa70c1863f5303aae8ed7c7602d110d9" => :yosemite
+    sha256 "237e29161849ae72add25713a1e6ce3d3aab357f887cd4864fe10bdde266be35" => :mavericks
   end
 
   depends_on "leiningen" => :build
@@ -22,6 +22,6 @@ class Planck < Formula
   end
 
   test do
-    system "#{bin}/planck", "-e", "(- 1 1)"
+    assert_equal "0", shell_output("#{bin}/planck -e '(- 1 1)'").chomp
   end
 end

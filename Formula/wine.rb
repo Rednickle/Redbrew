@@ -37,15 +37,16 @@ class Wine < Formula
   end
 
   bottle do
+    sha256 "39d8f41347724bfa33cc71d5ffe7439b42258a5f5129a61624d51d778aec6f60" => :sierra
     sha256 "5f09c0c48299895929a2816ddef0c7d430d9ae36b617996be99330a24f290dc1" => :el_capitan
     sha256 "d7923a5b6f57c9410ac63f03b2769f832f69413f7db7268dc57be6968541394e" => :yosemite
     sha256 "e1594c0d42c14a01b422b3c657aa93dc066a78b8f03e9864a1a3e761bf13a583" => :mavericks
   end
 
   devel do
-    url "https://dl.winehq.org/wine/source/1.9/wine-1.9.17.tar.bz2"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-1.9.17.tar.bz2"
-    sha256 "6e1ee9dc2f3a11d529dc0133c4c0afb9e6e5440e1f34463faefeb9e55cc60ecf"
+    url "https://dl.winehq.org/wine/source/1.9/wine-1.9.18.tar.bz2"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-1.9.18.tar.bz2"
+    sha256 "26614baa0daac5a0953c04590f187559e5edc314cb34491322f280b34f3268d8"
   end
 
   # note that all wine dependencies should declare a --universal option in their formula,

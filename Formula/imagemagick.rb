@@ -4,26 +4,28 @@ class Imagemagick < Formula
   # Please always keep the Homebrew mirror as the primary URL as the
   # ImageMagick site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://dl.bintray.com/homebrew/mirror/imagemagick-6.9.5-7.tar.xz"
-  mirror "https://www.imagemagick.org/download/ImageMagick-6.9.5-7.tar.xz"
-  sha256 "c5f527ab5936527a23d9da2d80ebed906302f476908235ee2b31790dfd665901"
+  url "https://dl.bintray.com/homebrew/mirror/imagemagick-6.9.5-9.tar.xz"
+  mirror "https://www.imagemagick.org/download/ImageMagick-6.9.5-9.tar.xz"
+  sha256 "9c4f300daae165a6bcf46779876f9361a958076f8cd59fa203d84c70ba5bc183"
+  revision 2
   head "http://git.imagemagick.org/repos/ImageMagick.git"
 
   bottle do
-    sha256 "1ab79cc208de98a8039926530cf93abada1aa37e360c2ef32fdbb3c815ef0df8" => :el_capitan
-    sha256 "05d72b9c0ce5ff45d0fb7196e58dc7ae254da2d0328c806b2960b4176084abd1" => :yosemite
-    sha256 "73c544e0d4c2a6316208017cd6e5e9f0cbc82bf3765608c795731f900f3531fa" => :mavericks
-    sha256 "3b801a7dc134bc93bab87e0c9f756e5cb8c8c26f03026ff43f1fa06b7a671d55" => :x86_64_linux
+    rebuild 1
+    sha256 "7f1ec22c4f3b4c2009428dad10871895e5f8075d393c4d2551b691bfa6947119" => :sierra
+    sha256 "5eb7338070689b2dde5b4de8ddc7b55d1cbc7ee8792870b8e1d8b6f2309601c2" => :el_capitan
+    sha256 "fa331f258fe8101458c51b87a76a04843887ba422690e0f8266b4081a087a423" => :yosemite
+    sha256 "2fedf1adfdb40822b48100d0b6c22d8bc172578a5665c0ce98db1dade9833f00" => :mavericks
   end
 
   option "with-fftw", "Compile with FFTW support"
   option "with-hdri", "Compile with HDRI support"
+  option "with-opencl", "Compile with OpenCL support"
   option "with-openmp", "Compile with OpenMP support"
   option "with-perl", "Compile with PerlMagick"
   option "with-quantum-depth-8", "Compile with a quantum depth of 8 bit"
   option "with-quantum-depth-16", "Compile with a quantum depth of 16 bit"
   option "with-quantum-depth-32", "Compile with a quantum depth of 32 bit"
-  option "without-opencl", "Disable OpenCL"
   option "without-magick-plus-plus", "disable build/install of Magick++"
   option "without-modules", "Disable support for dynamically loadable modules"
   option "without-threads", "Disable threads support"
@@ -77,6 +79,12 @@ class Imagemagick < Formula
       args << "--with-modules"
     end
 
+    if build.with? "opencl"
+      args << "--enable-opencl"
+    else
+      args << "--disable-opencl"
+    end
+
     if build.with? "openmp"
       args << "--enable-openmp"
     else
@@ -95,7 +103,6 @@ class Imagemagick < Formula
       args << "--without-openjp2"
     end
 
-    args << "--disable-opencl" if build.without? "opencl"
     args << "--without-gslib" if build.without? "ghostscript"
     args << "--with-perl" << "--with-perl-options='PREFIX=#{prefix}'" if build.with? "perl"
     args << "--with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts" if build.without? "ghostscript"
@@ -134,6 +141,11 @@ class Imagemagick < Formula
   end
 
   test do
-    system "#{bin}/identify", test_fixtures("test.png")
+    assert_match "PNG", shell_output("#{bin}/identify #{test_fixtures("test.png")}")
+    # Check support for recommended features and delegates.
+    features = shell_output("#{bin}/convert -version")
+    %W[Modules freetype jpeg png tiff].each do |feature|
+      assert_match feature, features
+    end
   end
 end

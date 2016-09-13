@@ -5,6 +5,7 @@ class GdkPixbuf < Formula
   sha256 "d55e5b383ee219bd0e23bf6ed4427d56a7db5379729a6e3e0a0e0eba9a8d8879"
 
   bottle do
+    sha256 "91974aef8170debec8ebfbebd0e534ee729ec9316392257452283972e53bb1e3" => :sierra
     sha256 "2457c164f46d315b58ed69358973c78139af3422205f7376a777d16e43ceb7da" => :el_capitan
     sha256 "15096f218ea453b77ae40d88752610742d78d199b2b90fa1c5323eeb547dd394" => :yosemite
     sha256 "57cc04ff998e51dc3004656c2f44cf2820d5002cfdc18f7a7dc6e04e674315ab" => :mavericks
@@ -77,19 +78,30 @@ class GdkPixbuf < Formula
     (lib/"gdk-pixbuf-#{gdk_so_ver}/#{gdk_module_ver}/loaders.cache").unlink
   end
 
+  # Where we want to store the loaders.cache file, which should be in a
+  # Keg-specific lib directory, not in the global Homebrew lib directory
+  def module_file
+    "#{lib}/gdk-pixbuf-#{gdk_so_ver}/#{gdk_module_ver}/loaders.cache"
+  end
+
+  # The directory that loaders.cache gets linked into, also has the "loaders"
+  # directory that is scanned by gdk-pixbuf-query-loaders in the first place
+  def module_dir
+    "#{HOMEBREW_PREFIX}/lib/gdk-pixbuf-#{gdk_so_ver}/#{gdk_module_ver}"
+  end
+
   def post_install
-    # Change the version directory below with any future update
-    if build.with?("relocations") || HOMEBREW_PREFIX.to_s != "/usr/local"
-      ENV["GDK_PIXBUF_MODULE_FILE"]="#{lib}/gdk-pixbuf-#{gdk_so_ver}/#{gdk_module_ver}/loaders.cache"
-      ENV["GDK_PIXBUF_MODULEDIR"]="#{HOMEBREW_PREFIX}/lib/gdk-pixbuf-#{gdk_so_ver}/#{gdk_module_ver}/loaders"
-    end
+    ENV["GDK_PIXBUF_MODULE_FILE"] = module_file
+    ENV["GDK_PIXBUF_MODULEDIR"] = "#{module_dir}/loaders"
     system "#{bin}/gdk-pixbuf-query-loaders", "--update-cache"
+    # Link newly created module_file into global gdk-pixbuf directory
+    ln_sf module_file, module_dir
   end
 
   def caveats; <<-EOS.undent
     Programs that require this module need to set the environment variable
-      export GDK_PIXBUF_MODULE_FILE="#{lib}/gdk-pixbuf-#{gdk_so_ver}/#{gdk_module_ver}/loaders.cache"
-      export GDK_PIXBUF_MODULEDIR="#{HOMEBREW_PREFIX}/lib/gdk-pixbuf-#{gdk_so_ver}/#{gdk_module_ver}/loaders"
+      export GDK_PIXBUF_MODULE_FILE="#{module_file}"
+      export GDK_PIXBUF_MODULEDIR="#{module_dir}/loaders"
     If you need to manually update the query loader cache, set these variables then run
       #{bin}/gdk-pixbuf-query-loaders --update-cache
     EOS

@@ -1,18 +1,23 @@
 class GstPluginsGood < Formula
   desc "GStreamer plugins (well-supported, under the LGPL)"
   homepage "https://gstreamer.freedesktop.org/"
+  revision 1
 
   stable do
     url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.8.3.tar.xz"
     sha256 "a1d6579ba203a7734927c24b90bf6590d846c5a5fcec01a48201018c8ad2827a"
 
+    # Fix build on Sierra. https://bugzilla.gnome.org/show_bug.cgi?id=770526
+    # Unlike upstream commit, don't touch Makefile.am.
+    patch :DATA
+
     depends_on "check" => :optional
   end
 
   bottle do
-    sha256 "dc7c5a95afec9579d3f52083a1c0f69bd8580762376fca494823168a70ccf975" => :el_capitan
-    sha256 "907528481b4134d32c35b090108c94555e364fe7bcdfe56c65e504cdea4bdaa0" => :yosemite
-    sha256 "637c886c5a565c107146e855453a069f11f6b30cfaa4f991f382ce594418b136" => :mavericks
+    sha256 "5e6bf6bbb342160ff6fdd31133b885a77574b201e5ffdcd69f4234e3ae493be5" => :el_capitan
+    sha256 "382137a757d26549d2a7da215e44fd71244a89e4a33b1c84c7f7182827d41b3c" => :yosemite
+    sha256 "91c6a4ef3a2801d1843e4170e39d40281cdf9c24c34363fee4fb8e3e4d8e8cea" => :mavericks
   end
 
   head do
@@ -34,12 +39,12 @@ class GstPluginsGood < Formula
   # Dependencies based on the intersection of
   # https://cgit.freedesktop.org/gstreamer/gst-plugins-good/tree/REQUIREMENTS
   # and Homebrew formulae.
+  depends_on "jpeg" => :recommended
   depends_on "orc" => :recommended
   depends_on "gdk-pixbuf" => :optional
   depends_on "aalib" => :optional
   depends_on "cairo" => :optional
   depends_on "flac" => [:optional, "with-libogg"]
-  depends_on "jpeg" => :optional
   depends_on "libcaca" => :optional
   depends_on "libdv" => :optional
   depends_on "libpng" => :optional
@@ -74,7 +79,9 @@ class GstPluginsGood < Formula
     # Upstream says it hasn't "been actively tested in a long time";
     # successor is glimagesink (in gst-plugins-bad).
     # https://bugzilla.gnome.org/show_bug.cgi?id=756918
-    args << "--disable-osx_video" if MacOS.version == :snow_leopard
+    if MacOS.version == :snow_leopard
+      args << "--disable-osx_video"
+    end
 
     if build.head?
       ENV["NOCONFIGURE"] = "yes"
@@ -92,3 +99,29 @@ class GstPluginsGood < Formula
     assert_match version.to_s, output
   end
 end
+
+__END__
+diff --git a/sys/osxvideo/cocoawindow.h b/sys/osxvideo/cocoawindow.h
+index 9355d3c..816f1bb 100644
+--- a/sys/osxvideo/cocoawindow.h
++++ b/sys/osxvideo/cocoawindow.h
+@@ -27,7 +27,6 @@
+  */
+ 
+ #import <Cocoa/Cocoa.h>
+-#import <QuickTime/QuickTime.h>
+ #import <glib.h>
+ #import <gst/video/navigation.h>
+ 
+diff --git a/sys/osxvideo/osxvideosink.h b/sys/osxvideo/osxvideosink.h
+index 2bf5d25..d467b0e 100644
+--- a/sys/osxvideo/osxvideosink.h
++++ b/sys/osxvideo/osxvideosink.h
+@@ -35,7 +35,6 @@
+ #include <objc/runtime.h>
+ #include <Cocoa/Cocoa.h>
+ 
+-#include <QuickTime/QuickTime.h>
+ #import "cocoawindow.h"
+ 
+ GST_DEBUG_CATEGORY_EXTERN (gst_debug_osx_video_sink);

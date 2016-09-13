@@ -1,8 +1,8 @@
 class Artifactory < Formula
   desc "Manages binaries"
   homepage "https://www.jfrog.com/artifactory/"
-  url "https://dl.bintray.com/jfrog/artifactory/jfrog-artifactory-oss-4.11.2.zip"
-  sha256 "d765046bca9debf7bf1bdac391846fa767c9671ba95b2aeb32c7c73a88f42c33"
+  url "https://dl.bintray.com/jfrog/artifactory/jfrog-artifactory-oss-4.12.1.zip"
+  sha256 "30dfa6cb9e5b1b8beb917fa7aacd76b54882d054edcc7a1b77761e3bef03bd82"
 
   bottle :unneeded
 
@@ -67,6 +67,6 @@ class Artifactory < Formula
   end
 
   test do
-    assert_match /Checking arguments to Artifactory/, pipe_output("#{bin}/artifactory.sh check")
+    assert_match "Checking arguments to Artifactory", pipe_output("#{bin}/artifactory.sh check")
   end
 end

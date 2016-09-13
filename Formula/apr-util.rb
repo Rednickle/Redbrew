@@ -3,12 +3,12 @@ class AprUtil < Formula
   homepage "https://apr.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=apr/apr-util-1.5.4.tar.bz2"
   sha256 "a6cf327189ca0df2fb9d5633d7326c460fe2b61684745fd7963e79a6dd0dc82e"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 "554fcbcfe8247cbb3fea43679eaaf085b9dc8d5d39476db7c5e4b1fa6957316c" => :el_capitan
-    sha256 "21dcb678c086d3f79d2971d7546c8cd501128d1d0954eb83e8fc608146cd779f" => :yosemite
-    sha256 "fb8a18dac802ff2e407ee486f900007e21720da0e0434145ac419afbd6da7c4d" => :mavericks
+    sha256 "528b07e8938a0ad7794778f020773a099b569f14e301b90362f91c9944777408" => :el_capitan
+    sha256 "5bb93452578f116f36abef059e3869f25d89315b11685d8a4c726e4133680311" => :yosemite
+    sha256 "b615ab8f1080457550fd2fc4e68e5e1d9bd28fc8341aae1bf84fdbfa0420ea29" => :mavericks
   end
 
   keg_only :provided_by_osx, "Apple's CLT package contains apr."
@@ -49,10 +49,12 @@ class AprUtil < Formula
     system "make"
     system "make", "install"
     bin.install_symlink Dir["#{libexec}/bin/*"]
-    lib.install_symlink Dir["#{libexec}/lib/*.so*"] unless OS.mac?
+
+    # No need for this to point to the versioned path.
+    inreplace libexec/"bin/apu-1-config", libexec, opt_libexec
   end
 
   test do
-    system "#{bin}/apu-1-config", "--link-libtool", "--libs"
+    assert_match opt_libexec.to_s, shell_output("#{bin}/apu-1-config --prefix")
   end
 end

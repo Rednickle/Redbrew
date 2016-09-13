@@ -1,15 +1,15 @@
 class Szl < Formula
   desc "Compiler and runtime for the Sawzall language"
-  homepage "https://code.google.com/p/szl/"
-  url "https://szl.googlecode.com/files/szl-1.0.tar.gz"
+  homepage "https://code.google.com/archive/p/szl/"
+  url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/szl/szl-1.0.tar.gz"
   sha256 "af5c647276fd0dea658eae6016957b7ad09ac68efe13ae2a3c867043b5889f87"
-  revision 7
+  revision 8
 
   bottle do
     cellar :any
-    sha256 "9f588bd273ba85830ee3c7febd6ee1179bb07491e31ae044f8d0be3dde87c80a" => :el_capitan
-    sha256 "e06d0ff32258281931e49c1b1eb3e1ed03cde553ffbc7975180149e0d5ef2b31" => :yosemite
-    sha256 "3cae7aa8a919c987ce0402f02e966fc6c01bd43f02763ae9994c58d3139e2dbf" => :mavericks
+    sha256 "0589a4de79868fed202efa47750154a236763bcb0e49597cbf524a36db01ae8d" => :el_capitan
+    sha256 "32fbf94eab483b16311c9d12640d51aeafd7c28898d53437b40ff5759d192f98" => :yosemite
+    sha256 "44060a3952401c38c46b7d4cdb22d975cff21b1bbf999a651f45034ab74f7f6f" => :mavericks
   end
 
   depends_on :macos => :mavericks
@@ -22,9 +22,9 @@ class Szl < Formula
 
   # 10.9 and clang fixes
   # Include reported upstream in:
-  # https://code.google.com/p/szl/issues/detail?id=28
+  # https://code.google.com/archive/p/szl/issues/detail?id=28
   # Clang issue reported upstream in:
-  # https://code.google.com/p/szl/issues/detail?id=34
+  # https://code.google.com/archive/p/szl/issues/detail?id=34
   patch :DATA
 
   def install

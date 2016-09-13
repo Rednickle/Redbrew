@@ -1,19 +1,22 @@
 class Mpv < Formula
-  desc "Free, open source, and cross-platform media player"
+  desc "Media player based on MPlayer and mplayer2"
   homepage "https://mpv.io"
-  url "https://github.com/mpv-player/mpv/archive/v0.19.0.tar.gz"
-  sha256 "3df5811942cd1d71f48eb4720092fdafec11885bf6dd6d1d3e6413f32e5d67e2"
+  url "https://github.com/mpv-player/mpv/archive/v0.20.0.tar.gz"
+  sha256 "fe6ec9d2ded5ce84b963f54b812d579d04f944f4a737f3ae639c4d5d9e842b56"
   head "https://github.com/mpv-player/mpv.git"
 
   bottle do
-    sha256 "880c2b4e08dff0a4f6bcd42a016c0b165381858049b8d4fdcd1040d6521b4677" => :el_capitan
-    sha256 "cdb9ce5f3168c3c2674c2359098da88ed94100b5f069057d54d100bcf084a255" => :yosemite
-    sha256 "96ee4ed9bcbea583622985989da917d5312f27c9bab3a1759e09d33f71601ca8" => :mavericks
+    rebuild 1
+    sha256 "7860cc7b7ca8b8e308d46b242baff6a5d85641e35e654ccfe6e62dfb560d3979" => :sierra
+    sha256 "89cda2b8a94622ab29c52ba903ad84164a5ac5c0d212e9ebe22e23f0093b568d" => :el_capitan
+    sha256 "556f02d539e927f559e33ceb25436b930bebcfd775e7203062d405e806ae6db9" => :yosemite
+    sha256 "96173d039e1ae0329d24a628c8775b02f2c7791190015c650b021d611046d1b7" => :mavericks
   end
 
   option "with-bundle", "Enable compilation of the .app bundle."
 
   depends_on "pkg-config" => :build
+  depends_on "docutils" => :build
   depends_on :python3
 
   depends_on "libass"
@@ -41,25 +44,11 @@ class Mpv < Formula
     sha256 "7abb4fbe61d12b8ef6a3163653536da7ee31709299d8f17400d71a43247cea81"
   end
 
-  resource "docutils" do
-    url "https://files.pythonhosted.org/packages/37/38/ceda70135b9144d84884ae2fc5886c6baac4edea39550f28bcd144c1234d/docutils-0.12.tar.gz"
-    sha256 "c7db717810ab6965f66c8cf0398a98c9d8df982da39b4cd7f162911eb89596fa"
-  end
-
   def install
     # LANG is unset by default on osx and causes issues when calling getlocale
     # or getdefaultlocale in docutils. Force the default c/posix locale since
     # that's good enough for building the manpage.
     ENV["LC_ALL"] = "C"
-
-    version = Language::Python.major_minor_version("python3")
-    ENV.prepend_create_path "PKG_CONFIG_PATH", Pathname.new(`python3-config --prefix`.chomp)/"lib/pkgconfig"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{version}/site-packages"
-    ENV.prepend_create_path "PATH", libexec/"bin"
-    resource("docutils").stage do
-      system "python3", *Language::Python.setup_install_args(libexec)
-    end
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
 
     args = %W[
       --prefix=#{prefix}

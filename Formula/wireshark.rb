@@ -1,16 +1,16 @@
 class Wireshark < Formula
   desc "Graphical network analyzer and capture tool"
   homepage "https://www.wireshark.org"
-  url "https://www.wireshark.org/download/src/all-versions/wireshark-2.0.5.tar.bz2"
-  mirror "https://1.eu.dl.wireshark.org/src/wireshark-2.0.5.tar.bz2"
-  sha256 "0ce0241330828973f5b4efee422a3760cab8ce0b41e7721c4b9fd185be1bb10b"
-
+  url "https://www.wireshark.org/download/src/all-versions/wireshark-2.2.0.tar.bz2"
+  mirror "https://1.eu.dl.wireshark.org/src/wireshark-2.2.0.tar.bz2"
+  sha256 "a6847e741efcba6cb9d92d464d4219917bee3ad0b8f5b0f80d4388ad2f3f1104"
   head "https://code.wireshark.org/review/wireshark", :using => :git
 
   bottle do
-    sha256 "0a9f98451f8ba2d167c9e75692794e4eced5181ae61cf8db349e371ff0061bc2" => :el_capitan
-    sha256 "2f6c421f4f9e8aff005d0cf0dbfc3c68b2114189b85fda10d7461b151ac1fa9d" => :yosemite
-    sha256 "54e3add2e9631aa400bca0f06a9952dc16d620a2db3a21f1bb450e94c3f8f493" => :mavericks
+    sha256 "04c0880af27eee0428976b41562124d9f9a0aef272acb828f05aa385c31c611e" => :sierra
+    sha256 "5e77ac492f7146ebff283f0b961acb9de635b2e7d6efe99dfc2cd4e93c5fbb74" => :el_capitan
+    sha256 "58a167ab8fbfac9ff1bb00308f69126e81a521d8f323fd32ebd40fab854edb92" => :yosemite
+    sha256 "3eddd00e09ebc603032ae4732b469bf4cee45bf3c90c99aa11292e989a6b7d7e" => :mavericks
   end
 
   option "with-gtk+3", "Build the wireshark command with gtk+3"
@@ -37,8 +37,8 @@ class Wireshark < Formula
   depends_on "gnome-icon-theme" if build.with? "gtk+3"
 
   resource "libpcap" do
-    url "http://www.tcpdump.org/release/libpcap-1.7.4.tar.gz"
-    sha256 "7ad3112187e88328b85e46dce7a9b949632af18ee74d97ffc3f2b41fe7f448b0"
+    url "http://www.tcpdump.org/release/libpcap-1.8.0.tar.gz"
+    sha256 "f47b51533f9f060afb304010ea5cbf51d032707333bca70c36351d255754659c"
   end
 
   def install
@@ -68,7 +68,7 @@ class Wireshark < Formula
 
     if build.with?("gtk+3") || build.with?("gtk+")
       args << "-DBUILD_wireshark_gtk=ON"
-      args << "-DENABLE_GTK3=" + ((build.with? "gtk+3") ? "ON" : "OFF")
+      args << "-DENABLE_GTK3=" + (build.with?("gtk+3") ? "ON" : "OFF")
       args << "-DENABLE_PORTAUDIO=ON" if build.with? "portaudio"
     else
       args << "-DBUILD_wireshark_gtk=OFF"

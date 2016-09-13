@@ -3,20 +3,26 @@ class NanopbGenerator < Formula
   homepage "https://koti.kapsi.fi/jpa/nanopb/docs/index.html"
   url "https://koti.kapsi.fi/~jpa/nanopb/download/nanopb-0.3.6.tar.gz"
   sha256 "3e6d5d4971dc11845261ddca7e1c67b96eabf95e839327c7d8ed6f07412edab7"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "84c58951d13ba3ee539a974eae708cba1664a465c9b16b8c090c1deb0fc1cadf" => :el_capitan
-    sha256 "2838a4577ba53da5b2be82440f912521f915d1d78cef51a8c84c3db60dd7f132" => :yosemite
-    sha256 "a1cf0c0fa4d73962040030998380e0840f97fdd51e3b11c2ae146124bc103add" => :mavericks
+    sha256 "8cf34bd08291c4d9baea1c052b36a60a815faa8e507bcae6003d295878dafdfd" => :el_capitan
+    sha256 "514208bb4b9292a232bd51f76dca1d8a6be230b2d8d4b50ee37e01cd05baf39e" => :yosemite
+    sha256 "e03430f36c4225535017d0600637d99e68aad20d55c58cae7f86f2961fc6e433" => :mavericks
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "protobuf"
 
   resource "protobuf-python" do
-    url "https://pypi.python.org/packages/source/p/protobuf/protobuf-2.6.0.tar.gz"
-    sha256 "b1556c5e9cca9069143b41312fd45d0d4785ca0cab682b2624195a6bc4ec296f"
+    url "https://pypi.python.org/packages/14/3e/56da1ecfa58f6da0053a523444dff9dfb8a18928c186ad529a24b0e82dec/protobuf-3.0.0.tar.gz"
+    sha256 "ecc40bc30f1183b418fe0ec0c90bc3b53fa1707c4205ee278c6b90479e5b6ff5"
+  end
+
+  resource "six" do
+    url "https://pypi.python.org/packages/source/s/six/six-1.10.0.tar.gz"
+    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
   end
 
   def install

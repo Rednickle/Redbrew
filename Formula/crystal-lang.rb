@@ -1,37 +1,14 @@
 class CrystalLang < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
-  revision 1
-
+  url "https://github.com/crystal-lang/crystal/archive/0.19.1.tar.gz"
+  sha256 "7528fc1ec63a3e9db9aabbccccfc8985511d6a54e44c5a1b26ccd0ee37275937"
   head "https://github.com/crystal-lang/crystal.git"
 
-  stable do
-    url "https://github.com/crystal-lang/crystal/archive/0.18.7.tar.gz"
-    sha256 "72b33fd4bd903a9f0957c74c2f95429e8c0f94c04df86396711b5560f540805d"
-
-    # LLVM 3.8 support patches begin.
-    patch do
-      url "https://github.com/crystal-lang/crystal/commit/53f1977c8c.patch"
-      sha256 "a89ba25a5e7469c225680a58e87d4342a2709477dce61215803d9422cf8d0860"
-    end
-
-    patch do
-      url "https://github.com/crystal-lang/crystal/commit/19ddb4c3a.patch"
-      sha256 "f98b92d9003d2fa69fe36e218329cc616198e4a6283ba81b7c27e84d9d4afac0"
-    end
-
-    patch do
-      url "https://github.com/crystal-lang/crystal/commit/63ca4950e4.patch"
-      sha256 "bb0cbb466673f7f04996326c875c8c7f9a0335e31a3bfab1576358fdf8a697f1"
-    end
-    # LLVM 3.8 support patches end.
-  end
-
   bottle do
-    sha256 "3227b27a079cc88de3b055e866782d9fdd156150320fb8838c5f65b8908fb4dc" => :el_capitan
-    sha256 "892de4081627a7b9a6b672a2ad7ee39fff96e742abc9a59207cec88ed27c754d" => :yosemite
-    sha256 "e0b7d0b104b7f8d519faeb38c64aaacab9fb61d5bc6eaeac0a6f685c53a60cf3" => :mavericks
-    sha256 "ad46f11ae0ba0706f22a2b8dccc81940d3ceaf51da5540bea2a7a701caa5c028" => :x86_64_linux
+    sha256 "de41d15d03ba61132c75862b236f685d6072708c22a786c57973fbf1f0b3f6c5" => :el_capitan
+    sha256 "f4955c478f2d90477f80f315e2ddd69646516821a2180f199736b07ed2945f18" => :yosemite
+    sha256 "07d6b40ed6d779b4358c40bfeefc6a6b56a0c0ca4b3552cda0d9d0b4b9bf5fd7" => :mavericks
   end
 
   option "without-release", "Do not build the compiler in release mode"
@@ -46,20 +23,18 @@ class CrystalLang < Formula
 
   resource "boot" do
     if OS.mac?
-      url "https://github.com/crystal-lang/crystal/releases/download/0.18.6/crystal-0.18.6-1-darwin-x86_64.tar.gz"
-      sha256 "ce4e282edbf35542cee2cc95a1feb070612716200f142f712707c17cf4175c48"
+      url "https://github.com/crystal-lang/crystal/releases/download/0.19.0/crystal-0.19.0-1-darwin-x86_64.tar.gz"
+      sha256 "7c54d97d646fe8fcb0e54289aa0b55e45222fa10f384c5675e61ff6018292677"
     elsif OS.linux?
-      url "https://github.com/crystal-lang/crystal/releases/download/0.18.6/crystal-0.18.6-1-linux-x86_64.tar.gz"
-      sha256 "72ad5f5623d8cde0ad51d151de6720fac759cde14e3eb37bc0d0b8b2925633af"
-    else
-      odie "Your operating system is not supported by this formula"
+      url "https://github.com/crystal-lang/crystal/releases/download/0.19.0/crystal-0.19.0-1-linux-x86_64.tar.gz"
+      sha256 "17bb8fa1c1771efead7d88b8571027675588ec3b35e4b453e7cdc952e53826cf"
     end
-    version "0.18.6"
+    version "0.19.0"
   end
 
   resource "shards" do
-    url "https://github.com/ysbaddaden/shards/archive/v0.6.3.tar.gz"
-    sha256 "5245aebb21af0a5682123732e4f4d476e7aa6910252fb3ffe4be60ee8df03ac2"
+    url "https://github.com/ysbaddaden/shards/archive/v0.6.4.tar.gz"
+    sha256 "5972f1b40bb3253319f564dee513229f82b0dcb8eea1502ae7dc483a9c6da5a0"
   end
 
   def install
