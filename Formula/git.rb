@@ -176,6 +176,11 @@ class Git < Formula
   test do
     system bin/"git", "init"
     %w[haunted house].each { |f| touch testpath/f }
+
+    # Test environment has no git configuration, which prevents commiting
+    system bin/"git", "config", "user.email", "you@example.com"
+    system bin/"git", "config", "user.name", "Your Name"
+
     system bin/"git", "add", "haunted", "house"
     system bin/"git", "commit", "-a", "-m", "Initial Commit"
     assert_equal "haunted\nhouse", shell_output("#{bin}/git ls-files").strip
