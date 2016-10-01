@@ -1,15 +1,15 @@
 class Aria2 < Formula
   desc "Download with resuming and segmented downloading"
   homepage "https://aria2.github.io/"
-  url "https://github.com/aria2/aria2/releases/download/release-1.26.1/aria2-1.26.1.tar.xz"
-  sha256 "f4e64e9754af5e1c0ee1ee2a50c5fa5acbc180855909209c2ce0111e86c9a801"
+  url "https://github.com/aria2/aria2/releases/download/release-1.27.1/aria2-1.27.1.tar.xz"
+  sha256 "c09627ef31602cfdfa7c9925a6c3b05fe7d2097d83f42dcfdef68664bd106f08"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a4ccabaf6898aa3d51a64b6e2a9bfaf49319bb3d7fb4b69142133f747c58cc2c" => :sierra
-    sha256 "deda73ba1f37369b90ad59ae0afd168859e7a90391dd18968d14efa15194b5b6" => :el_capitan
-    sha256 "0f09834556a18d907afd845e3002b74ca4d47f6ee3ca6788c45abeec1f87f0ee" => :yosemite
-    sha256 "7bcca09fbf53ee86c9b7727bb77793702eb247931f32d06f64a7b815a383053a" => :mavericks
+    sha256 "a93693514d5d9bd0fa82243f509de5f65b4a833e4d5b873f04f3d7e68963c411" => :sierra
+    sha256 "b4678ad64b289d436e12d9863b2bd4b12ebdcf6821e1db52650da293578ee7c3" => :el_capitan
+    sha256 "b73b02f655a5de46d70f7576a7c3abfc167feadcebee2cf41a168c44c7ba3b08" => :yosemite
+    sha256 "3d7a7a9d5131db45170cb8a4450043dcae180d5169e825d1e2d5b88a163e3c0f" => :mavericks
   end
 
   depends_on "pkg-config" => :build

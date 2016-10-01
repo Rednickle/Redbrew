@@ -1,7 +1,7 @@
 class Python3 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  revision 1
+  revision 2
 
   head "https://hg.python.org/cpython", :using => :hg
 
@@ -19,17 +19,14 @@ class Python3 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 "5ccad7ea17738f48a4e88a2b9372a8fed5db5f038a3828b3451f5a4109776d12" => :sierra
-    sha256 "e0e96cd514640e006a4c42689dc144972a3aeff55fb269b7e4e79e7df2ce9432" => :el_capitan
-    sha256 "5c1e133c5a731b4e1ef6c3d0b7fb3c5c120945549d5901e8e6e4fe81c1670333" => :yosemite
-    sha256 "a74bac7701fbabf89449607d01dff8c0f22b0008bb4d7571e7ee0ddc86f69923" => :mavericks
-    sha256 "d652266b8e0848ea0c830df2f7faa128e5f18edbec5c72b21ad2fcb8bcc4f3f3" => :x86_64_linux
+    sha256 "848f9ef6f09b2f9e28e4ad29bc2f85d843ae0e2c174f83aedc530b5ba670c704" => :sierra
+    sha256 "33300aca2ef4703fb8dfc1a7f6520c2cde6e912f983c3779f8d0d285dade572c" => :el_capitan
+    sha256 "3e3cdeaa764bf24ca00d34c3d54b00142de6ae6c1f9e57c014d0a99ea7a583b0" => :yosemite
   end
 
   devel do
-    url "https://www.python.org/ftp/python/3.6.0/Python-3.6.0a4.tar.xz"
-    sha256 "63acec349d20de412682f64c013f7c3374c695430b44e1c0ef12076da1d7fd2c"
+    url "https://www.python.org/ftp/python/3.6.0/Python-3.6.0b1.tar.xz"
+    sha256 "a83b094a8abf8a1fba7c548a5e8dd0aabe87a87a6ebd87c97f4a5a2527a74d42"
   end
 
   option :universal
@@ -135,6 +132,7 @@ class Python3 < Formula
     ]
 
     args << "--without-gcc" if ENV.compiler == :clang
+    args << "--enable-loadable-sqlite-extensions" if build.with?("sqlite")
 
     cflags   = []
     ldflags  = []
@@ -180,8 +178,13 @@ class Python3 < Formula
       args << "--enable-universalsdk" << "--with-universal-archs=intel"
     end
 
-    # Allow sqlite3 module to load extensions: https://docs.python.org/library/sqlite3.html#f1
-    inreplace("setup.py", 'sqlite_defines.append(("SQLITE_OMIT_LOAD_EXTENSION", "1"))', "pass") if build.with? "sqlite"
+    if build.with? "sqlite"
+      inreplace "setup.py" do |s|
+        s.gsub! "sqlite_setup_debug = False", "sqlite_setup_debug = True"
+        s.gsub! "for d_ in inc_dirs + sqlite_inc_paths:",
+                "for d_ in ['#{Formula["sqlite"].opt_include}']:"
+      end
+    end
 
     # Allow python modules to use ctypes.find_library to find homebrew's stuff
     # even if homebrew is not a /usr/local/lib. Try this with:
@@ -236,7 +239,7 @@ class Python3 < Formula
     # some third-party software packages depend on them
     inreplace Dir.glob(frameworks/"Python.framework/Versions/#{xy}/lib/python#{xy}/config-#{xy}*/Makefile") do |s|
       s.change_make_var! "LINKFORSHARED",
-                         "-u _PyMac_Error #{opt_prefix}/Frameworks/Python.framework/Versions/#{xy}/Python"
+                         "#{opt_prefix}/Frameworks/Python.framework/Versions/#{xy}/Python"
     end if OS.mac?
 
     %w[setuptools pip wheel].each do |r|
@@ -325,7 +328,7 @@ class Python3 < Formula
     <<-EOF.undent
       # This file is created by Homebrew and is executed on each python startup.
       # Don't print from here, or else python command line scripts may fail!
-      # <https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Homebrew-and-Python.md>
+      # <https://github.com/Homebrew/brew/blob/master/docs/Homebrew-and-Python.md>
       import re
       import os
       import sys
@@ -370,7 +373,7 @@ class Python3 < Formula
       They will install into the site-package directory
         #{site_packages}
 
-      See: https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Homebrew-and-Python.md
+      See: https://github.com/Homebrew/brew/blob/master/docs/Homebrew-and-Python.md
     EOS
 
     # Tk warning only for 10.6

@@ -1,17 +1,15 @@
 class Tbb < Formula
   desc "Rich and complete approach to parallelism in C++"
   homepage "https://www.threadingbuildingblocks.org/"
-  url "https://www.threadingbuildingblocks.org/sites/default/files/software_releases/source/tbb44_20160526oss_src_0.tgz"
-  version "4.4-20160526"
-  sha256 "7bafdcc3bca3aa1acc03da4735aefd6a4ddf2eceec983202319d0a911da1f0d1"
+  url "https://www.threadingbuildingblocks.org/sites/default/files/software_releases/source/tbb2017_20160916oss_src.tgz"
+  version "4.4-20160916"
+  sha256 "600c67f1c5a730e411b3bf2e792cfe5808f40c4f0354a9b613827fff0ef27fc4"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "e005a2ed49deb9f4594cf99e0294f964da1cc4af14e4035d04b499c55a8ad628" => :el_capitan
-    sha256 "9b956c24106f29433ff5b3e8ea3f94d2e1b5b800a1eb32d697fdf60e8978768b" => :yosemite
-    sha256 "0dd424959052ce80bf4a5f6a37254f15009ca9d450d8c799145fff55efc5268d" => :mavericks
-    sha256 "72353f2aeb070e5b7f98a79dbeaa12cb66413689b50521fe20335535ffc906b9" => :x86_64_linux
+    sha256 "73c1cd36c36438422b4ef200d8928c2d22145bc17ec6b2548039d80ab6107dfe" => :sierra
+    sha256 "6cb9dd98e549c62298aeadfca71acdaf487b03fcce9f51ad3955714b5017a79a" => :el_capitan
+    sha256 "ede1550b833c4e2f9aad3d3d33edb07bbfea2dac58d0ef8237b5386c12cca11a" => :yosemite
   end
 
   option :cxx11
@@ -26,7 +24,8 @@ class Tbb < Formula
     # Intel sets varying O levels on each compile command.
     ENV.no_optimization
 
-    args = %W[tbb_build_prefix=BUILDPREFIX]
+    compiler = ENV.compiler == :clang ? "clang" : "gcc"
+    args = %W[tbb_build_prefix=BUILDPREFIX compiler=#{compiler}]
 
     if build.cxx11?
       ENV.cxx11

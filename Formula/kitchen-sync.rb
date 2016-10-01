@@ -1,15 +1,15 @@
 class KitchenSync < Formula
   desc "Fast efficiently sync database without dumping & reloading"
   homepage "https://github.com/willbryant/kitchen_sync"
-  url "https://github.com/willbryant/kitchen_sync/archive/0.54.tar.gz"
-  sha256 "edc2539e80965be64a62db7d44e7914bba465fc3853ebb04f93a9f0c817dc693"
+  url "https://github.com/willbryant/kitchen_sync/archive/0.56.tar.gz"
+  sha256 "ce6915cbfec6f0072ce028ace49d6ed6809864bd7fd729be7c2a3b03e1cd9edb"
   head "https://github.com/willbryant/kitchen_sync.git"
 
   bottle do
     cellar :any
-    sha256 "dd9af539436441a17b9a11868ff599a24ae90c15313d52fff48398d06fd78cad" => :el_capitan
-    sha256 "b6a9636e00f2d3e79eae34f32a53751ddd205b1661dcf4bc3c61fd41f40ac0fa" => :yosemite
-    sha256 "d70bab51bb8f803546aba16c63097a3ffc334282caa8bbecc955c8cb21beff37" => :mavericks
+    sha256 "3fa3355ce4c6b9000a5b65fadf94ab465d5bd3fd9f90cd56188152131c04b7d9" => :sierra
+    sha256 "b81ff335ec0227e4b5a167da5f3a5463266a8530bf133933ea4fc8e63d0170cb" => :el_capitan
+    sha256 "6019280d1f6630f76acc2cfb526c7e67b1ca1094e8fa0508558e65140682f620" => :yosemite
   end
 
   depends_on "cmake" => :build

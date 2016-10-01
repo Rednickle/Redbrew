@@ -1,14 +1,17 @@
 class Conan < Formula
+  include Language::Python::Virtualenv
+
   desc "Distributed, open source, package manager for C/C++"
   homepage "https://github.com/conan-io/conan"
-  url "https://pypi.python.org/packages/3a/52/155e89125cf3e02ae1667d89a878e132e7644b42d0ef270b1bb85df23c55/conan-0.11.1.tar.gz"
-  sha256 "ac2f8cf19f6cea60b63ae8568ceafdbb92d446a6fc5be539f31641af2f274f7e"
+  url "https://pypi.python.org/packages/9a/48/0028e0281563dfe327e594d5f2d18fa79e0bae3d8b3a73e56334dc19a9c6/conan-0.12.0.tar.gz"
+  sha256 "799d564040a5dfda4dd0c31789a2edb64e4ca8e40f7f6486a1fcb0758c03691c"
 
   bottle do
     cellar :any
-    sha256 "ac502fe3350c6e302365c61361b8be3eb360750621bcffe24bc50a4c96d90401" => :el_capitan
-    sha256 "7e61fa364cd054ea1add5cf92ab6adefad6902e07f22b7d08dbb266a1c63a958" => :yosemite
-    sha256 "53e7c94d3ef427dbf2b7003dd4e90029ca7496179f7fcb932361f4cc6e11cc5e" => :mavericks
+    sha256 "9f068454e6eb17cda886598b7ed4e88d83c0b1d81f72021d3fc3167aa18e3c81" => :sierra
+    sha256 "45f638de8d0d71f577fb394d17d0c5ed24051543d8e8afc4e74196e9719d212d" => :el_capitan
+    sha256 "b1bccd6c7e42712974ccda12f29dc4539e9a30219eb24e599edd52687edb086b" => :yosemite
+    sha256 "fa21b1a6915bbbe143718f17e5d37392a5af84e8823e7ba88a90364e115ff040" => :mavericks
   end
 
   depends_on "python" if MacOS.version <= :snow_leopard
@@ -130,23 +133,11 @@ class Conan < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-    resources.each do |r|
-      r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    touch libexec/"vendor/lib/python2.7/site-packages/ndg/__init__.py"
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   test do
-    system "#{bin}/conan", "install", "OpenSSL/1.0.2h@lasote/stable", "--build", "OpenSSL"
+    system bin/"conan", "install", "zlib/1.2.8@lasote/stable", "--build"
+    assert_predicate testpath/".conan/data/zlib/1.2.8", :exist?
   end
 end

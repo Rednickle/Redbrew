@@ -3,14 +3,14 @@ class Platformio < Formula
 
   desc "Ecosystem for IoT development (Arduino and ARM mbed compatible)"
   homepage "http://platformio.org"
-  url "https://files.pythonhosted.org/packages/8b/55/456733321ed1177f4d3dce533347fb4b7507ed14e682aa1bed4ebd2b84cf/platformio-3.0.1.tar.gz"
-  sha256 "55aa64adc759344d6f8799efdceb169a6e27320dc3efd7842e347ea211c31012"
+  url "https://pypi.python.org/packages/b1/16/b74f0d085932905149118119aef58525bdb9b0f24e28bf25550b70581794/platformio-3.1.0.tar.gz"
+  sha256 "6fc9e4c9a7b8271156daa3095b1efaba7940547e663f16e68f55f77247211c09"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fb9f1c7edca65e9b19778ddeb88f72be3c1aef746672c44cda53c58a43c525f2" => :el_capitan
-    sha256 "bddd78cf0cf649e7090d04c6d3955ffcd33be2cb172a592a34b4e1a70ca26084" => :yosemite
-    sha256 "c267b6fc247da08012fbacb5c45e2f87f8cdc884599aa8b467750787390365f9" => :mavericks
+    sha256 "e44b569b3f006c84b48f6ce29df065f2b4da9e7f10e4a04ee396be217c697e4a" => :sierra
+    sha256 "281045c64b2a1d48854577781d9f72039196794b6900d82c35d5bee0fca594ea" => :el_capitan
+    sha256 "55c116597881c9f59bdfcdfe3a36d939a86c3587ea03cbf4ca1cd9ab09600676" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard

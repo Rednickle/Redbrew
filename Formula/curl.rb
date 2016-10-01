@@ -1,16 +1,15 @@
 class Curl < Formula
   desc "Get a file from an HTTP, HTTPS or FTP server"
   homepage "https://curl.haxx.se/"
-  url "https://curl.haxx.se/download/curl-7.50.2.tar.bz2"
-  sha256 "0c72105df4e9575d68bcf43aea1751056c1d29b1040df6194a49c5ac08f8e233"
+  url "https://curl.haxx.se/download/curl-7.50.3.tar.bz2"
+  sha256 "7b7347d976661d02c84a1f4d6daf40dee377efdc45b9e2c77dedb8acf140d8ec"
 
   bottle do
     cellar :any if OS.mac? # not relocatable --with-openssl
-    sha256 "a6ac43b2784751829846a90d1aff5f81f97e610d98459d6c06538c79b4fb63d3" => :sierra
-    sha256 "7f50eb29e123d907712ddad0c5687eeb0c6e4764ee425aa685a4d5d23034cf4a" => :el_capitan
-    sha256 "22aa76cad125659ac9e039cab8635aac6748deb41fed7a0197cb5395de0d8991" => :yosemite
-    sha256 "52324a7594019df072f438fe959a053ccf3b0c088dcbe57dda7f617ed718088c" => :mavericks
-    sha256 "6160e02a144cc685f500d3309f4c8c2f5c2bceb277aadc8150d191d8aff3a8d7" => :x86_64_linux
+    sha256 "638108732f8c4dacea7953c81b070d8ab8bde837e0608f0b4ca36124b7ff1055" => :sierra
+    sha256 "b425bee3c2602e9b470db43b00418805e97ab675bfdd292be194e61fca8d9f52" => :el_capitan
+    sha256 "acd850690b6578bf1f7682804734cadf5b922aa17d696ef5154b15d048712319" => :yosemite
+    sha256 "cfbb0a2c28b150d13a239b9a6acd95cdd530cf57f7e26831f966d672e88dfcc0" => :mavericks
   end
 
   keg_only :provided_by_osx

@@ -5,14 +5,14 @@ class HopenpgpTools < Formula
 
   desc "Command-line tools for OpenPGP-related operations"
   homepage "https://hackage.haskell.org/package/hopenpgp-tools"
-  url "https://hackage.haskell.org/package/hopenpgp-tools/hopenpgp-tools-0.19.2.tar.gz"
-  sha256 "6bcc067bfc2b54c0c47ea7169f3741ec8f64abee9bd8c398191a0b35520fa39c"
+  url "https://hackage.haskell.org/package/hopenpgp-tools/hopenpgp-tools-0.19.4.tar.gz"
+  sha256 "e656cd989833c6d318d5c44931ef5a8cd98bb0ebb4bab70a2d2f701091d0abd8"
   head "https://anonscm.debian.org/git/users/clint/hopenpgp-tools.git"
 
   bottle do
-    sha256 "4792c7efbf889bc1bd0320eb676c00b308226fca00dc04b6d61c97fa08e18271" => :el_capitan
-    sha256 "40447318e21f020af89fd7e42390052295d4d5cd4bcbf269d9d1bf3c01edf361" => :yosemite
-    sha256 "719d72366d7a6eb5ead4db7bab3e38af72ab65b6690a2f5a68dc6344d2a69b53" => :mavericks
+    sha256 "eff4e0ca14ca088a780c058c0f205ecd487915abece7679e91f5dea2ea5ee807" => :sierra
+    sha256 "71f1dad3a01f39cb4349ecf19956b41edd837fcde61fbb4627be87cfa977d419" => :el_capitan
+    sha256 "f0248da438ef0e4a2ad9dd16246b863a5cdd9bda1d280261ccc1a6e2683f42f0" => :yosemite
   end
 
   depends_on "ghc" => :build
@@ -30,10 +30,9 @@ class HopenpgpTools < Formula
   end
 
   test do
-    ENV["TERM"] = "dumb"
     resource("homebrew-key.gpg").stage do
-      assert_match "Homebrew <security@brew.sh>",
-                   shell_output("#{bin}/hokey lint <homebrew-key.gpg 2>/dev/null")
+      linter_output = shell_output("#{bin}/hokey lint <homebrew-key.gpg 2>/dev/null")
+      assert_match "Homebrew <security@brew.sh>", linter_output
     end
   end
 end

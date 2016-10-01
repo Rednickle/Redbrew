@@ -1,15 +1,14 @@
 class CrystalLang < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
-  url "https://github.com/crystal-lang/crystal/archive/0.19.1.tar.gz"
-  sha256 "7528fc1ec63a3e9db9aabbccccfc8985511d6a54e44c5a1b26ccd0ee37275937"
+  url "https://github.com/crystal-lang/crystal/archive/0.19.3.tar.gz"
+  sha256 "72954087131bd648735bc397cfd585204087a4b8ab7f927f0a054741381ea01f"
   head "https://github.com/crystal-lang/crystal.git"
 
   bottle do
-    sha256 "de41d15d03ba61132c75862b236f685d6072708c22a786c57973fbf1f0b3f6c5" => :el_capitan
-    sha256 "f4955c478f2d90477f80f315e2ddd69646516821a2180f199736b07ed2945f18" => :yosemite
-    sha256 "07d6b40ed6d779b4358c40bfeefc6a6b56a0c0ca4b3552cda0d9d0b4b9bf5fd7" => :mavericks
-    sha256 "7a8d1b2d9c6cfb8080bf34d9af3d2342a0d4d2101acf8ff7f860fc2211b30075" => :x86_64_linux
+    sha256 "2a437557a13707eeea1d603e520c74837373257df139b80a90728a59c0beee12" => :sierra
+    sha256 "20fd7f187a7e91c16231e11dea2826d0d55359a58c96b618e4d357c712e8c9fb" => :el_capitan
+    sha256 "cf70696dc50064875dc140090cf5e3d0b2b33d7eedb23ef3e4578c086d2089f2" => :yosemite
   end
 
   option "without-release", "Do not build the compiler in release mode"
@@ -24,13 +23,13 @@ class CrystalLang < Formula
 
   resource "boot" do
     if OS.mac?
-      url "https://github.com/crystal-lang/crystal/releases/download/0.19.0/crystal-0.19.0-1-darwin-x86_64.tar.gz"
-      sha256 "7c54d97d646fe8fcb0e54289aa0b55e45222fa10f384c5675e61ff6018292677"
+      url "https://github.com/crystal-lang/crystal/releases/download/0.19.2/crystal-0.19.2-1-darwin-x86_64.tar.gz"
+      sha256 "d5254e3e2d1e5fc851831a57573429876e5c9f86b2db066a2c74c392ae9080a2"
     elsif OS.linux?
-      url "https://github.com/crystal-lang/crystal/releases/download/0.19.0/crystal-0.19.0-1-linux-x86_64.tar.gz"
-      sha256 "17bb8fa1c1771efead7d88b8571027675588ec3b35e4b453e7cdc952e53826cf"
+      url "https://github.com/crystal-lang/crystal/releases/download/0.19.2/crystal-0.19.2-1-linux-x86_64.tar.gz"
+      sha256 "dd767a90d7aafac3a00f26be4117f82435092ce2dca4ee1b85f5b95a518eb316"
     end
-    version "0.19.0"
+    version "0.19.2"
   end
 
   resource "shards" do

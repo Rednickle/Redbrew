@@ -5,12 +5,14 @@ class Xonsh < Formula
   homepage "http://xon.sh"
   url "https://github.com/xonsh/xonsh/archive/0.4.6.tar.gz"
   sha256 "f9635732cb73fbe3bc7ea9aefab87e0fec04b5105932bf3cf44ec0eeef1a146c"
+  revision 1
+
   head "https://github.com/scopatz/xonsh.git"
 
   bottle do
-    sha256 "b1d896e120e47de8939f610578b3d99b5676a7501e67b18f94997e517542e3c1" => :el_capitan
-    sha256 "0f4dc449fd4d3e6761d894d5524e016f7243453b5c99ed750eb7d63abb9caf87" => :yosemite
-    sha256 "87522c9856711b03ae11874789dc8be3083f4698b4325c2294e41fd841593637" => :mavericks
+    sha256 "6ff59185c363be4f9f635a65a98f5a968ef4f9dfd687566daa3606e04386e92a" => :sierra
+    sha256 "eece97a51a30ca396a0371c5d6c87de204fb9fe4756242f501f0b5c760b017bd" => :el_capitan
+    sha256 "71d81c66fef44644450ed2191c96fe6a12f0fdbf97a5168336404e247fb1caa7" => :yosemite
   end
 
   depends_on :python3

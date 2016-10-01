@@ -3,17 +3,16 @@ class Ansible < Formula
 
   desc "Automate deployment, configuration, and upgrading"
   homepage "https://www.ansible.com/"
-  url "https://releases.ansible.com/ansible/ansible-2.1.1.0.tar.gz"
-  sha256 "61e739c123923ba90169f42c54e5f51df759ed40b4e332a7160d7db963d5678b"
+  url "https://releases.ansible.com/ansible/ansible-2.1.2.0.tar.gz"
+  sha256 "9c37a7bd397c05ab8ca3fcc49417649ea49b9133d4cd9500408235617d1621eb"
 
   head "https://github.com/ansible/ansible.git", :branch => "devel"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "02c16be2ccfd967c70979b2b124fbb37043ee424372c0eb073f36e89997e1716" => :el_capitan
-    sha256 "9c2fb387b779144800862bc004ec4f6e6bfedf9dfae69dbc0d1b8934a97d8b31" => :yosemite
-    sha256 "df78e802e7e948a9767bc6e2bdb0fedadf50f2a89b5e57b762c139da7650012c" => :mavericks
+    sha256 "63eb3d4e55c41ae1f423eb46b112c202da7daddddafbbf26e8c1c02c98863945" => :sierra
+    sha256 "a06717ed2638898280aca8a64d60192d30ad9c1f0e72bfc9e59ea146b6299971" => :el_capitan
+    sha256 "4417449bb1846bc1f3c73c82c9a11dd4cd8b51edf9319455be40890063346798" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -32,11 +31,13 @@ class Ansible < Formula
   #   shade (OpenStack)
   #   pywinrm (Windows)
   #   kerberos (Windows)
+  #   xmltodict (Windows)
   #   boto (AWS)
   #   boto3 (AWS)
   #   apache-libcloud (Google GCE)
   #   python-keyczar (Accelerated Mode)
   #   passlib (htpasswd core module)
+  #   zabbix-api (Zabbix extras module)
 
   ### setup_requires dependencies
   resource "pbr" do
@@ -437,6 +438,11 @@ class Ansible < Formula
     sha256 "03fc7cf8d47f910bc64274f7c24808b6ef79a9a1f34be5b94bea7070c9e00e5b"
   end
 
+  resource "pywinrm" do
+    url "https://github.com/diyan/pywinrm/archive/v0.2.1.tar.gz"
+    sha256 "b919767eb2598944c6437629de6f5da3b79374d6d409c7b99a167f376f1c6c75"
+  end
+
   resource "rackspace-auth-openstack" do
     url "https://files.pythonhosted.org/packages/3c/14/8932bf613797715bf1fe42b00d413025aac9414cf35bacca091a9191155a/rackspace-auth-openstack-1.3.tar.gz"
     sha256 "c4c069eeb1924ea492c50144d8a4f5f1eb0ece945e0c0d60157cabcadff651cd"
@@ -517,6 +523,16 @@ class Ansible < Formula
     sha256 "4ea17e814e39883c6cf1bb9b0835d316b2f69f0f0882ffe7dad1ede66ba82c73"
   end
 
+  resource "xmltodict" do
+    url "https://pypi.python.org/packages/source/x/xmltodict/xmltodict-0.9.2.tar.gz"
+    sha256 "275d1e68c95cd7e3ee703ddc3ea7278e8281f761680d6bdd637bcd00a5c59901"
+  end
+
+  resource "zabbix-api" do
+    url "https://pypi.python.org/packages/source/z/zabbix-api/zabbix-api-0.4.tar.gz"
+    sha256 "31fab8ca9b12aa5e6fe79b4463cfe62f33ded770ddc933a8d99c4debe934a0de"
+  end
+
   def install
     inreplace "lib/ansible/constants.py" do |s|
       s.gsub! "/usr/share/ansible", pkgshare
@@ -526,7 +542,6 @@ class Ansible < Formula
     virtualenv_install_with_resources
     man1.install Dir["docs/man/man1/*.1"]
   end
-
 
   test do
     ENV["ANSIBLE_REMOTE_TEMP"] = testpath/"tmp"

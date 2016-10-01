@@ -2,15 +2,16 @@ class Minio < Formula
   desc "object storage server compatible with Amazon S3"
   homepage "https://github.com/minio/minio"
   url "https://github.com/minio/minio.git",
-    :tag => "RELEASE.2016-08-21T02-44-47Z",
-    :revision => "975eb319730c8db093b4744bf9e012356d61eef2"
-  version "20160821024447"
+    :tag => "RELEASE.2016-09-11T17-42-18Z",
+    :revision => "85e2d886bcb005d49f3876d6849a2b5a55e03cd3"
+  version "20160911174218"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cacc25741e6358a9c0c2bcf366d920397bc19f0496f73af79204a3aa8d1cec36" => :el_capitan
-    sha256 "1a3ce21135037e729005d3954cd9e77bba933e321779d67ba5ea1b3e87d6b71a" => :yosemite
-    sha256 "b9e6290b23324fef659a1c04740e845bba66f8f8da7af1b9617602238e16e4ef" => :mavericks
+    sha256 "0f77765b5ed9d83666fdb6c15de6e96d6d397a174388debd5c70244201cce741" => :sierra
+    sha256 "d236098663cc6b4a4016855e1f5ce21608b42e1a4d33aa24e4c9963de7bd0d14" => :el_capitan
+    sha256 "a1f3a72ebd68b63b6ef658b218f7d67031d3d9ed8c95c142764bf777b3cd0ddc" => :yosemite
+    sha256 "51ae709a683eb435d915377745f66d28c0ae1ca3b1d8e4f28f7b014908baf323" => :mavericks
   end
 
   depends_on "go" => :build
@@ -28,7 +29,7 @@ class Minio < Formula
         release = `git tag --points-at HEAD`.chomp
         version = release.gsub(/RELEASE\./, "").chomp.gsub(/T(\d+)\-(\d+)\-(\d+)Z/, 'T\1:\2:\3Z')
         commit = `git rev-parse HEAD`.chomp
-        proj = "github.com/minio/minio/"
+        proj = "github.com/minio/minio"
 
         system "go", "build", "-o", buildpath/"minio", "-ldflags", <<-EOS.undent
             -X #{proj}/cmd.Version=#{version}

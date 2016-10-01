@@ -4,16 +4,17 @@ class Serf < Formula
   desc "Service orchestration and management tool"
   homepage "https://serfdom.io/"
   url "https://github.com/hashicorp/serf.git",
-      :tag => "v0.7.0",
-      :revision => "0df3e3df1703f838243a7f3f12bf0b88566ade5a"
+      :tag => "v0.8.0",
+      :revision => "b9642a47e6139e50548b6f14588a1a3c0839660a"
 
   head "https://github.com/hashicorp/serf.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c99e19fe8612c47714fb4708786257e18a37ef4b9f1292d696d64a68f799fb71" => :el_capitan
-    sha256 "d3c23ca2f9fb755253ac6fb2f084852fd2d63c93ddca4a0aef43b09325ce65f9" => :yosemite
-    sha256 "838e49a15d4ffad8f4e2b302e6da1454a470031b4f433a65d465878b477fc0f4" => :mavericks
+    sha256 "fcc9dfe253765e3eaed1107832fd62df4d7543f34277daf28dc9973f8f735597" => :sierra
+    sha256 "007baecf7627b4135ddc6808ab3f7a40586b1235627cebee4d62cc0af9aee5eb" => :el_capitan
+    sha256 "694a32fb05387ec3c3ee5b9698ee6569aca9954cbdf58e6e5ab1d4693a4f4aa8" => :yosemite
+    sha256 "7bf755b79e60cc24da1002d2412d3579b3053d15d0cd8aed79277070f453c3ce" => :mavericks
   end
 
   depends_on "go" => :build

@@ -3,12 +3,12 @@ class Ola < Formula
   homepage "https://www.openlighting.org/ola/"
   url "https://github.com/OpenLightingProject/ola/releases/download/0.10.2/ola-0.10.2.tar.gz"
   sha256 "986e61874bc80db3b23cf201af2dafa39e3412cc50cddf1cd449c869110bfd27"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "9228deb0971127ecf4ef9f1e137ae7b070476d1fd76935ab8beb5f2b66ebe0b3" => :el_capitan
-    sha256 "8a46fc44380904cf6ac5da21171d3227ecb9ce852a566a36059498b9cc913c18" => :yosemite
-    sha256 "7678f975c90df42335e74207e58aae445a75a113515fa505c5b6c142aef07831" => :mavericks
+    sha256 "164fd596606c68a6a826e030231f7b329c46954de1077f253fd6ebbd7218839b" => :sierra
+    sha256 "51227df09255050dc92d773aa8274ffd26895ecf28c2f6c5207424f3b791e141" => :el_capitan
+    sha256 "ce8e55b11b5988f652f606d96d06dca2f2b5f2fad76d09a45f9ff6d612abf4d1" => :yosemite
   end
 
   head do

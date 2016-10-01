@@ -3,11 +3,12 @@ class Lnav < Formula
   homepage "http://lnav.org"
   url "https://github.com/tstack/lnav/releases/download/v0.8.1/lnav-0.8.1.tar.gz"
   sha256 "db942abccdb5327d7594ca9e32e0b44802790fad8577bdbed44f81220fd62153"
+  revision 1
 
   bottle do
-    sha256 "5eb0e048b35a7ee79b36691ca0678163961ee8f3e8c5841e88c90cf69a07b41c" => :el_capitan
-    sha256 "35bf1e6722eed4c8a1c5bdffbce5fed4257ff5aee1eb1e3c54208e9392a32b21" => :yosemite
-    sha256 "fdcbbcf3db3cffd0aa7ae5d4c9c1320beb8a35a0f3f66f18f32ff675ea3d9418" => :mavericks
+    sha256 "6a837ec2864ded4184dbbc107ff1ae662ac3c15653612e40d7525e807f6924ee" => :sierra
+    sha256 "7cebdd35ef7af9955d419831fd9a4ad3dc01a4936f2793c4b089cb4fa82060bf" => :el_capitan
+    sha256 "c01ab02b88fbd581c4f956a8ca7a7190a0a31b6d3ac75977bd7cd8bbbdc491c2" => :yosemite
   end
 
   head do
@@ -23,6 +24,9 @@ class Lnav < Formula
   depends_on "curl" => ["with-libssh2", :optional]
 
   def install
+    # Fix errors such as "use of undeclared identifier 'sqlite3_value_subtype'"
+    ENV.delete("SDKROOT")
+
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}

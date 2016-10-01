@@ -3,16 +3,15 @@ require "language/go"
 class Gron < Formula
   desc "Make JSON greppable"
   homepage "https://github.com/tomnomnom/gron"
-  url "https://github.com/tomnomnom/gron/archive/v0.3.6.tar.gz"
-  sha256 "b627efa5bcc6157386a5732aad6a0cc890342dc4c662e837b6d62fd527a4d5f4"
+  url "https://github.com/tomnomnom/gron/archive/v0.3.7.tar.gz"
+  sha256 "742a78338fe14657b4f0ef5cc4e76d948fcb7fa4005156e98f81f0fee7474717"
   head "https://github.com/tomnomnom/gron.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a1e6ec699645a6a129044bc0be623869ec6473fad86733c3a693ba311c1fabb9" => :sierra
-    sha256 "5dabf7c846ad10c9a1c1af80ee6dad53483bf5422503a4dc6357d9d9b73dec3a" => :el_capitan
-    sha256 "9f7370ec6972aeab61929c5cf226a96b7c6059a37079ed28fd2858f1bd68ef7d" => :yosemite
-    sha256 "72c982d9f74f78651f6b95e7c6ea7ecd765c6667661d9f481fd0a86984439f3d" => :mavericks
+    sha256 "2d4b6c5d7212beb402e2ca4dc9065865ebc7bd25cf864c33c9343ff39788ff8b" => :sierra
+    sha256 "4d82d9c6a9f8fba7c73db1e5f7212a11f58128235676c5d6e84c0db26f2a1fba" => :el_capitan
+    sha256 "4aa183c4f319472865defffa9006d96fd713f6ce14dd39a35bca6551736965df" => :yosemite
   end
 
   depends_on "go" => :build

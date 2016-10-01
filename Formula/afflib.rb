@@ -1,14 +1,15 @@
 class Afflib < Formula
   desc "Advanced Forensic Format"
   homepage "https://github.com/sshock/AFFLIBv3"
-  url "https://github.com/sshock/AFFLIBv3/archive/v3.7.8.tar.gz"
-  sha256 "1ffcf2e087a0f4396d5054f0171c69d44f15aa023aa787aafa7bb57d849f1db9"
+  url "https://github.com/sshock/AFFLIBv3/archive/v3.7.10.tar.gz"
+  sha256 "906226df05d526b886a873367ca896f0058a6221c2e21c900411d0fc89754c2b"
 
   bottle do
     cellar :any
-    sha256 "49b0887b2b0f8e118eb306833e04845548748ef06087a154e2161eb97ccd7b96" => :el_capitan
-    sha256 "4fb1ae500e1a2cadaeaebd817b1a4909f8ec5240b6f204e6877878ede448069f" => :yosemite
-    sha256 "2fe18b396bb37b75e30629b7d335f32521132e77629e81c1f2daa92d3d3cd638" => :mavericks
+    sha256 "254150fd3a694e31fe4b18aeb38f6df58f9eb36d47a1dcf2bb31bf3c1d76a4bc" => :sierra
+    sha256 "aed0e63b8aa3504075b9a2bbeafb06a0f8813332c32bf0c421604ebf5ea40856" => :el_capitan
+    sha256 "9ed21fce9069ccd07e5e87674fcba8c77ef48c24cf1628c1d05a74daf5a417c7" => :yosemite
+    sha256 "a81617f0907d054b745d0a0f886ae14fa472193f9722258fa1933854907cc519" => :mavericks
   end
 
   depends_on "autoconf" => :build

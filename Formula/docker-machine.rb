@@ -2,17 +2,15 @@ class DockerMachine < Formula
   desc "Create Docker hosts locally and on cloud providers"
   homepage "https://docs.docker.com/machine"
   url "https://github.com/docker/machine.git",
-      :tag => "v0.8.1",
-      :revision => "41b3b253352b8b355d668f5e12b5f329f88c3482"
+      :tag => "v0.8.2",
+      :revision => "e18a9193d49de4a45ba4b1b6379cad7775481cd2"
   head "https://github.com/docker/machine.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "af4e98ec2fb65132fda647cab6112c66fc9d836d396a77b01eaa2344f7fffbef" => :sierra
-    sha256 "6076fc037a2a038567c95692dffe50075bacbc1914457dd71aa5471bda16b601" => :el_capitan
-    sha256 "d2f8bb096fdab17e49b2794e6fcf9d618a5a2bda34362f4b0439f2ac7af1da2d" => :yosemite
-    sha256 "a67a2f3cc2c89ea8cb3efde4a3269a65ce397481ee85be9317a33b21a3c9c7c7" => :mavericks
-    sha256 "7d071489697fa68454fb21106353e3c238adc4cdcb16f6639b5bb180aae3c68c" => :x86_64_linux
+    sha256 "5db131e3232b1e2ccf3358d4ccf6e73666521c04bad9e526f60c61f39e61bf10" => :sierra
+    sha256 "b805f69b2a2649ab79bdf8c3d9f49b98b049777dbac77b0a5726327b99706556" => :el_capitan
+    sha256 "7dd71c70ddb977bbd3cad40ca66d2223b2ff4528297294b66455312a8fc63b2a" => :yosemite
   end
 
   depends_on "go" => :build
@@ -25,6 +23,7 @@ class DockerMachine < Formula
       system "make", "build"
       bin.install Dir["bin/*"]
       bash_completion.install Dir["contrib/completion/bash/*.bash"]
+      zsh_completion.install "contrib/completion/zsh/_docker-machine"
       prefix.install_metafiles
     end
   end

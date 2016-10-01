@@ -3,14 +3,14 @@ class Python < Formula
   homepage "https://www.python.org"
   url "https://www.python.org/ftp/python/2.7.12/Python-2.7.12.tar.xz"
   sha256 "d7837121dd5652a05fef807c361909d255d173280c4e1a4ded94d73d80a1f978"
-  revision 1 if OS.linux?
+  revision 1
+
   head "https://hg.python.org/cpython", :using => :hg, :branch => "2.7"
 
   bottle do
-    sha256 "deebe116d0876f67d814f2a13560eae9040f9be6324ef67fce57321b3f4c2691" => :sierra
-    sha256 "b4779ada60f6809a6f12369a407e366a8ffc4660a29446525e23108fd5da91a9" => :el_capitan
-    sha256 "b222252c54e4407258b6c53a3402aac61b8901447414f1f5ffe0d79f568c7014" => :yosemite
-    sha256 "1ce2d4130a8924254c41e4ad5a31a549ac574d1a77593a5f7a1b3ecdbb18552b" => :mavericks
+    sha256 "082e12c8a27f4d18d15340818f4b14052916880c93b0b668d23b7a87c5ffb124" => :sierra
+    sha256 "a521afdafd08a7f09b48b9f36a76786671dbec1a5b8b2ae3a02f31286effee73" => :el_capitan
+    sha256 "09630f52c4121f47fe3ae2bb7210a0f673c74c8d4474db5fd22be0e605fb1cab" => :yosemite
     sha256 "a1169071dee0c1250f8028614908029f88d75c7b404577452db73fee429f4f99" => :x86_64_linux
   end
 
@@ -75,6 +75,15 @@ class Python < Formula
   patch do
     url "https://bugs.python.org/file30805/issue10910-workaround.txt"
     sha256 "c075353337f9ff3ccf8091693d278782fcdff62c113245d8de43c5c7acc57daf"
+  end
+
+  # Patch for building universal binaries on macOS 10.12 and 10.11 with Xcode 8
+  # https://bugs.python.org/issue27806
+  if build.universal? && DevelopmentTools.clang_build_version >= 800
+    patch do
+      url "https://hg.python.org/cpython/raw-rev/4030300fcb18"
+      sha256 "e0625b20675d892abc3e0e9a58a4627b94e6ded017f352f55b7c91e214fbd248"
+    end
   end
 
   def lib_cellar
@@ -172,10 +181,16 @@ class Python < Formula
       args << "--enable-universalsdk=/" << "--with-universal-archs=intel"
     end
 
-    # Allow sqlite3 module to load extensions:
-    # https://docs.python.org/library/sqlite3.html#f1
     if build.with? "sqlite"
-      inreplace("setup.py", 'sqlite_defines.append(("SQLITE_OMIT_LOAD_EXTENSION", "1"))', "")
+      inreplace "setup.py" do |s|
+        s.gsub! "sqlite_setup_debug = False", "sqlite_setup_debug = True"
+        s.gsub! "for d_ in inc_dirs + sqlite_inc_paths:",
+                "for d_ in ['#{Formula["sqlite"].opt_include}']:"
+
+        # Allow sqlite3 module to load extensions:
+        # https://docs.python.org/library/sqlite3.html#f1
+        s.gsub! 'sqlite_defines.append(("SQLITE_OMIT_LOAD_EXTENSION", "1"))', ""
+      end
     end
 
     # Allow python modules to use ctypes.find_library to find homebrew's stuff
@@ -309,7 +324,7 @@ class Python < Formula
     <<-EOF.undent
       # This file is created by Homebrew and is executed on each python startup.
       # Don't print from here, or else python command line scripts may fail!
-      # <https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Homebrew-and-Python.md>
+      # <https://github.com/Homebrew/brew/blob/master/docs/Homebrew-and-Python.md>
       import re
       import os
       import sys
@@ -365,7 +380,7 @@ class Python < Formula
     They will install into the site-package directory
       #{site_packages}
 
-    See: https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Homebrew-and-Python.md
+    See: https://github.com/Homebrew/brew/blob/master/docs/Homebrew-and-Python.md
     EOS
   end
 

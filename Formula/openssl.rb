@@ -4,18 +4,15 @@
 class Openssl < Formula
   desc "SSL/TLS cryptography library"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-1.0.2h.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2h.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.0.2h.tar.gz"
-  sha256 "1d4007e53aad94a5b2002fe045ee7bb0b3d98f1a47f8b2bc851dcd1c74332919"
-  revision 1
+  url "https://www.openssl.org/source/openssl-1.0.2j.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2j.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.0.2j.tar.gz"
+  sha256 "e7aff292be21c259c6af26469c7a9b3ba26e9abaaffd325e3dccc9785256c431"
 
   bottle do
-    sha256 "b88203d2d56f4209ca0214c95d309a8f452a3534b08dd92c3495fa57fec02a18" => :sierra
-    sha256 "55728391c10d1c33c069ef5bf3e5ca77334605ab6c1c7810b6eedc91337807c2" => :el_capitan
-    sha256 "a3bc912aae8f79ed28d885dce49f582737a6e528b9d707eee208ed3b6ea41f5d" => :yosemite
-    sha256 "4d332b0effca483c6b896548f818ba7043d61e3ec071d1a611a64809ae8610b1" => :mavericks
-    sha256 "35878a5f9664e8359fbf5ec4af333816f91bf6eb939050cbdb8354f92828a4c1" => :x86_64_linux
+    sha256 "109fe24d2ee82d89e1ee60587d91c953cdd3384db5374e8e83635c456fa15ed0" => :sierra
+    sha256 "7b331c548a5a82f7a111c6218be3e255a2a1a6c19888c2b7ceaf02f2021c1628" => :el_capitan
+    sha256 "a3083052e81d711dd6da2d5bda7418d321eba26570a63818e52f5f68247c63f2" => :yosemite
   end
 
   resource "cacert" do
@@ -41,7 +38,7 @@ class Openssl < Formula
     return { :i386  => %w[linux-generic32], :x86_64 => %w[linux-x86_64] } if OS.linux?
     {
       :x86_64 => %w[darwin64-x86_64-cc enable-ec_nistp_64_gcc_128],
-      :i386   => %w[darwin-i386-cc],
+      :i386 => %w[darwin-i386-cc],
     }
   end
 

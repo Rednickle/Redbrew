@@ -1,21 +1,21 @@
 class Pdnsrec < Formula
   desc "Non-authoritative/recursing DNS server"
   homepage "https://www.powerdns.com/recursor.html"
-  url "https://downloads.powerdns.com/releases/pdns-recursor-4.0.1.tar.bz2"
-  sha256 "472db541307c8ca83a846d260ecfc854fd8e879c1bb2ce5683a8df5d21e860b0"
-  revision 1
+  url "https://downloads.powerdns.com/releases/pdns-recursor-4.0.3.tar.bz2"
+  sha256 "ae9813a64d13d9ebe4b44e89e8e4e44fc438693b6ce4c3a98e4cab1af22d9627"
 
   bottle do
-    sha256 "6d1db92d6832f010a0e4e4f466a2fa3003320acbbffaf4bf3345f74f2ea706a3" => :el_capitan
-    sha256 "b4cb635ee48914b7e59e643c17bcc23a23e6c5ca74c1e76da9a3489dd11fc525" => :yosemite
-    sha256 "48cae0fd08da1919154a6b867906a836ccc82626939402690b120ebe3f7cfa87" => :mavericks
+    sha256 "f044aeacd64def9fa7f2bb0bd2c6dd601c324e3f030038a2f7914785552b3fbd" => :sierra
+    sha256 "448d129e699d87c89bbe28069ad4af8eb4f53a074ea6acbf6ffd71547af9f926" => :el_capitan
+    sha256 "a33ef50799e0c20945040d5ac6b1bb511f3d5b12825c61de4905334aaf28d5de" => :yosemite
+    sha256 "0168f90f28a6daea7175506219f671bda429c95d5daa112c3a695a6c3c1c5edb" => :mavericks
   end
 
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "openssl"
   depends_on "lua"
-  depends_on "gcc" if MacOS.version <= :mavericks
+  depends_on "gcc" if DevelopmentTools.clang_build_version <= 600
 
   needs :cxx11
 
@@ -24,15 +24,21 @@ class Pdnsrec < Formula
     cause "incomplete C++11 support"
   end
 
-  # boost 1.61.0 compat
-  # upstream commit "fix type"; remove for > 4.0.1
+  # Remove for > 4.0.3
+  # Upstream commit "rec: Fix Lua-enabled compilation on OS X and FreeBSD"
   patch :p2 do
-    url "https://github.com/PowerDNS/pdns/commit/33f13fde.patch"
-    sha256 "f7944b9fd573619bdeb20bc211b3eb5fd4f129cb0e691ece686d213ebf6e5393"
+    url "https://github.com/PowerDNS/pdns/commit/546d1fb.patch"
+    sha256 "9a7711596aebaf3eceaf8abcf723df12aa9c22583e6bb177b4eb0f90c8bb2ec3"
   end
 
   def install
     ENV.cxx11
+
+    # Remove for > 4.0.3; using inreplace avoids Autotools dependencies
+    # Upstream PR "Fall back to SystemV ucontexts on boost >= 1.61"
+    # See https://github.com/PowerDNS/pdns/commit/fbf562c
+    inreplace "configure", "boost/context/detail/fcontext.hpp",
+                           "boost/context/fcontext.hpp"
 
     args = %W[
       --prefix=#{prefix}

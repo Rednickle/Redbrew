@@ -17,6 +17,7 @@ class Libspatialite < Formula
 
   bottle do
     cellar :any
+    sha256 "0565211eb20b09cb572e4b21735e1aed93620a7cc40d32fcfa42c4fcd27e7081" => :sierra
     sha256 "3100c637b3ef2b0e0ae9da26300ab478afa2fa9262d35a12121a3938d4515809" => :el_capitan
     sha256 "287266fa28880f06e6effc8cac49910369c37dc961dce4c5d2b7870c017b1243" => :yosemite
     sha256 "06f674fa26f7d353ede60de56b52831aba30d3a3f02d3b7dc69affc4db6edbb5" => :mavericks
@@ -33,9 +34,6 @@ class Libspatialite < Formula
   option "without-libxml2", "Disable support for xml parsing (parsing needed by spatialite-gui)"
   option "without-liblwgeom", "Build without additional sanitization/segmentation routines provided by PostGIS 2.0+ library"
   option "without-geopackage", "Build without OGC GeoPackage support"
-  option "without-test", "Do not run `make check` prior to installing"
-
-  deprecated_option "without-check" => "without-test"
 
   depends_on "pkg-config" => :build
   depends_on "proj"
@@ -82,7 +80,6 @@ class Libspatialite < Formula
     args << "--enable-geopackage=no" if build.without? "geopackage"
 
     system "./configure", *args
-    system "make", "check" if build.with? "test"
     system "make", "install"
   end
 

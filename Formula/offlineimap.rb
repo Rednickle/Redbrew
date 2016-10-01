@@ -1,15 +1,15 @@
 class Offlineimap < Formula
   desc "Synchronizes emails between two repositories"
   homepage "http://offlineimap.org/"
-  url "https://github.com/OfflineIMAP/offlineimap/archive/v7.0.6.tar.gz"
-  sha256 "f50002d0760794f1190526b74e2010becc16d2ff541526aadc95ec11cb064fd7"
+  url "https://github.com/OfflineIMAP/offlineimap/archive/v7.0.7.tar.gz"
+  sha256 "802e7574fd4771c4e3bf5da11cb039e58c11bbbe799776bd9d05aa0eb8ed299c"
   head "https://github.com/OfflineIMAP/offlineimap.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "884d3b223bcba745bce8f6f430cbd5ce2bddef7c4d594f8685288eee8b957462" => :el_capitan
-    sha256 "8653dd2abfa332cf39003da977720115d71adb57ea75529269ab6cd9a4574292" => :yosemite
-    sha256 "8653dd2abfa332cf39003da977720115d71adb57ea75529269ab6cd9a4574292" => :mavericks
+    sha256 "f3706bb091ba7316321c6bebba9b1fb1de9f80c9e2fea835ff82ba414af32324" => :sierra
+    sha256 "f3706bb091ba7316321c6bebba9b1fb1de9f80c9e2fea835ff82ba414af32324" => :el_capitan
+    sha256 "f3706bb091ba7316321c6bebba9b1fb1de9f80c9e2fea835ff82ba414af32324" => :yosemite
   end
 
   resource "six" do

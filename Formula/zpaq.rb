@@ -1,17 +1,16 @@
 class Zpaq < Formula
   desc "Incremental, journaling command-line archiver"
   homepage "http://mattmahoney.net/dc/zpaq.html"
-  url "http://mattmahoney.net/dc/zpaq714.zip"
-  version "7.14"
-  sha256 "7ebd2ecf6b7699cb1c9e02d3045698a71f684f83f48ebc18bad1a7e075b1b5f6"
+  url "http://mattmahoney.net/dc/zpaq715.zip"
+  version "7.15"
+  sha256 "e85ec2529eb0ba22ceaeabd461e55357ef099b80f61c14f377b429ea3d49d418"
   head "https://github.com/zpaq/zpaq.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3cea014c39c41c7208a17b80b9d7676a5e44757053916ea13a0cf65ea8166dc7" => :el_capitan
-    sha256 "58823b3daa759acc9ccb2193382ccaf5c312201d9a20592c12bde9843b4b5341" => :yosemite
-    sha256 "8a89183c78862909d2db2a68ece4b4a12e89167c460735d99f8afdd6b90af9ab" => :mavericks
-    sha256 "cc10b51ceb839909c722c6541a163d7c80423090e8e6b09c358609f130851bf1" => :x86_64_linux
+    sha256 "63f132c8cbff5b22daddc07289837ad710c4af7785fa36351a498cc99e77c6ec" => :sierra
+    sha256 "beafa9e6d0ba28368a77d9ddcbaf3b04a3f02716f08eb4b2a345745c45fcf9d2" => :el_capitan
+    sha256 "de09d5f93f86f77372ea01b40f23481bc3e6cd33b9b2ac67736c85167a760dbb" => :yosemite
   end
 
   resource "test" do
@@ -20,9 +19,6 @@ class Zpaq < Formula
   end
 
   def install
-    # Reported 6 Aug 2016 to mattmahoneyfl (at) gmail (dot) com
-    # OS X `install` command doesn't have `-t`
-    inreplace "Makefile", /(install -m.* )-t (.*) (.*)(\r)/, "\\1 \\3 \\2\\4"
     system "make"
     system "make", "check"
     system "make", "install", "PREFIX=#{prefix}"

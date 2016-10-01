@@ -1,14 +1,27 @@
 class H2o < Formula
   desc "HTTP server with support for HTTP/1.x and HTTP/2"
   homepage "https://github.com/h2o/h2o/"
-  url "https://github.com/h2o/h2o/archive/v2.0.3.tar.gz"
-  sha256 "92523f77731036f773f6dbbb41e412cfc48311ddf81d210def20c548a25fb2cc"
-  head "https://github.com/h2o/h2o.git"
+
+  stable do
+    url "https://github.com/h2o/h2o/archive/v2.0.4.tar.gz"
+    sha256 "c0efa18f0ffb0f68ee4b60a6ed1feb54c770458c59e48baa2d9d0906ef9c68c0"
+
+    depends_on "openssl" => :recommended
+  end
 
   bottle do
-    sha256 "e6566f4d840aeafde50532bcc3255c4f181c38b08f34bac838dcf77017c91698" => :el_capitan
-    sha256 "1aea0ae5b45bad11eff3070859c18e4b2a1deef3416cb719f2b0e29aaa3f75e5" => :yosemite
-    sha256 "fcb17970b2aae22f02fc6fe1dfcc197e29848394a200f547501fc7e4806d2f49" => :mavericks
+    sha256 "e9029c054ed3a8672e38a8114ced58c9d3e21e70fb73a61d452746678446f4cf" => :sierra
+    sha256 "b2f4bf96916db1a713ce4acb2c2e4c94aaa085d3c7572004ee55d91fd7bdd39d" => :el_capitan
+    sha256 "220ada282b02f463212dee500e0fbb7bc2e70dcb0bf2c5c88ecc43f34583d563" => :yosemite
+    sha256 "7471f50113eb406db5c101860630829e3d4439001ad85de88a5c8db062b112b1" => :mavericks
+  end
+
+  devel do
+    url "https://github.com/h2o/h2o/archive/v2.1.0-beta3.tar.gz"
+    version "2.1.0-beta3"
+    sha256 "e85aa794b1d1dd074f44e1a2df6afee61175b443f8fa6413a47033c179485d2a"
+
+    depends_on "openssl@1.1" => :recommended
   end
 
   option "with-libuv", "Build the H2O library in addition to the executable"
@@ -16,7 +29,6 @@ class H2o < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl" => :recommended
   depends_on "libressl" => :optional
   depends_on "libuv" => :optional
   depends_on "wslay" => :optional
@@ -25,6 +37,11 @@ class H2o < Formula
     # https://github.com/Homebrew/homebrew-core/pull/1046
     # https://github.com/Homebrew/brew/pull/251
     ENV.delete("SDKROOT")
+
+    openssl = build.stable? ? Formula["openssl"] : Formula["openssl@1.1"]
+    if build.with?("libressl") && build.with?(openssl)
+      odie "--without-#{openssl} must be passed when building --with-libressl"
+    end
 
     args = std_cmake_args
     args << "-DWITH_BUNDLED_SSL=OFF"

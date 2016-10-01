@@ -1,15 +1,15 @@
 class OpensslAT11 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-1.1.0.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.0.tar.gz"
-  sha256 "f5c69ff9ac1472c80b868efc1c1c0d8dcfc746d29ebe563de2365dd56dbd8c82"
+  url "https://www.openssl.org/source/openssl-1.1.0b.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.0b.tar.gz"
+  sha256 "a45de072bf9be4dea437230aaf036000f0e68c6a665931c57e76b5b036cef6f7"
+  version_scheme 1
 
   bottle do
-    sha256 "5d3b2fe3749721827d5563c5178cc82680658354acf02447fc989992a597d2ce" => :sierra
-    sha256 "697e4bbcbe24a7fc4a66e36fb2ddc0f19a54e786f14e02d320fa4d9e3697d3fa" => :el_capitan
-    sha256 "e1b0864c68ac6779734566d0d82b3d95e1511788f8dda27d8854e66653eba481" => :yosemite
-    sha256 "99853edea67ec33f933cb2ba5eb255adfec637ff320af632d0e54e066786e1d3" => :mavericks
+    sha256 "341cc068d59c5f9a551815e61ae8a5460356ffd7ced67d0d89d354d342cf002c" => :sierra
+    sha256 "17135ac0f3f26aff6ebdc15236f4056456950890732ca438f185a85c1515dcd7" => :el_capitan
+    sha256 "fd3da75aeef50c3835f918e77a22b5a17abef478d54173714668fc3e98c391e3" => :yosemite
   end
 
   keg_only :provided_by_osx,
@@ -30,7 +30,7 @@ class OpensslAT11 < Formula
   def arch_args
     {
       :x86_64 => %w[darwin64-x86_64-cc enable-ec_nistp_64_gcc_128],
-      :i386   => %w[darwin-i386-cc],
+      :i386 => %w[darwin-i386-cc],
     }
   end
 

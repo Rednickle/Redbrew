@@ -1,15 +1,13 @@
 class GdkPixbuf < Formula
   desc "Toolkit for image loading and pixel buffer manipulation"
   homepage "http://gtk.org"
-  url "https://download.gnome.org/sources/gdk-pixbuf/2.34/gdk-pixbuf-2.34.0.tar.xz"
-  sha256 "d55e5b383ee219bd0e23bf6ed4427d56a7db5379729a6e3e0a0e0eba9a8d8879"
+  url "https://download.gnome.org/sources/gdk-pixbuf/2.36/gdk-pixbuf-2.36.0.tar.xz"
+  sha256 "85ab52ce9f2c26327141b3dcf21cca3da6a3f8de84b95fa1e727d8871a23245c"
 
   bottle do
-    sha256 "91974aef8170debec8ebfbebd0e534ee729ec9316392257452283972e53bb1e3" => :sierra
-    sha256 "2457c164f46d315b58ed69358973c78139af3422205f7376a777d16e43ceb7da" => :el_capitan
-    sha256 "15096f218ea453b77ae40d88752610742d78d199b2b90fa1c5323eeb547dd394" => :yosemite
-    sha256 "57cc04ff998e51dc3004656c2f44cf2820d5002cfdc18f7a7dc6e04e674315ab" => :mavericks
-    sha256 "4e6ba442772c80efc74dc70ad0f038be91e07bf31b603588534b8684582a0714" => :x86_64_linux
+    sha256 "0be36333f1249185fa702ef3cc1397d41577b8b79bab7f30413397e6f30ffa59" => :sierra
+    sha256 "6f928b3e97c33a3f8cc28ad066aa6ae12982bf09e997bb158f5584613ddb7d49" => :el_capitan
+    sha256 "d094979d066bfec5ab032f393ee2c9f13a8dc10eae5b3797b2b21ccb40057e3f" => :yosemite
   end
 
   option :universal
@@ -24,15 +22,6 @@ class GdkPixbuf < Formula
 
   # 'loaders.cache' must be writable by other packages
   skip_clean "lib/gdk-pixbuf-2.0"
-
-  # Patch that fixes an occasional segfault in Freeciv
-  # See:
-  # - https://bugzilla.gnome.org/show_bug.cgi?id=766842
-  # - https://gna.org/bugs/?func=detailitem&item_id=24298
-  patch do
-    url "https://github.com/GNOME/gdk-pixbuf/commit/ad43d54b11d0b337e8032d9d25b09eb8f8650ace.patch"
-    sha256 "c38cbf14bee68a15a12edb55a5fa39e36a8dc3d82b4160e9cefea921eda6a13d"
-  end
 
   # gdk-pixbuf has an internal version number separate from the overall
   # version number that specifies the location of its module and cache

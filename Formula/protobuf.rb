@@ -1,16 +1,14 @@
 class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/google/protobuf/"
-  url "https://github.com/google/protobuf/archive/v3.0.2.tar.gz"
-  sha256 "b700647e11556b643ccddffd1f41d8cb7704ed02090af54cc517d44d912d11c1"
+  url "https://github.com/google/protobuf/archive/v3.1.0.tar.gz"
+  sha256 "0a0ae63cbffc274efb573bdde9a253e3f32e458c41261df51c5dbc5ad541e8f7"
   head "https://github.com/google/protobuf.git"
 
   bottle do
-    sha256 "12622b355f2f487ce7bad94d23fda69f1137a59f61a61d9b2839b64033f42334" => :sierra
-    sha256 "6e4be33dfd56f5a1434bd0922e5b488031cfc5d6ce599812034d3c1b855c4fe1" => :el_capitan
-    sha256 "a465fe01de58cb9c69d7643a446906fb055d21965e2f2aa3d44358ed38ce2c95" => :yosemite
-    sha256 "c3658cb510da1f506c400620877174e972ed2b99b99d47a63754c6ef4556094b" => :mavericks
-    sha256 "6587a9446a0ce68510303fd7f884212b5bc1a15fe694630a4a7d220d0a7a1e1e" => :x86_64_linux
+    sha256 "937351ede8db879b572c43994845d49a0dafc890a2ee0caf99c61b3ed75c2d76" => :sierra
+    sha256 "561c3788b7b3cc1df6fce744c20c5ef85fd484cc3177e14525e262f0544b4fe5" => :el_capitan
+    sha256 "902bc03d7ee53fb688ae428bc24aa33c1122b8bf40530da3b5e8f6883e3ec125" => :yosemite
   end
 
   # this will double the build time approximately if enabled
