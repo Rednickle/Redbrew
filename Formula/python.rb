@@ -11,7 +11,7 @@ class Python < Formula
     sha256 "082e12c8a27f4d18d15340818f4b14052916880c93b0b668d23b7a87c5ffb124" => :sierra
     sha256 "a521afdafd08a7f09b48b9f36a76786671dbec1a5b8b2ae3a02f31286effee73" => :el_capitan
     sha256 "09630f52c4121f47fe3ae2bb7210a0f673c74c8d4474db5fd22be0e605fb1cab" => :yosemite
-    sha256 "a1169071dee0c1250f8028614908029f88d75c7b404577452db73fee429f4f99" => :x86_64_linux
+    sha256 "081698c24cfb8cdc69219e86477292520d7525a151d8af80e956aaf0721ee11a" => :x86_64_linux
   end
 
   # Homebrew doesn't accept a wide/ucs4 option because narrow build is the de facto standard
