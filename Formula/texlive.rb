@@ -6,6 +6,11 @@ class Texlive < Formula
   sha256 "55832e8777cd140ac843866b0c3e8b2d6ffd4034f77f26e910cf02d793047111"
   # tag "linuxbrew"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "6fa71e0df7be7c16629d7f9969f169e5abdf4068c8132556bf2296a334f4f3fd" => :x86_64_linux
+  end
+
   option "with-full", "install everything"
   option "with-medium", "install small + more packages and languages"
   option "with-small", "install basic + xetex, metapost, a few languages [default]"
