@@ -12,11 +12,6 @@ class Postgresql < Formula
     sha256 "12848df6fce9bcad1a65e665972a0c7de520ae768c4f065035b966d509a41420" => :x86_64_linux
   end
 
-  devel do
-    url "https://ftp.postgresql.org/pub/source/v9.6rc1/postgresql-9.6rc1.tar.gz"
-    sha256 "a202c0bfba27f4dd612c01a4a4f6de1f5b42ada27471f8cb6a59df150cfe71c9"
-  end
-
   option "32-bit"
   option "without-perl", "Build without Perl support"
   if OS.linux?
