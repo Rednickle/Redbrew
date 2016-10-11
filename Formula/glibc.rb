@@ -20,6 +20,9 @@ class Glibc < Formula
   depends_on "linux-headers" => [:build, :recommended]
 
   def install
+    # -Os confuses valgrind.
+    ENV.O2
+
     mkdir "build" do
       args = [
         "--disable-debug",
