@@ -31,7 +31,7 @@ class Glibc < Formula
         "--prefix=#{prefix}",
         "--enable-obsolete-rpc",
         # Fix error: selinux/selinux.h: No such file or directory
-        "--without-selinux"
+        "--without-selinux",
       ]
       kernel_version = `uname -r`.chomp.split("-")[0]
       args << "--enable-kernel=#{kernel_version}" if build.with? "current-kernel"
