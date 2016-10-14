@@ -11,6 +11,10 @@ class ManDb < Formula
     depends_on "automake" => :build
   end
 
+  bottle do
+    sha256 "3fa618e0db198499a32a305241e59dd31eb513ff5dedaf693fb674cb8b6612a4" => :x86_64_linux
+  end
+
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "groff" unless OS.mac?
