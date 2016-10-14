@@ -11,6 +11,11 @@ class Libpipeline < Formula
     depends_on "automake" => :build
   end
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "a264032c0c4a781b63aa033cb1d5f0f69d667b8b7eb575298c9003a20a627846" => :x86_64_linux
+  end
+
   def install
     system "./configure",
       "--disable-debug",
