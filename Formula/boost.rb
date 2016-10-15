@@ -1,31 +1,15 @@
 class Boost < Formula
   desc "Collection of portable C++ source libraries"
   homepage "https://www.boost.org/"
-  revision 1
-
+  url "https://downloads.sourceforge.net/project/boost/boost/1.62.0/boost_1_62_0.tar.bz2"
+  sha256 "36c96b0f6155c98404091d8ceb48319a28279ca0333fba1ad8611eb90afb2ca0"
   head "https://github.com/boostorg/boost.git"
-
-  stable do
-    url "https://downloads.sourceforge.net/project/boost/boost/1.61.0/boost_1_61_0.tar.bz2"
-    sha256 "a547bd06c2fd9a71ba1d169d9cf0339da7ebf4753849a8f7d6fdb8feee99b640"
-
-    # Remove for > 1.61.0
-    # Upstream commit "Fix build issues when optional_fwd.hpp is used before
-    # including boost/config.hpp" from PR boostorg/optional#19
-    # See https://svn.boost.org/trac/boost/ticket/12179
-    patch :p2 do
-      url "https://github.com/boostorg/optional/commit/844ca6a0.patch"
-      sha256 "1ef54ca1dcd12d809e2a01b558113fcd734d992402d2ec78c387298ef29cc887"
-    end
-  end
 
   bottle do
     cellar :any
-    sha256 "56c7f4f5902e5bb2c1512c69a87a609b50f305971c3c975726cf324cc40f536e" => :sierra
-    sha256 "0c06f4558c5f98e5615cb9a33b66ab912e702ad50a2e1051ae80171b0bda9aa3" => :el_capitan
-    sha256 "508bfe58b3ba391690be77da7a47a34f2cf0b489cc2590c69c746d7919fa12c1" => :yosemite
-    sha256 "92db134e4a77c4cc0566261b09b96886b30f6c1bf81d65b120dffd6937e99f58" => :mavericks
-    sha256 "d59b379fc3a39f0e72ff7222c40bc3177f91b2210d96254a68db5886adf5144d" => :x86_64_linux
+    sha256 "22763fd3647255018dc31832f2513c03f36a56c3461c03e03cf5e8866cc64ce5" => :sierra
+    sha256 "5c639c9f61b56ed1d99a5b8b25d149c366543330b654c429fe939e57fae9541b" => :el_capitan
+    sha256 "527fdbeaa9f685e3de45938bf897e145292471250c6e47ea50ff1635f121b67a" => :yosemite
   end
 
   env :userpaths
@@ -58,16 +42,6 @@ class Boost < Formula
   def install
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["HOMEBREW_MAKE_JOBS"] = "6" if ENV["CIRCLECI"]
-
-    # https://svn.boost.org/trac/boost/ticket/8841
-    if build.with?("mpi") && build.with?("single")
-      raise <<-EOS.undent
-        Building MPI support for both single and multi-threaded flavors
-        is not supported.  Please use "--with-mpi" together with
-        "--without-single".
-      EOS
-    end
-
     ENV.universal_binary if build.universal?
 
     # Force boost to compile with the desired compiler

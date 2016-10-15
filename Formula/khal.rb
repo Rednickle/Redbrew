@@ -3,16 +3,15 @@ class Khal < Formula
 
   desc "CLI calendar application."
   homepage "https://lostpackets.de/khal/"
-  url "https://files.pythonhosted.org/packages/7b/96/7c0bbc58d057d9ab8fb2ee426c4c9ccd413a136046ed228bd8aa77a804e3/khal-0.8.3.tar.gz"
-  sha256 "1ec6940a9fbd207c41428b103bac1d1555129b9b4eca2b843c544bd48ac63ee3"
-  revision 1
+  url "https://pypi.python.org/packages/66/7c/6c4f2f9ca092bfb60c1328324e2533858af6a5b89a32c168836cfe9dcbba/khal-0.8.4.tar.gz"
+  sha256 "2e5c41eadf83c8f175dc05816571e747da921b025e4acc6b287c109b6e237e0f"
 
   head "https://github.com/pimutils/khal.git"
 
   bottle do
-    sha256 "6884cba5ffe6ddd9262eae2567940e9e6b89c85d893647aa53b930933714a1f3" => :sierra
-    sha256 "415cb9c8af29bde339fcac14b54953ff5ed03363af155ee737380aef03e9335e" => :el_capitan
-    sha256 "d37998ca94d896c89f8b12a0c3da5fa9af9ddfbf4d2eb2bbfdb8068fa8971d7f" => :yosemite
+    sha256 "a62f418792653aa571cab3d1f5493bf7224cedc3f9ab68161daff85baf6c86ae" => :sierra
+    sha256 "ccf6eb80ab996a0959ee1ffce2d4cc336907778edf654571ea2644832d624204" => :el_capitan
+    sha256 "af5e78c680edec47c7d9054d7b36f0a35736bf96e5f211838b90404a8d51d5cc" => :yosemite
   end
 
   depends_on :python3

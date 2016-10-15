@@ -1,14 +1,13 @@
 class Glib < Formula
   desc "Core application library for C"
   homepage "https://developer.gnome.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.50/glib-2.50.0.tar.xz"
-  sha256 "830b551fa626bda06e12729205b3c5bb0d82b924a8cf64d948945878f01b7d70"
+  url "https://download.gnome.org/sources/glib/2.50/glib-2.50.1.tar.xz"
+  sha256 "2ef87a78f37c1eb5b95f4cc95efd5b66f69afad9c9c0899918d04659cf6df7dd"
 
   bottle do
-    sha256 "bb396367169022dedf170881de64c7a034273e909de57b2e42cd5876746f1fe6" => :sierra
-    sha256 "482783ddb70bf66dec6ae214a69ad32a91347b99b08fe87893839dc20d8a361b" => :el_capitan
-    sha256 "eb5be0abeec81800c17f4b432420117bcbed1a64ec9aab5c8df29c73d1c963f1" => :yosemite
-    sha256 "959d039f0e5509d67c9c0904a97e30094bacfc138b4c92d2ac19f093ab735a2c" => :x86_64_linux
+    sha256 "4892a83baa553ef938ec2a7cb4d6f72af9bbd45ddef730e42b9640c5c9883fe4" => :sierra
+    sha256 "818420b0efd28fc6ed8fce3be2291cb4761ba264a535b795bf42e251b432c7c2" => :el_capitan
+    sha256 "cfde246fc576b0cf6c4609045b5f1dc4c412133047036326176e350e425e8e4e" => :yosemite
   end
 
   option :universal
@@ -65,8 +64,8 @@ class Glib < Formula
   # also applied to configure and gio/Makefile.in
   if OS.mac? && MacOS.version < :mavericks
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/59e4d32/glib/gnotification-mountain.patch"
-      sha256 "723def732304552ca55ae9f5b568ff3e8a59a14d512af72b6c1f0421f8228a68"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/a4fe61b/glib/gnotification-mountain.patch"
+      sha256 "5bf6d562dd2be811d71e6f84eb43fc6c51a112db49ec0346c1b30f4f6f4a4233"
     end
   end
 

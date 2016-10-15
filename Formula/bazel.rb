@@ -1,25 +1,15 @@
 class Bazel < Formula
   desc "Google's own build tool"
   homepage "https://www.bazel.io/"
+  url "https://github.com/bazelbuild/bazel/archive/0.3.2.tar.gz"
+  sha256 "9692ac3318a40e8a0530f68bbfc473ae5f6a4a5c0fe08d2f88612ca4d40ba54a"
   head "https://github.com/bazelbuild/bazel.git"
-
-  stable do
-    url "https://github.com/bazelbuild/bazel/archive/0.3.1.tar.gz"
-    sha256 "52beafc9d78fc315115226f31425e21df1714d96c7dfcdeeb02306e2fe028dd8"
-
-    # Fix build on macOS 10.12 Sierra
-    patch do
-      url "https://github.com/bazelbuild/bazel/commit/fefd2329f4812bcb513294fdf417fc726a86ddfd.diff"
-      sha256 "73455ede4acb9e40923838cb66750a5baacc6b6f8eaaeed72df02dbca38bbe73"
-    end
-  end
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "8c28efdb500103fc2fe69f5d32b2b433e00345c55c5003cdc53f76e9aec3a22e" => :sierra
-    sha256 "9baa84e3f84d5060d39166ff682f7280e93dd173713b83dd5c95c23dda78c942" => :el_capitan
-    sha256 "526bcf3e24b646c1f1648d47868654a16e8f566dcf1575034b039f7e17aa91d4" => :yosemite
+    sha256 "7407bba2c724555ee20a78ba658d537bfc3858f8e7e3e94e8a23649b4c356795" => :sierra
+    sha256 "1951bee16f4d764d4a80a7802f20336fc9e5086be3d95ea529441aaddc44c44d" => :el_capitan
+    sha256 "d60b2137ba014b5a44d62fd2649f5a356f3f2fffad35809afad89944804de79a" => :yosemite
   end
 
   depends_on :java => "1.8+"

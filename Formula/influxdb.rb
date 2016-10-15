@@ -6,21 +6,35 @@ class Influxdb < Formula
 
   stable do
     url "https://github.com/influxdata/influxdb.git",
-      :tag => "v1.0.0",
-      :revision => "37992377a55fbc138b2c01edd4deffed64b53989"
+        :tag => "v1.0.2",
+        :revision => "ff307047057b7797418998a4ed709b0c0f346324"
 
     go_resource "github.com/dgrijalva/jwt-go" do
       url "https://github.com/dgrijalva/jwt-go.git",
           :revision => "9b486c879bab3fde556ce8c27d9a2bb05d5b2c60"
     end
+
+    go_resource "github.com/gogo/protobuf" do
+      url "https://github.com/gogo/protobuf.git",
+          :revision => "6abcf94fd4c97dcb423fdafd42fe9f96ca7e421b"
+    end
+
+    go_resource "github.com/influxdata/usage-client" do
+      url "https://github.com/influxdata/usage-client.git",
+          :revision => "475977e68d79883d9c8d67131c84e4241523f452"
+    end
+
+    go_resource "github.com/jwilder/encoding" do
+      url "https://github.com/jwilder/encoding.git",
+          :revision => "ac74639f65b2180a2e5eb5ff197f0c122441aed0"
+    end
   end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3bac32da6ce1c75cd029dc26f87a18738cbaeb1e1ea66eb05699f6728a55ec1f" => :sierra
-    sha256 "f6fe8dc80d315010ccda9afbc5880b552adb37bf97ad20174f9b2146b27326d4" => :el_capitan
-    sha256 "7053e4db8d2af19146b47674949dd0cd9b332ddda2bd270b79badf19ac26d0fe" => :yosemite
-    sha256 "d834a2a8e2720ab64d7b856c0a6ffa3e07f712de40a07ddfec019d8b488180a8" => :mavericks
+    sha256 "8d46d2c8328b32ce663b2e3447ed1a2eddf97f9a4be785da2cc648c869771d2f" => :sierra
+    sha256 "8edec35bcf5921c860e2140f17f8d286063450c6271436232a5f67b57c03a859" => :el_capitan
+    sha256 "12d7d4b39a8cf7723f7332ef92d2be009e69859fef3fea47e437341570239fdd" => :yosemite
   end
 
   head do
@@ -29,6 +43,21 @@ class Influxdb < Formula
     go_resource "github.com/dgrijalva/jwt-go" do
       url "https://github.com/dgrijalva/jwt-go.git",
           :revision => "63734eae1ef55eaac06fdc0f312615f2e321e273"
+    end
+
+    go_resource "github.com/gogo/protobuf" do
+      url "https://github.com/gogo/protobuf.git",
+          :revision => "0394392b81058a7f972029451f06e528bb18ba50"
+    end
+
+    go_resource "github.com/influxdata/usage-client" do
+      url "https://github.com/influxdata/usage-client.git",
+          :revision => "6d3895376368aa52a3a81d2a16e90f0f52371967"
+    end
+
+    go_resource "github.com/jwilder/encoding" do
+      url "https://github.com/jwilder/encoding.git",
+          :revision => "4dada27c33277820fe35c7ee71ed34fbc9477d00"
     end
   end
 
@@ -69,24 +98,9 @@ class Influxdb < Formula
         :revision => "7d46cd22db7004f0cceb6f7975824b560cf0e486"
   end
 
-  go_resource "github.com/gogo/protobuf" do
-    url "https://github.com/gogo/protobuf.git",
-        :revision => "6abcf94fd4c97dcb423fdafd42fe9f96ca7e421b"
-  end
-
   go_resource "github.com/golang/snappy" do
     url "https://github.com/golang/snappy.git",
         :revision => "d9eb7a3d35ec988b8585d4a0068e462c27d28380"
-  end
-
-  go_resource "github.com/influxdata/usage-client" do
-    url "https://github.com/influxdata/usage-client.git",
-        :revision => "475977e68d79883d9c8d67131c84e4241523f452"
-  end
-
-  go_resource "github.com/jwilder/encoding" do
-    url "https://github.com/jwilder/encoding.git",
-        :revision => "ac74639f65b2180a2e5eb5ff197f0c122441aed0"
   end
 
   go_resource "github.com/kimor79/gollectd" do

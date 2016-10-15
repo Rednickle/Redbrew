@@ -3,13 +3,13 @@ class Pdftoedn < Formula
   homepage "https://github.com/edporras/pdftoedn"
   url "https://github.com/edporras/pdftoedn/archive/v0.34.1.tar.gz"
   sha256 "d00ed04a4f58cc1163cc581cf738e53d872ea59f9e5f94fa9cc61ef59b8d9c13"
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "04741c63be592ede3c058ede03b215491524f4b8610c201ccae25fe4ffa18367" => :sierra
-    sha256 "1db4ccab956227cf5db09e9a925b0373427e3d237e4486661e13d2b1b4bcde1f" => :el_capitan
-    sha256 "3e0307c2943aba4c8dc1d849c579f75bcca989b24f1470b8da25817c03b27d50" => :yosemite
-    sha256 "08959d8bb3f153e9ab5dd34827387fcea19c167f3ac1dbc5566eb35b638d5a5e" => :mavericks
+    sha256 "3185a2199a3bb4e96b5d722ce584c3d35698fe920a1e5d190b5db82d338dece2" => :sierra
+    sha256 "eacb1b8cd8ac9765cad1b585b2e7c5d075dc7d27797df526782600d0e8e16833" => :el_capitan
+    sha256 "ac0d11e20d0de0df76ad4a2d3cf27e33847d6beb95d6c656fe0c7f64ebb94882" => :yosemite
   end
 
   depends_on "automake" => :build

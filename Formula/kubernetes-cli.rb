@@ -1,39 +1,31 @@
 class KubernetesCli < Formula
   desc "Kubernetes command-line interface"
   homepage "http://kubernetes.io/"
-  url "https://github.com/kubernetes/kubernetes/archive/v1.3.7.tar.gz"
-  sha256 "40a655b5ae1734acfda157088a20853aaf87945508edf73497bec5fa26352a9b"
+  url "https://github.com/kubernetes/kubernetes/archive/v1.4.1.tar.gz"
+  sha256 "197590dc4c8c23f5290822bda2c97ac3cf8d7eba43637f8103cd37d99072d55e"
   head "https://github.com/kubernetes/kubernetes.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8847676dee7de017eeccd753ef1a10871d437d2b84e1cdb2158923a088879dec" => :sierra
-    sha256 "2cf1c6ef203ad6fb22ab3409b119d80c8d29f2705c6ffccd164da57b0b45793c" => :el_capitan
-    sha256 "808c93e78b84f743877690d72aee24a61415af5fc1cc4c7bbd6c7b60fa66b735" => :yosemite
-    sha256 "ea0e3304fa165700e02804e441017c7389fae73db2f93c1d91c40989e2d2f9da" => :x86_64_linux
-  end
-
-  devel do
-    # building from the tag lets it pick up the correct version info
-    url "https://github.com/kubernetes/kubernetes.git",
-        :tag => "v1.4.0-alpha.3",
-        :revision => "b44b716965db2d54c8c7dfcdbcb1d54792ab8559"
-    version "1.4.0-alpha.3"
+    sha256 "a29cb19a1bdf80dc9a693bc9b7b4c42bb36fc84cec6486f33cce2e77e51bba24" => :sierra
+    sha256 "b98ae46a94d059829d6f9ddd9c42df5f35d2f4bba494144d95f043375be1a8df" => :el_capitan
+    sha256 "71d29d2c444e77bcabbb2545a891c2a76d83fcadeac8b41c07e09d9627747045" => :yosemite
   end
 
   depends_on "go" => :build
 
   def install
-    os = OS.linux? ? "linux" : "darwin"
-    if build.stable?
-      system "make", "all", "WHAT=cmd/kubectl", "GOFLAGS=-v"
-    else
-      # avoids needing to vendor github.com/jteeuwen/go-bindata
-      rm "./test/e2e/framework/gobindata_util.go"
+    # Patch needed to avoid vendor dependency on github.com/jteeuwen/go-bindata
+    # Build will otherwise fail with missing dep
+    # Raised in https://github.com/kubernetes/kubernetes/issues/34067
+    rm "./test/e2e/framework/gobindata_util.go"
 
-      ENV.deparallelize { system "make", "generated_files" }
-      system "make", "kubectl", "GOFLAGS=-v"
-    end
+    # Race condition still exists in OSX Yosemite
+    # Filed issue: https://github.com/kubernetes/kubernetes/issues/34635
+    ENV.deparallelize { system "make", "generated_files" }
+    system "make", "kubectl", "GOFLAGS=-v"
+
+      os = OS.linux? ? "linux" : "darwin"
     arch = MacOS.prefer_64_bit? ? "amd64" : "x86"
     bin.install "_output/local/bin/#{os}/#{arch}/kubectl"
 

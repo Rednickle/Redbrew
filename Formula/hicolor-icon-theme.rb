@@ -4,12 +4,6 @@ class HicolorIconTheme < Formula
   url "https://icon-theme.freedesktop.org/releases/hicolor-icon-theme-0.15.tar.xz"
   sha256 "9cc45ac3318c31212ea2d8cb99e64020732393ee7630fa6c1810af5f987033cc"
 
-  head do
-    url "https://anongit.freedesktop.org/git/xdg/default-icon-theme.git"
-    depends_on "automake" => :build
-    depends_on "autoconf" => :build
-  end
-
   bottle do
     cellar :any_skip_relocation
     sha256 "96769af537321b17416273e465e01408b41a2881ca5abab6bdfdba902d11e452" => :sierra
@@ -18,6 +12,12 @@ class HicolorIconTheme < Formula
     sha256 "e3e7a63d5af66fe6721839c12e00288e061ef092a046ff6db2dcc6f62f75b9c2" => :mavericks
     sha256 "5647ecc1f44a15ee6cef8d37ae62d606251a0ae94f2659c9fac497270876367e" => :mountain_lion
     sha256 "1956805394228cb2941615de3bb71994bf8fc6c1763ff799dfda751656eb5b04" => :x86_64_linux
+  end
+
+  head do
+    url "https://anongit.freedesktop.org/git/xdg/default-icon-theme.git"
+    depends_on "automake" => :build
+    depends_on "autoconf" => :build
   end
 
   def install

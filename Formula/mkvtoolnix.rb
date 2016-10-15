@@ -3,12 +3,12 @@ class Mkvtoolnix < Formula
   homepage "https://www.bunkus.org/videotools/mkvtoolnix/"
   url "https://www.bunkus.org/videotools/mkvtoolnix/sources/mkvtoolnix-9.4.2.tar.xz"
   sha256 "df2c3773c0e7a75d88e75906cc425f9ed7f07ce36a99854162e14202ccd42904"
+  revision 1
 
   bottle do
-    sha256 "218da01180858b13706444cbb8edfd1c631f4b89f9f442d0d29129789d44a35e" => :sierra
-    sha256 "801d321895e3d9126cb408b14349d43cad9d994b38208284282912efcdc15cea" => :el_capitan
-    sha256 "6109f1b416ba366f9ec219df1871b5d14167f87f46d0742e4b59d8c179363fca" => :yosemite
-    sha256 "b7dfadad0496c65d709148521664ab0912f00fe285664117fe3bbcef36f1c698" => :mavericks
+    sha256 "541a110e6bb6a005819307f9678e20ba7c4803dd612f28d99e5531e44e4da20d" => :sierra
+    sha256 "3ad0b1d779120c281727c471345bd8137b3ab810bb0275bae4aa37aaa2a5c038" => :el_capitan
+    sha256 "a91c632125f19fd4889569a065df78952322c963313eec0b2135c24ea6424166" => :yosemite
   end
 
   head do
@@ -64,6 +64,10 @@ class Mkvtoolnix < Formula
     if build.with?("qt5")
       qt5 = Formula["qt5"]
 
+      ENV["QT_CFLAGS"] = "-I#{qt5.opt_include} -I#{qt5.opt_include}/QtNetwork -I#{qt5.opt_include}/QtWidgets -I#{qt5.opt_include}/QtGui -I#{qt5.opt_include}/QtCore"
+      ENV["QT_LIBS"] = "-F#{qt5.opt_lib} -framework QtNetwork -framework QtWidgets -framework QtGui -framework QtCore"
+
+      args << "--without-qt-pkg-config"
       args << "--with-moc=#{qt5.opt_bin}/moc"
       args << "--with-uic=#{qt5.opt_bin}/uic"
       args << "--with-rcc=#{qt5.opt_bin}/rcc"

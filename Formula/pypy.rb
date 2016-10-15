@@ -1,15 +1,28 @@
 class Pypy < Formula
   desc "Highly performant implementation of Python 2 in Python"
   homepage "http://pypy.org/"
-  url "https://bitbucket.org/pypy/pypy/downloads/pypy2-v5.4.1-src.tar.bz2"
-  sha256 "45dbc50c81498f6f1067201b8fc887074b43b84ee32cc47f15e7db17571e9352"
   head "https://bitbucket.org/pypy/pypy", :using => :hg
+
+  stable do
+    url "https://bitbucket.org/pypy/pypy/downloads/pypy2-v5.4.1-src.tar.bz2"
+    sha256 "45dbc50c81498f6f1067201b8fc887074b43b84ee32cc47f15e7db17571e9352"
+
+    patch do
+      # patch for Xcode 8 clock_gettime issue
+      # remove when next release is out
+      # https://bitbucket.org/pypy/pypy/issues/2407/#comment-31210382
+      # https://bitbucket.org/pypy/pypy/commits/91b44e61f628
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/05b5cf6/pypy/patch-clock_gettime.diff"
+      sha256 "f9ae7918620740238e404e73007da06cb9bf16c21ed698f91e02432086ec4432"
+    end
+  end
 
   bottle do
     cellar :any
-    sha256 "ea22b917547f7187cb4180e06e10cc5d9367b8901aad8aaa2762020a50a25513" => :el_capitan
-    sha256 "b778a98c33f59688b077cfb6e9f14b0e33a75bfa526559f2d9ce532ee7014eae" => :yosemite
-    sha256 "e676af7389de259c4f8eca4128cb4225dc40f7b79e3d3912abead93c302abaab" => :mavericks
+    rebuild 1
+    sha256 "cda4e40505b34068a30b1240397bd8523c5c9a979858b728a1c90ae35735a6be" => :sierra
+    sha256 "8e6d9fa3c2f53858cf304d2e4ae84d8cc163891dc8afbf52601c3d8ec5d05abb" => :el_capitan
+    sha256 "e08a68c23360b3c5a1157a5d1c00385b1fc4ef8c807e05a81d21782b19458b1c" => :yosemite
   end
 
   option "without-bootstrap", "Translate Pypy with system Python instead of " \

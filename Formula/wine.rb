@@ -8,9 +8,9 @@ class Wine < Formula
   head "git://source.winehq.org/git/wine.git"
 
   stable do
-    url "https://dl.winehq.org/wine/source/1.8/wine-1.8.3.tar.bz2"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-1.8.3.tar.bz2"
-    sha256 "d7cecdf7aab93bfe950e6f83ec526681b8770788c7b2a802bfe50ff97fc17a6c"
+    url "https://dl.winehq.org/wine/source/1.8/wine-1.8.5.tar.bz2"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-1.8.5.tar.bz2"
+    sha256 "dee2a4959e5f90a89aaf04566c23f2926e9590f8968ea662afd81947fdb6f6d6"
 
     # Patch to fix screen-flickering issues. Still relevant on 1.8. Broken on 1.9.10.
     # https://bugs.winehq.org/show_bug.cgi?id=34166
@@ -18,35 +18,18 @@ class Wine < Formula
       url "https://bugs.winehq.org/attachment.cgi?id=52485"
       sha256 "59f1831a1b49c1b7a4c6e6af7e3f89f0bc60bec0bead645a615b251d37d232ac"
     end
-
-    # Fixes build on 10.12; included in the latest devel release already
-    # https://bugs.winehq.org/show_bug.cgi?id=40830
-    patch do
-      url "https://github.com/wine-mirror/wine/commit/cac226200d88b7454747b5ee1016f06b89ce4aa6.patch"
-      sha256 "ad5dd3aff4dd03aa6dd9e00162a52ad335dbd9ddb5a4472ad8533efb677fb479"
-    end
-
-    # Fixes a CUPS-related build failure
-    # https://bugs.winehq.org/show_bug.cgi?id=40851
-    if MacOS.version >= :sierra
-      patch do
-        url "https://bugs.winehq.org/attachment.cgi?id=54854"
-        sha256 "07da01c4141052d274dbe39d45a13568265cbdcbc9de4f6e80f4eeb08aad9ff8"
-      end
-    end
   end
 
   bottle do
-    sha256 "39d8f41347724bfa33cc71d5ffe7439b42258a5f5129a61624d51d778aec6f60" => :sierra
-    sha256 "5f09c0c48299895929a2816ddef0c7d430d9ae36b617996be99330a24f290dc1" => :el_capitan
-    sha256 "d7923a5b6f57c9410ac63f03b2769f832f69413f7db7268dc57be6968541394e" => :yosemite
-    sha256 "e1594c0d42c14a01b422b3c657aa93dc066a78b8f03e9864a1a3e761bf13a583" => :mavericks
+    sha256 "4657b960db7bc3593e6e101ff22187bd2cca4ad9d454365af38612f7adac6dc7" => :sierra
+    sha256 "76abe5674c88add8841427c6eefce00dee14b18a34dccf18a87b44be51a79a6d" => :el_capitan
+    sha256 "07c7af0dadf8a437de6f320ad681cf7e3afc8e7708d270e27440c4131ee68fb2" => :yosemite
   end
 
   devel do
-    url "https://dl.winehq.org/wine/source/1.9/wine-1.9.19.tar.bz2"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-1.9.19.tar.bz2"
-    sha256 "b5fe29a84e712f94f4d33b5f2952b45233c13b49ba3459dcee8a50b06147a888"
+    url "https://dl.winehq.org/wine/source/1.9/wine-1.9.20.tar.bz2"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-1.9.20.tar.bz2"
+    sha256 "2769f30642329916f12696f7be225644d28fc54d1b9181c979381d70b9a279df"
   end
 
   # note that all wine dependencies should declare a --universal option in their formula,

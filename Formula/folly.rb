@@ -3,11 +3,14 @@ class Folly < Formula
   homepage "https://github.com/facebook/folly"
   url "https://github.com/facebook/folly/archive/v2016.09.05.00.tar.gz"
   sha256 "79e931af5d9610fee80ea81af82fcaed35b4d58a529e504c1326e62448e780ae"
+  revision 1
+
   head "https://github.com/facebook/folly.git"
 
   bottle do
     cellar :any
-    sha256 "4d296acc0ae80936992db0d7f3a1294ae5e55187b5e5cc0b0f9ffea1b0ffd242" => :el_capitan
+    sha256 "7a02ec241a85b5a1e4ab0d76e98138ada799e576d8d2b8b289b5c04710df68e9" => :sierra
+    sha256 "af6f43dfa2572e865bf934039a5313a7daa95825eb5f00d78847c208b3cc6a06" => :el_capitan
   end
 
   depends_on "autoconf" => :build
@@ -38,6 +41,24 @@ class Folly < Formula
     ENV.cxx11
 
     cd "folly" do
+      # Workaround for "no matching function for call to 'clock_gettime'"
+      # See upstream PR from 2 Oct 2016 facebook/folly#488
+      if DevelopmentTools.clang_build_version >= 800
+        inreplace ["Benchmark.cpp", "Benchmark.h"] do |s|
+          s.gsub! "detail::DEFAULT_CLOCK_ID",
+                  "(clockid_t)detail::DEFAULT_CLOCK_ID"
+          s.gsub! "clock_gettime(CLOCK_REALTIME",
+                  "clock_gettime((clockid_t)CLOCK_REALTIME", false
+        end
+      end
+
+      # Fix "candidate function not viable: no known conversion from
+      # 'folly::detail::Clock' to 'clockid_t' for 1st argument"
+      # See upstream PR mentioned above
+      if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+        inreplace "portability/Time.h", "typedef uint8_t clockid_t;", ""
+      end
+
       # Build system relies on pkg-config but gflags removed
       # the .pc files so now folly cannot find without flags.
       ENV["GFLAGS_CFLAGS"] = Formula["gflags"].opt_include

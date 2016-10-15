@@ -3,16 +3,15 @@ class Xonsh < Formula
 
   desc "Python-ish, BASHwards-compatible shell language and command prompt"
   homepage "http://xon.sh"
-  url "https://github.com/xonsh/xonsh/archive/0.4.6.tar.gz"
-  sha256 "f9635732cb73fbe3bc7ea9aefab87e0fec04b5105932bf3cf44ec0eeef1a146c"
+  url "https://github.com/xonsh/xonsh/archive/0.4.7.tar.gz"
+  sha256 "10732db7a635b94454232f389f1960a27736e63bb3ce7daf6dc59fda7d5f5abb"
+  head "https://github.com/scopatz/xonsh.git"
   revision 1
 
-  head "https://github.com/scopatz/xonsh.git"
-
   bottle do
-    sha256 "6ff59185c363be4f9f635a65a98f5a968ef4f9dfd687566daa3606e04386e92a" => :sierra
-    sha256 "eece97a51a30ca396a0371c5d6c87de204fb9fe4756242f501f0b5c760b017bd" => :el_capitan
-    sha256 "71d81c66fef44644450ed2191c96fe6a12f0fdbf97a5168336404e247fb1caa7" => :yosemite
+    sha256 "a34d75dadf69aecf089f0cd7da0d512e720dea21852b2b4897b9a22d5d07dcb6" => :sierra
+    sha256 "474da913366ca868e82f68358814732b5501aae2b535f70094fd531043455689" => :el_capitan
+    sha256 "7a79e9a174da863de115181872762ddb56d650cee85d750c1bb1e343cd82d5ee" => :yosemite
   end
 
   depends_on :python3

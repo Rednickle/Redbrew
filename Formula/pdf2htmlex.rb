@@ -3,16 +3,15 @@ class Pdf2htmlex < Formula
   homepage "https://coolwanglu.github.io/pdf2htmlEX/"
   url "https://github.com/coolwanglu/pdf2htmlEX/archive/v0.14.6.tar.gz"
   sha256 "320ac2e1c2ea4a2972970f52809d90073ee00a6c42ef6d9833fb48436222f0e5"
-  revision 6
+  revision 7
 
   head "https://github.com/coolwanglu/pdf2htmlEX.git"
 
   bottle do
-    sha256 "ff4e9b69d908c427d533d0dc22092df7bdf73de83e0d0184345c14dbaa00d4bb" => :sierra
-    sha256 "05e5c9bd6f429d5c9eeddad1256cfcd8945613cc3fa78bf7529d4d788f869d23" => :el_capitan
-    sha256 "bfa5cd1ce24d7edf59a42b445863cae9840434c277409d62118b0f5195ad2813" => :yosemite
-    sha256 "4e382071a0f7653e174eb16cdaa4150c71d081fc6d0e08251fc1cba3f2bd34ac" => :mavericks
-    sha256 "f7b7442e1e0c96457afaaf496db525b0091d6df6c74c45e0ab50845b2cb68549" => :x86_64_linux
+    rebuild 1
+    sha256 "3750dfac0b238cdad8666ba28d76a22ad54279589085f649ef2f5d441f59b73b" => :sierra
+    sha256 "5565adf91f0b76e0e21f152a57caafe0b1849cef815111912eca0dfb7108ebad" => :el_capitan
+    sha256 "4e82162db3370ecec2a6b477a6e63bf7297048c53a0b25a089fe334298598005" => :yosemite
   end
 
   depends_on :macos => :lion

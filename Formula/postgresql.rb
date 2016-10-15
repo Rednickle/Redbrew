@@ -5,6 +5,8 @@ class Postgresql < Formula
   sha256 "cf5e571164ad66028ecd7dd8819e3765470d45bcd440d258b686be7e69c76ed0"
   revision 1
 
+  head "https://github.com/postgres/postgres.git"
+
   bottle do
     sha256 "2c360204c8420cb5d970a7bf453936d7a1163ec061082f14fea1fd7f80422084" => :sierra
     sha256 "51565747e6ff1c767397a9904e82b6e387cdbb0ce38aea9da7137587710ee76a" => :el_capitan
@@ -133,7 +135,7 @@ class Postgresql < Formula
     EOS
   end
 
-  plist_options :manual => "postgres -D #{HOMEBREW_PREFIX}/var/postgres"
+  plist_options :manual => "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgres start"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
