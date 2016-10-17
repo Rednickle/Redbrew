@@ -220,7 +220,7 @@ class Python3 < Formula
     # Any .app get a " 3" attached, so it does not conflict with python 2.x.
     Dir.glob("#{prefix}/*.app") { |app| mv app, app.sub(/\.app$/, " 3.app") }
 
-        if OS.mac?
+    if OS.mac?
       # Prevent third-party packages from building against fragile Cellar paths
       inreplace Dir[lib_cellar/"**/_sysconfigdata_m_darwin_darwin.py",
                     lib_cellar/"config*/Makefile",
