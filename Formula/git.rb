@@ -157,7 +157,7 @@ class Git < Formula
     rm "#{libexec}/git-core/git-imap-send" if build.without? "brewed-openssl"
 
     pod = Dir[lib/"*/*/perllocal.pod"][0]
-    if pod != nil
+    unless pod.nil?
       # Remove perllocal.pod, which conflicts with the perl formula.
       # I don't know why this issue doesn't affect Mac.
       rm_r Pathname.new(pod).dirname.dirname
