@@ -1,5 +1,5 @@
 class UniversalBrewedPython < Requirement
-  satisfy { archs_for_command("python").universal? }
+  satisfy { !OS.mac? || archs_for_command("python").universal? }
 
   def message; <<-EOS.undent
     A build of GDB using a brewed Python was requested, but Python is not
