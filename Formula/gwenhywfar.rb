@@ -28,7 +28,7 @@ class Gwenhywfar < Formula
   def install
     guis = []
     guis << "gtk2" if build.with? "gtk+"
-    guis << "cocoa" if build.with? "cocoa" && OS.mac?
+    guis << "cocoa" if OS.mac? && build.with?("cocoa")
 
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
