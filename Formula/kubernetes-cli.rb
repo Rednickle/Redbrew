@@ -25,7 +25,7 @@ class KubernetesCli < Formula
     ENV.deparallelize { system "make", "generated_files" }
     system "make", "kubectl", "GOFLAGS=-v"
 
-      os = OS.linux? ? "linux" : "darwin"
+    os = OS.linux? ? "linux" : "darwin"
     arch = MacOS.prefer_64_bit? ? "amd64" : "x86"
     bin.install "_output/local/bin/#{os}/#{arch}/kubectl"
 
