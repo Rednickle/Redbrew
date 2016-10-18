@@ -117,9 +117,7 @@ class Boost < Formula
 
     # Fix error: bzlib.h: No such file or directory
     # and /usr/bin/ld: cannot find -lbz2
-    args += [
-      "include=#{HOMEBREW_PREFIX}/include",
-      "linkflags=-L#{HOMEBREW_PREFIX}/lib"] unless OS.mac?
+    args += ["include=#{HOMEBREW_PREFIX}/include", "linkflags=-L#{HOMEBREW_PREFIX}/lib"] unless OS.mac?
 
     system "./bootstrap.sh", *bootstrap_args
     system "./b2", "headers"
