@@ -16,6 +16,15 @@ class IcarusVerilog < Formula
     depends_on "autoconf" => :build
   end
 
+  unless OS.mac?
+    depends_on "bison" => :build
+    depends_on "flex" => :build
+    depends_on "gperf" => :build
+    depends_on "bzip2"
+    depends_on "readline"
+    depends_on "zlib"
+  end
+
   def install
     system "autoconf" if build.head?
     system "./configure", "--prefix=#{prefix}"
