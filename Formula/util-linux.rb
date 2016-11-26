@@ -7,7 +7,7 @@ class UtilLinux < Formula
   # tag "linuxbrew"
 
   bottle do
-    sha256 "16565956c474e00e86352566788e02ee2d2f4716117e45d209aedb39d20b42bb" => :x86_64_linux
+    sha256 "38be6d640a17c5a615aa27e9383536cf54623fda6e31ddf4357b4cf0af8de2e8" => :x86_64_linux
   end
 
   depends_on "homebrew/dupes/ncurses" unless OS.mac?
