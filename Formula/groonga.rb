@@ -1,13 +1,13 @@
 class Groonga < Formula
   desc "Fulltext search engine and column store"
   homepage "http://groonga.org/"
-  url "http://packages.groonga.org/source/groonga/groonga-6.0.9.tar.gz"
-  sha256 "b892382e9c5804a42b8754a4ac406ebffd4ceec66543023c4ffed5e88b70f3d8"
+  url "http://packages.groonga.org/source/groonga/groonga-6.1.1.tar.gz"
+  sha256 "7f2966ab58fddea38af691c5ba1bf76d4573b81e5d18582cc14202cffc2b060e"
 
   bottle do
-    sha256 "754b89b0d7814eacb441b8f5e28809c87b01d8a44153644a6744434648f4b48f" => :sierra
-    sha256 "b5bd80fb2ff45bbc19be0cdb28bc62caabeb8beed9424a472a8ec4c931abec34" => :el_capitan
-    sha256 "18df5a3b1595aaa422b5f88d1e32083bf52077fc15bb7487e0fc82171e34bab5" => :yosemite
+    sha256 "9291b803fc5979ecfe2c5ce60e9194a12aaf1098935c66b261d50bc2bdce5736" => :sierra
+    sha256 "93fc64fd7171b5922ef8ed45080e97a34de3da6b6651b04bc50434744b650abc" => :el_capitan
+    sha256 "6114ca17596fc178e87f505a8cb7ca73c1c160c883e6d4afd673b7e63e32c0cd" => :yosemite
   end
 
   head do
@@ -34,6 +34,7 @@ class Groonga < Formula
   depends_on "mecab-ipadic" if build.with? "mecab"
   depends_on "zeromq" => :optional
   depends_on "libevent" if build.with? "zeromq"
+  depends_on "zstd" => :optional
 
   resource "groonga-normalizer-mysql" do
     url "http://packages.groonga.org/source/groonga-normalizer-mysql/groonga-normalizer-mysql-1.1.1.tar.gz"
@@ -62,6 +63,7 @@ class Groonga < Formula
     args << "--enable-benchmark" if build.with? "glib"
     args << "--with-mecab" if build.with? "mecab"
     args << "--with-lz4" if build.with? "lz4"
+    args << "--with-zstd" if build.with? "zstd"
 
     if build.head?
       args << "--with-ruby"

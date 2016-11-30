@@ -1,22 +1,21 @@
 class KubernetesCli < Formula
   desc "Kubernetes command-line interface"
   homepage "http://kubernetes.io/"
-  url "https://github.com/kubernetes/kubernetes/archive/v1.4.4.tar.gz"
-  sha256 "ab6304dbff6e49095d68459da748477ffba231893e1f1dae4e0d60ba2fdb725a"
+  url "https://github.com/kubernetes/kubernetes/archive/v1.4.6.tar.gz"
+  sha256 "dcbbf24ca664f55e40d539a167143f2e0ea0f3ff40e7df6e25887ca10bb2e185"
   head "https://github.com/kubernetes/kubernetes.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "712e3053d4a42de5dd3db6525b3e983bfcb86f8e59683ed4d3eb74e6680ead2d" => :sierra
-    sha256 "291244881a405da8ea4098ecf83bb26a053f12aa473e17ff685aadc2c1ceee69" => :el_capitan
-    sha256 "c4358945926ea4224a7412afcca5a9eecb045c3b3aa1f1507ab58c30d6e48fdf" => :yosemite
-    sha256 "ac313790082a2eb517fe30b1984f61d3c9e45cc4ee38f4a6758e0bc8c36553be" => :x86_64_linux
+    sha256 "eff8827a884114a99f33884cd46cd3b72109f5921b3555a17346db715fdbaa3a" => :sierra
+    sha256 "fe8165b68a2a7522932a34315ecd5de327652d8688ce4830fd49ebc1f869dfbb" => :el_capitan
+    sha256 "a286f94b04bfa608735ceb003e75e34cfbd46fb49c379f2486051a64b9d52f47" => :yosemite
   end
 
   devel do
-    url "https://github.com/kubernetes/kubernetes/archive/v1.5.0-alpha.1.tar.gz"
-    sha256 "4b05aa319c394e085c219ab8f7b2170ee137da2f726da51d8acda450e67ceb00"
-    version "1.5.0-alpha.1"
+    url "https://github.com/kubernetes/kubernetes/archive/v1.5.0-beta.2.tar.gz"
+    sha256 "3f7a1e2919264b421cfbb7b7cac3f09ad6b487f61253874561d61305679d76f4"
+    version "1.5.0-beta.2"
   end
 
   depends_on "go" => :build

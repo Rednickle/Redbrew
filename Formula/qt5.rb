@@ -22,15 +22,22 @@ class Qt5 < Formula
     mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.7/5.7.0/single/qt-everywhere-opensource-src-5.7.0.tar.xz"
     sha256 "a6a2632de7e44bbb790bc3b563f143702c610464a7f537d02036749041fd1800"
 
+    # Upstream commit from 13 Sep 2016 "Fix crash on exit when using default property aliases with layouts"
+    # http://code.qt.io/cgit/qt/qtdeclarative.git/patch/?id=5149aa68eca6ede8836ec4f07a14d22d9da9b161
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/3b71525/qt5/QTBUG-51927.patch"
+      sha256 "9460c3cc5ea0f530f24cb92fc9b260a2a7b01ccbdcd0b86e3ddae719a8b53eae"
+    end
+
     # Upstream commit from 7 Jul 2016 "configure and mkspecs: Don't try to find xcrun with xcrun"
-    # http://code.qt.io/cgit/qt/qtbase.git/patch/configure?id=77a71c32c9d19b87f79b208929e71282e8d8b5d9
+    # https://code.qt.io/cgit/qt/qtbase.git/patch/configure?id=77a71c32c9d19b87f79b208929e71282e8d8b5d9
     patch do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/d3d0da3/qt5/xcrun-xcode-8.patch"
       sha256 "14f5a899108e9207bd5c2128f5f628d4e2d2a5e0c2ba0a401ec7b54f5ddcf677"
     end
 
     # Upstream commit from 3 Oct 2016 "Fixed build with MaxOSX10.12 SDK"
-    # http://code.qt.io/cgit/qt/qtconnectivity.git/commit/?h=5.6&id=462323dba4f963844e8c9911da27a0d21e4abf43
+    # https://code.qt.io/cgit/qt/qtconnectivity.git/commit/?h=5.6&id=462323dba4f963844e8c9911da27a0d21e4abf43
     patch do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/04c2de3/qt5/qtconnectivity-bluetooth-fix.diff"
       sha256 "41fd73cba0018180015c2be191d63b3c33289f19132c136f482f5c7477620931"
@@ -38,33 +45,40 @@ class Qt5 < Formula
 
     # Upstream commit from 4 Aug 2016 "Fixes parallel builds where they were
     # sometimes failing on macOS with static builds."
-    # http://code.qt.io/cgit/qt/qt3d.git/commit/src/src.pro?id=db3baec236841f9390e9450772838cb7ba878069
+    # https://code.qt.io/cgit/qt/qt3d.git/commit/src/src.pro?id=db3baec236841f9390e9450772838cb7ba878069
     patch do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/b13bde3/qt5/qt3d-parallel-build-fix.patch"
       sha256 "dacb69f4e2eac7656f6120f16c4c703b793b36b486efa43ccb182d57e83089b0"
     end
 
     # Upstream commit from 1 Aug 2016 "BASELINE: Update Chromium to 53.0.2785.41"
-    # http://code.qt.io/cgit/qt/qtwebengine-chromium.git/commit/chromium/base/mac/sdk_forward_declarations.h?h=53-based&id=28b1110370900897ab652cb420c371fab8857ad4
+    # https://code.qt.io/cgit/qt/qtwebengine-chromium.git/commit/chromium/base/mac/sdk_forward_declarations.h?h=53-based&id=28b1110370900897ab652cb420c371fab8857ad4
     patch do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/59db922/qt5/qtwebengine-bluetooth-fix.diff"
       sha256 "af0bf77c10ea2be3010cee842c327018b997517784036991297eee4397354fa2"
     end
 
     # Equivalent to upstream commit from 4 Oct 2016 "Fix CUPS compilation error in macOS 10.12"
-    # http://code.qt.io/cgit/qt/qtwebengine-chromium.git/commit/chromium/printing/backend/print_backend_cups.cc?h=53-based&id=3bd01037ab73b3ffbf4abbf97c54443a91b2fc4d
+    # https://code.qt.io/cgit/qt/qtwebengine-chromium.git/commit/chromium/printing/backend/print_backend_cups.cc?h=53-based&id=3bd01037ab73b3ffbf4abbf97c54443a91b2fc4d
     # https://codereview.chromium.org/2248343002
     patch do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/34a4ad8/qt5/cups-sierra.patch"
       sha256 "63b5f37d694d0bd1db6d586d98f3c551239dc8818588f3b90dc75dfe6e9952be"
     end
+
+    # Upstream commit from 1 Jun 2016 "Add install target to mac widget examples"
+    # http://code.qt.io/cgit/qt/qtbase.git/commit/examples/widgets/mac/qmaccocoaviewcontainer/qmaccocoaviewcontainer.pro?h=5.7&id=58408ffa1b9c0b42a1719d3c8a4d4c62dec4fce6
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/9635ead/qt5/widget-examples.patch"
+      sha256 "f26819135bae1456abd7323e4f40cd83dd11fc46da055a24ae24511ac988b329"
+    end
   end
 
   bottle do
-    sha256 "4be3f39a46f38bd596d2198b3535a4329072b6dc3e75717a0fcf23d392b84ed0" => :sierra
-    sha256 "3085e765270fbae1df00a0a56df1e287234345cd5532cb54dafd991463813868" => :el_capitan
-    sha256 "17bec6a0f29a0fb74c3dd8d7b8e45cb50a10b0b6860bca5f54590e04cbf7e48b" => :yosemite
-    sha256 "7f98bf380380f570494f72dba8b8a01757bde1712fe01d752f7289863a09e4d1" => :x86_64_linux
+    rebuild 3
+    sha256 "242197dfab9e62df340ef9f82d061005ec9c73ccf08f8d54345eea0dda8a4af0" => :sierra
+    sha256 "14b78a048c833306509457401bb186679b88e5311c4fe33deb3417222064c64d" => :el_capitan
+    sha256 "1bbdf366e87a2fb8adb4f657a384b9dd8851149c06c23be870838abd24433991" => :yosemite
   end
 
   keg_only "Qt 5 conflicts Qt 4"
@@ -85,6 +99,7 @@ class Qt5 < Formula
 
   depends_on "dbus" => :optional
   depends_on :mysql => :optional
+  depends_on "pkg-config" => :build
   depends_on :postgresql => :optional
   depends_on :xcode => :build
 
@@ -133,6 +148,7 @@ class Qt5 < Formula
       -qt-freetype
       -qt-pcre
       -nomake tests
+      -pkg-config
     ]
 
     if OS.mac?
@@ -144,7 +160,11 @@ class Qt5 < Formula
 
     args << "-nomake" << "examples" if build.without? "examples"
 
-    args << "-plugin-sql-mysql" if build.with? "mysql"
+    if build.with? "mysql"
+      args << "-plugin-sql-mysql"
+      inreplace "qtbase/configure", /(QT_LFLAGS_MYSQL_R|QT_LFLAGS_MYSQL)=\`(.*)\`/, "\\1=\`\\2 | sed \"s/-lssl -lcrypto//\"\`"
+    end
+
     args << "-plugin-sql-psql" if build.with? "postgresql"
 
     if build.with? "dbus"

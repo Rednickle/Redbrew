@@ -3,26 +3,23 @@ class Netpbm < Formula
   homepage "http://netpbm.sourceforge.net"
   # Maintainers: Look at https://sourceforge.net/p/netpbm/code/HEAD/tree/
   # for versions and matching revisions
-  url "http://svn.code.sf.net/p/netpbm/code/advanced", :revision => 2294
-  version "10.68"
-
+  url "http://svn.code.sf.net/p/netpbm/code/advanced", :revision => 2825
+  version "10.76"
+  revision 1
   head "http://svn.code.sf.net/p/netpbm/code/trunk"
 
   bottle do
     cellar :any
-    rebuild 2
-    sha256 "a06beff20f07959feddbd3e9db275c8ef624d5a08f3a7905f3fdaf0ebeeee590" => :sierra
-    sha256 "ad369fbec6067be0355b02aa02f5b542224cbf9835974de7d0d36ea2a1966e2f" => :el_capitan
-    sha256 "a3c04a8257065886cf7f19d246a586a011b8c7d8fd708e5e669b769340e007fa" => :yosemite
-    sha256 "5d668e7795efa192da1bf14e1cfc27f458b58a40dfaa63873d7a642b5ec06a4f" => :mavericks
-    sha256 "246ed13eeb79eaf97d4c4423c9971aa7cadf9a0badaf528c050d1ff8e8198d72" => :x86_64_linux
-    sha256 "b0c160558d0f764360041069129877bfc7e6d9fc81b3dabfa6cf4fe9a9efc21b" => :mountain_lion
+    sha256 "9d6d6a6d46c09a2fee162bc1b5f2350731cca011761ad75bb2473af5019ce587" => :sierra
+    sha256 "61cf0be49e94e34ca97b49eb06efeb2514fa344a84a6bb827a443aa6a7ac46eb" => :el_capitan
+    sha256 "3045f53982e66d14d4dd23ef715953054aa8dda38b9f17471824725064e13820" => :yosemite
   end
 
   option :universal
 
   depends_on "libtiff"
   depends_on "jasper"
+  depends_on "jpeg"
   depends_on "libpng"
   unless OS.mac?
     depends_on "flex"

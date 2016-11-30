@@ -17,9 +17,9 @@ class OpenshiftCli < Formula
 
   devel do
     url "https://github.com/openshift/origin.git",
-      :tag => "v1.4.0-alpha.0",
-      :revision => "67479ffd447d68d20e556746d56eb80458b9294c"
-    version "1.4.0-alpha.0"
+      :tag => "v1.4.0-rc1",
+      :revision => "b4e0954faa4a0d11d9c1a536b76ad4a8c0206b7c"
+    version "1.4.0-rc1"
 
     depends_on "socat"
   end
@@ -40,7 +40,7 @@ class OpenshiftCli < Formula
   end
 
   test do
-    assert_match /^oc v#{version}$/, shell_output("#{bin}/oc version")
-    assert_match /^oadm v#{version}$/, shell_output("#{bin}/oadm version")
+    assert_match /^oc v#{version}/, shell_output("#{bin}/oc version")
+    assert_match /^oadm v#{version}/, shell_output("#{bin}/oadm version")
   end
 end

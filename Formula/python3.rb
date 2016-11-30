@@ -26,8 +26,8 @@ class Python3 < Formula
   end
 
   devel do
-    url "https://www.python.org/ftp/python/3.6.0/Python-3.6.0b2.tar.xz"
-    sha256 "3afd4544b99933275c513f7c3d3a23e183de8e209709ed8785bbd42e2c4869ea"
+    url "https://www.python.org/ftp/python/3.6.0/Python-3.6.0b4.tar.xz"
+    sha256 "0afca41351ce9586becd398120ad2718252f93fffc134761c8fd80dc5144a979"
   end
 
   option :universal

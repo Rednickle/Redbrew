@@ -1,15 +1,16 @@
 class Mpv < Formula
   desc "Media player based on MPlayer and mplayer2"
   homepage "https://mpv.io"
-  url "https://github.com/mpv-player/mpv/archive/v0.21.0.tar.gz"
-  sha256 "d05f8ece859c500ef1649cdfea911ec1529df1898b8fda3e217766dc28dc9bd3"
+  url "https://github.com/mpv-player/mpv/archive/v0.22.0.tar.gz"
+  sha256 "c0f9ac8f0e37a391d19007b333ef8787c2f45d75a0d4401c0098cde52c5082f6"
   revision 1
+
   head "https://github.com/mpv-player/mpv.git"
 
   bottle do
-    sha256 "3ec8078747693087cef5725fcd438324a884aeb7b5e69e87b559361c3b74858f" => :sierra
-    sha256 "e85ab51f0fb24bc3e5ffdfd69cffc6ca19f65e7e2cfee40b5cd5d2f539ead8f6" => :el_capitan
-    sha256 "b656e199209da9d88d4fc5033b2dd44a343f4453a5a5db7e3e5155a30e607f66" => :yosemite
+    sha256 "dcc8a25efd4c74d5cb619af8651399239cc93f4039c5c88965c208be9473b1a5" => :sierra
+    sha256 "8610d4db3500053a10c41a954a902b4001ffe5821a15c4dbf45975b1b200e838" => :el_capitan
+    sha256 "9d0516238bf40e6760afbbeed87f4069c2ca9a49a30c4f14cc9472c8ecc0609f" => :yosemite
   end
 
   option "with-bundle", "Enable compilation of the .app bundle."
@@ -26,14 +27,17 @@ class Mpv < Formula
   depends_on "lua" => :recommended
   depends_on "youtube-dl" => :recommended
 
-  depends_on "libarchive" => :optional
-  depends_on "libcaca" => :optional
-  depends_on "libdvdread" => :optional
-  depends_on "libdvdnav" => :optional
-  depends_on "libbluray" => :optional
+  depends_on "jack" => :optional
   depends_on "libaacs" => :optional
-  depends_on "vapoursynth" => :optional
+  depends_on "libarchive" => :optional
+  depends_on "libbluray" => :optional
+  depends_on "libcaca" => :optional
+  depends_on "libdvdnav" => :optional
+  depends_on "libdvdread" => :optional
+  depends_on "pulseaudio" => :optional
+  depends_on "rubberband" => :optional
   depends_on "uchardet" => :optional
+  depends_on "vapoursynth" => :optional
   depends_on :x11 => :optional
 
   depends_on :macos => :mountain_lion
@@ -55,6 +59,7 @@ class Mpv < Formula
       --zshdir=#{zsh_completion}
     ]
     args << "--enable-libarchive" if build.with? "libarchive"
+    args << "--enable-pulse" if build.with? "pulseaudio"
 
     system "./bootstrap.py"
     system "python3", "waf", "configure", *args

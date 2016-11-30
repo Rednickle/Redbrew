@@ -14,6 +14,12 @@ class Hub < Formula
     sha256 "463c39a0a717153893ee7f307435d46c53c5774b3bc8d2bf29d7fac64200028d" => :x86_64_linux
   end
 
+  devel do
+    url "https://github.com/github/hub/archive/v2.3.0-pre8.tar.gz"
+    version "2.3.0-pre8"
+    sha256 "1cea4a5958f7ca72c232ede173f5e4893e007aaddf6842d48665dff6fb1d7e19"
+  end
+
   option "without-completions", "Disable bash/zsh completions"
 
   depends_on "go" => :build

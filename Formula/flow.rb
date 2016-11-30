@@ -1,16 +1,26 @@
 class Flow < Formula
   desc "Static type checker for JavaScript"
   homepage "https://flowtype.org/"
-  url "https://github.com/facebook/flow/archive/v0.33.0.tar.gz"
-  sha256 "c5d19fc5b8f425be24bf6d62eeff2b8a7fdb8bf8138a46ffd8864491bd4f754b"
+  revision 1
   head "https://github.com/facebook/flow.git"
+
+  stable do
+    url "https://github.com/facebook/flow/archive/v0.36.0.tar.gz"
+    sha256 "064792468e9b811fbc8d030de18b5b296b6214b2429e6c40876a64262e65fb16"
+
+    # OCaml 4.04.0 compatibility
+    # Upstream commit from 22 Nov 2016 "Remove unused modules"
+    patch do
+      url "https://github.com/facebook/flow/commit/2edc619.patch"
+      sha256 "6cc507f72850e1ef921e7db2e9ac5a036851f23eca00c00a14c9bfbb77b5eb1c"
+    end
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e3d013ab0d8127c296006c0dffc366d934af6fc8e3021164e116737ecc4bebaa" => :sierra
-    sha256 "000a6c34aa5dd71320c94554ded1d82d4e9996bfa04f6955ab5d28d22aada1eb" => :el_capitan
-    sha256 "7e31bdb5901f5a83bcb43ef58f43e1db226c2af04641d3c618601df024a646ba" => :yosemite
-    sha256 "9f7e28c66fb1c6165669d5a26816f4860b679f4f3315b3fcbaad88a4da9b2a28" => :x86_64_linux
+    sha256 "b7e9a3011c05ceb26b20c590746441816ac9697453c98d7ff40157da42ef31ec" => :sierra
+    sha256 "09b1cd562b32b5e4776ce063bac3053c02afabffcb3dc9f4270d266cd28850a7" => :el_capitan
+    sha256 "96ab80b672aa81a15e6ff736e5bfae4db30923c72a5acb17c76ba18c8dbf48eb" => :yosemite
   end
 
   depends_on "ocaml" => :build
@@ -31,7 +41,7 @@ class Flow < Formula
       /* @flow */
       var x: string = 123;
     EOS
-    expected = /number\nThis type is incompatible with\n.*string\n\nFound 1 error/
-    assert_match expected, shell_output("#{bin}/flow check --old-output-format #{testpath}", 2)
+    expected = /Found 1 error/
+    assert_match expected, shell_output("#{bin}/flow check #{testpath}", 2)
   end
 end

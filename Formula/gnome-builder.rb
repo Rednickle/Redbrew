@@ -1,13 +1,13 @@
 class GnomeBuilder < Formula
   desc "IDE for GNOME"
   homepage "https://wiki.gnome.org/Apps/Builder"
-  url "https://download.gnome.org/sources/gnome-builder/3.22/gnome-builder-3.22.1.tar.xz"
-  sha256 "9386a84b1999c0dad83791808a9918f86200e9e1dfffa550a53e04cae3423652"
+  url "https://download.gnome.org/sources/gnome-builder/3.22/gnome-builder-3.22.3.tar.xz"
+  sha256 "6a04360ca2e04a0c281b5fa80cca0f760f65fabb2dcbc71a0f53d90e7a7aa5cb"
 
   bottle do
-    sha256 "d6005187db24040f8bd9ba3d43011480761dee9ab2ae3506fb0bb7ddbd8bd5f4" => :sierra
-    sha256 "39f9e883b0e4ef2d657d9a79feaca77378125b026e80ff403ae32e447e6df09b" => :el_capitan
-    sha256 "380a504cb28146b30f3a6ba042a8734aea0cdf32d5b500a2ee64031a8cb0dfc6" => :yosemite
+    sha256 "816be4599ff1ab86e495d9a46b867dd352726b86d0df21c8654579f256e9ff5a" => :sierra
+    sha256 "f80e0c5ac8700f9893ee186898ce79437894871098670169f3115af5ce04cbde" => :el_capitan
+    sha256 "97cf269f059677e554d2d6bab9fae9ea56670a43f73a0cb98807410ffc827ee4" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -22,10 +22,12 @@ class GnomeBuilder < Formula
   depends_on "gnome-icon-theme"
   depends_on "desktop-file-utils"
   depends_on "pcre"
+  depends_on "json-glib"
   depends_on "gjs" => :recommended
   depends_on "vala" => :recommended
   depends_on "devhelp" => :recommended
   depends_on "ctags" => :recommended
+  depends_on "meson" => :recommended
   depends_on :python3 => :optional
   depends_on "pygobject3" if build.with? "python3"
 

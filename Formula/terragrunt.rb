@@ -1,52 +1,27 @@
-require "language/go"
-
 class Terragrunt < Formula
   desc "Thin wrapper for Terraform e.g. for locking state."
   homepage "https://github.com/gruntwork-io/terragrunt"
-  url "https://github.com/gruntwork-io/terragrunt/archive/v0.1.1.tar.gz"
-  sha256 "608a3216e141bb8910c1b8813879f0c30f812e40184cbc4e2a81c22c9526788b"
+  url "https://github.com/gruntwork-io/terragrunt/archive/v0.3.0.tar.gz"
+  sha256 "9369b133a3ce1d834a06d9aac45a611fb1290b2e1d893ff3d6c752332b5f5835"
   head "https://github.com/gruntwork-io/terragrunt.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c479f61b26f984a24a2bc0b31f38370b65950f90389b050bdcad18b8aea523be" => :sierra
-    sha256 "097bee4f7259e0071f8515b7de66b0671054142b4b18f2e2ba6de671457aa729" => :el_capitan
-    sha256 "9087b992a3f110ce756a2962657fd8c8fa9a805ee4ff8211f5bdbb0b3ab39ba3" => :yosemite
+    sha256 "3c403f4b7a749aab01dd6a5a4b55d00fb4837e5cbce959843f9d4f44548d8c93" => :sierra
+    sha256 "5ad1d91eae71c69c2893d2adbacd2f304b0015474b516286716cb2db0295a278" => :el_capitan
+    sha256 "059365d96ebc4108d1136344d588444159f54434bd5a91d21a94432deda43c93" => :yosemite
   end
 
+  depends_on "glide" => :build
   depends_on "go" => :build
   depends_on "terraform"
 
-  go_resource "github.com/aws/aws-sdk-go" do
-    url "https://github.com/aws/aws-sdk-go.git",
-      :revision => "1b2abe886743dc2bcc78472bfd30a15dc0a61fb8"
-  end
-
-  go_resource "github.com/go-errors/errors" do
-    url "https://github.com/go-errors/errors.git",
-      :revision => "a41850380601eeb43f4350f7d17c6bbd8944aaf8"
-  end
-
-  go_resource "github.com/hashicorp/hcl" do
-    url "https://github.com/hashicorp/hcl.git",
-      :revision => "6f5bfed9a0a22222fbe4e731ae3481730ba41e93"
-  end
-
-  go_resource "github.com/stretchr/testify" do
-    url "https://github.com/stretchr/testify.git",
-      :revision => "976c720a22c8eb4eb6a0b4348ad85ad12491a506"
-  end
-
-  go_resource "github.com/urfave/cli" do
-    url "https://github.com/urfave/cli.git",
-      :revision => "55f715e28c46073d0e217e2ce8eb46b0b45e3db6"
-  end
-
   def install
+    ENV["GOPATH"] = buildpath
+    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
     mkdir_p buildpath/"src/github.com/gruntwork-io/"
     ln_s buildpath, buildpath/"src/github.com/gruntwork-io/terragrunt"
-    ENV["GOPATH"] = buildpath
-    Language::Go.stage_deps resources, buildpath/"src"
+    system "glide", "install"
     system "go", "build", "-o", bin/"terragrunt", "-ldflags", "-X main.VERSION=" + version.to_s
   end
 

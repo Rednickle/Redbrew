@@ -1,17 +1,14 @@
 class Synfig < Formula
   desc "Command-line renderer"
   homepage "http://synfig.org"
-  url "https://downloads.sourceforge.net/project/synfig/releases/1.0/source/synfig-1.0.tar.gz"
-  sha256 "1f2f9b209d49dff838049e9817b0458ac6987e912a56c061aa2f9c2faeb40720"
-  revision 2
-
+  url "https://downloads.sourceforge.net/project/synfig/releases/1.0.2/source/synfig-1.0.2.tar.gz"
+  sha256 "34cdf9eac90aadea29fb2997e82da1c32713ab02940f7c8873330f894e167fb4"
   head "git://synfig.git.sourceforge.net/gitroot/synfig/synfig"
 
   bottle do
-    sha256 "15f26d6a57fb0b74fbdddbe181e33bde03414abc40e3e8db436e14a120af0eba" => :sierra
-    sha256 "d109db84521cd3d8d4092de86bdeda50e96f726616f3c1a50f0bf0912a3a91e3" => :el_capitan
-    sha256 "45df75ac729cc20877f89542d25f466d48c62d7aa51a17ca5535469c59973670" => :yosemite
-    sha256 "a30a492c69ef50aec2f1e22482d3c4eaef7c5899a43805afe72918c59cff994c" => :mavericks
+    sha256 "d4eeeb43d992f34c1eb8adb779f4aedf31cd4a926cf445a32ab2a9d96656fcf6" => :sierra
+    sha256 "f564ece1f20bd9ac95dd202d0d7f2b6dd3e6938203a07e4a0f4ccdd844a75ef7" => :el_capitan
+    sha256 "9e0c85b885ea1663374d25f7eb5b46467d64977da0e392c88ba93f467265eaab" => :yosemite
   end
 
   depends_on "pkg-config" => :build

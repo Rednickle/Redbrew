@@ -1,17 +1,15 @@
 class Subversion < Formula
   desc "Version control system designed to be a better CVS"
   homepage "https://subversion.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.9.4.tar.bz2"
-  mirror "https://archive.apache.org/dist/subversion/subversion-1.9.4.tar.bz2"
-  sha256 "1267f9e2ab983f260623bee841e6c9cc458bf4bf776238ed5f100983f79e9299"
-  revision 2 unless OS.mac?
+  url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.9.5.tar.bz2"
+  mirror "https://archive.apache.org/dist/subversion/subversion-1.9.5.tar.bz2"
+  sha256 "8a4fc68aff1d18dcb4dd9e460648d24d9e98657fbed496c582929c6b3ce555e5"
+  revision 1
 
   bottle do
-    sha256 "a2f80a24261a9236accccb4d54c8cb611eca11d1f6df7fee0128ed6833663817" => :sierra
-    sha256 "90181167e17df6fae630aff2523dc4aebded7fca1fb74bdd2ca1bd6f86287cc8" => :el_capitan
-    sha256 "f54a431445d81b80c9e0b5b04a733f7242f004feb94105afe76fb40068f8e4c5" => :yosemite
-    sha256 "a75716d92711bc92aaeda892cc2c4d47d4e718cd3c888948bd41587a2f022b00" => :mavericks
-    sha256 "634644ac5d6a0ce15e85d9878f9be4ab8b23183a1b5bc2087553bf72877485ed" => :x86_64_linux
+    sha256 "a1eb24f126de1cbe776690c6d8320638c9c917d3d45aeb06f38530236272e6ce" => :sierra
+    sha256 "b63e9e5af0e18ae59e851795ca551e2b2161fcea99dc7d4b147ca44f572e0062" => :el_capitan
+    sha256 "5be40371113a10bfb441edeceea9df3705290df1db296adf4a2616ed81c73185" => :yosemite
   end
 
   deprecated_option "java" => "with-java"
@@ -23,25 +21,10 @@ class Subversion < Formula
   option "with-perl", "Build Perl bindings"
   option "with-ruby", "Build Ruby bindings"
   option "with-gpg-agent", "Build with support for GPG Agent"
-  option "without-serf", "Build without the serf HTTP library"
 
   depends_on "pkg-config" => :build
-
-  # macOS Sierra ships the APR libraries & headers, but has removed the
-  # apr-1-config & apu-1-config executables which serf demands to find
-  # those elements. We may need to adopt a broader solution if this problem
-  # expands, but currently subversion is the only breakage as a result.
-  if MacOS.version >= :sierra
-    depends_on "apr-util"
-    depends_on "apr"
-  else
-    depends_on :apr => :build
-  end
-
-  resource "serf" do
-    url "https://archive.apache.org/dist/serf/serf-1.3.8.tar.bz2"
-    sha256 "e0500be065dbbce490449837bb2ab624e46d64fc0b090474d9acaa87c82b2590"
-  end
+  depends_on "apr-util"
+  depends_on "apr"
 
   # Always build against Homebrew versions instead of system versions for consistency.
   depends_on "sqlite"
@@ -53,9 +36,8 @@ class Subversion < Formula
   # For Serf
   depends_on "scons" => :build
   depends_on "openssl"
+
   unless OS.mac?
-    depends_on "apr"
-    depends_on "apr-util"
     depends_on "expat"
     depends_on "libmagic"
     depends_on "zlib"
@@ -66,6 +48,12 @@ class Subversion < Formula
   # Other optional dependencies
   depends_on "gpg-agent" => :optional
   depends_on :java => :optional
+
+  resource "serf" do
+    url "https://www.apache.org/dyn/closer.cgi?path=serf/serf-1.3.9.tar.bz2"
+    mirror "https://archive.apache.org/dist/serf/serf-1.3.9.tar.bz2"
+    sha256 "549c2d21c577a8a9c0450facb5cca809f26591f048e466552240947bdf7a87cc"
+  end
 
   # Fix #23993 by stripping flags swig can't handle from SWIG_CPPFLAGS
   # Prevent "-arch ppc" from being pulled in from Perl's $Config{ccflags}
@@ -100,18 +88,16 @@ class Subversion < Formula
       ENV.universal_binary if build.universal?
 
       # scons ignores our compiler and flags unless explicitly passed
-      args = %W[PREFIX=#{serf_prefix} GSSAPI=#{Formula["krb5"].prefix} CC=#{ENV.cc}
-                CFLAGS=#{ENV.cflags} LINKFLAGS=#{ENV.ldflags}
-                OPENSSL=#{Formula["openssl"].opt_prefix}]
-
-      if !OS.mac? || MacOS.version >= :sierra || !MacOS::CLT.installed?
-        args << "APR=#{Formula["apr"].opt_prefix}"
-        args << "APU=#{Formula["apr-util"].opt_prefix}"
-      end
-
+      args = %W[
+        PREFIX=#{serf_prefix} GSSAPI=#{Formula["krb5"].prefix} CC=#{ENV.cc}
+        CFLAGS=#{ENV.cflags} LINKFLAGS=#{ENV.ldflags}
+        OPENSSL=#{Formula["openssl"].opt_prefix}
+        APR=#{Formula["apr"].opt_prefix}
+        APU=#{Formula["apr-util"].opt_prefix}
+      ]
       scons(*args)
       scons "install"
-    end if build.with? "serf"
+    end
 
     if build.with? "java"
       # Java support doesn't build correctly in parallel:
@@ -133,11 +119,15 @@ class Subversion < Formula
     # Use dep-provided other libraries
     # Don't mess with Apache modules (since we're not sudo)
     args = %W[
-      --disable-debug
       --prefix=#{prefix}
+      --disable-debug
+      --enable-optimize
       #{"--with-zlib=/usr" if OS.mac?}
       --with-sqlite=#{Formula["sqlite"].opt_prefix}
-      #{"--with-serf=#{serf_prefix}" if build.with? "serf"}
+      --with-apr=#{Formula["apr"].opt_prefix}
+      --with-apr-util=#{Formula["apr-util"].opt_prefix}
+      --with-apxs=no
+      --with-serf=#{serf_prefix}
       --disable-mod-activation
       --disable-nls
       --without-apache-libexecdir
@@ -146,15 +136,6 @@ class Subversion < Formula
 
     args << "--enable-javahl" << "--without-jikes" if build.with? "java"
     args << "--without-gpg-agent" if build.without? "gpg-agent"
-
-    if OS.mac? && MacOS::CLT.installed? && MacOS.version < :sierra
-      args << "--with-apr=/usr"
-      args << "--with-apr-util=/usr"
-    else
-      args << "--with-apr=#{Formula["apr"].opt_prefix}"
-      args << "--with-apr-util=#{Formula["apr-util"].opt_prefix}"
-      args << "--with-apxs=no"
-    end
 
     if build.with? "ruby"
       args << "--with-ruby-sitedir=#{lib}/ruby"
@@ -278,7 +259,7 @@ diff --git a/configure b/configure
 index 445251b..6ff4332 100755
 --- a/configure
 +++ b/configure
-@@ -25366,6 +25366,8 @@ fi
+@@ -26153,6 +26153,8 @@ fi
  SWIG_CPPFLAGS="$CPPFLAGS"
  
    SWIG_CPPFLAGS=`echo "$SWIG_CPPFLAGS" | $SED -e 's/-no-cpp-precomp //'`
@@ -286,7 +267,7 @@ index 445251b..6ff4332 100755
 +  SWIG_CPPFLAGS=`echo "$SWIG_CPPFLAGS" | $SED -e 's/-isystem\/[^ ]* //'`
  
  
- 
+   SWIG_CPPFLAGS=`echo "$SWIG_CPPFLAGS" | $SED -e 's/-Wdate-time //'`
 diff --git a/subversion/bindings/swig/perl/native/Makefile.PL.in b/subversion/bindings/swig/perl/native/Makefile.PL.in
 index a60430b..bd9b017 100644
 --- a/subversion/bindings/swig/perl/native/Makefile.PL.in

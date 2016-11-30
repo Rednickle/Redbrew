@@ -1,16 +1,16 @@
 class AndroidPlatformTools < Formula
   desc "Tools for the Android SDK"
   homepage "https://developer.android.com/sdk"
-  version "24"
+  version "25"
 
   # the url is from:
   # https://dl.google.com/android/repository/repository-12.xml
   if OS.mac?
-    url "https://dl.google.com/android/repository/platform-tools_r24-macosx.zip"
-    sha256 "5eb758fe3ddddd8e522c17244bbcb886f399529855bad60c8ba14711dc5a8a12"
+    url "https://dl.google.com/android/repository/platform-tools_r25-macosx.zip"
+    sha256 "33030a8ecbc419fcd80b01d274e7869417524b1f06b005a0f6d9a7f69e95ebec"
   elsif OS.linux?
-    url "https://dl.google.com/android/repository/platform-tools_r24-linux.zip"
-    sha256 "ef1672ecc3430bb11511fce57370f28b0db47d37df7f1b3298970880b2e221de"
+    url "https://dl.google.com/android/repository/platform-tools_r25-linux.zip"
+    sha256 "5"
   end
 
   bottle :unneeded
@@ -22,5 +22,10 @@ class AndroidPlatformTools < Formula
 
   def install
     bin.install "adb", "fastboot"
+  end
+
+  test do
+    system bin/"fastboot --version"
+    system bin/"adb version"
   end
 end

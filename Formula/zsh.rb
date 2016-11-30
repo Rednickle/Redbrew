@@ -11,20 +11,37 @@ class Zsh < Formula
     # building zsh.texi is not available.
     option "with-texi2html", "Build HTML documentation"
     depends_on "texi2html" => [:build, :optional]
+
+    # apply patch that fixes nvcsformats which is broken in zsh-5.2 and will propably be fixed in 5.2.1
+    # See https://github.com/zsh-users/zsh/commit/4105f79a3a9b5a85c4ce167865e5ac661be160dc
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/zsh/nvcs-formats-fix.patch"
+      sha256 "f351cd67d38b9d8a9c2013ae47b77a753eca3ddeb6bfd807bd8b492516479d94"
+    end
   end
 
   bottle do
-    rebuild 2
-    sha256 "b7ad8f9cd7965d8646e4a64faeb7c16ea6c9fb77227aca3c5f3cb4124d0bac8c" => :sierra
-    sha256 "d2a5534eb4d0fb4d25893346e927477041311a8ba0c31cecd80d26a3d67f6369" => :el_capitan
-    sha256 "15b7426bd8e6dc59ff31109504d8fbbd4fffb7bcdd9182fa63de76dcf369b7f4" => :yosemite
-    sha256 "1f13f3fa8948cb99b9b91763b1343c41f6b3bcf01c9a7e0b77c4cac2af9ea466" => :mavericks
-    sha256 "1a60f346ce55fac068a5b78218e45c35f167e23b1c8c1af773a5a65bcb729a29" => :x86_64_linux
+    rebuild 3
+    sha256 "d40ddb483bf98ba2bb1b829207607f288618a30ecf640a28151c3e922796b0f8" => :sierra
+    sha256 "2a860b90c4b47b034a6b8c2d6a70dccf479f56aebac38683790f2e4cd1da615b" => :el_capitan
+    sha256 "d140366f62354011a7de99949e847ae44d6aa70f2b51e1722028844e4fa0b252" => :yosemite
+  end
+
+  devel do
+    url "http://www.zsh.org/pub/development/zsh-5.2-test-1.tar.gz"
+    version "5.2-test-1"
+    sha256 "50b18b837562e748ca2bc3054f167b71df4482d2da8263ef502acb5d21f23259"
+
+    option "with-texi2html", "Build HTML documentation"
+    option "with-unicode9", "Build with Unicode 9 character width support"
+    depends_on "texi2html" => [:build, :optional]
   end
 
   head do
     url "git://git.code.sf.net/p/zsh/code"
     depends_on "autoconf" => :build
+
+    option "with-unicode9", "Build with Unicode 9 character width support"
   end
 
   option "without-etcdir", "Disable the reading of Zsh rc files in /etc"
@@ -54,6 +71,8 @@ class Zsh < Formula
       --with-tcsetpgrp
     ]
 
+    args << "--enable-unicode9" if build.with? "unicode9"
+
     if build.without? "etcdir"
       args << "--disable-etcdir"
     else
@@ -80,10 +99,6 @@ class Zsh < Formula
   def caveats; <<-EOS.undent
     In order to use this build of zsh as your login shell,
     it must be added to /etc/shells.
-    Add the following to your zshrc to access the online help:
-      unalias run-help
-      autoload run-help
-      HELPDIR=#{HOMEBREW_PREFIX}/share/zsh/help
     EOS
   end
 
