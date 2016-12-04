@@ -6,7 +6,7 @@ class AppEngineGo64 < Formula
     sha256 "7d5853df653d5ca7b9e6093fbc90f82277c72dbc3c26f3ff2b97da285a75925b"
   elsif OS.linux?
     url "https://storage.googleapis.com/appengine-sdks/featured/go_appengine_sdk_linux_amd64-1.9.46.zip"
-    sha256 "5"
+    sha256 "1a80dc133623bd9553401a5ca8032d6ba746ad3748b2e119e95443a2828ca636"
   end
 
   bottle :unneeded
