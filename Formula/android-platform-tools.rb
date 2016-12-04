@@ -10,7 +10,7 @@ class AndroidPlatformTools < Formula
     sha256 "33030a8ecbc419fcd80b01d274e7869417524b1f06b005a0f6d9a7f69e95ebec"
   elsif OS.linux?
     url "https://dl.google.com/android/repository/platform-tools_r25-linux.zip"
-    sha256 "5"
+    sha256 "8ce9dcb1bd2df125347f70657f99a77996090d686ec42d1397ce050cc13f7262"
   end
 
   bottle :unneeded
