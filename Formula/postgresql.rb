@@ -67,7 +67,7 @@ class Postgresql < Formula
       --with-libxml
       --with-libxslt
     ]
-    args += %W[
+    args += %w[
       --with-bonjour
       --with-gssapi
       --with-ldap
