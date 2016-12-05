@@ -41,8 +41,9 @@ class Wine < Formula
 
   if MacOS.version >= :el_capitan
     option "without-win64", "Build without 64-bit support"
-    depends_on :xcode => ["8.0", :build] if OS.mac? && build.with? "win64"
+    depends_on :xcode => ["8.0", :build] if OS.mac? && build.with?("win64")
   end
+
   # Wine will build both the Mac and the X11 driver by default, and you can switch
   # between them. But if you really want to build without X11, you can.
   depends_on :x11 => :recommended
