@@ -3,20 +3,23 @@ class Openvdb < Formula
   homepage "http://www.openvdb.org/"
   url "https://github.com/dreamworksanimation/openvdb/archive/v4.0.0.tar.gz"
   sha256 "eaf37b8e723cfd011df350cb0ef93ffa22d927bf7cb1f72c38176fce523b3537"
+  revision 1
+
   head "https://github.com/dreamworksanimation/openvdb.git"
 
   bottle do
-    sha256 "07f23237480ba2dbc44174bc70c6b283aace47c38aa41f0687e8efc43b07d135" => :sierra
-    sha256 "cd96c279d070522e6a697aa80c6df6a1dedfba1cbc017d90df3256ea413ad202" => :el_capitan
-    sha256 "ab4d5550eeb804481176a61a3720bc131907c4506a1a006116cb8b12fce77156" => :yosemite
+    sha256 "3dd7b1a02481d243f1d4be2e363c1e28f4b6d7910b054cbaa7af1e3ad214a81a" => :sierra
+    sha256 "432efa66ab31c202624e1a1fcaea55ab7c111ca7ac2a4ebf096bd8dc94c12163" => :el_capitan
+    sha256 "27bd92b23213af895e6e6f5ab6d4e6412eaad721a7eb1320aa9bf7fcd7a46ec7" => :yosemite
   end
 
-  option "with-viewer", "Installs the command-line tool to view OpenVDB files"
+  option "with-glfw", "Installs the command-line tool to view OpenVDB files"
   option "with-test", "Installs the unit tests for the OpenVDB library"
   option "with-logging", "Requires log4cplus"
   option "with-docs", "Installs documentation"
 
   deprecated_option "with-tests" => "with-test"
+  deprecated_option "with-viewer" => "with-glfw"
 
   depends_on "openexr"
   depends_on "ilmbase"
@@ -29,7 +32,7 @@ class Openvdb < Formula
     depends_on "boost"
   end
 
-  depends_on "homebrew/versions/glfw3" if build.with? "viewer"
+  depends_on "glfw" => :optional
   depends_on "cppunit" if build.with? "test"
   depends_on "doxygen" if build.with? "docs"
   depends_on "log4cplus" if build.with? "logging"
@@ -63,10 +66,10 @@ class Openvdb < Formula
       args << "CONCURRENT_MALLOC_LIB="
     end
 
-    if build.with? "viewer"
-      args << "GLFW_INCL_DIR=#{Formula["homebrew/versions/glfw3"].opt_lib}/include"
-      args << "GLFW_LIB_DIR=#{Formula["homebrew/versions/glfw3"].opt_lib}/lib"
-      args << "GLFW_LIB=-lglfw3"
+    if build.with? "glfw"
+      args << "GLFW_INCL_DIR=#{Formula["glfw"].opt_lib}/include"
+      args << "GLFW_LIB_DIR=#{Formula["glfw"].opt_lib}/lib"
+      args << "GLFW_LIB=-lglfw"
     else
       args << "GLFW_INCL_DIR="
       args << "GLFW_LIB_DIR="

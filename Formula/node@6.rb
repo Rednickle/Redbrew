@@ -1,14 +1,14 @@
-class Node < Formula
+class NodeAT6 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v7.2.1/node-v7.2.1.tar.xz"
-  sha256 "c08b03aa5d2cc61c5f04042658d247dc376e1e873946f2b36d54108fa6d9d80d"
-  head "https://github.com/nodejs/node.git"
+  url "https://nodejs.org/dist/v6.9.2/node-v6.9.2.tar.xz"
+  sha256 "f41b320b37ce23a34dbc597040e71535ea4f6baa2342bc526bb45f5f9aa9c9fb"
+  head "https://github.com/nodejs/node.git", :branch => "v6.x-staging"
 
   bottle do
-    sha256 "8f1d4d3874bd95160a0752e24caeeefebdc6ad082966f0cd3728af12fd958b2b" => :sierra
-    sha256 "2b217764e63eaac6d8f031bdbf87e30c77308a81a509c40c45407eb3f1158660" => :el_capitan
-    sha256 "6dfd9f27a9cb291feac6f8091aab7933bf04da30d65e9417797fbe3eb08d76c5" => :yosemite
+    sha256 "9db4a8f253040efe3db9e97e5eefc23e3c064d01c703a4d28528579fd686a6e5" => :sierra
+    sha256 "51a8cc8e6faeced1c4465340f29e87b00b541fb232154f453478e0995bc03ceb" => :el_capitan
+    sha256 "1d7c833e680df2906a7cb81fbf702e07ee55ef299c20447edffa9e360ab3af33" => :yosemite
   end
 
   option "with-debug", "Build with debugger hooks"
@@ -17,18 +17,15 @@ class Node < Formula
   option "without-completion", "npm bash completion will not be installed"
   option "with-full-icu", "Build with full-icu (all locales) instead of small-icu (English only)"
 
-  deprecated_option "enable-debug" => "with-debug"
-  deprecated_option "with-icu4c" => "with-full-icu"
-
   depends_on :python => :build if MacOS.version <= :snow_leopard
   depends_on "pkg-config" => :build
   depends_on "openssl" => :optional
 
+  conflicts_with "node", :because => "Differing versions of the same formula"
   conflicts_with "node@0.10", :because => "Differing versions of the same formulae."
   conflicts_with "node@0.12", :because => "Differing versions of the same formulae."
   conflicts_with "node@4", :because => "Differing versions of the same formulae."
   conflicts_with "node@5", :because => "Differing versions of the same formulae."
-  conflicts_with "node@6", :because => "Differing versions of the same formulae."
 
   # Per upstream - "Need g++ 4.8 or clang++ 3.4".
   fails_with :clang if MacOS.version <= :snow_leopard
@@ -42,37 +39,28 @@ class Node < Formula
   # We will accept *important* npm patch releases when necessary.
   # https://github.com/Homebrew/homebrew/pull/46098#issuecomment-157802319
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-3.10.9.tgz"
-    sha256 "fb0871b1aebf4b74717a72289fade356aedca83ee54e7386e38cb51874501dd6"
+    url "https://registry.npmjs.org/npm/-/npm-3.10.8.tgz"
+    sha256 "1121a75a370fd0efb320fffb7c9e4a8bcb3840d1cf2fbd585c54837b7014dd76"
   end
 
   resource "icu4c" do
-    url "https://ssl.icu-project.org/files/icu4c/58.1/icu4c-58_1-src.tgz"
-    mirror "https://nuxi.nl/distfiles/third_party/icu4c-58_1-src.tgz"
-    version "58.1"
-    sha256 "0eb46ba3746a9c2092c8ad347a29b1a1b4941144772d13a88667a7b11ea30309"
+    url "https://ssl.icu-project.org/files/icu4c/57.1/icu4c-57_1-src.tgz"
+    mirror "https://fossies.org/linux/misc/icu4c-57_1-src.tgz"
+    version "57.1"
+    sha256 "ff8c67cb65949b1e7808f2359f2b80f722697048e90e7cfc382ec1fe229e9581"
   end
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV.deparallelize if ENV["CIRCLECI"]
-
     # Never install the bundled "npm", always prefer our
     # installation from tarball for better packaging control.
     args = %W[--prefix=#{prefix} --without-npm]
     args << "--debug" if build.with? "debug"
     args << "--shared-openssl" if build.with? "openssl"
-    args << "--tag=head" if build.head?
 
     if build.with? "full-icu"
       resource("icu4c").stage buildpath/"deps/icu"
       args << "--with-intl=full-icu"
     end
-
-    # Fix collect2: fatal error: cannot find 'ld'
-    # The snapshot feature requires the gold linker.
-    # See https://github.com/nodejs/node/issues/4212
-    args << "--without-snapshot" if OS.linux?
 
     system "./configure", *args
     system "make", "install"
@@ -183,7 +171,6 @@ class Node < Formula
       assert (HOMEBREW_PREFIX/"bin/npm").exist?, "npm must exist"
       assert (HOMEBREW_PREFIX/"bin/npm").executable?, "npm must be executable"
       system "#{HOMEBREW_PREFIX}/bin/npm", "--verbose", "install", "npm@latest"
-      system "#{HOMEBREW_PREFIX}/bin/npm", "--verbose", "install", "bignum" unless head?
     end
   end
 end

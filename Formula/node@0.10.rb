@@ -1,78 +1,45 @@
-class Node < Formula
+class NodeAT010 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v7.2.1/node-v7.2.1.tar.xz"
-  sha256 "c08b03aa5d2cc61c5f04042658d247dc376e1e873946f2b36d54108fa6d9d80d"
-  head "https://github.com/nodejs/node.git"
+  url "https://nodejs.org/dist/v0.10.48/node-v0.10.48.tar.xz"
+  sha256 "365a93d9acc076a0d93f087d269f376abeebccad599a9dab72f2f6ed96c8ae6e"
+  head "https://github.com/nodejs/node.git", :branch => "v0.10-staging"
 
   bottle do
-    sha256 "8f1d4d3874bd95160a0752e24caeeefebdc6ad082966f0cd3728af12fd958b2b" => :sierra
-    sha256 "2b217764e63eaac6d8f031bdbf87e30c77308a81a509c40c45407eb3f1158660" => :el_capitan
-    sha256 "6dfd9f27a9cb291feac6f8091aab7933bf04da30d65e9417797fbe3eb08d76c5" => :yosemite
+    sha256 "8583f18bb7737fd02230f6abfc04f9fb79a135e7ec9e6c72327d8e75aba5052f" => :sierra
+    sha256 "73dbaf96f21f3392aee5b24366c3a72d08146fb10c0556ba7d0a11857570155c" => :el_capitan
+    sha256 "3873679aeb79256b23fbf7282222020ef5353989f8c44c2feeaed24c3a206100" => :yosemite
   end
 
+  deprecated_option "enable-debug" => "with-debug"
+
   option "with-debug", "Build with debugger hooks"
-  option "with-openssl", "Build against Homebrew's OpenSSL instead of the bundled OpenSSL"
   option "without-npm", "npm will not be installed"
   option "without-completion", "npm bash completion will not be installed"
-  option "with-full-icu", "Build with full-icu (all locales) instead of small-icu (English only)"
 
-  deprecated_option "enable-debug" => "with-debug"
-  deprecated_option "with-icu4c" => "with-full-icu"
-
-  depends_on :python => :build if MacOS.version <= :snow_leopard
-  depends_on "pkg-config" => :build
+  depends_on :python => :build
   depends_on "openssl" => :optional
 
-  conflicts_with "node@0.10", :because => "Differing versions of the same formulae."
+  conflicts_with "node", :because => "Differing versions of the same formula"
   conflicts_with "node@0.12", :because => "Differing versions of the same formulae."
   conflicts_with "node@4", :because => "Differing versions of the same formulae."
   conflicts_with "node@5", :because => "Differing versions of the same formulae."
   conflicts_with "node@6", :because => "Differing versions of the same formulae."
 
-  # Per upstream - "Need g++ 4.8 or clang++ 3.4".
-  fails_with :clang if MacOS.version <= :snow_leopard
-  fails_with :gcc_4_0
-  fails_with :gcc
-  ("4.3".."4.7").each do |n|
-    fails_with :gcc => n
-  end
-
-  # We track major/minor from upstream Node releases.
-  # We will accept *important* npm patch releases when necessary.
-  # https://github.com/Homebrew/homebrew/pull/46098#issuecomment-157802319
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-3.10.9.tgz"
-    sha256 "fb0871b1aebf4b74717a72289fade356aedca83ee54e7386e38cb51874501dd6"
-  end
-
-  resource "icu4c" do
-    url "https://ssl.icu-project.org/files/icu4c/58.1/icu4c-58_1-src.tgz"
-    mirror "https://nuxi.nl/distfiles/third_party/icu4c-58_1-src.tgz"
-    version "58.1"
-    sha256 "0eb46ba3746a9c2092c8ad347a29b1a1b4941144772d13a88667a7b11ea30309"
+    url "https://registry.npmjs.org/npm/-/npm-2.15.1.tgz"
+    sha256 "e3435100b37379354b899a31d073ef81b8aa7365c52eb138847ecfbf9f01ea93"
   end
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV.deparallelize if ENV["CIRCLECI"]
-
-    # Never install the bundled "npm", always prefer our
-    # installation from tarball for better packaging control.
     args = %W[--prefix=#{prefix} --without-npm]
     args << "--debug" if build.with? "debug"
-    args << "--shared-openssl" if build.with? "openssl"
-    args << "--tag=head" if build.head?
 
-    if build.with? "full-icu"
-      resource("icu4c").stage buildpath/"deps/icu"
-      args << "--with-intl=full-icu"
+    if build.with? "openssl"
+      args << "--shared-openssl"
+    else
+      args << "--without-ssl3"
     end
-
-    # Fix collect2: fatal error: cannot find 'ld'
-    # The snapshot feature requires the gold linker.
-    # See https://github.com/nodejs/node/issues/4212
-    args << "--without-snapshot" if OS.linux?
 
     system "./configure", *args
     system "make", "install"
@@ -149,16 +116,6 @@ class Node < Formula
       EOS
     end
 
-    if build.without? "full-icu"
-      s += <<-EOS.undent
-        Please note by default only English locale support is provided. If you need
-        full locale support you should either rebuild with full icu:
-          `brew reinstall node --with-full-icu`
-        or add full icu data at runtime following:
-          https://github.com/nodejs/node/wiki/Intl#using-and-customizing-the-small-icu-build
-      EOS
-    end
-
     s
   end
 
@@ -168,22 +125,14 @@ class Node < Formula
 
     output = shell_output("#{bin}/node #{path}").strip
     assert_equal "hello", output
-    output = shell_output("#{bin}/node -e 'console.log(new Intl.NumberFormat(\"en-EN\").format(1234.56))'").strip
-    assert_equal "1,234.56", output
-    if build.with? "full-icu"
-      output = shell_output("#{bin}/node -e 'console.log(new Intl.NumberFormat(\"de-DE\").format(1234.56))'").strip
-      assert_equal "1.234,56", output
-    end
 
     if build.with? "npm"
       # make sure npm can find node
       ENV.prepend_path "PATH", opt_bin
-      ENV.delete "NVM_NODEJS_ORG_MIRROR"
       assert_equal which("node"), opt_bin/"node"
       assert (HOMEBREW_PREFIX/"bin/npm").exist?, "npm must exist"
       assert (HOMEBREW_PREFIX/"bin/npm").executable?, "npm must be executable"
       system "#{HOMEBREW_PREFIX}/bin/npm", "--verbose", "install", "npm@latest"
-      system "#{HOMEBREW_PREFIX}/bin/npm", "--verbose", "install", "bignum" unless head?
     end
   end
 end

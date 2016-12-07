@@ -2,16 +2,15 @@ class Vim < Formula
   desc "Vi \"workalike\" with many additional features"
   homepage "http://www.vim.org/"
   # *** Vim should be updated no more than once every 7 days ***
-  url "https://github.com/vim/vim/archive/v8.0.0118.tar.gz"
-  sha256 "94be26ce8b2a23143c1a4da830b65b4903bd08c66a0fa86f496cda7c3cc53e3f"
+  url "https://github.com/vim/vim/archive/v8.0.0124.tar.gz"
+  sha256 "8d15d4a9f9ea94a84679c540f636316a2fe18fa306b7c238d260767f8ec96855"
 
   head "https://github.com/vim/vim.git"
 
   bottle do
-    sha256 "b1b8822b48939b40db9f3156f55294c33d2bc571aa7f470012aa2ee46c431f51" => :sierra
-    sha256 "4e5e207600df33dcefcb698251b0eb279b6575710b9a6340fc9a4f948eaff862" => :el_capitan
-    sha256 "9e428aba83f3053facf81b343727627176d30eb11bedfbf353d232398de45da0" => :yosemite
-    sha256 "5c7ebe9cd34098e9738eaf8d9cf6b7a6897d6fe2988061129f376678e32e9b43" => :x86_64_linux
+    sha256 "f628d8de788b85be5070c8342d2f8aa1c5bcf097771ed8496c438b108faae1b7" => :sierra
+    sha256 "7ab8726c0e772c7259b6ce86dbe78e427c43ccfc18023fadd2efab087ab1e9dc" => :el_capitan
+    sha256 "0afdda5873626d0b4773e3b5871547cb650f5480ddb5aebe08dd2282a3a6869a" => :yosemite
   end
 
   deprecated_option "disable-nls" => "without-nls"
@@ -83,6 +82,10 @@ class Vim < Formula
       opts << "--with-x"
     else
       opts << "--without-x"
+    end
+
+    if build.with? "lua"
+      opts << "--enable-luainterp"
     end
 
     if build.with? "luajit"

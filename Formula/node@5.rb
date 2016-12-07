@@ -1,33 +1,29 @@
-class Node < Formula
+class NodeAT5 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v7.2.1/node-v7.2.1.tar.xz"
-  sha256 "c08b03aa5d2cc61c5f04042658d247dc376e1e873946f2b36d54108fa6d9d80d"
-  head "https://github.com/nodejs/node.git"
+  url "https://nodejs.org/dist/v5.12.0/node-v5.12.0.tar.xz"
+  sha256 "4f926373f11f2a25156eee1804ec012eb912c42e5d34fc2909889da22efdadfe"
+  head "https://github.com/nodejs/node.git", :branch => "v5.x-staging"
 
   bottle do
-    sha256 "8f1d4d3874bd95160a0752e24caeeefebdc6ad082966f0cd3728af12fd958b2b" => :sierra
-    sha256 "2b217764e63eaac6d8f031bdbf87e30c77308a81a509c40c45407eb3f1158660" => :el_capitan
-    sha256 "6dfd9f27a9cb291feac6f8091aab7933bf04da30d65e9417797fbe3eb08d76c5" => :yosemite
+    sha256 "375f05868d2cb221364b92494bd2c23ca07df20d52e1b51d09c4d7dc4b53486c" => :sierra
+    sha256 "e66859ad02c7ca79ffee91074673faf9c005caa09cc0ed7ffa8773e0f742dcfd" => :el_capitan
+    sha256 "4857d446d25e1d34843bf06edbb00dd32b06095a58224879060a622bc3748f5d" => :yosemite
   end
 
   option "with-debug", "Build with debugger hooks"
-  option "with-openssl", "Build against Homebrew's OpenSSL instead of the bundled OpenSSL"
   option "without-npm", "npm will not be installed"
   option "without-completion", "npm bash completion will not be installed"
   option "with-full-icu", "Build with full-icu (all locales) instead of small-icu (English only)"
-
-  deprecated_option "enable-debug" => "with-debug"
-  deprecated_option "with-icu4c" => "with-full-icu"
 
   depends_on :python => :build if MacOS.version <= :snow_leopard
   depends_on "pkg-config" => :build
   depends_on "openssl" => :optional
 
+  conflicts_with "node", :because => "Differing versions of the same formula"
   conflicts_with "node@0.10", :because => "Differing versions of the same formulae."
   conflicts_with "node@0.12", :because => "Differing versions of the same formulae."
   conflicts_with "node@4", :because => "Differing versions of the same formulae."
-  conflicts_with "node@5", :because => "Differing versions of the same formulae."
   conflicts_with "node@6", :because => "Differing versions of the same formulae."
 
   # Per upstream - "Need g++ 4.8 or clang++ 3.4".
@@ -42,37 +38,29 @@ class Node < Formula
   # We will accept *important* npm patch releases when necessary.
   # https://github.com/Homebrew/homebrew/pull/46098#issuecomment-157802319
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-3.10.9.tgz"
-    sha256 "fb0871b1aebf4b74717a72289fade356aedca83ee54e7386e38cb51874501dd6"
+    url "https://registry.npmjs.org/npm/-/npm-3.8.6.tgz"
+    sha256 "29bc9d6f6123c9281914b298e863f683fd98ac2762632a55458308bb88b005e8"
   end
 
   resource "icu4c" do
-    url "https://ssl.icu-project.org/files/icu4c/58.1/icu4c-58_1-src.tgz"
-    mirror "https://nuxi.nl/distfiles/third_party/icu4c-58_1-src.tgz"
-    version "58.1"
-    sha256 "0eb46ba3746a9c2092c8ad347a29b1a1b4941144772d13a88667a7b11ea30309"
+    url "https://ssl.icu-project.org/files/icu4c/56.1/icu4c-56_1-src.tgz"
+    mirror "https://ftp.mirrorservice.org/sites/download.qt-project.org/development_releases/prebuilt/icu/src/icu4c-56_1-src.tgz"
+    version "56.1"
+    sha256 "3a64e9105c734dcf631c0b3ed60404531bce6c0f5a64bfe1a6402a4cc2314816"
   end
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV.deparallelize if ENV["CIRCLECI"]
-
-    # Never install the bundled "npm", always prefer our
-    # installation from tarball for better packaging control.
     args = %W[--prefix=#{prefix} --without-npm]
     args << "--debug" if build.with? "debug"
     args << "--shared-openssl" if build.with? "openssl"
+    if build.with? "full-icu"
+      args << "--with-intl=full-icu"
+    else
+      args << "--with-intl=small-icu"
+    end
     args << "--tag=head" if build.head?
 
-    if build.with? "full-icu"
-      resource("icu4c").stage buildpath/"deps/icu"
-      args << "--with-intl=full-icu"
-    end
-
-    # Fix collect2: fatal error: cannot find 'ld'
-    # The snapshot feature requires the gold linker.
-    # See https://github.com/nodejs/node/issues/4212
-    args << "--without-snapshot" if OS.linux?
+    resource("icu4c").stage buildpath/"deps/icu"
 
     system "./configure", *args
     system "make", "install"
@@ -152,10 +140,8 @@ class Node < Formula
     if build.without? "full-icu"
       s += <<-EOS.undent
         Please note by default only English locale support is provided. If you need
-        full locale support you should either rebuild with full icu:
+        full locale support you should:
           `brew reinstall node --with-full-icu`
-        or add full icu data at runtime following:
-          https://github.com/nodejs/node/wiki/Intl#using-and-customizing-the-small-icu-build
       EOS
     end
 
@@ -168,12 +154,8 @@ class Node < Formula
 
     output = shell_output("#{bin}/node #{path}").strip
     assert_equal "hello", output
-    output = shell_output("#{bin}/node -e 'console.log(new Intl.NumberFormat(\"en-EN\").format(1234.56))'").strip
+    output = shell_output("#{bin}/node -e 'console.log(new Intl.NumberFormat().format(1234.56))'").strip
     assert_equal "1,234.56", output
-    if build.with? "full-icu"
-      output = shell_output("#{bin}/node -e 'console.log(new Intl.NumberFormat(\"de-DE\").format(1234.56))'").strip
-      assert_equal "1.234,56", output
-    end
 
     if build.with? "npm"
       # make sure npm can find node
