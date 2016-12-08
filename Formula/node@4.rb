@@ -1,14 +1,14 @@
 class NodeAT4 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v4.6.2/node-v4.6.2.tar.xz"
-  sha256 "859458b337686556c1f9e195062abc6c394210c2280ee47ed1ddc725b2982c9e"
+  url "https://nodejs.org/dist/v4.7.0/node-v4.7.0.tar.xz"
+  sha256 "b03c777ba8817a8478d57f00797db86dc7e7953d2066c34edbceeba8ad056142"
   head "https://github.com/nodejs/node.git", :branch => "v4.x-staging"
 
   bottle do
-    sha256 "28cb3a996025e7911e0abfac3e055c88fe3c719fc6aca8f161ba64169ce1b1ce" => :sierra
-    sha256 "82c042780f0e176dade96212c71816993d8476c6a97ac45135c45f0894b4c026" => :el_capitan
-    sha256 "c43180c308bbfb69b8383c0519024298555ddc836148615bb65d5165140a6036" => :yosemite
+    sha256 "312c17e525bccf3a8fb25db244d958642b058cfa604e69170a9c7c5905752c72" => :sierra
+    sha256 "e0ea163a2851a7d6ed7ec4b1be8ded180817255dbba56d303f28b438e6963850" => :el_capitan
+    sha256 "8255a0f585a77ec579245e5261b63eddfd85b6d3deb32914a320567fb4539a8e" => :yosemite
   end
 
   option "with-debug", "Build with debugger hooks"
