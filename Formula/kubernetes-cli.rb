@@ -1,22 +1,21 @@
 class KubernetesCli < Formula
   desc "Kubernetes command-line interface"
   homepage "http://kubernetes.io/"
-  url "https://github.com/kubernetes/kubernetes/archive/v1.4.6.tar.gz"
-  sha256 "dcbbf24ca664f55e40d539a167143f2e0ea0f3ff40e7df6e25887ca10bb2e185"
+  url "https://github.com/kubernetes/kubernetes/archive/v1.4.7.tar.gz"
+  sha256 "2f5d4c5071109935386c550899ae85f338ee3a9d58cb1908d2d975d8a9c5baa9"
   head "https://github.com/kubernetes/kubernetes.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "eff8827a884114a99f33884cd46cd3b72109f5921b3555a17346db715fdbaa3a" => :sierra
-    sha256 "fe8165b68a2a7522932a34315ecd5de327652d8688ce4830fd49ebc1f869dfbb" => :el_capitan
-    sha256 "a286f94b04bfa608735ceb003e75e34cfbd46fb49c379f2486051a64b9d52f47" => :yosemite
-    sha256 "4a57e3dfe38b64bcc2941225b0352aaa504da845bbbcc0d34c3166b08455e7e4" => :x86_64_linux
+    sha256 "90caf18e13c8636d27b332cb8acbe0944bb8effba7561ff193df37da22580135" => :sierra
+    sha256 "8aa4850f497674190d6d374853519c1629e0fb2466c5618b1473ba47d172b697" => :el_capitan
+    sha256 "48e82ebddcbc0c4777469014f69a1cc98f7263105aa4b17bcfb752ab11d37690" => :yosemite
   end
 
   devel do
-    url "https://github.com/kubernetes/kubernetes/archive/v1.5.0-beta.2.tar.gz"
-    sha256 "3f7a1e2919264b421cfbb7b7cac3f09ad6b487f61253874561d61305679d76f4"
-    version "1.5.0-beta.2"
+    url "https://github.com/kubernetes/kubernetes/archive/v1.5.0-beta.3.tar.gz"
+    sha256 "210a84a0585160cf5947148f7b4c239a62c9b202e3cecbc7b87ef14a8c62042c"
+    version "1.5.0-beta.3"
   end
 
   depends_on "go" => :build
@@ -25,6 +24,7 @@ class KubernetesCli < Formula
     # Patch needed to avoid vendor dependency on github.com/jteeuwen/go-bindata
     # Build will otherwise fail with missing dep
     # Raised in https://github.com/kubernetes/kubernetes/issues/34067
+    # Fix merged into 1.5 branch; patch may be removed when that goes GA
     rm "./test/e2e/framework/gobindata_util.go"
 
     # Race condition still exists in OSX Yosemite
