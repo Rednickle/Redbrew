@@ -19,6 +19,8 @@ class Udunits < Formula
   deprecated_option "html-docs" => "with-html-docs"
   deprecated_option "pdf-docs" => "with-pdf-docs"
 
+  depends_on "expat" unless OS.mac?
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
