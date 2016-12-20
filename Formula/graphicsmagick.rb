@@ -33,6 +33,11 @@ class Graphicsmagick < Formula
   depends_on "ghostscript" => :optional
   depends_on "webp" => :optional
   depends_on :x11 => :optional
+  unless OS.mac?
+    depends_on "bzip2"
+    depends_on "libxml2"
+    depends_on "zlib"
+  end
 
   fails_with :llvm do
     build 2335
