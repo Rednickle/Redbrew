@@ -151,6 +151,7 @@ class Llvm < Formula
     depends_on "binutils" if build.with? "glibc"
     depends_on "homebrew/dupes/libedit" # llvm requires <histedit.h>
     depends_on "libxml2"
+    depends_on "python" if build.with?("python") || build.with?("lldb")
     needs :cxx11
   end
 
