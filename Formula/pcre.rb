@@ -25,11 +25,6 @@ class Pcre < Formula
   option "without-check", "Skip build-time tests (not recommended)"
   option :universal
 
-  fails_with :llvm do
-    build 2326
-    cause "Bus error in ld on SL 10.6.4"
-  end
-
   depends_on "bzip2" unless OS.mac?
   depends_on "zlib" unless OS.mac?
 

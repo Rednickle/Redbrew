@@ -1,13 +1,14 @@
 class GnomeBuilder < Formula
   desc "IDE for GNOME"
   homepage "https://wiki.gnome.org/Apps/Builder"
-  url "https://download.gnome.org/sources/gnome-builder/3.22/gnome-builder-3.22.3.tar.xz"
-  sha256 "6a04360ca2e04a0c281b5fa80cca0f760f65fabb2dcbc71a0f53d90e7a7aa5cb"
+  url "https://download.gnome.org/sources/gnome-builder/3.22/gnome-builder-3.22.4.tar.xz"
+  sha256 "d569446a83ab88872c265f238f8f42b5928a6b3eebb22fd1db3dbc0dd9128795"
+  revision 1
 
   bottle do
-    sha256 "816be4599ff1ab86e495d9a46b867dd352726b86d0df21c8654579f256e9ff5a" => :sierra
-    sha256 "f80e0c5ac8700f9893ee186898ce79437894871098670169f3115af5ce04cbde" => :el_capitan
-    sha256 "97cf269f059677e554d2d6bab9fae9ea56670a43f73a0cb98807410ffc827ee4" => :yosemite
+    sha256 "9696ce453f8388bf34a2bfb0259634accc017a505a46354829a6de1c651eaafa" => :sierra
+    sha256 "780097cac9ca5f467816c33bd1cec41d805bcb01633e15c0d0fb6a9d927e309d" => :el_capitan
+    sha256 "c16df3dd5f759fae32ed0e28c3f10ec5775bf0668f25e472f917d6dc0010dfc1" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -34,6 +35,8 @@ class GnomeBuilder < Formula
   needs :cxx11
 
   def install
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libgit2-glib"].opt_libexec/"libgit2/lib/pkgconfig"
+
     ENV.cxx11
 
     system "./configure", "--disable-debug",

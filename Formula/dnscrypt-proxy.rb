@@ -1,34 +1,30 @@
 class DnscryptProxy < Formula
   desc "Secure communications between a client and a DNS resolver"
   homepage "https://dnscrypt.org"
-  url "https://github.com/jedisct1/dnscrypt-proxy/releases/download/1.7.0/dnscrypt-proxy-1.7.0.tar.bz2"
-  sha256 "1daf77df9092491ea0b5176ec4b170f7b0645f97b62d1a50412a960656b482e3"
+  url "https://github.com/jedisct1/dnscrypt-proxy/archive/1.9.0.tar.gz"
+  sha256 "d7b80c32c105b2463e19800804bd38ab578484ff4fb741c61579a7eef6eb7310"
+  head "https://github.com/jedisct1/dnscrypt-proxy.git"
 
   bottle do
-    rebuild 1
-    sha256 "7940aba621d665eccbc3018c6a892313514ce84a540a416f19cddd962d33273d" => :sierra
-    sha256 "63d4a11824527a3d333176aa6ea93fe7e5eefcae658be41855fce86d45192115" => :el_capitan
-    sha256 "e56ea17922dcf696b4d8e3b5307abf330c0b43cbe9df81c91a3ac62890cc732e" => :yosemite
-  end
-
-  head do
-    url "https://github.com/jedisct1/dnscrypt-proxy.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
+    sha256 "2a24cb4a06a70a63cfbdbdc1c9d6cbc39e2cf7be8294be5e9ad5fef854bfee78" => :sierra
+    sha256 "696c6c15f6de3f058c0653f7756b3f38c65fb24bbcee53c0b628f833e4f0f251" => :el_capitan
+    sha256 "4a20c2b121c635e6605e3fb233e00dcaae964094adba8f1349a4defa0c87714c" => :yosemite
   end
 
   option "with-plugins", "Support plugins and install example plugins."
 
   deprecated_option "plugins" => "with-plugins"
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "pkg-config" => :build
+  depends_on "libtool" => :run
   depends_on "libsodium"
   depends_on "minisign" => :recommended
   depends_on "ldns" => :recommended
 
   def install
-    system "autoreconf", "-if" if build.head?
+    system "./autogen.sh"
 
     args = %W[--disable-dependency-tracking --prefix=#{prefix}]
 
@@ -40,6 +36,7 @@ class DnscryptProxy < Formula
 
     system "./configure", *args
     system "make", "install"
+    pkgshare.install Dir["contrib/*"] - Dir["contrib/Makefile*"]
 
     if build.with? "minisign"
       (bin/"dnscrypt-update-resolvers").write <<-EOS.undent
