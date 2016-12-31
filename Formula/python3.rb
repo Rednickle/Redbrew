@@ -29,6 +29,7 @@ class Python3 < Formula
   depends_on :x11 if build.with?("tcl-tk") && Tab.for_name("homebrew/dupes/tcl-tk").with?("x11")
   depends_on "sphinx-doc" => [:build, :optional]
   depends_on "bzip2" unless OS.mac?
+  depends_on "libffi" unless OS.mac?
 
   skip_clean "bin/pip3", "bin/pip-3.4", "bin/pip-3.5", "bin/pip-3.6"
   skip_clean "bin/easy_install3", "bin/easy_install-3.4", "bin/easy_install-3.5", "bin/easy_install-3.6"
@@ -102,6 +103,10 @@ class Python3 < Formula
 
     args << "--without-gcc" if ENV.compiler == :clang
     args << "--enable-loadable-sqlite-extensions" if build.with?("sqlite")
+
+    # Required for the _ctypes module
+    # see https://github.com/Linuxbrew/homebrew-core/pull/1007#issuecomment-252421573
+    args << "--with-system-ffi" unless OS.mac?
 
     cflags   = []
     ldflags  = []
