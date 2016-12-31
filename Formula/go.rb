@@ -41,9 +41,11 @@ class Go < Formula
     end
   end
 
-  option "without-cgo", "Build without cgo (also disables race detector)"
+  if OS.mac?
+    option "without-cgo", "Build without cgo (also disables race detector)"
+    option "without-race", "Build without race detector"
+  end
   option "without-godoc", "godoc will not be installed for you"
-  option "without-race", "Build without race detector"
 
   depends_on :macos => :mountain_lion
 
@@ -67,17 +69,16 @@ class Go < Formula
   def install
     ENV.permit_weak_imports
 
-    # Fix error: unknown relocation type 42; compiled without -fpic?
-    # See https://github.com/Linuxbrew/linuxbrew/issues/1057
-    ENV["CGO_ENABLED"] = "0" if OS.linux?
-
     (buildpath/"gobootstrap").install resource("gobootstrap")
     ENV["GOROOT_BOOTSTRAP"] = buildpath/"gobootstrap"
 
     cd "src" do
       ENV["GOROOT_FINAL"] = libexec
       ENV["GOOS"]         = os
-      ENV["CGO_ENABLED"]  = "0" if build.without?("cgo")
+
+      # Fix error: unknown relocation type 42; compiled without -fpic?
+      # See https://github.com/Linuxbrew/linuxbrew/issues/1057
+      ENV["CGO_ENABLED"]  = "0" if build.without?("cgo") || OS.linux?
       system "./make.bash", "--no-clean"
     end
 
