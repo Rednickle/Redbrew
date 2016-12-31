@@ -25,7 +25,7 @@ class CrystalLang < Formula
   resource "boot" do
     if OS.mac?
       url "https://github.com/crystal-lang/crystal/releases/download/0.20.1/crystal-0.20.1-1-darwin-x86_64.tar.gz"
-      sha256 "e934d5e737949a6bce977f810d0ffdd3ddcb4b226125400c8f64f46944af56c5
+      sha256 "e934d5e737949a6bce977f810d0ffdd3ddcb4b226125400c8f64f46944af56c5"
     elsif OS.linux?
       url "https://github.com/crystal-lang/crystal/releases/download/0.20.1/crystal-0.20.1-1-linux-x86_64.tar.gz"
       sha256 "d049af7b3c2ea08e3f1c961156f952cfe4ae38f967da38a755e93fdba4c8a07b"
