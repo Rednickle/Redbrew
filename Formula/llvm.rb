@@ -78,6 +78,7 @@ class Llvm < Formula
     sha256 "27288ad3b61f2adf9542a354e499e2623329f94cba2d951c26f0aed3241d3d9c" => :sierra
     sha256 "9e338418568c0c2dde04847611a9e091e93d88bbc8d6270df1704ecacf87af5c" => :el_capitan
     sha256 "9a80b57b520a47fc191e578e19c394908c276cfae27a91bbd917a1508f1dd834" => :yosemite
+    sha256 "39936e867209fd59f557b73e27e0dfcf13a7c751bbd2dc8898295f471c1be986" => :x86_64_linux
   end
 
   head do
