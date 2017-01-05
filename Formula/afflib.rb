@@ -1,14 +1,14 @@
 class Afflib < Formula
   desc "Advanced Forensic Format"
   homepage "https://github.com/sshock/AFFLIBv3"
-  url "https://github.com/sshock/AFFLIBv3/archive/v3.7.13.tar.gz"
-  sha256 "4356bb576eaa0d51651ec9754e8c3948f56e439c6c8b98ec6c23d5bebaae86bc"
+  url "https://github.com/sshock/AFFLIBv3/archive/v3.7.15.tar.gz"
+  sha256 "cc705a3b4108594fe36f1d843f4a7c60c93fe79375fda3018c21f5cd24949f1c"
 
   bottle do
     cellar :any
-    sha256 "26f676d4afb7ef30a36b72af253aa6dc04bcafbc37682057c3e3922766ac4b55" => :sierra
-    sha256 "723ac0e170f6ec96da14869c54ca7260c50a7bf28334c88371a171a355226f75" => :el_capitan
-    sha256 "dd8f5e6ffcc205bd1ae5076d8d790ee546369cba74069f6cc3313ab028ecc456" => :yosemite
+    sha256 "84aefa7e2449d8162aca396921a568c556f2191db72fd5f03ee2daf6cf9485bd" => :sierra
+    sha256 "2efac098c764845cae4a33c4788fd2f811a6a62a9345e4dcdebe4097cd1e09f3" => :el_capitan
+    sha256 "7a70c24489fcd92a6f3845dd945eb0822d4018ef937747c720522a1e70e90fdb" => :yosemite
   end
 
   depends_on "autoconf" => :build
@@ -20,10 +20,6 @@ class Afflib < Formula
   depends_on :osxfuse => :optional
 
   def install
-    inreplace "m4/acinclude.m4",
-      "PYTHON_LDFLAGS=\"-L$ac_python_libdir -lpython$ac_python_version\"",
-      "PYTHON_LDFLAGS=\"-undefined dynamic_lookup\""
-
     args = ["--enable-s3", "--enable-python"]
 
     if build.with? "osxfuse"

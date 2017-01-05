@@ -24,13 +24,14 @@ class GccAT49 < Formula
   url "https://ftpmirror.gnu.org/gcc/gcc-4.9.3/gcc-4.9.3.tar.bz2"
   mirror "https://ftp.gnu.org/gnu/gcc/gcc-4.9.3/gcc-4.9.3.tar.bz2"
   sha256 "2332b2a5a321b57508b9031354a8503af6fdfb868b8c1748d33028d100a8b67e"
+  revision 1
 
   head "svn://gcc.gnu.org/svn/gcc/branches/gcc-4_9-branch"
 
   bottle do
-    sha256 "298b051b7d18c9513d9b6bc7c493eabfebcb45b83894fdb84d1262bc2c03200d" => :sierra
-    sha256 "3db928fdee29fc3b6a50a6b725808c9855b0f36cbd8d12869bbfa18d64f46a65" => :el_capitan
-    sha256 "300c6a88ab274f1bb6044765f8815c8a2f350db3f936d54c2f5ef257804e68e3" => :yosemite
+    sha256 "e852f16dcb3c4e3ad9e5a7444fa3bc6adefb2a4668734123820470d2ae425d89" => :sierra
+    sha256 "2c168a92fc729892e8887f2d1f93b095e0916944ccb5331781d379de1137ce05" => :el_capitan
+    sha256 "20c1ac4642f259a66ec9724ed135dc334d26ff0198e27a89498b2f15aa1f77c5" => :yosemite
   end
 
   if MacOS.version >= :yosemite
@@ -65,8 +66,8 @@ class GccAT49 < Formula
   depends_on "gmp@4"
   depends_on "libmpc@0.8"
   depends_on "mpfr@2"
-  depends_on "cloog@0.18"
-  depends_on "isl@0.11"
+  depends_on "cloog"
+  depends_on "isl@0.12"
   depends_on "ecj" if build.with?("java") || build.with?("all-languages")
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -107,8 +108,8 @@ class GccAT49 < Formula
       "--with-gmp=#{Formula["gmp@4"].opt_prefix}",
       "--with-mpfr=#{Formula["mpfr@2"].opt_prefix}",
       "--with-mpc=#{Formula["libmpc@0.8"].opt_prefix}",
-      "--with-cloog=#{Formula["cloog@0.18"].opt_prefix}",
-      "--with-isl=#{Formula["isl@0.11"].opt_prefix}",
+      "--with-cloog=#{Formula["cloog"].opt_prefix}",
+      "--with-isl=#{Formula["isl@0.12"].opt_prefix}",
       "--with-system-zlib",
       "--enable-libstdcxx-time=yes",
       "--enable-stage1-checking",
@@ -177,6 +178,8 @@ class GccAT49 < Formula
     # Handle conflicts between GCC formulae.
     # Rename man7.
     Dir.glob(man7/"*.7") { |file| add_suffix file, version_suffix }
+    # Even when we disable building info pages some are still installed.
+    info.rmtree
   end
 
   def add_suffix(file, suffix)

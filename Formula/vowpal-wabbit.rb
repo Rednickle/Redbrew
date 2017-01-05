@@ -1,14 +1,14 @@
 class VowpalWabbit < Formula
   desc "Online learning algorithm"
   homepage "https://github.com/JohnLangford/vowpal_wabbit"
-  url "https://github.com/JohnLangford/vowpal_wabbit/archive/8.3.0.tar.gz"
-  sha256 "f255019a42515db6d7530299df41948a1ae56922e1b255045646dc433192a895"
+  url "https://github.com/JohnLangford/vowpal_wabbit/archive/8.3.1.tar.gz"
+  sha256 "7455aa2093d8baa9035c0a79ac9cfbceda2982f83b668950c4e4dceb79f66a52"
 
   bottle do
     cellar :any
-    sha256 "593886083e408f0671b45cf455727e016c03f9deadcdc1c02f7da241c6eb8c60" => :sierra
-    sha256 "b44d87d3c57d199e5003f25207cb6152f3c0c1d386bc2a1d17a4053414116b15" => :el_capitan
-    sha256 "717a013f4217dc22239c03f8a3bb1d69c24f68681adc7d26f454ea608c482d68" => :yosemite
+    sha256 "209fc2410773ed60286666d789ed9d9258676b777cb0a388b6e906346c905dc2" => :sierra
+    sha256 "a88a01d31665c6a8e1d9c00c0f973af75fddf5a97cf98ff99fdd4fe413ee6b26" => :el_capitan
+    sha256 "89da02697894ea7a9a1c00cf7d5bb36f27c0a1c2d95a12612a03c45e805c834c" => :yosemite
   end
 
   if MacOS.version < :mavericks
@@ -20,7 +20,6 @@ class VowpalWabbit < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "rapidjson" => :build
   needs :cxx11
 
   def install

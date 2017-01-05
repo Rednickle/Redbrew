@@ -5,17 +5,19 @@ class Gnutls < Formula
   mirror "https://gnupg.org/ftp/gcrypt/gnutls/v3.4/gnutls-3.4.17.tar.xz"
   mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.4/gnutls-3.4.17.tar.xz"
   sha256 "9b50e8a670d5e950425d96935c7ddd415eb6f8079615a36df425f09a3143172e"
+  revision 1
 
   bottle do
-    sha256 "613d98861f14e5a880d8a9567b42d680a118f5ee38946a0cf70c6952293a9dd2" => :sierra
-    sha256 "279c874f80267ef7af89f36220c9bf3cae148be36d2ac30a615b862b00b40cd0" => :el_capitan
-    sha256 "f08c75ac18752eb56cccb756b33727668900fe2ff63b039fcbebc9c504052460" => :yosemite
+    sha256 "7d7d8d96e8b53d16d4a005c4689a7732bb729bbf6f3375e7bbb90ea789f02f6b" => :sierra
+    sha256 "189ff989884b84e88527e23f08ca9786038800d2aaa098572bdc031ecef5cf61" => :el_capitan
+    sha256 "277ad6277feb4e49610aa92523dda7115ade9eb87ab778debbf90e694eed1b7c" => :yosemite
   end
 
   depends_on "pkg-config" => :build
   depends_on "libtasn1"
   depends_on "gmp"
   depends_on "nettle"
+  depends_on "p11-kit" => :recommended
   depends_on "guile" => :optional
   depends_on "unbound" => :optional
 
@@ -34,8 +36,13 @@ class Gnutls < Formula
       --sysconfdir=#{etc}
       --with-default-trust-store-file=#{etc}/openssl/cert.pem
       --disable-heartbeat-support
-      --without-p11-kit
     ]
+
+    if build.with? "p11-kit"
+      args << "--with-p11-kit"
+    else
+      args << "--without-p11-kit"
+    end
 
     if build.with? "guile"
       args << "--enable-guile" << "--with-guile-site-dir"

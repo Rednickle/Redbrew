@@ -14,8 +14,8 @@ class Emacs < Formula
   end
 
   devel do
-    url "http://alpha.gnu.org/gnu/emacs/pretest/emacs-25.1.90.tar.xz"
-    sha256 "4dadcf1ed96e9c375647a55a053a41c64c4958cb3eadb1ee50d6b2e8c1aa8a6a"
+    url "https://alpha.gnu.org/gnu/emacs/pretest/emacs-25.1.91.tar.xz"
+    sha256 "841918b765f9622951348c2209858340262504ff57bb0be293f4f722c3c69533"
   end
 
   head do
@@ -23,6 +23,8 @@ class Emacs < Formula
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
+    depends_on "gnu-sed" => :build
+    depends_on "texinfo" => :build
   end
 
   option "with-cocoa", "Build a Cocoa version of emacs"
@@ -75,7 +77,10 @@ class Emacs < Formula
     args << "--with-rsvg" if build.with? "librsvg"
     args << "--without-pop" if build.with? "mailutils"
 
-    system "./autogen.sh" if build.head?
+    if build.head?
+      ENV.prepend_path "PATH", Formula["gnu-sed"].opt_libexec/"gnubin"
+      system "./autogen.sh"
+    end
 
     if build.with? "cocoa"
       args << "--with-ns" << "--disable-ns-self-contained"

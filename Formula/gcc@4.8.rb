@@ -29,9 +29,10 @@ class GccAT48 < Formula
   head "svn://gcc.gnu.org/svn/gcc/branches/gcc-4_8-branch"
 
   bottle do
-    sha256 "ba783081bc60dc0abf0c745518be605adc0375d198526084148fb8f7493dcf2b" => :sierra
-    sha256 "183f243bb8626eb7e16ce4b7bba480c2c1da8a8eb650664d4035a7b3aeed5624" => :el_capitan
-    sha256 "a2a9650a0737909f2b0dc63d41117672a7862b89e9e2664b6442449096f79030" => :yosemite
+    rebuild 2
+    sha256 "d1092bf457e37a92cc1e9d89ec9f044b29942607dca7e7893f4f94038f8e057e" => :sierra
+    sha256 "c997fbd5dfcc1816838860eae37f8a21d5993b04e234a4b2bc56c085aa7cac11" => :el_capitan
+    sha256 "1934330fbab7b2ed72befdf25f8f0c6f7084e3d136aefac9ef52577848b19f30" => :yosemite
   end
 
   if MacOS.version >= :yosemite
@@ -66,8 +67,8 @@ class GccAT48 < Formula
   depends_on "gmp@4"
   depends_on "libmpc@0.8"
   depends_on "mpfr@2"
-  depends_on "cloog@0.18"
-  depends_on "isl@0.11"
+  depends_on "cloog"
+  depends_on "isl@0.12"
   depends_on "ecj" if build.with?("java") || build.with?("all-languages")
 
   # The as that comes with Tiger isn't capable of dealing with the
@@ -118,8 +119,8 @@ class GccAT48 < Formula
       "--with-gmp=#{Formula["gmp@4"].opt_prefix}",
       "--with-mpfr=#{Formula["mpfr@2"].opt_prefix}",
       "--with-mpc=#{Formula["libmpc@0.8"].opt_prefix}",
-      "--with-cloog=#{Formula["cloog@0.18"].opt_prefix}",
-      "--with-isl=#{Formula["isl@0.11"].opt_prefix}",
+      "--with-cloog=#{Formula["cloog"].opt_prefix}",
+      "--with-isl=#{Formula["isl@0.12"].opt_prefix}",
       "--with-system-zlib",
       "--enable-libstdcxx-time=yes",
       "--enable-stage1-checking",

@@ -1,15 +1,14 @@
 class Lsyncd < Formula
   desc "Synchronize local directories with remote targets"
   homepage "https://github.com/axkibe/lsyncd"
-  url "https://github.com/axkibe/lsyncd/archive/release-2.1.6.tar.gz"
-  sha256 "02c241ee71b6abb23a796ac994a414e1229f530c249b838ae72d2ef74ae0f775"
+  url "https://github.com/axkibe/lsyncd/archive/release-2.2.0.tar.gz"
+  sha256 "fb4b49c314846c251b624f9ee3129483c4b3d4d53c5263bb36086feb17f2e800"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "e5729fa4ce31867da08421a519b281a87a1204777e7d9e38bfc92e368b4fbbd4" => :sierra
-    sha256 "23fd96be1fb374a9a95acc633ef4f2311c57a856b30a40c93e6e9f938acc6e60" => :el_capitan
-    sha256 "5e1085e7cbc01fcad154a6f03c4c69d6b34d949c370fa0e6442f428ebdb61953" => :yosemite
+    sha256 "aeeb1e6332c61f1c32cab3f46c7b5bce31f555076bc4ddfc9c49aa27e8e820f2" => :sierra
+    sha256 "ad0dca53287001d0b010502ca2ce5c53741830bfa3d9e16151b1014f5060ac46" => :el_capitan
+    sha256 "84a7a779a10cc210efb0887cf6713690c639ad07e6cb6dbb722f12ad56fb5dbb" => :yosemite
   end
 
   depends_on "cmake" => :build
@@ -47,7 +46,9 @@ class Lsyncd < Formula
     "10.11.4"  => ["xnu-3248.40.184.tar.gz", "a9e1b03ae9cde203f83602260ea1994822cb4e38c81b99e74797a124f6cd10ab"],
     "10.11.5"  => ["xnu-3248.50.21.tar.gz",  "e1daa3666c7cdf35d7d320a0b0dae8b7d03ea35c7383ea681371e0543fb5d4b5"],
     "10.11.6"  => ["xnu-3248.60.10.tar.gz",  "295b69cee59f2a7419eab3d95744595fa8cd614716fb6ddc958b61dc088e1f7a"],
-    "10.12"    => ["xnu-3248.60.10.tar.gz",  "295b69cee59f2a7419eab3d95744595fa8cd614716fb6ddc958b61dc088e1f7a"],
+    "10.12"    => ["xnu-3789.1.32.tar.gz",   "5bff9606bf32d9ae11d964d8eb280ed9543e4e4fef1cc394d272d7b6ce3f1e55"],
+    "10.12.1"  => ["xnu-3789.21.4.tar.gz",   "0e866d90f1b966ccb466ea0c7d4dd8f1e32d40132bbac5c21a857fb6c2522119"],
+    "10.12.2"  => ["xnu-3789.21.4.tar.gz",   "0e866d90f1b966ccb466ea0c7d4dd8f1e32d40132bbac5c21a857fb6c2522119"],
   }
 
   if xnu_headers.key? MacOS.full_version

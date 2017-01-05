@@ -5,26 +5,35 @@ class Purescript < Formula
 
   desc "Strongly typed programming language that compiles to JavaScript"
   homepage "http://www.purescript.org"
-  url "https://github.com/purescript/purescript/archive/v0.10.3.tar.gz"
-  sha256 "46c3f695ccc6e7be3cb2afe1ea9586eafdf51a04f1d40fe7240def0d8693ca68"
+  revision 1
   head "https://github.com/purescript/purescript.git"
 
+  stable do
+    url "https://github.com/purescript/purescript/archive/v0.10.4.tar.gz"
+    sha256 "4224d5595352ad000e3b0b39c3f9e4d21ddddad337b651a5bc7480eecfe731e3"
+
+    # Fix "Couldn't match type '[Char]' with 'Text'"
+    # Upstream PR from 2 Jan 2017 "Update bower-json to 1.0.0.1"
+    # https://github.com/purescript/purescript/pull/2531
+    patch do
+      url "https://github.com/purescript/purescript/commit/b84ef77.patch"
+      sha256 "1fd272dff1a09b1bc49e9fea54d829a5fdee04487a436b97b3e573513b96f532"
+    end
+  end
+
   bottle do
-    sha256 "69ce4961c241c87adcd7f70445f8a8c2dd62d4d4bb96bc7ef85fb50b9c67b167" => :sierra
-    sha256 "d1deef9286bf2587b4c279dfb59f751b0ab55bbf31febe12909763ac26ec2429" => :el_capitan
-    sha256 "de3f5dbd405d1f1699b12b974d0f648594f93ae7793fade432469f03bf42b9ed" => :yosemite
+    sha256 "b1963ea8c20e0deaa6eabbeee2de8295c80b253265b858db30747b4e152c89ee" => :sierra
+    sha256 "248c2c94c06bdb6e9057d461c30d024e71bbd9b17cbf0bb8031ce47d30d484f1" => :el_capitan
+    sha256 "9bfd9ec165d70ba11ce9f91911a04952670fe1192b36e5d582190a12629988bf" => :yosemite
   end
 
   depends_on "ghc" => :build
   depends_on "cabal-install" => :build
 
   def install
-    # Fix "error: Couldn't match type 'Text' with 'Line'"
-    # Upstream issue "turtle 1.3 breaks build"
-    # Reported 10 Dec 2016 https://github.com/purescript/purescript/issues/2472
-    inreplace "purescript.cabal", "turtle -any", "turtle < 1.3"
-
-    install_cabal_package :using => ["alex", "happy"]
+    install_cabal_package "--allow-newer=turtle:directory",
+                          "--constraint", "directory < 1.4",
+                          :using => ["alex", "happy"]
   end
 
   test do

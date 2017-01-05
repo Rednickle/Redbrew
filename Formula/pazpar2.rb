@@ -1,15 +1,14 @@
 class Pazpar2 < Formula
   desc "Metasearching middleware webservice"
   homepage "https://www.indexdata.com/pazpar2"
-  url "http://ftp.indexdata.dk/pub/pazpar2/pazpar2-1.12.7.tar.gz"
-  sha256 "5d56801bb1f8a3b673409e6960b07c9d8fa05f2315558ac173b80a65c344f3aa"
-  revision 1
+  url "http://ftp.indexdata.dk/pub/pazpar2/pazpar2-1.12.9.tar.gz"
+  sha256 "86142e1275546e95395a0b82bfc6d4e5b24b86183ec1a59f843033c1cbdd815d"
 
   bottle do
     cellar :any
-    sha256 "5a50c88c8c6e09dc92ad3ae3fa4c81dad74dc30c5ce8a27dd4dc5c2f3f0fa2f5" => :sierra
-    sha256 "5a73f91966b9781e1b2124f596b32da837375975314e2a568a3bee2709492b51" => :el_capitan
-    sha256 "955b4de3af8fb870a78ecfda131bc31e848adf3249fe89be5b7a5a8c03ffa36c" => :yosemite
+    sha256 "0d9b9ccb9ca70424f7b2e3f55e7a07f840d77debc98b73b7b6302868af5b7d59" => :sierra
+    sha256 "8873fe093d90a5e5682921ca8d13aa649f9698e09c132afb6f8d2ff47d9f1d36" => :el_capitan
+    sha256 "d8c4913f348ed69eb7d2bb77c44ce1fe99893c7f82f99aec9b6da1485561de27" => :yosemite
   end
 
   head do
@@ -31,6 +30,16 @@ class Pazpar2 < Formula
   end
 
   test do
-    system "#{sbin}/pazpar2", "-V"
+    (testpath/"test-config.xml").write <<-EOS.undent
+    <?xml version="1.0" encoding="UTF-8"?>
+    <pazpar2 xmlns="http://www.indexdata.com/pazpar2/1.0">
+      <threads number="2"/>
+      <server>
+        <listen port="8004"/>
+      </server>
+    </pazpar2>
+    EOS
+
+    system "#{sbin}/pazpar2", "-t", "-f", "#{testpath}/test-config.xml"
   end
 end

@@ -6,11 +6,12 @@ class Freeswitch < Formula
       :revision => "e755b430da70bd63eebf1dfddacdce48ce863fce"
 
   head "https://freeswitch.org/stash/scm/fs/freeswitch.git"
+  revision 1
 
   bottle do
-    sha256 "9bd634f8b100ecaad0c2348ea793e33d119fc80d313ed3672692153adab191da" => :sierra
-    sha256 "01a025d950c6c2f06ea79172aae81329842ca98eb5a55964c031130ab4c30135" => :el_capitan
-    sha256 "109aba522844b496460d928ae23ca69671f58404e12e1a895c5a6ba7c346649a" => :yosemite
+    sha256 "a90138dea60a1f7b799aca559e35e25634b3993317ed0340183633d6d018cd2c" => :sierra
+    sha256 "cecbe4cdbfe15991510699ec9186e8a5b53d6a768637a5bfeb05e92fdc5d291c" => :el_capitan
+    sha256 "3a68d15a3ebd45f73ae941e9cbd9e77392a2e9f64e86897cfbf322c01f94e961" => :yosemite
   end
 
   option "without-moh", "Do not install music-on-hold"
@@ -30,19 +31,15 @@ class Freeswitch < Formula
   depends_on "ldns"
   depends_on "openssl"
   depends_on "pcre"
-  depends_on "speex"
   depends_on "sqlite"
   depends_on "lua"
   depends_on "opus"
   depends_on "libsndfile"
+  depends_on "speex"
+  depends_on "speexdsp"
 
   # https://github.com/Homebrew/homebrew/issues/42865
   fails_with :gcc
-
-  resource "speexdsp" do
-    url "https://github.com/xiph/speexdsp/archive/SpeexDSP-1.2rc3.tar.gz"
-    sha256 "e8be7482df7c95735e5466efb371bd7f21115f39eb45c20ab7264d39c57b6413"
-  end
 
   #----------------------- Begin sound file resources -------------------------
   sounds_url_base = "https://files.freeswitch.org/releases/sounds"
@@ -150,17 +147,6 @@ class Freeswitch < Formula
   #------------------------ End sound file resources --------------------------
 
   def install
-    resource("speexdsp").stage do
-      system "./autogen.sh"
-      system "./configure", "--disable-debug",
-                            "--disable-dependency-tracking",
-                            "--prefix=#{libexec}/speexdsp"
-      system "make"
-      system "make", "install"
-    end
-
-    ENV.append_path "PKG_CONFIG_PATH", "#{libexec}/speexdsp/lib/pkgconfig"
-
     system "./bootstrap.sh", "-j"
 
     # tiff will fail to find OpenGL unless told not to use X

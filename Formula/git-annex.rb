@@ -5,24 +5,14 @@ class GitAnnex < Formula
 
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  revision 1
+  url "https://hackage.haskell.org/package/git-annex-6.20170101/git-annex-6.20170101.tar.gz"
+  sha256 "5fbf88652a84278275d9d4bec083189f590b045e23a73bfe8d395c3e356e3f53"
   head "git://git-annex.branchable.com/"
 
-  stable do
-    url "https://hackage.haskell.org/package/git-annex-6.20161210/git-annex-6.20161210.tar.gz"
-    sha256 "b568cceda32908e7cd66b34181811d4da3d3197d71009eac20c1c4c4379f6381"
-
-    # Remove for git-annex > 6.20161210
-    # Upstream commit from 20 Dec 2016 "Fix build with directory-1.3."
-    # https://github.com/joeyh/git-annex/commit/e312ec37506f4b07beb0e082fedbdd06aed24c42
-    patch :DATA
-  end
-
   bottle do
-    cellar :any
-    sha256 "3d51a7ef95e0ab4885d820ae2afbefc4c1b54c7200bc47df5e79a7715a13d06c" => :sierra
-    sha256 "53e80adf5a72a12dadbbb7541ce7bab4354e74372a5a6848da3fa317c7289f8c" => :el_capitan
-    sha256 "5b6026b3cecfefe1494e41c851ab3b22599ea510d8a11ec51b2d58503271ef90" => :yosemite
+    sha256 "dff23e6bdf87bacbed4ba55fd8038bcc9f4bca3d03c5e793cf4b07c8a8f5f88c" => :sierra
+    sha256 "1badb7ae0cb32fc292907330b15b3bf98533ac01b61e09ef5190fcd06a8bd777" => :el_capitan
+    sha256 "b5908bbdb75d5e2d2f36fd9ece046470935b59daa107b61ab89751be98711bbb" => :yosemite
   end
 
   option "with-git-union-merge", "Build the git-union-merge tool"
@@ -37,45 +27,20 @@ class GitAnnex < Formula
   depends_on "quvi"
   depends_on "xdot" => :recommended
 
-  # Remove when aws > 0.14.1 is released on Hackage
-  # Adds http-client 2.2 support
-  # Merged PR https://github.com/aristidb/aws/pull/213
-  # Original issue https://github.com/aristidb/aws/issues/206
-  resource "aws" do
-    url "https://github.com/aristidb/aws.git",
-        :revision => "c8806dcbb58604381698e394c0e7798b704776db"
-  end
-
-  resource "esqueleto-2.4.3" do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/h/haskell-esqueleto/haskell-esqueleto_2.4.3.orig.tar.gz"
-    mirror "https://mirrors.kernel.org/debian/pool/main/h/haskell-esqueleto/haskell-esqueleto_2.4.3.orig.tar.gz"
-    sha256 "bf555cfb40519ed1573f7bb90c65f693b9639dfa93fc2222230d3ded6e897434"
-  end
-
-  # Patch for esqueleto to be able to use persistent 2.6
-  # https://github.com/joeyh/git-annex/commit/6416ae9c09f54c062c05cc686ade35c2e08c1434
-  # https://github.com/haskell-infra/hackage-trustees/issues/84
-  # https://github.com/prowdsponsor/esqueleto/issues/137
-  resource "esqueleto-newer-persistent-patch" do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/h/haskell-esqueleto/haskell-esqueleto_2.4.3-5.debian.tar.xz"
-    mirror "https://mirrors.kernel.org/debian/pool/main/h/haskell-esqueleto/haskell-esqueleto_2.4.3-5.debian.tar.xz"
-    sha256 "b152307e6c8f5f79d070bcadcf05d32c52a205bd2bacc578686c2aa01491aff6"
+  # new maintainer's fork, which will be in Hackage shortly
+  resource "esqueleto" do
+    url "https://github.com/bitemyapp/esqueleto.git",
+        :revision => "bfc8502dbf23251b3794bcd0370a100211297cc5"
+    version "2.5.0-alpha1"
   end
 
   def install
     cabal_sandbox do
-      (buildpath/"aws").install resource("aws")
-
-      # Remove for aws > 0.14.1
-      # Reported 21 Dec 2016 https://github.com/aristidb/aws/issues/215
-      inreplace "aws/aws.cabal", /(directory +>= 1.0 +&& <) 1.3,/, "\\1 1.4,"
-
-      (buildpath/"esqueleto-2.4.3").install resource("esqueleto-2.4.3")
-      resource("esqueleto-newer-persistent-patch").stage do
-        system "patch", "-p1", "-i", Pathname.pwd/"patches/newer-persistent",
-                        "-d", buildpath/"esqueleto-2.4.3"
-      end
-      cabal_sandbox_add_source "aws", "esqueleto-2.4.3"
+      (buildpath/"esqueleto").install resource("esqueleto")
+      inreplace "esqueleto/esqueleto.cabal",
+        "base                 >= 4.5     && < 4.9",
+        "base                 >= 4.5     && < 5.0"
+      cabal_sandbox_add_source "esqueleto"
       install_cabal_package :using => ["alex", "happy", "c2hs"], :flags => ["s3", "webapp"] do
         # this can be made the default behavior again once git-union-merge builds properly when bottling
         if build.with? "git-union-merge"
@@ -112,15 +77,3 @@ class GitAnnex < Formula
     system "git", "annex", "uninit"
   end
 end
-
-__END__
-diff --git a/Utility/SystemDirectory.hs b/Utility/SystemDirectory.hs
-index 3dd44d1..b9040fe 100644
---- a/Utility/SystemDirectory.hs
-+++ b/Utility/SystemDirectory.hs
-@@ -13,4 +13,4 @@ module Utility.SystemDirectory (
-	module System.Directory
- ) where
-
--import System.Directory hiding (isSymbolicLink)
-+import System.Directory hiding (isSymbolicLink, getFileSize)

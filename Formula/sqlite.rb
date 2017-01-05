@@ -1,16 +1,15 @@
 class Sqlite < Formula
   desc "Command-line interface for SQLite"
   homepage "https://sqlite.org/"
-  url "https://sqlite.org/2016/sqlite-autoconf-3150200.tar.gz"
-  version "3.15.2"
-  sha256 "07b35063b9386865b78226cdaca9a299d938a87aaa8fdc4d73edb0cef30f3149"
+  url "https://sqlite.org/2017/sqlite-autoconf-3160100.tar.gz"
+  version "3.16.1"
+  sha256 "13fbe45e3088b3955feb2ae68648a0f81586d6d519766b211767a1ffcd268fd0"
 
   bottle do
     cellar :any
-    sha256 "8c44218c1d89ab03e7001109c33f143658ffed63e134be050b426f6fb5748c07" => :sierra
-    sha256 "fb9d7788059eab8e5ecea974b2ea34d6196453cd7b8d624ad14408010fac32e5" => :el_capitan
-    sha256 "8621a5200dbc3150b2b2bf743e3b6fb781b4e6d00c164689c4903dbba710274a" => :yosemite
-    sha256 "096aa8ad93a38746cc6ece70d82b094ddc6459a8331e9b8604f5f1bb3118c683" => :x86_64_linux
+    sha256 "5b1b2558a71cfcb88476392acafd8a15909a80bdac3383722a94f007345423c7" => :sierra
+    sha256 "5eddfb685323ac14f3b9cfec8c5514b30a93bb72384cf0819ae52927218e5680" => :el_capitan
+    sha256 "1b02108cc65bd286b13656eac0a5cccc4ae65ee1b6802233340a191943cc667c" => :yosemite
   end
 
   keg_only :provided_by_osx, "macOS provides an older sqlite3."
@@ -33,14 +32,14 @@ class Sqlite < Formula
 
   resource "functions" do
     url "https://sqlite.org/contrib/download/extension-functions.c?get=25", :using => :nounzip
-    version "2010-01-06"
+    version "2010-02-06"
     sha256 "991b40fe8b2799edc215f7260b890f14a833512c9d9896aa080891330ffe4052"
   end
 
   resource "docs" do
-    url "https://sqlite.org/2016/sqlite-doc-3150200.zip"
-    version "3.15.2"
-    sha256 "d231fb3a7c890d2107b60859d4f626abfcd5cf82e7f3abc1f32dc6748ac54421"
+    url "https://sqlite.org/2017/sqlite-doc-3160100.zip"
+    version "3.16.1"
+    sha256 "b8989cd78853a0b63a10a5fb304ecfdd7ff568fc9cfb8d5cd3af747f14f0eeab"
   end
 
   def install

@@ -5,12 +5,13 @@ class Gitless < Formula
   homepage "http://gitless.com/"
   url "https://github.com/sdg-mit/gitless/archive/v0.8.5.tar.gz"
   sha256 "c93f8f558d05f41777ae36fab7434cfcdb13035ae2220893d5ee222ced1e7b9f"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "dbd90d04f1b8a52f1fb5863c333743a2e605c89c0bfc3ad822a9acc97280ed1c" => :sierra
-    sha256 "af14e898522880559559a08e3c65d9946fcdba0bfc74f55d22b9aa63c40b8404" => :el_capitan
-    sha256 "310cffdb2c69ebfd282959870e94880a7d2fc256510066d609788b36b6368973" => :yosemite
+    sha256 "f16d0e7909cca731e87ae2569f62e5b283664dbbfc112c3b7c15f8403d6cd59f" => :sierra
+    sha256 "ee7486d30db75ea6f73bc2bedf322d8cb7a9be67580bbeca53a119a6b38cceb3" => :el_capitan
+    sha256 "e8f90da27475437beb603d6340c33147b256049396f38f4c3e7cd808ee8cf44d" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -37,8 +38,8 @@ class Gitless < Formula
   end
 
   resource "pygit2" do
-    url "https://files.pythonhosted.org/packages/29/fb/fd98403ed4ec5554ed4f6de3719d2c672ca2518598061ff7231301ff864b/pygit2-0.24.2.tar.gz"
-    sha256 "2aae85836c3a8da686220db7db05f91f8797e37edf91cc2a1f88b09fb653166a"
+    url "https://files.pythonhosted.org/packages/08/d5/6cc33ce2990b8502d9796902f686e622f647f3f59d5b7123e4d17ad34769/pygit2-0.25.0.tar.gz"
+    sha256 "de0ed85fd840dfeb32bcaa94c643307551dc0d967c3714e49087e7edc0cdc571"
   end
 
   resource "sh" do
