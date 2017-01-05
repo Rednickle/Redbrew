@@ -256,13 +256,13 @@ class Gcc < Formula
       gcc = "gcc-#{version_suffix}"
       specs = Pathname.new(`#{bin}/#{gcc} -print-libgcc-file-name`).dirname/"specs"
       ohai "Creating the GCC specs file: #{specs}"
-      raise "command failed: #{gcc} -print-libgcc-file-name" if $?.exitstatus != 0
+      raise "command failed: #{gcc} -print-libgcc-file-name" if $?.exitstatus.nonzero?
       specs_orig = Pathname.new("#{specs}.orig")
       rm_f [specs_orig, specs]
 
       # Save a backup of the default specs file
       specs_string = `#{bin}/#{gcc} -dumpspecs`
-      raise "command failed: #{gcc} -dumpspecs" if $?.exitstatus != 0
+      raise "command failed: #{gcc} -dumpspecs" if $?.exitstatus.nonzero?
       specs_orig.write specs_string
 
       # Set the library search path
