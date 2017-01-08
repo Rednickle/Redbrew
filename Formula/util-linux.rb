@@ -23,7 +23,9 @@ class UtilLinux < Formula
       "--disable-kill",
       # Conflicts with bsdmainutils
       "--disable-cal",
-      "--disable-ul"
+      "--disable-ul",
+      # Do not install systemd files
+      "--without-systemd"
     system "make", "install"
 
     # Conflicts with bsdmainutils and cannot be manually disabled
