@@ -13,7 +13,6 @@ class Gmp < Formula
     sha256 "3752709f0bab1999fa9d5407bcd3135a873b48fc34d5e6ea123fd68c4cf3644d" => :yosemite
   end
 
-  option "32-bit"
   option :cxx11
 
   def install
