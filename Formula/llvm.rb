@@ -163,7 +163,7 @@ class Llvm < Formula
   depends_on "cmake" => :build
 
   if build.with? "lldb"
-    depends_on "swig" if MacOS.version >= :lion
+    depends_on "swig" if MacOS.version >= :lion || !OS.mac?
     depends_on CodesignRequirement if OS.mac?
   end
 
@@ -203,7 +203,11 @@ class Llvm < Formula
       if build.with? "python"
         pyhome = `python-config --prefix`.chomp
         ENV["PYTHONHOME"] = pyhome
-        pylib = "#{pyhome}/lib/libpython2.7.dylib"
+        if OS.mac?
+          pylib = "#{pyhome}/lib/libpython2.7.dylib"
+        else
+          pylib = "#{pyhome}/lib/libpython2.7.so"
+        end
         pyinclude = "#{pyhome}/include/python2.7"
       end
       (buildpath/"tools/lldb").install resource("lldb")
