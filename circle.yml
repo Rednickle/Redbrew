@@ -14,8 +14,7 @@ checkout:
     - sudo chown "$USER:" /home/linuxbrew
     - git clone --depth=1 https://github.com/Linuxbrew/brew.git /home/linuxbrew/.linuxbrew
     - mkdir -p /home/linuxbrew/.linuxbrew/Library/Taps/homebrew
-    - mv $HOME/homebrew-core /home/linuxbrew/.linuxbrew/Library/Taps/homebrew/
-    - mkdir $HOME/homebrew-core
+    - rsync -az $HOME/$CIRCLE_PROJECT_REPONAME /home/linuxbrew/.linuxbrew/Library/Taps/homebrew/
 dependencies:
   override:
     - sudo apt-get update
