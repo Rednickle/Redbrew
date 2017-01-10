@@ -29,7 +29,7 @@ test:
   override:
     - umask 022;
       PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH";
-      brew install patchelf curl
+      brew install patchelf
         && brew tap homebrew/dupes
         && brew tap linuxbrew/xorg
         && brew test-bot --tap=homebrew/core --keep-old --verbose
