@@ -8,7 +8,7 @@ class Texlive < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6fa71e0df7be7c16629d7f9969f169e5abdf4068c8132556bf2296a334f4f3fd" => :x86_64_linux
+    sha256 "9bcf9c7c88565af5349a880cf60724418e2c8e9d8439e2e0aa12c896e80406bf" => :x86_64_linux
   end
 
   option "with-full", "install everything"
