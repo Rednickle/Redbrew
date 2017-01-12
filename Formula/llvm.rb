@@ -203,11 +203,8 @@ class Llvm < Formula
       if build.with? "python"
         pyhome = `python-config --prefix`.chomp
         ENV["PYTHONHOME"] = pyhome
-        if OS.mac?
-          pylib = "#{pyhome}/lib/libpython2.7.dylib"
-        else
-          pylib = "#{pyhome}/lib/libpython2.7.so"
-        end
+        dylib = OS.mac? ? "dylib" : "so"
+        pylib = "#{pyhome}/lib/libpython2.7.#{dylib}"
         pyinclude = "#{pyhome}/include/python2.7"
       end
       (buildpath/"tools/lldb").install resource("lldb")
