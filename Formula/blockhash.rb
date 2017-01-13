@@ -1,16 +1,15 @@
 class Blockhash < Formula
   desc "Perceptual image hash calculation tool"
   homepage "http://blockhash.io/"
-  url "https://github.com/commonsmachinery/blockhash/archive/0.1.tar.gz"
-  sha256 "aef300f39be2cbc1b508af15d7ddb5b851b671b27680d8b7ab1d043cc0369893"
-  revision 1
+  url "https://github.com/commonsmachinery/blockhash/archive/0.2.tar.gz"
+  sha256 "485c356afc665ab26a33dfe2d6e67feb3dfc3ca610f7ea80bd28b121c42640ca"
   head "https://github.com/commonsmachinery/blockhash.git"
 
   bottle do
     cellar :any
-    sha256 "09af3e94825de5bb0536d5783bbd6b79aaa17475644eb05087ec720dcf8be7d9" => :sierra
-    sha256 "e32a744e7ea4940f35de1f95131659c3a1e9c7962c3b6595d993f23f51376481" => :el_capitan
-    sha256 "f10ade97cd04b626d20147b480fa6ef92794cb052ccb79f807977184f14e2c67" => :yosemite
+    sha256 "4b59f164df5c6338d17f42fad75aef4691255d029847bfaa9dff284a4ea28613" => :sierra
+    sha256 "a0f883806ac4e7372a2c55bbe25c7a0c957c9143b73c6a727e3404fc05acaa78" => :el_capitan
+    sha256 "4b32b379f7173508f6d2bb35bacc87da86d92f552532727a56d30b129c263575" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -29,11 +28,8 @@ class Blockhash < Formula
 
   test do
     resource("testdata").stage testpath
-    hash = "00007ffe7ffe7ffe7ffe7ffe7ffe77fe77fe600e7f5e00000000000000000000"
-    # Exit status is not meaningful, so use pipe_output instead of shell_output
-    # for now
-    # https://github.com/commonsmachinery/blockhash/pull/9
-    result = pipe_output("#{bin}/blockhash #{testpath}/clipper_ship.jpg", nil, nil)
+    hash = "00007ff07fe07fe07fe67ff07520600077fe601e7f5e000079fd40410001fffe"
+    result = shell_output("#{bin}/blockhash #{testpath}/clipper_ship.jpg")
     assert_match hash, result
   end
 end

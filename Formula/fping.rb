@@ -1,22 +1,14 @@
 class Fping < Formula
   desc "Scriptable ping program for checking if multiple hosts are up"
   homepage "https://fping.org/"
-
-  stable do
-    url "https://fping.org/dist/fping-3.14.tar.gz"
-    sha256 "704a574f4a4abeb132e95f89749c1c27b0861ad04262be4c5119e91be25f7a90"
-
-    patch do
-      url "https://github.com/schweikert/fping/commit/356e7b3.patch"
-      sha256 "b826979d1b9a50bee07092162356de9b667dcac9aa79c780029b57f6da8204f9"
-    end
-  end
+  url "https://fping.org/dist/fping-3.15.tar.gz"
+  sha256 "96948f6835bee8925f2556fdf187b59c77c06524e2efc72ddf2bfccb5385521c"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1a7df01fbc4929290c0037f10da891d4f7c0375cc441caf7f0287273bd809321" => :sierra
-    sha256 "0043992f3cd8ff62bb13f6765f3c298e1f5e832bad7e63f0ec19c26c3c2cd028" => :el_capitan
-    sha256 "ee07d14a055e46095b9dfdf0d6eb7502821870671572976a639f48c143cb4b72" => :yosemite
+    sha256 "539373df806418169185211984af171d17949113c27b0bcc6a612fc1ab897f66" => :sierra
+    sha256 "8eb7f8dcb2b887d0376a7587c3176a201a7f626bbfecd8508a80a3360f1cc42d" => :el_capitan
+    sha256 "100cb8c769cb5eb8d11648993e5761f46e305a2d8f6b397e387db5ec9f78bb54" => :yosemite
   end
 
   head do

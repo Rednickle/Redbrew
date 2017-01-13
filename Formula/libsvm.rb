@@ -20,7 +20,7 @@ class Libsvm < Formula
     if OS.mac?
       lib.install "libsvm.so.2" => "libsvm.2.dylib"
       lib.install_symlink "libsvm.2.dylib" => "libsvm.dylib"
-      system "install_name_tool", "-id", "#{lib}/libsvm.2.dylib", "#{lib}/libsvm.2.dylib"
+      MachO::Tools.change_dylib_id("#{lib}/libsvm.2.dylib", "#{lib}/libsvm.2.dylib")
     else
       lib.install "libsvm.so.2"
       lib.install_symlink "libsvm.so.2" => "libsvm.so"

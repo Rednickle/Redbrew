@@ -3,19 +3,19 @@ class Hunspell < Formula
   homepage "https://hunspell.github.io"
   url "https://github.com/hunspell/hunspell/archive/v1.6.0.tar.gz"
   sha256 "512e7d2ee69dad0b35ca011076405e56e0f10963a02d4859dbcc4faf53ca68e2"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "78d7165c49fe18af2702228176b66aacd86b938df24fd7af17c911e3ec6ed801" => :sierra
-    sha256 "ca24830c14fab329a09e57be6568eb7fee6fdacaef7821efb4bc503f3a299469" => :el_capitan
-    sha256 "913f5a6bd8dc3e1e4c1c711a95929534430df79aa79a72248abfb5291952b30e" => :yosemite
-    sha256 "e410d35ec962d8480f9ef45313fc59679118e584e3043d99e177bc00ee44823b" => :x86_64_linux
+    sha256 "df1df43a9275f798fca1a160aca932eeeeea252db043b16921ed2db3a70d95cc" => :sierra
+    sha256 "ce02b0a9beef31b587446a07987ad4ac0cbc63c7d1144bd73721a7f53e03bd54" => :el_capitan
+    sha256 "c2267b211ab4dc6ecbe997a702640beba1c9197303df77af01a61fc51f5e6ec7" => :yosemite
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "gettext" => :build
   depends_on "libtool" => :build
+  depends_on "gettext"
   depends_on "readline"
 
   conflicts_with "freeling", :because => "both install 'analyze' binary"
@@ -43,7 +43,6 @@ class Hunspell < Formula
   end
 
   test do
-    cp_r "#{pkgshare}/tests/.", testpath
-    system "./test.sh"
+    system bin/"hunspell", "--help"
   end
 end

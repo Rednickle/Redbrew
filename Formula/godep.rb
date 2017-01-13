@@ -1,25 +1,17 @@
 class Godep < Formula
   desc "Dependency tool for go"
   homepage "https://godoc.org/github.com/tools/godep"
-  url "https://github.com/tools/godep/archive/v75.tar.gz"
-  sha256 "a9508db6a792170f9815864b70a70a8e0e66ca0bf57f1a9cc087d811ec105494"
-  revision 3
+  url "https://github.com/tools/godep/archive/v76.tar.gz"
+  sha256 "f52ddbb3c784decfefb60436efb96adf525cc4c7d080ab7953a2eb1dddc65a83"
   head "https://github.com/tools/godep.git"
 
   bottle do
-    sha256 "b9c34eb3bc69fc2d23a266140996857fd7dc2f006069b4211a7937f4ef7de14b" => :sierra
-    sha256 "1d3fc2732d7619676df9045d3724170187f12ea85c946f2bf06dfacd80730dcf" => :el_capitan
-    sha256 "fa609d65f0bd90fe4f2e409ae1ac254d3a0efb57d80665205dfee314c4d5a962" => :yosemite
-    sha256 "336166687d4f90d1521c9ed1bb2729fd5d01cdc95d228c676936edd3fdce1bd7" => :x86_64_linux
+    sha256 "61d05bbdfdcdc17dabe4c102d8d4110f29d6c6b4285e36eff984b4d40d25b39a" => :sierra
+    sha256 "6b7ad2c887047447779635ef8e6e487c4ec0a723a786017ad2924300e5c02087" => :el_capitan
+    sha256 "bf6e687ee642e85561649b369ec1d776da723f2097df2648bc3b0e43bdde4072" => :yosemite
   end
 
   depends_on "go"
-
-  # Add support for Go 1.8+, currently devel.
-  patch do
-    url "https://github.com/tools/godep/pull/524.patch"
-    sha256 "245ff4b4fad3831fd2a2a51ba4ac7b01e3affad1a25a7b4da8ef31e7a387c7b8"
-  end
 
   def install
     ENV["GOPATH"] = buildpath
