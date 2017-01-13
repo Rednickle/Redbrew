@@ -32,7 +32,10 @@ class MobileShell < Formula
   depends_on "protobuf"
   depends_on :perl => "5.14" if MacOS.version <= :mountain_lion
   depends_on "tmux" => :build if build.with?("test") || build.bottle?
-  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+  unless OS.mac?
+    depends_on "homebrew/dupes/ncurses"
+    depends_on "openssl"
+  end
 
   def install
     # teach mosh to locate mosh-client without referring
