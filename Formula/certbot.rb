@@ -3,14 +3,16 @@ class Certbot < Formula
 
   desc "Tool to obtain certs from Let's Encrypt and autoenable HTTPS"
   homepage "https://certbot.eff.org/"
-  url "https://github.com/certbot/certbot/archive/v0.10.0.tar.gz"
-  sha256 "b4ec49fbdb27a48d07607e1e4238f162c2071c9eb2ba6dbf79aad90b1f38c780"
+  url "https://github.com/certbot/certbot/archive/v0.10.1.tar.gz"
+  sha256 "c91b5fddb50dfd46545c12c1e96d1bb5e2794652c11421a6f5d9dad2bbca4d52"
+  revision 1
+
   head "https://github.com/certbot/certbot.git"
 
   bottle do
-    sha256 "aac8d4cd85f8345508daaff8061bb6fc1f2aa8f56b9508e33b94e17f01aa3f88" => :sierra
-    sha256 "22d6d1c7be54af6fc33966a5c29234ecb9972d87965f91e8dfa72db2d614f84d" => :el_capitan
-    sha256 "cf7fcd48d32af27eb9caf66fb2ddba933d390b9bfc3dbd83392c5caaa90c2a89" => :yosemite
+    sha256 "d014dc6f743b520d140eb306fb3fc58e0b1e501d935d520d587797cec3bd88f8" => :sierra
+    sha256 "063ef38e7ff5fb2ead8b624091092b922abe5869bbed3ea31e6bd2148966b8b1" => :el_capitan
+    sha256 "daf89b9cbaf76641cd76bc5d434c2cce81d05d8e865a71d9cccbc4cc064efce8" => :yosemite
   end
 
   depends_on "augeas"
@@ -136,7 +138,26 @@ class Certbot < Formula
   end
 
   def install
-    venv = virtualenv_install_with_resources
+    venv = virtualenv_create(libexec)
+
+    resource("cryptography").stage do
+      if MacOS.version < :sierra
+        # Fixes .../cryptography/hazmat/bindings/_openssl.so: Symbol not found: _getentropy
+        # Reported 20 Dec 2016 https://github.com/pyca/cryptography/issues/3332
+        inreplace "src/_cffi_src/openssl/src/osrandom_engine.h",
+          "#elif defined(BSD) && defined(SYS_getentropy)",
+          "#elif defined(BSD) && defined(SYS_getentropy) && 0"
+      end
+      venv.pip_install Pathname.pwd
+    end
+
+    res = resources.map(&:name).to_set - ["cryptography"]
+
+    res.each do |r|
+      venv.pip_install resource(r)
+    end
+
+    venv.pip_install_and_link buildpath
 
     # Shipped with certbot, not external resources.
     %w[acme certbot-apache certbot-nginx].each do |r|
