@@ -32,7 +32,7 @@ before_install:
   - brew tap linuxbrew/xorg
 
 script:
-  - travis_wait 50 brew test-bot
+  - brew test-bot
 
 notifications:
   slack:
