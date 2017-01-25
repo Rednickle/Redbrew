@@ -36,3 +36,6 @@ test:
         && brew tap linuxbrew/xorg
         && brew test-bot --tap=homebrew/core --keep-old
     - mv *.json *.tar.gz $CIRCLE_ARTIFACTS/ || true
+notify:
+  webhooks:
+    - url: https://p4142ivuwk.execute-api.us-west-2.amazonaws.com/prod/LinuxbrewTestBot
