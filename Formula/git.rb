@@ -61,7 +61,10 @@ class Git < Formula
     # Support Tcl versions before "lime" color name was introduced
     # https://github.com/Homebrew/homebrew-core/issues/115
     # https://www.mail-archive.com/git%40vger.kernel.org/msg92017.html
-    inreplace "gitk-git/gitk", "lime", '"#99FF00"'
+    #
+    # This has been resolved in Git (6e8fda5fd), which is currently present
+    # in HEAD but not in the stable.  This should be removed later.
+    inreplace "gitk-git/gitk", "lime", '"#99FF00"' if build.stable?
 
     perl_version = /\d\.\d+/.match(`perl --version`)
 
@@ -103,6 +106,7 @@ class Git < Formula
     args << "NO_OPENSSL=1" << "APPLE_COMMON_CRYPTO=1" if build.without? "brewed-openssl"
     args << "NO_TCLTK=1" if build.without? "tcl-tk"
 
+    system "make", "test", *args
     system "make", "install", *args
 
     # Install the macOS keychain credential helper

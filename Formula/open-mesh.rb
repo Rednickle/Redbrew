@@ -1,27 +1,18 @@
 class OpenMesh < Formula
   desc "Generic data structure to represent and manipulate polygonal meshes"
   homepage "https://openmesh.org/"
-  url "https://www.openmesh.org/media/Releases/5.1/OpenMesh-5.1.tar.gz"
-  sha256 "643262dec62d1c2527950286739613a5b8d450943c601ecc42a817738556e6f7"
+  url "https://www.openmesh.org/media/Releases/6.3/OpenMesh-6.3.tar.bz2"
+  sha256 "b97be926e430bcda10f44f2d4bbe2657b0778c2eed17346f4f32c06db36843ce"
   head "https://www.graphics.rwth-aachen.de:9000/OpenMesh/OpenMesh.git"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "a34226124549c2d56c74723a11585a2948edf2e6f60851ef63eab1c826647d7f" => :sierra
-    sha256 "89cb1989a31311b1d2fb741dc35e06a6e9e077273cb63560f7bfcaa5b796ca27" => :el_capitan
-    sha256 "fa31eb68403e75daa03eac85164864ba80bb3c76f59db97778777f78dfaa10a1" => :yosemite
+    sha256 "676e75669a5b5d754bb4bfcb44ae218ee19e51a2ee337a73d02d7afa3975dbd4" => :sierra
+    sha256 "adcf854d3ed46bdd19c10f04537239991a9ca96e06c078f16c1d8f303f411561" => :el_capitan
+    sha256 "3ea01760dd5aed9a42c1961aaf020e146a0b9a57fcaab1181803a17525fca1b9" => :yosemite
   end
 
   depends_on "cmake" => :build
-
-  stable do
-    patch do
-      # Fixes missing include files in OpenMesh/Tools/Smoother during install
-      url "https://graphics.rwth-aachen.de:9000/OpenMesh/OpenMesh/commit/c5cfef87427a793268f9e012856872bbed958d92.diff"
-      sha256 "5180b3ea8e92b88e9212a4fcfc214666d3b2ca2133a95c2f6b0a44855a298c79"
-    end
-  end
 
   def install
     mkdir "build" do

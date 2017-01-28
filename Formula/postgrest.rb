@@ -6,15 +6,14 @@ class Postgrest < Formula
 
   desc "Serves a fully RESTful API from any existing PostgreSQL database"
   homepage "https://github.com/begriffs/postgrest"
-  url "https://github.com/begriffs/postgrest/archive/v0.3.2.0.tar.gz"
-  sha256 "1cedceb22f051d4d80a75e4ac7a875164e3ee15bd6f6edc68dfca7c9265a2481"
+  url "https://github.com/begriffs/postgrest/archive/v0.4.0.0.tar.gz"
+  sha256 "d23aa9b9ed0272dfd2075c573a96ba95e28328617ba63bfc2792f8655a479cb9"
   head "https://github.com/begriffs/postgrest.git"
-  revision 1
 
   bottle do
-    sha256 "e46e739256e3f753abe8540db32cff90ed8e4adfbed1e658cb229dc8ded0ce00" => :sierra
-    sha256 "287da0080c05d3e3903d8c8fcaa18f55811b857d297096664511bfdbc7868caa" => :el_capitan
-    sha256 "57351277753e13fd3667c12b1514290f7aaac42abd90e03309ac7a6d04a931b4" => :yosemite
+    sha256 "5ccd950f8d3eeac90747f21b554c734410c24974c3aaddb0d9af63e3298499a1" => :sierra
+    sha256 "c1387285d6c35527786ed4d34b5ba0b9426454eaa2f6effe806e787fd4368339" => :el_capitan
+    sha256 "c6ffd2e7503f23fb5cbdbd1e9e0a8af176621dbdedcd21bc298c8e2b93fb6e26" => :yosemite
   end
 
   depends_on "ghc" => :build
@@ -39,14 +38,19 @@ class Postgrest < Formula
 
     begin
       system "#{pg_bin}/createdb", "-w", "-p", pg_port, "-U", pg_user, test_db
+      (testpath/"postgrest.config").write <<-EOS.undent
+        db-uri = "postgres://#{pg_user}@localhost:#{pg_port}/#{test_db}"
+        db-schema = "public"
+        db-anon-role = "#{pg_user}"
+        server-port = 55560
+      EOS
       pid = fork do
-        exec "postgrest", "postgres://#{pg_user}@localhost:#{pg_port}/#{test_db}",
-          "-a", pg_user, "-p", "55560"
+        exec "#{bin}/postgrest", "postgrest.config"
       end
       Process.detach(pid)
       sleep(5) # Wait for the server to start
       response = Net::HTTP.get(URI("http://localhost:55560"))
-      assert_equal "[]", response
+      assert_match /responses.*200.*OK/, response
     ensure
       begin
         Process.kill("TERM", pid) if pid

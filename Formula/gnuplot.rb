@@ -3,12 +3,12 @@ class Gnuplot < Formula
   homepage "http://www.gnuplot.info"
   url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.0.5/gnuplot-5.0.5.tar.gz"
   sha256 "25f3e0bf192e01115c580f278c3725d7a569eb848786e12b455a3fda70312053"
+  revision 1
 
   bottle do
-    sha256 "248bea9c816f6da0c3723e3bd14a874fcfd6d0fe7f0283bc3b4704632f74af4c" => :sierra
-    sha256 "fa7ed60920684032ade79dd4334fd66f5675d7e36bdea07f20a4be551f82b5e6" => :el_capitan
-    sha256 "2efbe8de41120ff75e2572328db4eba6adc80519a4396b4c14ad68b415f45e3d" => :yosemite
-    sha256 "e7f11f8b266ec4655ad1d0b246d623451b91f97bdbd3c56739fdd85500800d4d" => :x86_64_linux
+    sha256 "9a45029ee03f7011ac9dace9cd22854fed5badb788dceb2043a4d5412e2d9a0b" => :sierra
+    sha256 "9ba16e37310ace0de6a97d81f21bd9d4e0d2c79e1ee750a3bf3b9b926a20a684" => :el_capitan
+    sha256 "95da509dc600150780651cf34f62cd524ff065b833fff119617e5d0e61e3e215" => :yosemite
   end
 
   head do
@@ -29,8 +29,9 @@ class Gnuplot < Formula
   deprecated_option "with-x" => "with-x11"
   deprecated_option "pdf" => "with-pdflib-lite"
   deprecated_option "wx" => "with-wxmac"
-  deprecated_option "qt" => "with-qt5"
-  deprecated_option "with-qt" => "with-qt5"
+  deprecated_option "qt" => "with-qt@5.7"
+  deprecated_option "with-qt" => "with-qt@5.7"
+  deprecated_option "with-qt5" => "with-qt@5.7"
   deprecated_option "cairo" => "with-cairo"
   deprecated_option "nolua" => "without-lua"
   deprecated_option "tests" => "with-test"
@@ -40,6 +41,7 @@ class Gnuplot < Formula
 
   depends_on "pkg-config" => :build
   depends_on "fontconfig"
+  depends_on "freetype"
   depends_on "gd"
   depends_on "lua" => :recommended
   depends_on "jpeg"
@@ -49,16 +51,16 @@ class Gnuplot < Formula
   depends_on "webp"
   depends_on "pango" if build.with?("cairo") || build.with?("wxmac")
   depends_on "pdflib-lite" => :optional
-  depends_on "qt5" => :optional
+  depends_on "qt@5.7" => :optional
   depends_on "wxmac" => :optional
   depends_on :tex => :optional
   depends_on :x11 => :optional
 
-  needs :cxx11 if build.with? "qt5"
+  needs :cxx11 if build.with? "qt@5.7"
 
   def install
     # Qt5 requires c++11 (and the other backends do not care)
-    ENV.cxx11 if build.with? "qt5"
+    ENV.cxx11 if build.with? "qt@5.7"
 
     if build.with? "aquaterm"
       # Add "/Library/Frameworks" to the default framework search path, so that an
@@ -85,7 +87,7 @@ class Gnuplot < Formula
       args << "--without-cairo" if build.without? "cairo"
     end
 
-    if build.with? "qt5"
+    if build.with? "qt@5.7"
       args << "--with-qt"
     else
       args << "--with-qt=no"
