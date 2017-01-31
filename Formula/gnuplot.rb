@@ -6,10 +6,10 @@ class Gnuplot < Formula
   revision 1
 
   bottle do
-    sha256 "9a45029ee03f7011ac9dace9cd22854fed5badb788dceb2043a4d5412e2d9a0b" => :sierra
-    sha256 "9ba16e37310ace0de6a97d81f21bd9d4e0d2c79e1ee750a3bf3b9b926a20a684" => :el_capitan
-    sha256 "95da509dc600150780651cf34f62cd524ff065b833fff119617e5d0e61e3e215" => :yosemite
-    sha256 "db03370abf75f1c7df94a77fcb200873c5fbf5bf9fbdb360789d694a66347670" => :x86_64_linux
+    rebuild 1
+    sha256 "73d0f5bcdbcd1136026c1802956867794aaf0ed65fcd35b8a9468da8e9855012" => :sierra
+    sha256 "748ac4de44ee3e39610811be140f3a398af15eb17cf4a05f7d9166e9e6f0d632" => :el_capitan
+    sha256 "9674931c763c8741051bd8e2de7aaa4c1f697c21afd3b497dee679f85aee400b" => :yosemite
   end
 
   head do
@@ -26,6 +26,7 @@ class Gnuplot < Formula
   option "with-wxmac", "Build wxmac support. Need with-cairo to build wxt terminal"
   option "with-tex", "Build with LaTeX support"
   option "with-aquaterm", "Build with AquaTerm support"
+  option "without-gd", "Build without gd based terminals"
 
   deprecated_option "with-x" => "with-x11"
   deprecated_option "pdf" => "with-pdflib-lite"
@@ -41,15 +42,9 @@ class Gnuplot < Formula
   deprecated_option "with-latex" => "with-tex"
 
   depends_on "pkg-config" => :build
-  depends_on "fontconfig"
-  depends_on "freetype"
-  depends_on "gd"
+  depends_on "gd" => :recommended
   depends_on "lua" => :recommended
-  depends_on "jpeg"
-  depends_on "libpng"
-  depends_on "libtiff"
   depends_on "readline"
-  depends_on "webp"
   depends_on "pango" if build.with?("cairo") || build.with?("wxmac")
   depends_on "pdflib-lite" => :optional
   depends_on "qt@5.7" => :optional
@@ -82,6 +77,8 @@ class Gnuplot < Formula
     ]
 
     args << "--with-pdf=#{pdflib}" if build.with? "pdflib-lite"
+
+    args << "--without-gd" if build.without? "gd"
 
     if build.without? "wxmac"
       args << "--disable-wxwidgets"
@@ -129,10 +126,10 @@ class Gnuplot < Formula
 
   test do
     system "#{bin}/gnuplot", "-e", <<-EOS.undent
-      set terminal png;
-      set output "#{testpath}/image.png";
+      set terminal dumb;
+      set output "#{testpath}/graph.txt";
       plot sin(x);
     EOS
-    File.exist? testpath/"image.png"
+    File.exist? testpath/"graph.txt"
   end
 end

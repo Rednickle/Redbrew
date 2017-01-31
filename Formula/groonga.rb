@@ -3,11 +3,12 @@ class Groonga < Formula
   homepage "http://groonga.org/"
   url "http://packages.groonga.org/source/groonga/groonga-6.1.5.tar.gz"
   sha256 "bd404dca8860b4bb7af72d77020c95b32926f8976fecfe3ae2b9f8792e26105e"
+  revision 1
 
   bottle do
-    sha256 "3d0724639c516f89b1351e7ff8024728bbe03a15f858800be88f937dd9527bff" => :sierra
-    sha256 "5a936914a4d9a0bd44737a4541f7f6baa930f21acf79ef6cbfb961304c136e79" => :el_capitan
-    sha256 "105ba3a4c9b465e13cbf25744c707d66dd7e6bd90f36879d6553aef6f279158a" => :yosemite
+    sha256 "59259a68a2ec1b8f88b962d4c8ff52859c0e474750810764e8161cd4ce2bc14e" => :sierra
+    sha256 "3797a337a16c2b7ab0adae23bec4e519bcafaac3caad2dca954425bf44d1241d" => :el_capitan
+    sha256 "34e0e588b2615e56fcb1a03618002e64b490ad99bc1c8ffc451227ba0799ecbb" => :yosemite
   end
 
   head do
@@ -19,6 +20,7 @@ class Groonga < Formula
 
   option "with-glib", "With benchmark program for developer use"
   option "with-zeromq", "With suggest plugin for suggesting"
+  option "with-stemmer", "Build with libstemmer support"
 
   deprecated_option "enable-benchmark" => "with-glib"
   deprecated_option "with-benchmark" => "with-glib"
@@ -41,6 +43,11 @@ class Groonga < Formula
     sha256 "bc83d1e5e0f32d4b95e219cb940a7e3f61f0f743abd3bd47c2d436a34e503870"
   end
 
+  resource "stemmer" do
+    url "https://github.com/snowballstem/snowball.git",
+      :revision => "71936098048f915a797de990776564c924d40b6a"
+  end
+
   link_overwrite "lib/groonga/plugins/normalizers/"
   link_overwrite "share/doc/groonga-normalizer-mysql/"
   link_overwrite "lib/pkgconfig/groonga-normalizer-mysql.pc"
@@ -51,13 +58,26 @@ class Groonga < Formula
       --with-zlib
       --with-ssl
       --enable-mruby
-      --without-libstemmer
     ]
 
     if build.with? "zeromq"
       args << "--enable-zeromq"
     else
       args << "--disable-zeromq"
+    end
+
+    if build.with? "stemmer"
+      resource("stemmer").stage do
+        system "make", "dist_libstemmer_c"
+        system "tar", "xzf", "dist/libstemmer_c.tgz", "-C", buildpath
+        Dir.chdir buildpath.join("libstemmer_c")
+        system "make"
+        mkdir "lib"
+        mv "libstemmer.o", "lib/libstemmer.a"
+        args << "--with-libstemmer=#{Dir.pwd}"
+      end
+    else
+      args << "--without-libstemmer"
     end
 
     args << "--enable-benchmark" if build.with? "glib"

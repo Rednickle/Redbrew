@@ -6,9 +6,10 @@ class CrystalLang < Formula
   head "https://github.com/crystal-lang/crystal.git"
 
   bottle do
-    sha256 "061c3eb19b4dbf9e04d9c8c8e065e22894eb040d45085249ded2a365b4da03b6" => :sierra
-    sha256 "c81b0751e8d740a2b6300c6ccb4f85f13eb5b93f43d81b06b0e57b2f56d257ba" => :el_capitan
-    sha256 "860f29905944eded69bdf563ada3ec82f1efd37789115b5ef74112cba4abe096" => :yosemite
+    rebuild 1
+    sha256 "171624241b2dbfe30be02c4eca74d8f1034c04a1b40ee446ac7170b5ffa29ee1" => :sierra
+    sha256 "7121e67ea7a36bb07f7f0352360250bd58f3a35c56e560cb4aa1a9db6b4236a7" => :el_capitan
+    sha256 "bbc6474f95e3599202fff1a00554e5d357a5a54094b7fa70bad0cb6fc22ce77b" => :yosemite
   end
 
   option "without-release", "Do not build the compiler in release mode"
@@ -37,8 +38,28 @@ class CrystalLang < Formula
     sha256 "31de819c66518479682ec781a39ef42c157a1a8e6e865544194534e2567cb110"
   end
 
+  resource "libevent-2.0.22" do
+    url "https://github.com/libevent/libevent/releases/download/release-2.0.22-stable/libevent-2.0.22-stable.tar.gz"
+    sha256 "71c2c49f0adadacfdbe6332a372c38cf9c8b7895bb73dabeaa53cdcc1d4e1fa3"
+  end
+
   def install
+    resource("libevent-2.0.22").stage do
+      system "./configure", "--disable-dependency-tracking",
+                            "--disable-debug-mode",
+                            "--prefix=#{buildpath}/vendor/libevent"
+      ENV.deparallelize do
+        system "make"
+        system "make", "install"
+      end
+    end
+
     (buildpath/"boot").install resource("boot")
+
+    macho = MachO.open("#{buildpath}/boot/embedded/bin/crystal")
+    macho.change_dylib("/usr/local/opt/libevent/lib/libevent-2.0.5.dylib",
+                       "#{buildpath}/vendor/libevent/lib/libevent-2.0.5.dylib")
+    macho.write!
 
     if build.head?
       ENV["CRYSTAL_CONFIG_VERSION"] = Utils.popen_read("git rev-parse --short HEAD").strip
