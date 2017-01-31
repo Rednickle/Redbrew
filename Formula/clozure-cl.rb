@@ -30,14 +30,13 @@ class ClozureCl < Formula
     doc.install Dir["doc/*"]
 
     libexec.install Dir["*"]
-    bin.install Dir["#{libexec}/scripts/ccl{,64}"]
+    bin.install libexec/"scripts/ccl64"
     bin.env_script_all_files(libexec/"bin", :CCL_DEFAULT_DIRECTORY => libexec)
+    bin.install_symlink bin/"ccl64" => "ccl"
   end
 
   test do
     args = "-n -e '(write-line (write-to-string (* 3 7)))' -e '(quit)'"
-    %w[ccl ccl64].each do |ccl|
-      assert_equal "21", shell_output("#{bin}/#{ccl} #{args}").strip
-    end
+    assert_equal "21", shell_output("#{bin}/ccl #{args}").strip
   end
 end
