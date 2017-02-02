@@ -236,6 +236,8 @@ class Python3 < Formula
   end
 
   def post_install
+    ENV.delete "PYTHONPATH"
+
     # Fix up the site-packages so that user-installed Python software survives
     # minor updates, such as going from 3.3.2 to 3.3.3:
 
