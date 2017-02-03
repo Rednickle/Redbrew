@@ -29,4 +29,12 @@ class Tcsh < Formula
     EOS
     assert_equal "test", shell_output("#{bin}/tcsh ./test.csh")
   end
+
+  def post_install
+    unless OS.mac?
+      # Create csh symlink, unless it already exists.
+      homebrew_bin = Pathname.new "#{HOMEBREW_PREFIX}/bin"
+      homebrew_bin.install_symlink "tcsh" => "csh" unless (homebrew_bin/"csh").exist?
+    end
+  end
 end
