@@ -2,15 +2,15 @@
 class Macvim < Formula
   desc "GUI for vim, made for macOS"
   homepage "https://github.com/macvim-dev/macvim"
-  url "https://github.com/macvim-dev/macvim/archive/snapshot-125.tar.gz"
-  version "8.0-125"
-  sha256 "78b7e3156d385503968751010110ee2aa1c99bcf4213b0bfff2a9b911ecded18"
+  url "https://github.com/macvim-dev/macvim/archive/snapshot-126.tar.gz"
+  version "8.0-126"
+  sha256 "7ed247118d47bcdea93dc8191fa6845f979ebfedbe37e7e61ca59123490b42d9"
   head "https://github.com/macvim-dev/macvim.git"
 
   bottle do
-    sha256 "12c13344867e67446c961fbac6f8b2891e12401e30dcf8b86440e95613d3f3e1" => :sierra
-    sha256 "c032c11fcbe9d39efbc5897666b6347adc97e7a432cfa66b4407bcd9210c6e59" => :el_capitan
-    sha256 "965df63294d2ca6c23451eef52d19b55db4c8a11438598eea1118fdb2b3df013" => :yosemite
+    sha256 "e85d18172e89dc67136e2f45626e99554727b7c7329dff0b81b9cd77efd58e92" => :sierra
+    sha256 "d1efb1dd64fb2697c68a3abf59f4c0c71581902d0da3d01e98e3d217e7e50632" => :el_capitan
+    sha256 "82d08e9c0cd10035b3d82c34c450ed0c2f357864e03608467c4ede6e70f131df" => :yosemite
   end
 
   option "with-override-system-vim", "Override system vim"
