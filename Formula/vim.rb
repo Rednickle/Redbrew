@@ -1,14 +1,14 @@
 class Vim < Formula
   desc "Vi \"workalike\" with many additional features"
   homepage "http://www.vim.org/"
-  url "https://github.com/vim/vim/archive/v8.0.0295.tar.gz"
-  sha256 "e145b51813f36937e55d953dfc7be748d1b1b303c36f9f7e4a4afe0ae178d69a"
+  url "https://github.com/vim/vim/archive/v8.0.0304.tar.gz"
+  sha256 "105c777bc69fd054fa2f99afefd1915d3724f8ec766cffe1f589ccfcc67a088c"
   head "https://github.com/vim/vim.git"
 
   bottle do
-    sha256 "1baf8966058143cc99f448f9baf51cff573a9a3bb1ffa49f5d89add74873ded3" => :sierra
-    sha256 "6f7436e8a0223ae23d383c10017a2738c93e3912fdcd98e25990b3108e19e7f1" => :el_capitan
-    sha256 "45baac4badfe2ac3ea77e51cd8d4f9fb9ec18220c4ee233df6d4ab3d83b58933" => :yosemite
+    sha256 "5ca5a7f226396f72c6556a8d35e1a069217573536262b4bc5b850401ebb03979" => :sierra
+    sha256 "227f1215b93d9f7d9435ed8e9d204c6cae5cae7ef71f54b13d629563b6c50c91" => :el_capitan
+    sha256 "e0af47dfd92cd5a02bcf98d2f5cc57c2d28f9c671a221f4d0e7bfc3af2eb96f1" => :yosemite
   end
 
   deprecated_option "disable-nls" => "without-nls"
