@@ -308,7 +308,7 @@ class Llvm < Formula
       end
       system "make"
       system "make", "install"
-      system "make", "install-xcode-toolchain" if build.with? "toolchain" && OS.mac?
+      system "make", "install-xcode-toolchain" if build.with?("toolchain") && OS.mac?
     end
 
     (share/"clang/tools").install Dir["tools/clang/tools/scan-{build,view}"]
