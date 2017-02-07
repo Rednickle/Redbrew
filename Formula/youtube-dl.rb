@@ -4,14 +4,14 @@
 class YoutubeDl < Formula
   desc "Download YouTube videos from the command-line"
   homepage "https://rg3.github.io/youtube-dl/"
-  url "https://github.com/rg3/youtube-dl/releases/download/2017.02.04.1/youtube-dl-2017.02.04.1.tar.gz"
-  sha256 "d212c5fd1c127c7fcb107a6fa894eeee3d7ea9e91d7feb70d851b6d72b510cab"
+  url "https://github.com/rg3/youtube-dl/releases/download/2017.02.07/youtube-dl-2017.02.07.tar.gz"
+  sha256 "e35415388815250e4d32055929850c8d6de0c1b4781b1f70eb80fda0b01a38bf"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "99317b8f67231c0c93fce2be100eb9bdb1d9641b4a80a9a473722e64cabd4f09" => :sierra
-    sha256 "99317b8f67231c0c93fce2be100eb9bdb1d9641b4a80a9a473722e64cabd4f09" => :el_capitan
-    sha256 "99317b8f67231c0c93fce2be100eb9bdb1d9641b4a80a9a473722e64cabd4f09" => :yosemite
+    sha256 "5f07a62faf8cfc444a8ecf1c1fdd8ff6713d45cc7a0312ff2ad34f56982b4486" => :sierra
+    sha256 "a576ac50af228239a0aba6612b99e57c1806489b21f9a1771f5c8531cd60ea30" => :el_capitan
+    sha256 "5f07a62faf8cfc444a8ecf1c1fdd8ff6713d45cc7a0312ff2ad34f56982b4486" => :yosemite
   end
 
   head do
