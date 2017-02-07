@@ -17,8 +17,12 @@ class ManDb < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "groff" unless OS.mac?
   depends_on "libpipeline"
+  unless OS.mac?
+    depends_on "gdbm"
+    depends_on "groff"
+    depends_on "zlib"
+  end
 
   def install
     system "./configure",
