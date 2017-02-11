@@ -19,6 +19,10 @@ class Freetype < Formula
   option "without-subpixel", "Disable sub-pixel rendering (a.k.a. LCD rendering, or ClearType)"
 
   depends_on "libpng"
+  unless OS.mac?
+    depends_on "bzip2"
+    depends_on "zlib"
+  end
 
   def install
     if build.with? "subpixel"
