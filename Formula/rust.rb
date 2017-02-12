@@ -38,6 +38,8 @@ class Rust < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :run
   depends_on "llvm" => :optional
+  # Fix https://github.com/Linuxbrew/homebrew-core/issues/1733: couldn't find required command: ar
+  depends_on "binutils" => :build unless OS.mac?
   depends_on "openssl"
   depends_on "libssh2"
 
@@ -51,9 +53,18 @@ class Rust < Formula
   end
 
   resource "cargobootstrap" do
-    url "https://s3.amazonaws.com/rust-lang-ci/cargo-builds/fbeea902d2c9a5be6d99cc35681565d8f7832592/cargo-nightly-x86_64-apple-darwin.tar.gz"
-    version "2016-12-15"
-    sha256 "ad6c31b41fef1d68e4523eb7d090fe8103848f30eb5ac8cba5128b7c11ed23fc"
+    if OS.mac?
+      url "https://s3.amazonaws.com/rust-lang-ci/cargo-builds/fbeea902d2c9a5be6d99cc35681565d8f7832592/cargo-nightly-x86_64-apple-darwin.tar.gz"
+      version "2016-12-15"
+      sha256 "ad6c31b41fef1d68e4523eb7d090fe8103848f30eb5ac8cba5128b7c11ed23fc"
+    elsif OS.linux?
+      # From: https://github.com/rust-lang/rust/blob/1.15.1/src/stage0.txt
+      url "https://s3.amazonaws.com/rust-lang-ci/cargo-builds/fbeea902d2c9a5be6d99cc35681565d8f7832592/cargo-nightly-x86_64-unknown-linux-gnu.tar.gz"
+      # From: 
+      # name=cargo-nightly-x86_64-unknown-linux-gnu && tar -zxvf $name.tar.gz $name/version && cat $name/version
+      version "2016-12-15"
+      sha256 "0e052514ee88f236153a0d6c6f38f66d691eb4cf1ac09e6040d96e5101d57800"
+    end
   end
 
   def install
