@@ -19,6 +19,10 @@ class Nss < Formula
   EOS
 
   depends_on "nspr"
+  unless OS.mac?
+    depends_on "sqlite"
+    depends_on "zlib"
+  end
 
   def install
     ENV.deparallelize
@@ -43,7 +47,7 @@ class Nss < Formula
     # rather than copying the referenced file.
     cd "../dist"
     bin.mkpath
-    Dir.glob("Darwin*/bin/*") do |file|
+    Dir.glob("*.OBJ/bin/*") do |file|
       cp file, bin unless file.include? ".dylib"
     end
 
@@ -53,7 +57,7 @@ class Nss < Formula
 
     lib.mkpath
     libexec.mkpath
-    Dir.glob("Darwin*/lib/*") do |file|
+    Dir.glob("*.OBJ/lib/*") do |file|
       if file.include? ".chk"
         cp file, libexec
       else
