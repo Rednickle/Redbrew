@@ -35,7 +35,7 @@ class Watch < Formula
   def install
     # Prevents undefined symbol errors for _libintl_gettext, etc.
     # Reported 22 Jun 2016: https://gitlab.com/procps-ng/procps/issues/35
-    ENV.append "LDFLAGS", "-lintl"
+    ENV.append "LDFLAGS", "-lintl" if OS.mac?
 
     system "autoreconf", "-fiv"
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
