@@ -1,24 +1,22 @@
 class OpensslAT11 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-1.1.0d.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.0d.tar.gz"
-  sha256 "7d5ebb9e89756545c156ff9c13cf2aa6214193b010a468a3bc789c3c28fe60df"
+  url "https://www.openssl.org/source/openssl-1.1.0e.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.0e.tar.gz"
+  sha256 "57be8618979d80c910728cfc99369bf97b2a1abd8f366ab6ebdee8975ad3874c"
   version_scheme 1
 
   bottle do
-    rebuild 1
-    sha256 "9237bb28e7c9d8fd18b5a90401d54139b1dd9d0988b9a83b7607ae7fb86c72de" => :sierra
-    sha256 "53da6f83eb00af8b8747a29a697e0eac6ca70ef509590af3e2651cd4c35e2852" => :el_capitan
-    sha256 "29deee7a495f1d898a7f1bdbb85a6a2f947ad32a27f43a7400ba897038819738" => :yosemite
-    sha256 "7c682ee1eb07777cbd487afedb033790c457824b832e9a8b8b34473dc59a9e60" => :x86_64_linux
+    sha256 "eb861ec252de3fa1c7a29bad68d154bea0d5eb5d445509e05b762c5b256f22d1" => :sierra
+    sha256 "24e0f0bdc0012fc3e141fd3cc9722f39d03c0dceac47d5b1901f310d34d947d4" => :el_capitan
+    sha256 "c4cbf83c01e10b0b4bb7bbc2e239d91fdfc4b75443d33604039b81078c11fa71" => :yosemite
   end
 
   resource "cacert" do
     # Update post_install when you update this resource.
     # homepage "http://curl.haxx.se/docs/caextract.html"
-    url "https://curl.haxx.se/ca/cacert-2016-11-02.pem"
-    sha256 "cc7c9e2d259e20b72634371b146faec98df150d18dd9da9ad6ef0b2deac2a9d3"
+    url "https://curl.haxx.se/ca/cacert-2017-01-18.pem"
+    sha256 "e62a07e61e5870effa81b430e1900778943c228bd7da1259dd6a955ee2262b47"
   end
 
   keg_only :versioned_formula
@@ -144,7 +142,7 @@ class OpensslAT11 < Formula
   def post_install
     unless OS.mac?
       # Download and install cacert.pem from curl.haxx.se
-      openssldir.install resource("cacert").files("cacert-2016-11-02.pem" => "cert.pem")
+      openssldir.install resource("cacert").files("cacert-2017-01-18.pem" => "cert.pem")
       return
     end
 
@@ -154,7 +152,7 @@ class OpensslAT11 < Formula
 
     certs_list = `security find-certificate -a -p #{keychains.join(" ")}`
     certs = certs_list.scan(
-      /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m
+      /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m,
     )
 
     valid_certs = certs.select do |cert|
