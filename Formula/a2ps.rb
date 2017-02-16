@@ -15,6 +15,13 @@ class A2ps < Formula
     sha256 "ba921815bbde15e3fab76a070950160fa836f4f72514bcbf9731265cadd1ae09" => :x86_64_linux
   end
 
+  desired_prefix = OS.mac? ? "/usr/local" : "/home/linuxbrew/.linuxbrew"
+  pour_bottle? do
+    reason "The bottle needs to be installed into #{desired_prefix}."
+    # https://github.com/Homebrew/brew/issues/2005
+    satisfy { HOMEBREW_PREFIX.to_s == desired_prefix }
+  end
+
   depends_on "homebrew/dupes/gperf" unless OS.mac?
 
   # Software was last updated in 2007.
