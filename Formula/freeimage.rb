@@ -25,8 +25,6 @@ class Freeimage < Formula
     sha256 "4f156dbe17f0e312196ff9b696b0712663092cb6e060d2af0872a7eb217bd254" => :x86_64_linux
   end
 
-  option :universal
-
   depends_on "unzip" => :build unless OS.mac?
 
   patch :DATA if OS.mac?
@@ -46,11 +44,23 @@ class Freeimage < Formula
   end
 
   def install
-    ENV.universal_binary if build.universal?
     system "make", "-f", "Makefile.gnu"
     system "make", "-f", "Makefile.gnu", "install", "PREFIX=#{prefix}"
     system "make", "-f", "Makefile.fip"
     system "make", "-f", "Makefile.fip", "install", "PREFIX=#{prefix}"
+  end
+
+  test do
+    (testpath/"test.c").write <<-EOS.undent
+      #include <FreeImage.h>
+      int main() {
+         FreeImage_Initialise(0);
+         FreeImage_DeInitialise();
+         exit(0);
+      }
+    EOS
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lfreeimage", "-o", "test"
+    system "./test"
   end
 end
 
