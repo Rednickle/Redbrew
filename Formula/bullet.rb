@@ -1,15 +1,15 @@
 class Bullet < Formula
   desc "Physics SDK"
   homepage "http://bulletphysics.org/wordpress/"
-  url "https://github.com/bulletphysics/bullet3/archive/2.86.tar.gz"
-  sha256 "e6e8b755280ce2c1a8218529eae5dd78e184f7036854229cea611374ad5a671f"
+  url "https://github.com/bulletphysics/bullet3/archive/2.86.1.tar.gz"
+  sha256 "c058b2e4321ba6adaa656976c1a138c07b18fc03b29f5b82880d5d8228fbf059"
   head "https://github.com/bulletphysics/bullet3.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6541eb8fbc31e00e68596fcbe5cf9bb8df3bf19da7fd2fd86132fa86eadffe4c" => :sierra
-    sha256 "3c5f27941c7790c2dede6e35ff12c931567c1e6d4da106f1072f91caa85e8ce3" => :el_capitan
-    sha256 "ec901e1e204253445867e43828415be9beedc47be265f223572730c08b43210f" => :yosemite
+    sha256 "efdd2f02421a95c3a399962081ad5209f100825fd1c675e25b4d96693ef9252d" => :sierra
+    sha256 "1aab6c634c6f175667f5e71a2d4221be160decb50b96f7d70e001f5fb495d433" => :el_capitan
+    sha256 "71dcb0c8432c3d066bf349c8501f22c30d9ef179115cf4ed93422e75827dcef9" => :yosemite
   end
 
   option "with-framework", "Build frameworks"

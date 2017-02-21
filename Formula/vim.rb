@@ -1,14 +1,14 @@
 class Vim < Formula
   desc "Vi \"workalike\" with many additional features"
   homepage "http://www.vim.org/"
-  url "https://github.com/vim/vim/archive/v8.0.0329.tar.gz"
-  sha256 "6fbe0ec1228f951ba598b48ac8033f41ca4934cc34689a6008685e7c26477ae2"
+  url "https://github.com/vim/vim/archive/v8.0.0344.tar.gz"
+  sha256 "48fe3af5a638fa1126c8815cbd94db8867dff5ee6efeac57e075fb43aa8300f7"
   head "https://github.com/vim/vim.git"
 
   bottle do
-    sha256 "ef4b80ad95b28268b66321e353da8706ba5aed518566165801e78174aa9a3cd8" => :sierra
-    sha256 "e341710c853636f0c32a6e986bb4f0df90b5af8eb052f0a03bf21602f068f30c" => :el_capitan
-    sha256 "e6459e6220559c0f9aa8f7dd3f9af4b73b3f4f26eae73038d5ee22160dfb00e3" => :yosemite
+    sha256 "fc77fbe39e94dc1fd29eae28a50f24afdeb73d2a14134f0013903dc0834d1ec1" => :sierra
+    sha256 "cf62464e33b2a13f0c90b894a96af8df3c3f9ab0cc39119e213d87998e3c1017" => :el_capitan
+    sha256 "3e29b9f9718c836bacb83512f3be0ee5e30d289cb2101161f688eebe508bfafa" => :yosemite
   end
 
   deprecated_option "disable-nls" => "without-nls"
@@ -18,7 +18,7 @@ class Vim < Formula
   option "without-nls", "Build vim without National Language Support (translated messages, keymaps)"
   option "with-client-server", "Enable client/server mode"
 
-  LANGUAGES_OPTIONAL = %w[lua mzscheme python3 tcl].freeze
+  LANGUAGES_OPTIONAL = %w[lua python3 tcl].freeze
   LANGUAGES_DEFAULT  = %w[perl python ruby].freeze
 
   if MacOS.version >= :mavericks
