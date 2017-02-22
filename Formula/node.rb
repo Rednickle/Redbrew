@@ -1,15 +1,14 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v7.5.0/node-v7.5.0.tar.xz"
-  sha256 "f99ee74647fe223eb03f2dd1dc6acdc14d9a881621376c848236c8d2ac8afd03"
+  url "https://nodejs.org/dist/v7.6.0/node-v7.6.0.tar.xz"
+  sha256 "6ff9042696fff0b49647f5864e71cb495e554e4f66e61443494210f5e16ab4a9"
   head "https://github.com/nodejs/node.git"
 
   bottle do
-    sha256 "421071a942e3f2ab22dd304ccc78d88b5093eb51c805731791ff55dd5bf7fc78" => :sierra
-    sha256 "363eb6dbb4c5534e69de909eb11c9a73255f33319a8d01b5cb550d37e9613124" => :el_capitan
-    sha256 "59525a77b38e553d0a7b6faedeaa996b296aaae30394cb0c7a132d46eeea67f4" => :yosemite
-    sha256 "e6619010b9de7d600addb7bdfed93f9ffa40e47051164f81174fd9e41d9f8fe4" => :x86_64_linux
+    sha256 "c16938a683988f7398f553f8effbb802a5ce5c67a413c8f32a5d76a3a625d890" => :sierra
+    sha256 "a265f03f69b73a697733869307c3a64a8cdf563347712edff4d0fb9a067f913e" => :el_capitan
+    sha256 "c117ab6a6a62d6c6b8a96d5c8dfea71d22dd19f123d79608ca33161943efdaff" => :yosemite
   end
 
   option "with-debug", "Build with debugger hooks"
@@ -39,14 +38,6 @@ class Node < Formula
   resource "npm" do
     url "https://registry.npmjs.org/npm/-/npm-4.1.2.tgz"
     sha256 "87f2c95f98ac53d14d9e2c506f8ecfe1d891cd7c970450c74bf0daff24d65cfd"
-  end
-
-  # Fix run-time failure "Symbol not found: _clock_gettime"
-  # Upstream issue "7.5.0 clock_gettime runtime failure built with macOS 10.11
-  # and Xcode 8.x"
-  # Reported 1 Feb 2017 https://github.com/nodejs/node/issues/11104
-  if MacOS.version == :el_capitan && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
-    patch :DATA
   end
 
   def install
@@ -179,65 +170,3 @@ class Node < Formula
     end
   end
 end
-
-__END__
-diff --git a/deps/openssl/openssl/apps/apps.c b/deps/openssl/openssl/apps/apps.c
-index c487bd9..9456e47 100644
---- a/deps/openssl/openssl/apps/apps.c
-+++ b/deps/openssl/openssl/apps/apps.c
-@@ -150,6 +150,10 @@ static int WIN32_rename(const char *from, const char *to);
- # define rename(from,to) WIN32_rename((from),(to))
- #endif
- 
-+#ifdef __APPLE__
-+#include <AvailabilityMacros.h>
-+#endif
-+
- typedef struct {
-     const char *name;
-     unsigned long flag;
-@@ -3041,7 +3045,7 @@ double app_tminterval(int stop, int usertime)
- double app_tminterval(int stop, int usertime)
- {
-     double ret = 0;
--# ifdef CLOCK_REALTIME
-+# if (defined(__APPLE__) && MAC_OS_X_VERSION_MIN_REQUIRED >= 101200) || (!defined(__APPLE__) && defined(CLOCK_REALTIME))
-     static struct timespec tmstart;
-     struct timespec now;
- # else
-@@ -3055,7 +3059,13 @@ double app_tminterval(int stop, int usertime)
-                    "this program on idle system.\n");
-         warning = 0;
-     }
--# ifdef CLOCK_REALTIME
-+# if (defined(__APPLE__) && MAC_OS_X_VERSION_MIN_REQUIRED >= 101200) || (!defined(__APPLE__) && defined(CLOCK_REALTIME))
-+    clock_gettime(CLOCK_REALTIME, &now);
-+    if (stop == TM_START)
-+        tmstart = now;
-+    else
-+        ret = ((now.tv_sec + now.tv_nsec * 1e-9)
-+               - (tmstart.tv_sec + tmstart.tv_nsec * 1e-9));
-     clock_gettime(CLOCK_REALTIME, &now);
-     if (stop == TM_START)
-         tmstart = now;
-diff --git a/deps/uv/src/unix/darwin.c b/deps/uv/src/unix/darwin.c
-index b1ffbc3..23e91db 100644
---- a/deps/uv/src/unix/darwin.c
-+++ b/deps/uv/src/unix/darwin.c
-@@ -36,6 +36,7 @@
- #include <sys/sysctl.h>
- #include <time.h>
- #include <unistd.h>  /* sysconf */
-+#include <AvailabilityMacros.h>
- 
- #undef NANOSEC
- #define NANOSEC ((uint64_t) 1e9)
-@@ -57,7 +58,7 @@ void uv__platform_loop_delete(uv_loop_t* loop) {
- 
- 
- uint64_t uv__hrtime(uv_clocktype_t type) {
--#ifdef MAC_OS_X_VERSION_10_12
-+#if MAC_OS_X_VERSION_MIN_REQUIRED >= 101200
-   struct timespec ts;
-   clock_gettime(CLOCK_MONOTONIC, &ts);
-   return (((uint64_t) ts.tv_sec) * NANOSEC + ts.tv_nsec);
