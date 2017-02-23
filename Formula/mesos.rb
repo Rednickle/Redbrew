@@ -6,9 +6,10 @@ class Mesos < Formula
   sha256 "0f6d591eff78483e07bee93aed4553c69064f7870b216817a0085def3569b2c1"
 
   bottle do
-    sha256 "3094eac6ece7fe9598ba1f74d2b15bf1d05bdbd647d2bcbdc0604976d3b1b0f3" => :sierra
-    sha256 "b25c4832b362136ddf9082d76931b80a0661312c2f10b5fb5f239e46f780a3db" => :el_capitan
-    sha256 "eee65288bb9e3cd0b85ae9dcd03da021e179f57a0b589cce9e989a432fc22973" => :yosemite
+    rebuild 1
+    sha256 "e1dbeb8e89b87dee7418383ed334c42c4c67256e5c417377de353f733a90a1b6" => :sierra
+    sha256 "cbbe747db8970900494a9be4944d3a1b4c378a54819bb3fcead5fdc9e4efe25f" => :el_capitan
+    sha256 "5ad291f41511fcf9a1644a032bff98b2d445178723b433f698084b62bdba592b" => :yosemite
   end
 
   depends_on :java => "1.7+"
@@ -52,6 +53,16 @@ class Mesos < Formula
 
   def install
     ENV.java_cache
+
+    # Disable optimizing as libc++ does not play well with optimized clang
+    # builds (see https://llvm.org/bugs/show_bug.cgi?id=28469 and
+    # https://issues.apache.org/jira/browse/MESOS-5745).
+    #
+    # NOTE: We cannot use `--disable-optimize` since we also pass e.g.,
+    # CXXFLAGS via environment variables. Since compiler flags are passed via
+    # environment variables the Mesos build will silently ignore flags like
+    # `--[disable|enable]-optimize`.
+    ENV.O0 unless DevelopmentTools.clang_build_version >= 900
 
     # work around to avoid `_clock_gettime` symbol not found error.
     if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
@@ -138,6 +149,23 @@ class Mesos < Formula
   test do
     require "timeout"
 
+    # Make sure we are not affected by MESOS-6910 and related issues.
+    agent = fork do
+      exec "/Users/bbannier/src/homebrew/sbin/mesos-agent",
+          "--master=127.0.0.1:5050",
+          "--work_dir=/tmp/mesos.slave.brew",
+          "--image_providers=docker"
+    end
+    begin
+      Timeout.timeout(2) do
+        Process.wait agent
+      end
+    rescue Timeout::Error
+      Process.kill "TERM", agent
+    end
+    assert $?.exitstatus, "agent process died, check MESOS-6606-related behavior"
+
+    # Make tests for minimal functionality.
     master = fork do
       exec "#{sbin}/mesos-master", "--ip=127.0.0.1",
                                    "--registry=in_memory"

@@ -4,15 +4,15 @@ class GitlabCiMultiRunner < Formula
   desc "The official GitLab CI runner written in Go"
   homepage "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner"
   url "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git",
-      :tag => "v1.10.6",
-      :revision => "2dadd4895f4454bb7c1913e9e8eb1f5a6ccde7c5"
+      :tag => "v1.11.0",
+      :revision => "33af6569b97cc2d2ce6d0835728455f138181f6a"
   head "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2d036781275a449893b1ed3fb01bc796d91f9b1b0fcf579bad587f5d8c461a0c" => :sierra
-    sha256 "e542bd60bbfd25ec0e9985153ee2e688920d2f93d280ee63aecbfeede2929915" => :el_capitan
-    sha256 "220ffc4e42f2dd4ab6210b3c0646ca51e2619a9e562dbe1b1b4498aa60c73469" => :yosemite
+    sha256 "5959eb8dcfc1e227bc48cc6499c035273296b1b9c81760a491032b3c5a98bee4" => :sierra
+    sha256 "2f3f99b11c0546f102dbd894bed382792810601d47d7adfab948c511bb20324d" => :el_capitan
+    sha256 "8702e21161d2b28efa45d463b023c60cb4236a39b5e3033ee11420cd9becf2e9" => :yosemite
   end
 
   depends_on "go" => :build
@@ -24,17 +24,17 @@ class GitlabCiMultiRunner < Formula
   end
 
   resource "prebuilt-x86_64.tar.xz" do
-    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v1.10.6/docker/prebuilt-x86_64.tar.xz",
+    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v1.11.0/docker/prebuilt-x86_64.tar.xz",
         :using => :nounzip
-    version "1.10.6"
-    sha256 "5e80cf24ae274a7d15f5492923f9e85ac1526ef8a476d87987bcabc3613e722c"
+    version "1.11.0"
+    sha256 "0345ca2fe4fdafdab191220bab19eba2f870a298f5cf13f97d403bd0f4a45a20"
   end
 
   resource "prebuilt-arm.tar.xz" do
-    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v1.10.6/docker/prebuilt-arm.tar.xz",
+    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v1.11.0/docker/prebuilt-arm.tar.xz",
         :using => :nounzip
-    version "1.10.6"
-    sha256 "e8a3f7cf4408807f5a5c1efe1f6b6443788bf1c2b61054e51910b9e248a1dc78"
+    version "1.11.0"
+    sha256 "c43ca81b513ef3136c7479ca70d28f4290d24e1987dbdbc99c6c1d8149e70ab0"
   end
 
   def install
