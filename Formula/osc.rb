@@ -5,14 +5,14 @@ class Osc < Formula
   homepage "https://github.com/openSUSE/osc"
   url "https://github.com/openSUSE/osc/archive/0.155.1.tar.gz"
   sha256 "bd392cf601fade0770e2b1fef2a964dfaa02ee002a615708f230549708f26acc"
+  revision 3
   head "https://github.com/openSUSE/osc.git"
-  revision 1
 
   bottle do
     cellar :any
-    sha256 "51247f4ee5b8dc607b37a0a8dd153473d71cdf68476402e338f21bfdeb433a5e" => :sierra
-    sha256 "dfcc29e38cc4033fcbe3520ecf58f1da75e62c8eb86e92155ebb9c5e034649ce" => :el_capitan
-    sha256 "de8da7afe2fd2fdd9885a45a33bfaf575c24f313db46830a555d054db8b52c59" => :yosemite
+    sha256 "95cdc7d300f7749c17212a568a928c895498dd7817d4f5a1034302509dc15676" => :sierra
+    sha256 "a9552a719cce251e1dbc7d47c1428eb904087b18cb6bb6880df47afdd7c9b059" => :el_capitan
+    sha256 "ecdaf2a5cb32f483864008b6741e76a32c44756e3bd2b24640928efeac1aa965" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
