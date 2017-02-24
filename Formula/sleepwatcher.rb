@@ -1,3 +1,11 @@
+class MacRequirement < Requirement
+  fatal true
+  satisfy OS.mac?
+  def message
+    "This software only builds on Mac."
+  end
+end
+
 class Sleepwatcher < Formula
   desc "Monitors sleep, wakeup, and idleness of a Mac"
   homepage "http://www.bernhard-baehr.de/"
@@ -11,6 +19,8 @@ class Sleepwatcher < Formula
     sha256 "e4e3d7f9802dcf14431334c3187108c554c5315b3e34bc03dcb76e8f181158f5" => :yosemite
     sha256 "b59893325808df64d3944f9aef6c66f6420d16cba36a2a1934bb8260bc27fe2f" => :mavericks
   end
+
+  depends_on MacRequirement
 
   def install
     # Adjust Makefile to build native binary only
