@@ -44,6 +44,8 @@ class GnuTar < Formula
     if build.without? "default-names"
       (libexec/"gnubin").install_symlink bin/"gtar" =>"tar"
       (libexec/"gnuman/man1").install_symlink man1/"gtar.1" => "tar.1"
+    else
+      bin.install_symlink "tar" => "gtar"
     end
   end
 
