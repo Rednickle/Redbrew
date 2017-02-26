@@ -14,7 +14,6 @@ class Sbjson < Formula
   end
 
   depends_on :xcode => :build
-  depends_on :macos
 
   def install
     xcodebuild "-project", "SBJson5.xcodeproj",
