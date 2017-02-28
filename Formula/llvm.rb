@@ -160,8 +160,11 @@ class Llvm < Formula
     depends_on "glibc" => GlibcRequirement.system_version.to_f >= 2.19 ? :optional : :recommended
     depends_on "binutils" if build.with? "glibc"
     depends_on "homebrew/dupes/libedit" # llvm requires <histedit.h>
+    depends_on "homebrew/dupes/ncurses"
+    depends_on "homebrew/dupes/xar"
     depends_on "libxml2"
     depends_on "python" if build.with?("python") || build.with?("lldb")
+    depends_on "zlib"
     needs :cxx11
   end
 
