@@ -33,6 +33,7 @@ class SaneBackends < Formula
   depends_on "libusb-compat"
   depends_on "openssl"
   depends_on "net-snmp"
+  depends_on "libpng" unless OS.mac?
 
   def install
     ENV.universal_binary if build.universal?
