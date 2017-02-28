@@ -15,6 +15,7 @@ class Gl2ps < Formula
 
   depends_on "cmake" => :build
   depends_on "libpng"
+  depends_on "freeglut" unless OS.mac?
 
   def install
     # Prevent linking against X11's libglut.dylib when it's present
@@ -30,7 +31,7 @@ class Gl2ps < Formula
 
   test do
     (testpath/"test.c").write <<-EOS.undent
-      #include <GLUT/glut.h>
+      #include <#{OS.mac? ? "GLUT" : "GL"}/glut.h>
       #include <gl2ps.h>
 
       int main(int argc, char *argv[])
@@ -62,7 +63,9 @@ class Gl2ps < Formula
     if OS.mac?
       system ENV.cc, "-lgl2ps", "-framework", "OpenGL", "-framework", "GLUT", "-framework", "Cocoa", "test.c", "-o", "test"
     else
-      system ENV.cc, "test.c", "-o", "test", "-lgl2ps"
+      system ENV.cc, "test.c", "-o", "test", "-L", lib, "-lgl2ps", "-lglut", "-lGL"
+      # Travis has no X11 display: freeglut (./test): failed to open display ''
+      return if ENV["TRAVIS"]
     end
     system "./test"
     assert File.exist?("test.eps") && File.size("test.eps") > 0
