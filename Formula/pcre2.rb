@@ -15,13 +15,9 @@ class Pcre2 < Formula
     sha256 "431ea507b68e3e82fbf10cae44fc849bd518936454fdd87f87a733d81ac9bb29" => :x86_64_linux
   end
 
-  option :universal
-
   depends_on "bzip2" unless OS.mac?
 
   def install
-    ENV.universal_binary if build.universal?
-
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--enable-pcre2-16",

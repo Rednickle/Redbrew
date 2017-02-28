@@ -12,7 +12,6 @@ class Python3 < Formula
     sha256 "a4aa31a9485f8ce29f054e9787ce0847ba5e9d3f3fe94bc64e49dbb55d1a1605" => :x86_64_linux
   end
 
-  option :universal
   option "with-tcl-tk", "Use Homebrew's Tk instead of macOS Tk (has optional Cocoa and threads support)"
   option "with-quicktest", "Run `make quicktest` after the build"
   option "with-sphinx-doc", "Build HTML documentation"
@@ -146,11 +145,6 @@ class Python3 < Formula
       s.gsub! "do_readline = self.compiler.find_library_file(lib_dirs, 'readline')",
               "do_readline = '#{Formula["readline"].opt_lib}/libhistory.dylib'"
       s.gsub! "/usr/local/ssl", Formula["openssl"].opt_prefix
-    end
-
-    if build.universal?
-      ENV.universal_binary
-      args << "--enable-universalsdk" << "--with-universal-archs=intel"
     end
 
     if build.with? "sqlite"

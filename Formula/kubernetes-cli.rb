@@ -8,10 +8,10 @@ class KubernetesCli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "029487405e14015b7d5b1b4b68e3ba07b9ec85fc8529b2de2fd4088372914f0e" => :sierra
-    sha256 "3b2013779d363de138c1f2f87d440ec7def934d3d4548cd430b3b3ab5b4fe8be" => :el_capitan
-    sha256 "92f439b9b69f56e6cbfe3784b4a48041134c524fa9e7aee9605e9f8388f189dd" => :yosemite
-    sha256 "3214db90c42358307fd8b0faaf867a6dc11ad2e11b1688b19d4f1e7ba40a327c" => :x86_64_linux
+    rebuild 1
+    sha256 "e455186d50515f4b0c33328b81f9635eb24cede69c6ed9fa1f250b412d07e0f5" => :sierra
+    sha256 "eab70ac4da5f9196ffb257a6cc0a2e86e99d07d070e69a5019e9ac2a2a4ccf71" => :el_capitan
+    sha256 "326a543dc6ea0a779e1b20f67499f7b0cc3aa71128f934db1a342df8b11218b1" => :yosemite
   end
 
   devel do
@@ -42,6 +42,10 @@ class KubernetesCli < Formula
       # Install bash completion
       output = Utils.popen_read("#{bin}/kubectl completion bash")
       (bash_completion/"kubectl").write output
+
+      # Install zsh completion
+      output = Utils.popen_read("#{bin}/kubectl completion zsh")
+      (zsh_completion/"kubectl").write output
     end
   end
 

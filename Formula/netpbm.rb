@@ -17,8 +17,6 @@ class Netpbm < Formula
     sha256 "e52905b4bdaaf22d2507e5957d6d0b195627394fe5a0942b7741d5408c5cb549" => :x86_64_linux
   end
 
-  option :universal
-
   depends_on "libtiff"
   depends_on "jasper"
   depends_on "jpeg"
@@ -29,8 +27,6 @@ class Netpbm < Formula
   end
 
   def install
-    ENV.universal_binary if build.universal?
-
     cp "config.mk.in", "config.mk"
 
     inreplace "config.mk" do |s|

@@ -12,11 +12,7 @@ class LibgpgError < Formula
     sha256 "bd07dde68c46c44e184067aaad71c67f7fa0da7b01a8c0f0eb8c3f146f8b4b0f" => :x86_64_linux
   end
 
-  option :universal
-
   def install
-    ENV.universal_binary if build.universal?
-
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",

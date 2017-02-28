@@ -14,12 +14,9 @@ class Libidn < Formula
     sha256 "c091b6c0064dbf882ebd633af0041d767131757b6d00b255078c492f447099f1" => :x86_64_linux
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
 
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--disable-csharp",

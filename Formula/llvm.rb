@@ -133,7 +133,6 @@ class Llvm < Formula
 
   keg_only :provided_by_osx
 
-  option :universal
   option "without-compiler-rt", "Do not build Clang runtime support libraries for code sanitizers, builtins, and profiling"
   if OS.mac?
     option "without-libcxx", "Do not build libc++ standard library"
@@ -280,11 +279,6 @@ class Llvm < Formula
       args << "-DLLVM_ENABLE_FFI=ON"
       args << "-DFFI_INCLUDE_DIR=#{Formula["libffi"].opt_lib}/libffi-#{Formula["libffi"].version}/include"
       args << "-DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}"
-    end
-
-    if build.universal?
-      ENV.permit_arch_flags
-      args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.universal_archs.as_cmake_arch_flags}"
     end
 
     # Help just-built clang++ find <atomic> (and, possibly, other header files). Needed for compiler-rt

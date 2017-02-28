@@ -14,12 +14,9 @@ class Gdbm < Formula
     sha256 "211de22676f77adf5caef736d94fa5b7c5f1f8fd0ac08b35ab015eea67974f0e" => :x86_64_linux
   end
 
-  option :universal
   option "with-libgdbm-compat", "Build libgdbm_compat, a compatibility layer which provides UNIX-like dbm and ndbm interfaces."
 
   def install
-    ENV.universal_binary if build.universal?
-
     args = %W[
       --disable-dependency-tracking
       --disable-silent-rules

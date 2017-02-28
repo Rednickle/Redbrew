@@ -1,35 +1,21 @@
 class Lftp < Formula
   desc "Sophisticated file transfer program"
   homepage "https://lftp.tech"
-  url "https://lftp.yar.ru/ftp/lftp-4.7.5.tar.bz2"
-  mirror "ftp://ftp.st.ryukoku.ac.jp/pub/network/ftp/lftp/lftp-4.7.5.tar.bz2"
-  sha256 "90f3cbc827534c3b3a391a2dd8b39cc981ac4991fa24b6f90e2008ccc0a5207d"
+  url "https://lftp.yar.ru/ftp/lftp-4.7.6.tar.bz2"
+  mirror "ftp://ftp.st.ryukoku.ac.jp/pub/network/ftp/lftp/lftp-4.7.6.tar.bz2"
+  sha256 "6b46389e9c2e67af9029a783806facea4c8f0b4d6adca5c1088e948d2fd68ae7"
 
   bottle do
-    rebuild 1
-    sha256 "5165aa213ad8474a8bc4a53a1b8373809f95a10496291c4eb16c1949632ff93b" => :sierra
-    sha256 "4699e621b243e4af23b6bfde52365e6584321f5cb70b57218b27130f13fdf14e" => :el_capitan
-    sha256 "2a1e047fb1dbc8ca8da1269e28ea3aa869848f7c6da76aea17dde80d9138992e" => :yosemite
+    sha256 "ce6de0c8cad4501507b47457b9fcaa08048f82db0ed4ea6ad42a5901f6aecffe" => :sierra
+    sha256 "ea3c52aa05979ca8e68ca44dd94d61c6f91a040df90fb64ddc52e5f92c2c7a95" => :el_capitan
+    sha256 "049f0d2fb6a75d4ae7d4a9b02242cc286307d11b23793793879a2644263d7268" => :yosemite
   end
 
   depends_on "readline"
   depends_on "openssl"
   depends_on "libidn"
 
-  # Fix a cast issue, patch was merged upstream: https://github.com/lavv17/lftp/pull/307
-  # Remove when lftp-4.7.6 is released
-  patch do
-    url "https://github.com/lavv17/lftp/commit/259d642e1fea2ddf38763d49e8e7701f0a947d4c.diff"
-    sha256 "729e9d8e2759e79d2f2a07564dc740dada37870cd8bd7065b322bf827138d2c5"
-  end
-
   def install
-    # Fix "error: use of undeclared identifier 'SSL_OP_NO_TLSv1_1'"
-    # Reported 6 Feb 2017 https://github.com/lavv17/lftp/issues/317
-    # Equivalent to upstream PR from 14 Feb 2017 https://github.com/lavv17/lftp/pull/321
-    inreplace "src/Makefile.in", "$(ZLIB_CPPFLAGS) $(OPENSSL_CPPFLAGS)",
-                                 "$(OPENSSL_CPPFLAGS) $(ZLIB_CPPFLAGS)"
-
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--with-openssl=#{Formula["openssl"].opt_prefix}",

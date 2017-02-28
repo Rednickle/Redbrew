@@ -13,8 +13,6 @@ class WithReadline < Formula
     sha256 "7120022d5ba98fb74809c1beaafdaa495e8c1d691ae56d2027ade1d99b28bbd4" => :x86_64_linux
   end
 
-  option :universal
-
   depends_on "readline"
 
   def install

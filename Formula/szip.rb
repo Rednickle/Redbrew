@@ -14,10 +14,7 @@ class Szip < Formula
     sha256 "cd8595c8d090852b8555734198b6ffbe9c462b79ab94ebb8cf73d44ed0d8be80" => :x86_64_linux
   end
 
-  option :universal
-
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"

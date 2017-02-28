@@ -12,13 +12,12 @@ class XercesC < Formula
     sha256 "c7d461ebe0429d9a19e7e017af14a11435fc4f93ed83d2515b161e0f40c058b0" => :mavericks
   end
 
-  option :universal
-
-  depends_on "icu4c" unless OS.mac?
-  depends_on "curl" unless OS.mac?
+  unless OS.mac?
+    depends_on "curl"
+    depends_on "icu4c"
+  end
 
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"

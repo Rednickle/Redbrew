@@ -13,11 +13,7 @@ class Gsl < Formula
     sha256 "99d57cebb43fbc890e74e7e71a650b038f639c87ec1197e42ce3179b10378cf6" => :x86_64_linux
   end
 
-  option :universal
-
   def install
-    ENV.universal_binary if build.universal?
-
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make" # A GNU tool which doesn't support just make install! Shameful!
     system "make", "install"

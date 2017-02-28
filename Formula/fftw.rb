@@ -14,7 +14,6 @@ class Fftw < Formula
   end
 
   option "with-fortran", "Enable Fortran bindings"
-  option :universal
   option "with-mpi", "Enable MPI parallel transforms"
   option "with-openmp", "Enable OpenMP parallel transforms"
 
@@ -35,8 +34,6 @@ class Fftw < Formula
     args << "--disable-fortran" if build.without? "fortran"
     args << "--enable-mpi" if build.with? "mpi"
     args << "--enable-openmp" if build.with? "openmp"
-
-    ENV.universal_binary if build.universal?
 
     # single precision
     # enable-sse2, enable-avx and enable-avx2 work for both single and double precision

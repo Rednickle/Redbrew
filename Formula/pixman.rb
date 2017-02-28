@@ -15,13 +15,9 @@ class Pixman < Formula
 
   keg_only :provided_pre_mountain_lion
 
-  option :universal
-
   depends_on "pkg-config" => :build
 
   def install
-    ENV.universal_binary if build.universal?
-
     system "./configure", "--disable-dependency-tracking",
                           "--disable-gtk",
                           "--disable-mmx", # MMX assembler fails with Xcode 7

@@ -11,8 +11,6 @@ class GobjectIntrospection < Formula
     sha256 "d21fb29208db3849de33a169153a202a0c12c95ac89247537ba0b3f2980667ab" => :x86_64_linux
   end
 
-  option :universal
-
   depends_on "pkg-config" => :run
   depends_on "glib"
   depends_on "cairo"
@@ -31,7 +29,6 @@ class GobjectIntrospection < Formula
 
   def install
     ENV["GI_SCANNER_DISABLE_CACHE"] = "true"
-    ENV.universal_binary if build.universal?
     inreplace "giscanner/transformer.py", "/usr/share", "#{HOMEBREW_PREFIX}/share"
     inreplace "configure" do |s|
       s.change_make_var! "GOBJECT_INTROSPECTION_LIBDIR", "#{HOMEBREW_PREFIX}/lib"

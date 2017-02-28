@@ -13,10 +13,7 @@ class Ilmbase < Formula
     sha256 "130ba3192d0d30ccb991a3c3ae8d38545c8f90fb917070f2ba266c30ef4fca40" => :x86_64_linux
   end
 
-  option :universal
-
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"

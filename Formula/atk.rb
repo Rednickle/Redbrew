@@ -11,14 +11,11 @@ class Atk < Formula
     sha256 "0c0b75c4d171c78a23a102cb644f5c9238f520f3984f7f5b8a3f9925af10f406" => :x86_64_linux
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "gobject-introspection"
 
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--enable-introspection=yes"

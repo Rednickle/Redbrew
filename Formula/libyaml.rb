@@ -13,11 +13,7 @@ class Libyaml < Formula
     sha256 "3076b7e94154f8c7eb34f1c1da5097da20672c6fecde05e246cd36d17941abc6" => :x86_64_linux
   end
 
-  option :universal
-
   def install
-    ENV.universal_binary if build.universal?
-
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
   end

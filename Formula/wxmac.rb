@@ -64,7 +64,6 @@ class Wxmac < Formula
     end
   end
 
-  option :universal
   option "with-stl", "use standard C++ classes for everything"
   option "with-static", "build static libraries"
 
@@ -82,10 +81,6 @@ class Wxmac < Formula
       "--with-opengl",
       "--with-libjpeg",
       "--with-libtiff",
-      # Otherwise, even in superenv, the internal libtiff can pick
-      # up on a nonuniversal xz and fail
-      # https://github.com/Homebrew/legacy-homebrew/issues/22732
-      "--without-liblzma",
       "--with-libpng",
       "--with-zlib",
       "--enable-dnd",
@@ -108,11 +103,6 @@ class Wxmac < Formula
     if OS.mac?
       args << "--with-osx_cocoa"
       args << "--with-macosx-version-min=#{MacOS.version}"
-    end
-
-    if build.universal?
-      ENV.universal_binary
-      args << "--enable-universal_binary=#{Hardware::CPU.universal_archs.join(",")}"
     end
 
     args << "--enable-stl" if build.with? "stl"

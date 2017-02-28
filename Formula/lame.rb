@@ -15,13 +15,9 @@ class Lame < Formula
     sha256 "9caac6c02edaf9922e3dd906519079491ecbf65b4f84c8c50ca477c15c420f54" => :x86_64_linux
   end
 
-  option :universal
-
   depends_on "homebrew/dupes/ncurses" unless OS.mac?
 
   def install
-    ENV.universal_binary if build.universal?
-
     system "./configure", "--disable-dependency-tracking",
                           "--disable-debug",
                           "--prefix=#{prefix}",

@@ -13,17 +13,16 @@ class OpensslAT11 < Formula
     sha256 "ac24a33185f70958533f48a3baa52b1b16d30dae7eff99f8951bc4c968daa091" => :x86_64_linux
   end
 
+  keg_only :versioned_formula
+
+  option "without-test", "Skip build-time tests (not recommended)"
+
   resource "cacert" do
     # Update post_install when you update this resource.
     # homepage "http://curl.haxx.se/docs/caextract.html"
     url "https://curl.haxx.se/ca/cacert-2017-01-18.pem"
     sha256 "e62a07e61e5870effa81b430e1900778943c228bd7da1259dd6a955ee2262b47"
   end
-
-  keg_only :versioned_formula
-
-  option :universal
-  option "without-test", "Skip build-time tests (not recommended)"
 
   # Only needs 5.10 to run, but needs >5.13.4 to run the testsuite.
   # https://github.com/openssl/openssl/blob/4b16fa791d3ad8/README.PERL
@@ -32,14 +31,6 @@ class OpensslAT11 < Formula
     depends_on :perl => "5.14" if MacOS.version <= :mountain_lion
   else
     depends_on :perl => "5.10"
-  end
-
-  def arch_args
-    return { :i386 => %w[linux-generic32], :x86_64 => %w[linux-x86_64] } if OS.linux?
-    {
-      :x86_64 => %w[darwin64-x86_64-cc enable-ec_nistp_64_gcc_128],
-      :i386 => %w[darwin-i386-cc],
-    }
   end
 
   # SSLv2 died with 1.1.0, so no-ssl2 no longer required.
@@ -67,73 +58,21 @@ class OpensslAT11 < Formula
       ENV["PERL"] = Formula["perl"].opt_bin/"perl"
     end
 
-    if build.universal?
-      ENV.permit_arch_flags
-      archs = Hardware::CPU.universal_archs
-    elsif MacOS.prefer_64_bit?
-      archs = [Hardware::CPU.arch_64_bit]
-    else
-      archs = [Hardware::CPU.arch_32_bit]
+    if MacOS.prefer_64_bit? && OS.mac?
+      arch_args = %w[darwin64-x86_64-cc enable-ec_nistp_64_gcc_128]
+    elsif MacOS.prefer_64_bit? && OS.linux?
+      arch_args = %w[linux-x86_64]
+    elsif OS.mac?
+      arch_args = %w[darwin-i386-cc]
+    elsif OS.linux?
+      arch_args = %w[linux-generic32]
     end
 
-    dirs = []
-
-    archs.each do |arch|
-      if build.universal?
-        dir = "build-#{arch}"
-        dirs << dir
-        mkdir dir
-        mkdir "#{dir}/engines"
-      end
-
-      ENV.deparallelize
-      system "perl", "./Configure", *(configure_args + arch_args[arch])
-      system "make", "clean" if build.universal?
-      system "make"
-      if which "cmp"
-        system "make", "test" if build.with?("test")
-      else
-        opoo "Skipping `make check` due to unavailable `cmp`"
-      end
-
-      next unless build.universal?
-      cp "include/openssl/opensslconf.h", dir
-      cp Dir["*.?.?.dylib", "*.a", "apps/openssl"], dir
-      cp Dir["engines/**/*.dylib"], "#{dir}/engines"
-    end
-
+    ENV.deparallelize
+    system "perl", "./Configure", *(configure_args + arch_args)
+    system "make"
+    system "make", "test" if build.with?("test")
     system "make", "install", "MANDIR=#{man}", "MANSUFFIX=ssl"
-
-    if build.universal?
-      %w[libcrypto libssl].each do |libname|
-        system "lipo", "-create", "#{dirs.first}/#{libname}.1.1.dylib",
-                                  "#{dirs.last}/#{libname}.1.1.dylib",
-                       "-output", "#{lib}/#{libname}.1.1.dylib"
-        system "lipo", "-create", "#{dirs.first}/#{libname}.a",
-                                  "#{dirs.last}/#{libname}.a",
-                       "-output", "#{lib}/#{libname}.a"
-      end
-
-      Dir.glob("#{dirs.first}/engines/*.dylib") do |engine|
-        libname = File.basename(engine)
-        system "lipo", "-create", "#{dirs.first}/engines/#{libname}",
-                                  "#{dirs.last}/engines/#{libname}",
-                       "-output", "#{lib}/engines-1.1/#{libname}"
-      end
-
-      system "lipo", "-create", "#{dirs.first}/openssl",
-                                "#{dirs.last}/openssl",
-                     "-output", "#{bin}/openssl"
-
-      confs = archs.map do |arch|
-        <<-EOS.undent
-          #ifdef __#{arch}__
-          #{(buildpath/"build-#{arch}/opensslconf.h").read}
-          #endif
-        EOS
-      end
-      (include/"openssl/opensslconf.h").atomic_write confs.join("\n")
-    end
   end
 
   def openssldir

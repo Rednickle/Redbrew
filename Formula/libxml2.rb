@@ -42,13 +42,10 @@ class Libxml2 < Formula
 
   keg_only :provided_by_osx
 
-  option :universal
-
   depends_on :python => :optional
   depends_on "zlib" unless OS.mac?
 
   def install
-    ENV.universal_binary if build.universal?
     if build.head?
       inreplace "autogen.sh", "libtoolize", "glibtoolize"
       system "./autogen.sh"

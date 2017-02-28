@@ -13,12 +13,9 @@ class Libestr < Formula
     sha256 "527c833459655f5cd45bea32be982126f84b7eda4e2345436063cbe7daeeaa1d" => :x86_64_linux
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
 
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make"
     system "make", "install"

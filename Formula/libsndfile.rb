@@ -12,8 +12,6 @@ class Libsndfile < Formula
     sha256 "e6d551c7a7652b6f712537c28800f66a3a60a4e63eaa27a538ea04f3602ef3de" => :x86_64_linux
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -23,8 +21,6 @@ class Libsndfile < Formula
   depends_on "libvorbis"
 
   def install
-    ENV.universal_binary if build.universal?
-
     system "autoreconf", "-i"
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"

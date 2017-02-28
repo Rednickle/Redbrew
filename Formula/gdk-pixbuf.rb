@@ -11,7 +11,6 @@ class GdkPixbuf < Formula
     sha256 "01fddb161e462599f205b5f35263491cc1e4363624cef24822db0decb48a4412" => :x86_64_linux
   end
 
-  option :universal
   option "with-relocations", "Build with relocation support for bundles"
   option "without-modules", "Disable dynamic module loading"
   option "with-included-loaders=", "Build the specified loaders into gdk-pixbuf"
@@ -40,7 +39,6 @@ class GdkPixbuf < Formula
   end
 
   def install
-    ENV.universal_binary if build.universal?
     ENV.append_to_cflags "-DGDK_PIXBUF_LIBDIR=\\\"#{HOMEBREW_PREFIX}/lib\\\""
     args = %W[
       --disable-dependency-tracking

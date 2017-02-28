@@ -12,13 +12,9 @@ class Libmagic < Formula
     sha256 "3bbb0cc20fd18dee15a3df8c7a5c4783781ea4456d104900ca5e595a0a920c49" => :x86_64_linux
   end
 
-  option :universal
-
   depends_on :python => :optional
 
   def install
-    ENV.universal_binary if build.universal?
-
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",

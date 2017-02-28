@@ -15,15 +15,11 @@ class Gettext < Formula
 
   keg_only :shadowed_by_osx, "macOS provides the BSD gettext library and some software gets confused if both are in the library path."
 
-  option :universal
-
   # https://savannah.gnu.org/bugs/index.php?46844
   depends_on "libxml2" if MacOS.version <= :mountain_lion
   depends_on "homebrew/dupes/ncurses" unless OS.mac?
 
   def install
-    ENV.universal_binary if build.universal?
-
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--disable-debug",

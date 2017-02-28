@@ -14,10 +14,7 @@ class Popt < Formula
     sha256 "fbfb8248da18982c7b9e80c1a3ef7016c5f4e2afdbf8e0e1ba8ca086c87a5d55" => :x86_64_linux
   end
 
-  option :universal
-
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"

@@ -20,14 +20,12 @@ class Libconfig < Formula
     depends_on "libtool" => :build
   end
 
-  option :universal
-
-  depends_on "flex" => :build unless OS.mac?
-  depends_on "texinfo" => :build unless OS.mac?
+  unless OS.mac?
+    depends_on "flex" => :build
+    depends_on "texinfo" => :build
+  end
 
   def install
-    ENV.universal_binary if build.universal?
-
     system "autoreconf", "-i" if build.head?
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
 

@@ -21,8 +21,6 @@ class Pango < Formula
     depends_on "gtk-doc" => :build
   end
 
-  option :universal
-
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "cairo"
@@ -36,8 +34,6 @@ class Pango < Formula
   end
 
   def install
-    ENV.universal_binary if build.universal?
-
     args = %W[
       --disable-dependency-tracking
       --disable-silent-rules

@@ -13,8 +13,6 @@ class Libgcrypt < Formula
     sha256 "8615138d8bf2e964103c90a713a10d9e05c59fb0da61a5ba3d78a2dd9efe61df" => :x86_64_linux
   end
 
-  option :universal
-
   depends_on "libgpg-error"
   depends_on "libxslt" unless OS.mac?
 
@@ -32,19 +30,12 @@ class Libgcrypt < Formula
     # https://github.com/Homebrew/homebrew-core/issues/1957
     ENV.O1 if DevelopmentTools.clang_build_version >= 800
 
-    ENV.universal_binary if build.universal?
-
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--enable-static",
                           "--prefix=#{prefix}",
                           "--disable-asm",
                           "--with-libgpg-error-prefix=#{Formula["libgpg-error"].opt_prefix}"
-
-    if build.universal?
-      buildpath.install resource("config.h.ed")
-      system "ed -s - config.h <config.h.ed"
-    end
 
     # Parallel builds work, but only when run as separate steps
     system "make"

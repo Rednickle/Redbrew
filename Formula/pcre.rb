@@ -23,14 +23,11 @@ class Pcre < Formula
   end
 
   option "without-check", "Skip build-time tests (not recommended)"
-  option :universal
 
   depends_on "bzip2" unless OS.mac?
   depends_on "zlib" unless OS.mac?
 
   def install
-    ENV.universal_binary if build.universal?
-
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
