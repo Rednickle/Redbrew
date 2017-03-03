@@ -10,6 +10,7 @@ class Zlib < Formula
     sha256 "6765c51c09a7aa0ad7c06379a9c7a6b7b3b1bfaaf6a37d111cee44153eaab6e2" => :sierra
     sha256 "c37af2435a876fed3d8ced49698159ac7ab05efeed265de3c40a8e6c3868e332" => :el_capitan
     sha256 "1c3d8a42f15b8f8f5427e5038c76538178b2b57759c57101fb07cbbe92d0ba21" => :yosemite
+    sha256 "6f604280b9e056da163b81cef3076b2e39bbd2b8d3cc8c36d27c19c472c760a4" => :x86_64_linux
   end
 
   keg_only :provided_by_osx
