@@ -1,13 +1,13 @@
 class Gtkx3 < Formula
   desc "Toolkit for creating graphical user interfaces"
-  homepage "http://gtk.org/"
-  url "https://download.gnome.org/sources/gtk+/3.22/gtk+-3.22.8.tar.xz"
-  sha256 "c7254a88df5c17e9609cee9e848c3d0104512707edad4c3b4f256b131f8d3af1"
+  homepage "https://gtk.org/"
+  url "https://download.gnome.org/sources/gtk+/3.22/gtk+-3.22.9.tar.xz"
+  sha256 "e414542c96dc9966d40774451331bd8f73f77b6670226a5bbd057973a0c6a3e1"
 
   bottle do
-    sha256 "4a9acd9ab1746ea1647240ddb328a1f868191635af3d4d3863b05174e46915b0" => :sierra
-    sha256 "395896a9e5355cbf12624a561afc66bfdf10cb241e1fe696b7e13aac4f3cda15" => :el_capitan
-    sha256 "d5686fe43e5f51a2cc42ee787abcc02b2e6e3087a0e564910cf677bb7721ad4e" => :yosemite
+    sha256 "008d0ea9c247a6dc059605b51e2821dc95db5a290ca7640f685f9663ef0bc14d" => :sierra
+    sha256 "b694a37b88bc4b3ad7978dadd2cb801a2eb0c2875b5dfcbd445e77f38cf26cb3" => :el_capitan
+    sha256 "25214eee2ffcaa7c10346c3dcc690c8f3644e36b35c8392fb3936fd12652294c" => :yosemite
   end
 
   option "with-quartz-relocation", "Build with quartz relocation support"

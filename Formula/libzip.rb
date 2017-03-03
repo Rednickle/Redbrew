@@ -13,6 +13,8 @@ class Libzip < Formula
     sha256 "911e7bfc1b5cc78a4ea3149cf076c820b033e553d632993e2888ad502c6e6edc" => :x86_64_linux
   end
 
+  conflicts_with "libtcod", :because => "both install `zip.h` header"
+
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--mandir=#{man}",

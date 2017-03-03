@@ -1,15 +1,15 @@
 class Cassandra < Formula
   desc "Eventually consistent, distributed key-value store"
   homepage "https://cassandra.apache.org"
-  url "https://www.apache.org/dyn/closer.lua/cassandra/3.9/apache-cassandra-3.9-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/cassandra/3.9/apache-cassandra-3.9-bin.tar.gz"
-  sha256 "27cf88a6bce1ee2fb1a1c936094b9200ad844414c2b5b1491ba4991fcc0fd693"
+  url "https://www.apache.org/dyn/closer.lua/cassandra/3.10/apache-cassandra-3.10-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/cassandra/3.10/apache-cassandra-3.10-bin.tar.gz"
+  sha256 "c09c3f92d4f80d5639e3f1624c9eec45d25793bbb6b3e3640937b68a9c6d107f"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2c048a66624ea693bcdf76230675e4e777699c8d5afe9f57dfbb9fefb6d796db" => :sierra
-    sha256 "9d8bc3478ef69a724a21eaac3cd4ce3321dc57b90c995b5b42b5d07a0985c2f8" => :el_capitan
-    sha256 "b81d44d5ce433c625b62ecf1df47d18e769d4680e7e34b08926c412b83112a9c" => :yosemite
+    sha256 "11b492828d94c0316a198d301d8d2fa87b8b6e6ccfd6fd7699a45bb843b7c7f3" => :sierra
+    sha256 "7042f37d90f01fd9e1be6457a2514f1e190cc640980c23384832a6b20a1ba9e8" => :el_capitan
+    sha256 "7e5100da906eb7768a06b9672d5fab4c5d933242940e4cf3e3ea873465e9bf88" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard

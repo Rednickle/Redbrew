@@ -1,14 +1,14 @@
 class Notmuch < Formula
   desc "Thread-based email index, search, and tagging"
   homepage "https://notmuchmail.org"
-  url "https://notmuchmail.org/releases/notmuch-0.23.5.tar.gz"
-  sha256 "c62694b3c5f04db48ed3bbf37a801ea2a03439826c6be318e23b34de749ac267"
+  url "https://notmuchmail.org/releases/notmuch-0.23.7.tar.gz"
+  sha256 "f11bb10d71945f6c3f16d23117afc70810aa485878e66bb4bf43cc3f08038913"
 
   bottle do
     cellar :any
-    sha256 "86e86206746b46e81832c9e5690cfe25c88b8c58305f443ac752a275f228eb48" => :sierra
-    sha256 "2ea1ca92250f5e7c659fb1f5e4dc376466d723cd9c98c65713d69b721602c4fe" => :el_capitan
-    sha256 "02a47efc1509cf68d3f95326dc635bbf30d160e167574890cf6e8d01846bdd90" => :yosemite
+    sha256 "ebf9b8c0f49053b510e31ee5dcebc2dd9913ae18783a28ebe52afa234f0659a5" => :sierra
+    sha256 "c83777b82c72ba322b6900fcc0464d49ff3efc381e1cbaa6af35cb38130d113b" => :el_capitan
+    sha256 "4f9a747e5540b0729e8769b851bc413de636f985be1198274a44e413f6e6676b" => :yosemite
   end
 
   option "without-python", "Build without python support"
@@ -22,10 +22,10 @@ class Notmuch < Formula
   depends_on :ruby => ["1.9", :optional]
   depends_on "zlib" unless OS.mac?
 
-  # Requires zlib >= 1.2.10
+  # Requires zlib >= 1.2.11
   resource "zlib" do
-    url "http://zlib.net/zlib-1.2.10.tar.gz"
-    sha256 "8d7e9f698ce48787b6e1c67e6bff79e487303e66077e25cb9784ac8835978017"
+    url "http://zlib.net/zlib-1.2.11.tar.gz"
+    sha256 "c3e5e9fdd5004dcb542feda5ee4f0ff0744628baf8ed2dd5d66f8ca1197cb1a1"
   end if OS.mac?
 
   # Fix SIP issue with python bindings

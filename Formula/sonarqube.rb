@@ -1,8 +1,8 @@
 class Sonarqube < Formula
   desc "Manage code quality"
-  homepage "http://www.sonarqube.org/"
-  url "https://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-6.1.zip"
-  sha256 "21ecd2a1c85bfb438411e44d7b9edcca310e8d6fca96b6da97efe9481ff3b806"
+  homepage "https://www.sonarqube.org/"
+  url "https://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-6.2.zip"
+  sha256 "6bb187b8568d493131952e3b66e65940992f1a62c7962c1bf5801f6f48f1c160"
 
   bottle :unneeded
 
@@ -10,15 +10,12 @@ class Sonarqube < Formula
 
   def install
     # Delete native bin directories for other systems
-    rm_rf Dir["bin/{aix,hpux,solaris,windows}-*"]
-
-    rm_rf "bin/macosx-universal-32" unless OS.mac? && !MacOS.prefer_64_bit?
-    rm_rf "bin/macosx-universal-64" unless OS.mac? && MacOS.prefer_64_bit?
     rm_rf "bin/linux-x86-32" unless OS.linux? && !MacOS.prefer_64_bit?
     rm_rf "bin/linux-x86-64" unless OS.linux? && MacOS.prefer_64_bit?
+    rm_rf "bin/macosx-universal-32" unless OS.mac? && !MacOS.prefer_64_bit?
+    rm_rf "bin/macosx-universal-64" unless OS.mac? && MacOS.prefer_64_bit?
+    rm_rf Dir["bin/windows-*"]
 
-    # Delete Windows files
-    rm_f Dir["war/*.bat"]
     libexec.install Dir["*"]
 
     bin.install_symlink Dir[libexec/"bin/*/sonar.sh"].first => "sonar"
