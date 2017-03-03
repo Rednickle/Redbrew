@@ -3,7 +3,7 @@
 # elixir are compatible.
 class Erlang < Formula
   desc "Programming language for highly scalable real-time systems"
-  homepage "https://www.erlang.org/"
+  homepage "http://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
   url "https://github.com/erlang/otp/archive/OTP-19.2.3.tar.gz"
   sha256 "51dd3eda2b5e835588ed215328c3943b69bc353d892577411570641f37c51ad8"
@@ -34,12 +34,12 @@ class Erlang < Formula
   depends_on "wxmac" => :recommended # for GUI apps like observer
 
   resource "man" do
-    url "https://www.erlang.org/download/otp_doc_man_19.2.tar.gz"
+    url "http://erlang.org/download/otp_doc_man_19.2.tar.gz"
     sha256 "8a76ff3bb40a6d6a1552fa5a4204c8a3c7d99d2ea6f12684f02d038b23ad25cb"
   end
 
   resource "html" do
-    url "https://www.erlang.org/download/otp_doc_html_19.2.tar.gz"
+    url "http://erlang.org/download/otp_doc_html_19.2.tar.gz"
     sha256 "c373c8c1a9fe7433825088684932f3ded76f53d5b8a4d3d2a364263f1f783043"
   end
 
