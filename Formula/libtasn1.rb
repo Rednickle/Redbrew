@@ -13,10 +13,7 @@ class Libtasn1 < Formula
     sha256 "36ff77f3bb81bf6e3600b2b18a709d00a3478ce005b9d4c490fdfbbb85fff875" => :x86_64_linux
   end
 
-  option :universal
-
   def install
-    ENV.universal_binary if build.universal?
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking",
                           "--disable-silent-rules"
     system "make", "install"
