@@ -99,8 +99,8 @@ class Python3 < Formula
       --datadir=#{share}
       #{OS.mac? ? "--enable-framework=#{frameworks}" : "--enable-shared"}
       --without-ensurepip
-      --with-dtrace
     ]
+    args << "--with-dtrace" unless OS.linux?
 
     args << "--without-gcc" if ENV.compiler == :clang
     args << "--enable-loadable-sqlite-extensions" if build.with?("sqlite")
