@@ -3,19 +3,19 @@ class Ldc < Formula
   homepage "https://wiki.dlang.org/LDC"
 
   stable do
-    url "https://github.com/ldc-developers/ldc/releases/download/v1.1.0/ldc-1.1.0-src.tar.gz"
-    sha256 "3b95216cd664e140dca321a6364c2238c442c972d6ccca8b9a65cb02d2e47112"
+    url "https://github.com/ldc-developers/ldc/releases/download/v1.1.1/ldc-1.1.1-src.tar.gz"
+    sha256 "3d35253a76288a78939fea467409462f0b87461ffb89550eb0d9958e59eb7e97"
 
     resource "ldc-lts" do
-      url "https://github.com/ldc-developers/ldc/releases/download/v0.17.2/ldc-0.17.2-src.tar.gz"
-      sha256 "8498f0de1376d7830f3cf96472b874609363a00d6098d588aac5f6eae6365758"
+      url "https://github.com/ldc-developers/ldc/releases/download/v0.17.3/ldc-0.17.3-src.tar.gz"
+      sha256 "325bd540f7eb71c309fa0ee9ef6d196a75ee2c3ccf323076053e6b7b295c2dad"
     end
   end
 
   bottle do
-    sha256 "c90dc124f76b17207b98292c9465a8ff51171f2548a17bb6084cdd01364a7fea" => :sierra
-    sha256 "d8af5a6c932ff8ec723cc7c1221e9249d6b34209af031a7a653722bd07b447eb" => :el_capitan
-    sha256 "aa47565a0f7714bb0795b017a294f586b68510e4c10a93776c2c54f5cf2d65c4" => :yosemite
+    sha256 "786db8b395c0fdac2ca5a870b452501fb79b3882489463fe29f0a6c2503ed234" => :sierra
+    sha256 "deb0762cd588a6847c288f356dcc872d2509fed19645c3f79dd76512ba1cf133" => :el_capitan
+    sha256 "215d80adf9ef45ffc425d6aa0b4834e56b20eeeb197e6a662e25ceb1a0291471" => :yosemite
   end
 
   head do
