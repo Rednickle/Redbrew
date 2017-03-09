@@ -20,6 +20,7 @@ end
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "http://llvm.org/"
+  revision 1
 
   stable do
     url "http://llvm.org/releases/3.9.1/llvm-3.9.1.src.tar.xz"
@@ -80,11 +81,9 @@ class Llvm < Formula
 
   bottle do
     cellar :any if OS.mac?
-    rebuild 1
-    sha256 "ecbe016ff3f1bab84cfeda7f0282b27ee362275a56ad61930ab7fad54d01ba0b" => :sierra
-    sha256 "120469cdd56a8c3c80fbbe62020b2d99c825a3f2a766b39c7361a048b0ff4bdb" => :el_capitan
-    sha256 "b56f5ed9f5d693654b6400ab85e1540712e8d2f354c3d2fa1cea63687bfc51a0" => :yosemite
-    sha256 "4a7588d7c536e882031fa6abb223a891bab7d1f9bd0afe924223d7227f2e36d5" => :x86_64_linux
+    sha256 "9c9546ef53205305e2d22dcf7b67622ad1ce2d79ea6ebf0cd436010a77208df8" => :sierra
+    sha256 "e1d9ce5fa89d9014dae323146d62d9d1fb41921770525004c83cff89722087cb" => :el_capitan
+    sha256 "0898264d0917252e8b93fd7bc638195fba3f64c8c20a9c61bdfdff907c7662be" => :yosemite
   end
 
   head do
@@ -356,8 +355,8 @@ class Llvm < Formula
       }
     EOS
 
-    system "#{bin}/clang", "-L#{lib}", "-fopenmp", "-nobuiltininc",
-                           "-I#{lib}/clang/#{version}/include",
+    system "#{bin}/clang", "-L#{lib}", "-Wl,-rpath,#{lib}", "-fopenmp",
+                           "-nobuiltininc", "-I#{lib}/clang/#{version}/include",
                            "omptest.c", "-o", "omptest", *ENV["LDFLAGS"].split
     testresult = shell_output("./omptest")
 
@@ -436,7 +435,7 @@ class Llvm < Formula
               "-I#{MacOS.sdk_path}/usr/include",
               "-L#{lib}",
               "-Wl,-rpath,#{lib}", "test.cpp", "-o", "test"
-      assert_includes MachO::Tools.dylibs("test"), "#{opt_lib}/libc++.1.dylib"
+      assert_includes MachO::Tools.dylibs("test"), "@rpath/libc++.1.dylib"
       assert_equal "Hello World!", shell_output("./test").chomp
     end
   end
