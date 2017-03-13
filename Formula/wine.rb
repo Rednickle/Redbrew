@@ -5,7 +5,7 @@
 class Wine < Formula
   desc "Run Windows applications without a copy of Microsoft Windows"
   homepage "https://www.winehq.org/"
-  head "git://source.winehq.org/git/wine.git"
+  head "https://source.winehq.org/git/wine.git"
 
   stable do
     url "https://dl.winehq.org/wine/source/2.0/wine-2.0.tar.bz2"
@@ -111,7 +111,7 @@ class Wine < Formula
   end
 
   resource "freetype" do
-    url "https://downloads.sf.net/project/freetype/freetype2/2.7.1/freetype-2.7.1.tar.bz2"
+    url "https://downloads.sourceforge.net/project/freetype/freetype2/2.7.1/freetype-2.7.1.tar.bz2"
     mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.7.1.tar.bz2"
     sha256 "3a3bb2c4e15ffb433f2032f50a5b5a92558206822e22bfe8cbe339af4aa82f88"
   end
