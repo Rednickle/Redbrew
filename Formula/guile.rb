@@ -31,6 +31,7 @@ class Guile < Formula
     sha256 "1de107828ea1d6eb5448b56c9ddca985fdb36b89d0de77390d4a70a04581c964" => :sierra
     sha256 "d8fc01107161424ecf8c22bb2e1bc074b5805d70c2a0525c604996112c945fa7" => :el_capitan
     sha256 "e994c1c0ca0bf0f84d91838f2bf992eda7ada179b7eef6bbd4583fd74ce79fc9" => :yosemite
+    sha256 "655163831f39bec5ffeee7d8e837621f2c7d84b82c1dd98d0c0e7914110fc516" => :x86_64_linux
   end
 
   devel do
@@ -42,6 +43,7 @@ class Guile < Formula
     depends_on "automake" => :build
     depends_on "gettext" => :build
     depends_on "flex" => :build unless OS.mac?
+    depends_on "texinfo" => :build unless OS.mac?
 
     # Avoid undeclared identifier errors for SOCK_CLOEXEC and SOCK_NONBLOCK
     # Reported 19 Feb 2017 https://debbugs.gnu.org/cgi/bugreport.cgi?bug=25790
