@@ -10,6 +10,7 @@ class Pcre < Formula
     sha256 "0c6b0b755f8bb88f277ffca1bad6554c995936e42d32453addde97da58b72b31" => :sierra
     sha256 "f4851122510374c12e411ac2fad63ce8bd3c1590b6e152df64ad5b37b20cf200" => :el_capitan
     sha256 "6c69cca320bc1db83345100f0f8ff181cf16024d5842ac970f8d1f1cdc24e05d" => :yosemite
+    sha256 "2324c2d7a3548ad07b948c3bc509d8416b03dcc2b3a830b4784a83abcd1f67aa" => :x86_64_linux
   end
 
   head do
