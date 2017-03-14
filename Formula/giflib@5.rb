@@ -9,6 +9,7 @@ class GiflibAT5 < Formula
     sha256 "0c3bdbd8d9ac59a9c3ba36cf03de74ec83188ca13b2ff04b7c3a3edf2d9aa766" => :sierra
     sha256 "867ce9ecf58dc68878d61707d94dabbbb43283407be6f8df6df2bbafc45fcaeb" => :el_capitan
     sha256 "fc867b26db799a8fb35a228cea8a0beb08d859838aaec197139ccd757178f320" => :yosemite
+    sha256 "95d4cb058d7bd4ab22ca86cc9739cf44f15cbd8bc45a8fc30252b699a9bd9a68" => :x86_64_linux
   end
 
   keg_only :versioned_formula
