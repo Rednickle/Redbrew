@@ -9,6 +9,7 @@ class GnupgAT21 < Formula
     sha256 "ee987dda5cb9a4d128da093096460c0e4d728a27d03cd68e950f50f3619fa84f" => :sierra
     sha256 "0acf9dab68b75ffb1fba25aa077dbda6b9b89b1441b8fef8f97a95d41005bce6" => :el_capitan
     sha256 "b6ef2a5a322fa40ac7dd4fbf362ab0b55e635d127207e0ec40f9ea2a0eb96bb4" => :yosemite
+    sha256 "a435beb661d57f0c59bf8a833919817488a2f9dd33db0eba2ff79e67a2d67876" => :x86_64_linux
   end
 
   keg_only :versioned_formula
