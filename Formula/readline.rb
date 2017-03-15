@@ -36,7 +36,7 @@ class Readline < Formula
   depends_on "homebrew/dupes/ncurses" => :recommended unless OS.mac?
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--enable-multibyte",
+    system "./configure", "--prefix=#{prefix}",
       ("--with-curses" if build.with? "ncurses")
     args = []
     args << "SHLIB_LIBS=-lcurses" if build.with? "ncurses"
