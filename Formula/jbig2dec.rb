@@ -12,6 +12,7 @@ class Jbig2dec < Formula
     sha256 "d1de5bcbceaca8669c847ec754e7d44b844ad08abdef377efdd704e768d13c86" => :yosemite
     sha256 "e42e117812549edeae1f60e1900b0692994c75ebae186f611e16528fe0521c89" => :mavericks
     sha256 "42039ee0b62ad6b4a153c5a5e93609ac1b668626b044a23a450a58d4d71338a5" => :mountain_lion
+    sha256 "3a85ec73195e42b918d6201cfeb6ce664a6e7b752586fed4c463492d800f8a1f" => :x86_64_linux
   end
 
   depends_on "automake" => :build
