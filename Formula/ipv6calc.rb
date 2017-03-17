@@ -9,6 +9,7 @@ class Ipv6calc < Formula
     sha256 "a67a510d9788019d98836c391811b08af79f0bcbdfa0fc0b7c2ea119b7bc9afd" => :sierra
     sha256 "ef399281d676e0f9d65038fa7d43f7abca807e3aaf437366126a8a1a4f6a8bf6" => :el_capitan
     sha256 "ad4d9073a25962b4321648ee79658e04517d340025cc6ae346342d301cab3a40" => :yosemite
+    sha256 "b07be5fe101d46980cc1034c7087bf517bf71b7c7e045f19514fb99388a6d785" => :x86_64_linux
   end
 
   patch do
