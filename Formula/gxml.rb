@@ -1,38 +1,24 @@
 class Gxml < Formula
   desc "GObject-based XML DOM API"
   homepage "https://wiki.gnome.org/GXml"
-  url "https://download.gnome.org/sources/gxml/0.14/gxml-0.14.0.tar.xz"
-  sha256 "3e1f28ba6fc06b5c96a57c1f099ad3bc21683c54bb3b5e5bc4d7ceaff7c74066"
+  url "https://download.gnome.org/sources/gxml/0.14/gxml-0.14.1.tar.xz"
+  sha256 "9ed5277dd6d9f8aae4f185fe2f0151f146ab18871a48f378e59387383e0e0797"
 
   bottle do
-    sha256 "c278bf77ee2598784234af1831fbcec240884f8752f063b13be414e6771ea9e2" => :sierra
-    sha256 "d469006c231e641e60fad6af24830e7ca1228359c884e844461c90ea672596f5" => :el_capitan
-    sha256 "863382cf1bb3bac00b2443bf6d17701db99fc3c22be9ffd440c5043868b15936" => :yosemite
+    sha256 "cdbd97020891f93bf0a7b21d1b904ac601046a59b80869c7add37e629a671798" => :sierra
+    sha256 "84ebd4e28631dd103839bbe34d18d601b2f70f3ac731cf95e946dabd4b1230e9" => :el_capitan
+    sha256 "883c9f6bdc530b517f4bd8309c2d22513c94c26bab11a69147a2a845f592f17b" => :yosemite
   end
 
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "vala" => :build
-  # remove next three lines when next release is out
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
   depends_on "libxml2"
   depends_on "glib"
   depends_on "libgee"
   depends_on "gobject-introspection"
 
-  # see https://bugzilla.gnome.org/show_bug.cgi?id=779836
-  # should be fixed in next version
-  patch do
-    url "https://git.gnome.org/browse/gxml/patch/?id=0829fd0b83941efe85ec45e6c4900d76ca0c5b29"
-    sha256 "984b9a3e5a7cfa125b3b0b5e479d1f185005c1c90612f809e320a4d0617bb8a9"
-  end
-
   def install
-    # remove when next release is out
-    system "autoreconf", "-i"
-
     # ensures that the gobject-introspection files remain within the keg
     inreplace "gxml/Makefile.in" do |s|
       s.gsub! "@HAVE_INTROSPECTION_TRUE@girdir = $(INTROSPECTION_GIRDIR)",

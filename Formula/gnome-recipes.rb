@@ -1,19 +1,21 @@
 class GnomeRecipes < Formula
   desc "Formula for GNOME recipes"
   homepage "https://wiki.gnome.org/Apps/Recipes"
-  url "https://download.gnome.org/sources/gnome-recipes/0.22/gnome-recipes-0.22.0.tar.xz"
-  sha256 "ae4f669b1f1d20f2846ad1c9f6ba6580a15347288ef3d044972c2ba589d9c7b9"
+  url "https://download.gnome.org/sources/gnome-recipes/1.0/gnome-recipes-1.0.0.tar.xz"
+  sha256 "d291a597c9d5882b03ba21297d6b4b04cd1748cabebe8f4c97b97f9ece3df5c8"
 
   bottle do
-    sha256 "424dff1e1c41b075d33b30a5f35413b074ea586df5d4e41a335fed0b59b7888b" => :sierra
-    sha256 "ec1e29ce942aa9505709d2542fa576dc00b2cb10c32116c559fd72d1612b7f65" => :el_capitan
-    sha256 "bde7bc64a6026153990d9bfa775d7fbc311585c959ffbb002b28f966c8b46ebc" => :yosemite
+    sha256 "6f783969775cd0ebbfee608bf170fc1252749e476d5c5da9e5359f963945b15f" => :sierra
+    sha256 "9b18aa73043e900777cc2104d2c9dfc3078a9756be7464c1c38396438d4841b5" => :el_capitan
+    sha256 "dec400d3b3e7decc6830504daf67d785b4cebd5b8feceb1e2b2dcadae0ddd033" => :yosemite
   end
 
   depends_on "pkg-config" => :build
   depends_on "gtk+3"
   depends_on "gnome-icon-theme"
   depends_on "libcanberra"
+  depends_on "gnome-autoar"
+  depends_on "gspell"
 
   def install
     # orces use of gtk3-update-icon-cache instead of gtk-update-icon-cache. No bugreport should
@@ -24,8 +26,8 @@ class GnomeRecipes < Formula
                           "--disable-silent-rules",
                           "--disable-debug",
                           "--prefix=#{prefix}",
-                          "--disable-autoar",
-                          "--disable-gspell",
+                          "--enable-autoar",
+                          "--enable-gspell",
                           "--disable-schemas-compile"
     system "make", "install"
   end

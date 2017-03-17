@@ -3,16 +3,17 @@ class Ponyc < Formula
   homepage "http://www.ponylang.org"
   url "https://github.com/ponylang/ponyc/archive/0.11.3.tar.gz"
   sha256 "0b88009c636669192baee71589cd37885fe0f39bd24008ccc20780d925c18a2c"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1f4112eba10f69ed9e1fff0859b5d9e9dc6951eef086e83495adefd4d79af998" => :sierra
-    sha256 "8f5d9ceb3372ae3e949bc444bc8c413d3f055d62abde12b5a2db0c62ebf90dea" => :el_capitan
-    sha256 "1b8eaccb661c1022cd46068f79a1cf0aa77f2fecbefb20371e774577b941006f" => :yosemite
+    sha256 "9fce90dedcef838ba065caf2962b9982e193dc0f021ecac15a0a4b4a599b8680" => :sierra
+    sha256 "2ae598e71c41a822d12892cb3c73ffa944b7dcc151a73efe6f4a06c8c212b0fa" => :el_capitan
+    sha256 "418bae1246b895ded8c57fc0e3139cc29ee4c74d6ae575c2b808dc7d5b321286" => :yosemite
   end
 
   depends_on :macos => :yosemite
-  depends_on "llvm@3.8"
+  depends_on "llvm@3.9"
   depends_on "libressl"
   depends_on "pcre2"
   needs :cxx11
@@ -28,7 +29,7 @@ class Ponyc < Formula
 
   def install
     ENV.cxx11
-    ENV["LLVM_CONFIG"]="#{Formula["llvm@3.8"].opt_bin}/llvm-config-3.8"
+    ENV["LLVM_CONFIG"] = "#{Formula["llvm@3.9"].opt_bin}/llvm-config"
     system "make", "config=release", "destdir=#{prefix}", "install", "verbose=1"
   end
 
