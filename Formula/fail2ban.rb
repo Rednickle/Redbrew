@@ -11,6 +11,7 @@ class Fail2ban < Formula
     sha256 "1c546abfdb096457c188bd32f97f95368c9e11e0d9eb0b44172e130083b26205" => :el_capitan
     sha256 "024aff8d53788e55039de105bef04036b97cdde3b62a67a750a5b748f2b5389a" => :yosemite
     sha256 "f39d0f4aa122b1e40ce05ad9010901beefacd560c5d84960eed4448daa3915f2" => :mavericks
+    sha256 "e6bcc58b74c581a31fa40f7703d8cae95e16ab2e0988d122228e5cdfe4bcc83f" => :x86_64_linux
   end
 
   def install
