@@ -3,12 +3,12 @@ class GnomeBuilder < Formula
   homepage "https://wiki.gnome.org/Apps/Builder"
   url "https://download.gnome.org/sources/gnome-builder/3.22/gnome-builder-3.22.4.tar.xz"
   sha256 "d569446a83ab88872c265f238f8f42b5928a6b3eebb22fd1db3dbc0dd9128795"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "9696ce453f8388bf34a2bfb0259634accc017a505a46354829a6de1c651eaafa" => :sierra
-    sha256 "780097cac9ca5f467816c33bd1cec41d805bcb01633e15c0d0fb6a9d927e309d" => :el_capitan
-    sha256 "c16df3dd5f759fae32ed0e28c3f10ec5775bf0668f25e472f917d6dc0010dfc1" => :yosemite
+    sha256 "7de45091638dcc78c6a8e7857527cf49d5f25087029e18181c852d0ba981250f" => :sierra
+    sha256 "b50cb8c9c4de8377b687fc5cc8fddb521c6a4efec96804e20874dd861cddd441" => :el_capitan
+    sha256 "0c7e34722c5194f2cee31a543ea135350fbb5add06a75d377e5400e87d39e532" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -24,9 +24,10 @@ class GnomeBuilder < Formula
   depends_on "desktop-file-utils"
   depends_on "pcre"
   depends_on "json-glib"
+  depends_on "libsoup"
   depends_on "gjs" => :recommended
-  depends_on "vala" => :recommended
-  depends_on "devhelp" => :recommended
+  # restore vala support in gnome-builder 3.24.0
+  # depends_on "vala" => :recommended
   depends_on "ctags" => :recommended
   depends_on "meson" => :recommended
   depends_on :python3 => :optional
@@ -36,6 +37,7 @@ class GnomeBuilder < Formula
 
   def install
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["libgit2-glib"].opt_libexec/"libgit2/lib/pkgconfig"
+    ENV.delete("SDKROOT")
 
     ENV.cxx11
 
@@ -43,6 +45,7 @@ class GnomeBuilder < Formula
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
+                          "--enable-vala-pack-plugin=no",
                           "--disable-schemas-compile"
     system "make", "install"
   end
