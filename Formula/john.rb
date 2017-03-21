@@ -14,12 +14,12 @@ class John < Formula
 
   conflicts_with "john-jumbo", :because => "both install the same binaries"
 
-  patch :DATA # Taken from MacPorts, tells john where to find runtime files
+  patch :DATA if OS.mac? # Taken from MacPorts, tells john where to find runtime files
 
   def install
     ENV.deparallelize
     arch = MacOS.prefer_64_bit? ? "64" : "sse2"
-    target = "macosx-x86-#{arch}"
+    target = OS.mac? ? "macosx-x86-#{arch}" : "generic"
 
     system "make", "-C", "src", "clean", "CC=#{ENV.cc}", target
 
