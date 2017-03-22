@@ -7,7 +7,9 @@ class Libunwind < Formula
   # tag "linuxbrew"
 
   bottle do
-    sha256 "caabeb18f79a24a02caf5c3f706c144173310410bddd470160909b3eda391a41" => :x86_64_linux
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "1914b746f6788024b000c723b0102f30bf4b3402a5b509d7d62f1d1375ef8d2d" => :x86_64_linux
   end
 
   depends_on "xz"
