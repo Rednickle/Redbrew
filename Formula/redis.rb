@@ -7,11 +7,10 @@ class Redis < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "f81fe890f26ae067dc2ed32c4ad6dbf55d2cd9724063b21f95e206f62ba445c3" => :sierra
-    sha256 "2f709ceb3723e36a750a9c9d51b50899db4eec5f8c8842897cf7a4f6ad61c598" => :el_capitan
-    sha256 "055d4e34c11ec8ff342b4115d46d3f6157142776edb0356b4170d25e0e5429b7" => :yosemite
-    sha256 "1ff4eb7ada19eccd112f887ac1a20578a27d12765c6e41ce8887e0a99803859e" => :x86_64_linux
+    rebuild 2
+    sha256 "3166b2859236788d20d85dc65c64a103fda930ac3b9c32c8c768a8026a89dcba" => :sierra
+    sha256 "6e65bc7cb9e10bcd43c42eaca4713e454e9159e29d82bfff6a2143ab14be1b30" => :el_capitan
+    sha256 "101be1a5a2a5bb5842d5b8329d8988e68737e61b735310fd770db51810c6924b" => :yosemite
   end
 
   devel do
@@ -81,5 +80,6 @@ class Redis < Formula
 
   test do
     system bin/"redis-server", "--test-memory", "2"
+    %w[run db/redis log].each { |p| assert (var/p).exist?, "#{var/p} doesn't exist!" }
   end
 end

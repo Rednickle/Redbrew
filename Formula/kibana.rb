@@ -4,20 +4,19 @@ class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      :tag => "v5.2.1",
-      :revision => "03953ddae5c505842cc39d2df349b7e35f30ee5b"
+      :tag => "v5.2.2",
+      :revision => "6538112a1d244727704f4f11d152113a5133e871"
   head "https://github.com/elastic/kibana.git"
 
   bottle do
-    rebuild 2
-    sha256 "72c01043760154e9ff461f8977b7a5552a79733f49fab4c8cd3b8a869dc7a181" => :sierra
-    sha256 "db0702011efcec1afae4fc906f781953903f5e54ed439924bb81ecb65d1c38b7" => :el_capitan
-    sha256 "54f6e24dac4b6b2928515eb2e7d9f729d7c42a17e5c2819dc022b0d775c3545a" => :yosemite
+    sha256 "b7488a1b24a838e838d9363e2307b88c22174a4a6578d95efdce84195967b311" => :sierra
+    sha256 "5a6d7b70c9d07cd5ce9e1869f62ca09700bfa2cbf02cd33c4060a775a657aaab" => :el_capitan
+    sha256 "67064030f8b92983bb285b2a3c67721d84e40bb6e22494cd2beeefbcf37c87f3" => :yosemite
   end
 
   resource "node" do
-    url "https://nodejs.org/dist/v6.9.0/node-v6.9.0.tar.xz" # N.B. includes vendored dependencies
-    sha256 "656342ed8a84c95a36af902f309aeeca7103b16d61c02925bd37bd47d2194915"
+    url "https://nodejs.org/dist/v6.9.5/node-v6.9.5.tar.xz"
+    sha256 "d7fed1a354b29503f3e176d7fdb90b1a9de248e0ce9b3eb56cc26bb1f3d5b6b3"
   end
 
   def install
@@ -37,6 +36,7 @@ class Kibana < Formula
     platforms.delete(platform)
     sub = platforms.to_a.join("|")
     inreplace buildpath/"tasks/config/platforms.js", /('(#{sub})',?(?!;))/, "// \\1"
+    inreplace buildpath/"tasks/build/notice.js", /linux-x64/, "darwin-x64"
 
     # trick the build into thinking we've already downloaded the Node.js binary
     mkdir_p buildpath/".node_binaries/#{resource("node").version}/#{platform}"

@@ -1,14 +1,14 @@
 class Prest < Formula
   desc "Serve a RESTful API from any PostgreSQL database"
   homepage "https://github.com/nuveo/prest"
-  url "https://github.com/nuveo/prest/archive/v0.1.5.tar.gz"
-  sha256 "2246ddadb048bc4db207c1691cdfadc39c22dbb2cee8ec88d8d287c245979813"
+  url "https://github.com/nuveo/prest/archive/v0.1.6.tar.gz"
+  sha256 "28171f221c86ec01027b858f9070ebfdb0e766baa09bc48f597dc28b34b7c722"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1e60169a9d5672485066e5dad81a93c1f3d87f4b71beb7499d8582fad8cfd593" => :sierra
-    sha256 "1e79b9bb4d3926186480a501b590d44c636eeac615d1dba0506f78d6f8640084" => :el_capitan
-    sha256 "bb0d28d02e6a5c1d6b1addf7e25c2d78ff368dc4f6c4f4bf9237176dd9b0d01f" => :yosemite
+    sha256 "fa5fda665a4877e897d3c2c559a1e40d7360c9ec5eb7a741c90e71643a5a77b5" => :sierra
+    sha256 "54bd8ec3eb1b84ec0493319671e8424726ea1a6172db917a5248c14eec9bf97c" => :el_capitan
+    sha256 "bbb7035fd26519df79a9883151f9bf53218ae8965f7e81a75c4022c8a9d577a1" => :yosemite
   end
 
   depends_on "go" => :build
