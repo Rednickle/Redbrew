@@ -13,7 +13,10 @@ class Pcre2 < Formula
     sha256 "18f0559c760d65f0f2323499fcf306c04576b3630a46d61a3582a37fb103bf29" => :yosemite
   end
 
-  depends_on "bzip2" unless OS.mac?
+  unless OS.mac?
+    depends_on "bzip2"
+    depends_on "zlib"
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
