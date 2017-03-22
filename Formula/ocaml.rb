@@ -34,6 +34,12 @@ class Ocaml < Formula
     sha256 "10d51f63fd5b42e7506e692167953a486b02f36c6db72cf03502b1263135eba8" => :x86_64_linux
   end
 
+  devel do
+    url "https://github.com/ocaml/ocaml/archive/4.05.0+beta3.tar.gz"
+    version "4.05.0+beta3"
+    sha256 "3d82d5b32310d1c010981c12508e0ff63fb71b0c89457bcac813b7c291d4b61c"
+  end
+
   option "with-x11", "Install with the Graphics module"
   option "with-flambda", "Install with flambda support"
 

@@ -1,20 +1,48 @@
+require "language/go"
+
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
   url "https://github.com/hashicorp/terraform/archive/v0.9.1.tar.gz"
   sha256 "af8402ce84b85a16cfac3796c1f30f229a0d0e93585c6c618af2f25aae067e65"
+  revision 1
   head "https://github.com/hashicorp/terraform.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "163c6cf4610131caf9e15c6dff117d68425bdcc35dedb00d4069bf490607cb4e" => :sierra
-    sha256 "a253c2ee5889326787a780d58564d74517e3612a6bcea2ae48ffd7a5bad2c638" => :el_capitan
-    sha256 "c09b0675ba6cf2e3dbcc79a89181808a38ac40e1917b8c13c22e008d94691904" => :yosemite
+    sha256 "5c6ca950dffbd9456c9cdac4113a2643377cdec3fc3ed720568dcb8dd71bbb2e" => :sierra
+    sha256 "897de40afdd87c3f283f66f410ff2c17dc2cf2ce58b8672de5335e7b40c8e9f3" => :el_capitan
+    sha256 "f22d3b34455c7e34201be5b487d85336bee7d9e7d1e432989a3bc708b4c31f73" => :yosemite
   end
 
   depends_on "go" => :build
 
   conflicts_with "tfenv", :because => "tfenv symlinks terraform binaries"
+
+  go_resource "github.com/mitchellh/gox" do
+    url "https://github.com/mitchellh/gox.git",
+        :revision => "c9740af9c6574448fd48eb30a71f964014c7a837"
+  end
+
+  go_resource "github.com/mitchellh/iochan" do
+    url "https://github.com/mitchellh/iochan.git",
+        :revision => "87b45ffd0e9581375c491fef3d32130bb15c5bd7"
+  end
+
+  go_resource "github.com/kisielk/errcheck" do
+    url "https://github.com/kisielk/errcheck.git",
+        :revision => "9c1292e1c962175f76516859f4a88aabd86dc495"
+  end
+
+  go_resource "github.com/kisielk/gotool" do
+    url "https://github.com/kisielk/gotool.git",
+        :revision => "5e136deb9b893bbe6c8f23236ff4378b7a8a0dbb"
+  end
+
+  go_resource "golang.org/x/tools" do
+    url "https://go.googlesource.com/tools.git",
+        :revision => "26c35b4dcf6dfcb924e26828ed9f4d028c5ce05a"
+  end
 
   # vet error (please remove after next version release)
   # upstream issue: https://github.com/hashicorp/terraform/pull/12839
@@ -24,11 +52,17 @@ class Terraform < Formula
   end
 
   def install
-    dir = buildpath/"src/github.com/hashicorp/terraform"
-    dir.install buildpath.children - [buildpath/".brew_home"]
-
     ENV["GOPATH"] = buildpath
     ENV.prepend_create_path "PATH", buildpath/"bin"
+
+    dir = buildpath/"src/github.com/hashicorp/terraform"
+    dir.install buildpath.children - [buildpath/".brew_home"]
+    Language::Go.stage_deps resources, buildpath/"src"
+
+    %w[src/github.com/mitchellh/gox src/golang.org/x/tools/cmd/stringer
+       src/github.com/kisielk/errcheck].each do |path|
+      cd(path) { system "go", "install" }
+    end
 
     cd dir do
       # v0.6.12 - source contains tests which fail if these environment variables are set locally.

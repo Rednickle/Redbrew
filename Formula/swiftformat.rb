@@ -1,15 +1,15 @@
 class Swiftformat < Formula
   desc "Formatting tool for reformatting Swift code"
   homepage "https://github.com/nicklockwood/SwiftFormat"
-  url "https://github.com/nicklockwood/SwiftFormat/archive/0.27.0.tar.gz"
-  sha256 "d4a8ff807a5acf7a1c92045b793c06f83a5c273f8a7d77e838b49e40820f01a5"
+  url "https://github.com/nicklockwood/SwiftFormat/archive/0.27.1.tar.gz"
+  sha256 "348710b19731e50391b32cb1405db2b3de7f6271d743b673cf77e113e1ffe7f7"
 
   head "https://github.com/nicklockwood/SwiftFormat.git", :shallow => false
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5ba484a3e61782979f438933c75bae7f5e2953dc32ad2c24c6130c3aa597fc1a" => :sierra
-    sha256 "17018681fec4a6686633ee48bbe44e88e9054d3fff0e0d6d0db45bcbc1dc78fa" => :el_capitan
+    sha256 "0c398da1e88f7f251cf83ab78b60c5e1d1e068d799137396b06b9bdbf729af80" => :sierra
+    sha256 "aa38c76608ae2f4cafb7ca01e35554bfa70620bea9eb91e8ec3f3b2779ba841c" => :el_capitan
   end
 
   depends_on :xcode => ["8.0", :build]
