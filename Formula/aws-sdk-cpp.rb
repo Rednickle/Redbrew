@@ -17,6 +17,7 @@ class AwsSdkCpp < Formula
   option "without-http-client", "Don't include the libcurl HTTP client"
 
   depends_on "cmake" => :build
+  depends_on "curl" unless OS.mac?
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
