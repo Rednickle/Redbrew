@@ -7,18 +7,21 @@ class Purescript < Formula
   homepage "http://www.purescript.org"
   url "https://github.com/purescript/purescript/archive/v0.11.1.tar.gz"
   sha256 "0faa3e814c11eab064bfa5fe37215441872fc502e0ce531bbcf8e55170614994"
+  revision 1
   head "https://github.com/purescript/purescript.git"
 
   bottle do
-    sha256 "37b4cf978d9c00db5ef03501f5f773906f0a08f992a992ad7e0b94dbb33db524" => :sierra
-    sha256 "edeeb39297a6cfadebb814fb1f58ca287382b11976fe3eb2f0d3c41de6406f87" => :el_capitan
-    sha256 "ed00ab7968209ccf458ff4c16ce2a7a9ef7f005addb3decadc5205ebdc8c3173" => :yosemite
+    sha256 "f7fb4253fa3153d938290842f053b275f97733655f8cb22e6878d48ed7e53970" => :sierra
+    sha256 "ea3fb78fbd602e86349b38777fb595ab05c96322484c53f6a38e66e52004a25a" => :el_capitan
+    sha256 "06cc356852d5f056dc8b7a162b7de7bc3c6c5ce3cff6e2391586d35059b85ccc" => :yosemite
   end
 
   depends_on "ghc" => :build
   depends_on "cabal-install" => :build
 
   def install
+    inreplace (buildpath/"scripts").children, /^purs /, "#{bin}/purs "
+    bin.install (buildpath/"scripts").children
     install_cabal_package :using => ["alex", "happy"]
   end
 
@@ -31,7 +34,7 @@ class Purescript < Formula
       main :: Int
       main = 1
     EOS
-    system bin/"purs", "compile", test_module_path, "-o", test_target_path
+    system bin/"psc", test_module_path, "-o", test_target_path
     assert File.exist?(test_target_path)
   end
 end
