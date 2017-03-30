@@ -6,10 +6,10 @@ class NodeAT6 < Formula
   head "https://github.com/nodejs/node.git", :branch => "v6.x-staging"
 
   bottle do
-    sha256 "56a4a26647c5a401a0c5bb9777614209cff3d1c10cf02a4c54c9256784b19689" => :sierra
-    sha256 "6ea6eee7a7cf172c8abee188ce21d752d52d21d24a133a85b39293359a2fa2e4" => :el_capitan
-    sha256 "6c457e56ebb0e12d9aa83594c435cad5916e61776f2fec71c6fefa3b05c7867e" => :yosemite
-    sha256 "556301079ef7281d884200a1a4a971d1ec1abbb15bae337e7cacaccbdef5431d" => :x86_64_linux
+    rebuild 1
+    sha256 "f83795df78dcf5b33583805002bc7fda890ec9642d2c3c3fbba36e98cb72bf19" => :sierra
+    sha256 "2d1c737453430ba17f4c451204feb815c3f0c71c54b36e2ed0c06779a6ac84b0" => :el_capitan
+    sha256 "9542f2367b57693220ad123d2bf490802b4bf1cabbf1eb22ccc9029692536623" => :yosemite
   end
 
   keg_only :versioned_formula
@@ -34,8 +34,8 @@ class NodeAT6 < Formula
 
   # Keep in sync with main node formula
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-4.1.2.tgz"
-    sha256 "87f2c95f98ac53d14d9e2c506f8ecfe1d891cd7c970450c74bf0daff24d65cfd"
+    url "https://registry.npmjs.org/npm/-/npm-4.2.0.tgz"
+    sha256 "bb9883f1581fd10854a8b6917ae1279f691a8d89e81a0cbea77b614dbcd53f5a"
   end
 
   resource "icu4c" do
