@@ -14,7 +14,7 @@ class Gcc < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
 
-  head "https://gcc.gnu.org/svn/gcc/trunk", :using => :svn
+  head "svn://gcc.gnu.org/svn/gcc/trunk"
 
   stable do
     url "http://ftpmirror.gnu.org/gcc/gcc-5.3.0/gcc-5.3.0.tar.bz2"

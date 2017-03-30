@@ -3,6 +3,7 @@ class CrystaxNdk < Formula
   homepage "https://www.crystax.net/android/ndk"
 
   version "10.3.1"
+  revision 1
 
   if OS.linux?
     url "https://www.crystax.net/download/crystax-ndk-#{version}-linux-x86_64.tar.xz"
@@ -16,11 +17,6 @@ class CrystaxNdk < Formula
   end
 
   bottle :unneeded
-
-  depends_on "android-sdk" => :recommended
-
-  conflicts_with "android-ndk",
-    :because => "both install `ndk-build`, `ndk-gdb`, `ndk-stack`, `ndk-depends` and `ndk-which` binaries"
 
   def install
     bin.mkpath

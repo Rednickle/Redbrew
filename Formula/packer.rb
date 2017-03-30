@@ -6,6 +6,7 @@ class Packer < Formula
   url "https://github.com/mitchellh/packer.git",
       :tag => "v0.12.3",
       :revision => "c0f2b4768d7f9265adb1aa3c91a0206ca707d91e"
+  head "https://github.com/mitchellh/packer.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,6 +14,13 @@ class Packer < Formula
     sha256 "78acfb57ec3136f9d6a8e51f35d8ba737b68432496f0347887307799954e7261" => :el_capitan
     sha256 "a7ad3c8b1e29e5dbc0a3e2186a854734857dba886dbce220164e6515d53e1c76" => :yosemite
     sha256 "2e42aa5aa650c2ee58c96ddc854f6ec57027eb937618681b2f323944f7628326" => :x86_64_linux
+  end
+
+  devel do
+    url "https://github.com/mitchellh/packer.git",
+        :tag => "v1.0.0-rc2",
+        :revision => "7866d7df149f8ce5accb9e250c0576866d1b7333"
+    version "1.0.0-rc2"
   end
 
   depends_on :hg => :build

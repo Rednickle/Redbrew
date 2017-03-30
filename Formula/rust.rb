@@ -45,8 +45,6 @@ class Rust < Formula
     depends_on :python unless OS.mac?
   end
 
-  conflicts_with "multirust", :because => "both install rustc, rustdoc, cargo, rust-lldb, rust-gdb"
-
   # According to the official readme, GCC 4.7+ is required
   fails_with :gcc_4_0
   fails_with :gcc
