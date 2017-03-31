@@ -169,6 +169,7 @@ class Volatility < Formula
     res = resources.map(&:name).to_set - ["Pillow"]
 
     res.each do |r|
+      # appnope is only intended for macOS and refuses to install elsewhere
       venv.pip_install resource(r) unless r == "appnope"
     end
 
