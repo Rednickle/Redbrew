@@ -11,6 +11,7 @@ class Ipfs < Formula
     sha256 "224c3c9f0d172d734410800cd42d73ab95087323dce6d7827169c875a4a71204" => :sierra
     sha256 "49c6258ae0403a4be33daef5f24b1d678a2eb5d3d3e201fd833c7eb2e2993678" => :el_capitan
     sha256 "490912c4efcee5870cdcf6bc3e56473851142e9bc722801aaa4e3e926d723aa0" => :yosemite
+    sha256 "42428c0f202e83574b385c6ef2aed36b989fa8fa06dca05cc6a8aa4fe0905c05" => :x86_64_linux
   end
 
   depends_on "go" => :build
