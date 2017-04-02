@@ -9,6 +9,7 @@ class Plustache < Formula
     sha256 "5122ac5404ae416955c5f3b64b63bfd617a530e746194590d3779ae61710f281" => :sierra
     sha256 "d5a98c71ef6162127b0a9017a85e929effff39ce1d75318a75cfca93086ff922" => :el_capitan
     sha256 "71e6a72ee994c2cabe2639dcd030a2ee577c1ceced012027766e108812bf7505" => :yosemite
+    sha256 "23651517f7ffcb56061ee201b400b638756baa04f80b950b422e84ed3dc7bae6" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
