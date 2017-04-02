@@ -9,6 +9,7 @@ class Stunnel < Formula
     sha256 "6c40cc75d38798febde053d609a5829a32098e35bc597a354d9250823c9c6195" => :sierra
     sha256 "1184496138c87b15e3aee13b1499a531e6bdf85b5c28ab9312de4468d8c4da7e" => :el_capitan
     sha256 "e71dae8c515ca851e64e60418d54bc12791bddbd1eee4126b9e960ec89fafcd9" => :yosemite
+    sha256 "e271f52fff26fcb78c921b9bac465444719cba1abd7ea113144bf807e436c7e6" => :x86_64_linux
   end
 
   # Please revision me whenever OpenSSL is updated
