@@ -13,6 +13,7 @@ class Krb5 < Formula
   keg_only :provided_by_osx
 
   depends_on "openssl"
+  depends_on "bison" unless OS.mac?
 
   def install
     cd "src" do
