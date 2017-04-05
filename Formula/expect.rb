@@ -11,7 +11,11 @@ class Expect < Formula
   end
 
   option "with-threads", "Build with multithreading support"
-  option "with-brewed-tk", "Use Homebrew's Tk (has optional Cocoa and threads support)"
+  if OS.mac?
+    option "with-brewed-tk", "Use Homebrew's Tk (has optional Cocoa and threads support)"
+  else
+    option "without-brewed-tk", "Don't use Homebrew's Tk"
+  end
 
   deprecated_option "enable-threads" => "with-threads"
 
