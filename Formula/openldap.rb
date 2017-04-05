@@ -17,6 +17,10 @@ class Openldap < Formula
 
   depends_on "berkeley-db@4" => :optional
   depends_on "openssl"
+  unless OS.mac?
+    depends_on "groff" => :build
+    depends_on "util-linux" # for libuuid.so.1
+  end
 
   def install
     args = %W[
