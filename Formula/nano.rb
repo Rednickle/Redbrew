@@ -19,6 +19,7 @@ class Nano < Formula
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "ncurses"
+  depends_on "libmagic" unless OS.mac?
 
   def install
     # Otherwise SIGWINCH will not be defined
