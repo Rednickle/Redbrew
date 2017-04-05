@@ -19,29 +19,34 @@ class Openssh < Formula
   depends_on "openssl"
   depends_on "ldns" => :optional
   depends_on "pkg-config" => :build if build.with? "ldns"
+  unless OS.mac?
+    depends_on "libedit"
+    depends_on "krb5"
+  end
 
   # Both these patches are applied by Apple.
   patch do
     url "https://raw.githubusercontent.com/Homebrew/patches/1860b0a74/openssh/patch-sandbox-darwin.c-apple-sandbox-named-external.diff"
     sha256 "d886b98f99fd27e3157b02b5b57f3fb49f43fd33806195970d4567f12be66e71"
-  end
+  end if OS.mac?
 
   patch do
     url "https://raw.githubusercontent.com/Homebrew/patches/d8b2d8c2/openssh/patch-sshd.c-apple-sandbox-named-external.diff"
     sha256 "3505c58bf1e584c8af92d916fe5f3f1899a6b15cc64a00ddece1dc0874b2f78f"
-  end
+  end if OS.mac?
 
   def install
-    ENV.append "CPPFLAGS", "-D__APPLE_SANDBOX_NAMED_EXTERNAL__"
+    ENV.append "CPPFLAGS", "-D__APPLE_SANDBOX_NAMED_EXTERNAL__" if OS.mac?
 
     args = %W[
       --with-libedit
       --with-kerberos5
       --prefix=#{prefix}
       --sysconfdir=#{etc}/ssh
-      --with-pam
       --with-ssl-dir=#{Formula["openssl"].opt_prefix}
     ]
+    args << "--with-pam" if OS.mac?
+    args << "--with-privsep-path=#{var}/lib/sshd" if OS.linux?
 
     args << "--with-ldns" if build.with? "ldns"
 
