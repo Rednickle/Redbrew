@@ -22,7 +22,7 @@ class Rsync < Formula
     apply "patches/fileflags.diff",
           "patches/crtimes.diff",
           "patches/hfs-compression.diff"
-  end
+  end if OS.mac?
 
   def install
     system "./prepare-source"
