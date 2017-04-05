@@ -22,6 +22,11 @@ class TclTk < Formula
   option "without-tcllib", "Don't build tcllib (utility modules)"
   option "without-tk", "Don't build the Tk (window toolkit)"
 
+  unless OS.mac?
+    depends_on :x11 => :optional
+    depends_on "pkg-config" => :build if build.with? "x11"
+  end
+
   resource "tk" do
     url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.6/tk8.6.6-src.tar.gz"
     mirror "ftp://ftp.tcl.tk/pub/tcl/tcl8_6/tk8.6.6-src.tar.gz"
@@ -36,7 +41,7 @@ class TclTk < Formula
 
   # sqlite won't compile on Tiger due to missing function;
   # patch submitted upstream: http://thread.gmane.org/gmane.comp.db.sqlite.general/83257
-  patch :DATA if MacOS.version < :leopard
+  patch :DATA if OS.mac? && MacOS.version < :leopard
 
   def install
     args = ["--prefix=#{prefix}", "--mandir=#{man}"]
@@ -58,7 +63,11 @@ class TclTk < Formula
         args = ["--prefix=#{prefix}", "--mandir=#{man}", "--with-tcl=#{lib}"]
         args << "--enable-threads" if build.with? "threads"
         args << "--enable-64bit" if MacOS.prefer_64_bit?
-        args << "--enable-aqua=yes" << "--without-x"
+        if build.with? "x11"
+          args << "--with-x"
+        else
+          args << "--enable-aqua=yes" << "--without-x"
+        end
 
         cd "unix" do
           system "./configure", *args
