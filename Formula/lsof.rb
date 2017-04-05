@@ -1,7 +1,8 @@
 class LsofDownloadStrategy < CurlDownloadStrategy
   def stage
     super
-    safe_system "/usr/bin/tar", "xf", "#{name}_#{version}_src.tar"
+    tar = OS.mac? ? "/usr/bin/tar" : "tar"
+    safe_system tar, "xf", "#{name}_#{version}_src.tar"
     cd "#{name}_#{version}_src"
   end
 end
