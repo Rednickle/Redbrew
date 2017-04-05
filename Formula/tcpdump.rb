@@ -14,7 +14,11 @@ class Tcpdump < Formula
   end
 
   depends_on "openssl"
-  depends_on "libpcap" => :optional
+  if OS.mac?
+    depends_on "libpcap" => :optional
+  else
+    depends_on "libpcap"
+  end
 
   def install
     system "./configure", "--prefix=#{prefix}",
