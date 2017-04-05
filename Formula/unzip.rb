@@ -15,6 +15,8 @@ class Unzip < Formula
 
   keg_only :provided_by_osx
 
+  depends_on "bzip2" unless OS.mac?
+
   # Upstream is unmaintained so we use the Ubuntu unzip-6.0-20ubuntu1 patchset:
   # http://changelogs.ubuntu.com/changelogs/pool/main/u/unzip/unzip_6.0-20ubuntu1/changelog
   patch do
@@ -49,7 +51,7 @@ class Unzip < Formula
       "D_USE_BZ2=-DUSE_BZIP2",
       "L_BZ2=-lbz2",
       "macosx",
-      "LFLAGS1=-liconv"
+      *("LFLAGS1=-liconv" if OS.mac?)
     system "make", "prefix=#{prefix}", "MANDIR=#{man1}", "install"
   end
 
