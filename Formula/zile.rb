@@ -24,7 +24,7 @@ class Zile < Formula
   depends_on "pkg-config" => :build
   depends_on "help2man" => :build
   depends_on "bdw-gc"
-  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+  depends_on "ncurses" unless OS.mac?
 
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"

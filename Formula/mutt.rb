@@ -43,8 +43,8 @@ class Mutt < Formula
   unless OS.mac?
     depends_on "bzip2"
     depends_on "zlib"
-    depends_on "homebrew/dupes/krb5"
-    depends_on "homebrew/dupes/ncurses"
+    depends_on "krb5"
+    depends_on "ncurses"
   end
 
   conflicts_with "tin",

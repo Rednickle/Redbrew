@@ -39,7 +39,7 @@ class Gdb < Formula
   depends_on "python" => :optional
   depends_on "guile" => :optional
   depends_on "texinfo" => :build unless OS.mac?
-  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+  depends_on "ncurses" unless OS.mac?
 
   if MacOS.version >= :sierra
     patch do

@@ -14,7 +14,7 @@ class Libtecla < Formula
     sha256 "d51094034ca406b255ddd2a44c9eeb078ace5502b5bb9b9421e8260a0beb1e10" => :x86_64_linux
   end
 
-  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+  depends_on "ncurses" unless OS.mac?
 
   def install
     ENV.deparallelize

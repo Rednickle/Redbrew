@@ -15,7 +15,7 @@ class Lame < Formula
     sha256 "9caac6c02edaf9922e3dd906519079491ecbf65b4f84c8c50ca477c15c420f54" => :x86_64_linux
   end
 
-  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+  depends_on "ncurses" unless OS.mac?
 
   def install
     system "./configure", "--disable-dependency-tracking",

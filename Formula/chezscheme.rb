@@ -13,7 +13,7 @@ class Chezscheme < Formula
   end
 
   depends_on :x11 => :build
-  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+  depends_on "ncurses" unless OS.mac?
 
   # Fixes bashism in makefiles/installsh
   # Remove on next release

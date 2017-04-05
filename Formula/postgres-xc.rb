@@ -24,7 +24,7 @@ class PostgresXc < Formula
   depends_on "libxml2" if MacOS.version <= :leopard # Leopard libxml is too old
   depends_on "ossp-uuid" => :recommended
   depends_on :python => :optional
-  depends_on "homebrew/dupes/krb5" unless OS.mac?
+  depends_on "krb5" unless OS.mac?
   depends_on "libxslt" unless OS.mac?
   depends_on "perl" unless OS.mac? || build.without?("perl")
   depends_on "flex" => :build unless OS.mac?

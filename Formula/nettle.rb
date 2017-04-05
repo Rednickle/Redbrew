@@ -14,7 +14,7 @@ class Nettle < Formula
   end
 
   depends_on "gmp"
-  depends_on "homebrew/dupes/m4" => :build unless OS.mac?
+  depends_on "m4" => :build unless OS.mac?
 
   def install
     # macOS doesn't use .so libs. Emailed upstream 04/02/2016.

@@ -14,7 +14,7 @@ class Dhex < Formula
     sha256 "a0b10f1a288319a99a878041ab26d3fcae0cc65ed8b0d198091a31cfdf0db1b4" => :x86_64_linux
   end
 
-  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+  depends_on "ncurses" unless OS.mac?
 
   def install
     inreplace "Makefile", "$(DESTDIR)/man", "$(DESTDIR)/share/man"

@@ -13,7 +13,7 @@ class Cscope < Formula
     sha256 "fc29371aab2eefa041da5c483648fab3558f0149c47884abd6133c9817ac9bca" => :x86_64_linux
   end
 
-  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+  depends_on "ncurses" unless OS.mac?
 
   def install
     system "./configure", "--prefix=#{prefix}",

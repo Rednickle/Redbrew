@@ -28,7 +28,7 @@ class Mysql < Formula
   depends_on "pidof" unless MacOS.version >= :mountain_lion || !OS.mac?
   depends_on "openssl"
   # Fix error: Cannot find system editline libraries.
-  depends_on "homebrew/dupes/libedit" unless OS.mac?
+  depends_on "libedit" unless OS.mac?
 
   # https://github.com/Homebrew/homebrew-core/issues/1475
   # Needs at least Clang 3.3, which shipped alongside Lion.

@@ -20,7 +20,7 @@ class Global < Formula
     depends_on "bison" => :build
     depends_on "flex" => :build
     ## gperf is provided by OSX Command Line Tools.
-    depends_on "homebrew/dupes/gperf" => :build unless OS.mac?
+    depends_on "gperf" => :build unless OS.mac?
     depends_on "libtool" => :build
   end
 
@@ -33,7 +33,7 @@ class Global < Formula
   depends_on "ctags" => :optional
   unless OS.mac?
     depends_on "libtool" => :run
-    depends_on "homebrew/dupes/ncurses"
+    depends_on "ncurses"
   end
 
   skip_clean "lib/gtags"

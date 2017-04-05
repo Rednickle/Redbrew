@@ -27,7 +27,7 @@ class MobileShell < Formula
   depends_on :perl => "5.14" if MacOS.version <= :mountain_lion
   depends_on "tmux" => :build if build.with?("test") || build.bottle?
   unless OS.mac?
-    depends_on "homebrew/dupes/ncurses"
+    depends_on "ncurses"
     depends_on "openssl"
   end
 

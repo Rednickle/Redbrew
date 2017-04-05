@@ -41,7 +41,7 @@ class Subversion < Formula
     depends_on "expat"
     depends_on "libmagic"
     depends_on "zlib"
-    depends_on "homebrew/dupes/krb5" => :recommended
+    depends_on "krb5" => :recommended
     depends_on "util-linux" if OS.linux? && build.with?("serf") # for libuuid
   end
 

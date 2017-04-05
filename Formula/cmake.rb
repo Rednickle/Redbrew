@@ -26,7 +26,7 @@ class Cmake < Formula
     depends_on "bzip2"
     depends_on "curl"
     depends_on "libidn" => :optional
-    depends_on "homebrew/dupes/ncurses"
+    depends_on "ncurses"
   end
 
   # The `with-qt` GUI option was removed due to circular dependencies if

@@ -10,7 +10,7 @@ class UtilLinux < Formula
     sha256 "38be6d640a17c5a615aa27e9383536cf54623fda6e31ddf4357b4cf0af8de2e8" => :x86_64_linux
   end
 
-  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+  depends_on "ncurses" unless OS.mac?
   depends_on "linuxbrew/extra/linux-pam" => :optional
 
   def install

@@ -13,7 +13,7 @@ class Multitail < Formula
     sha256 "1f91b4097931555c64e2e9bb80c94b8c3f92bb46233681aa853e254926cacedc" => :x86_64_linux
   end
 
-  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+  depends_on "ncurses" unless OS.mac?
 
   def install
     system "make", "-f", OS.mac? ? "makefile.macosx" : "Makefile", "multitail", "DESTDIR=#{HOMEBREW_PREFIX}"

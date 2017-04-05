@@ -15,7 +15,7 @@ class W3m < Formula
   depends_on "pkg-config" => :build
   depends_on "bdw-gc"
   depends_on "openssl"
-  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+  depends_on "ncurses" unless OS.mac?
   depends_on "libbsd" unless OS.mac?
   depends_on "zlib" unless OS.mac?
 

@@ -19,7 +19,7 @@ class Sl < Formula
     build 318
   end
 
-  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+  depends_on "ncurses" unless OS.mac?
 
   def install
     system "make", "-e"

@@ -18,7 +18,7 @@ class Ansible < Formula
   depends_on "libyaml"
   depends_on "openssl@1.1"
   depends_on "libffi" unless OS.mac?
-  depends_on "homebrew/dupes/krb5" unless OS.mac?
+  depends_on "krb5" unless OS.mac?
   depends_on "libxslt" unless OS.mac?
 
   # Collect requirements from:

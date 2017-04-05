@@ -17,7 +17,7 @@ class Gettext < Formula
 
   # https://savannah.gnu.org/bugs/index.php?46844
   depends_on "libxml2" if MacOS.version <= :mountain_lion
-  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+  depends_on "ncurses" unless OS.mac?
 
   def install
     system "./configure", "--disable-dependency-tracking",

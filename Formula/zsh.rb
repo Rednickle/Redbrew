@@ -35,7 +35,7 @@ class Zsh < Formula
   depends_on "gdbm"
   depends_on "pcre"
   depends_on "texinfo" unless OS.mac?
-  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+  depends_on "ncurses" unless OS.mac?
 
   def install
     system "Util/preconfig" if build.head?

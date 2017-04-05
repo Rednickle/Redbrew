@@ -13,7 +13,7 @@ class Bvi < Formula
     sha256 "8259c8f5e2928b0ec8bae46c9390f082b5f02a6278ef907cbc74d7ce9babb228" => :x86_64_linux
   end
 
-  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+  depends_on "ncurses" unless OS.mac?
 
   def install
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"

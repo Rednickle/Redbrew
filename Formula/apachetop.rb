@@ -17,7 +17,7 @@ class Apachetop < Formula
     sha256 "fcb52fe6f5c4cbe8a3936b6ac2be6ac311e331304d2f639d35d4ae1792491a35" => :x86_64_linux
   end
 
-  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+  depends_on "ncurses" unless OS.mac?
   depends_on "readline" unless OS.mac?
   depends_on "pcre" => :recommended unless OS.mac?
 

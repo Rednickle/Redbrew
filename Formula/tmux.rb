@@ -24,7 +24,7 @@ class Tmux < Formula
   depends_on "pkg-config" => :build
   depends_on "libevent"
   depends_on "utf8proc" => :optional
-  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+  depends_on "ncurses" unless OS.mac?
 
   resource "completion" do
     url "https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/homebrew_1.0.0/completions/tmux"

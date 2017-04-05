@@ -16,7 +16,7 @@ class Flex < Formula
   depends_on "help2man" => :build
   depends_on "gettext"
   unless OS.mac?
-    depends_on "homebrew/dupes/m4"
+    depends_on "m4"
     depends_on "bison" => :build
   end
 

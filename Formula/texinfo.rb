@@ -18,7 +18,7 @@ class Texinfo < Formula
     of these files.
   EOS
 
-  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+  depends_on "ncurses" unless OS.mac?
 
   def install
     system "./configure", "--disable-dependency-tracking",

@@ -24,7 +24,7 @@ class Fish < Formula
   end
 
   depends_on "pcre2"
-  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+  depends_on "ncurses" unless OS.mac?
 
   def install
     system "autoreconf", "--no-recursive" if build.head?

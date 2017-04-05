@@ -11,7 +11,7 @@ class Bsdmainutils < Formula
     sha256 "b52153c929451ce34b8b0f3f28080b15477b74600527d5def404739f6f0779d6" => :x86_64_linux
   end
 
-  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+  depends_on "ncurses" unless OS.mac?
   depends_on "libbsd" unless OS.mac?
 
   def install

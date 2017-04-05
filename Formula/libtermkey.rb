@@ -14,7 +14,7 @@ class Libtermkey < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libtool" => :build
-  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+  depends_on "ncurses" unless OS.mac?
 
   def install
     system "make", "PREFIX=#{prefix}"

@@ -44,7 +44,7 @@ class Pulseaudio < Formula
   depends_on "jack" => :optional
 
   unless OS.mac?
-    depends_on "homebrew/dupes/m4" => :build
+    depends_on "m4" => :build
     depends_on "libcap"
     depends_on "XML::Parser" => :perl
   end

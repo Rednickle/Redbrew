@@ -35,8 +35,8 @@ class Ghc < Formula
 
   depends_on :macos => :lion
   depends_on "sphinx-doc" => :build if build.with? "docs"
-  depends_on "homebrew/dupes/m4" => :build unless OS.mac?
-  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+  depends_on "m4" => :build unless OS.mac?
+  depends_on "ncurses" unless OS.mac?
 
   # This dependency is needed for the bootstrap executables.
   depends_on "gmp" => :build if OS.linux?
