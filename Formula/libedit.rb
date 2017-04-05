@@ -14,12 +14,17 @@ class Libedit < Formula
 
   keg_only :provided_by_osx
 
+  depends_on "ncurses" unless OS.mac?
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--enable-widec",
                           "--prefix=#{prefix}"
     system "make", "install"
+
+    # Conflicts with ncurses.
+    mv man3/"history.3", man3/"history_libedit.3" unless OS.mac?
   end
 
   test do
