@@ -11,6 +11,7 @@ class Tcpdump < Formula
     sha256 "18012541c4b00cd8438ee1c2c5a4b465821da228ba8239f28bfbeddbd64d0b30" => :sierra
     sha256 "097e031e8e81fa045a0e30e4566051fb689f6766ab39eb1c39ae124dacebc06b" => :el_capitan
     sha256 "b21c9593fe39fff0e7dd9e057a16eaa9686c13fa8a806ac4e0e5f118aa14881b" => :yosemite
+    sha256 "1ec8666d232afeaa2cea439094cf543523810647e3bfde41bc56ef9765d25491" => :x86_64_linux
   end
 
   depends_on "openssl"
