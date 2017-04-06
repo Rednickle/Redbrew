@@ -14,10 +14,10 @@ class Postgresql < Formula
   end
 
   option "without-perl", "Build without Perl support"
-  if OS.linux?
-    option "with-tcl", "Build with Tcl support"
-  else
+  if OS.mac?
     option "without-tcl", "Build without Tcl support"
+  else
+    option "with-tcl", "Build with Tcl support"
   end
   option "with-dtrace", "Build with DTrace support"
 
@@ -31,10 +31,12 @@ class Postgresql < Formula
 
   option "with-python", "Enable PL/Python2"
   depends_on :python => :optional
-  depends_on "libxslt" unless OS.mac?
-  depends_on "util-linux" if OS.linux? # for libuuid
-  depends_on "homebrew/dupes/tcl-tk" if build.with?("tcl") && !OS.mac?
-  depends_on "perl" => :recommended unless OS.mac? # for libperl.so
+  unless OS.mac?
+    depends_on "libxslt"
+    depends_on "perl" => :recommended # for libperl.so
+    depends_on "tcl-tk" if build.with? "tcl"
+    depends_on "util-linux" # for libuuid
+  end
 
   option "with-python3", "Enable PL/Python3 (incompatible with --with-python)"
   depends_on :python3 => :optional

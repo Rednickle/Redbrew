@@ -40,8 +40,10 @@ class Curl < Formula
   depends_on "c-ares" => :optional
   depends_on "libmetalink" => :optional
   depends_on "nghttp2" => :optional
-  depends_on "krb5" if build.with?("gssapi") && !OS.mac?
-  depends_on "homebrew/dupes/openldap" => :optional unless OS.mac?
+  unless OS.mac?
+    depends_on "krb5" if build.with? "gssapi"
+    depends_on "openldap" => :optional
+  end
 
   def install
     args = %W[

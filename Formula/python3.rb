@@ -28,8 +28,10 @@ class Python3 < Formula
   depends_on "xz" => :recommended # for the lzma module added in 3.3
   depends_on "tcl-tk" => :optional
   depends_on "sphinx-doc" => [:build, :optional]
-  depends_on "bzip2" unless OS.mac?
-  depends_on "libffi" unless OS.mac?
+  unless OS.mac?
+    depends_on "bzip2"
+    depends_on "libffi"
+  end
 
   skip_clean "bin/pip3", "bin/pip-3.4", "bin/pip-3.5", "bin/pip-3.6"
   skip_clean "bin/easy_install3", "bin/easy_install-3.4", "bin/easy_install-3.5", "bin/easy_install-3.6"
@@ -374,7 +376,7 @@ class Python3 < Formula
     # and it can occur that building sqlite silently fails if OSX's sqlite is used.
     system "#{bin}/python#{xy}", "-c", "import sqlite3"
     # Check if some other modules import. Then the linked libs are working.
-    if OS.mac? || build.with?("tcl-tk") && Tab.for_name("homebrew/dupes/tcl-tk").with?("x11")
+    if OS.mac? || build.with?("tcl-tk")
       system "#{bin}/python#{xy}", "-c", "import tkinter; root = tkinter.Tk()"
     end
     system bin/"pip3", "list"
