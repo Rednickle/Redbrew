@@ -1,14 +1,14 @@
 class Gnupg < Formula
   desc "GNU Pretty Good Privacy (PGP) package"
   homepage "https://www.gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.1.19.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.19.tar.bz2"
-  sha256 "46cced1f5641ce29cc28250f52fadf6e417e649b3bfdec49a5a0d0b22a639bf0"
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.1.20.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.20.tar.bz2"
+  sha256 "24cf9a69369be64a9f6f8cc11a1be33ab7780ad77a6a1b93719438f49f69960d"
 
   bottle do
-    sha256 "489c79922a572a68b98c8dcf3e55a657a8c745fd1e02a1b2b42aa781b1f07d91" => :sierra
-    sha256 "153fed441e24dbd501b338cd3872a9aeaabf646275aeae82d8172ef29e8d6802" => :el_capitan
-    sha256 "df23cf948ad165e8370d2617ca7ec3a90d583e220a1af00335b9e93fa57fa586" => :yosemite
+    sha256 "da72dd30eff4131ff8177528b5bf03f6e0273e553bdf34e8daa490696e24a92c" => :sierra
+    sha256 "fa918f6b7d0693dbaee150f2e35be7a3836465ec70b4f21d0a6d7b328c71d53b" => :el_capitan
+    sha256 "1bffe1390ca8c2de5d4eca6e6fd3af90ff16ebd8f9a715ff0c91d43f30e0b0fe" => :yosemite
   end
 
   option "with-gpgsplit", "Additionally install the gpgsplit utility"
@@ -31,24 +31,6 @@ class Gnupg < Formula
   depends_on "readline" => :optional
   depends_on "homebrew/fuse/encfs" => :optional
 
-  # Remove for > 2.1.19
-  # ssh-import.scm fails during "make check" for sandboxed builds
-  # Reported 1 Mar 2017 https://bugs.gnupg.org/gnupg/issue2980
-  # Fixed 6 Mar 2017 in https://git.gnupg.org/cgi-bin/gitweb.cgi?p=gnupg.git;a=patch;h=4ce4f2f683a17be3ddb93729f3f25014a97934ad
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c0c54c6/gnupg/agent-handle-scdaemon-errors.patch"
-    sha256 "c2de625327c14b2c0538f45749f46c67169598c879dc81cf828bbb30677b7e59"
-  end
-
-  # Remove for > 2.1.19
-  # "make check" cannot run before "make install"
-  # Reported 1 Mar 2017 https://bugs.gnupg.org/gnupg/issue2979
-  # Fixed 15 Mar 2017 in https://git.gnupg.org/cgi-bin/gitweb.cgi?p=gnupg.git;a=patch;h=a98459d3f4ec3d196fb0adb0e90dadf40abc8c81
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/f234026/gnupg/fix-using-tools-from-build-dir.patch"
-    sha256 "f36614537c75981c448d4c8b78e6040a40f867464c7828ed72a91a35cd2b577f"
-  end
-
   def install
     args = %W[
       --disable-dependency-tracking
@@ -65,8 +47,8 @@ class Gnupg < Formula
 
     system "./configure", *args
     system "make"
-    system "make", "check"
     system "make", "install"
+    system "make", "check"
 
     # Add symlinks from gpg2 to unversioned executables, replacing gpg 1.x.
     bin.install_symlink "gpg2" => "gpg"

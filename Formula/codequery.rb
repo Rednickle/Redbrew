@@ -3,16 +3,17 @@ class Codequery < Formula
   homepage "https://github.com/ruben2020/codequery"
   url "https://github.com/ruben2020/codequery/archive/v0.19.0.tar.gz"
   sha256 "c8fbb133ec281cdc58d81824a1d3b1761e5496fcfd37229e68060beb0e0c7fc9"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "7891ec24972adf76df868c0a67d1407e005683530b56ea52cea0a7acc3ddd0c8" => :sierra
-    sha256 "c06e0d6e41de521001c647a20012683c6d91d1ed5eb2d6abe8fef312203236bb" => :el_capitan
-    sha256 "56bddde5976a54be551b3295b82eab02aa16e9497c392e8c5f69b4816e5705fd" => :yosemite
+    sha256 "048cefd89ef9f6701045ed89515d294dbcf1dc97881cea0c2a0dea1608ccb961" => :sierra
+    sha256 "a1a531716d96263ac8f277e0353079773697358719db22cf634659fd9e04aff6" => :el_capitan
+    sha256 "88c61e418dd6e065737a64f87c4d9611a2d3eb0cfb69fd02deacd58d16f6b43c" => :yosemite
   end
 
   depends_on "cmake" => :build
-  depends_on "qt5"
+  depends_on "qt"
 
   def install
     args = std_cmake_args

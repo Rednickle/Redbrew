@@ -1,7 +1,7 @@
 class Go < Formula
   desc "The Go programming language"
   homepage "https://golang.org"
-  revision 1 if OS.linux?
+  revision OS.linux? ? 2 : 1
 
   stable do
     url "https://storage.googleapis.com/golang/go1.8.src.tar.gz"
@@ -14,13 +14,28 @@ class Go < Formula
       url "https://go.googlesource.com/tools.git",
           :branch => "release-branch.go#{go_version}"
     end
+
+    # Fixes for https://github.com/golang/go/issues/19734.
+    patch do
+      url "https://github.com/golang/go/commit/84192f27.patch"
+      sha256 "86badcb9318b5399de05520cfdd3c1abbc722a5f8cfcecc008815ff889230620"
+    end
+
+    patch do
+      url "https://github.com/golang/go/commit/3ca0d34f.patch"
+      sha256 "7c3a0ce6cf9bec784729bdca8f1798629690042c69cb4ee8c5e9cafaf73fc693"
+    end
+
+    patch do
+      url "https://github.com/golang/go/commit/2d004301.patch"
+      sha256 "2444a4191fd299b8a6e6eb6a671e7ca53005d0785b85343e5b512d4f093a069a"
+    end
   end
 
   bottle do
-    sha256 "70f447e2d0a5214e533699ffa7ebadccd587919b288ee609ddb4e6ac84fc64e5" => :sierra
-    sha256 "e593929c05df7894bebde4575c7e82238ca66b7a0ebf3286e2e74be39435f303" => :el_capitan
-    sha256 "9bb46c195e6b2cd66d54cd0cac9823a69ec14eb0f02efa2fd8bfffcb6d19e0b4" => :yosemite
-    sha256 "d2a5cf23b53d2f28615869b67094a1e237fc37bd1ed740398c1dadd9a28da851" => :x86_64_linux
+    sha256 "12b06bc52ed7c098795aed349726d302ccd719f81e12f3480cef0993823612d2" => :sierra
+    sha256 "b2ad7e4dec21a35432f3ddfcbfff7d05e872f1a657cba7ef6685f5a706a6cc16" => :el_capitan
+    sha256 "13cabcae9acdbebb3f430bac8fe0ad2eb4849f480967d12c12d9e6de93b3736c" => :yosemite
   end
 
   head do
