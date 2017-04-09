@@ -6,10 +6,10 @@ class Python < Formula
   head "https://github.com/python/cpython.git", :branch => "2.7"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
-    prefix "/home/linuxbrew/.linuxbrew"
-    cellar "/home/linuxbrew/.linuxbrew/Cellar"
     rebuild 1
+    sha256 "04406760996fadee04eecd6fae7870291e659145c590f88d85da70b0bda21df6" => :sierra
+    sha256 "119c368e8d776cb909d860b5bc816f5c425317ec472dd2ba98faaae660af7bec" => :el_capitan
+    sha256 "b8cd522582741df7a034846b8458d8f46516b2c80a19dbfe04e7eaffe915d85b" => :yosemite
     sha256 "039f93e268c06158c6e3807d2430090573c83b5d193df4a790f972def47c7696" => :x86_64_linux
   end
 
