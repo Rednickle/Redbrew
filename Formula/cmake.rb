@@ -25,6 +25,7 @@ class Cmake < Formula
     sha256 "8d4ec042ea7323eccfe755eabfd703110827f358680bcb0d31bdad49747a0639" => :sierra
     sha256 "55c1d07f2f19a94068c9660b52490ef96b9ba9fa8c55a6c95b3893b0928671c7" => :el_capitan
     sha256 "b388a21ad15f9ee06f20040753b13f45d9822c79e626245f610f929598fe46b8" => :yosemite
+    sha256 "475e4ef23b403c98d53751b356d6ebf06a49efb95c3e73a2a439ae5b4e291836" => :x86_64_linux
   end
 
   devel do
