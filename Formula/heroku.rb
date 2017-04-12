@@ -23,4 +23,3 @@ class Heroku < Formula
     system bin/"heroku", "version"
   end
 end
-
