@@ -2,13 +2,13 @@ class Heroku < Formula
   desc "Everything you need to get started with Heroku"
   homepage "https://cli.heroku.com"
   if OS.mac?
-    url "https://cli-assets.heroku.com/branches/stable/5.6.28-2643c0a/heroku-v5.6.28-2643c0a-darwin-amd64.tar.xz"
-    sha256 "7d0320800410821349a0f44be1ca49619388ef934e3ae2334b7c6b1f5028da95"
+    url "https://cli-assets.heroku.com/branches/stable/5.8.5-614a805/heroku-v5.8.5-614a805-darwin-amd64.tar.xz"
+    sha256 "9f108c351f887866d9887169069740648006459575e4064e7c810c46da27cb0b"
   elsif OS.linux?
-    url "https://cli-assets.heroku.com/branches/stable/5.6.28-2643c0a/heroku-v5.6.28-2643c0a-linux-amd64.tar.xz"
-    sha256 "bfc57ca6a30f55bb24ff166e489f305be8c26be22e2c9a323a73d8c2cce1a18f"
+    url "https://cli-assets.heroku.com/branches/stable/5.8.5-614a805/heroku-v5.8.5-614a805-linux-amd64.tar.xz"
+    sha256 "7df5335ff817e134d53eeb93f2240b79b73abf29cea465fe8d6438bc518da856"
   end
-  version "5.6.28-2643c0a"
+  version "5.8.5"
 
   bottle :unneeded
 
@@ -23,3 +23,4 @@ class Heroku < Formula
     system bin/"heroku", "version"
   end
 end
+
