@@ -10,6 +10,7 @@ class AppscaleTools < Formula
     sha256 "3059801603b9ecb216c525b8cd615505652078713ad574bd17068b7c341534c3" => :sierra
     sha256 "239996bcb674436fd425dca8a621de358dedb7e58f89b7561590a0ea3961d9d5" => :el_capitan
     sha256 "0c97522f43f7d665fa3aec9261c68f874117b7e139603ec76b46898380f5cd34" => :yosemite
+    sha256 "5e36a983b0ea61b7350d914e033faa7e7e61035bf1e1a1161ff14ba3b3856008" => :x86_64_linux
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
