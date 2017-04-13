@@ -19,6 +19,8 @@ class Glibc < Formula
   # Linux kernel headers 2.6.19 or later are required
   depends_on "linux-headers" => [:build, :recommended]
 
+  env :std
+
   def install
     # -Os confuses valgrind.
     ENV.O2
