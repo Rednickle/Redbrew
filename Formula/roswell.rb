@@ -13,6 +13,7 @@ class Roswell < Formula
 
   depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "curl" unless OS.mac?
 
   def install
     system "./bootstrap"
