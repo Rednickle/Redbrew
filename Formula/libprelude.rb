@@ -5,6 +5,10 @@ class Libprelude < Formula
   sha256 "b8fbaaa1f2536bd54a7f69fe905ac84d936435962c8fc9de67b2f2b375c7ac96"
   # tag "linuxbrew"
 
+  bottle do
+    sha256 "b64476f67ceaed95d508692ffaf245e7cc9e31c854337acd36c15ea93236a771" => :x86_64_linux
+  end
+
   option "without-ruby", "Build without Ruby bindings"
 
   depends_on "pkg-config" => :build
