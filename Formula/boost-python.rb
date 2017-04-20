@@ -12,6 +12,7 @@ class BoostPython < Formula
     sha256 "3b47066b435fc7b9acb677969bf2fa54e634a45ee91d089f222169d012ab487a" => :sierra
     sha256 "0958d5f3c4de00cc9b391c5ba4225c798056941be69cda4c6df913bf81f57c33" => :el_capitan
     sha256 "14b55a75a1328adfe89f9234c72ed769d159f93fc0a7e140c956de2c3c5d54c9" => :yosemite
+    sha256 "d71fafdf172809407d8ff6aa4766afecd0689eda3c570bf87e95b2b3f28a1f65" => :x86_64_linux
   end
 
   option :cxx11
