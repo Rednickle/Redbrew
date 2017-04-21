@@ -17,10 +17,12 @@ class Libprelude < Formula
   depends_on "swig" => [:build, :recommended]
   depends_on "perl" => [:build, :optional]
   depends_on :python => [:build, :recommended]
-  depends_on :python3 => [:build, :recommended]
+  depends_on :python3 => :recommended
   depends_on "valgrind" => [:build, :recommended]
   depends_on "lua" => [:build, :optional]
   depends_on :ruby => "1.8"
+  depends_on "libtool" => :optional
+  depends_on "libgpg-error" => :optional
 
   skip_clean "etc", "lib64", "var", :la
 
