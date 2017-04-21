@@ -16,6 +16,7 @@ class DockerMachineDriverXhyve < Formula
 
   option "without-qcow2", "Do not support qcow2 disk image format"
 
+  depends_on :macos unless OS.mac?
   depends_on :macos => :yosemite
   depends_on "go" => :build
   depends_on "docker-machine" => :recommended
