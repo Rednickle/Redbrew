@@ -11,6 +11,8 @@ class Nnn < Formula
     sha256 "b3238d012532bb04c128ac012086cb8abf9a5266ceb458102efc0022093755b9" => :yosemite
   end
 
+  depends_on "ncurses" unless OS.mac?
+
   def install
     system "make", "install", "PREFIX=#{prefix}"
   end
