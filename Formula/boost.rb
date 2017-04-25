@@ -18,10 +18,11 @@ class Boost < Formula
   end
 
   bottle do
-    cellar :any
+    cellar :any_skip_relocation
     sha256 "94c29d2d149a6383fa4050e7cb478e3dcae66895d78b0a0492d8fff63dd73a14" => :sierra
     sha256 "24ae06f30527b4b2375cc2c375ce1af22e4dc0db04dd65896c80231e46ea0ba8" => :el_capitan
     sha256 "ab391a24436ffb4e32dd580d4b0de42e25f822d985273f16595ee865d7a5d995" => :yosemite
+    sha256 "3e34f126147fd4f1fb3f5ceaa1c512223ae94f78d0c5888d0f28402fb9bd1ea8" => :x86_64_linux
   end
 
   option "with-icu4c", "Build regexp engine with icu support"
