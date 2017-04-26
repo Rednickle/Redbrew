@@ -24,8 +24,12 @@ class Libedit < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
 
-    # Conflicts with ncurses.
-    mv man3/"history.3", man3/"history_libedit.3" unless OS.mac?
+    unless OS.mac?
+      # Conflicts with ncurses.
+      mv man3/"history.3", man3/"history_libedit.3"
+      # Symlink libedit.so.0 to libedit.so.2 for binary compatibility with Debian/Ubuntu.
+      ln_s lib/"libedit.so.0", lib/"libedit.so.2"
+    end
   end
 
   test do
