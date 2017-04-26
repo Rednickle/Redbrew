@@ -14,6 +14,12 @@ class Awslogs < Formula
     sha256 "e9c8d6dbdba2ae32df6aaf54c194446bb6d0547810a26cfbffab1a83cbaf4ef2" => :yosemite
   end
 
+  unless OS.mac?
+    depends_on "zlib"
+    depends_on "openssl"
+    depends_on :python
+  end
+
   resource "boto3" do
     url "https://files.pythonhosted.org/packages/58/61/50d2e459049c5dbc963473a71fae928ac0e58ffe3fe7afd24c817ee210b9/boto3-1.4.4.tar.gz"
     sha256 "518f724c4758e5a5bed114fbcbd1cf470a15306d416ff421a025b76f1d390939"
