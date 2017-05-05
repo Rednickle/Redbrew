@@ -14,6 +14,10 @@ class Glew < Formula
   end
 
   depends_on "cmake" => :build
+  unless OS.mac?
+    depends_on "linuxbrew/xorg/mesa" # required to build
+    depends_on "freeglut" # required for test
+  end
 
   patch do
     url "https://github.com/nigels-com/glew/commit/925722f.patch"
@@ -35,9 +39,13 @@ class Glew < Formula
   end
 
   test do
+    if ENV["DISPLAY"].nil?
+      ohai "Can not test without a display."
+      return true
+    end
     (testpath/"test.c").write <<-EOS.undent
       #include <GL/glew.h>
-      #include <GLUT/glut.h>
+      #include <#{OS.mac? ? "GLUT" : "GL"}/glut.h>
 
       int main(int argc, char** argv) {
         glutInit(&argc, argv);
@@ -49,8 +57,13 @@ class Glew < Formula
         return 0;
       }
     EOS
-    system ENV.cc, testpath/"test.c", "-o", "test", "-L#{lib}", "-lGLEW",
-           "-framework", "GLUT"
+    flags = %W[-L#{lib} -lGLEW]
+    if OS.mac?
+      flags << "-framework" << "GLUT"
+    else
+      flags << "-lglut"
+    end
+    system ENV.cc, testpath/"test.c", "-o", "test", *flags
     system "./test"
   end
 end
