@@ -4,13 +4,12 @@ class Subversion < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.9.5.tar.bz2"
   mirror "https://archive.apache.org/dist/subversion/subversion-1.9.5.tar.bz2"
   sha256 "8a4fc68aff1d18dcb4dd9e460648d24d9e98657fbed496c582929c6b3ce555e5"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "a1eb24f126de1cbe776690c6d8320638c9c917d3d45aeb06f38530236272e6ce" => :sierra
-    sha256 "b63e9e5af0e18ae59e851795ca551e2b2161fcea99dc7d4b147ca44f572e0062" => :el_capitan
-    sha256 "5be40371113a10bfb441edeceea9df3705290df1db296adf4a2616ed81c73185" => :yosemite
-    sha256 "b1c56acb1c9295f698516de674d4a10c70f85e581457da58c16a2f7f8623ccb0" => :x86_64_linux
+    sha256 "7cf67dcdef0730425392ccf69f50142815cf6cdc335d39c027540002a830b327" => :sierra
+    sha256 "342cef6d443725e2cfacc1416d2e907ab1e1433c984866f4da4e561016f470a2" => :el_capitan
+    sha256 "100e17e03f2ad01c32db60f2ca12e6593523aad0be4d1c9fc297138164662f86" => :yosemite
   end
 
   deprecated_option "java" => "with-java"
@@ -18,8 +17,8 @@ class Subversion < Formula
   deprecated_option "ruby" => "with-ruby"
 
   option "with-java", "Build Java bindings"
-  option "with-perl", "Build Perl bindings"
-  option "with-ruby", "Build Ruby bindings"
+  option "without-ruby", "Build without Ruby bindings"
+  option "without-perl", "Build without Perl bindings"
   option "with-gpg-agent", "Build with support for GPG Agent"
 
   depends_on "pkg-config" => :build
@@ -29,9 +28,12 @@ class Subversion < Formula
   # Always build against Homebrew versions instead of system versions for consistency.
   depends_on "sqlite"
   depends_on :python => :optional
+  depends_on :perl => ["5.6", :recommended]
 
   # Bindings require swig
-  depends_on "swig" if build.with?("perl") || build.with?("python") || build.with?("ruby")
+  if build.with?("perl") || build.with?("python") || build.with?("ruby")
+    depends_on "swig" => :build
+  end
 
   # For Serf
   depends_on "scons" => :build
@@ -42,7 +44,8 @@ class Subversion < Formula
     depends_on "libmagic"
     depends_on "zlib"
     depends_on "krb5" => :recommended
-    depends_on "util-linux" if OS.linux? && build.with?("serf") # for libuuid
+    depends_on "util-linux" # for libuuid
+    depends_on :ruby => ["1.8", :recommended]
   end
 
   # Other optional dependencies
@@ -74,13 +77,19 @@ class Subversion < Formula
     serf_prefix = OS.mac? ? libexec/"serf" : prefix
 
     resource("serf").stage do
+      inreplace "SConstruct" do |s|
+        s.gsub! "env.Append(LIBPATH=['$OPENSSL\/lib'])",
+        "\\1\nenv.Append(CPPPATH=['$ZLIB\/include'])\nenv.Append(LIBPATH=['$ZLIB/lib'])"
+      end unless OS.mac?
+
       # scons ignores our compiler and flags unless explicitly passed
       args = %W[
-        PREFIX=#{serf_prefix} GSSAPI=#{Formula["krb5"].prefix} CC=#{ENV.cc}
-        CFLAGS=#{ENV.cflags} LINKFLAGS=#{ENV.ldflags}
+        PREFIX=#{serf_prefix} GSSAPI=#{Formula["krb5"].opt_prefix} CC=#{ENV.cc}
+        CFLAGS=#{ENV.cflags} LINKFLAGS=#{ENV.ldflags} 
         OPENSSL=#{Formula["openssl"].opt_prefix}
         APR=#{Formula["apr"].opt_prefix}
         APU=#{Formula["apr-util"].opt_prefix}
+        ZLIB=#{Formula["zlib"].opt_prefix}
       ]
       scons(*args)
       scons "install"
@@ -99,7 +108,7 @@ class Subversion < Formula
       --prefix=#{prefix}
       --disable-debug
       --enable-optimize
-      #{"--with-zlib=/usr" if OS.mac?}
+      --with-zlib=#{OS.mac? ? "/usr" : Formula["zlib"].opt_prefix}
       --with-sqlite=#{Formula["sqlite"].opt_prefix}
       --with-apr=#{Formula["apr"].opt_prefix}
       --with-apr-util=#{Formula["apr-util"].opt_prefix}
@@ -117,7 +126,7 @@ class Subversion < Formula
     if build.with? "ruby"
       args << "--with-ruby-sitedir=#{lib}/ruby"
       # Peg to system Ruby
-      args << "RUBY=/usr/bin/ruby"
+      args << "RUBY=/usr/bin/ruby" if OS.mac?
     end
 
     # The system Python is built with llvm-gcc, so we override this
@@ -140,6 +149,7 @@ class Subversion < Formula
     if build.with? "python"
       system "make", "swig-py"
       system "make", "install-swig-py"
+      odie
       (lib/"python2.7/site-packages").install_symlink Dir["#{lib}/svn-python/*"]
     end
 
@@ -147,21 +157,27 @@ class Subversion < Formula
       # In theory SWIG can be built in parallel, in practice...
       ENV.deparallelize
 
-      perl_core = Pathname.new(`perl -MConfig -e 'print $Config{archlib}'`)+"CORE"
+      archlib = Utils.popen_read("perl -MConfig -e 'print $Config{archlib}'")
+      perl_core = Pathname.new(archlib)/"CORE"
       unless perl_core.exist?
-        onoe "perl CORE directory does not exist in '#{perl_core}'"
+        onoe "'#{perl_core}' does not exist"
       end
 
       inreplace "Makefile" do |s|
         s.change_make_var! "SWIG_PL_INCLUDES",
-          "$(SWIG_INCLUDES) #{"-arch #{MacOS.preferred_arch}" if OS.mac?} -g -pipe -fno-common #{"-DPERL_DARWIN" if OS.mac?} -fno-strict-aliasing -I/usr/local/include -I#{perl_core}"
+          "$(SWIG_INCLUDES) #{"-arch #{MacOS.preferred_arch}" if OS.mac?} -g -pipe -fno-common #{"-DPERL_DARWIN" if OS.mac?} -fno-strict-aliasing -I#{HOMEBREW_PREFIX}/include -I#{perl_core}"
       end
       system "make", "swig-pl"
       system "make", "install-swig-pl"
 
-      # Some of the libraries get installed into the wrong place, they end up having the
-      # prefix in the directory name twice.
+      # Some of the libraries get installed into the wrong place, they end up
+      # having the prefix in the directory name twice.
       lib.install Dir["#{prefix}/#{lib}/*"]
+      # This is only created when building against system Perl, but it isn't
+      # purged by Homebrew's post-install cleaner because that doesn't check
+      # "Library" directories. It is however pointless to keep around as it
+      # only contains the perllocal.pod installation file.
+      rm_rf prefix/"Library/Perl"
     end
 
     if build.with? "java"
@@ -186,15 +202,16 @@ class Subversion < Formula
       s += <<-EOS.undent
 
         The perl bindings are located in various subdirectories of:
-          #{prefix}/Library/Perl
+          #{opt_lib}/perl5
       EOS
     end
 
     if build.with? "ruby"
       s += <<-EOS.undent
 
-        You may need to add the Ruby bindings to your RUBYLIB from:
+        If you wish to use the Ruby bindings you may need to add:
           #{HOMEBREW_PREFIX}/lib/ruby
+        to your RUBYLIB.
       EOS
     end
 

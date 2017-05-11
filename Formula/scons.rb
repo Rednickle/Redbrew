@@ -12,6 +12,8 @@ class Scons < Formula
     sha256 "6beda9c5d70f3f592c7bf2458ab43057b8c331cea34d90d5e1100d89b8186e25" => :x86_64_linux
   end
 
+  depends_on :python unless OS.mac?
+
   def install
     inreplace "engine/SCons/Platform/posix.py",
       "env['ENV']['PATH']    = '/usr/local/bin:/opt/bin:/bin:/usr/bin'",
