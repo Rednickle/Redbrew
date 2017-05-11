@@ -3,13 +3,16 @@ require "language/go"
 class Goad < Formula
   desc "AWS Lambda powered, highly distributed, load testing tool built in Go"
   homepage "https://goad.io/"
-  url "https://github.com/goadapp/goad.git", :tag => "v1.4.1"
+  url "https://github.com/goadapp/goad.git",
+      :tag => "v1.4.1",
+      :revision => "6cd24daf34c487894e7008e080c017989d03db4a"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d1fb82dbc708716ae26f8d5b80bd56d727852c2045089c8830fd479ea2e66df1" => :sierra
-    sha256 "a7bca02de108e120aa1ab0e2dd83c1d2d1f665a4181cc577fc9c694442af1398" => :el_capitan
-    sha256 "dacd6c9ea183a71031cdad3506d76b836d77dc3eae5470388a1cf2bd7b662883" => :yosemite
+    rebuild 1
+    sha256 "331937d2ca071b3da60f458b1d5750b3b16defbafe795f52b44780639da38672" => :sierra
+    sha256 "d7deb965c800fc18375e808f76e8a6a05419c346257b550201f079ea5c922933" => :el_capitan
+    sha256 "93c7b9b8d2f3ad8ddd689bb0079478c3b5ac9c044af3cffdf1f874e526656002" => :yosemite
   end
 
   depends_on "go" => :build
@@ -33,6 +36,7 @@ class Goad < Formula
     cd dir do
       system "make", "build"
       bin.install "build/goad"
+      prefix.install_metafiles
     end
   end
 
