@@ -9,6 +9,7 @@ class Cli53 < Formula
     sha256 "6aa4ee2ea255b29602d99f548d1f9360de782494a3d62cee1f99b887fd7b6bec" => :sierra
     sha256 "0b1e904823d61ab0c8a4ff282eafc39c4a3d194f5db78a7ed1b7127839937382" => :el_capitan
     sha256 "88580ed525f8b9462d85011f503541bf29bf13563fe096983c76f1806f62aeb3" => :yosemite
+    sha256 "18d4caf44132a1160038c9e84e0dc12ea6d824e1f154643860d747cf0913f8b3" => :x86_64_linux
   end
 
   depends_on "go" => :build
