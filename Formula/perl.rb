@@ -18,7 +18,7 @@ class Perl < Formula
   deprecated_option "with-tests" => "with-test"
 
   unless OS.mac?
-    depends_on "gdbm" => "with-libgdbm-compat"
+    depends_on "gdbm"
     depends_on "berkeley-db"
 
     # required for XML::Parser
