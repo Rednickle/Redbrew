@@ -5,6 +5,7 @@
 class Wine < Formula
   desc "Run Windows applications without a copy of Microsoft Windows"
   homepage "https://www.winehq.org/"
+  revision 1
   head "https://source.winehq.org/git/wine.git"
 
   stable do
@@ -28,9 +29,9 @@ class Wine < Formula
   end
 
   bottle do
-    sha256 "7f28a12ba47576f62a534c49b5a086bf309706bf77bb4872224a3e87824c07f1" => :sierra
-    sha256 "fe13b11c4d87ab5c8af8080dc7c9df2def7b1211785830714c04419f3005a4ef" => :el_capitan
-    sha256 "6be069b4ed010b5f0e28f00df8c726360d3aa0bf6626ce053121f0b432e149fd" => :yosemite
+    sha256 "d3d23bb6bf96146253d41456aecfe8bf2011abe46cfa95b4ae6bb6f54f23c06e" => :sierra
+    sha256 "3cc167ccd579184bc0f030a7b2c07640a363d297e5013dd3e3e9f91234566092" => :el_capitan
+    sha256 "c7e325104c2f46400cf928f42d053d98ec87efb85baf01dca094024eaf4e3052" => :yosemite
   end
 
   devel do
@@ -73,8 +74,8 @@ class Wine < Formula
   end
 
   resource "mono" do
-    url "https://dl.winehq.org/wine/wine-mono/4.6.4/wine-mono-4.6.4.msi", :using => :nounzip
-    sha256 "91b7d58177b9a9355edf007dab94535471aebdddae12734ceb4a219d2ecc4152"
+    url "https://dl.winehq.org/wine/wine-mono/4.7.0/wine-mono-4.7.0.msi", :using => :nounzip
+    sha256 "7698474dd9cb9eb80796b5812dff37386ba97b78b21ca23b20079ca5ad6ca5a1"
   end
 
   resource "openssl" do
@@ -96,9 +97,9 @@ class Wine < Formula
   end
 
   resource "libtiff" do
-    url "http://download.osgeo.org/libtiff/tiff-4.0.7.tar.gz"
-    mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.7.orig.tar.gz"
-    sha256 "9f43a2cfb9589e5cecaa66e16bf87f814c945f22df7ba600d63aac4632c4f019"
+    url "http://download.osgeo.org/libtiff/tiff-4.0.8.tar.gz"
+    mirror "https://fossies.org/linux/misc/tiff-4.0.8.tar.gz"
+    sha256 "59d7a5a8ccd92059913f246877db95a2918e6c04fb9d43fd74e5c3390dac2910"
   end
 
   resource "little-cms2" do
@@ -114,9 +115,9 @@ class Wine < Formula
   end
 
   resource "freetype" do
-    url "https://downloads.sourceforge.net/project/freetype/freetype2/2.7.1/freetype-2.7.1.tar.bz2"
-    mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.7.1.tar.bz2"
-    sha256 "3a3bb2c4e15ffb433f2032f50a5b5a92558206822e22bfe8cbe339af4aa82f88"
+    url "https://downloads.sourceforge.net/project/freetype/freetype2/2.8/freetype-2.8.tar.bz2"
+    mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.8.tar.bz2"
+    sha256 "a3c603ed84c3c2495f9c9331fe6bba3bb0ee65e06ec331e0a0fb52158291b40b"
   end
 
   resource "libusb" do
@@ -148,9 +149,9 @@ class Wine < Formula
   end
 
   resource "libgphoto2" do
-    url "https://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.12/libgphoto2-2.5.12.tar.bz2"
-    mirror "https://fossies.org/linux/privat/libgphoto2-2.5.12.tar.bz2"
-    sha256 "b9bb28990fde45ac385e4851a07dbad2e1250404b535b0a3a3b898bb431e4e2e"
+    url "https://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.13/libgphoto2-2.5.13.tar.bz2"
+    mirror "https://fossies.org/linux/privat/libgphoto2-2.5.13.tar.bz2"
+    sha256 "ceaacbdf187d1cd1aed5336991f46b0100f6960b6c8383f9aeab98f1f64780ef"
   end
 
   resource "net-snmp" do
@@ -159,16 +160,10 @@ class Wine < Formula
   end
 
   resource "sane-backends" do
-    url "https://mirrors.kernel.org/debian/pool/main/s/sane-backends/sane-backends_1.0.25.orig.tar.gz"
-    mirror "https://fossies.org/linux/misc/sane-backends-1.0.25.tar.gz"
-    sha256 "a4d7ba8d62b2dea702ce76be85699940992daf3f44823ddc128812da33dc6e2c"
-  end
-
-  # Fixes some missing headers missing error. Reported upstream
-  # https://lists.alioth.debian.org/pipermail/sane-devel/2015-October/033972.html
-  resource "sane-backends-patch" do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/6dd7790c/sane-backends/1.0.25-missing-types.patch"
-    sha256 "f1cda7914e95df80b7c2c5f796e5db43896f90a0a9679fbc6c1460af66bdbb93"
+    url "https://alioth.debian.org/frs/download.php/file/4224/sane-backends-1.0.27.tar.gz"
+    mirror "https://mirrors.kernel.org/debian/pool/main/s/sane-backends/sane-backends_1.0.27.orig.tar.gz"
+    mirror "https://fossies.org/linux/misc/sane-backends-1.0.27.tar.gz"
+    sha256 "293747bf37275c424ebb2c833f8588601a60b2f9653945d5a3194875355e36c9"
   end
 
   resource "mpg123" do
@@ -433,13 +428,6 @@ class Wine < Formula
 
       resource("sane-backends").stage do
         save_env do
-          if OS.mac?
-            # Cannot have "patch do" here
-            Pathname.pwd.install resource("sane-backends-patch")
-            system "patch", "-p1", "-i", "1.0.25-missing-types.patch"
-          end
-
-          ENV.deparallelize
           system "./configure", "--disable-dependency-tracking",
                                 "--prefix=#{libexec}",
                                 "--localstatedir=#{var}",
@@ -448,7 +436,6 @@ class Wine < Formula
                                 "--enable-libusb",
                                 "--disable-latex",
                                 *depflags
-          system "make"
           system "make", "install"
         end
       end

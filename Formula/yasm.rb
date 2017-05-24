@@ -6,12 +6,10 @@ class Yasm < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 2
-    sha256 "64fcf11922e264c548239b9c4d146a99d5d3962284bd310d4ee3bf1bbad1f6db" => :sierra
-    sha256 "7dc741b8006e58498622b846151270d1d958d9cff7d4dc2aade0cdad532639d5" => :el_capitan
-    sha256 "5c5191c5a6b6c523334cdf43ff1af761f2fee1ee94111652a7f0dd369e9153e5" => :yosemite
-    sha256 "734b4d3d218323417b7b5aa1edf2e47c4309e37207bcaf5f9e13da96aa6201d9" => :mavericks
-    sha256 "3230b73a044f0cb807311282d99ce358aa7525f00fb500cc399fbe1cbe9d57b6" => :x86_64_linux
+    rebuild 3
+    sha256 "6d43b79da083234769acfce5751fa0efc39d3ba4ccdd59890c5db73595138d8e" => :sierra
+    sha256 "8c720d776fa0f622538b21b627b073cfc0fdf876676d2b4b93e774d8073f2db6" => :el_capitan
+    sha256 "530150c2f57ca7ccd717b6edff43fc45a34edc8e92cd5ac16619f83710fe0d0e" => :yosemite
   end
 
   head do
@@ -22,12 +20,9 @@ class Yasm < Formula
     depends_on "gettext"
   end
 
-  depends_on :python => :optional
+  deprecated_option "with-python" => "with-cython"
 
-  resource "cython" do
-    url "https://files.pythonhosted.org/packages/c6/fe/97319581905de40f1be7015a0ea1bd336a756f6249914b148a17eefa75dc/Cython-0.24.1.tar.gz"
-    sha256 "84808fda00508757928e1feadcf41c9f78e9a9b7167b6649ab0933b76f75e7b9"
-  end
+  depends_on "cython" => [:build, :optional]
 
   def install
     args = %W[
@@ -35,17 +30,13 @@ class Yasm < Formula
       --prefix=#{prefix}
     ]
 
-    if build.with? "python"
-      ENV.prepend_create_path "PYTHONPATH", buildpath+"lib/python2.7/site-packages"
-      resource("cython").stage do
-        system "python", "setup.py", "build", "install", "--prefix=#{buildpath}"
-      end
-
+    if build.with? "cython"
+      ENV.prepend_path "PYTHONPATH", Formula["cython"].opt_libexec/"lib/python2.7/site-packages"
       args << "--enable-python"
       args << "--enable-python-bindings"
     end
 
-    # https://github.com/Homebrew/homebrew/pull/19593
+    # https://github.com/Homebrew/legacy-homebrew/pull/19593
     ENV.deparallelize
 
     system "./autogen.sh" if build.head?
