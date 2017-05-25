@@ -8,6 +8,7 @@ class Mariadb < Formula
     sha256 "8f4a13008e4b1f3dd5ded3ea54ccacc1a77d0735d255027e1d9abe7089a26bdc" => :sierra
     sha256 "b65d947f17aca66bc740673b2860cfdfefe3b924c3877fb75ccc2b85886bc735" => :el_capitan
     sha256 "86aa0595f68d44bfe4a9d50b03e54c23b860f3b54ccd5e7fbcd6f18f58e96c3d" => :yosemite
+    sha256 "b0e7bea52a1f3ef61378d98d9aa4ef95fd7f319c38780bb7a5c2778181fc3084" => :x86_64_linux
   end
 
   option "with-test", "Keep test when installing"
