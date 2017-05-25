@@ -1,16 +1,15 @@
 class Sqlite < Formula
   desc "Command-line interface for SQLite"
   homepage "https://sqlite.org/"
-  url "https://sqlite.org/2017/sqlite-autoconf-3190000.tar.gz"
-  version "3.19.0"
-  sha256 "b516e665952c6659638eab3283f09f317afb212fd8e39d6415b4b6259c37b0f5"
+  url "https://sqlite.org/2017/sqlite-autoconf-3190100.tar.gz"
+  version "3.19.1"
+  sha256 "7bc43a18d90d43376cd91e1b338c64548e6a9e3764bca4ef59dfe152d27a3a38"
 
   bottle do
     cellar :any
-    sha256 "511aaf51cc2854bd6ea7b4dbc75c54c7a9ccb67c973a986b31fac8f948ef783c" => :sierra
-    sha256 "c532fc542cbe81d50fc25d04166c47c382244a13ce39b57cc381b7ed4fdf2f70" => :el_capitan
-    sha256 "ec8f6bfcb0252ce090d22515b0970ca2878bc3efc56ad041d53cf4bf7b7161b4" => :yosemite
-    sha256 "3e30ae7aba5baa67599362185e1d5aa3ddb90390489891871f0eba95e84268e6" => :x86_64_linux
+    sha256 "d72264f035be867724042854e00a912075c5a4529443db5e667d1c76b3aac239" => :sierra
+    sha256 "82da25b6cb39e1459232ff39b604e864b1ec8c63f4b4d6136574f599b5f8495a" => :el_capitan
+    sha256 "a8a4cd19cf09620ce48d229b17c7bfe2ebfbf78e391cfba4e90b6ab17bcd5a0a" => :yosemite
   end
 
   keg_only :provided_by_osx, "macOS provides an older sqlite3"
@@ -37,9 +36,9 @@ class Sqlite < Formula
   end
 
   resource "docs" do
-    url "https://www.sqlite.org/2017/sqlite-doc-3190000.zip"
-    version "3.19.0"
-    sha256 "5ae4cb0cdb74f48fe3c5ee175b2d43b03e5ff1c25fce27850893f2494b5c1d5b"
+    url "https://www.sqlite.org/2017/sqlite-doc-3190100.zip"
+    version "3.19.1"
+    sha256 "3eec547787fb1ab965e6580cc9fbf4e7301cfefa6269a7dd91d92e8529aca731"
   end
 
   def install

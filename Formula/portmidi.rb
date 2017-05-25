@@ -3,21 +3,19 @@ class Portmidi < Formula
   homepage "https://sourceforge.net/projects/portmedia/"
   url "https://downloads.sourceforge.net/project/portmedia/portmidi/217/portmidi-src-217.zip"
   sha256 "08e9a892bd80bdb1115213fb72dc29a7bf2ff108b378180586aa65f3cfd42e0f"
+  revision 1
 
   bottle do
     cellar :any
-    rebuild 3
-    sha256 "8d0e59b88da1d021b9464c0b92e4d31cc1020a4d5df3aba8dbd6215a3e824947" => :sierra
-    sha256 "68210f8cb3379b3875517ebf880652358279ae6bf8980d3e3d736b145a7c4643" => :el_capitan
-    sha256 "e287ea36bef8843c5b48c455bec0192a786f09691921153ae9c7c1afa17e90c0" => :yosemite
+    sha256 "3ab40020a258be907f829205952a3336f424c0de4588fe41c5859e8c16ebaf72" => :sierra
+    sha256 "0d699de535a558e1bc72811f0b0ac7ccc158ee224564ff8e4d0b959c5872a9dc" => :el_capitan
+    sha256 "c36b7219ff6d838884d8fbe13a1d159b5375e5868b9a9c0d84de332952549e36" => :yosemite
   end
 
   option "with-java", "Build Java-based app and bindings."
 
-  deprecated_option "with-python" => "with-cython"
-
   depends_on "cmake" => :build
-  depends_on "cython" => [:build, :optional]
+  depends_on "cython" => :build
   depends_on :java => :optional
 
   # Avoid that the Makefile.osx builds the java app and fails because: fatal error: 'jni.h' file not found
@@ -40,20 +38,18 @@ class Portmidi < Formula
     system "make", "-f", "pm_mac/Makefile.osx"
     system "make", "-f", "pm_mac/Makefile.osx", "install"
 
-    if build.with? "cython"
-      cd "pm_python" do
-        # There is no longer a CHANGES.txt or TODO.txt.
-        inreplace "setup.py" do |s|
-          s.gsub! "CHANGES = open('CHANGES.txt').read()", 'CHANGES = ""'
-          s.gsub! "TODO = open('TODO.txt').read()", 'TODO = ""'
-        end
-        # Provide correct dirs (that point into the Cellar)
-        ENV.append "CFLAGS", "-I#{include}"
-        ENV.append "LDFLAGS", "-L#{lib}"
-
-        ENV.prepend_path "PYTHONPATH", Formula["cython"].opt_libexec/"lib/python2.7/site-packages"
-        system "python", *Language::Python.setup_install_args(prefix)
+    cd "pm_python" do
+      # There is no longer a CHANGES.txt or TODO.txt.
+      inreplace "setup.py" do |s|
+        s.gsub! "CHANGES = open('CHANGES.txt').read()", 'CHANGES = ""'
+        s.gsub! "TODO = open('TODO.txt').read()", 'TODO = ""'
       end
+      # Provide correct dirs (that point into the Cellar)
+      ENV.append "CFLAGS", "-I#{include}"
+      ENV.append "LDFLAGS", "-L#{lib}"
+
+      ENV.prepend_path "PYTHONPATH", Formula["cython"].opt_libexec/"lib/python2.7/site-packages"
+      system "python", *Language::Python.setup_install_args(prefix)
     end
   end
 end
