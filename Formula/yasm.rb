@@ -10,6 +10,7 @@ class Yasm < Formula
     sha256 "6d43b79da083234769acfce5751fa0efc39d3ba4ccdd59890c5db73595138d8e" => :sierra
     sha256 "8c720d776fa0f622538b21b627b073cfc0fdf876676d2b4b93e774d8073f2db6" => :el_capitan
     sha256 "530150c2f57ca7ccd717b6edff43fc45a34edc8e92cd5ac16619f83710fe0d0e" => :yosemite
+    sha256 "893dc22931953d3dd8ec0c9cc8d3630123776b0d55bde1ad79b462424b44563a" => :x86_64_linux
   end
 
   head do
