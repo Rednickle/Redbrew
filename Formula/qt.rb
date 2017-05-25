@@ -19,12 +19,20 @@ class Qt < Formula
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/634a19fb/qt5/QTBUG-57656.patch"
       sha256 "a69fc727f4378dbe0cf05ecf6e633769fe7ee6ea52b1630135a05d5adfa23d87"
     end
+
+    # Upstream issue QTBUG-58344 "UI crash upon start" which won't be fixed in qt 5.7, 5.8
+    # See https://codereview.qt-project.org/#/c/183183/
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/a2c2bea6/qt5/QTBUG-58344.patch"
+      sha256 "b5eebbe587ab64b66aea4938c0d2b90a00516d4d5b33d0971d049d919b4fcf9d"
+    end
   end
 
   bottle do
-    sha256 "eff56a84940888c0e9bcb6a95cd5b4d434bee36c6df3162d954cb15f10627c32" => :sierra
-    sha256 "0f322056717bb8f821aa809c79a3842ce914ce112bc273bbee9f2f05f0819fe3" => :el_capitan
-    sha256 "762149a177db074d9ee721395739bcc7c264a6fac0604a6a1bc2f913098df2bc" => :yosemite
+    rebuild 1
+    sha256 "ce3b733a2acace3b95b35738a3fdbb7e329613ffa369300a0e80a2dd237c9082" => :sierra
+    sha256 "ae2005c8092f8d00bcdfb0bd82ed47935ddb50abee9f16e65835a2cb6555df24" => :el_capitan
+    sha256 "a56ec9c06bc95de647cdfb51560aabcc6199de79890aff3b3a5267d1d44736dc" => :yosemite
   end
 
   keg_only "Qt 5 has CMake issues when linked"

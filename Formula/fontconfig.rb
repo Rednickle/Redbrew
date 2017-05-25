@@ -22,15 +22,11 @@ class Fontconfig < Formula
   # The bottle tooling is too lenient and thinks fontconfig
   # is relocatable, but it has hardcoded paths in the executables.
   bottle do
-    cellar :any
-    sha256 "593f068ccb155b27dad21699b753020292beaaa31bcd984ff4e70375ed3e7f41" => :sierra
-    sha256 "151acfcc10e7d9c38aca5e23d5acdb953f3d627f05e206a097d039e6e8168a4a" => :el_capitan
-    sha256 "72c9f7932c02e7ad44d9bed147ea26f84a7bc5ba681da6eb00e52c381b6f7a68" => :yosemite
-    sha256 "644c80b9c9b8af2c13329043f6921cac3d0effdd6a5ecc696484113a46b90488" => :mavericks
-    sha256 "ac91e177e6a9a8c077d403b1dd453de6d4c9d695b88a5d39ba0af0157c51a98c" => :x86_64_linux
+    rebuild 1
+    sha256 "c9aa0691856cf65926f3cf0a98437b5a5d31277eda5b3adbf2936e095e410923" => :sierra
+    sha256 "65bff1d201c1cf194f69f39d0bc02e8a4c5b1a8cbfafa22f9581501d84835df2" => :el_capitan
+    sha256 "da7afd6fc112fc9fe6c2e6b5fa0fec98434ccdaad88c76447e0c741d3c9cd40a" => :yosemite
   end
-
-  option "without-docs", "Skip building the fontconfig docs"
 
   pour_bottle? do
     default_prefix = BottleSpecification::DEFAULT_PREFIX
@@ -50,17 +46,31 @@ class Fontconfig < Formula
 
   keg_only :provided_pre_mountain_lion
 
+  option "without-docs", "Skip building the fontconfig docs"
+
   depends_on "pkg-config" => :build
   depends_on "freetype"
-  depends_on "bzip2" => :recommended unless OS.mac?
-  depends_on "expat" unless OS.mac?
+  unless OS.mac?
+    depends_on "bzip2"
+    depends_on "expat"
+  end
 
   def install
+    font_dirs = %w[
+      /System/Library/Fonts
+      /Library/Fonts
+      ~/Library/Fonts
+    ]
+
+    if MacOS.version >= :sierra
+      font_dirs << "/System/Library/Assets/com_apple_MobileAsset_Font3"
+    end
+
     system "autoreconf", "-iv" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--enable-static",
-                          "--with-add-fonts=/System/Library/Fonts,/Library/Fonts,~/Library/Fonts",
+                          "--with-add-fonts=#{font_dirs.join(",")}",
                           "--prefix=#{prefix}",
                           "--localstatedir=#{var}",
                           "--sysconfdir=#{etc}",
