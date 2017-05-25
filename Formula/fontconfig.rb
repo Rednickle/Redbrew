@@ -26,6 +26,7 @@ class Fontconfig < Formula
     sha256 "c9aa0691856cf65926f3cf0a98437b5a5d31277eda5b3adbf2936e095e410923" => :sierra
     sha256 "65bff1d201c1cf194f69f39d0bc02e8a4c5b1a8cbfafa22f9581501d84835df2" => :el_capitan
     sha256 "da7afd6fc112fc9fe6c2e6b5fa0fec98434ccdaad88c76447e0c741d3c9cd40a" => :yosemite
+    sha256 "6a39a8ac965d1565e7b7d1b2e4204170000c0046d29282949784eac9b11f5359" => :x86_64_linux
   end
 
   pour_bottle? do
