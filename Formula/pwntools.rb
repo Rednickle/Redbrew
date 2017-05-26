@@ -12,6 +12,7 @@ class Pwntools < Formula
     sha256 "0eebee6707ff2d7a5267e8c60b38e372b1abe37654df2f8a0ea70aa3ec389afe" => :sierra
     sha256 "e5e31af9d1470a575ad509a9c51d72aa1367fafcdd289c5ed2fe18bc55974db5" => :el_capitan
     sha256 "36d76e0e6a9a1ffc21576cf2fdcd7ce49ec4f12a2ec4b5c9361646806e77c976" => :yosemite
+    sha256 "2ebfc0d2a4af4928d0b247e8cf1a1cf21ec0e9bb36878bb7e755401c22627328" => :x86_64_linux
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
