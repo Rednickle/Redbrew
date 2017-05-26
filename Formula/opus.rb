@@ -9,6 +9,7 @@ class Opus < Formula
     sha256 "3094061c9de9b038a9b7e45472441cf06fa2b76fec729e2722eeda56a2ca99b6" => :sierra
     sha256 "a0d04fe1aa549a6bf80d5c54803b3c32a5fd669d38c7c94416076e4c73ed38d0" => :el_capitan
     sha256 "5ce71bb0df2d64a85129694e7bf62349afe1b62a56b876ab4fa65d364cec7ee3" => :yosemite
+    sha256 "01a37bca7e66f4f40d7a77939c197e483dc046677c9cd36ed6630f1cdc62717b" => :x86_64_linux
   end
 
   head do
