@@ -10,6 +10,7 @@ class Micropython < Formula
     sha256 "642af2b16237813729a3dbf23b5021ac7aeb17abb725f26abf9ef94170c42db9" => :sierra
     sha256 "5d9d62636bb479df461d19d3bd6de070acd658873f6cdae6646357e7e3bc9721" => :el_capitan
     sha256 "9f18594a8d8884279398fa5ceed203ce801d5524f3a478fdd5fa354ad7cf1aa2" => :yosemite
+    sha256 "5d869e801e44f6a190bae9bd6ce7f7ffdb1e27a5acfd3774248d72c365b599ec" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
