@@ -12,6 +12,7 @@ class MagicWormhole < Formula
     sha256 "1a8585fef93daec28fab0e9a6ab3529df32d5e6a0d74ddebc0ed9ad661eedc71" => :sierra
     sha256 "c8e5482bc5a74debe8191f9e8206151990de23a704d7750039366304b56a1a0a" => :el_capitan
     sha256 "f4d27eceafc15ad2abd04c310c8bda060d433208ce3cab515c9bd8394f15dd1b" => :yosemite
+    sha256 "8f5f8e47bcea31c399da3e9f56a08503418675440285d63840f63392683d9a4c" => :x86_64_linux
   end
 
   depends_on :python
