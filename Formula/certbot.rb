@@ -3,15 +3,15 @@ class Certbot < Formula
 
   desc "Tool to obtain certs from Let's Encrypt and autoenable HTTPS"
   homepage "https://certbot.eff.org/"
-  url "https://github.com/certbot/certbot/archive/v0.14.1.tar.gz"
-  sha256 "7992fced742649e7b7668e4db7685de12248a4ffba66810cb336e9b6412e3567"
+  url "https://github.com/certbot/certbot/archive/v0.14.2.tar.gz"
+  sha256 "e1883c7cc7788997aada06007c24967cbcdc7fc61e4cb0460b83c40484c6da09"
   head "https://github.com/certbot/certbot.git"
 
   bottle do
     cellar :any
-    sha256 "31f22ab98a7f3ffaf04235ef882f69d053320ef9ffe070dba74f444fdf02b33a" => :sierra
-    sha256 "fd4f9c5127fbda8b4f6b4b95e6bcf3b70b1fae7ae66e11c233f391365640a750" => :el_capitan
-    sha256 "b10dd0e079daf39976e32155df017cba2610b1b924765ce6e9c0e11d6c0b56fe" => :yosemite
+    sha256 "4189d8dc11031ce9983ca7f9be7cde8c583968fe00a096c3cc78d64e5de7b997" => :sierra
+    sha256 "325bdd5e98e29f0825b40bf3d7693595f0b2fa5ea3c00efedef1bd29085c0bfc" => :el_capitan
+    sha256 "3882b7ca7f079acfcf571ae673a96bdccea2516fad3d3339a8e900daf67e1c94" => :yosemite
   end
 
   depends_on "augeas"
@@ -50,8 +50,8 @@ class Certbot < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/ec/5f/d5bc241d06665eed93cd8d3aa7198024ce7833af7a67f6dc92df94e00588/cryptography-1.8.1.tar.gz"
-    sha256 "323524312bb467565ebca7e50c8ae5e9674e544951d28a2904a50012a8828190"
+    url "https://files.pythonhosted.org/packages/81/fb/97d649657687d483753880cf663cf78015e1b8fb495d565feb49f1d56a24/cryptography-1.8.2.tar.gz"
+    sha256 "8e88ebac371a388024dab3ccf393bf3c1790d21bc3c299d5a6f9f83fb823beda"
   end
 
   resource "enum34" do
@@ -95,8 +95,8 @@ class Certbot < Formula
   end
 
   resource "pbr" do
-    url "https://files.pythonhosted.org/packages/1e/f0/9963f6ff9fb3861384be272c07522a9e85441ea5524f7fe15d07cadcae2a/pbr-3.0.0.tar.gz"
-    sha256 "568f988af109114fbfa0525dcb6836b069838360d11732736ecc82e4c15d5c12"
+    url "https://files.pythonhosted.org/packages/18/2e/28a7d361a568b1a6c86946674e8ac35a609573c3a3d12bb20f6aaf1c39bf/pbr-3.0.1.tar.gz"
+    sha256 "d7e8917458094002b9a2e0030ba60ba4c834c456071f2d0c1ccb5265992ada91"
   end
 
   resource "pycparser" do

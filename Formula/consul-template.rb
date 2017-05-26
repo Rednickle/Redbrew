@@ -2,15 +2,15 @@ class ConsulTemplate < Formula
   desc "Generic template rendering and notifications with Consul"
   homepage "https://github.com/hashicorp/consul-template"
   url "https://github.com/hashicorp/consul-template.git",
-      :tag => "v0.18.3",
-      :revision => "3a31dde7d5dbddf2555470021f3e18985f1edd9d"
+      :tag => "v0.18.5",
+      :revision => "4b37ce6eb0b75027ac4d79fad5f51bddc2d965c6"
   head "https://github.com/hashicorp/consul-template.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "aa4acaaff0f85ee7b7860e3b18746d0404657a1c9244999817e06f52c145bf6e" => :sierra
-    sha256 "451ae2b901a7d1f28398dbe2be704257869b8e37f89f173bf072adae6a8418e9" => :el_capitan
-    sha256 "cf358ac82b4c6ca739ac62b5d1eb092902a5d3d6d38f22b600c9491c3abfd114" => :yosemite
+    sha256 "e964924e182b8bd8db792bfde32dd85cc97ab19d06c1cc7867644b27aadee201" => :sierra
+    sha256 "28ade72b02e90c60c72314e5611cf50f99d9efe5e40e09ce432c5b22c32be5c4" => :el_capitan
+    sha256 "debdb5715213e59c4c9a7d909d8cb3d7aea6d92b1980954e052045e43d49af89" => :yosemite
   end
 
   depends_on "go" => :build

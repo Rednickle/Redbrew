@@ -5,7 +5,7 @@
 class Wine < Formula
   desc "Run Windows applications without a copy of Microsoft Windows"
   homepage "https://www.winehq.org/"
-  revision 1
+  revision 2
   head "https://source.winehq.org/git/wine.git"
 
   stable do
@@ -29,9 +29,9 @@ class Wine < Formula
   end
 
   bottle do
-    sha256 "d3d23bb6bf96146253d41456aecfe8bf2011abe46cfa95b4ae6bb6f54f23c06e" => :sierra
-    sha256 "3cc167ccd579184bc0f030a7b2c07640a363d297e5013dd3e3e9f91234566092" => :el_capitan
-    sha256 "c7e325104c2f46400cf928f42d053d98ec87efb85baf01dca094024eaf4e3052" => :yosemite
+    sha256 "a74601f5e034d97a64d203c29c3865566d9c06c423301ffc5b76e83a85fbc682" => :sierra
+    sha256 "9095d4bb5e5d7acb711a3a87cb09ad0a6b0eb58671bba9c3fe3c34bfb2ed323b" => :el_capitan
+    sha256 "6a2daa9b72b4cdc638acfa63f5a71b06a0dfddd6893d77e92e8403d125ee8fbc" => :yosemite
   end
 
   devel do
@@ -79,9 +79,9 @@ class Wine < Formula
   end
 
   resource "openssl" do
-    url "https://www.openssl.org/source/openssl-1.0.2k.tar.gz"
-    mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2k.tar.gz"
-    sha256 "6b3977c61f2aedf0f96367dcfb5c6e578cf37e7b8d913b4ecb6643c3cb88d8c0"
+    url "https://www.openssl.org/source/openssl-1.0.2l.tar.gz"
+    mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2l.tar.gz"
+    sha256 "ce07195b659e75f4e1db43552860070061f156a98bb37b672b101ba6e3ddf30c"
   end
 
   resource "libtool" do

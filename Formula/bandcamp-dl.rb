@@ -3,16 +3,16 @@ class BandcampDl < Formula
 
   desc "Simple python script to download Bandcamp albums"
   homepage "https://github.com/iheanyi/bandcamp-dl"
-  url "https://github.com/iheanyi/bandcamp-dl/archive/v0.0.8-04.tar.gz"
-  version "0.0.8-04"
-  sha256 "acb8d54614b3e89c54fd6be8621759110b04e3462c087eb4eb827b8c4a31fd21"
+  url "https://github.com/iheanyi/bandcamp-dl/archive/v0.0.8-06.tar.gz"
+  version "0.0.8-06"
+  sha256 "7138448f9aa0b494c2e87155d1511cc13e01bdcfba605f2dd7903179d609e709"
   head "https://github.com/iheanyi/bandcamp-dl.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "773833ac27e8f48ec18ef725b24cc3e765d8f45e0dc2031eae6ee094c86011de" => :sierra
-    sha256 "202154dec6f2e605e2d317a6588dec984c1c3a324db4dd3be70ed9a590dba839" => :el_capitan
-    sha256 "574c6c3c48a77ce11b2fd3e6fa9fecf83a3db09d729a1057074f7f7087064abe" => :yosemite
+    sha256 "2b1d42677c43e0361e41decf7ec7f3c7344561f316ad1a20b65e0b31a649936b" => :sierra
+    sha256 "86de6043cd8ee371207a1b9ceb4bcad3475d905a7c1831fb3464c71554c099fd" => :el_capitan
+    sha256 "f535d17f83284484b216d9897feeddcc67d7ab23ae9f51b6885687f9dd358dfc" => :yosemite
   end
 
   depends_on :python3

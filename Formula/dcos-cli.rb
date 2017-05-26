@@ -9,10 +9,10 @@ class DcosCli < Formula
 
   bottle do
     cellar :any
-    sha256 "e38054a743f8a02a4a47cd90214818c987f2e474f3f2b307914ed64ff938a000" => :sierra
-    sha256 "4684fa30f4e662f76bc3f0fbd45ad4ea74171c246e044f59ad56db115fb86cf2" => :el_capitan
-    sha256 "28479782355b5f5ea6d257970009a8d720d26c7f2688f6be4a5844a399299202" => :yosemite
-    sha256 "a44cd5663296ed2d4be483c8836b986bc912da413caa1847e6773b4d612b195e" => :x86_64_linux
+    rebuild 1
+    sha256 "e0cae4e565ebbbc71583202e0c16b4d4215bacbfcccf32227013575e102c0fa0" => :sierra
+    sha256 "68d8386178f01d39c0a4c63e976d2814d87ed17bdca8a1afc5e5580611b0715a" => :el_capitan
+    sha256 "be7adfbcb22f260f1a6611418af45b0f0bdd31560eeada28346f672c920e8286" => :yosemite
   end
 
   depends_on :python3
@@ -23,14 +23,19 @@ class DcosCli < Formula
     sha256 "9e5896d1372858f8dd3344faf4e5014d21849c756c8d5701f78f8a103b372d92"
   end
 
+  resource "asn1crypto" do
+    url "https://files.pythonhosted.org/packages/67/14/5d66588868c4304f804ebaff9397255f6ec5559e46724c2496e0f26e68d6/asn1crypto-0.22.0.tar.gz"
+    sha256 "cbbadd640d3165ab24b06ef25d1dca09a3441611ac15f6a6b452474fdf0aed1a"
+  end
+
   resource "cffi" do
     url "https://files.pythonhosted.org/packages/5b/b9/790f8eafcdab455bcd3bd908161f802c9ce5adbf702a83aa7712fcc345b7/cffi-1.10.0.tar.gz"
     sha256 "b3b02911eb1f6ada203b0763ba924234629b51586f72a21faacc638269f4ced5"
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/d7/a2/b90736c37fd720db425c5e48d69da75a6eff6609b22d2123762f1ae8c5f5/cryptography-1.6.tar.gz"
-    sha256 "4d0d86d2c8d3fc89133c3fa0d164a688a458b6663ab6fa965c80d6c2cdaf9b3f"
+    url "https://files.pythonhosted.org/packages/81/fb/97d649657687d483753880cf663cf78015e1b8fb495d565feb49f1d56a24/cryptography-1.8.2.tar.gz"
+    sha256 "8e88ebac371a388024dab3ccf393bf3c1790d21bc3c299d5a6f9f83fb823beda"
   end
 
   resource "docopt" do
@@ -119,6 +124,10 @@ class DcosCli < Formula
   end
 
   def install
+    # Fix build with openssl 1.1.0f
+    # See https://github.com/dcos/dcos-cli/pull/985
+    inreplace "cli/setup.py", "cryptography==1.6", "cryptography==1.8.2"
+
     venv = virtualenv_create(libexec, "python3")
     venv.pip_install resources
     venv.pip_install [buildpath, buildpath/"cli"]
