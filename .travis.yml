@@ -25,6 +25,7 @@ before_install:
       libjasper-dev
       libjbig-dev
       libkrb5-dev
+      libltdl-dev
       liblzma-dev
       libncurses5-dev
       libossp-uuid-dev
