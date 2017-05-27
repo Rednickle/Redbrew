@@ -1,14 +1,14 @@
 class Rocksdb < Formula
   desc "Embeddable, persistent key-value store for fast storage"
   homepage "http://rocksdb.org"
-  url "https://github.com/facebook/rocksdb/archive/rocksdb-5.3.6.tar.gz"
-  sha256 "9d7bba096b950a08469acae77ea5cb75c61d80693e15c83bce376191f8c1d844"
+  url "https://github.com/facebook/rocksdb/archive/rocksdb-5.4.5.tar.gz"
+  sha256 "58655edd7075d442d3129c48a1deea87461f2e532e258be81b272f938d291549"
 
   bottle do
     cellar :any
-    sha256 "af8f0111c42108ae5d7110174b2902ce8753f696ad41079e5ed492d3b0a13587" => :sierra
-    sha256 "c63710913d0b7c0d34dcddb0e057a00749ae999db4938ce20a68b8687ecaee0c" => :el_capitan
-    sha256 "c496300371c4195f7cbf9e83f9fe2ac9f2f504d02a3c0876e9f904b5b91a6dc2" => :yosemite
+    sha256 "0cc07230ecec629f8f843baf07e6aeee59a502079da0ad49e9059ba8f9cb3034" => :sierra
+    sha256 "c6465478649272e71288061a04f9bc8ce0a9a6bc679acb065ea6a31333579ad8" => :el_capitan
+    sha256 "8a7620a608cffa9d24a2010fefc06ec3341931d8dc7c433a03c28723217ffa72" => :yosemite
   end
 
   needs :cxx11
@@ -79,7 +79,7 @@ class Rocksdb < Formula
     assert_match "rocksdb_sanity_test <path>", shell_output("#{bin}/rocksdb_sanity_test --help 2>&1", 1)
     assert_match "rocksdb_stress [OPTIONS]...", shell_output("#{bin}/rocksdb_stress --help 2>&1", 1)
     assert_match "rocksdb_write_stress [OPTIONS]...", shell_output("#{bin}/rocksdb_write_stress --help 2>&1", 1)
-    assert_match "ldb - LevelDB Tool", shell_output("#{bin}/rocksdb_ldb --help 2>&1", 1)
+    assert_match "ldb - RocksDB Tool", shell_output("#{bin}/rocksdb_ldb --help 2>&1", 1)
     assert_match "rocksdb_repl_stress:", shell_output("#{bin}/rocksdb_repl_stress --help 2>&1", 1)
     assert_match "rocksdb_dump:", shell_output("#{bin}/rocksdb_dump --help 2>&1", 1)
     assert_match "rocksdb_undump:", shell_output("#{bin}/rocksdb_undump --help 2>&1", 1)
