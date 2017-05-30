@@ -38,9 +38,7 @@ class Screen < Formula
   depends_on "ncurses" unless OS.mac?
 
   def install
-    if build.head?
-      cd "src"
-    end
+    cd "src" if build.head?
 
     # Fix error: dereferencing pointer to incomplete type 'struct utmp'
     ENV.append_to_cflags "-include utmp.h" unless OS.mac?

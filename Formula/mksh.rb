@@ -14,7 +14,7 @@ class Mksh < Formula
   end
 
   def install
-    system "sh", "./Build.sh", "-r", "-c", (ENV.compiler == :clang ? "lto" : "combine")
+    system "sh", "./Build.sh", "-r", "-c", (ENV.compiler == :clang) ? "lto" : "combine"
     bin.install "mksh"
     man1.install "mksh.1"
   end

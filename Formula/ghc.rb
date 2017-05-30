@@ -116,9 +116,7 @@ class Ghc < Formula
             "--with-ld=ld", # Avoid hardcoding superenv's ld.
             "--with-gcc=#{OS.mac? ? ENV.cc : "gcc"}"] # Always.
 
-    if ENV.compiler == :clang
-      args << "--with-clang=#{OS.mac? ? ENV.cc : "clang"}"
-    end
+    args << "--with-clang=#{OS.mac? ? ENV.cc : "clang"}" if ENV.compiler == :clang
 
     if OS.linux?
       # Fix error while loading shared libraries: libgmp.so.10
