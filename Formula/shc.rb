@@ -10,6 +10,7 @@ class Shc < Formula
     sha256 "af67fd885a25116979b7633c359895c87b3e9fa651ecf776303a17659bce1d9d" => :sierra
     sha256 "1223921ffcf26c06d89d36be43f3ebf1404fa7e3b23a2bb561845667a61c64ef" => :el_capitan
     sha256 "fd57edf8ab1d2929a1007dcf9672c0263cddde3d2a9b2245364ed344d8aee650" => :yosemite
+    sha256 "9de8145d31add7960532baf523b03e94d84bef865db99edac4cd382427a43b2b" => :x86_64_linux
   end
 
   def install
