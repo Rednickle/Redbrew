@@ -16,6 +16,7 @@ class Texlive < Formula
   option "with-basic", "install plain and latex"
   option "with-minimal", "install plain only"
 
+  depends_on :perl => ["5.14", :build] unless OS.mac?
   depends_on "fontconfig"
 
   def install
