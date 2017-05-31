@@ -9,6 +9,7 @@ class Highlight < Formula
     sha256 "6125da34f8576b84e822ac5d7b3ea646ecd1f336c0af5abddc8cd49190f4711c" => :sierra
     sha256 "213160ca01d86d6f8b2a8e619caa17770082e822bb969eae2f40263f7faf235c" => :el_capitan
     sha256 "57f65a617ac023ae1bf6b1cef3f808b5f99604876ca75e2caacd3c6a9c6716b8" => :yosemite
+    sha256 "9494a1b5343a5981b8316f2dc7877a26af51533647f35690dcc7e29b1270af80" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
