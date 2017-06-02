@@ -5,16 +5,18 @@ class Jhipster < Formula
   homepage "https://jhipster.github.io/"
   url "https://registry.npmjs.org/generator-jhipster/-/generator-jhipster-4.5.2.tgz"
   sha256 "5df0edbbdb685df5ae598b53fb2def43b6c23bb75d44763a63cda69567395954"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0fb61e7d24bf386d415a4b608d5f4b180cf752dc87043f0a84506bada85281c1" => :sierra
-    sha256 "dfd93ee2481f2a88eb26bbe9e4f17b50c4b870210453da616b8b20f520f01c6f" => :el_capitan
-    sha256 "2722ebb74b9321b0fd258f59f084d8394f20977f1bcc2872e55ae455fa37e361" => :yosemite
-    sha256 "d215bbfa2e5310e35516546f7029d46b2639c92cb5562e93bb5ab4a077714081" => :x86_64_linux
+    sha256 "7cc9ebe7529c05dc544f78b7719e5f41bd2fb2f3812c832b28756fba1ea47edf" => :sierra
+    sha256 "c3e938629196d2183a7bce117f4b36ef95853092d360976d176045ae7dd35084" => :el_capitan
+    sha256 "f31b59ffbf574dbabd08a4ac4a8a0d1d832516429f72f200642fdd6d6e5dc534" => :yosemite
   end
 
   depends_on "node"
+  depends_on "yarn"
+  depends_on :java => "1.8+"
 
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
