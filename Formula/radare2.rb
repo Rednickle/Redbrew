@@ -98,9 +98,11 @@ class Radare2 < Formula
       perl_version = `/usr/bin/perl -e 'printf "%vd", $^V;'`
       lua_version = Formula["lua"].version.to_s.match(/\d\.\d/)
 
-      # Lazily bind to Python.
-      inreplace "do-swig.sh", "VALABINDFLAGS=\"\"", "VALABINDFLAGS=\"--nolibpython\""
-      make_binding_args = ["CFLAGS=-undefined dynamic_lookup"]
+      if OS.mac?
+        # Lazily bind to Python.
+        inreplace "do-swig.sh", "VALABINDFLAGS=\"\"", "VALABINDFLAGS=\"--nolibpython\""
+        make_binding_args = ["CFLAGS=-undefined dynamic_lookup"]
+      end
 
       # Ensure that plugins and bindings are installed in the correct Cellar
       # paths.
