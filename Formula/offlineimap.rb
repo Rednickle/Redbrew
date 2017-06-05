@@ -3,14 +3,14 @@ class Offlineimap < Formula
   homepage "http://offlineimap.org/"
   url "https://github.com/OfflineIMAP/offlineimap/archive/v7.1.1.tar.gz"
   sha256 "a624f8a77eae664dd458be47c5306c28911d4a1f788ff5641d7bb37e01ecb703"
+  revision 1
   head "https://github.com/OfflineIMAP/offlineimap.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "93df5d003f4d0747cf0db74f0b16968abbbe01e8732c21f91b1a7167073069f1" => :sierra
-    sha256 "466ac3cd3e20fedef240f4d5f0c9155a5f003abdbd9752e6a67a92e4b68e7387" => :el_capitan
-    sha256 "466ac3cd3e20fedef240f4d5f0c9155a5f003abdbd9752e6a67a92e4b68e7387" => :yosemite
-    sha256 "9236e69fec0d2a993117404327a4db1eab726fca6ee895943eeece6e2d7c6746" => :x86_64_linux
+    sha256 "99db47aadb9ba9ae42127cbe7c549d8ed3e2276f50d122375a1c7488b213a8ab" => :sierra
+    sha256 "b743e423432e73d384c743af6391714c686baf5dc90d7c40920546e82538fb00" => :el_capitan
+    sha256 "b743e423432e73d384c743af6391714c686baf5dc90d7c40920546e82538fb00" => :yosemite
   end
 
   depends_on :python unless OS.mac?
@@ -61,6 +61,8 @@ class Offlineimap < Formula
         <key>ProgramArguments</key>
         <array>
           <string>#{opt_bin}/offlineimap</string>
+          <string>-u</string>
+          <string>basic</string>
         </array>
         <key>StartInterval</key>
         <integer>300</integer>

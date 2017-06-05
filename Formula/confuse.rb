@@ -1,15 +1,14 @@
 class Confuse < Formula
   desc "Configuration file parser library written in C"
   homepage "https://github.com/martinh/libconfuse"
-  url "https://github.com/martinh/libconfuse/releases/download/v3.1/confuse-3.1.tar.xz"
-  sha256 "8171f31e0071d5e4460269fdcc8b4e748cf23b4bf6bbe672f718a136dd63ca66"
+  url "https://github.com/martinh/libconfuse/releases/download/v3.2/confuse-3.2.tar.xz"
+  sha256 "a46abb8696026d314197b6a70ae1a1c296342a9a68aa69b1935709c1477a4e48"
 
   bottle do
     cellar :any
-    sha256 "d9e6e9716101784e7ae8eed5b3ec1904fe2567a23dcf67bf9135a5b6d997bf40" => :sierra
-    sha256 "d43580d707a754cce473091b4c0ca5ef02132511d8bccfcb56d24e057ff7dace" => :el_capitan
-    sha256 "defb5657f4a190f8f5d59a1508273454fae4c3c6c93c7365b97ad39475f8967a" => :yosemite
-    sha256 "675d39818249c0ed608b66201750ab9534c781a5478a6d49ed70fe6590474947" => :x86_64_linux
+    sha256 "59cc0b7f7203045e2ee4f65c3318463bfd7eee373418fb096358db81591df64b" => :sierra
+    sha256 "8d4b5d0523049f6a836734df05e1a7a596c8a3b9139b45603513598e19e55cb5" => :el_capitan
+    sha256 "0eecb39714d5032b2e87adad8e254c14439a0325ccb3914058f9638df1da8563" => :yosemite
   end
 
   depends_on "pkg-config" => :build

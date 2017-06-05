@@ -1,8 +1,8 @@
 class AmmoniteRepl < Formula
   desc "Ammonite is a cleanroom re-implementation of the Scala REPL"
   homepage "https://lihaoyi.github.io/Ammonite/#Ammonite-REPL"
-  url "https://github.com/lihaoyi/Ammonite/releases/download/0.9.7/2.12-0.9.7", :using => :nounzip
-  sha256 "f9b3b6304da07aced4e36abdd61811f80621722035194e41e1a9165e25dcb8a9"
+  url "https://github.com/lihaoyi/Ammonite/releases/download/0.9.9/2.12-0.9.9", :using => :nounzip
+  sha256 "c3b03cb8291724839501bb0834640926c1be09b1130cdee50b82071f90f13862"
 
   bottle :unneeded
 
