@@ -21,6 +21,7 @@ class S6 < Formula
     sha256 "334c8b0dec1a807935fff68558ba92652cf87f09662a6942d108186eb382905b" => :sierra
     sha256 "89113837161737a4854c2cad15bf80d32d53fb7223dd23f50aad58eb65de1961" => :el_capitan
     sha256 "0851bfaaa461210cd2710eef2daf699109a4a1fc317e911d71ea790eb41e823a" => :yosemite
+    sha256 "b5c0a3cc9e6bfccb0579f98a85a4a0b418a1e42256d2723ef23db9ea2dd3e006" => :x86_64_linux
   end
 
   head do
