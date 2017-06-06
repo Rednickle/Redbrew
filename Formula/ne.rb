@@ -1,14 +1,14 @@
 class Ne < Formula
   desc "The nice editor"
   homepage "http://ne.di.unimi.it"
-  url "http://ne.di.unimi.it/ne-3.1.0.tar.gz"
-  sha256 "bf2a664e788e4f39073d0000a4ba80f02c43c556cb7fd714704f13175a4b8b51"
+  url "http://ne.di.unimi.it/ne-3.1.1.tar.gz"
+  sha256 "ec4f5d919c38b1a5938b609a722d0d88a68c404b4564e3bb654b96b30582add9"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6cb47aff1c91d22fd98578df10d6c17c1afaa6e493085e453954e540d0dacfa0" => :sierra
-    sha256 "b9f8988279a64a070cbadd618d3561b4ef8ed3b4fe3f474b4ea5a1dcbb0f3d2a" => :el_capitan
-    sha256 "b5c3a4e39341af06d04d2d233cea0ae56f81d2f1f52ece6ecb9982651794f225" => :yosemite
+    sha256 "1aee5fa253900a888bfa27d92a3b0e262a01acf03da2987285064c916105a388" => :sierra
+    sha256 "7bdd3016890a03f6bc006d924cf2373a97b3915bf8d7ddc1a6bb81741085ecff" => :el_capitan
+    sha256 "00d0ed886fa94db6b33f26dd304f468c79748379ac95c49a96141594fa0b333a" => :yosemite
   end
 
   def install
