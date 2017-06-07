@@ -1,15 +1,14 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-3.3.1.tar.bz2"
-  sha256 "fcb2cd7b77fcb66a00abccd5a04e34342a02cab9f89626f28cf1abca715b6730"
+  url "https://ffmpeg.org/releases/ffmpeg-3.3.2.tar.bz2"
+  sha256 "216900d5c0af9017bb8f76b0ad23f0ac53cf7fc618cf04b40d989bd99b088e6a"
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
-    sha256 "fb8109e330e243103d282f691271aa54cf13520c5017a808888f11b37b13d74b" => :sierra
-    sha256 "60d3bf410b2bad22cb7ca4e86917b320f9a8e681ae33bf9b1c858698fbe001d2" => :el_capitan
-    sha256 "a10dd63d3825ad4163838983f0e4efb68e302fef0a8cecaa38989a4a70008fc0" => :yosemite
-    sha256 "2dd72af6f2955865b4093ce3a4d674d028e2211813010f0e04e3ff1ce0209b6b" => :x86_64_linux
+    sha256 "5a376b449da71f11aec2426ceab28c5797f429e8d1e29934541a7d57d4fed34f" => :sierra
+    sha256 "0d2fe136c30cc3a89746a1bfe67e4579766edda52f5f8f80b44aeafe0257e216" => :el_capitan
+    sha256 "57879c39bc53a7868ea5da360e4567c004062c581321a3707352151f12686768" => :yosemite
   end
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
