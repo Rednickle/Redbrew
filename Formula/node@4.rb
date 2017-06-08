@@ -3,15 +3,14 @@ class NodeAT4 < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v4.8.3/node-v4.8.3.tar.xz"
   sha256 "d84e7544c2e31a2d0825b4f8b093d169bf8bdb1881ee8cf75ff937918e59e9cb"
-  revision 1
+  revision 2
 
   head "https://github.com/nodejs/node.git", :branch => "v4.x-staging"
 
   bottle do
-    sha256 "01cfcd3c209c8cfa7026c3cb3def8ea0d34b8cd87c189ac9fe815a1fb675e7a6" => :sierra
-    sha256 "4a2507ea9b8f8e62e6e0c441ca11811c15e77cb87c41a47f5a1d558262a2d083" => :el_capitan
-    sha256 "61b5d510cbf8f0f82340159b5a4dc918597245f12e960bb5ac9a074148eb1d0f" => :yosemite
-    sha256 "b43af514200272cfc73f2eb4ed97092a2b15aac1213b81fa5a5160fc53e2d003" => :x86_64_linux
+    sha256 "7f1f2f5064c18679b6c2494c361fd4ce2f3d7baaa415ec096487a0b631a172e6" => :sierra
+    sha256 "d0c4365f19168f7444d29f63081ec43ae676db826241bdf093d0ebeb59515f56" => :el_capitan
+    sha256 "57cc91d2e546dd493654c97cea1a6684ef19c17b31b23bce3840c9d7d8bc47a7" => :yosemite
   end
 
   keg_only :versioned_formula
@@ -27,8 +26,8 @@ class NodeAT4 < Formula
 
   # Keep in sync with main node formula
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-5.0.1.tgz"
-    sha256 "cc31b845140791a85ab607636c6f0108346f8eb6cad7971919fd01ff4f4a1d7a"
+    url "https://registry.npmjs.org/npm/-/npm-5.0.3.tgz"
+    sha256 "de62206d779afcba878b3fb949488c01be99afc42e3c955932e754c2ab9aec73"
   end
 
   resource "icu4c" do

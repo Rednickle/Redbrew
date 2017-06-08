@@ -3,15 +3,14 @@ class NodeAT6 < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v6.10.3/node-v6.10.3.tar.xz"
   sha256 "82262a703e61164e09170a14d88b1726720651b0c7ee87a277654247b21b5388"
-  revision 1
+  revision 2
 
   head "https://github.com/nodejs/node.git", :branch => "v6.x-staging"
 
   bottle do
-    sha256 "88067a22aaf749d2f0f805bf6340f4f69429419566150d4345f1a21b8c99b53f" => :sierra
-    sha256 "a1dbf8857e99bb151e3bee64d17f2a1fbaef5d7f457d87c890739c94a33750b2" => :el_capitan
-    sha256 "ed389441ad23b73078bf51f3f5795e3684802c0f2a5d8ddd9e62e4432e0f8cf1" => :yosemite
-    sha256 "388b48b705eeeb29cddf1be5f7b88538ef03ec25c6f03f4908eae656055a88a2" => :x86_64_linux
+    sha256 "1d35a45911e59436d41c159a3d297c745ab30cfeda33bea01bde971516c4abff" => :sierra
+    sha256 "fba4d000427b4e41664d70ad34bfc6b73a0870dac96fda277da495b04b7e4ce9" => :el_capitan
+    sha256 "c811a4a71df1f8bd9707d7b4c4db2667bbf8290c011838a4ff25369d10d9c591" => :yosemite
   end
 
   keg_only :versioned_formula
@@ -36,8 +35,8 @@ class NodeAT6 < Formula
 
   # Keep in sync with main node formula
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-5.0.1.tgz"
-    sha256 "cc31b845140791a85ab607636c6f0108346f8eb6cad7971919fd01ff4f4a1d7a"
+    url "https://registry.npmjs.org/npm/-/npm-5.0.3.tgz"
+    sha256 "de62206d779afcba878b3fb949488c01be99afc42e3c955932e754c2ab9aec73"
   end
 
   resource "icu4c" do

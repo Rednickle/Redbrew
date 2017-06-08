@@ -1,17 +1,14 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v8.0.0/node-v8.0.0.tar.xz"
-  sha256 "258d3aa3632bbbf2a447c5d524bd7074e23aa26e2b698774ff452954f6174f1c"
-  revision 1
-
+  url "https://nodejs.org/dist/v8.1.0/node-v8.1.0.tar.xz"
+  sha256 "f2ff20b69b782dee85e887ad06e830590b2250856f6df325ed15a368bb6777fc"
   head "https://github.com/nodejs/node.git"
 
   bottle do
-    sha256 "4e895f803ff7aaf8131db010c4ab3b4ced76e974e17ea0c482aa6af1ab565038" => :sierra
-    sha256 "482288e81a45ff376664e8a6c2133f929adddd3ea64df1f56faca8c7d38a07d5" => :el_capitan
-    sha256 "24e64bec96923cad0ce9ae9622e5775f83d00826b0e8fcef8b6d6a0c7536ff1a" => :yosemite
-    sha256 "ce33e00cfcc20a8d48355ced9c0380c48b4e1b057bb4adedb49b5bce5fc67586" => :x86_64_linux
+    sha256 "9d92b9b550eaf2b9fd70de20fe789fc186f147a3c980bf67195c50070310e483" => :sierra
+    sha256 "619ad92f5aea0804d059b16a82e8781b6e12975d81ed81ff69fdeddcc016cfb3" => :el_capitan
+    sha256 "5403b633d1521042f5cc1b151b98b75256661cd0061645e750d08a2c3bcda434" => :yosemite
   end
 
   option "with-debug", "Build with debugger hooks"
@@ -41,8 +38,8 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-5.0.1.tgz"
-    sha256 "cc31b845140791a85ab607636c6f0108346f8eb6cad7971919fd01ff4f4a1d7a"
+    url "https://registry.npmjs.org/npm/-/npm-5.0.3.tgz"
+    sha256 "de62206d779afcba878b3fb949488c01be99afc42e3c955932e754c2ab9aec73"
   end
 
   def install
