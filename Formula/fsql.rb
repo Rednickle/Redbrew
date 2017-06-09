@@ -1,15 +1,14 @@
 class Fsql < Formula
   desc "Search through your filesystem with SQL-esque queries."
   homepage "https://github.com/kshvmdn/fsql"
-  url "https://github.com/kshvmdn/fsql/archive/v0.1.1.tar.gz"
-  sha256 "d3ff000b8374d2eb9a44aa20220c758a82a24c82ee8a369fae146e84fc422f2c"
+  url "https://github.com/kshvmdn/fsql/archive/v0.2.1.tar.gz"
+  sha256 "def6ddd2f9a5f64bc03821223f760250eecb775762e848f37fb105cf0254ad1c"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bf46899434596282a5a7b93bf362d0ecb6cf59ae7442cd7e3c0fc4bd1a46b902" => :sierra
-    sha256 "4bd39ff926ef47576e84de9423b7d04aedee8ae62c683641607a44700aa173f1" => :el_capitan
-    sha256 "58bb2a0a759bf6ab236e52d3dae6ce4b7ac583446203d7c4d21eee20d3df77b7" => :yosemite
-    sha256 "e5353cb756e8ac0a16b14f2d53d1487efbd82f005bba2382b4761fd068ad6324" => :x86_64_linux
+    sha256 "316420c1e4a7793fd5607b032be6b32ca67ed8851b53af9c3c410d65cca9a8a4" => :sierra
+    sha256 "530a6013f87796b1b2bd99b6e36f12ec4dc762f8431f4536bcdffcbfddacba04" => :el_capitan
+    sha256 "6869e98d96626f0b3eb25e89203ec08cd03468f833c7a0122e17c555d3181f4e" => :yosemite
   end
 
   depends_on "go" => :build
@@ -18,7 +17,7 @@ class Fsql < Formula
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/kshvmdn").mkpath
     ln_s buildpath, buildpath/"src/github.com/kshvmdn/fsql"
-    system "go", "build", "-o", bin/"fsql"
+    system "go", "build", "-o", bin/"fsql", "github.com/kshvmdn/fsql/cmd/fsql"
   end
 
   test do
@@ -28,10 +27,11 @@ class Fsql < Formula
       foo
       foo/baz.txt
     EOS
-    assert_equal expected, shell_output("#{bin}/fsql SELECT name FROM foo")
-    output = shell_output("#{bin}/fsql SELECT name FROM . WHERE name = bar.txt")
-    assert_equal "bar.txt", output.chomp
-    output = shell_output("#{bin}/fsql SELECT all FROM . WHERE size \\> 500gb")
-    assert_equal "", output
+    cmd = "#{bin}/fsql SELECT FULLPATH\\(name\\) FROM foo"
+    assert_equal expected, shell_output(cmd)
+    cmd = "#{bin}/fsql SELECT name FROM . WHERE name = bar.txt"
+    assert_equal "bar.txt", shell_output(cmd).chomp
+    cmd = "#{bin}/fsql SELECT name FROM . WHERE FORMAT\\(size\, GB\\) \\> 500"
+    assert_equal "", shell_output(cmd)
   end
 end
