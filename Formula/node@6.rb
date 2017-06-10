@@ -1,16 +1,14 @@
 class NodeAT6 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v6.10.3/node-v6.10.3.tar.xz"
-  sha256 "82262a703e61164e09170a14d88b1726720651b0c7ee87a277654247b21b5388"
-  revision 2
-
+  url "https://nodejs.org/dist/v6.11.0/node-v6.11.0.tar.xz"
+  sha256 "02ba35391edea2b294c736489af01954ce6e6c39d318f4423ae6617c69ef0a51"
   head "https://github.com/nodejs/node.git", :branch => "v6.x-staging"
 
   bottle do
-    sha256 "1d35a45911e59436d41c159a3d297c745ab30cfeda33bea01bde971516c4abff" => :sierra
-    sha256 "fba4d000427b4e41664d70ad34bfc6b73a0870dac96fda277da495b04b7e4ce9" => :el_capitan
-    sha256 "c811a4a71df1f8bd9707d7b4c4db2667bbf8290c011838a4ff25369d10d9c591" => :yosemite
+    sha256 "74159033c3e96d00872fc60d3725a8841adc5f7c3d61da22d62c16facfcb526c" => :sierra
+    sha256 "bc4f18a7b9bfa3fbecc8d467bf1caa9aa3d0bfd053084532fb52d249431a1b12" => :el_capitan
+    sha256 "44e975b2a7ec5198562e9cf1c611fa3fc6f2fa095db9995acb0328f445a36b3e" => :yosemite
   end
 
   keg_only :versioned_formula
