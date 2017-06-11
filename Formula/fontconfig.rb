@@ -29,6 +29,19 @@ class Fontconfig < Formula
     depends_on "libtool" => :build
   end
 
+  # Fix conflicting types for FCObjectTypeHash
+  # See https://bugzilla.freedesktop.org/show_bug.cgi?id=101280
+  # Both patches are needed
+  patch do
+    url "https://cgit.freedesktop.org/fontconfig/patch/?id=5c49354a782870d632884174f10c7fb10351c667"
+    sha256 "16c2d585a76f6a03d675485e2aadf6471178cbddab0c0f9d8bb9dd3a6141f1e1"
+  end
+
+  patch do
+    url "https://cgit.freedesktop.org/fontconfig/patch/?id=28139816d62b8444ca61a000a87c71e59fef104d"
+    sha256 "5d53356fdf4ac9fa7f72568fbd50b558623de1637b5405c3aca1d5caffe90685"
+  end
+
   keg_only :provided_pre_mountain_lion
 
   option "without-docs", "Skip building the fontconfig docs"
@@ -38,6 +51,7 @@ class Fontconfig < Formula
   unless OS.mac?
     depends_on "bzip2"
     depends_on "expat"
+    depends_on "gperf" => :build
   end
 
   def install
