@@ -16,6 +16,7 @@ class IosSim < Formula
 
   depends_on :macos => :mountain_lion
   depends_on "node"
+  depends_on :macos
 
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
