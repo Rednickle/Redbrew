@@ -2,15 +2,14 @@ class Leaps < Formula
   desc "Collaborative web-based text editing service written in Golang"
   homepage "https://github.com/jeffail/leaps"
   url "https://github.com/Jeffail/leaps.git",
-      :tag => "v0.6.2",
-      :revision => "578f42522a56b5da4bd4b932f199b212eeb38e0b"
+      :tag => "v0.7.0",
+      :revision => "5fd7c3b10c1aad9c7d35288bbaa3d350515a5472"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "db7cb6ec0175e86c3c00e4e780c4703d7614166faaa7bf871a0e99bc5dcd0648" => :sierra
-    sha256 "692eaf22f77eb233cf66dde7de168407ae17e0028ee5fb13e9bec507cfe0c035" => :el_capitan
-    sha256 "071b3556faf9bbbc3c5351e0095fac21a6c3271424ae640c4ef95aadc91d5bf0" => :yosemite
-    sha256 "3f678b98710e1fd7ed84bd7d3888f8a38d669d5c88f058a77c5a75d7d523939b" => :x86_64_linux
+    sha256 "fa9cf3e9eac808b4a137e5140bcc524f8581d87a1cf9f80e1ec32a78020ae3ff" => :sierra
+    sha256 "6057a6539732b2b7967ca6678981560b19f0cb5bd96557b6bd930f1922272abc" => :el_capitan
+    sha256 "e056193127c7d1c48aa01934ea4e3c0301a7124a9c7fa46d82a34e1f9cd20e28" => :yosemite
   end
 
   depends_on "go" => :build
@@ -39,7 +38,7 @@ class Leaps < Formula
       sleep(1)
 
       # Check that the server is responding correctly
-      assert_match /Choose a document from the left to get started/, shell_output("curl -o- http://localhost#{port}")
+      assert_match "You are alone", shell_output("curl -o- http://localhost#{port}")
     ensure
       # Stop the server gracefully
       Process.kill("HUP", leaps_pid)

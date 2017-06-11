@@ -1,14 +1,14 @@
 class Pilosa < Formula
   desc "Distributed bitmap index that queries across data sets"
   homepage "https://www.pilosa.com"
-  url "https://github.com/pilosa/pilosa/archive/v0.3.2.tar.gz"
-  sha256 "12c5c5c2d511c655f02836e09d09cfafcb9eaa656a43850ddc6f6f9a2151b896"
+  url "https://github.com/pilosa/pilosa/archive/v0.4.0.tar.gz"
+  sha256 "ec615c5d2584e5761ac20c6a6df6139f7018de65934f4c2d05e69cfd35d1d89e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c9f0bb531a7c89f388792be61349d623e5a1e4101349a12cbf34904c6bfea3e6" => :sierra
-    sha256 "2c6f9b38ef3881c07769d7ceb166b94f9af67ec8c8e2c8271b4ee61ed3e15489" => :el_capitan
-    sha256 "91238f37a2d26db10541cc5ee2343c5c0ff114ac254cde88c0bca54f44d09c83" => :yosemite
+    sha256 "ec4c9c26457d157450c9310bbf381a644574c539b429c386e262f4add5aa2a98" => :sierra
+    sha256 "ed213f8f416248685a8c34ebae9718d7f221ba64505bc3795443337e182e3cfd" => :el_capitan
+    sha256 "97218a327a71b785d0616597b5b0519aabab74b10913cbbb4bf1a044f39e8736" => :yosemite
   end
 
   depends_on "go" => :build

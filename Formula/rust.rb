@@ -3,25 +3,25 @@ class Rust < Formula
   homepage "https://www.rust-lang.org/"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.17.0-src.tar.gz"
-    sha256 "4baba3895b75f2492df6ce5a28a916307ecd1c088dc1fd02dbfa8a8e86174f87"
+    url "https://static.rust-lang.org/dist/rustc-1.18.0-src.tar.gz"
+    sha256 "d2dc36e99b9e2269488b2bcddde43c234e6bde03edf70cba82a027ff49c36111"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          :tag => "0.18.0",
-          :revision => "fe7b0cdcf5ca7aab81630706ce40b70f6aa2e666"
+          :tag => "0.19.0",
+          :revision => "28d1d60d4b634b70d7ceb0808144f2337c83ab95"
     end
 
     resource "racer" do
-      url "https://github.com/phildawes/racer/archive/2.0.6.tar.gz"
-      sha256 "a9704478f72037e76d4d3702fe39b3c50597bde35dac1a11bf8034de87bbdc70"
+      url "https://github.com/phildawes/racer/archive/2.0.8.tar.gz"
+      sha256 "b6a1d3033fe5ca27674afceee936cf6d04b6fc11709513e230a039a2200f8797"
     end
   end
 
   bottle do
-    sha256 "da39e9680d86e78cfcd4e77befe28d637860f7fea6851f7f692095ba3f783576" => :sierra
-    sha256 "6a634a36568b187c5245373ea1401a890b331a414f50086620d0a8f19c4a9e83" => :el_capitan
-    sha256 "f540a366cc7bbcee1c8a6be804a0832541abaa9c076de189ee8c832e86545031" => :yosemite
+    sha256 "330dd281718d164d7415d83a6a8376cb2cc161ecee82e3fb6ba869a885b7fe8b" => :sierra
+    sha256 "c90ae66966ab11382c50fc49c8ddb6320aa34390f3e76081a592e39a7e48a9fa" => :el_capitan
+    sha256 "b0cfdaeb92b85192846d864f20fb6ca3a162163fb549918a223b4eef4eae3d91" => :yosemite
   end
 
   head do
@@ -41,8 +41,8 @@ class Rust < Formula
   depends_on "openssl"
   depends_on "libssh2"
   unless OS.mac?
-    depends_on "binutils" => :build unless OS.mac?
-    depends_on :python unless OS.mac?
+    depends_on "binutils" => :build
+    depends_on :python
   end
 
   conflicts_with "cargo-completion", :because => "both install shell completion for cargo"
@@ -57,16 +57,13 @@ class Rust < Formula
   resource "cargobootstrap" do
     if OS.mac?
       # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
-      url "https://s3.amazonaws.com/rust-lang-ci/cargo-builds/6b05583d71f982bcad049b9fa094c637c062e751/cargo-nightly-x86_64-apple-darwin.tar.gz"
-      # From name=cargo-nightly-x86_64-apple-darwin; tar -xf $name.tar.gz $name/version; cat $name/version
-      sha256 "0ed926ec3e5299f27fcc65f565572d2ee62fb79fc1707acfe81ced84981a30c6"
+      url "https://static.rust-lang.org/dist/2017-04-27/cargo-0.18.0-x86_64-apple-darwin.tar.gz"
+      sha256 "e5c69ed75f73cfcff0498a06da1017acaa190d912e0fe5e432b1439e4c0d4110"
     elsif OS.linux?
-      # From: https://github.com/rust-lang/rust/blob/1.16.0/src/stage0.txt
-      url "https://s3.amazonaws.com/rust-lang-ci/cargo-builds/6b05583d71f982bcad049b9fa094c637c062e751/cargo-nightly-x86_64-unknown-linux-gnu.tar.gz"
-      # From: name=cargo-nightly-x86_64-unknown-linux-gnu && tar -zxvf $name.tar.gz $name/version && cat $name/version
-      sha256 "d9e69d2b87dc0cf7fafe0e0eb64f82fe3414ef14fcb27f5eeff34df860e459d9"
+      # From: https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
+      url "https://static.rust-lang.org/dist/2017-04-27/cargo-0.18.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "3601e95c968850230b137b849ff08a507e50d77ab584c779143a100f1843d8dd"
     end
-    version "2017-03-13"
   end
 
   def install
