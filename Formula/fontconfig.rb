@@ -51,6 +51,8 @@ class Fontconfig < Formula
   unless OS.mac?
     depends_on "bzip2"
     depends_on "expat"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "gperf" => :build
   end
 
