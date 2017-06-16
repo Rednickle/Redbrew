@@ -3,12 +3,12 @@ class Harfbuzz < Formula
   homepage "https://wiki.freedesktop.org/www/Software/HarfBuzz/"
   url "https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-1.4.6.tar.bz2"
   sha256 "21a78b81cd20cbffdb04b59ac7edfb410e42141869f637ae1d6778e74928d293"
+  revision 1
 
   bottle do
-    sha256 "c64809563f55c323f5736cac24beef3436ed4317a9acc0ba0cd60012045d40a4" => :sierra
-    sha256 "a1ac927f5f7bef9be7b9eb3eabbbe3852f72d232c9b0032d0f3fb224fe7302ff" => :el_capitan
-    sha256 "4e42250dbec1a3bf954b93d009a98f0a662d28b96ccf99d691f66f56808261d1" => :yosemite
-    sha256 "217ddf272718de25808536b518d59701d8e8aa890c6d037477cd91ed1c126d64" => :x86_64_linux
+    sha256 "4c81e30eec38ace35bc49f3c8c42cefc5c68a3ba8235f583e0a3d7ba81c79023" => :sierra
+    sha256 "ebd06a3abb9fa2c0b96446c712a06b7c3f4a7813ad5459097f111ebb206b9bc1" => :el_capitan
+    sha256 "095f11f6df0494645de6ce292af326609a8f925bb3e44d6a276e5882f9d5c113" => :yosemite
   end
 
   head do
@@ -26,9 +26,9 @@ class Harfbuzz < Formula
   depends_on "freetype" => :recommended
   depends_on "glib" => :recommended
   depends_on "gobject-introspection" => :recommended
+  depends_on "graphite2" => :recommended
   depends_on "icu4c" => :recommended
   depends_on "cairo" => :optional
-  depends_on "graphite2" => :optional
 
   resource "ttf" do
     url "https://github.com/behdad/harfbuzz/raw/fc0daafab0336b847ac14682e581a8838f36a0bf/test/shaping/fonts/sha1sum/270b89df543a7e48e206a2d830c0e10e5265c630.ttf"
