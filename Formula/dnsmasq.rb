@@ -3,11 +3,11 @@ class Dnsmasq < Formula
   homepage "http://www.thekelleys.org.uk/dnsmasq/doc.html"
   url "http://www.thekelleys.org.uk/dnsmasq/dnsmasq-2.77.tar.gz"
   sha256 "ae97a68c4e64f07633f31249eb03190d673bdb444a05796a3a2d3f521bfe9d38"
+  revision 1
 
   bottle do
-    sha256 "b0b61da17a54a80fd7b6d492bb652e42d568d5d98a3ed2aef3861a4b899c4214" => :sierra
-    sha256 "3290636fec3c5c863de360281acda3a199dab86d15d858d9edf03a82f4aab446" => :el_capitan
-    sha256 "a68f2dd1198dee197aa65e3591a6601f84a61d2c9e2aa48a2956cd7c35461e11" => :yosemite
+    sha256 "415358496ac88fd957a33ba6d0ffe0baacc1d908f7f668e89b3bcf89181b92c1" => :el_capitan_or_later
+    sha256 "102cb81febe3c1211107bf3d8b712784446f6e44808a279936d8f232a0ae07b3" => :yosemite
   end
 
   option "with-libidn", "Compile with IDN support"

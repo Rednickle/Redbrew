@@ -2,16 +2,15 @@ class KubernetesCli < Formula
   desc "Kubernetes command-line interface"
   homepage "https://kubernetes.io/"
   url "https://github.com/kubernetes/kubernetes.git",
-      :tag => "v1.6.4",
-      :revision => "d6f433224538d4f9ca2f7ae19b252e6fcb66a3ae"
+      :tag => "v1.6.5",
+      :revision => "490c6f13df1cb6612e0993c4c14f2ff90f8cdbf3"
   head "https://github.com/kubernetes/kubernetes.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c75434193dbeef5aa056672149fd5e11e9ec7ddc72f4d139658370cef1657f37" => :sierra
-    sha256 "1568c4630728384e2b95510e313090f788478ff39f873ab7c83b43be94864691" => :el_capitan
-    sha256 "57eb0506413dc457a71d2246f4b22a83f4e9e92208003ff92f1fffd5b6384e4c" => :yosemite
-    sha256 "6e4d6737cf84fba1b3ef7b0b3c2f96e27e16e7ec4bd225e30ed6eb9c1ac707dd" => :x86_64_linux
+    sha256 "ecd91c5e5f8b69712ef2db4760453da1063db6f03aa7ada30c6754b3097fda7d" => :sierra
+    sha256 "adddf9e301d93ed6712ac4d34750da8f2372077fa5d1cc2d03ca34414cfaad18" => :el_capitan
+    sha256 "a918332a18c8625125466f12b23a3deb99f49cf867a3d10f99688b0ee3726aad" => :yosemite
   end
 
   depends_on "go" => :build

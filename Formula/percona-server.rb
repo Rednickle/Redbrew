@@ -1,14 +1,13 @@
 class PerconaServer < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
-  url "https://www.percona.com/downloads/Percona-Server-5.7/Percona-Server-5.7.17-13/source/tarball/percona-server-5.7.17-13.tar.gz"
-  sha256 "31abe11f5aa7a85be4a2834e68abdd1fcb42016e73136b5da2b47070d7497a93"
+  url "https://www.percona.com/downloads/Percona-Server-5.7/Percona-Server-5.7.18-14/source/tarball/percona-server-5.7.18-14.tar.gz"
+  sha256 "4c617e2f9a1c601caebb5ff470c675e3d03ba3b8071cd3261ae24fe11671e3bd"
 
   bottle do
-    rebuild 2
-    sha256 "945f68c016119599a33c34fb3f18310546f5631a7042ee8d73dd021049a6ec5a" => :sierra
-    sha256 "83b82b15a19c8f5764bbee437a6eeb82242ad95dbb92b7c4d752907fa0d1b721" => :el_capitan
-    sha256 "b56e1431a778649e6f0cfccef69180f0f7efad87ebfc31036a6a96b1c803ed38" => :yosemite
+    sha256 "a78cf1b2af3ce006097a210ba8c7c443cf185729f110c0c486e3a6fc8fd0b873" => :sierra
+    sha256 "1b3fb186255832ac31d1c197e8055d3c4cb89f40f4cadac43f87bdd4f3e11fac" => :el_capitan
+    sha256 "9f660657b38a12c1acdcdc06418507d35e48fb25f03f042d4653c0b1646e2fcd" => :yosemite
   end
 
   option "with-test", "Build with unit tests"
@@ -113,12 +112,9 @@ class PerconaServer < Formula
     rm_rf prefix+"data"
 
     # Fix up the control script and link into bin
-    inreplace "#{prefix}/support-files/mysql.server" do |s|
-      s.gsub!(/^(PATH=".*)(")/, "\\1:#{HOMEBREW_PREFIX}/bin\\2")
-      # pidof can be replaced with pgrep from proctools on Mountain Lion
-      s.gsub!(/pidof/, "pgrep") if MacOS.version >= :mountain_lion
-    end
-
+    inreplace "#{prefix}/support-files/mysql.server",
+              /^(PATH=".*)(")/,
+              "\\1:#{HOMEBREW_PREFIX}/bin\\2"
     bin.install_symlink prefix/"support-files/mysql.server"
 
     # Install my.cnf that binds to 127.0.0.1 by default
@@ -165,5 +161,35 @@ class PerconaServer < Formula
     </dict>
     </plist>
     EOS
+  end
+
+  test do
+    begin
+      (testpath/"mysql_test.sql").write <<-EOS.undent
+        CREATE DATABASE `mysql_test`;
+        USE `mysql_test`;
+        CREATE TABLE `mysql_test`.`test` (
+        `id` BIGINT(21) UNSIGNED NOT NULL AUTO_INCREMENT,
+        `name` VARCHAR(127) NOT NULL COMMENT '42',
+        PRIMARY KEY (`id`),
+        KEY `name` (`name`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+        INSERT INTO `mysql_test`.`test` VALUES (NULL, '42');
+        SELECT * FROM `mysql_test`.`test` WHERE `name` = '42';
+        DELETE FROM `mysql_test`.`test` WHERE `name` = '42';
+        DROP TABLE `mysql_test`.`test`;
+        DROP DATABASE `mysql_test`;
+      EOS
+      # mysql throws error if any file exists in the data directory
+      system "#{bin}/mysqld", "--log-error-verbosity=3", "--initialize-insecure", "--datadir=#{testpath}/mysql", "--user=#{ENV["USER"]}"
+      pid = fork do
+        exec "#{opt_bin}/mysqld_safe", "--datadir=#{testpath}/mysql", "--user=#{ENV["USER"]}", "--bind-address=127.0.0.1", "--port=3307", "--socket=#{testpath}/mysql.sock"
+      end
+      sleep 3
+      system "#{bin}/mysql", "--verbose", "--host=127.0.0.1", "--port=3307", "--user=root", "--execute=source #{testpath/"mysql_test.sql"}"
+    ensure
+      system "#{bin}/mysqladmin", "shutdown", "--user=root", "--host=127.0.0.1", "--port=3307"
+      Process.wait pid
+    end
   end
 end
