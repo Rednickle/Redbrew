@@ -55,7 +55,7 @@ class Libressl < Formula
         openssl_io.close_write
       end
 
-      $?.success?
+      $CHILD_STATUS.success?
     end
 
     # LibreSSL install a default pem - We prefer to use macOS for consistency.

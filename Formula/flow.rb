@@ -4,23 +4,24 @@ class Flow < Formula
   head "https://github.com/facebook/flow.git"
 
   stable do
-    url "https://github.com/facebook/flow/archive/v0.47.0.tar.gz"
-    sha256 "cf4bda660731c6d0731d1193fac458f590a1313172989b4a4561f64fbcc2cc1c"
+    url "https://github.com/facebook/flow/archive/v0.48.0.tar.gz"
+    sha256 "8772896075dc4028e62720fe18a6608f278f471931b2a8fff280d0efc0fd4f29"
 
-    # Remove for > 0.47.0
-    # [PR] Remove 4.04 ocaml version upper bound
+    # Remove for > 0.48.0
+    # Fix "Error: Some fatal warnings were triggered"
+    # Upstream commit from 13 Jun 2017 "[PR] Disable all warnings for homebrew &
+    # opam release builds"
     patch do
-      url "https://github.com/facebook/flow/commit/e905086b3a1c2c35b6f204e422b8ce17ab6a4c10.patch"
-      sha256 "02451e3213855ff984a2115db7d116f5924f59661182683e7b71c81b09f77b53"
+      url "https://github.com/facebook/flow/commit/9130d821d.patch"
+      sha256 "acbe71d6f065390f86184827ada544840c9fdfa654bd0c81446b6fd5173002f4"
     end
   end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f3095c2f199c504791e8c17ad660565788b752b54dd6bbc916b9ab1b52c7ff80" => :sierra
-    sha256 "4be6ed7a5bda5ce8d73d2631fc49eb73eafb2897f7543d04bc97a453d90f818f" => :el_capitan
-    sha256 "10ff53fd8118aa86d38de9ebcec8ab380d7b740752a9ae77b0bc56c1d82c7730" => :yosemite
-    sha256 "e267fcf1e821bd7d4e84c451cbd5539111dedcfbd737a0e1fd242ffe338761bb" => :x86_64_linux
+    sha256 "d05f27bdcc36e5f142bda40560a98c3f7f5acaa10fe301904b632651d962e453" => :sierra
+    sha256 "e71d050e7205ac330bb4d09e13e5bbf3e53127d83bedbacbfde5424fe5da31bf" => :el_capitan
+    sha256 "6655d84fc3987f59b2827c9ff43383a6153b485c286e76db14c17ce50eaa5dad" => :yosemite
   end
 
   depends_on "ocaml" => :build

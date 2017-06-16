@@ -1,16 +1,14 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v8.1.0/node-v8.1.0.tar.xz"
-  sha256 "f2ff20b69b782dee85e887ad06e830590b2250856f6df325ed15a368bb6777fc"
-  revision 1
+  url "https://nodejs.org/dist/v8.1.1/node-v8.1.1.tar.xz"
+  sha256 "7b0d176dc4a1db37789e009825ba03d2e3f834227e5efd296167e7ef6b287847"
   head "https://github.com/nodejs/node.git"
 
   bottle do
-    sha256 "5b2fd76e879a329a482792dc097086bb5c0fb149de233689f869d772fc3c0064" => :sierra
-    sha256 "98dc7d8a1475b35933037601b1a6354fa8d8ed889d2a03fb8c279a8946a3f4ea" => :el_capitan
-    sha256 "d315eb09eb140b05da3406a7234ae1e8133e2a410e19af7a92902127ad033a18" => :yosemite
-    sha256 "5c45cde4ed4d659a7af829d961c41d0f17462cffba0e1b606ee4c6712e11bd04" => :x86_64_linux
+    sha256 "baa5e10ce23f97c546e47498eb54e255e0013467d658ec587f166f2738838f1b" => :sierra
+    sha256 "18dfdea95aea9f4d9d4430379822bdd4e64d15dbdbddd0e70db0c09daf87caaf" => :el_capitan
+    sha256 "d4a6028285064355a0920614f282356c8b76cb4e8c022306c66f5d16b55fd4ca" => :yosemite
   end
 
   option "with-debug", "Build with debugger hooks"
@@ -42,15 +40,6 @@ class Node < Formula
   resource "npm" do
     url "https://registry.npmjs.org/npm/-/npm-5.0.3.tgz"
     sha256 "de62206d779afcba878b3fb949488c01be99afc42e3c955932e754c2ab9aec73"
-  end
-
-  # Remove for > 8.1.0
-  # Fix "All versions of `npm init` hang on Node 8.1.0"
-  # Upstream PR from 8 Jun 2017 "Revert 'readline: clean up event
-  # listener in onNewListener'"
-  patch do
-    url "https://github.com/nodejs/node/pull/13560.patch"
-    sha256 "036e86cee567059415847850a84bed6f80405b02f98b8ce9a5d921a7c480127e"
   end
 
   def install
