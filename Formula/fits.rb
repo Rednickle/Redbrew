@@ -1,16 +1,14 @@
 class Fits < Formula
   desc "File Information Tool Set"
   homepage "https://projects.iq.harvard.edu/fits"
-  url "https://github.com/harvard-lts/fits/archive/1.1.0.tar.gz"
-  sha256 "57ba2ee001c2c113a1cae84d1c8f8e9a49e21fc39307abe2bd97de0a2c1689c0"
-  revision 1
+  url "https://github.com/harvard-lts/fits/archive/1.1.1.tar.gz"
+  sha256 "cc2fb1e3c60d18b4c7a5cf092e4177a14d435ac76824fff01a4b522ba0dd3099"
 
   bottle do
     cellar :any
-    sha256 "e9c4804b16a628a72f546e3d33361ecfc19d3baf779992a52f6a9685f4ecfdb3" => :sierra
-    sha256 "8f54130183f2c98d4ef07510891fa78fc6ced0761a4237c360e71f614da3dc14" => :el_capitan
-    sha256 "4ad20c354f89507a904707a8bb66c40496904f31d5ad4043e0d410341f927a70" => :yosemite
-    sha256 "428480fc8467ed1d695488bf3aa20a47eaff5033ac89eb2e4867d19edd1a283a" => :x86_64_linux
+    sha256 "fd792587001bce49cd0fbe5633a3186929e0acc220f0479f111081fdacf2acce" => :sierra
+    sha256 "b3a8fd54515d275b0abc18c700787b701b01aa1f773c1b08354d28909dc8eb76" => :el_capitan
+    sha256 "e44149423edebe64d2ba1e4002b3bb2b2b7c37e090bf26bda8e39bdbed4fde05" => :yosemite
   end
 
   depends_on "ant" => :build

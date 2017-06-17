@@ -1,15 +1,14 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v8.1.1/node-v8.1.1.tar.xz"
-  sha256 "7b0d176dc4a1db37789e009825ba03d2e3f834227e5efd296167e7ef6b287847"
+  url "https://nodejs.org/dist/v8.1.2/node-v8.1.2.tar.xz"
+  sha256 "ac190c1964ee0c28d4c163c0ccbb47435b2e4bd9b4c065b74a93373105c574b3"
   head "https://github.com/nodejs/node.git"
 
   bottle do
-    sha256 "baa5e10ce23f97c546e47498eb54e255e0013467d658ec587f166f2738838f1b" => :sierra
-    sha256 "18dfdea95aea9f4d9d4430379822bdd4e64d15dbdbddd0e70db0c09daf87caaf" => :el_capitan
-    sha256 "d4a6028285064355a0920614f282356c8b76cb4e8c022306c66f5d16b55fd4ca" => :yosemite
-    sha256 "7ac6d3adf9f5d6caaa35fdb40a48274b29049e758c0a53926770af834a2357ab" => :x86_64_linux
+    sha256 "9bd39ffe728cdab31708cbb0a9b1faa7e36b1c0e74ec02d90309d64be4006005" => :sierra
+    sha256 "0dcb7aab1aafa6d153ddf9023998dbe8b407b0702521a3913fdd584a222fcb60" => :el_capitan
+    sha256 "663dae25d823e473c5b51b162273b9e194989812e240f0bbe1ff07faf8784645" => :yosemite
   end
 
   option "with-debug", "Build with debugger hooks"

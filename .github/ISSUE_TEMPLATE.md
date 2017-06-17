@@ -6,7 +6,7 @@
 - [ ] Ran `brew gist-logs <formula>` (where `<formula>` is the name of the formula that failed) and included the output link?
 - [ ] If `brew gist-logs` didn't work: ran `brew config` and `brew doctor` and included their output with your issue?
 
-**Please note we may immediately close your issue without comment if you delete or do not fill out the issue checklist and provide ALL the requested information.**
+**Please note we will close your issue without comment if you delete or do not fill out the issue checklist and provide ALL the requested information.**
 
 To help us debug your issue please explain:
 - What you were trying to do (and why)

@@ -1,19 +1,21 @@
 class Getdns < Formula
   desc "Modern asynchronous DNS API"
   homepage "https://getdnsapi.net"
-  url "https://getdnsapi.net/releases/getdns-1-1-0/getdns-1.1.0.tar.gz"
-  sha256 "aa47bca275b97f623dc6799cee97d3465fa46521d94bd9892e08e8d5d88f09c3"
-  head "https://github.com/getdnsapi/getdns.git", :branch => "develop"
+  url "https://getdnsapi.net/releases/getdns-1-1-1/getdns-1.1.1.tar.gz"
+  sha256 "fa414c30d5f2d2b2453b5cec77362b4cc0f44d440be5893233748d82bd6a1a56"
 
   bottle do
-    sha256 "91fccbcb1ea628fefa2848fccc318953dfc71d34ffeff44adbf596352ceac16b" => :sierra
-    sha256 "8181df1a84e1c4affdc521ab9062f4834b9279e22d3c2bc312192857063961c8" => :el_capitan
-    sha256 "f9259f55b25aa8c20a880c90c63fbbbc2a33da2b68a617799d43d0ae7abcacb1" => :yosemite
+    sha256 "2a1613d58172712b33f30b4fcb9c9ca75130967e935127a583dd098ff07805ee" => :sierra
+    sha256 "429fd53521d7de2d16e2857a7c99159447e410b39c7625988489522823d136e1" => :el_capitan
+    sha256 "6cecdf22e2699604880964b4758b99655923c5f6fd853c3f680abdd28605b567" => :yosemite
   end
 
-  devel do
-    url "https://getdnsapi.net/releases/getdns-1-1-1rc1/getdns-1.1.1rc1.tar.gz"
-    sha256 "f63340b1d05410b875217c6abd7066586fc55a811db4ae90ffd01d2240e05e57"
+  head do
+    url "https://github.com/getdnsapi/getdns.git", :branch => "develop"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
   end
 
   depends_on "openssl"
@@ -22,12 +24,6 @@ class Getdns < Formula
   depends_on "libevent" => :recommended
   depends_on "libuv" => :optional
   depends_on "libev" => :optional
-
-  if build.head?
-    depends_on "libtool"
-    depends_on "autoconf"
-    depends_on "automake"
-  end
 
   def install
     if build.head?

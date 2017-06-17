@@ -1,14 +1,14 @@
 class Rmlint < Formula
   desc "Extremely fast tool to remove dupes and other lint from your filesystem"
   homepage "https://github.com/sahib/rmlint"
-  url "https://github.com/sahib/rmlint/archive/v2.6.0.tar.gz"
-  sha256 "f6810bdca1eb09fabf51dc8d9c4ba9cad70b1072b9965c0343a1747bedfc9415"
+  url "https://github.com/sahib/rmlint/archive/v2.6.1.tar.gz"
+  sha256 "b4de3de2f197b5978113eb9d013ee9890efbdf01ba739416255ecc2567199b81"
 
   bottle do
     cellar :any
-    sha256 "b0142574b59006f3d3ae016b6363d7b87b4917ca4cdc202f4e5443ce7cf7cb53" => :sierra
-    sha256 "8647c0f86fcc225041895f24d97b582e9fe5c2591c0c79c29aad80c4ba8cf0c9" => :el_capitan
-    sha256 "24486e319f4f82bbf7acb6ea63a6d699dbcfba094192fa5fc035959f5d243a50" => :yosemite
+    sha256 "a574a19f089e1a24168c57472e5c95993c6b7ab5c2990bb07dfa54ecdc94b291" => :sierra
+    sha256 "5e1aad2bec7238f2087d3ac643a6e0dba2f2b58a0302bb88acda26e035e23f99" => :el_capitan
+    sha256 "7e155b9753da549229811558e2b1914a5aeb8b95b85317804a81a7cab3eb3853" => :yosemite
   end
 
   option "with-json-glib", "Add support for reading json caches"
@@ -21,14 +21,6 @@ class Rmlint < Formula
   depends_on "sphinx-doc" => :build
   depends_on "json-glib" => :optional
   depends_on "libelf" => :optional
-
-  # Remove for > 2.6.0
-  # Fix "fatal error: 'sys/sysmacros.h' file not found"
-  # Upstream commit from 4 Jun 2017 "Use #if not #ifdef with HAVE_SYSMACROS_H"
-  patch do
-    url "https://github.com/sahib/rmlint/commit/cf7d50d6.patch"
-    sha256 "b85b042c4b7e51869fb8695fd1ceb4363434a19598249084b393e87b269ee19e"
-  end
 
   def install
     scons "config"

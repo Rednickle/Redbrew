@@ -1,14 +1,14 @@
 class Passenger < Formula
   desc "Server for Ruby, Python, and Node.js apps via Apache/NGINX"
   homepage "https://www.phusionpassenger.com/"
-  url "https://s3.amazonaws.com/phusion-passenger/releases/passenger-5.1.4.tar.gz"
-  sha256 "6e8460143fff88c7ae833b43ff5389c0b0d2654ee38ab1ac62e24a3814416de0"
+  url "https://s3.amazonaws.com/phusion-passenger/releases/passenger-5.1.5.tar.gz"
+  sha256 "ea4139d2f0d9f7aa6488be966ffbfe602f80764a47b7077892d92324bff5eb47"
   head "https://github.com/phusion/passenger.git"
 
   bottle do
-    sha256 "255c52aabadb3967c64531f475e39c2f3e08ea3068c33f12ea83de44d2c95a7b" => :sierra
-    sha256 "102517e493951ae2a5563c04e38f453f7f7445bbf32af0c08ede3af8c9307211" => :el_capitan
-    sha256 "02351f07430761f124fd1f99df283dde6921e21e514e6f11be25d4f40700a260" => :yosemite
+    sha256 "7cdd317eb405051e61d5821abec42f3ac3d2704b7774419e29ee93f001dadaaf" => :sierra
+    sha256 "d1ab061ecb53395263b6068a5aa0d0623b9cb9b148cc52ebea7ad928105345a6" => :el_capitan
+    sha256 "582dc26fbe968268c28cda14b43aa592f98f32ff6fa09716efc317387110cefc" => :yosemite
   end
 
   option "without-apache2-module", "Disable Apache2 module"

@@ -3,15 +3,15 @@ class TranslateToolkit < Formula
 
   desc "Toolkit for localization engineers"
   homepage "http://toolkit.translatehouse.org/"
-  url "https://github.com/translate/translate/releases/download/2.1.0/translate-toolkit-2.1.0.tar.bz2"
-  sha256 "785fcf2136e1b1a920e2127c0ad2701c5e799680bc5e33983c61ed815ee693ee"
+  url "https://github.com/translate/translate/releases/download/2.2.0/translate-toolkit-2.2.0.tar.bz2"
+  sha256 "f7cb828a1373967b97d322308fabf77b5bf35602b8cdb590b054fad32d823e3d"
   head "https://github.com/translate/translate.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b16fd06872eaf9b31b7e846db400af34626d22b1edd29dd8182b5680aee7ded2" => :sierra
-    sha256 "aedabfec44cd7ed75378cdf2b61dd2194536731a21f7c23baec1b7354029227c" => :el_capitan
-    sha256 "fa0b4d73c8566a7ccb41efc5ced244ba926a7c7ed6bf9e703d7a03b85dcd34f6" => :yosemite
+    sha256 "8bdcd1f2b1503bf9b00c8180a2b3b593d09bbdc8e75690ed12781dbf64bb0f95" => :sierra
+    sha256 "5d6c7ac99a695e65e1e4ee682d445cd3e858e7d1439398c9b8108430a586a847" => :el_capitan
+    sha256 "913a2e270bb2aeb29bfb2b632b4316f954bf2302c4e6b5afc26317c794253f0a" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
