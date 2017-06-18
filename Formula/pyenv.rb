@@ -1,16 +1,16 @@
 class Pyenv < Formula
   desc "Python version management"
   homepage "https://github.com/pyenv/pyenv"
-  url "https://github.com/pyenv/pyenv/archive/v1.1.0.tar.gz"
-  sha256 "93c7321060c42f4a4e917566cecb62303d918eadb344c62f37adbd925899f339"
+  url "https://github.com/pyenv/pyenv/archive/v1.1.1.tar.gz"
+  sha256 "8f58618b42d2cac273a2fa301720aa064da63b7c70c24cc9404e526e280930e7"
   version_scheme 1
   head "https://github.com/pyenv/pyenv.git"
 
   bottle do
     cellar :any
-    sha256 "a50de7946100ce6f44398470ec75b3038a4cfa780b96f79ed02037a68845def6" => :sierra
-    sha256 "2d9e804072c3188eb953419450683e1bd4b2a80ee7f8be467e3b46aaa092cf89" => :el_capitan
-    sha256 "f331e645df649b1fa25579429d49643801629791d687c75387e4455d5fb1a06f" => :yosemite
+    sha256 "021de942f227288e4d22d283fecf254f3ab5a4e78c1211d1bbd3b160763e663d" => :sierra
+    sha256 "f99ffcf69af35925dd09c232a06c0654a94178a97ea77dfb4cf3f56157ff1d79" => :el_capitan
+    sha256 "9218c60c41ea010007cdedb23e10a3eb99db958f8d7b67d509de89dd52567f67" => :yosemite
   end
 
   depends_on "autoconf" => [:recommended, :run]

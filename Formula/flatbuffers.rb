@@ -1,15 +1,15 @@
 class Flatbuffers < Formula
   desc "Serialization library for C++, supporting Java, C#, and Go"
   homepage "https://google.github.io/flatbuffers"
-  url "https://github.com/google/flatbuffers/archive/v1.6.0.tar.gz"
-  sha256 "768c50ebf5823f8cde81a9e38ffff115c8f5a5d031a37520d0024e7b9c6cd22e"
+  url "https://github.com/google/flatbuffers/archive/v1.7.0.tar.gz"
+  sha256 "38b25c229c9691bbd723048736a1be1842657b322d48e9430e6b1e600e16b6fe"
   head "https://github.com/google/flatbuffers.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fa8cd253153c183ba6f0359eefb41a736081f315e46efc6d0cea96aae6ee13be" => :sierra
-    sha256 "85a47127465af93d466d034dd4d19690554c1f655663e5e9fcc362cf315ad2b8" => :el_capitan
-    sha256 "e14573ba98e2a81ff89ac4f111930bd038c57bf1fc89c59bb7d00fb6bcbd774b" => :yosemite
+    sha256 "e1c6f720beed965020c2d9d0836bc5364c312442aa6709f58c8c134ac15c5170" => :sierra
+    sha256 "b088e13df8125ce4f1a78fce62e74d2208b099a8349397061238b02cb871395a" => :el_capitan
+    sha256 "b5129bf29a617e869fe16983d857043db77c1216fbc56d46c1ab28898f0b5bf3" => :yosemite
   end
 
   depends_on "cmake" => :build

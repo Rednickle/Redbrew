@@ -3,12 +3,12 @@ class Osquery < Formula
   homepage "https://osquery.io"
   # pull from git tag to get submodules
   url "https://github.com/facebook/osquery.git",
-      :tag => "2.4.6",
-      :revision => "f9cb7149a9ac53c4aa563886d3bd37955876753f"
+      :tag => "2.5.0",
+      :revision => "445fc126482a1fa2bfb206defe45dac84bce48b0"
 
   bottle do
     cellar :any
-    sha256 "e833f61fa0ec4a3a82c29234657b16e925c6b4494dd14e7c3968f15a7edc3770" => :sierra
+    sha256 "cd6ac7d9a71000beb0369dc31683290844d131f86d62f603ce461a10d5edeb22" => :sierra
   end
 
   fails_with :gcc => "6"

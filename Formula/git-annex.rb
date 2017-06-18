@@ -5,14 +5,32 @@ class GitAnnex < Formula
 
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-6.20170520/git-annex-6.20170520.tar.gz"
-  sha256 "f8cf9b44172ce1914c8be8134795c4197d02960b81a2ba596712cbd35e002717"
+  revision 1
   head "git://git-annex.branchable.com/"
 
+  stable do
+    url "https://hackage.haskell.org/package/git-annex-6.20170520/git-annex-6.20170520.tar.gz"
+    sha256 "f8cf9b44172ce1914c8be8134795c4197d02960b81a2ba596712cbd35e002717"
+
+    # Fix "Utility/QuickCheck.hs:38:10: error: Duplicate instance declarations"
+    # Upstream commit from 17 Jun 2017 "Fix build with QuickCheck 2.10."
+    patch do
+      url "http://source.git-annex.branchable.com/?p=source.git;a=patch;h=75cecbbe3fdafdb6652e95ac17cd755c28e67f20"
+      sha256 "2d50b633b29895755c8cbe1b55262866f5c09fe346ee5d552edde5e141730de7"
+    end
+
+    # Fix two "git annex test" failures with QuickCheck 2.10
+    # Upstream commit from 17 Jun 2017 "fix failing quickcheck properties"
+    patch do
+      url "http://source.git-annex.branchable.com/?p=source.git;a=patch;h=da8e84efe997fcbfcf489bc4fa9cc835ed131d3a"
+      sha256 "3ab0dfe93e2f121818cce74dd76653a7acd8c2c97b34529b1684a640cabf79fc"
+    end
+  end
+
   bottle do
-    sha256 "ae69e1189101b1e202dd3acfd097d5d2f69818f968639448354a3c0b4a11e220" => :sierra
-    sha256 "8dfe6b78c9506a6738c03e7553ea98bf4ca555e04c65e3a46d355a3c6804c64c" => :el_capitan
-    sha256 "dc6ce98bb7d0af37f7e0240439210b229f4b0e2c19f5e9ccebdcc363c9b545ac" => :yosemite
+    sha256 "2ffab45fcf375b97300423adda199439ef2960f18d00c8d6425235d0a802072d" => :sierra
+    sha256 "691d96c14406b08f89250edd2f8b665ebc88893ef4fca38f06c547ee2e45f857" => :el_capitan
+    sha256 "4fe563338e2902807332c2f43168d327fed6101012ed3686bc69dc41f4ac6eaa" => :yosemite
   end
 
   option "with-git-union-merge", "Build the git-union-merge tool"
@@ -26,13 +44,6 @@ class GitAnnex < Formula
   depends_on "xdot" => :recommended
 
   def install
-    # Workaround for "error: redefinition of enumerator '_CLOCK_REALTIME'" and
-    # other similar errors.
-    # Reported 11 Jun 2017 https://github.com/haskell-foundation/foundation/issues/342
-    if MacOS.version == :el_capitan
-      (buildpath/"cabal.config").write("constraints: foundation < 0.0.10\n")
-    end
-
     install_cabal_package :using => ["alex", "happy", "c2hs"], :flags => ["s3", "webapp"] do
       # this can be made the default behavior again once git-union-merge builds properly when bottling
       if build.with? "git-union-merge"
