@@ -3,14 +3,35 @@ require "language/go"
 class Mongodb < Formula
   desc "High-performance, schema-free, document-oriented database"
   homepage "https://www.mongodb.org/"
-  url "https://fastdl.mongodb.org/src/mongodb-src-r3.4.4.tar.gz"
-  sha256 "09e962bf3428474b9790bbd464cb6176817f9da6121c30e096240dbb4d51c9f6"
+
+  stable do
+    url "https://fastdl.mongodb.org/src/mongodb-src-r3.4.4.tar.gz"
+    sha256 "09e962bf3428474b9790bbd464cb6176817f9da6121c30e096240dbb4d51c9f6"
+
+    go_resource "github.com/mongodb/mongo-tools" do
+      url "https://github.com/mongodb/mongo-tools.git",
+          :tag => "r3.4.4",
+          :revision => "17fbdf31abca50cdfe27482b05b1476f42ecab0a",
+          :shallow => false
+    end
+  end
 
   bottle do
     sha256 "6bce1a94cb3cda934bc9c12bd8ca1da3411fa6959f7e71fa6ba822a399fd5a82" => :sierra
     sha256 "23169e737a9c73dde8aa497ea754d370a102c634a2d12fb96224556e4b8063c6" => :el_capitan
     sha256 "5124e03c37ef9d6dd673ddebeb9bd403456170c2168c6f558b9b4c1379df8459" => :yosemite
     sha256 "5e5d051ff978a4d36a2e71c8d141122a6fed160e041706884ecf1fc36d1cd710" => :x86_64_linux
+  end
+
+  devel do
+    url "https://fastdl.mongodb.org/src/mongodb-src-r3.5.6.tar.gz"
+    sha256 "57839e0e19c5fa986d498857e7ac617c368f1a5768539b28b7740d7079ea1670"
+
+    go_resource "github.com/mongodb/mongo-tools" do
+      url "https://github.com/mongodb/mongo-tools.git",
+        :tag => "r3.5.6",
+        :revision => "8bda55730d30c414a71dfbe6f45f5c54ef97811d"
+    end
   end
 
   option "with-boost", "Compile using installed boost, not the version shipped with mongodb"
@@ -25,13 +46,6 @@ class Mongodb < Formula
   unless OS.mac?
     depends_on "pkg-config" => :build
     depends_on "libpcap"
-  end
-
-  go_resource "github.com/mongodb/mongo-tools" do
-    url "https://github.com/mongodb/mongo-tools.git",
-        :tag => "r3.4.4",
-        :revision => "17fbdf31abca50cdfe27482b05b1476f42ecab0a",
-        :shallow => false
   end
 
   needs :cxx11
@@ -70,8 +84,12 @@ class Mongodb < Formula
       --prefix=#{prefix}
       -j#{ENV.make_jobs}
     ]
-    args << "--osx-version-min=#{MacOS.version}" if OS.mac?
 
+    if OS.mac?
+      args << "--osx-version-min=#{MacOS.version}" if build.stable?
+      args << "CCFLAGS=-mmacosx-version-min=#{MacOS.version}" if build.devel?
+      args << "LINKFLAGS=-mmacosx-version-min=#{MacOS.version}" if build.devel?
+    end
     args << "CC=#{ENV.cc}"
     args << "CXX=#{ENV.cxx}"
 
