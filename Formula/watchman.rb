@@ -18,6 +18,7 @@ class Watchman < Formula
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "pcre"
 
   def install

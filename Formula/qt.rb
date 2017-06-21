@@ -6,12 +6,13 @@ class Qt < Formula
   url "https://download.qt.io/official_releases/qt/5.9/5.9.0/single/qt-everywhere-opensource-src-5.9.0.tar.xz"
   mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.9/5.9.0/single/qt-everywhere-opensource-src-5.9.0.tar.xz"
   sha256 "f70b5c66161191489fc13c7b7eb69bf9df3881596b183e7f6d94305a39837517"
+  revision 1
   head "https://code.qt.io/qt/qt5.git", :branch => "5.8", :shallow => false
 
   bottle do
-    sha256 "c5ae7adc63815ccced11d0f01e2bc2035de491f1575a7e88051ac8b6e9d0b713" => :sierra
-    sha256 "e307b90e2cefbc918c357f0e2b3a6e8a336396259fcd639d98e1f4db28fbbc57" => :el_capitan
-    sha256 "d32bb8ddb9f0a1e74bb6600dc6021e57970ca093e6ec587933f47a783e2593a7" => :yosemite
+    sha256 "cb42649d2ad1bdfe2238874bb5e0add39aa6d15320694cdccceab3f762a762a7" => :sierra
+    sha256 "2e51e854f68a1ca2c9041c0d98065d72249d7ad0be80f6e41a2b814d52d4b6a0" => :el_capitan
+    sha256 "98d22c7f5803e98f903663ae93ed187a9da4e6767f2792a17f86d9accf6f966d" => :yosemite
   end
 
   keg_only "Qt 5 has CMake issues when linked"
@@ -59,6 +60,15 @@ class Qt < Formula
     depends_on "sqlite"
     depends_on "systemd"
     depends_on "libxkbcommon"
+  end
+
+  # Remove for >= 5.10
+  # Fix for upstream issue "macdeployqt does not work with Homebrew"
+  # See https://bugreports.qt.io/browse/QTBUG-56814
+  # Upstream commit from 23 Dec 2016 https://github.com/qt/qttools/commit/8f9b747f030bb41556831a23ec2a8e7e76fb7dc0#diff-2b6e250f93810fd9bcf9bbecf5d2be88
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a627e0a/qt5/QTBUG-56814.patch"
+    sha256 "b18e4715fcef2992f051790d3784a54900508c93350c25b0f2228cb058567142"
   end
 
   def install
