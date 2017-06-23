@@ -4,15 +4,15 @@ class Packer < Formula
   desc "Tool for creating identical machine images for multiple platforms"
   homepage "https://packer.io"
   url "https://github.com/hashicorp/packer.git",
-      :tag => "v1.0.1",
-      :revision => "66c74253672d6392b3f53271f9fec7e9530120d1"
+      :tag => "v1.0.2",
+      :revision => "6a8ae4b258d1bb0beece05c9fc3bbc1c186a0480"
   head "https://github.com/hashicorp/packer.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "82a0eca56fa6958157e915886512fc5b21581438af628641a7ecfba373290ee9" => :sierra
-    sha256 "7b34a28d641fd3c47787c40872672a04bceb3d518c8ca676c980130f00b4daeb" => :el_capitan
-    sha256 "0b3bfc31397cd7b230eab547fca469e7cf7f910f84d41b9ff07c6b21204bbb33" => :yosemite
+    sha256 "e4e84d568430431cfdea8fdfe3dd32ed51981adeae28d0c1cfe7cdd2fecf602b" => :sierra
+    sha256 "a8e69592f02ae3382c89aac16a08b0a26b289b1e8feb6abfad0b595fabf34be8" => :el_capitan
+    sha256 "2077bf72a756742e58a801337c10c41fc9d2d746393ce0acc523c51db8ad9fa6" => :yosemite
   end
 
   depends_on "go" => :build

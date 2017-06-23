@@ -2,15 +2,15 @@ class Influxdb < Formula
   desc "Time series, events, and metrics database"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
   url "https://github.com/influxdata/influxdb.git",
-      :tag => "v1.2.4",
-      :revision => "77909d7c7826afe597b12d957996d6e16cd1afaa"
+      :tag => "v1.3.0",
+      :revision => "76124df5c121e411e99807b9473a03eb785cd43b"
   head "https://github.com/influxdata/influxdb.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3f05a019c23c67e190b3415a7a97b65041cfa2e7f4072a7287ddacbf66e884f1" => :sierra
-    sha256 "08064532a28405a97c84342559b14230893c54e711e625901992a20a040353e1" => :el_capitan
-    sha256 "f4d8d5898e35119fb60a48635d8fedce4c82710bb6a9c1113bd7ae43b1ae592e" => :yosemite
+    sha256 "a4d032bf3b7fff2e70c0663a476b4aa084bea04197cbafc866e14b8163c90793" => :sierra
+    sha256 "8e23c93375e91db64447c9680cf1c3c68eb059f671748a1518f245e2655c75b6" => :el_capitan
+    sha256 "792b626c5ba4a681e11f1ecd9582725471f5f7d27c7efa4773407d44c5e81ffa" => :yosemite
   end
 
   depends_on "gdm" => :build

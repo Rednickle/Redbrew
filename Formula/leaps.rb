@@ -2,15 +2,14 @@ class Leaps < Formula
   desc "Collaborative web-based text editing service written in Golang"
   homepage "https://github.com/jeffail/leaps"
   url "https://github.com/Jeffail/leaps.git",
-      :tag => "v0.7.0",
-      :revision => "5fd7c3b10c1aad9c7d35288bbaa3d350515a5472"
+      :tag => "v0.8.0",
+      :revision => "31af03df6678b72dd46b31ea53a1825b38b15ab6"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fa9cf3e9eac808b4a137e5140bcc524f8581d87a1cf9f80e1ec32a78020ae3ff" => :sierra
-    sha256 "6057a6539732b2b7967ca6678981560b19f0cb5bd96557b6bd930f1922272abc" => :el_capitan
-    sha256 "e056193127c7d1c48aa01934ea4e3c0301a7124a9c7fa46d82a34e1f9cd20e28" => :yosemite
-    sha256 "f3455a6675f195020aebd97c419168a0c265c150b2cd3a09642e8349befb3604" => :x86_64_linux
+    sha256 "b1e55d4d73f30e55412ce05d3159b913e69e8e3ff47a9bb1cc6c97e6344cbed8" => :sierra
+    sha256 "2c3b8c7583ffe70cfc9ce051c365accf8d9796ea248411258cb72ecce1d3dda4" => :el_capitan
+    sha256 "67bb53709d2de532f4b6701261e9e5f65b6ea33ad302684c6ca8db0eed8c55b9" => :yosemite
   end
 
   depends_on "go" => :build

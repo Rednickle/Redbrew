@@ -25,15 +25,15 @@ end
 class Elixir < Formula
   desc "Functional metaprogramming aware language built on Erlang VM"
   homepage "https://elixir-lang.org/"
-  url "https://github.com/elixir-lang/elixir/archive/v1.4.4.tar.gz"
-  sha256 "2d9d5faee079949f780c8f6a1ccba015d64ecf859ed87384ae4239d69be60142"
+  url "https://github.com/elixir-lang/elixir/archive/v1.4.5.tar.gz"
+  sha256 "bef1a0ea7a36539eed4b104ec26a82e46940959345ed66509ec6cc3d987bada0"
 
   head "https://github.com/elixir-lang/elixir.git"
 
   bottle do
-    sha256 "83e4a920d648d541288dd73b6cc19cb4d91a54e703609320e806c2efd6000466" => :sierra
-    sha256 "88f24d7781e7191d94b39fc36464781385a314656bb6900f42cbd996654b579d" => :el_capitan
-    sha256 "0d59995085bcdbdbfc08a6467ca99934598756b663c603cffc9103a96b36ff44" => :yosemite
+    sha256 "b59dde1332bce0aabc7aebe9527607adb68dc1c1a8070c2d0c1b1e702511ff62" => :sierra
+    sha256 "c994c7a94a52eac63fa0478175f8a0e256b3ef2b73e81f61b67429830fbc201e" => :el_capitan
+    sha256 "291946687a7d64541b69a132daab1d400592a115ed02ae1f0116fbe1799aee67" => :yosemite
   end
 
   depends_on Erlang18Requirement

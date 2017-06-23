@@ -1,15 +1,14 @@
 class Fsql < Formula
   desc "Search through your filesystem with SQL-esque queries."
   homepage "https://github.com/kshvmdn/fsql"
-  url "https://github.com/kshvmdn/fsql/archive/v0.2.1.tar.gz"
-  sha256 "def6ddd2f9a5f64bc03821223f760250eecb775762e848f37fb105cf0254ad1c"
+  url "https://github.com/kshvmdn/fsql/archive/v0.3.0.tar.gz"
+  sha256 "8dafa4680e6f72e1f0a52de7b0cd683de533db4635569de2a35a7122091325f7"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "316420c1e4a7793fd5607b032be6b32ca67ed8851b53af9c3c410d65cca9a8a4" => :sierra
-    sha256 "530a6013f87796b1b2bd99b6e36f12ec4dc762f8431f4536bcdffcbfddacba04" => :el_capitan
-    sha256 "6869e98d96626f0b3eb25e89203ec08cd03468f833c7a0122e17c555d3181f4e" => :yosemite
-    sha256 "d854daba22f4e935b731ace014a0994d4a5be4d61faee1321940e441894b305b" => :x86_64_linux
+    sha256 "a794c99869d7819cc8eb34eb6121812926adbec40400372680a915f22cf2b932" => :sierra
+    sha256 "83325a2daca987ef1f0d9b7edfa78df7a685efe038f62a095d3fb1930e313d89" => :el_capitan
+    sha256 "500c729d69ba2e0680e4d9bacd642e427e87bdaa73f56c07ddd8ba2dbffe5636" => :yosemite
   end
 
   depends_on "go" => :build

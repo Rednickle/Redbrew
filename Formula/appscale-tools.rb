@@ -1,16 +1,15 @@
 class AppscaleTools < Formula
   desc "Command-line tools for working with AppScale"
   homepage "https://github.com/AppScale/appscale-tools"
-  url "https://github.com/AppScale/appscale-tools/archive/3.2.1.tar.gz"
-  sha256 "9a42c8977aa4f1ce3483c6296f3c21e19c8caddc5bea2381eaf8c3603a238960"
+  url "https://github.com/AppScale/appscale-tools/archive/3.3.1.tar.gz"
+  sha256 "1f86ed42e803690240e3d4e5930001674228048a79de17254af3623f39b25994"
   head "https://github.com/AppScale/appscale-tools.git"
 
   bottle do
     cellar :any
-    sha256 "3059801603b9ecb216c525b8cd615505652078713ad574bd17068b7c341534c3" => :sierra
-    sha256 "239996bcb674436fd425dca8a621de358dedb7e58f89b7561590a0ea3961d9d5" => :el_capitan
-    sha256 "0c97522f43f7d665fa3aec9261c68f874117b7e139603ec76b46898380f5cd34" => :yosemite
-    sha256 "5e36a983b0ea61b7350d914e033faa7e7e61035bf1e1a1161ff14ba3b3856008" => :x86_64_linux
+    sha256 "9efffff6e9f9a7a658408d54ab572d0545cce6bdd7b7e15afea97ff40aaa5639" => :sierra
+    sha256 "de0af3f83fad321580719209e8b544914329ffa205c4df545a59d83c6d827e6c" => :el_capitan
+    sha256 "f0926946a7e4fb0e6040c8751c1fc3148b50dce5707f386777d9f187f9b452cf" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -36,7 +35,7 @@ class AppscaleTools < Formula
   end
 
   resource "wstools" do
-    url "https://pypi.python.org/packages/81/a3/0fbea78bccec0970032b847135b0d6050224c8601460464edcc748c5a22c/wstools-0.4.3.tar.gz"
+    url "https://files.pythonhosted.org/packages/81/a3/0fbea78bccec0970032b847135b0d6050224c8601460464edcc748c5a22c/wstools-0.4.3.tar.gz"
     sha256 "578b53e98bc8dadf5a55dfd1f559fd9b37a594609f1883f23e8646d2d30336f8"
   end
 
@@ -108,7 +107,7 @@ class AppscaleTools < Formula
   end
 
   resource "setuptools" do
-    url "https://pypi.python.org/packages/dc/8c/7c9869454bdc53e72fb87ace63eac39336879eef6f2bf96e946edbf03e90/setuptools-33.1.1.zip"
+    url "https://files.pythonhosted.org/packages/dc/8c/7c9869454bdc53e72fb87ace63eac39336879eef6f2bf96e946edbf03e90/setuptools-33.1.1.zip"
     sha256 "6b20352ed60ba08c43b3611bdb502286f7a869fbfcf472f40d7279f1e77de145"
   end
 
@@ -255,8 +254,8 @@ class AppscaleTools < Formula
   end
 
   resource "adal" do
-    url "https://files.pythonhosted.org/packages/41/98/f37b8bd5ef1cacb6c888c456e56e57601759440e6103edc6c2c5040d2cb3/adal-0.4.0.zip"
-    sha256 "69a231aae48c997bd7fdebeb250f407895020d17dea57e3275241220e1ff6a08"
+    url "https://files.pythonhosted.org/packages/dd/55/fe57a0c94680f7b72bb524c085d28a0e407dcaa695ab927d1a904fdc7b6a/adal-0.4.5.tar.gz"
+    sha256 "c5ddfd473fe272ae1deefcee22f99f094f9f195bcb52a8678b2e315b755fe253"
   end
 
   resource "ndg-httpsclient" do

@@ -1,17 +1,19 @@
-class Erlang < Formula
+class ErlangAT19 < Formula
   desc "Programming language for highly scalable real-time systems"
-  homepage "http://www.erlang.org/"
+  homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/archive/OTP-20.0.tar.gz"
-  sha256 "548815fe08f5b661d38334ffa480e9e0614db5c505da7cb0dc260e729697f2ab"
-  head "https://github.com/erlang/otp.git"
+  url "https://github.com/erlang/otp/archive/OTP-19.3.tar.gz"
+  sha256 "fc82c5377ad9e84a37f67f2b2b50b27fe4e689440ae9e5d0f5dcfb440a9487ac"
+  head "https://github.com/erlang/otp.git", :branch => "maint-19"
 
   bottle do
     cellar :any
-    sha256 "db6554d163e54857310c409a70e839236538487a2216f622f734c4891c5fbc7d" => :sierra
-    sha256 "abb306ab90539ca3f5f86a40175f67377b44e746b0f625c947a629e300c3d01f" => :el_capitan
-    sha256 "e08c701dbf691f95739972e969f16ae3310ad9870beb54d490e459694942a112" => :yosemite
+    sha256 "fd97e5741bbac1136596779687bf78ecb6ac5fa043f015a2d804635a0388c0d3" => :sierra
+    sha256 "77a0d9fce165ef1630b4d7c3e4e87df013b3d4c2a40fc0ba3bb69324a12dcb39" => :el_capitan
+    sha256 "4c9003f1747f9fc9ce2bc53e4a6d30dfb9cc6a7c58bb9be5fed211c1fc3622be" => :yosemite
   end
+
+  keg_only :versioned_formula
 
   option "without-hipe", "Disable building hipe; fails on various macOS systems"
   option "with-native-libs", "Enable native library compilation"
@@ -31,15 +33,15 @@ class Erlang < Formula
   depends_on "wxmac" => :recommended # for GUI apps like observer
 
   resource "man" do
-    url "https://www.erlang.org/download/otp_doc_man_20.0.tar.gz"
-    mirror "https://fossies.org/linux/misc/otp_doc_man_20.0.tar.gz"
-    sha256 "b7f1542a94a170f8791f5d80a85706f9e8838924ea65d4301032d0c0cfb845cc"
+    url "https://www.erlang.org/download/otp_doc_man_19.3.tar.gz"
+    mirror "https://www.mirrorservice.org/sites/ftp.netbsd.org/pub/pkgsrc/distfiles/erlang/otp_doc_man_19.3.tar.gz"
+    sha256 "f8192ffdd7367083c055695eeddf198155da43dcc221aed1d870d1e3871dd95c"
   end
 
   resource "html" do
-    url "https://www.erlang.org/download/otp_doc_html_20.0.tar.gz"
-    mirror "https://fossies.org/linux/misc/otp_doc_html_20.0.tar.gz"
-    sha256 "1ab25110b148ce263d6e68cd5a3b912299b6066cfcd9d2fce416a4e9b7d2543a"
+    url "https://www.erlang.org/download/otp_doc_html_19.3.tar.gz"
+    mirror "https://www.mirrorservice.org/sites/ftp.netbsd.org/pub/pkgsrc/distfiles/erlang/otp_doc_html_19.3.tar.gz"
+    sha256 "dc3e3a82d1aba7f0deac1ddb81b7d6f8dee9a75e1d42b90c677a2b645f19a00c"
   end
 
   def install
@@ -65,7 +67,7 @@ class Erlang < Formula
       --enable-smp-support
     ]
 
-    args << "--enable-darwin-64bit" if MacOS.prefer_64_bit? && OS.mac?
+    args << "--enable-darwin-64bit" if MacOS.prefer_64_bit?
     args << "--enable-native-libs" if build.with? "native-libs"
     args << "--enable-dirty-schedulers" if build.with? "dirty-schedulers"
     args << "--enable-wx" if build.with? "wxmac"
@@ -99,7 +101,6 @@ class Erlang < Formula
   def caveats; <<-EOS.undent
     Man pages can be found in:
       #{opt_lib}/erlang/man
-
     Access them with `erl -man`, or add this directory to MANPATH.
     EOS
   end
