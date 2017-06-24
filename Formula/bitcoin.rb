@@ -1,15 +1,15 @@
 class Bitcoin < Formula
   desc "Decentralized, peer to peer payment network"
   homepage "https://bitcoin.org/"
-  url "https://github.com/bitcoin/bitcoin/archive/v0.14.1.tar.gz"
-  sha256 "4391dbf8fa9683f17c3b03feac429c1f3d71dcc6c0dab7d01733519880ea9834"
+  url "https://github.com/bitcoin/bitcoin/archive/v0.14.2.tar.gz"
+  sha256 "e0ac23f01a953fcc6290c96799deeffb32aa76ca8e216c564d20c18e75a25219"
   head "https://github.com/bitcoin/bitcoin.git"
 
   bottle do
     cellar :any
-    sha256 "b4c1338320ef47a7f171d47a188edb081fcf4bbd96c771ae2e2ce0b5ba6771d9" => :sierra
-    sha256 "2188d4b70990c33b531e341d94154ba4f032e8410c30c01e920c4da827438d68" => :el_capitan
-    sha256 "4950710da422f0278ddb4966356a6855b0cfda3b6ae3b7f57b6f1dfba8ef09ea" => :yosemite
+    sha256 "b74097eceb0623f6063b462c170245ae560fad2ef245646192fcf48f3923b0c6" => :sierra
+    sha256 "9baf0f8233c2b01ad7dc77d74efdb8b1d1fd8cd6c05ee8b359ef0cd9fa497e74" => :el_capitan
+    sha256 "4007af1f770c8fa77174b07c135f663451489866a3dfe306636cb010a64d88ac" => :yosemite
   end
 
   depends_on "autoconf" => :build
