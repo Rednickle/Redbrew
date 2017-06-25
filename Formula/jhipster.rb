@@ -3,14 +3,14 @@ require "language/node"
 class Jhipster < Formula
   desc "Generate, develop and deploy Spring Boot + Angular applications"
   homepage "https://jhipster.github.io/"
-  url "https://registry.npmjs.org/generator-jhipster/-/generator-jhipster-4.5.5.tgz"
-  sha256 "f31f37594211b45206dc907937100875b0022733341c75b2ab6fefd35cec97ca"
+  url "https://registry.npmjs.org/generator-jhipster/-/generator-jhipster-4.5.6.tgz"
+  sha256 "4174da8fa76ca44fa210675b4176043aab1950020ff7195b3885f49cccadd457"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bba2fe7e6990bfdf6398c11183d4de0319081302c17f1c6534e63d0537da406e" => :sierra
-    sha256 "a53d6d0d56e80b2e33534d733dd591cccf8c9eaa362bdd519378a1ad1630fbc6" => :el_capitan
-    sha256 "2db57cb5404bb5d0e52a5812780dc96704e7b74a88940645b0bb6de14dea6099" => :yosemite
+    sha256 "8b8224d782ae9c6e3a8b78dc757454ed7aaaabf535a539f270f56e8534428d07" => :sierra
+    sha256 "f0308be9f3f78e6daf591ece79282bce1650c01a83f9053cdae1621385e1769d" => :el_capitan
+    sha256 "c32ad80902c46ef843d64cccf79d434a3af72b2fa41397f98bd9852f3c6ff740" => :yosemite
   end
 
   depends_on "node"
