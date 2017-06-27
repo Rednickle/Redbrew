@@ -31,6 +31,7 @@ class Ocaml < Formula
     sha256 "83eb66e6d8edefac54ef0c6d35463c2da5d6913de6ca9ba1b4285e1b9989a489" => :sierra
     sha256 "e609fa7017393ce93f11020190563c104a7cfc9f7d498214a538ba53ef9ece28" => :el_capitan
     sha256 "6993d8c8c3a60a871b851ec38d7957a7c6a4588b681d6c142cad07d133d3f6d2" => :yosemite
+    sha256 "7874fe2c944418096da3e448f767e033b0c54dd5c4a37b144279edb31ebcf04b" => :x86_64_linux
   end
 
   devel do
