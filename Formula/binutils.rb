@@ -38,6 +38,9 @@ class Binutils < Formula
     system "make"
     system "make", "install"
     bin.install_symlink "ld.gold" => "gold" if build.with? "gold"
+
+    # Reduce the size of the bottle.
+    system "strip", *Dir[bin/"*", lib/"*.a"] unless OS.mac?
   end
 
   test do
