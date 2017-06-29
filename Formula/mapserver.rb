@@ -9,6 +9,7 @@ class Mapserver < Formula
     sha256 "1ab6c6b519e7ba102308e125a84ad3a28a1c058c93dc9a14db33b646ca85315e" => :sierra
     sha256 "7a89c7d190dad3b7686139102cabeb24e8fea79d739982020a95d5a7b5958138" => :el_capitan
     sha256 "82f0e7a8b6d0f90831f74aea71e70b1463bdce213b763b559da3f23db6864c0c" => :yosemite
+    sha256 "724c2cd1c882d1c39cfdadecb6809ee953f8f85625e534363a44e9c0161c72b1" => :x86_64_linux
   end
 
   option "with-fastcgi", "Build with fastcgi support"
