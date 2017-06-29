@@ -1,19 +1,20 @@
-class Osh < Formula
+class Etsh < Formula
   desc "Two ports of /bin/sh from V6 UNIX (circa 1975)"
   homepage "https://v6shell.org/"
-  url "https://v6shell.org/src/osh-4.4.0.tar.gz"
-  sha256 "65a77c73a92c282159f455e04cc0b4de6bd7e1c3db99405e0cb7fe281fd88e81"
+  url "https://v6shell.org/src/etsh-4.5.0.tar.gz"
+  sha256 "0cee9f6720b8845fe4da021f8b1100def02743d2dc6146129a31bd88551787d1"
   version_scheme 1
   head "https://github.com/JNeitzel/v6shell.git", :branch => "current"
 
   bottle do
-    sha256 "3981b2b01455ff2f689feb0355ca0f2b8eea7049cf2dd81943d83f8c58bd586a" => :sierra
-    sha256 "e4ad8a13f302abac406b9c948965574237afa06a7a9b62c854bfdf6afb4465a8" => :el_capitan
-    sha256 "ffba74a1d76e0234e60877c6472f72dceab8c23771cd7b1c04bccff798d6628c" => :yosemite
-    sha256 "32db6e74cf050b78001441c4d57d3537eda2076d61e4f6cae64b374621a2a6af" => :x86_64_linux
+    sha256 "dda11158c3e34a652add53d0352620db9eff24092579b4be8827f996fa36514e" => :sierra
+    sha256 "d976a16aabaaa824e1c1e29313946de34fc62a1ab966055db994ad297ffc42a0" => :el_capitan
+    sha256 "410b6fe0fa1de99d8aa4133131b4e28beec2ba270e59de7e125031217f6b584c" => :yosemite
   end
 
   option "with-examples", "Build with shell examples"
+
+  conflicts_with "teleport", :because => "both install `tsh` binaries"
 
   resource "examples" do
     url "https://v6shell.org/v6scripts/v6scripts-20160128.tar.gz"
@@ -21,12 +22,10 @@ class Osh < Formula
   end
 
   def install
-    # Fix error: file not recognized: file truncated
-    # See https://stackoverflow.com/questions/5713894/file-not-recognized-file-truncated-gcc-error#17789868
-    ENV.deparallelize unless OS.mac?
-
-    system "./configure", "osh", "sh6"
+    system "./configure"
     system "make", "install", "PREFIX=#{prefix}", "SYSCONFDIR=#{etc}", "MANDIR=#{man1}"
+    bin.install_symlink "etsh" => "osh"
+    bin.install_symlink "tsh" => "sh6"
 
     if build.with? "examples"
       resource("examples").stage do
@@ -37,7 +36,7 @@ class Osh < Formula
   end
 
   test do
-    assert_match "brew!", shell_output("#{bin}/osh -c 'echo brew!'").strip
+    assert_match "brew!", shell_output("#{bin}/etsh -c 'echo brew!'").strip
 
     if build.with? "examples"
       ENV.prepend_path "PATH", libexec
