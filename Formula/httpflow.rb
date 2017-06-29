@@ -1,15 +1,15 @@
 class Httpflow < Formula
   desc "Packet capture and analysis utility similar to tcpdump for HTTP"
   homepage "https://github.com/six-ddc/httpflow"
-  url "https://github.com/six-ddc/httpflow/archive/0.0.4.tar.gz"
-  sha256 "0926e22690bb65d81d8bfd4d1794ded69ca057731d4fd7b68ed60b840f9d3ecb"
+  url "https://github.com/six-ddc/httpflow/archive/0.0.5.tar.gz"
+  sha256 "a20b12243bcdd4ac8c8c14706cb508ec36aceea72e1fff2892777783b8441e46"
   head "https://github.com/six-ddc/httpflow.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "842ca0ae7f881acab8020b0a50591835fa18b76d336ebb666a1820faa6be69c0" => :sierra
-    sha256 "8e4c873de27139d346e8a691512dfc75e6e4249f80d9db4f4375d2eab18984d2" => :el_capitan
-    sha256 "acc1d78614091e66fee186086f2d8369f7cea25dbb23744dbb1679f9f1d9ad27" => :yosemite
+    sha256 "54424d3b3df0f9e0667e23879ab493938b61b40c0a81b0c1a6f5551a373e6254" => :sierra
+    sha256 "d1a956d95729f71d43e9d13740a9a38950f5c05e2c8af83362c3afcc35d3762b" => :el_capitan
+    sha256 "4ef84470498e7c1f86bc6962073f5e97a00049268823d3fa313087c21bc26deb" => :yosemite
   end
 
   def install
