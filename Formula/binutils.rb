@@ -45,8 +45,7 @@ class Binutils < Formula
   end
 
   test do
-    # Better to check with?("default-names"), but that doesn't work.
-    nm = build.with?("default-names") ? "nm" : "gnm"
-    assert_match "main", shell_output("#{bin}/#{nm} #{bin}/#{nm}")
+    size = build.with?("default-names") ? "size" : "gsize"
+    assert_match "text", shell_output("#{bin}/#{size} #{bin}/#{size}")
   end
 end
