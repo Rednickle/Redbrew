@@ -10,6 +10,7 @@ class Iamy < Formula
     sha256 "cc541043b220b2157795ccd94af9d78a6d93f6db054c76a4832816b379c5249f" => :sierra
     sha256 "16cd74f1f6e2b22608819914b1c1e9277f5451f232ca6d0f53710ae571852cce" => :el_capitan
     sha256 "86cece8fa23de7515f8792f8d519ecdab504b12c1e7cb7645bebd95b82e926b5" => :yosemite
+    sha256 "a642fe0cbcb497bf31b7f8d49a28aaee848c762d922094d207eeee00367e0119" => :x86_64_linux
   end
 
   depends_on "go" => :build
