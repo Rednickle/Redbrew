@@ -1,15 +1,14 @@
 class Mapserver < Formula
   desc "Publish spatial data and interactive mapping apps to the web"
   homepage "http://mapserver.org/"
-  url "http://download.osgeo.org/mapserver/mapserver-7.0.4.tar.gz"
-  sha256 "c91d40da5cc242b20ca7e29c41bd9eb23097b98a77908b1d708e9708f6f6cf69"
-  revision 1
+  url "http://download.osgeo.org/mapserver/mapserver-7.0.6.tar.gz"
+  sha256 "dcbebd62976deef1490b084d8f6a0b2f2a1a25407efb6e058390025375539507"
 
   bottle do
     cellar :any
-    sha256 "770f4416f9dad46fb24d4c77655ce5b4f0fde80c01e87140d6d01fd3be010f5b" => :sierra
-    sha256 "410fcf486c9f534ed45fa676f3ac12b08dfa7765a0d4b611deef2736231922cd" => :el_capitan
-    sha256 "750bf42407ba4718345924fb793a5cb7101d6abb93af3be9776e47bbdea8d74c" => :yosemite
+    sha256 "1ab6c6b519e7ba102308e125a84ad3a28a1c058c93dc9a14db33b646ca85315e" => :sierra
+    sha256 "7a89c7d190dad3b7686139102cabeb24e8fea79d739982020a95d5a7b5958138" => :el_capitan
+    sha256 "82f0e7a8b6d0f90831f74aea71e70b1463bdce213b763b559da3f23db6864c0c" => :yosemite
   end
 
   option "with-fastcgi", "Build with fastcgi support"

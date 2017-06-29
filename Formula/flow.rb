@@ -1,28 +1,15 @@
 class Flow < Formula
   desc "Static type checker for JavaScript"
   homepage "https://flowtype.org/"
+  url "https://github.com/facebook/flow/archive/v0.49.1.tar.gz"
+  sha256 "d72a3470e7e0879d37f242aa0ec561ed0e60ff9fba676156392e46fd5e27a180"
   head "https://github.com/facebook/flow.git"
-
-  stable do
-    url "https://github.com/facebook/flow/archive/v0.48.0.tar.gz"
-    sha256 "8772896075dc4028e62720fe18a6608f278f471931b2a8fff280d0efc0fd4f29"
-
-    # Remove for > 0.48.0
-    # Fix "Error: Some fatal warnings were triggered"
-    # Upstream commit from 13 Jun 2017 "[PR] Disable all warnings for homebrew &
-    # opam release builds"
-    patch do
-      url "https://github.com/facebook/flow/commit/9130d821d.patch"
-      sha256 "acbe71d6f065390f86184827ada544840c9fdfa654bd0c81446b6fd5173002f4"
-    end
-  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d05f27bdcc36e5f142bda40560a98c3f7f5acaa10fe301904b632651d962e453" => :sierra
-    sha256 "e71d050e7205ac330bb4d09e13e5bbf3e53127d83bedbacbfde5424fe5da31bf" => :el_capitan
-    sha256 "6655d84fc3987f59b2827c9ff43383a6153b485c286e76db14c17ce50eaa5dad" => :yosemite
-    sha256 "a62006ad23cd044f7cb04c496941326fddc048f07d84e7f45e13732dcfb11fcd" => :x86_64_linux
+    sha256 "bb8ab317eabc3973db6f73fa0c0f442b8822d21498544fc5006b7523bb29a025" => :sierra
+    sha256 "e04831e5e13e5813163202e0413276d000b5071c35c5769fcedad10b8ab9fedf" => :el_capitan
+    sha256 "6188e72b8d64e858bfef19f013387aeeb3ee6dcac38c7b9b0c509e02e3098482" => :yosemite
   end
 
   depends_on "ocaml" => :build
