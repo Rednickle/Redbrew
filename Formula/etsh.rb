@@ -10,6 +10,7 @@ class Etsh < Formula
     sha256 "dda11158c3e34a652add53d0352620db9eff24092579b4be8827f996fa36514e" => :sierra
     sha256 "d976a16aabaaa824e1c1e29313946de34fc62a1ab966055db994ad297ffc42a0" => :el_capitan
     sha256 "410b6fe0fa1de99d8aa4133131b4e28beec2ba270e59de7e125031217f6b584c" => :yosemite
+    sha256 "f8171f4f56e6d51c8bc7b8775070653b22e082b32f84fb9bc3b41859482a5e30" => :x86_64_linux
   end
 
   option "with-examples", "Build with shell examples"
