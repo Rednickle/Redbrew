@@ -10,6 +10,7 @@ class Binaryen < Formula
     cellar :any
     sha256 "54a170db5805e70d6fd62c2e60e2eaaa3d5d554bf8c20cf95b41ac1dc36ce782" => :sierra
     sha256 "34f38e8f125ec50c39864069b45e49f3c3bfa5e7ca02a91de0e995aba2aefb01" => :el_capitan
+    sha256 "c667dc2a8aeff0caf6d10c2ace33d58b8a0a303bfbc0a5947ec0165bda02b6b5" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
