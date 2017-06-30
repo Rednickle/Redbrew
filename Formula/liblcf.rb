@@ -10,6 +10,7 @@ class Liblcf < Formula
     sha256 "f4fc2587c5a4a78dc5fefcf977934bcad7a8c6a0244d9e0e238aaa159f454ff4" => :sierra
     sha256 "2ed8b08aa4d416cf7f913cdd1bf2f2c3425c76ffd3f558b05bf604fcd6335d85" => :el_capitan
     sha256 "2b2cacec709a44e02329f97a0ef71a374a8cc07ca0a51288ae225f5e5034190a" => :yosemite
+    sha256 "44ba33e91e5c2b2e50a4c99839d195040f78b1a5e797997bc623fb0dc6de8177" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
