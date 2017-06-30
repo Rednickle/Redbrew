@@ -1,14 +1,13 @@
 class Poppler < Formula
   desc "PDF rendering library (based on the xpdf-3.0 code base)"
   homepage "https://poppler.freedesktop.org/"
-  url "https://poppler.freedesktop.org/poppler-0.55.0.tar.xz"
-  sha256 "537f2bc60d796525705ad9ca8e46899dcc99c2e9480b80051808bae265cdc658"
+  url "https://poppler.freedesktop.org/poppler-0.56.0.tar.xz"
+  sha256 "869dbadf99ed882e776acbdbc06689d8a81872a2963440b1e8516cd7a2577173"
 
   bottle do
-    sha256 "55bc6d2cac4f69d0f019583d19859c0d91ca0802bcc0d836b5d324c3a8d171d1" => :sierra
-    sha256 "b16c0388cebccac0aac1bc897030404fb8629b27b5281d18528e16d303a885d9" => :el_capitan
-    sha256 "e9f126d38017b290f881c6970163494f91d267034f063f3afe3cdce5417e7be3" => :yosemite
-    sha256 "b315ffafec46537eb9e169bc3bff5c232429281b09ab022b7b39b0becf9f32dc" => :x86_64_linux
+    sha256 "183cfb95cb3f30ee45db2e6b6bef3a9b98bd001b6b03c209a6e3fdd62b15313d" => :sierra
+    sha256 "9aa64b99728fbf5340da9333648492ff3cd868aa6c9a1bdb0f3b367dfa657926" => :el_capitan
+    sha256 "2d64600d12dbe6e687c2a0499d5828aeb27d9963cec8bcaba62c5ea19381d598" => :yosemite
   end
 
   option "with-qt", "Build Qt5 backend"

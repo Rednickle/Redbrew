@@ -1,15 +1,14 @@
 class Lxc < Formula
   desc "CLI client for interacting with LXD"
   homepage "https://linuxcontainers.org"
-  url "https://linuxcontainers.org/downloads/lxd/lxd-2.14.tar.gz"
-  sha256 "dbb8fcdc1944c35008c517d0cee3bc07bde8ed3e01e81ad41a6bf46ba13ed674"
+  url "https://linuxcontainers.org/downloads/lxd/lxd-2.15.tar.gz"
+  sha256 "7148665eb1d678b59042d07a83eb33dcd7ef14eba98cf4463ac496f4cf7b26e5"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "376e15e91a4c5e5e3b5a52f7c09c1af2672a0761845d1ae0b94e5d73463d50f5" => :sierra
-    sha256 "28d219308b7725865c26436b987aef7c771a5e04b1c7ee8aa0575f7f6cdc039a" => :el_capitan
-    sha256 "4275c7d40031f39fe91284ff0763f29538283861421e84da6e486201ee667020" => :yosemite
-    sha256 "e2e9157bc5efbe1924fb0a8e845ce30f78f062a6ad90fea95d97b0d8d28735b8" => :x86_64_linux
+    sha256 "d94e792d4cdd0b9bc8c51d1e835b22f30f94f2249746400f49a552d915c0bb6b" => :sierra
+    sha256 "b212150191597dc85789961cec6e79c26dc14024d878ecda0a5e794128c1ced9" => :el_capitan
+    sha256 "15d1aafbf87ff0225f57e8ec786870f23e74afcfa66aa1b7d99107d0fab9f46d" => :yosemite
   end
 
   depends_on "go" => :build
