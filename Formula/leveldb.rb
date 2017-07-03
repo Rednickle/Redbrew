@@ -10,6 +10,7 @@ class Leveldb < Formula
     sha256 "ef37df5779b602f28adf5937fe890a5969236132e2a47929846d3e16503dc878" => :sierra
     sha256 "abbc5a2eb45c96d2c41a2e18bc3830cbf73056e543e954cf9b133e81efb89363" => :el_capitan
     sha256 "c807f88850c2a9d476252bc197f6310ff9a0f60436ac78a5fc037d6ee83db71a" => :yosemite
+    sha256 "04e0c4dc75862c89292042b409512d4a371026a439ea452b808beeebe99e6010" => :x86_64_linux
   end
 
   option "with-test", "Verify the build with make check"
