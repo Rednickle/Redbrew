@@ -11,6 +11,7 @@ class RedisLeveldb < Formula
     sha256 "adca2fdf1c56e752b53ca13fa31f0d498ff76ec92fabb2000fd843d7658595c0" => :sierra
     sha256 "99b96a0e61d82ecec7210dd2e867f06d6ae825dec02a91f95d0867594e934c4c" => :el_capitan
     sha256 "a8206064918e6875d7bea5c67dd6ebd757b2a08adb9c93e6569470793c088275" => :yosemite
+    sha256 "1746f1b15120e711d4fe1dd4a57aa5447c4e1727f7503615ff1cdc7eaaf50f6e" => :x86_64_linux
   end
 
   depends_on "libev"
