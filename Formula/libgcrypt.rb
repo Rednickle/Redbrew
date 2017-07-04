@@ -1,26 +1,19 @@
 class Libgcrypt < Formula
   desc "Cryptographic library based on the code from GnuPG"
   homepage "https://directory.fsf.org/wiki/Libgcrypt"
-  url "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.7.7.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/libgcrypt/libgcrypt-1.7.7.tar.bz2"
-  sha256 "b9b85eba0793ea3e6e66b896eb031fa05e1a4517277cc9ab10816b359254cd9a"
+  url "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.7.8.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/libgcrypt/libgcrypt-1.7.8.tar.bz2"
+  sha256 "948276ea47e6ba0244f36a17b51dcdd52cfd1e664b0a1ac3bc82134fb6cec199"
 
   bottle do
     cellar :any
-    sha256 "3ee390e97f01b7c76598e792e70535a36f6ef8c7c17aaa53da2e85d58f8a3247" => :sierra
-    sha256 "56f8d744f774ba092ffd329221284f7cdbfbba737020a184e9836ab7b8f94ba3" => :el_capitan
-    sha256 "b72790d88a631f9d524dc2bc4604360d2bbbac8a95fe0553bef88ad070ddec82" => :yosemite
-    sha256 "833ac886d22e4528a67c85f80d51e7308d408da98085f70fa0be96c2db9f8404" => :x86_64_linux
+    sha256 "83c46c8bcf7fbaee2ba7140179fc1f4965af5fca38873df7e8d0c61b214da89e" => :sierra
+    sha256 "1a3d9d442fcee318295902030c35ffcd4c6bcf61f749cc51485e52e0e68887d3" => :el_capitan
+    sha256 "eaf1961e564e530619a0ae87094a4a40210d054bb9826fceb8e611562916adfe" => :yosemite
   end
 
   depends_on "libgpg-error"
   depends_on "libxslt" unless OS.mac?
-
-  resource "config.h.ed" do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/ec8d133/libgcrypt/config.h.ed"
-    version "113198"
-    sha256 "d02340651b18090f3df9eed47a4d84bed703103131378e1e493c26d7d0c7aab1"
-  end
 
   def install
     # Temporary hack to get libgcrypt building on macOS 10.12 and 10.11 with XCode 8.
@@ -28,7 +21,7 @@ class Libgcrypt < Formula
     # keep checking whether or not this is necessary.
     # Should be reported to GnuPG if still an issue when near stable.
     # https://github.com/Homebrew/homebrew-core/issues/1957
-    ENV.O1 if DevelopmentTools.clang_build_version >= 800
+    ENV.O1 if DevelopmentTools.clang_build_version == 800
 
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
