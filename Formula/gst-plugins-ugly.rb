@@ -8,6 +8,7 @@ class GstPluginsUgly < Formula
     sha256 "535d235ae8f1119d615a469eb6051140a8ef60fe8009f7958c73f753a207a03c" => :sierra
     sha256 "5f2f1382d80f7ab71b13c61a10b4fa8a69d9e00b03f284b3bb60bdd2fd559aed" => :el_capitan
     sha256 "1d8b7cafe769ef9debe0cecd152b01fc022ad7df6316e9cc841c972bf80893b3" => :yosemite
+    sha256 "47f0ce2457830ec8999e62fb5a1088e8332f181fe71a7eaa82b3b1087836ada8" => :x86_64_linux
   end
 
   head do
