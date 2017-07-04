@@ -11,6 +11,7 @@ class Nodeenv < Formula
     sha256 "89d883152e213d8a38d933272d717ee0aaf229aa5958ad69285091dab09c2138" => :sierra
     sha256 "c2f11f9d4a5a97ee9867ed6d3bd516c228b81308e5b12eca6ac18dc52231cb82" => :el_capitan
     sha256 "4896da3820fe3fa49916753223379063137dc49cead42a4f652d5be9f7454ecc" => :yosemite
+    sha256 "7ad946648c303fdd280f7ae176aec335ab436f1f87bb73dd7204dedce04523c1" => :x86_64_linux
   end
 
   def install
