@@ -8,6 +8,7 @@ class GstLibav < Formula
     sha256 "cd744615fc559f28f15c8c184afffb611c79295d21054a5b98b0b1b76ca9aa1c" => :sierra
     sha256 "261024a779d6c67dad053080af6f278bf9b0b1b88e4fc87e7ab86f5df39c822f" => :el_capitan
     sha256 "78ed8388cb99cd69fbf19c341f98f868c538ca3829fd2ac59708ed1f8482b952" => :yosemite
+    sha256 "0ee63b6bf14280e0207aae9dedcec83e0c187cd58cf697ea7cec7a868fe4be37" => :x86_64_linux
   end
 
   head do
