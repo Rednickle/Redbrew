@@ -8,6 +8,7 @@ class Gstreamer < Formula
     sha256 "ad6cf580a3f5d68b8c37e01e8db5b1cf16aa5c4d072416f6305ab63d75e05b9a" => :sierra
     sha256 "ddb14f2c108456c858c134d69e4252464d3519401ad37a6872ce40b27e06a216" => :el_capitan
     sha256 "5d40c43a9d0b8a901aa4dda568ca0bf29c08752e68ce659db22906a9c768e0b3" => :yosemite
+    sha256 "61a026bf50fda13034d01466c483a528a87e1a7b0ea652c99dfd967bf258d3f3" => :x86_64_linux
   end
 
   head do
