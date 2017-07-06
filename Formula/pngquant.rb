@@ -10,6 +10,7 @@ class Pngquant < Formula
     sha256 "145306ad0f1ec6c75714f545c42a4cb6e8863b11a90360e91617af2a567e2e83" => :sierra
     sha256 "53358eac4adf568420d23677d3cdeb7b8e0ac64a296007415938b36d7c27b4d1" => :el_capitan
     sha256 "7552ff56f33a826925b3f7952fdca3b6f2f801b7154b53975781f8a7886dc363" => :yosemite
+    sha256 "f2c540212dbd8c0c8757a7dc049f5148a0481108237c6792d8af95fbd143c4e7" => :x86_64_linux
   end
 
   option "with-openmp", "Enable OpenMP"
