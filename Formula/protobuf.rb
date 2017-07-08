@@ -1,15 +1,14 @@
 class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/google/protobuf/"
-  url "https://github.com/google/protobuf/archive/v3.3.0.tar.gz"
-  sha256 "94c414775f275d876e5e0e4a276527d155ab2d0da45eed6b7734301c330be36e"
+  url "https://github.com/google/protobuf/archive/v3.3.2.tar.gz"
+  sha256 "8b8e442becbeff637f160c1ef4a3a56769c50ba7c9ff939ccc94086530ff00e4"
   head "https://github.com/google/protobuf.git"
 
   bottle do
-    sha256 "b0b89d8ed02a2d4d54619f7e1dd37797797f580f434229dc96a4f772056c7493" => :sierra
-    sha256 "c6ffdc50994d81d836df2d5dac2a3d5e82b05ae6c323a0ead9c1d0217801d9c5" => :el_capitan
-    sha256 "10a15ee1d092b59765c94a15bb4dca77c0a9370180a3813018c5c083593173d3" => :yosemite
-    sha256 "2317eb9668c9935b17b954f3411d94aa0c092846073d1dc406dd6ebc4f43878d" => :x86_64_linux
+    sha256 "61e2aab2a9c62c530b47d2e940df03140d7236496d3afc94ac3a090d5b67c76e" => :sierra
+    sha256 "193b95ca0f4ed80e11fa622162811173b8a3bd44abeb3e686433e0c063d09fd5" => :el_capitan
+    sha256 "fee139511c94fca32fd143a905ee8c545f5d319830d5872efa051f28ee0ef811" => :yosemite
   end
 
   # this will double the build time approximately if enabled
@@ -25,7 +24,7 @@ class Protobuf < Formula
   depends_on :python3 => :optional
 
   resource "appdirs" do
-    url "https://pypi.python.org/packages/48/69/d87c60746b393309ca30761f8e2b49473d43450b150cb08f3c6df5c11be5/appdirs-1.4.3.tar.gz"
+    url "https://files.pythonhosted.org/packages/48/69/d87c60746b393309ca30761f8e2b49473d43450b150cb08f3c6df5c11be5/appdirs-1.4.3.tar.gz"
     sha256 "9e5896d1372858f8dd3344faf4e5014d21849c756c8d5701f78f8a103b372d92"
   end
 
@@ -35,7 +34,7 @@ class Protobuf < Formula
   end
 
   resource "pyparsing" do
-    url "https://pypi.python.org/packages/3c/ec/a94f8cf7274ea60b5413df054f82a8980523efd712ec55a59e7c3357cf7c/pyparsing-2.2.0.tar.gz"
+    url "https://files.pythonhosted.org/packages/3c/ec/a94f8cf7274ea60b5413df054f82a8980523efd712ec55a59e7c3357cf7c/pyparsing-2.2.0.tar.gz"
     sha256 "0832bcf47acd283788593e7a0f542407bd9550a55a8a8435214a1960e04bcb04"
   end
 
@@ -45,7 +44,7 @@ class Protobuf < Formula
   end
 
   resource "setuptools" do
-    url "https://pypi.python.org/packages/d5/b7/e52b7dccd3f91eec858309dcd931c1387bf70b6d458c86a9bfcb50134fbd/setuptools-34.3.3.zip"
+    url "https://files.pythonhosted.org/packages/d5/b7/e52b7dccd3f91eec858309dcd931c1387bf70b6d458c86a9bfcb50134fbd/setuptools-34.3.3.zip"
     sha256 "2cd244d3fca6ff7d0794a9186d1d19a48453e9813ae1d783edbfb8c348cde905"
   end
 

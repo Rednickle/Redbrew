@@ -4,13 +4,13 @@ class Libtiff < Formula
   url "http://download.osgeo.org/libtiff/tiff-4.0.8.tar.gz"
   mirror "https://fossies.org/linux/misc/tiff-4.0.8.tar.gz"
   sha256 "59d7a5a8ccd92059913f246877db95a2918e6c04fb9d43fd74e5c3390dac2910"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "c3db59fa42ce59f90e0e509488498f40baeb3b3e618c6406342a4d5393fa2b0b" => :sierra
-    sha256 "05d3e7bcbd90ca0ec4f4dfcf8bcafe65ff57c94eabda983d659ea2377a09756f" => :el_capitan
-    sha256 "8366e2ffaa26a0f0723c8fa0ed6d6fec9b6909a97201090b3bd6fb3a888dc672" => :yosemite
-    sha256 "5133726f62c0ab7ec734c17784d3a4c203e73720b9be400141ec1a5563ee3c90" => :x86_64_linux
+    sha256 "05816933252a551b69ef2999fd735a17c495790ef42b7a31d15b285209f0e22d" => :sierra
+    sha256 "074c6ddeac411817ddd1a4a59b0e6fc4ada76b90ea3c51ee8d8ef4e9e79e2522" => :el_capitan
+    sha256 "81e3b47d910e516005520fdece47dcf03b71494cf06f9a2016ed151ff016c518" => :yosemite
   end
 
   option :cxx11
@@ -19,6 +19,21 @@ class Libtiff < Formula
   depends_on "jpeg"
   depends_on "xz" => :optional
   depends_on "zlib" unless OS.mac?
+
+  # All of these have been reported upstream & should
+  # be fixed in the next release, but please check.
+  patch do
+    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.8-3.debian.tar.xz"
+    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/t/tiff/tiff_4.0.8-3.debian.tar.xz"
+    sha256 "8803ef2917ceb80c472e97d85e86f71a20d04cf7de94ebffcc1b3100f51058ce"
+    apply "patches/01-CVE-2015-7554.patch",
+          "patches/02-CVE.patch",
+          "patches/03-CVE.patch",
+          "patches/04-CVE-2016-10095_CVE-2017-9147.patch",
+          "patches/05-CVE-2017-9936.patch",
+          "patches/06-OOM_in_gtTileContig.patch",
+          "patches/07-CVE-2017-10688.patch"
+  end
 
   def install
     ENV.cxx11 if build.cxx11?

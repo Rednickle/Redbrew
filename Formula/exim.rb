@@ -3,11 +3,12 @@ class Exim < Formula
   homepage "https://exim.org"
   url "https://ftp.exim.org/pub/exim/exim4/exim-4.89.tar.bz2"
   sha256 "912f2ee03c8dba06a3a4c0ee40522d367e1b65dc59e38dfcc1f5d9eecff51ab0"
+  revision 1
 
   bottle do
-    sha256 "b76c1dc01d5ff622c16ddbaee4405b6738bd0a4443fa162714994bc055224014" => :sierra
-    sha256 "d65075ea2095eeb918d4314493a634b35f330813425ee1a84b2bfdeadc346404" => :el_capitan
-    sha256 "eaaca1b7231700c5d7dd558c1a754c94c3643a3132ddedc415bd50382bbcb598" => :yosemite
+    sha256 "03b86a073f5b4448481571528d0e1835f6a8059757f9725b0056725bba69b847" => :sierra
+    sha256 "b0cda4a02c550ab683afcdb598ed612bdfdc25d39e583389add9cffb2bec5773" => :el_capitan
+    sha256 "65eff3b7d7d1a7be1d78e1b281d2a3f612b6d07f3093b813fe4f27405b7f3fca" => :yosemite
   end
 
   deprecated_option "support-maildir" => "with-maildir"
@@ -16,6 +17,15 @@ class Exim < Formula
   depends_on "pcre"
   depends_on "berkeley-db@4"
   depends_on "openssl"
+
+  # Patch applied upstream but doesn't apply cleanly from git.
+  # https://github.com/Exim/exim/commit/65e061b76867a9ea7aeeb535341b790b90ae6c21
+  patch do
+    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/e/exim4/exim4_4.89-3.debian.tar.xz"
+    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/e/exim4/exim4_4.89-3.debian.tar.xz"
+    sha256 "6440231912f6ead8097c94deb90524f9a0d1413447ba9ff3a734c4359e2aff3c"
+    apply "patches/79_CVE-2017-1000369.patch"
+  end
 
   def install
     cp "src/EDITME", "Local/Makefile"
