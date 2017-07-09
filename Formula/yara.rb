@@ -1,16 +1,15 @@
 class Yara < Formula
   desc "Malware identification and classification tool"
   homepage "https://github.com/VirusTotal/yara/"
-  url "https://github.com/VirusTotal/yara/archive/v3.6.2.tar.gz"
-  sha256 "413b530b69dd3fb7bcef439bf44be262f051e55f7aa129f1efada193b15903a6"
+  url "https://github.com/VirusTotal/yara/archive/v3.6.3.tar.gz"
+  sha256 "ad2c0e788b4d8b2f3e9078f448754313249a302b749b9a24e932bfc5e141a5e8"
   head "https://github.com/VirusTotal/yara.git"
 
   bottle do
     cellar :any
-    sha256 "10305b810e39f39dbb3427339641378c5a4fa513038924a3bea3ab6d5bba5a83" => :sierra
-    sha256 "ee767659c1ee02a0dd08efb351ddfd7aea60cda63f4bd4ae2f17dd161b85d4f1" => :el_capitan
-    sha256 "677925c32889d4d24114b85c641d9dba7579588706efca776a7f1ba33054ad48" => :yosemite
-    sha256 "6ff1a448506c4e6c41944a26b49d1ab3903ea69941d2636bee9c3904d965950d" => :x86_64_linux
+    sha256 "c387995ca4eda6fc37d661d7d79c9421b070aa658a5453f52a6f06fd5f8ba928" => :sierra
+    sha256 "3342afc59418374a627c3fbe9dc8e6046d5762f0998e6ac26176b5bf1ada19c8" => :el_capitan
+    sha256 "86d6c185bf7afc46948cef4533eb9902a89560b8002ebf5963e9c60a48c65537" => :yosemite
   end
 
   depends_on "libtool" => :build
