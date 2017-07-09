@@ -10,6 +10,7 @@ class Fabio < Formula
     sha256 "9afa0d082fc0cf26d89412f083437073986a98e00cdf256f51d72b68692d8155" => :sierra
     sha256 "01d52f62d0b2640c0f215ad668bf0b0bf3b3fce6303ca6923261836417fda6b9" => :el_capitan
     sha256 "19a263ad81d9989b05f8bcc1e9e53b32f10260f11cc6b292f5a2d799db5a5c5f" => :yosemite
+    sha256 "261eac71aee096ee64052faa840c5b63744ca45d2c5e9e53dd40c5bb586ccf2d" => :x86_64_linux
   end
 
   depends_on "go" => :build
