@@ -9,6 +9,7 @@ class Ntl < Formula
     sha256 "72c79a85c49ce2f21d8c051cf8fa89e51fbe5a433192ed0d1fcb3a351070a3cb" => :sierra
     sha256 "90ad337da72230a12d67e963656e28dd42af80d0410a0d1fb62c81db7ef9372d" => :el_capitan
     sha256 "a4688eec8932344ed3b399239271a1dbc0a4ee9df0ebec5413dded452e90a9ad" => :yosemite
+    sha256 "7cf6d8540b3a0d85884b6416bf54962c4139b425a9caa7a307567ab1561e6a82" => :x86_64_linux
   end
 
   depends_on "gmp"
@@ -42,8 +43,8 @@ class Ntl < Formula
       -I#{include}
       -L#{gmp.opt_lib}
       -L#{lib}
-      -lgmp
       -lntl
+      -lgmp
     ]
     system ENV.cxx, "square.cc", "-o", "square", *flags
     assert_equal "4611686018427387904", pipe_output("./square", "2147483648")
