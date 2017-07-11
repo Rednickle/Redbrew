@@ -15,6 +15,7 @@ class Duti < Formula
   end
 
   depends_on "autoconf" => :build
+  depends_on :macos
 
   # Add hardcoded SDK path for El Capitan or later.
   if MacOS.version >= :el_capitan
