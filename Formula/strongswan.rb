@@ -3,11 +3,12 @@ class Strongswan < Formula
   homepage "https://www.strongswan.org"
   url "https://download.strongswan.org/strongswan-5.5.3.tar.bz2"
   sha256 "c5ea54b199174708de11af9b8f4ecf28b5b0743d4bc0e380e741f25b28c0f8d4"
+  revision 1
 
   bottle do
-    sha256 "1f94fb9fbd97fb9d85203f23c14127c641f9652bd996d78d8893739fb14a6df7" => :sierra
-    sha256 "6359e18261363a78886415c0d8bc35ac765ab5413af579aaffa093ec6736e2d1" => :el_capitan
-    sha256 "6a168da2a39dc1e109d5bd5f12e413dda8ec3db017aecc5793cfa1b23b169097" => :yosemite
+    sha256 "f7bb70f605b43ee8ba2f5c69d8ac12f3fb5482d065e809f1d4e41b190a2f3961" => :sierra
+    sha256 "66493584f56c0a4434c96b9694e73fbd65c6cceb75c43a990bab8ba8115dc6fb" => :el_capitan
+    sha256 "6cf78eb774355dd7e0ddd5b7025619a09296f62415201c5bfd6e02c5aca10999" => :yosemite
   end
 
   head do
@@ -37,6 +38,7 @@ class Strongswan < Formula
       --enable-charon
       --enable-cmd
       --enable-constraints
+      --enable-curve25519
       --enable-eap-gtc
       --enable-eap-identity
       --enable-eap-md5
