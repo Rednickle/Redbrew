@@ -12,6 +12,7 @@ class Jsdoc3 < Formula
     sha256 "39e1745c1030cb3f9afc79c4521b7985d3f3bf9db9f09577fe38a719d425f242" => :sierra
     sha256 "ceb1687c1b16011db4baeeb17382906260cc08024b7dbfa26182d63927ccafeb" => :el_capitan
     sha256 "d307d08a31879470297a9fed1bcb25c602391638da6a33d58be70a09d8f420a1" => :yosemite
+    sha256 "5ee7d69d4d4e171c135b418937b84805a35832d2ddba35cb77a9a2f683c5cc47" => :x86_64_linux
   end
 
   depends_on "node"
