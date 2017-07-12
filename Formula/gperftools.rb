@@ -1,15 +1,14 @@
 class Gperftools < Formula
   desc "Multi-threaded malloc() and performance analysis tools"
   homepage "https://github.com/gperftools/gperftools"
-  url "https://github.com/gperftools/gperftools/releases/download/gperftools-2.6/gperftools-2.6.tar.gz"
-  sha256 "87d556694bb1d2c16de34acb9a9db36f7b82b491762ee19e795ef2bef9394daf"
+  url "https://github.com/gperftools/gperftools/releases/download/gperftools-2.6.1/gperftools-2.6.1.tar.gz"
+  sha256 "38b467eb42a028f253d227fbc428263cb39e6c8687c047466aa2ce5bb4699d81"
 
   bottle do
     cellar :any
-    sha256 "88b926680de61012eb3fa138ed594a78e58952788f5c308d4fc9275b52311774" => :sierra
-    sha256 "a2edc2ec0e885b4bdb31ccc32f82f3ed6dcf87fb771860c2e4255b21717f9c2e" => :el_capitan
-    sha256 "b80ed7e1c907d37f2d8f226158234c5a148269ce0478651a7e1f14e2865f9234" => :yosemite
-    sha256 "a2e0d8e062dff1d613cf30f65817e1c213710b4d06229b14649cc3a892f9231d" => :x86_64_linux
+    sha256 "fffac00b0bbf99aaa18fa437acb9204740ba8ab7cfdc1783a57d4d3d1af49ed3" => :sierra
+    sha256 "eb634b147019b9b57fbe8b1daa709a74b95f2693b299b5bfd141cf63f01c18e4" => :el_capitan
+    sha256 "74c85f5058535c1fd211e71ffe664f99d64aa392b4e56d4fa06c172900b2d9c2" => :yosemite
   end
 
   # Fix error: No frame pointers and no libunwind. The compilation will fail
@@ -25,10 +24,6 @@ class Gperftools < Formula
 
   def install
     ENV.append_to_cflags "-D_XOPEN_SOURCE" if OS.mac?
-
-    # Workaround for undefined symbol error for ___lsan_ignore_object
-    # Reported 5 Jul 2017 https://github.com/gperftools/gperftools/issues/901
-    ENV.append_to_cflags "-Wl,-U,___lsan_ignore_object" if OS.mac?
 
     system "autoreconf", "-fiv" if build.head?
     system "./configure", "--disable-dependency-tracking",
