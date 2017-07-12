@@ -1,34 +1,29 @@
 class ClangFormat < Formula
   desc "Formatting tools for C, C++, Obj-C, Java, JavaScript, TypeScript"
   homepage "https://clang.llvm.org/docs/ClangFormat.html"
-  version "2017-03-17"
+  version "2017-06-22"
 
   stable do
     if MacOS.version >= :sierra
-      url "https://llvm.org/svn/llvm-project/llvm/tags/google/stable/2017-03-17/", :using => :svn
+      url "https://llvm.org/svn/llvm-project/llvm/tags/google/stable/2017-06-22/", :using => :svn
     else
-      url "http://llvm.org/svn/llvm-project/llvm/tags/google/stable/2017-03-17/", :using => :svn
+      url "http://llvm.org/svn/llvm-project/llvm/tags/google/stable/2017-06-22/", :using => :svn
     end
 
     resource "clang" do
       if MacOS.version >= :sierra
-        url "https://llvm.org/svn/llvm-project/cfe/tags/google/stable/2017-03-17/", :using => :svn
+        url "https://llvm.org/svn/llvm-project/cfe/tags/google/stable/2017-06-22/", :using => :svn
       else
-        url "http://llvm.org/svn/llvm-project/cfe/tags/google/stable/2017-03-17/", :using => :svn
+        url "http://llvm.org/svn/llvm-project/cfe/tags/google/stable/2017-06-22/", :using => :svn
       end
-    end
-
-    resource "libcxx" do
-      url "http://llvm.org/releases/4.0.0/libcxx-4.0.0.src.tar.xz"
-      sha256 "4f4d33c4ad69bf9e360eebe6b29b7b19486948b1a41decf89d4adec12473cf96"
     end
   end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e9e68cd29b723197142bf8eb0c08d6bda278d85bfcced66dc205b037d4e702c3" => :sierra
-    sha256 "53d2356e235be5351359e22c4736b3833e2807e9fe709e681679016a4458b517" => :el_capitan
-    sha256 "538be123e5d98c67668522be4be37597b3bac6186df0896c0d250abbf2d77d12" => :yosemite
+    sha256 "9d02a904e0d76bbb5f814d952a8c4b3e15e0f6d671c0c53a90272fcefb0ada88" => :sierra
+    sha256 "184425911fe753006214f0f1dcd9c87e0e7c171f737d916445eadc760eac9eb8" => :el_capitan
+    sha256 "4a2146f1fc5009e79d8ca10c6371c3443ac2069e851c29e08ee01f2e710c5ff0" => :yosemite
   end
 
   head do
@@ -45,17 +40,17 @@ class ClangFormat < Formula
         url "http://llvm.org/svn/llvm-project/cfe/trunk/", :using => :svn
       end
     end
-
-    resource "libcxx" do
-      url "http://llvm.org/releases/3.9.0/libcxx-3.9.0.src.tar.xz"
-      sha256 "d0b38d51365c6322f5666a2a8105785f2e114430858de4c25a86b49f227f5b06"
-    end
   end
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on "subversion" => :build
   depends_on "bison" => :build unless OS.mac?
+
+  resource "libcxx" do
+    url "https://llvm.org/releases/4.0.0/libcxx-4.0.0.src.tar.xz"
+    sha256 "4f4d33c4ad69bf9e360eebe6b29b7b19486948b1a41decf89d4adec12473cf96"
+  end
 
   def install
     (buildpath/"projects/libcxx").install resource("libcxx")
