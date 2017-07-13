@@ -11,12 +11,14 @@ class Offlineimap < Formula
     sha256 "383a8102a3cd84f85424f4fd280ff4ff3fad8c3032802a6013a08846e8800d91" => :sierra
     sha256 "c89e281547c1cf23754a80e0fddd48f2aecc7e94de8b606daac6d400bedca3b4" => :el_capitan
     sha256 "c89e281547c1cf23754a80e0fddd48f2aecc7e94de8b606daac6d400bedca3b4" => :yosemite
+    sha256 "710d1d2a5db09b867fe3e0830058bc33c212df007f19fe2e2febb6b7fb82ed8b" => :x86_64_linux
   end
 
   depends_on :python unless OS.mac?
   depends_on "asciidoc" => :build
   depends_on "docbook-xsl" => :build
   depends_on "sphinx-doc" => :build
+  depends_on "libxslt" => :build unless OS.mac? # for xsltproc
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
