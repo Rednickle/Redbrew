@@ -9,9 +9,9 @@ class Faac < Formula
     sha256 "ec05352ba412fb64cda82e4a964b9a0e6e625481a3d5b13a66db8be9d39d29f6" => :sierra
     sha256 "eb799e6822088371803fb833a44099cb1ab54ab1b775da3c858b85db963be411" => :el_capitan
     sha256 "1d3c4c9b4848d88a29d16702ab1d3e9cca5d2e801cf99886d9b13b38510f09ef" => :yosemite
+    sha256 "77a75369f7d752df2e2ecadf92ce7dd840b0e0df0570cc04add2ab56d22fff6b" => :x86_64_linux
   end
 
-  patch :DATA
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
@@ -28,15 +28,3 @@ class Faac < Formula
     assert File.exist?("test.m4a")
   end
 end
-
-__END__
---- a/common/mp4v2/mpeg4ip.h	2014-08-11 21:47:47.074013710 -0700
-+++ b/common/mp4v2/mpeg4ip.h	2014-08-11 21:48:38.278413585 -0700
-@@ -123,7 +123,6 @@
- #ifdef __cplusplus
- extern "C" {
- #endif
--char *strcasestr(const char *haystack, const char *needle);
- #ifdef __cplusplus
- }
- #endif
