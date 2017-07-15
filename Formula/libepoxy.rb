@@ -56,8 +56,9 @@ class Libepoxy < Formula
           return 0;
       }
     EOS
-    args = %w[-lepoxy -o test]
+    args = %w[-lepoxy]
     args += %w[-framework OpenGL -DOS_MAC] if OS.mac?
+    args += %w[-o test]
     system ENV.cc, "test.c", *args
     system "ls", "-lh", "test"
     system "file", "test"
