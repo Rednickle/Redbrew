@@ -13,6 +13,7 @@ class GstPluginsGood < Formula
     sha256 "3c368e31d658b5ed02a609c3300160f33b223fbd46f58a22172d2446b88b8fac" => :sierra
     sha256 "c4546b53ff5f27cccfe08791bcaa43b676b709393ecf3d717aea77d9928b8f16" => :el_capitan
     sha256 "2628b1225ae025f44d606ee3f4bcd742f5a6f5c0c5cc50f901e31dc986f2e36f" => :yosemite
+    sha256 "ee61e150a9a148d7bdc4c097a9d1954cba27c54bc865036a20ed9693219e4d6b" => :x86_64_linux
   end
 
   head do
