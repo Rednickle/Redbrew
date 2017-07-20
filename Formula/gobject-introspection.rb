@@ -15,7 +15,10 @@ class GobjectIntrospection < Formula
   depends_on "glib"
   depends_on "cairo"
   depends_on "libffi"
-  depends_on "python" # never switch back to system python!
+  # never switch back to system python!
+  # https://github.com/Homebrew/homebrew-core/pull/11464#discussion_r107407934
+  depends_on "python"
+
   unless OS.mac?
     depends_on "bison"
     depends_on "flex"
