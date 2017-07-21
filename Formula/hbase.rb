@@ -19,6 +19,7 @@ class Hbase < Formula
   # the lzo jar has a native extension
   # building native extensions requires a version of java that matches the architecture
   # there is no 32 bit version of java for macOS since Java 1.7, and 1.7+ is required for hbase
+  depends_on "gcc" unless OS.mac?
 
   resource "hadoop-lzo" do
     url "https://github.com/cloudera/hadoop-lzo/archive/0.4.14.tar.gz"
@@ -45,7 +46,7 @@ class Hbase < Formula
         ENV["CLASSPATH"] = Dir["#{libexec}/lib/hadoop-common-*.jar"].first
         ENV["CFLAGS"] = "-m64"
         ENV["CXXFLAGS"] = "-m64"
-        ENV["CPPFLAGS"] = "-I/System/Library/Frameworks/JavaVM.framework/Versions/Current/Headers"
+        ENV["CPPFLAGS"] = "-I#{OS.mac? ? "/System/Library/Frameworks/JavaVM.framework/Versions/Current/Headers" : Formula["jdk"].opt_include }"
         system "ant", "compile-native", "tar"
         (libexec/"lib").install Dir["build/hadoop-lzo-*/hadoop-lzo-*.jar"]
         (libexec/"lib/native").install Dir["build/hadoop-lzo-*/lib/native/*"]
@@ -59,7 +60,7 @@ class Hbase < Formula
       s.gsub!("export HBASE_OPTS=\"-XX:+UseConcMarkSweepGC\"",
               "export HBASE_OPTS=\"-Djava.net.preferIPv4Stack=true -XX:+UseConcMarkSweepGC\"")
       s.gsub!("# export JAVA_HOME=/usr/java/jdk1.6.0/",
-              "export JAVA_HOME=\"$(/usr/libexec/java_home)\"")
+              "export JAVA_HOME=\"#{OS.mac? ? "$(/usr/libexec/java_home)" : Formula["jdk"].opt_bin}\"")
 
       # Default `$HBASE_HOME/logs` is unsuitable as it would cause writes to the
       # formula's prefix. Provide a better default but still allow override.
