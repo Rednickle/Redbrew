@@ -19,6 +19,8 @@ class Exiv2 < Formula
     depends_on "libssh"
   end
 
+  depends_on "zlib" unless OS.mac?
+
   def install
     if build.head?
       args = std_cmake_args
