@@ -27,13 +27,13 @@ class AescryptPacketizer < Formula
     if build.head?
       cd "linux"
       system "autoreconf", "-ivf"
-      system "./configure", "prefix=#{prefix}", "--enable-iconv",
+      system "./configure", "prefix=#{prefix}", *("--enable-iconv" if OS.mac?),
               "--disable-gui"
       system "make", "install"
     else
       cd "src" do
         # https://www.aescrypt.com/mac_aes_crypt.html
-        inreplace "Makefile", "#LIBS=-liconv", "LIBS=-liconv"
+        inreplace "Makefile", "#LIBS=-liconv", "LIBS=-liconv" if OS.mac?
         system "make"
 
         bin.install "aescrypt"
