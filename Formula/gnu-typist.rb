@@ -23,7 +23,7 @@ class GnuTypist < Formula
 
   def install
     # libiconv is not linked properly without this
-    ENV.append "LDFLAGS", "-liconv"
+    ENV.append "LDFLAGS", "-liconv" if OS.mac?
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

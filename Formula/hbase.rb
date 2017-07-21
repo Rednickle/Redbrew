@@ -19,7 +19,8 @@ class Hbase < Formula
   # the lzo jar has a native extension
   # building native extensions requires a version of java that matches the architecture
   # there is no 32 bit version of java for macOS since Java 1.7, and 1.7+ is required for hbase
-  depends_on "gcc" unless OS.mac?
+  depends_on "gcc" => :build unless OS.mac?
+  fails_with :gcc => "4.8"
 
   resource "hadoop-lzo" do
     url "https://github.com/cloudera/hadoop-lzo/archive/0.4.14.tar.gz"
@@ -60,7 +61,7 @@ class Hbase < Formula
       s.gsub!("export HBASE_OPTS=\"-XX:+UseConcMarkSweepGC\"",
               "export HBASE_OPTS=\"-Djava.net.preferIPv4Stack=true -XX:+UseConcMarkSweepGC\"")
       s.gsub!("# export JAVA_HOME=/usr/java/jdk1.6.0/",
-              "export JAVA_HOME=\"#{OS.mac? ? "$(/usr/libexec/java_home)" : Formula["jdk"].opt_bin}\"")
+              "export JAVA_HOME=\"#{OS.mac? ? "$(/usr/libexec/java_home)" : Formula["jdk"].opt_prefix}\"")
 
       # Default `$HBASE_HOME/logs` is unsuitable as it would cause writes to the
       # formula's prefix. Provide a better default but still allow override.
