@@ -63,14 +63,15 @@ class AescryptPacketizer < Formula
   end
 
   test do
+    aescrypt = bin/"#{build.without?("default-names") ? "p" : ""}aescrypt"
     path = testpath/"secret.txt"
     original_contents = "What grows when it eats, but dies when it drinks?"
     path.write original_contents
 
-    system bin/"paescrypt", "-e", "-p", "fire", path
+    system aescrypt, "-e", "-p", "fire", path
     assert File.exist?("#{path}.aes")
 
-    system bin/"paescrypt", "-d", "-p", "fire", "#{path}.aes"
+    system aescrypt, "-d", "-p", "fire", "#{path}.aes"
     assert_equal original_contents, path.read
   end
 end
