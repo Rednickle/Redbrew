@@ -19,7 +19,10 @@ class Exiv2 < Formula
     depends_on "libssh"
   end
 
-  depends_on "zlib" unless OS.mac?
+  unless OS.mac?
+    depends_on "expat"
+    depends_on "zlib"
+  end
 
   def install
     if build.head?
