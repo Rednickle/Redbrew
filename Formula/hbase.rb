@@ -47,7 +47,7 @@ class Hbase < Formula
         ENV["CLASSPATH"] = Dir["#{libexec}/lib/hadoop-common-*.jar"].first
         ENV["CFLAGS"] = "-m64"
         ENV["CXXFLAGS"] = "-m64"
-        ENV["CPPFLAGS"] = "-I#{OS.mac? ? "/System/Library/Frameworks/JavaVM.framework/Versions/Current/Headers" : Formula["jdk"].opt_include }"
+        ENV["CPPFLAGS"] = "-I#{OS.mac? ? "/System/Library/Frameworks/JavaVM.framework/Versions/Current/Headers" : Formula["jdk"].opt_include}"
         system "ant", "compile-native", "tar"
         (libexec/"lib").install Dir["build/hadoop-lzo-*/hadoop-lzo-*.jar"]
         (libexec/"lib/native").install Dir["build/hadoop-lzo-*/lib/native/*"]
