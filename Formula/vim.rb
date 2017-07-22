@@ -42,6 +42,7 @@ class Vim < Formula
   depends_on "luajit" => :optional
   depends_on :x11 if build.with? "client-server"
   depends_on "gettext" => :optional
+  depends_on "ncurses" unless OS.mac?
 
   conflicts_with "ex-vi",
     :because => "vim and ex-vi both install bin/ex and bin/view"
