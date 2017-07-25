@@ -3,13 +3,13 @@ class Compcert < Formula
   homepage "http://compcert.inria.fr"
   url "http://compcert.inria.fr/release/compcert-3.0.1.tgz"
   sha256 "09c7dc18c681231c6e83a963b283b66a9352a9611c9695f4b0c4b7df8c90f935"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7349f901864850d9dac7f70409d234fe0748a6cb1394229386c38a0be627464f" => :sierra
-    sha256 "4cb2b5afa636df760398eeefb4cd136a2e2ff59919b9893b92401aa646145a18" => :el_capitan
-    sha256 "d311acd5219f517b5069e1569bae9cc4263357d1a5055b6d405eeabfc8ba1e17" => :yosemite
+    sha256 "10abf0396376729d32382adc206bd13d7f71af849cddec635fbce820c3f4e173" => :sierra
+    sha256 "4c5caad496117d59d28fc017e3bd871fa0a4e76874896437dbdd0db95c85c952" => :el_capitan
+    sha256 "14e895a8427d4b5720ae4d12e90406c2446cd0adfcd2046dfafb2148008c80ea" => :yosemite
   end
 
   option "with-config-x86_64", "Build Compcert with ./configure 'x86_64'"
@@ -25,7 +25,10 @@ class Compcert < Formula
     # creates problems since Xcode's gcc does not support CFI,
     # but superenv will trick it into using clang which does. This
     # causes problems with the compcert compiler at runtime.
-    inreplace "configure", "${toolprefix}gcc", "${toolprefix}#{ENV.cc}"
+    inreplace "configure" do |s|
+      s.gsub! "${toolprefix}gcc", "${toolprefix}#{ENV.cc}"
+      s.gsub! "  8.6)", "  8.6.1)"
+    end
 
     args = ["-prefix", prefix]
     args << (build.with?("config-x86_64") ? "x86_64-macosx" : "ia32-macosx")

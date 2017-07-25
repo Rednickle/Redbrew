@@ -3,12 +3,12 @@ class UnisonAT240 < Formula
   homepage "https://www.cis.upenn.edu/~bcpierce/unison/"
   url "https://www.seas.upenn.edu/~bcpierce/unison/download/releases/unison-2.40.128/unison-2.40.128.tar.gz"
   sha256 "5a1ea828786b9602f2a42c2167c9e7643aba2c1e20066be7ce46de4779a5ca54"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "76fa8dc81fbf5ab4fe19dbd96bc221095c0eb67550d68a6f74c9670c3abeaf29" => :sierra
-    sha256 "6046281f4e119843646b8d2312f0b25824b4ec7c6c7857e35beb5a90b03dfcac" => :el_capitan
-    sha256 "20893d19f048adccfd232a9bec3ccd96127cc6949f6cc0b4734397160641be81" => :yosemite
+    sha256 "d576e0581b5117b374127c0f6af6e402a4f3ebc7dcdf413c4352ed8695b78a11" => :sierra
+    sha256 "a94cfdeb1b501a8b85a72fe1790edd339d3f65c86898a5d8729f596af87a66b7" => :el_capitan
   end
 
   keg_only :versioned_formula

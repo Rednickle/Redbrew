@@ -52,8 +52,6 @@ class R < Formula
       args << "--libdir=#{lib}" # avoid using lib64 on CentOS
       args << "--enable-R-shlib"
       args << "--with-cairo"
-
-      # FIXME: do I need to add a hack here for linuxbrew/xorg/xorg?
       args << "--with-x" if build.with?("x11")
 
       # If LDFLAGS contains any -L options, configure sets LD_LIBRARY_PATH to
