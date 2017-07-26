@@ -6,9 +6,7 @@ class Menhir < Formula
   revision 2
 
   bottle do
-    sha256 "f0484baf19eb08a48c91773396d558e1f27a5fab7c0d7d4f09c66687ac97d843" => :sierra
-    sha256 "fec8225bfff56007654c82eb82fd440950a8e23674a6a1164012d41c0bcd6de6" => :el_capitan
-    sha256 "f7a05237fae710129a03862d8bcd0339f42e76be5b2ef65794b3c00456d6dc47" => :yosemite
+    sha256 "f7aef65172255a6dbc4c7adece6cebed00e34b6a70dcd3ea8913a9556a335374" => :x86_64_linux
   end
 
   depends_on "ocamlbuild" => :build
