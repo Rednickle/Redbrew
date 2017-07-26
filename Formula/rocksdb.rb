@@ -8,19 +8,20 @@ class Rocksdb < Formula
   homepage "http://rocksdb.org"
   url "https://github.com/facebook/rocksdb/archive/v5.5.2.tar.gz"
   sha256 "c505d8b4aab235346f5555f00a900a45d4912ba902b49228acbcbc61d50163e7"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "4ee746fddcf19d633e03a68d462f8e22ff1316f42f8942ef80a3dd9fe2341b00" => :sierra
-    sha256 "5f5a5203f51af185427dd53cdbdb70e83ec46f941341c46ab204d7146cce3600" => :el_capitan
-    sha256 "c5a3c126999b1783afbd97da9cb50a9032d9f901cfdae98f3977b20e7413bedf" => :yosemite
+    sha256 "6f95a4d27327d9228bd0d6ed1d7daa32e5ae7e4472b54f019e0d854631f29276" => :sierra
+    sha256 "3c66b913476b97b8520161108b09f26f1a92d5861d34f8f644a3bb97da2433b6" => :el_capitan
+    sha256 "d730be40bd5abbdff989c741994bc985dc17a8c16b59055b8efe21533f29097a" => :yosemite
   end
 
   needs :cxx11
   depends_on "snappy"
   depends_on "lz4"
   depends_on "gflags"
+  depends_on "jemalloc"
   unless OS.mac?
     depends_on "bzip2"
     depends_on "zlib"

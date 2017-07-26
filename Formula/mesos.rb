@@ -1,14 +1,13 @@
 class Mesos < Formula
   desc "Apache cluster manager"
   homepage "https://mesos.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=mesos/1.2.0/mesos-1.2.0.tar.gz"
-  mirror "https://archive.apache.org/dist/mesos/1.2.0/mesos-1.2.0.tar.gz"
-  sha256 "60dfd06cd1eec6f69af4ff77f7a92043fe7ead60bedf5605eecd14ffa7a3fb41"
-  revision 1
+  url "https://www.apache.org/dyn/closer.cgi?path=mesos/1.3.0/mesos-1.3.0.tar.gz"
+  mirror "https://archive.apache.org/dist/mesos/1.3.0/mesos-1.3.0.tar.gz"
+  sha256 "a081f126134b59dcd935521a3fb3d1e13925a1c60a27a517fc63a48c3d2dffab"
 
   bottle do
-    sha256 "c28403bc79e5cca70306e2b30b7579dda232cca3a6223551ada4952de67f69ef" => :el_capitan_or_later
-    sha256 "db22828a81bfbc8ead3edaee7d8ba8df9bfa75f80780da7fb48c0566e83a5635" => :yosemite
+    sha256 "8669a1a4165203bd787b555983394cccf5f94306eb80fbdf15475c99129d398f" => :el_capitan_or_later
+    sha256 "7f6e46afb9daf74f61c7229f59a72ad9020464a8bec5d6e3727c50a42c6a82be" => :yosemite
   end
 
   depends_on :java => "1.7+"
@@ -18,7 +17,7 @@ class Mesos < Formula
   depends_on "subversion"
 
   resource "protobuf" do
-    url "https://pypi.python.org/packages/e0/2f/690a5f047e2cfef40c9c5eec0877b496dc1f5a0625ca6b0ac1cd11f12f6a/protobuf-3.2.0.tar.gz"
+    url "https://files.pythonhosted.org/packages/e0/2f/690a5f047e2cfef40c9c5eec0877b496dc1f5a0625ca6b0ac1cd11f12f6a/protobuf-3.2.0.tar.gz"
     sha256 "a48475035c42d13284fd7bf3a2ffa193f8c472ad1e8539c8444ea7e2d25823a1"
   end
 
