@@ -1,15 +1,15 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v8.1.4/node-v8.1.4.tar.xz"
-  sha256 "a83c86445f79749c46fd4f2c4e681a3e5bb51b2bde5dc7aed1dc38e4e242c301"
+  url "https://nodejs.org/dist/v8.2.0/node-v8.2.0.tar.xz"
+  sha256 "4ce8975176630eb60cc8da256a6039e1d3d0e8bed472948a83ed4f22e8134781"
+  revision 1
   head "https://github.com/nodejs/node.git"
 
   bottle do
-    sha256 "2e4a3480ccf9405a703d88349316e4336e74b05d342f0c3f3b041d63b45cc488" => :sierra
-    sha256 "ca0ecc334913087634fecfb46ccfe4a75566c08e60d9ac499798f4e5912c4c16" => :el_capitan
-    sha256 "17fa7fdf7c984712500059c249c823b15945fb8c04b11ada3a41ad1d54bc3b41" => :yosemite
-    sha256 "d52bebf1a352f65647edf7dfc9ee1bf00c673b69502f95cb05e2c8345b264a15" => :x86_64_linux
+    sha256 "a5dcb0592a3147b3b896fe7c6dd681e544183cbf09eb128dbd75ebc71cf94aee" => :sierra
+    sha256 "b9abfa3b30002be1b02b7ab8adbea45c1de47afb58843b8aa5bb85fee327d2cc" => :el_capitan
+    sha256 "e28c6c82fb88a394714bf5c9324ea76fe11f4e115c596fa443c6181dd43ac3fc" => :yosemite
   end
 
   option "with-debug", "Build with debugger hooks"
@@ -36,8 +36,8 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-5.0.3.tgz"
-    sha256 "de62206d779afcba878b3fb949488c01be99afc42e3c955932e754c2ab9aec73"
+    url "https://registry.npmjs.org/npm/-/npm-5.3.0.tgz"
+    sha256 "dd96ece7cbd6186a51ca0a5ab7e1de0113333429603ec2ccb6259e0bef2e03eb"
   end
 
   def install
@@ -66,9 +66,13 @@ class Node < Formula
 
       bootstrap = buildpath/"npm_bootstrap"
       bootstrap.install resource("npm")
-      system "node", bootstrap/"bin/npm-cli.js", "install",
-             "--verbose", "--global", "--prefix=#{libexec}",
-             resource("npm").cached_download
+      system "node", bootstrap/"bin/npm-cli.js", "install", "-ddd", "--global",
+             "--prefix=#{libexec}", resource("npm").cached_download
+
+      # The `package.json` stores integrity information about the above passed
+      # in `cached_download` npm resource, which breaks `npm -g outdated npm`.
+      # This copies back over the vanilla `package.json` to fix this issue.
+      cp bootstrap/"package.json", libexec/"lib/node_modules/npm"
       # These symlinks are never used & they've caused issues in the past.
       rm_rf libexec/"share"
 
@@ -84,7 +88,6 @@ class Node < Formula
 
     node_modules = HOMEBREW_PREFIX/"lib/node_modules"
     node_modules.mkpath
-    npm_exec = node_modules/"npm/bin/npm-cli.js"
     # Kill npm but preserve all other modules across node updates/upgrades.
     rm_rf node_modules/"npm"
 
@@ -94,15 +97,16 @@ class Node < Formula
     # bottle-npm-and-retain-a-private-copy-in-libexec setup
     # All other installs **do** symlink to homebrew_prefix/bin correctly.
     # We ln rather than cp this because doing so mimics npm's normal install.
-    ln_sf npm_exec, HOMEBREW_PREFIX/"bin/npm"
+    ln_sf node_modules/"npm/bin/npm-cli.js", HOMEBREW_PREFIX/"bin/npm"
+    ln_sf node_modules/"npm/bin/npx-cli.js", HOMEBREW_PREFIX/"bin/npx"
 
     # Let's do the manpage dance. It's just a jump to the left.
     # And then a step to the right, with your hand on rm_f.
-    %w[man1 man3 man5 man7].each do |man|
+    %w[man1 man5 man7].each do |man|
       # Dirs must exist first: https://github.com/Homebrew/legacy-homebrew/issues/35969
       mkdir_p HOMEBREW_PREFIX/"share/man/#{man}"
-      rm_f Dir[HOMEBREW_PREFIX/"share/man/#{man}/{npm.,npm-,npmrc.,package.json.}*"]
-      cp Dir[libexec/"lib/node_modules/npm/man/#{man}/{npm,package.json}*"], HOMEBREW_PREFIX/"share/man/#{man}"
+      rm_f Dir[HOMEBREW_PREFIX/"share/man/#{man}/{npm.,npm-,npmrc.,package.json.,npx.}*"]
+      cp Dir[libexec/"lib/node_modules/npm/man/#{man}/{npm,package.json,npx}*"], HOMEBREW_PREFIX/"share/man/#{man}"
     end
 
     npm_root = node_modules/"npm"
@@ -140,8 +144,12 @@ class Node < Formula
       assert_equal which("node"), opt_bin/"node"
       assert (HOMEBREW_PREFIX/"bin/npm").exist?, "npm must exist"
       assert (HOMEBREW_PREFIX/"bin/npm").executable?, "npm must be executable"
-      system "#{HOMEBREW_PREFIX}/bin/npm", "--verbose", "install", "npm@latest"
-      system "#{HOMEBREW_PREFIX}/bin/npm", "--verbose", "install", "bignum" unless head?
+      npm_args = ["-ddd", "--cache=#{HOMEBREW_CACHE}/npm_cache", "--build-from-source"]
+      system "#{HOMEBREW_PREFIX}/bin/npm", *npm_args, "install", "npm@latest"
+      system "#{HOMEBREW_PREFIX}/bin/npm", *npm_args, "install", "bignum" unless head?
+      assert (HOMEBREW_PREFIX/"bin/npx").exist?, "npx must exist"
+      assert (HOMEBREW_PREFIX/"bin/npx").executable?, "npx must be executable"
+      assert_match "< hello >", shell_output("#{HOMEBREW_PREFIX}/bin/npx --cache=#{HOMEBREW_CACHE}/npm_cache cowsay hello")
     end
   end
 end
