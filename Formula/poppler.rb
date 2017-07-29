@@ -3,12 +3,12 @@ class Poppler < Formula
   homepage "https://poppler.freedesktop.org/"
   url "https://poppler.freedesktop.org/poppler-0.56.0.tar.xz"
   sha256 "869dbadf99ed882e776acbdbc06689d8a81872a2963440b1e8516cd7a2577173"
+  revision 1
 
   bottle do
-    sha256 "183cfb95cb3f30ee45db2e6b6bef3a9b98bd001b6b03c209a6e3fdd62b15313d" => :sierra
-    sha256 "9aa64b99728fbf5340da9333648492ff3cd868aa6c9a1bdb0f3b367dfa657926" => :el_capitan
-    sha256 "2d64600d12dbe6e687c2a0499d5828aeb27d9963cec8bcaba62c5ea19381d598" => :yosemite
-    sha256 "42055a2d764cd26edfb05e0373ed091a26e6f296423bd393b94b94f2c6194ada" => :x86_64_linux
+    sha256 "15dab34a883c6dbff79f1ea4c51133266505bce11d9b2698cc1080bc71cfec6b" => :sierra
+    sha256 "ddb61f693a2e681a5beb89eb967c64bb6e6dbc6a20afbe4d380dc332f860e006" => :el_capitan
+    sha256 "e5bf643f2144c6aecdbd0f696c99329ec84d3667200eae2d0d9f672325f54147" => :yosemite
   end
 
   option "with-qt", "Build Qt5 backend"

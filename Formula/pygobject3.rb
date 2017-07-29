@@ -3,13 +3,13 @@ class Pygobject3 < Formula
   homepage "https://live.gnome.org/PyGObject"
   url "https://download.gnome.org/sources/pygobject/3.24/pygobject-3.24.1.tar.xz"
   sha256 "a628a95aa0909e13fb08230b1b98fc48adef10b220932f76d62f6821b3fdbffd"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "d0767e8408bc2575f0205e8944fc1b3b29ede42cb11cdfc4c938136908a18f30" => :sierra
-    sha256 "ac6f1745ef2e9c3fe91c73d20dc9f2e988e3a5f0809efa873c4fcc053bc0dfda" => :el_capitan
-    sha256 "74c2468d44d6b9c70aa0c4e922ef5a8357ddc89d5559322b39485b141c5512df" => :yosemite
-    sha256 "4e96b0e89e6fae98218a45a3d23b99596b79cf722305f8b3a1c14ab184f1ef71" => :x86_64_linux
+    sha256 "526dad2d5a56175bce619bf095c953df0c04eb35b98f62899df61515dd1ef89e" => :sierra
+    sha256 "8cee61b5ff37a70ce9b5d6d424903c046726f797c618af62c6d2c52e56fd006a" => :el_capitan
+    sha256 "5d3c6ec80eb8f41a6735c893ea340c1c4a4c13a2edf137dd40f396b8b8b7fd43" => :yosemite
   end
 
   option "without-python", "Build without python2 support"

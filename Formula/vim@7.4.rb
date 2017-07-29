@@ -3,13 +3,12 @@ class VimAT74 < Formula
   homepage "http://www.vim.org/"
   url "https://github.com/vim/vim/archive/v7.4.2367.tar.gz"
   sha256 "a9ae4031ccd73cc60e771e8bf9b3c8b7f10f63a67efce7f61cd694cd8d7cda5c"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "cedecb3829f8f0ee0a7f1a066a6d85684d1abfd05548b4ecdf255a78718efea3" => :sierra
-    sha256 "5ce0f9a0c6b528dc7d9a66a7fcd83540161847a0ba545ecb079243eedc15af3f" => :el_capitan
-    sha256 "b2006d6c7cc350e6186e7b41b22ffe8f7db0acab06251862d83dc7fc3701bd7c" => :yosemite
-    sha256 "009513e3984ce987f935427f72c93d16bdc956dd517bdf3be76e1bde4f89fc8f" => :x86_64_linux
+    sha256 "9cb6da86df350b405e58a98455d23cc489be69be71a51692e1bb3b5473031f0e" => :sierra
+    sha256 "d0539547bd80d7bea2727e961333ea9d201045b863a1dc82cad3095dc0ee7c12" => :el_capitan
+    sha256 "500f11aefed3eb11b09f145e3b5e5c8a1bc3bfac2c55f68bd8e7258e18cfa2b9" => :yosemite
   end
 
   keg_only :versioned_formula
@@ -118,9 +117,9 @@ class VimAT74 < Formula
 
       # Expand the link and get the python exec path
       vim_framework_path = Pathname.new(otool_output).realpath.dirname.to_s.chomp
-      system_framework_path = `python-config --exec-prefix`.chomp
+      python_framework_path = `python2-config --exec-prefix`.chomp
 
-      assert_equal system_framework_path, vim_framework_path
+      assert_equal python_framework_path, vim_framework_path
     end
   end
 end

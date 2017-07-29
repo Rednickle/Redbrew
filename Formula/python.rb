@@ -3,14 +3,13 @@ class Python < Formula
   homepage "https://www.python.org"
   url "https://www.python.org/ftp/python/2.7.13/Python-2.7.13.tar.xz"
   sha256 "35d543986882f78261f97787fd3e06274bfa6df29fac9b4a94f73930ff98f731"
+  revision 1
   head "https://github.com/python/cpython.git", :branch => "2.7"
 
   bottle do
-    rebuild 1
-    sha256 "04406760996fadee04eecd6fae7870291e659145c590f88d85da70b0bda21df6" => :sierra
-    sha256 "119c368e8d776cb909d860b5bc816f5c425317ec472dd2ba98faaae660af7bec" => :el_capitan
-    sha256 "b8cd522582741df7a034846b8458d8f46516b2c80a19dbfe04e7eaffe915d85b" => :yosemite
-    sha256 "039f93e268c06158c6e3807d2430090573c83b5d193df4a790f972def47c7696" => :x86_64_linux
+    sha256 "8a58d3c4b797a08aba0e5bcac22f6987d32d95078ad43843fc1bcadb169f4ac1" => :sierra
+    sha256 "0d2238ff1c7e21ebf87c201655d0b85b34473a78d56188b014f0bc43fd617efa" => :el_capitan
+    sha256 "dfc9bb395cb6d25f1fb214f4915185d8bcd853e1142b371f859a54137fad57fb" => :yosemite
   end
 
   # Homebrew doesn't accept a wide/ucs4 option because narrow build is the de facto standard
@@ -50,9 +49,6 @@ class Python < Formula
     depends_on "ncurses"
     depends_on "zlib"
   end
-
-  skip_clean "bin/pip", "bin/pip-2.7"
-  skip_clean "bin/easy_install", "bin/easy_install-2.7"
 
   resource "setuptools" do
     url "https://files.pythonhosted.org/packages/26/d1/dc7fe14ce4a3ff3faebf1ac11350de4104ea2d2a80c98393b55c84362b0c/setuptools-32.1.0.tar.gz"
@@ -182,7 +178,7 @@ class Python < Formula
 
     # Allow python modules to use ctypes.find_library to find homebrew's stuff
     # even if homebrew is not a /usr/local/lib. Try this with:
-    # `brew install enchant && pip install pyenchant`
+    # `brew install enchant && pip2 install pyenchant`
     inreplace "./Lib/ctypes/macholib/dyld.py" do |f|
       f.gsub! "DEFAULT_LIBRARY_FALLBACK = [", "DEFAULT_LIBRARY_FALLBACK = [ '#{HOMEBREW_PREFIX}/lib',"
       f.gsub! "DEFAULT_FRAMEWORK_FALLBACK = [", "DEFAULT_FRAMEWORK_FALLBACK = [ '#{HOMEBREW_PREFIX}/Frameworks',"
@@ -249,6 +245,24 @@ class Python < Formula
         doc.install Dir["build/html/*"]
       end
     end
+
+    # Remove commands shadowing system python.
+    {
+      "2to3" => "2to3-2",
+      "easy_install" => "easy_install-2.7",
+      "idle" => "idle2",
+      "pip" => "pip2",
+      "pydoc" => "pydoc2",
+      "python" => "python2",
+      "python-config" => "python2-config",
+      "pythonw" => "pythonw2",
+      "smtpd.py" => "smtpd2.py",
+      "wheel" => nil,
+    }.each do |unversioned_name, versioned_name|
+      rm_f bin/unversioned_name
+      next unless versioned_name
+      (libexec/"bin").install_symlink bin/versioned_name => unversioned_name
+    end
   end
 
   def post_install
@@ -281,13 +295,13 @@ class Python < Formula
                   "--install-scripts=#{bin}",
                   "--install-lib=#{site_packages}"]
 
-    (libexec/"setuptools").cd { system "#{bin}/python", *setup_args }
-    (libexec/"pip").cd { system "#{bin}/python", *setup_args }
-    (libexec/"wheel").cd { system "#{bin}/python", *setup_args }
+    (libexec/"setuptools").cd { system "#{bin}/python2", *setup_args }
+    (libexec/"pip").cd { system "#{bin}/python2", *setup_args }
+    (libexec/"wheel").cd { system "#{bin}/python2", *setup_args }
 
     # When building from source, these symlinks will not exist, since
     # post_install happens after linking.
-    %w[pip pip2 pip2.7 easy_install easy_install-2.7 wheel].each do |e|
+    %w[pip2 pip2.7 easy_install-2.7].each do |e|
       (HOMEBREW_PREFIX/"bin").install_symlink bin/e
     end
 
@@ -367,11 +381,16 @@ class Python < Formula
   end
 
   def caveats; <<-EOS.undent
+    This formula installs a python2 executable to #{HOMEBREW_PREFIX}/bin.
+    If you wish to have this formula's python executable in your PATH then add
+    the following to #{shell_profile}:
+      export PATH="#{opt_libexec}/bin:$PATH"
+
     Pip and setuptools have been installed. To update them
-      pip install --upgrade pip setuptools
+      pip2 install --upgrade pip setuptools
 
     You can install Python packages with
-      pip install <package>
+      pip2 install <package>
 
     They will install into the site-package directory
       #{site_packages}
@@ -383,11 +402,11 @@ class Python < Formula
   test do
     # Check if sqlite is ok, because we build with --enable-loadable-sqlite-extensions
     # and it can occur that building sqlite silently fails if OSX's sqlite is used.
-    system "#{bin}/python", "-c", "import sqlite3"
+    system "#{bin}/python2", "-c", "import sqlite3"
     # Check if some other modules import. Then the linked libs are working.
     if OS.mac? || build.with?("tcl-tk") && Tab.for_name("tcl-tk").with?("x11")
-      system "#{bin}/python", "-c", "import Tkinter; root = Tkinter.Tk()"
+      system "#{bin}/python2", "-c", "import Tkinter; root = Tkinter.Tk()"
     end
-    system bin/"pip", "list"
+    system bin/"pip2", "list"
   end
 end

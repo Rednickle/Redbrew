@@ -3,12 +3,12 @@ class GobjectIntrospection < Formula
   homepage "https://live.gnome.org/GObjectIntrospection"
   url "https://download.gnome.org/sources/gobject-introspection/1.52/gobject-introspection-1.52.1.tar.xz"
   sha256 "2ed0c38d52fe1aa6fc4def0c868fe481cb87b532fc694756b26d6cfab29faff4"
+  revision 1
 
   bottle do
-    sha256 "4e73519510f4e86ed98fa1238695b904530fcd5da8334486c85845d75799b050" => :sierra
-    sha256 "ef2319e3197b5d157b21151694a7c4b72fa07e093f76ba414a202021a2178bef" => :el_capitan
-    sha256 "53525ee2dc4d782627395cd1eafa5e7445c637070488732f37df68eca9f7612e" => :yosemite
-    sha256 "909383b2660cd3eead3e7cd34e7c0db6024abbfcc32d6f6f4dab06503697eb9f" => :x86_64_linux
+    sha256 "8d3da994fb5a5db1b0e0714e0eb4da0ef7d2f25a34e81eb3215554d135a90ef0" => :sierra
+    sha256 "b5058113da00b8d46a972e4512d8be767d7ca5d5eddc3a63c91ef7b8cd962030" => :el_capitan
+    sha256 "8176290610aac389a5196195738073db6764426d815b77605f84d547b4f15f0b" => :yosemite
   end
 
   depends_on "pkg-config" => :run
@@ -31,7 +31,7 @@ class GobjectIntrospection < Formula
 
   def install
     ENV["GI_SCANNER_DISABLE_CACHE"] = "true"
-    ENV["PYTHON"] = Formula["python"].bin/"python"
+    ENV["PYTHON"] = Formula["python"].opt_bin/"python2"
     inreplace "giscanner/transformer.py", "/usr/share", "#{HOMEBREW_PREFIX}/share"
     inreplace "configure" do |s|
       s.change_make_var! "GOBJECT_INTROSPECTION_LIBDIR", "#{HOMEBREW_PREFIX}/lib"

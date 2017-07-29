@@ -3,15 +3,15 @@ class Xdot < Formula
   homepage "https://github.com/jrfonseca/xdot.py"
   url "https://files.pythonhosted.org/packages/f5/52/7cec1decf2b07c7749eb997fa5f365781a512722f48e6ad4294e31c94629/xdot-0.7.tar.gz"
   sha256 "d2100c3201d974915d1b89220ce52f380334eb365ab48903573a8135f51d0ee0"
+  revision 1
 
   head "https://github.com/jrfonseca/xdot.py.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7cb38b8fb14e2c2b7ee8d16d73300c3af56617ae044e088b4fe05ae61ec9f5c5" => :sierra
-    sha256 "7cb38b8fb14e2c2b7ee8d16d73300c3af56617ae044e088b4fe05ae61ec9f5c5" => :el_capitan
-    sha256 "7cb38b8fb14e2c2b7ee8d16d73300c3af56617ae044e088b4fe05ae61ec9f5c5" => :yosemite
-    sha256 "708498d8a50881c367a893bd0aa7a72baf40d1e0afad692f2a739f47d840a448" => :x86_64_linux
+    sha256 "4034a49a5d0d730089b5d55755e2d39edd8f17c67a65e9d210adf09b4916239c" => :sierra
+    sha256 "4034a49a5d0d730089b5d55755e2d39edd8f17c67a65e9d210adf09b4916239c" => :el_capitan
+    sha256 "4034a49a5d0d730089b5d55755e2d39edd8f17c67a65e9d210adf09b4916239c" => :yosemite
   end
 
   depends_on "pygobject3"

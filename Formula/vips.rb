@@ -3,11 +3,12 @@ class Vips < Formula
   homepage "https://github.com/jcupitt/libvips"
   url "https://github.com/jcupitt/libvips/releases/download/v8.5.6/vips-8.5.6.tar.gz"
   sha256 "19a77ab200eb0ddfcd8babab130fe43c7730880d1f1fdfbdd8def519af32c4b8"
+  revision 1
 
   bottle do
-    sha256 "4a0c68b0f49ce94e76f107a42a2029a2ba389c26034c714f320eaa7b5f929346" => :sierra
-    sha256 "d644dc9086393b392d5ec4b35872d76361c6898b63314288f27d1bf6603a9de3" => :el_capitan
-    sha256 "085895b0d5f4d05a862f833a4a9b457365fd63b73f7ad02fd8965b17bd23bc0f" => :yosemite
+    sha256 "e291227ecd67f990f277a5757530fef478954e3d1d6bee105d39001911dae321" => :sierra
+    sha256 "0ce5e0440b2cbb1bea8bcf658b808e5cd046e4f6af090467e622b7be8a0926b6" => :el_capitan
+    sha256 "585830c789328ffe020352fc72f008704a8bcc15881a7c4d6f44bd2beffc52be" => :yosemite
   end
 
   depends_on "pkg-config" => :build
