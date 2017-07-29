@@ -16,7 +16,7 @@ class Libnice < Formula
   depends_on "glib"
   depends_on "gnutls"
   depends_on "gstreamer"
-  depends_on "intltool" unless OS.mac?
+  depends_on "intltool" => :build unless OS.mac?
 
   def install
     system "./configure", "--disable-dependency-tracking",
