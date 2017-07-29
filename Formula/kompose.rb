@@ -1,23 +1,22 @@
 class Kompose < Formula
   desc "Tool to move from `docker-compose` to Kubernetes"
   homepage "http://kompose.io"
-  url "https://github.com/kubernetes-incubator/kompose/archive/v0.7.0.tar.gz"
-  sha256 "6b649e91494e57ffd6c6f1d6150072d4c5589d75568172a8f3a0d6cbd7322599"
+  url "https://github.com/kubernetes/kompose/archive/v1.0.0.tar.gz"
+  sha256 "b9c9bfc9f25c67cf7d8d8b76467487255f9882fca563f8e9ef990f647cd2406e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8a0d5319a877e3f090de17aa16d68b272ed429c686d85e54d92abe9117c2744f" => :sierra
-    sha256 "e6a08e3bffaa6fc55cd908e0e0a815db234c2d974f3c81f386d8277c2bb6c581" => :el_capitan
-    sha256 "a24475f05304ee7f357128bdef2c3e5dd5e70e99ede80148675ba8a91016873c" => :yosemite
-    sha256 "57bf16598a558feae90ef967cb03b8d158073bbc1da24d84e5eb8028c4dddc0c" => :x86_64_linux
+    sha256 "8d1f927f25eaea188d4d72e01b2ac4114a9f27777b00f8be429fff3ee32037c2" => :sierra
+    sha256 "1053cb76c50c63737f83c81e499f0a89c20aa01d20e32a13e9aa1af021e9f603" => :el_capitan
+    sha256 "1c09acd079b72b6af858ae8ce3bc3097161a04e2c2cc62decf8d9b2aca1d2e55" => :yosemite
   end
 
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    mkdir_p buildpath/"src/github.com/kubernetes-incubator"
-    ln_s buildpath, buildpath/"src/github.com/kubernetes-incubator/kompose"
+    mkdir_p buildpath/"src/github.com/kubernetes"
+    ln_s buildpath, buildpath/"src/github.com/kubernetes/kompose"
     system "make", "bin"
     bin.install "kompose"
   end
