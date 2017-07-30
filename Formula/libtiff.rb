@@ -4,14 +4,13 @@ class Libtiff < Formula
   url "http://download.osgeo.org/libtiff/tiff-4.0.8.tar.gz"
   mirror "https://fossies.org/linux/misc/tiff-4.0.8.tar.gz"
   sha256 "59d7a5a8ccd92059913f246877db95a2918e6c04fb9d43fd74e5c3390dac2910"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "05816933252a551b69ef2999fd735a17c495790ef42b7a31d15b285209f0e22d" => :sierra
-    sha256 "074c6ddeac411817ddd1a4a59b0e6fc4ada76b90ea3c51ee8d8ef4e9e79e2522" => :el_capitan
-    sha256 "81e3b47d910e516005520fdece47dcf03b71494cf06f9a2016ed151ff016c518" => :yosemite
-    sha256 "34f6f4cfbcd7308ceea3c1b0bdd3de3daa1a797177e87c1e60fab93264a43d0c" => :x86_64_linux
+    sha256 "5f6e2920629870c9bb1f58f822a9d7df57ed014aed8485faaf7e6b3a6aec865a" => :sierra
+    sha256 "f42309a09dee79dcacf71a962444c2b68b9a51f9eebb18e5fa6852af70ee40aa" => :el_capitan
+    sha256 "5dcea68981e2b715abaaf882d51a962725e418bf28a4233f3373a07987c92e35" => :yosemite
   end
 
   option :cxx11
@@ -24,16 +23,18 @@ class Libtiff < Formula
   # All of these have been reported upstream & should
   # be fixed in the next release, but please check.
   patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.8-3.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/t/tiff/tiff_4.0.8-3.debian.tar.xz"
-    sha256 "8803ef2917ceb80c472e97d85e86f71a20d04cf7de94ebffcc1b3100f51058ce"
+    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.8-4.debian.tar.xz"
+    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/t/tiff/tiff_4.0.8-4.debian.tar.xz"
+    sha256 "36c008179ae08d6958cd9fcd75f82c082624bf55e2c4e6ca0e1af59ea4d75d9c"
     apply "patches/01-CVE-2015-7554.patch",
           "patches/02-CVE.patch",
           "patches/03-CVE.patch",
           "patches/04-CVE-2016-10095_CVE-2017-9147.patch",
           "patches/05-CVE-2017-9936.patch",
           "patches/06-OOM_in_gtTileContig.patch",
-          "patches/07-CVE-2017-10688.patch"
+          "patches/07-CVE-2017-10688.patch",
+          "patches/08-LZW_compression_regression.patch",
+          "patches/09-CVE-2017-11335.patch"
   end
 
   def install

@@ -1,14 +1,14 @@
 class VowpalWabbit < Formula
   desc "Online learning algorithm"
   homepage "https://github.com/JohnLangford/vowpal_wabbit"
-  url "https://github.com/JohnLangford/vowpal_wabbit/archive/8.3.1.tar.gz"
-  sha256 "7455aa2093d8baa9035c0a79ac9cfbceda2982f83b668950c4e4dceb79f66a52"
+  url "https://github.com/JohnLangford/vowpal_wabbit/archive/8.4.0.tar.gz"
+  sha256 "8624c33fd516e8b738fbbc6fc49f62ac03f97af183dbecff298162b4bf5736d5"
 
   bottle do
     cellar :any
-    sha256 "209fc2410773ed60286666d789ed9d9258676b777cb0a388b6e906346c905dc2" => :sierra
-    sha256 "a88a01d31665c6a8e1d9c00c0f973af75fddf5a97cf98ff99fdd4fe413ee6b26" => :el_capitan
-    sha256 "89da02697894ea7a9a1c00cf7d5bb36f27c0a1c2d95a12612a03c45e805c834c" => :yosemite
+    sha256 "3b97cee6901f411e24dbfde2b021adcc9c8b88696c33a23d5addb125e8825e78" => :sierra
+    sha256 "8448a6addc4ade0e29bfa829b2ef02caba89ac88db91109902f85fd918048503" => :el_capitan
+    sha256 "348a1333340bf8d8ae189d09bc5589cd9a3f4dbd5818cb7382554d6ddac861d9" => :yosemite
   end
 
   if MacOS.version < :mavericks
@@ -21,6 +21,14 @@ class VowpalWabbit < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   needs :cxx11
+
+  # Remove for > 8.4.0
+  # Fix "error: no member named 'codecvt_utf8_utf16' in namespace 'std'"
+  # Upstream commit from 22 Jul 2017 "make codecvt a universal include"
+  patch do
+    url "https://github.com/JohnLangford/vowpal_wabbit/commit/c632a1e09.patch?full_index=1"
+    sha256 "d7b7b3e594ad5ed4ee8c2a664ab98ec650df271d821b93842c1763c220459fe7"
+  end
 
   def install
     ENV.cxx11
