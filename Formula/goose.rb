@@ -3,22 +3,21 @@ require "language/go"
 class Goose < Formula
   desc "Go Language's command-line interface for database migrations"
   homepage "https://github.com/pressly/goose"
-  url "https://github.com/pressly/goose/archive/v2.0.0.tar.gz"
-  sha256 "ebb5036ce89bfbb8e0594149454293fab6c2639873be824b0746994ab5a8668b"
+  url "https://github.com/pressly/goose/archive/v2.1.0.tar.gz"
+  sha256 "c5dcfab9b726e3ab4847ae1ab7dc7e3563623f2e0f815b350d7a87d40c3b161f"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c785cc5066e5b6e30221b648611d2f50bd3df13088aeaa2a18cb1198810d975b" => :sierra
-    sha256 "be5c3c4af5dccef6524ae911cfbafa530126c164c24346fa2074228dbbf3f46d" => :el_capitan
-    sha256 "cd66c2c6f451491316eb0853b7d9ba7053ad5729ae1a258538438ced43397ff2" => :yosemite
-    sha256 "8d02ab58da2772e1abaa54ef613202894978014bb85c0a1dff001b84538e9436" => :x86_64_linux
+    sha256 "e0780cffffd29b8cf0680e30a61f343b64f5cb190de2cbf47f4f7ca681e8afd2" => :sierra
+    sha256 "dcf6bf2196cab49f8ff4d422ce706417964201a9e98eccdaf5d2f7134062bed9" => :el_capitan
+    sha256 "8422c26d13ad5706c3c2f3e00afdf29197c43fc68d66fd2bc2b663ddd361977b" => :yosemite
   end
 
   depends_on "go" => :build
 
   go_resource "github.com/golang/dep" do
     url "https://github.com/golang/dep.git",
-        :revision => "20e24628a053fd5da9d32598e75e80734717cb5f"
+        :revision => "3781a6ffbbdf1c2d46ac2bc1c551ff0ea6baf647"
   end
 
   def install

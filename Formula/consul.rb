@@ -2,28 +2,20 @@ class Consul < Formula
   desc "Tool for service discovery, monitoring and configuration"
   homepage "https://www.consul.io"
   url "https://github.com/hashicorp/consul.git",
-      :tag => "v0.8.5",
-      :revision => "2c7715154d8d4568524b76d2d4deb7ca6fd1b285"
+      :tag => "v0.9.0",
+      :revision => "b79d951ced8c5f18fe73d35b2806f3435e40cd64"
 
   head "https://github.com/hashicorp/consul.git",
        :shallow => false
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3ad5c2baa0c4d0cc6d187555a9e0248244ce162bdd6296649b04e04a8a55d399" => :sierra
-    sha256 "943f71844986bcfaa48308c1be72a9f287668ff2ed13c2e52990bf0d4983c508" => :el_capitan
-    sha256 "0850195b671a18e67eb9e8317a9386b69c55de2a45f6219b0a11578ea06d1931" => :yosemite
-    sha256 "e607c35466a0c3ad052e67c22566267e9f4529826cf37674ae118e8337a0219c" => :x86_64_linux
+    sha256 "391da028e196a76689d0e4f48c0d9d62d010a8a79c7ac6ab190cedab93552e0e" => :sierra
+    sha256 "061dd6b21b7c88869ced50afba10ea9a6cea745cc935e87bbb1e33bdb4dbd4c3" => :el_capitan
+    sha256 "3003b6a7402a08d8df985affb2edd795bde7d17ec52e96065956b50c99cadcf4" => :yosemite
   end
-
-  option "with-web-ui", "Installs the consul web ui"
 
   depends_on "go" => :build
-
-  resource "web-ui" do
-    url "https://releases.hashicorp.com/consul/0.8.5/consul_0.8.5_web_ui.zip"
-    sha256 "4f7b90d8159480daeff6f3673f56fc75c00e4fd05de9c5c6d22a4af2fbc78368"
-  end
 
   def install
     contents = Dir["{*,.git,.gitignore}"]
@@ -37,14 +29,12 @@ class Consul < Formula
       system "make"
       bin.install "bin/consul"
       zsh_completion.install "contrib/zsh-completion/_consul"
+      pkgshare.install "ui" => "web-ui"
     end
-
-    # install web-ui to package share folder.
-    (pkgshare/"web-ui").install resource("web-ui") if build.with? "web-ui"
   end
 
   def caveats; <<-EOS.undent
-    If consul was built with --with-web-ui, you can activate the UI by running
+    You can activate the UI by running
     consul with `-ui-dir #{pkgshare}/web-ui`.
     EOS
   end

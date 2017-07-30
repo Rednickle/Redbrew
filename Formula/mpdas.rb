@@ -3,13 +3,14 @@ class Mpdas < Formula
   homepage "https://www.50hz.ws/mpdas/"
   url "https://www.50hz.ws/mpdas/mpdas-0.4.3.tar.gz"
   mirror "https://github.com/hrkfdn/mpdas/archive/0.4.3.tar.gz"
-  sha256 "925089a1d395352c27df68b274b33258a09e334e784322e72dc064241aa2e075"
+  sha256 "069e368bde35b2b3bd79439052c863a0f8c3b25ed454b5ab51f84fa6878b674e"
+  revision 2
   head "https://github.com/hrkfdn/mpdas.git"
 
   bottle do
-    sha256 "48431521ae8094de8b4aff26b9ad3d0fd2af3f17100e66efe3cda51c933a6101" => :sierra
-    sha256 "418c94fd6545efffad07f8583a5c3589ff36ea222854ac1fc25c82beac1195c9" => :el_capitan
-    sha256 "236b7a6af73fb604918cc688aca942075ce7c31b68912d5139ea8d290cfe60da" => :yosemite
+    sha256 "d7d022e04c89320ccd4d23fb573a0c8e88a1f19b7b7b2c17a66004dedd82ee44" => :sierra
+    sha256 "cf32500f4ba5e42ccc6b70ebae7e3d698ebe4e87bea81d96d46e38e98e4e9aed" => :el_capitan
+    sha256 "31e4052c9d045dfcc44abe3ff78deef83a90d170b895374ea021904b7237fccd" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -17,6 +18,7 @@ class Mpdas < Formula
 
   def install
     system "make", "PREFIX=#{prefix}", "MANPREFIX=#{man1}", "CONFIG=#{etc}", "install"
+    etc.install "mpdasrc.example"
   end
 
   test do
