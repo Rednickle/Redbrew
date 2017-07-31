@@ -8,6 +8,7 @@ class MobileShell < Formula
     sha256 "d1aa59fa052c0b919bd5d7e7a3fcbf3d225ae7bb8b237e52b1b73d4f8ff1bf1c" => :sierra
     sha256 "ddad65e6e6f7646279a3b08a28127f5b8583e2006676a6578a1bb2fc40daa084" => :el_capitan
     sha256 "160d1d3cd11d2367444d2c8a41cb7979ce18926b1831df6d4ad54379a28248d5" => :yosemite
+    sha256 "5d6cc1fef203a45d8d2de1b6d9d612a077882c23cda88ede92c37d2035361202" => :x86_64_linux
   end
 
   head do
