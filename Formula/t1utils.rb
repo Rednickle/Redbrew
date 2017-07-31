@@ -9,6 +9,7 @@ class T1utils < Formula
     sha256 "e5e14909396bd86e81c3c33f2c6607d27dadc341b47b801c7962341edeaa360c" => :sierra
     sha256 "ef1614e19de70eb93062028225d31638af49bedb776555115a4700a55376c091" => :el_capitan
     sha256 "649df18b4370c27296864ac5566a5d97d4e4f3f124b2ce1daafc5ea5ec7df2d6" => :yosemite
+    sha256 "b42b74ac59206c0f580f6dd53e1f02f8fba812a271bf24789931f1610ff22c77" => :x86_64_linux
   end
 
   head do
