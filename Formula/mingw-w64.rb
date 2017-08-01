@@ -3,12 +3,12 @@ class MingwW64 < Formula
   homepage "https://mingw-w64.org/"
   url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v5.0.2.tar.bz2"
   sha256 "5f46e80ff1a9102a37a3453743dae9df98262cba7c45306549ef7432cfd92cfd"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "cfb4d2192a11632bcc524442fef27736457d6b297119b438b2e279b86dfa58be" => :sierra
-    sha256 "3955319b438d08eff5a0f3ba4829bb3c3138950edb851c07d273f9cb3eef0a99" => :el_capitan
-    sha256 "f26c3db40dc96f34fd68107ce589a0288a9b00ba8768267f413ac62961f963ed" => :yosemite
+    sha256 "089a548ed9c3e0cd3fcecef5af7b9ad687ba246df5429a6665d550b41f7acfc2" => :sierra
+    sha256 "26ff8d3d34c2ec70511249ac647d266d62f7eab4fac815c0432954d0609f3c56" => :el_capitan
+    sha256 "5fdddf98667694aa44b60ec89ae41f179d853b3266140a4579d621c6d49ed5d0" => :yosemite
   end
 
   depends_on "gmp"
@@ -20,9 +20,9 @@ class MingwW64 < Formula
   depends_on "texinfo" => :build
 
   resource "binutils" do
-    url "https://ftp.gnu.org/gnu/binutils/binutils-2.28.tar.gz"
-    mirror "https://ftpmirror.gnu.org/binutils/binutils-2.28.tar.gz"
-    sha256 "cd717966fc761d840d451dbd58d44e1e5b92949d2073d75b73fccb476d772fcf"
+    url "https://ftp.gnu.org/gnu/binutils/binutils-2.29.tar.gz"
+    mirror "https://ftpmirror.gnu.org/binutils/binutils-2.29.tar.gz"
+    sha256 "172e8c89472cf52712fd23a9f14e9bca6182727fb45b0f8f482652a83d5a11b4"
   end
 
   resource "gcc" do
