@@ -1,14 +1,13 @@
 class Libqalculate < Formula
   desc "Library for Qalculate! program"
   homepage "https://qalculate.github.io/"
-  url "https://github.com/Qalculate/libqalculate/releases/download/v0.9.12/libqalculate-0.9.12.tar.gz"
-  sha256 "4b59ab24e45c3162f02b7e316168ebaf7f0d2911a2164d53b501e8b18a9163d2"
+  url "https://github.com/Qalculate/libqalculate/releases/download/v1.0.0a/libqalculate-1.0.0.tar.gz"
+  sha256 "7cc5a67356374d7f4fb20619dc4dd7976bbe9ae8d5bc3a40b44c46264de9549b"
 
   bottle do
-    sha256 "2c2e4e9a9948111cb7281225d7eb55a62b19540c95cb1525495871452e9a8d3c" => :sierra
-    sha256 "f41994adf6c16077f4ff82e6efa3ab03f21ef3c26180e7fcb24bcd49ad03e4de" => :el_capitan
-    sha256 "56870b47784e7947d47070b3afb863e3fdfb1eafe9b2f8add68628e1a55a1096" => :yosemite
-    sha256 "6ff9e979da640a6105ddb70e12891650ccb6baaa05574abf378b3b36fd6ef63e" => :x86_64_linux
+    sha256 "cfef7cbb714bef3f00d317a92fd45f2e4d1356e7f6f3a2a852beefbeb83f52c6" => :sierra
+    sha256 "dc29c0ab4993ff54d6b53a142547147622646fba99dc5aa5aac5475aeb4c77e7" => :el_capitan
+    sha256 "abdd1944a9d09bafa153abcc704ec63f91fbd264ecb6e744279636a5d7cac93d" => :yosemite
   end
 
   depends_on "intltool" => :build
@@ -19,13 +18,6 @@ class Libqalculate < Formula
   depends_on "gettext"
   depends_on "readline"
   depends_on "wget"
-
-  # Fix "error: typedef redefinition with different types"
-  # Upstream commit from 9 Jun 2017 "Remove clang build fix"
-  patch do
-    url "https://github.com/Qalculate/libqalculate/commit/63c6b4f.patch?full_index=1"
-    sha256 "ed545a27f9a583146ff524c3359d6e176830b60f97da6364c027515c826a6952"
-  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
