@@ -3,12 +3,12 @@ class Mariadb < Formula
   homepage "https://mariadb.org/"
   url "https://ftp.osuosl.org/pub/mariadb/mariadb-10.2.7/source/mariadb-10.2.7.tar.gz"
   sha256 "225ba1bbc48325ad38a9f433ff99da4641028f42404a29591cc370e4a676c0bc"
+  revision 1
 
   bottle do
-    sha256 "8d3b602d388dbfea5603d1c3fc5ac82c64d42a5f7bff4cf73fd9a4a3b0a55a9f" => :sierra
-    sha256 "7fb16bfd8031ca43ba86b790ce9c7e9229bbb32fefa34139ecc5e0bcec81f632" => :el_capitan
-    sha256 "78527e9e5ea43e6ca186f5efd6752d2d4aba7474198de2736915169b6cd640c3" => :yosemite
-    sha256 "35dcee716c13b26b4b8aff5983d5758a14548e46677ef178735faaae9393c702" => :x86_64_linux
+    sha256 "f49492a887f42b9c46d9d3b4ac578bf48e0ac201531b6ee94187780c96ff820d" => :sierra
+    sha256 "cd269177a5164ca694de644416a8810ec419eb080dbe08db42aa3d42dba51bd5" => :el_capitan
+    sha256 "8a599d065a5abf35e12b463589a18bcd6e578cd96c27f492183d19c3861cf92e" => :yosemite
   end
 
   option "with-test", "Keep test when installing"
@@ -37,9 +37,23 @@ class Mariadb < Formula
   conflicts_with "mariadb-connector-c",
     :because => "both install plugins"
 
+  # Remove for >= 10.2.8
+  # Upstream commit from 7 Jul 2017 "Fix for MDEV-13270: Wrong output for
+  # mariadb_config on OSX"
+  # See https://jira.mariadb.org/browse/MDEV-13270
+  resource "mariadb-config-patch" do
+    url "https://github.com/MariaDB/mariadb-connector-c/commit/3f356c0.patch?full_index=1"
+    sha256 "3f01377b6b806c5e6850c380df271c5835feb80434553a63e91528b40d3ac566"
+  end
+
   def install
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
+
+    resource("mariadb-config-patch").stage do
+      system "patch", "-p1", "-i", Pathname.pwd/"3f356c0.patch", "-d",
+                      buildpath/"libmariadb"
+    end
 
     # Set basedir and ldata so that mysql_install_db can find the server
     # without needing an explicit path to be set. This can still

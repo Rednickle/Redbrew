@@ -1,13 +1,13 @@
 class Gearman < Formula
   desc "Application framework to farm out work to other machines or processes"
   homepage "http://gearman.org/"
-  url "https://github.com/gearman/gearmand/releases/download/1.1.16/gearmand-1.1.16.tar.gz"
-  sha256 "d0207fa3004318af3c65d4ac8c9a1dddd547acf104fccd1280013a7f091da2c8"
+  url "https://github.com/gearman/gearmand/releases/download/1.1.17/gearmand-1.1.17.tar.gz"
+  sha256 "f9fa59d60c0ad03b449942c6fe24abe09456056852fae89a05052fa25c113c0f"
 
   bottle do
-    sha256 "90236fe0c61400d6dd1be7240bdd0d7ac3bd69569aa9e024254e6c0eb6471872" => :sierra
-    sha256 "d0edc86b1b307dbe7f08d89670c4dc5d8f56d2ed10160f64622704bd938974b4" => :el_capitan
-    sha256 "b94d3876a9e730ac1230e460043bb58a5c5f69fe547aea68124e76006d10708a" => :yosemite
+    sha256 "529a37d7f9648ed0371529bab74b12173ca3ead3c9d6bd4e193f2097c0a9fe83" => :sierra
+    sha256 "8f70079e03761e0711231a5ca77f450e490bfeb4e668e4be9c8ce6de2ef52fee" => :el_capitan
+    sha256 "12616febecef3a1a5951296bf3f7efa30637688318713969c74931b95f01313f" => :yosemite
   end
 
   option "with-mysql", "Compile with MySQL persistent queue enabled"
