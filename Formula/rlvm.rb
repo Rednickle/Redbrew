@@ -3,14 +3,14 @@ class Rlvm < Formula
   homepage "http://www.rlvm.net/"
   url "https://github.com/eglaysher/rlvm/archive/release-0.14.tar.gz"
   sha256 "6d1717540b8db8aca1480ebafae3354b24e3122a77dd2ee81f4b964c7b10dcc0"
-  revision 1
+  revision 2
   head "https://github.com/eglaysher/rlvm.git"
 
   bottle do
     cellar :any
-    sha256 "8737798e903d8327fb16faf13a5fca6facc3192fbdd533137de3928966ecf026" => :sierra
-    sha256 "0950978fed2c0b4c67d8d708594c7dbc3f8e3783b47ef8a8118bae171fe5041d" => :el_capitan
-    sha256 "0e64936fcae06e5a84399b0500be30f618bd62e8133f6e07e1244eef11102974" => :yosemite
+    sha256 "15224d715d68ff0b13400bfb019854468fb30ecfb3b79331f3189f2b2f0b6e0c" => :sierra
+    sha256 "38d05e55edc9ec41093a99068a024cf3bcb2103e15836fb998e56e2d13e5ffcc" => :el_capitan
+    sha256 "c898946954df941a70c06bc2bce4dd59fd8f508a8b84f8da03af829e47fed671" => :yosemite
   end
 
   depends_on "pkg-config" => :build

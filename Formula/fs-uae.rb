@@ -1,18 +1,16 @@
 class FsUae < Formula
   desc "Amiga emulator"
   homepage "https://fs-uae.net/"
-
-  stable do
-    url "https://fs-uae.net/stable/2.8.1u3/fs-uae-2.8.1u3.tar.gz"
-    version "2.8.1u3"
-    sha256 "7cc84844a77853f4fe2f2fc7da20ce94adc1a0c0c4b982ea28852a60b8a4d83a"
-  end
+  url "https://fs-uae.net/stable/2.8.1u3/fs-uae-2.8.1u3.tar.gz"
+  version "2.8.1u3"
+  sha256 "7cc84844a77853f4fe2f2fc7da20ce94adc1a0c0c4b982ea28852a60b8a4d83a"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "b8a7a49c89a089faeadd80528340fc6a2784d42daae3dc49bdc8afa09f941abc" => :sierra
-    sha256 "fdb868e8219e71ecebb758e98637e75b133407f9525ceded636cf40b6fbe321e" => :el_capitan
-    sha256 "56eff5b199b5aa079d71fb407eb141a2cd15fe03dcaa7d43febac676f0b7b898" => :yosemite
+    sha256 "e2c8c82746c1efe5d2205292b996fe314d40f40bab256178bd73d0dc79101d7a" => :sierra
+    sha256 "02e668e32f69d3b5c36e6b3c0bfde146cfcbddfcfc0b8d0071bb8a992c0c4ba5" => :el_capitan
+    sha256 "4643d884b880a4e4783f740b8411f0be8d0ffc649e4d1cde945954e17b642160" => :yosemite
   end
 
   head do

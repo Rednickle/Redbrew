@@ -1,35 +1,15 @@
 class Glew < Formula
   desc "OpenGL Extension Wrangler Library"
   homepage "https://glew.sourceforge.io/"
+  url "https://downloads.sourceforge.net/project/glew/glew/2.1.0/glew-2.1.0.tgz"
+  sha256 "04de91e7e6763039bc11940095cd9c7f880baba82196a7765f727ac05a993c95"
   head "https://github.com/nigels-com/glew.git"
-
-  stable do
-    url "https://downloads.sourceforge.net/project/glew/glew/2.0.0/glew-2.0.0.tgz"
-    sha256 "c572c30a4e64689c342ba1624130ac98936d7af90c3103f9ce12b8a0c5736764"
-
-    patch do
-      url "https://github.com/nigels-com/glew/commit/925722f91060a0a19acbf1a209cd7b96ed390c19.patch?full_index=1"
-      sha256 "d20be5c8dde10eef46f8e8bb46818bd26e49ff9d2d657b7a4a7a478684a8e548"
-    end
-
-    patch do
-      url "https://github.com/nigels-com/glew/commit/e7bf0f70b3b9528764e605794aa868db09ad47f4.patch?full_index=1"
-      sha256 "2265dabd566701b991290a0948966ff88ab507452bf67367fb30f3d88c34fe7f"
-    end
-
-    patch do
-      url "https://github.com/nigels-com/glew/commit/298528cd87019fe642a7ce9dfa772b62d7bf6aeb.patch?full_index=1"
-      sha256 "d8c75c35f1c7dd0b13991c46e90f1181777696eea6918fc261668cd02bd27727"
-    end
-  end
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "ca64d2e470aec2b8c222f1ecaacff6480fb5325d983da3a287b81ebf8939bb68" => :sierra
-    sha256 "5e426e5b18242c93b582b6fc8edeea976465d581924d0cd1c7cc52748fc0aa96" => :el_capitan
-    sha256 "357ac59b6b0bfe6bee5d754b7b0e8b48f7a049123a5c4afd8c197996bcd2e658" => :yosemite
-    sha256 "2f978e67ea5ca42f762cd6bf955902ecdbb2c1ed4e483903e4dfd1616788ebd8" => :x86_64_linux
+    sha256 "17d6b3bbb956bd1672a26490eb58a82eaa0e3e1adb926f3e87ba060bdf999cf3" => :sierra
+    sha256 "7d4cc74d42072da62ef61737bf28b638f52b4f56b2b8234f4709427eb44a11fe" => :el_capitan
+    sha256 "a2f2237afc466ec31735d03c983e962240555e7ad32f2bc7b5cbceb996f48ade" => :yosemite
   end
 
   depends_on "cmake" => :build
