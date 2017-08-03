@@ -30,11 +30,18 @@ class Zsh < Formula
     sha256 "f9c5bf9d1e9334404b27cd1e26b04b7a0498c3b7bf0bf9b4ad4ae6495ee7e23d" => :x86_64_linux
   end
 
+  devel do
+    url "https://www.zsh.org/pub/development/zsh-5.3.1-test-2.tar.gz"
+    version "5.3.1-test-2"
+    sha256 "81d6a171f81bebb0ddcd5d2c3c30f9310bfd27447859bf7be06a9d9599126d6a"
+
+    option "with-texi2html", "Build HTML documentation"
+    depends_on "texi2html" => [:build, :optional]
+  end
+
   head do
     url "https://git.code.sf.net/p/zsh/code.git"
     depends_on "autoconf" => :build
-
-    option "with-unicode9", "Build with Unicode 9 character width support"
   end
 
   option "without-etcdir", "Disable the reading of Zsh rc files in /etc"
@@ -91,7 +98,6 @@ class Zsh < Formula
   end
 
   test do
-    assert_equal "homebrew\n",
-      shell_output("#{bin}/zsh -c 'echo homebrew'")
+    assert_equal "homebrew", shell_output("#{bin}/zsh -c 'echo homebrew'").chomp
   end
 end

@@ -3,16 +3,15 @@ class Watchman < Formula
   homepage "https://github.com/facebook/watchman"
   url "https://github.com/facebook/watchman/archive/v4.7.0.tar.gz"
   sha256 "77c7174c59d6be5e17382e414db4907a298ca187747c7fcb2ceb44da3962c6bf"
+  revision 1
   head "https://github.com/facebook/watchman.git"
 
   bottle do
     # Bottle hard-codes statedir. See https://github.com/Linuxbrew/homebrew-core/issues/956
     cellar :any if OS.mac?
-    sha256 "370bf84f5a349db3ecd3e72c156b95a90bddf73029c062094a848dae123e3ada" => :sierra
-    sha256 "543ee937e060a61028041ce3f8ea490602fab29b1427bed40152d47e7baa523c" => :el_capitan
-    sha256 "c9ab24b2585ec3cce5641e4a31610916dd5e1a101a0c0e7695516ff32b4e5e9d" => :yosemite
-    sha256 "ee4ec6d737f55204f2b33a3701c494b66353550532a0ec600ee81668be8d6c54" => :mavericks
-    sha256 "1daa279eadd0377a3cd69a967c4c7138356988fc57e9c80c17ae30af3a7e1645" => :x86_64_linux
+    sha256 "07e826368e27cc7401366d820cc8109fec8bd815143ec75b30a81cc0b84d766f" => :sierra
+    sha256 "bcea4d625e7c30ecc6f728e257f5de81125c7f14680cac684bc7c878655e167c" => :el_capitan
+    sha256 "c8374abbad804b919c372d6883302654b44b8d4b190e06b6e4dad172e038bf51" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -45,17 +44,6 @@ class Watchman < Formula
   def post_install
     (var/"run/watchman").mkpath
     chmod 042777, var/"run/watchman"
-    # Older versions would use socket activation in the launchd.plist, and since
-    # the homebrew paths are versioned, this meant that launchd would continue
-    # to reference the old version of the binary after upgrading.
-    # https://github.com/facebook/watchman/issues/358
-    # To help swing folks from an older version to newer versions, force unloading
-    # the plist here.  This is needed even if someone wanted to add brew services
-    # support; while there are still folks with watchman <4.8 this is still an
-    # upgrade concern.
-    home = ENV["HOME"]
-    system "launchctl", "unload",
-           "-F", "#{home}/Library/LaunchAgents/com.github.facebook.watchman.plist"
   end
 
   test do

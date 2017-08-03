@@ -4,6 +4,13 @@ Core formulae for the Linuxbrew package manager.
 ## How do I install these formulae?
 Just `brew install <formula>`. This is the default tap for Linuxbrew and is installed by default.
 
+## Troubleshooting
+First, please run `brew update` (twice) and `brew doctor`.
+
+Second, read the [Troubleshooting Checklist](https://docs.brew.sh/Troubleshooting.html).
+
+**If you don’t read these it will take us far longer to help you with your problem.**
+
 ## Contributing
 Read [CONTRIBUTING.md](/CONTRIBUTING.md).
 
