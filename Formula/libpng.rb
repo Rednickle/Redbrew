@@ -1,16 +1,15 @@
 class Libpng < Formula
   desc "Library for manipulating PNG images"
   homepage "http://www.libpng.org/pub/png/libpng.html"
-  url "https://download.sourceforge.net/libpng/libpng-1.6.30.tar.xz"
-  mirror "ftp://ftp-osl.osuosl.org/pub/libpng/src/libpng16/libpng-1.6.30.tar.xz"
-  sha256 "267c332ffff70cc599d3929207869f698798f1df143aa5f9597b007c14353666"
+  url "https://download.sourceforge.net/libpng/libpng-1.6.31.tar.xz"
+  mirror "ftp://ftp-osl.osuosl.org/pub/libpng/src/libpng16/libpng-1.6.31.tar.xz"
+  sha256 "232a602de04916b2b5ce6f901829caf419519e6a16cc9cd7c1c91187d3ee8b41"
 
   bottle do
     cellar :any
-    sha256 "8b9d3993c9e7e7e488540d1e3d87d41ade6f3902acd6a147548b4d43818af49a" => :sierra
-    sha256 "93e559b7214c50b57674dd203dfc0c7030b0688e04811c478e0839d132f861e4" => :el_capitan
-    sha256 "50ea09159afdd526cc27f0fbc566026a4b0abd93319628e5f0e603b95b2f8667" => :yosemite
-    sha256 "757a8a36074d0d5f15e9996c5cf90432f1ce93449b1dc354017b2bd33463e4ff" => :x86_64_linux
+    sha256 "9d9e460b53e55171611658d7fbbbf95a0adcb85f8a61a1144bcc3e9214cb58d7" => :sierra
+    sha256 "3accfdf2130296f56a07fa901c144f7a05bba62df0b806a78c598eeca5c355e4" => :el_capitan
+    sha256 "73ec98b55afc2a098e20668ed51a77d337bf7268308eb29e438b63a58af93c8f" => :yosemite
   end
 
   head do
