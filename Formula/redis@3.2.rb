@@ -1,16 +1,15 @@
 class RedisAT32 < Formula
   desc "Persistent key-value database, with built-in net interface"
   homepage "https://redis.io/"
-  url "http://download.redis.io/releases/redis-3.2.9.tar.gz"
-  sha256 "6eaacfa983b287e440d0839ead20c2231749d5d6b78bbe0e0ffa3a890c59ff26"
+  url "http://download.redis.io/releases/redis-3.2.10.tar.gz"
+  sha256 "411c604a716104f7f5a326abfad32de9cea10f15f987bec45cf86f315e9e63a0"
   head "https://github.com/antirez/redis.git", :branch => "3.2"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6b92f611c5559bc1888a549911e327d09b6a1b745f15c0e685a1888aeb135f3a" => :sierra
-    sha256 "5382bb6b3655133302085a0a37f6e09d7377dbe91aa68bb967b4aaa7fd15c8a7" => :el_capitan
-    sha256 "e528da87bc0be495ccd0b7ba48b4cd59e862710a1273baaaf54dc5649de6570f" => :yosemite
-    sha256 "1dc8673befd8c90657d08af774307dc350f69b8e32df87d3df3ee05a28f81eaa" => :x86_64_linux
+    sha256 "6e8cac0c17db56cc64eaa4486bcde4eba2996a2ba4c12044950616ff474c0e5b" => :sierra
+    sha256 "686235188b28228b507dd7d9f752845f14b70d37c7ed5e1e6b3d5b33707b3f8d" => :el_capitan
+    sha256 "11ec6661a4c4fc8bb0e696f94d2b63d9f11be765b30e08e41400970d4e1e0ec0" => :yosemite
   end
 
   keg_only :versioned_formula

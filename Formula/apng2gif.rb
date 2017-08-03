@@ -5,16 +5,19 @@ class Apng2gif < Formula
   sha256 "9a07e386017dc696573cd7bc7b46b2575c06da0bc68c3c4f1c24a4b39cdedd4d"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "95ff574aa91e45f9307fbc85c9857dac0b2d336c21233c7f6970784b3a2fd5c4" => :sierra
-    sha256 "0abea0f7a478393d23239ccab82f30d47d4e64fd7de2729d30cb29ae09abfdaf" => :el_capitan
-    sha256 "fc67179e48b935a0dc6af4dd83b09c9a723ed350b469517ccd1b80b1566ba29a" => :yosemite
-    sha256 "cdc6a08c4eada97cb7fd3d01677b1ff51075662112009d438e186e72e1f35d02" => :x86_64_linux
+    cellar :any
+    rebuild 1
+    sha256 "fa18274f18fb0d3a2b3f5c360c24587b805db3f4734972c350643c35b8677174" => :sierra
+    sha256 "42d033ae0a661d75b588af8d7c0cdb67a81bfc481aa88665973d95d3e4fb64ec" => :el_capitan
+    sha256 "5456ec2b90086c84f2094972fa0dacc11de0abdde5346e3445a6b7d64b49201c" => :yosemite
   end
 
   depends_on "libpng"
 
-  fails_with :clang if MacOS.version <= :yosemite
+  if MacOS.version <= :yosemite
+    depends_on "gcc"
+    fails_with :clang
+  end
 
   def install
     system "make"
