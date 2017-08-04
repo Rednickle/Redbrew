@@ -10,6 +10,7 @@ class Depqbf < Formula
     sha256 "fea1eb8ca62fccc5ce43b0a645fb67feffbf97c5a343d0ea6c9a015c37e24ccc" => :sierra
     sha256 "3229005d870984af6beee544d5178094fc859525bd96552ac42301860c175f5b" => :el_capitan
     sha256 "2e56b8bac22dbf77677e825ee6242fea35545c2714859c4f22872c1c0fb056e3" => :yosemite
+    sha256 "42229ac07c7d7c12f9feb7078fa28b318c4ce52892940056a79a9baa70e79f6a" => :x86_64_linux
   end
 
   resource "nenofex" do
@@ -23,12 +24,6 @@ class Depqbf < Formula
   end
 
   def install
-    inreplace "makefile" do |s|
-      s.gsub! "$(CC) $(CFLAGS) -static qdpll_main.o",
-              "$(CC) $(CFLAGS) qdpll_main.o"
-      s.gsub! "-Wl,$(SONAME),libqdpll.so.$(MAJOR)",
-              "-Wl,$(SONAME),libqdpll.$(VERSION).dylib" if OS.mac?
-    end
     (buildpath/"nenofex").install resource("nenofex")
     (buildpath/"picosat-960").install resource("picosat")
     system "./compile.sh"
