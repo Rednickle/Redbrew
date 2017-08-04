@@ -3,16 +3,14 @@ class Docutils < Formula
 
   desc "Text processing system for reStructuredText"
   homepage "https://docutils.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/docutils/docutils/0.13.1/docutils-0.13.1.tar.gz"
-  sha256 "718c0f5fb677be0f34b781e04241c4067cbd9327b66bdd8e763201130f5175be"
-  revision 1
+  url "https://downloads.sourceforge.net/project/docutils/docutils/0.14/docutils-0.14.tar.gz"
+  sha256 "51e64ef2ebfb29cae1faa133b3710143496eca21c530f3f71424d77687764274"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6818d075546c76d51350b02b1ca003ca1ffe1b1eb36ba6ad82073ca65898087f" => :sierra
-    sha256 "68facf0a5a3540d63e554dd5225683ca514193823468038d8ef0f6a7d7204c25" => :el_capitan
-    sha256 "f889bbf58533bd947c0b5db906e7e1a8f3ec8439f13f6532b33f8d325a83a380" => :yosemite
-    sha256 "4aabe59f179ca81e0d3c095b2bb0660d71be89cbead3472d10b463051c8fbbec" => :x86_64_linux
+    sha256 "c48f799c313e8c8008ced95c907c902284c289e7f1212ef96d8770f28dd56a01" => :sierra
+    sha256 "823debb7f2b27abbd6e4deb33bcc6cf322c2f79d4b976262b852d95fad36c3dd" => :el_capitan
+    sha256 "53e168f1335e9198d4948b2d89c434097b8878c835efeb2c6f0f116353212702" => :yosemite
   end
 
   depends_on "zlib" unless OS.mac?

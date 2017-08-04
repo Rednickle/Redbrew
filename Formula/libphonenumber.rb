@@ -1,15 +1,14 @@
 class Libphonenumber < Formula
   desc "C++ Phone Number library by Google"
   homepage "https://github.com/googlei18n/libphonenumber"
-  url "https://github.com/googlei18n/libphonenumber/archive/v8.7.0.tar.gz"
-  sha256 "bf2fd45f24870746a4012a9b6b2e2875835ab0d471d5e12bf07d042b1c72c97f"
+  url "https://github.com/googlei18n/libphonenumber/archive/v8.7.1.tar.gz"
+  sha256 "8cca5c2375a91b64178d07008f02e6fc54e2bb7b24fbedc4fc6df1769c3cee4f"
 
   bottle do
     cellar :any
-    sha256 "9ee9ecb462b445b9eb740c0d9dcd9d6f61cc04a1680b53653df9f90e49beb4e0" => :sierra
-    sha256 "e696c9866e4b8fc1f5280a7a87dcd4a19e87800678125828ae2e99bf11101793" => :el_capitan
-    sha256 "bf64630fec8fef615aa820482c9843704b1139ebbc0364dc3b525f2b9759b44e" => :yosemite
-    sha256 "0298d3c2b9e7197f378397611907439ad7810f0c8b5b6c8bc92b13a42aba63dc" => :x86_64_linux
+    sha256 "b1bd69a99d13c162e9bec017162220a8a54f30c55d138874c9ad04a42f8f1d69" => :sierra
+    sha256 "d9f54864769b875fae60f503f62c05cfac224f45150e34992a585ab7551f3382" => :el_capitan
+    sha256 "b8a390d5dd279812c05bd5c1c83225846cd1a70d63b1c2b6c24f09934823278e" => :yosemite
   end
 
   depends_on "cmake" => :build
