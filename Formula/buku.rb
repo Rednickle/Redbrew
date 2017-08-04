@@ -5,13 +5,13 @@ class Buku < Formula
   homepage "https://github.com/jarun/Buku"
   url "https://github.com/jarun/Buku/archive/v3.2.tar.gz"
   sha256 "2375fc22e7e417fe23814589257f007cfdc1b1e3f8e47619a7d6e83ff0fb4f09"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "a67d678f4479ffb3e140f549275632090a24532347e8e9ac89ede499ebd3edf8" => :sierra
-    sha256 "3bfd6702a59267241be776bb75bf8e6b5e6beb106d6d61bdae3a84a8c15bddb2" => :el_capitan
-    sha256 "0f2f8628d89eece537a258f070aa24fcb2d1eac82fdb7ea395ce3dc46c66b6b4" => :yosemite
-    sha256 "57c55924d6378453f8b8e6d19f2f243e31fbb1d3dda8c04955d276a09994ce94" => :x86_64_linux
+    sha256 "0a2ed0bf6f02eb22f4d237861dd2273750c22da36a212d79b20da3f4cce0eef3" => :sierra
+    sha256 "2451c2d50dcfae8ac7af85a4cddf6676adb1ab2b743116b6a8442a2116348db3" => :el_capitan
+    sha256 "99e7f3fba21af3c0a8c5f72a246d21939a1382c2ba385e2aeadd39290f0ec38f" => :yosemite
   end
 
   depends_on :python3
@@ -51,8 +51,8 @@ class Buku < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/2a/0c/31bd69469e90035381f0197b48bf71032991d9f07a7e444c311b4a23a3df/cryptography-1.9.tar.gz"
-    sha256 "5518337022718029e367d982642f3e3523541e098ad671672a90b82474c84882"
+    url "https://files.pythonhosted.org/packages/9c/1a/0fc8cffb04582f9ffca61b15b0681cf2e8588438e55f61403eb9880bd8e0/cryptography-2.0.3.tar.gz"
+    sha256 "d04bb2425086c3fe86f7bc48915290b13e798497839fbb18ab7f6dffcf98cc3a"
   end
 
   resource "idna" do
