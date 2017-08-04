@@ -10,6 +10,7 @@ class Dep < Formula
     sha256 "8a7279febe0f7a6b3bff7ce46edfc35bd961b169b59a50b289f1f664dceac75d" => :sierra
     sha256 "1a4123ee7093682793f8f4f7707310b9a9bf3ba9f68efd95f4fbf949e38a177b" => :el_capitan
     sha256 "7a583a32547bb8043c0b2d7d3c78ff6fb4bc211f2b5e271a56fb63d490f395e5" => :yosemite
+    sha256 "e6f499e53cdadbe6fd4f1ff01179e1e3a5620de7dcbc45b18aef6d77d6dfd044" => :x86_64_linux
   end
 
   depends_on "go"
