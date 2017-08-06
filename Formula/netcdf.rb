@@ -10,11 +10,13 @@ class Netcdf < Formula
     sha256 "822e3ee88e46b7af29dd228d8739e8b409feb574279ba99018ed8e8f38b0ca73" => :sierra
     sha256 "987301f908676c27ff6a8e55b0c6b126ffe79e39ecb8bd074b6218d5aa131a93" => :el_capitan
     sha256 "8a52314ee59ceab2c182035265de853a88deefda445132d9feaf0f3c4f426943" => :yosemite
+    sha256 "ced333e96175cd9f783cbb20a6d4601a3127ec38c521a6eb2bdb343ae47863d9" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
   depends_on "hdf5"
   depends_on :fortran
+  depends_on "curl" unless OS.mac?
 
   resource "cxx" do
     url "https://github.com/Unidata/netcdf-cxx4/archive/v4.3.0.tar.gz"
@@ -83,12 +85,14 @@ class Netcdf < Formula
       system "make", "install"
     end
 
-    # SIP causes system Python not to play nicely with @rpath
-    %w[libnetcdf-cxx4.dylib libnetcdf_c++.dylib].each do |f|
-      macho = MachO.open("#{lib}/#{f}")
-      macho.change_dylib("@rpath/libnetcdf.11.dylib",
-                         "#{lib}/libnetcdf.11.dylib")
-      macho.write!
+    if OS.mac?
+      # SIP causes system Python not to play nicely with @rpath
+      %w[libnetcdf-cxx4.dylib libnetcdf_c++.dylib].each do |f|
+        macho = MachO.open("#{lib}/#{f}")
+        macho.change_dylib("@rpath/libnetcdf.11.dylib",
+                           "#{lib}/libnetcdf.11.dylib")
+        macho.write!
+      end
     end
   end
 
