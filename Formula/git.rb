@@ -6,10 +6,10 @@ class Git < Formula
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
-    sha256 "6507d5aa095f6b6262255e7faeeecccb0ab7cd3502fe80715246100c4127155a" => :sierra
-    sha256 "cec061d05c2ec6bb35b4f6cb1f3a5bdfd384d398db0cc1e4355ee9b2be62c3ab" => :el_capitan
-    sha256 "492d3421138d0c67f4823fe8649eccd3b1cc77c08307f80e50adf6207bac7828" => :yosemite
-    sha256 "7f4d49e708ea5cd132b7691f32ec0fdff04d78fce9540ad4742aff4c5ff05dbe" => :x86_64_linux
+    rebuild 1
+    sha256 "92e59604a3c1d72fe436e90b0b69eaa2e7201f4978a816c42e0de3621de1a3bf" => :sierra
+    sha256 "e93ae780ccd4d214cddf6fb7761b2f8268d4b53a729f35489f3ec8d3da332d79" => :el_capitan
+    sha256 "a99ec32dfcff5c16ecdceb166b475c310a39ae3a2336eb8ebfa8562e8994910c" => :yosemite
   end
 
   option "with-blk-sha1", "Compile with the block-optimized SHA1 implementation"
@@ -27,8 +27,9 @@ class Git < Formula
   deprecated_option "with-brewed-openssl" => "with-openssl"
   deprecated_option "with-brewed-curl" => "with-curl"
   deprecated_option "with-brewed-svn" => "with-subversion"
+  deprecated_option "with-pcre" => "with-pcre2"
 
-  depends_on "pcre" => :optional
+  depends_on "pcre2" => :optional
   depends_on "gettext" => :optional
   depends_on "go" => :build if build.with? "persistent-https"
 
@@ -95,13 +96,12 @@ class Git < Formula
     end
 
     ENV["BLK_SHA1"] = "1" if build.with? "blk-sha1"
-
-    if build.with? "pcre"
-      ENV["USE_LIBPCRE"] = "1"
-      ENV["LIBPCREDIR"] = Formula["pcre"].opt_prefix
-    end
-
     ENV["NO_GETTEXT"] = "1" if build.without? "gettext"
+
+    if build.with? "pcre2"
+      ENV["USE_LIBPCRE2"] = "1"
+      ENV["LIBPCREDIR"] = Formula["pcre2"].opt_prefix
+    end
 
     args = %W[
       prefix=#{prefix}
