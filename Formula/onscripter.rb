@@ -3,13 +3,13 @@ class Onscripter < Formula
   homepage "https://onscripter.osdn.jp/"
   url "https://onscripter.osdn.jp/onscripter-20161102.tar.gz"
   sha256 "e9a39b1c45cc47c363eb15773a9944da7a29eff74261ccb656ff5ce4b5fdd5d8"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "46e7b53ef1de1e204dffa25762d6bfa03477283797542cc5d85ba6560d3c6683" => :sierra
-    sha256 "cf2419ac1d5bce4282e59a52160c30c1c1f252b79b091e8d63cf42431ee9251f" => :el_capitan
-    sha256 "8b6b99662b85cae18e11ec22d1a72bf86947a6f3107bb292bb764309c08e02ce" => :yosemite
+    sha256 "8100274df3d26f93cb028f6b28c7ecc40194cf2e4b2151111cbbc431cea94b44" => :sierra
+    sha256 "ce14e2a37a764ac33102ff7ec6a67384ea87f41097eeac792a8795e0d668e2eb" => :el_capitan
+    sha256 "769ef3374312b8b0545dfefe6a3ba40614a91d9beb558f6b5e85c83164668107" => :yosemite
   end
 
   option "with-english", "Build with single-byte character mode"
@@ -22,6 +22,12 @@ class Onscripter < Formula
   depends_on "smpeg"
   depends_on "jpeg"
   depends_on "lua" => :recommended
+
+  # jpeg 9 compatibility
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/eeb2de3/onscripter/jpeg9.patch"
+    sha256 "08695ddcbc6b874b903694ac783f7c21c61b5ba385572463d17fbf6ed75f60a1"
+  end
 
   def install
     incs = [

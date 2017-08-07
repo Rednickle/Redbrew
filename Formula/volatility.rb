@@ -5,14 +5,14 @@ class Volatility < Formula
   homepage "https://github.com/volatilityfoundation/volatility"
   url "https://downloads.volatilityfoundation.org/releases/2.6/volatility-2.6.zip"
   sha256 "5b73050d72bf94870ffce22843f03d4b0b7764011dec29ef1a0a5b1b46cf9295"
+  revision 1
   head "https://github.com/volatilityfoundation/volatility.git"
 
   bottle do
     cellar :any
-    sha256 "8b2b34e7dcee4f1a513b4aa715236dd8086b15185c402b2dadf1d9abd7d12965" => :sierra
-    sha256 "9a9e1153c25b5da2b30c6429ca9de10c54ca14b0068a3816b6487f095bbefcf3" => :el_capitan
-    sha256 "0fe1ef4796efba3c02e7ca6af26ecdda3058f1ec2ef42f334b4e507001e28bde" => :yosemite
-    sha256 "2ea3d2c308bd009a91d90e97429061afc84b49742454001261e0fdcf847c34b6" => :x86_64_linux
+    sha256 "06ed06fc87cfe13c2f7fe2ff79aa8fc29248e6739b64bfd962a9971f82eaf409" => :sierra
+    sha256 "7d7fdddc1c91c57c4b9257538325478b006205715c9c0a171fff9b0c8520e59a" => :el_capitan
+    sha256 "12339587630ce0a500031926d44863070c1e6f95c56ad84239980bb60874d9d7" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard

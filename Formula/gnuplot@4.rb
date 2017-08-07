@@ -3,12 +3,12 @@ class GnuplotAT4 < Formula
   homepage "http://www.gnuplot.info"
   url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/4.6.7/gnuplot-4.6.7.tar.gz"
   sha256 "26d4d17a00e9dcf77a4e64a28a3b2922645b8bbfe114c0afd2b701ac91235980"
+  revision 1
 
   bottle do
-    sha256 "ae5b2efeadf424eb90aab81f3ec9c1fa043e8fe20047939f45f40b6bdf2f82be" => :sierra
-    sha256 "3d736c253a44e5811494f1d89b9563b79d5d258517df474a11c648b8de37ba59" => :el_capitan
-    sha256 "932530bf585e2ea0b2d8408b344bfb454c756e3bfb177dbb7c4d1d6b2ce15ad5" => :yosemite
-    sha256 "67476a8a05dcc554117c7ea202a7f198fb4f3d9c9fdc7cdc0864d90ca625a94b" => :x86_64_linux
+    sha256 "6cd2fac81f5d126176e64b4930419fb5c08d871c23241d357bcb960f0f7fc66c" => :sierra
+    sha256 "05c8929edada3b90266c4cb44ef4d69861fa6883cf7b8121f66089f148506875" => :el_capitan
+    sha256 "2c56072a9b684840d6255ac2652a3b9fd87b2f5b115e471e5981ff33a3e4e54c" => :yosemite
   end
 
   keg_only :versioned_formula

@@ -3,13 +3,13 @@ class Webp < Formula
   homepage "https://developers.google.com/speed/webp/"
   url "http://downloads.webmproject.org/releases/webp/libwebp-0.6.0.tar.gz"
   sha256 "c928119229d4f8f35e20113ffb61f281eda267634a8dc2285af4b0ee27cf2b40"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "4ccfbbb42e4b718ab6eec838b50be3ae36da1ecc6f00d3a438d80c9220936247" => :sierra
-    sha256 "cd0d20f0410b96f7564a0ccae776fcb2246030a8052a709ae3e5a3dd200fe6f3" => :el_capitan
-    sha256 "a3db82a59e4726452ff8b5c9352e016571e6fb1b0713180d7b6ccc7c5b64541d" => :yosemite
-    sha256 "909ba989cb868c3d46e84da0f16f6cd839a4ff344758b5da48a2889c4a197416" => :x86_64_linux
+    sha256 "f2867ef67916dfa80ce3d991218b8ac62c87f78b7ae3827a8df2d7d5c4a479dc" => :sierra
+    sha256 "ce30fa5f6f417955bfc1c2b0d3846c9a8504153a4ff22b73b4eec4b563885cf5" => :el_capitan
+    sha256 "cc3cc93c84295330637b0ab25c35f2344f9a6c4dbe460be4e6134066866185f2" => :yosemite
   end
 
   head do

@@ -3,11 +3,12 @@ class Fontforge < Formula
   homepage "https://fontforge.github.io"
   url "https://github.com/fontforge/fontforge/releases/download/20170731/fontforge-dist-20170731.tar.xz"
   sha256 "840adefbedd1717e6b70b33ad1e7f2b116678fa6a3d52d45316793b9fd808822"
+  revision 1
 
   bottle do
-    sha256 "ee0fb02bb443e91d56903a333f7b517e6e888584ebd0fafab4d09b2a7a4ee4df" => :sierra
-    sha256 "6388ee59dc77232040b8cba3402ede7aa473f4a9f8b7a0afd0b7456fc158b27c" => :el_capitan
-    sha256 "7ad86df195fe353ab444db71cf761eb023c5f610c0786f2583eed23f12f82f9a" => :yosemite
+    sha256 "c5f796bec473c8e3a365c793b9c581725d516b2a63907ace8d0085e4de02a97d" => :sierra
+    sha256 "6816df4e681a07432b50199a512585d0b4025d3030c3e8719465c135fcfabc50" => :el_capitan
+    sha256 "7d8cfe9ef3650fa1ed45fbd536b8ba35d78aa58f0a53a1f8af1840f4be14567d" => :yosemite
   end
 
   option "with-giflib", "Build with GIF support"

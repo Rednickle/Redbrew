@@ -1,16 +1,15 @@
 class Hugo < Formula
   desc "Configurable static site generator"
   homepage "https://gohugo.io/"
-  url "https://github.com/gohugoio/hugo/archive/v0.25.1.tar.gz"
-  sha256 "12f77c87cdc0bf4c6886a4c3343ba80bfe8bceeabed7a37e9dae945fa9010d1d"
+  url "https://github.com/gohugoio/hugo/archive/v0.26.tar.gz"
+  sha256 "1e76b6f5f0281d845c2189f7f3ae065a3ec38e32c560f4b573188878998f9c68"
   head "https://github.com/gohugoio/hugo.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8caae3e68f78163f56ebf29efaa03d9c60e9763eb5a88c7abe82fba7070a1fa3" => :sierra
-    sha256 "07d04dfece69edf6b5a6ade3cac7e333885bef65077fcaadfd541fd51e935485" => :el_capitan
-    sha256 "9c2018820b88285c834280f625faa5469fd61b2353c9fa7745f21bf879177715" => :yosemite
-    sha256 "2d45bcc89c098bd0a432965cfdc688cc5acec2f10aabc57ab95081841c348be7" => :x86_64_linux
+    sha256 "350b844e036d9edab0e172eb031f96400a5e59df48e4a522c8748c5665a8e6cc" => :sierra
+    sha256 "3f197a9b11ed9989a08d08c4b819344824d5b765adaf0b96e7086f08e4f9e59e" => :el_capitan
+    sha256 "cd8253571c5339369fef4649fc9d98beb7781db68703b13cf2a0621e119d0f6e" => :yosemite
   end
 
   depends_on "go" => :build

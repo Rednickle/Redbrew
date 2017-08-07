@@ -4,13 +4,13 @@ class Leptonica < Formula
   url "https://github.com/DanBloomberg/leptonica/releases/download/1.74.4/leptonica-1.74.4.tar.gz"
   mirror "http://www.leptonica.org/source/leptonica-1.74.4.tar.gz"
   sha256 "29c35426a416bf454413c6fec24c24a0b633e26144a17e98351b6dffaa4a833b"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "7c6a428194e9f30bf8d938a4d83a2aebd2344017bca2ec37548fa54c25a59e63" => :sierra
-    sha256 "5906771c4839ce2c38e3bff2d4bb2b4085560a1275c03884ecf2149bbefd2bb8" => :el_capitan
-    sha256 "edf27c88591a2ff1bdb31d7a9c3cbab98a6fd81af0e5c3568e7736bb632ec046" => :yosemite
-    sha256 "1a7d0de73268ca6641598ad9d3e6209ebadf5df7083e7713a2ff3eb79eb4a182" => :x86_64_linux
+    sha256 "824ca9ea9a3c6a0908f576288cf392244e0cab32835a3b01c8d125c8195ae476" => :sierra
+    sha256 "e567de6c8cb4caabe45b61e314fa482e8792bc1c3719755760ee55a694096716" => :el_capitan
+    sha256 "b1b8d75b21f7512dabd7cf665dbda4977bf1b34cc61bdc0daa23748a9c072208" => :yosemite
   end
 
   depends_on "libpng" => :recommended

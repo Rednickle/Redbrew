@@ -3,13 +3,12 @@ class Gnuplot < Formula
   homepage "http://www.gnuplot.info"
   url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.0.6/gnuplot-5.0.6.tar.gz"
   sha256 "5bbe4713e555c2e103b7d4ffd45fca69551fff09cf5c3f9cb17428aaacc9b460"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 "5dc1758dc88d2cb339784c977c31fd15b18322dcc9e643e5691838a2f09054a8" => :sierra
-    sha256 "611a585b09f9d36590ebeb9551d7626e19827b99a0402fd63c8b120fdced1fc3" => :el_capitan
-    sha256 "7ce71a5bcf96a7b496c7423bd9916b7558b8ab04ef02dc2bb6fd6ab781995133" => :yosemite
-    sha256 "543e4a0d3a2e97dfd4895a7643bc106927bfcc8613eb6ec1db7af51b858dea07" => :x86_64_linux
+    sha256 "8fbf7bc14cbca96ac3bcd5e24b3583cb62e36e0fa64ed42c73dc5f7b6d9e9a0b" => :sierra
+    sha256 "dca01f4f6ea524f23123b28f378d47b213bd5f73d4e652d3c5553f81d6547e16" => :el_capitan
+    sha256 "1dae7c1f47b6a1dff23083bffa7f33ecc3ce25a6f050a7c8c2348c2431886353" => :yosemite
   end
 
   head do

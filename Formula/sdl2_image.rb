@@ -3,15 +3,13 @@ class Sdl2Image < Formula
   homepage "https://www.libsdl.org/projects/SDL_image/"
   url "https://www.libsdl.org/projects/SDL_image/release/SDL2_image-2.0.1.tar.gz"
   sha256 "3a3eafbceea5125c04be585373bfd8b3a18f259bd7eae3efc4e6d8e60e0d7f64"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "eeac53ec10a125bda8268182ef0c557e58f0e970258ee732d77df63632937674" => :sierra
-    sha256 "cc923332b0b59576b96a2cb6e8523172825ce054afc5b54bedb16a2528168105" => :el_capitan
-    sha256 "294e3074de3c9f2d9eaeb7e113b5ffb02b9a001b10d42c8b3f15087d4f243ac2" => :yosemite
-    sha256 "91f84d0b2d0b3a3db591062ba02bb4045244ab8bf1cad15ab06370c5e1e0fd77" => :x86_64_linux
+    sha256 "5d6a399de125a3de57dba84852063f08cba68cf07dc925c4ee671988f04f8a37" => :sierra
+    sha256 "464d0a95b54e9a0221f8fb972dde4238ae94bf30289c12a239252a2fbcde006d" => :el_capitan
+    sha256 "1411e639d93dab99c8e25c54f7e1262bfbb36df145f3664cf3af33c470336d65" => :yosemite
   end
 
   depends_on "pkg-config" => :build

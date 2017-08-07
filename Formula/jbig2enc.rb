@@ -1,7 +1,7 @@
 class Jbig2enc < Formula
   desc "JBIG2 encoder (for monochrome documents)"
   homepage "https://github.com/agl/jbig2enc"
-  revision 2
+  revision 3
 
   stable do
     url "https://github.com/agl/jbig2enc/archive/0.28-dist.tar.gz"
@@ -14,10 +14,9 @@ class Jbig2enc < Formula
 
   bottle do
     cellar :any
-    sha256 "315628bfa534b889464d704b643b52bd435d40e3038cc58cfadf45a6b7aee055" => :sierra
-    sha256 "eec8c01f0971a8302807b09ddd1ee60b59985d386ae38934448f21f739f91f5a" => :el_capitan
-    sha256 "011e7d097afbdfc679490d42912a21cbe686af65eb9bfb309bb4c52cdfb97cb0" => :yosemite
-    sha256 "c11501919336351d471abb7445bce4b984fd5a59a87b2c0c159b2517b7724708" => :mavericks
+    sha256 "011145d24fe4f42970a595ee4323a6754420499a46c5bfa30313f8f4318b3c7f" => :sierra
+    sha256 "15136e5595dd10e0557dafbb5edb8548de3887d5272d7a657cf701bee0db9222" => :el_capitan
+    sha256 "1d434092bcb7861ec0185ec6ccc24381e877e62ac2fc0828bef1d8b7762486ea" => :yosemite
   end
 
   head do

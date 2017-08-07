@@ -3,13 +3,13 @@ class OpenSceneGraph < Formula
   homepage "https://github.com/openscenegraph/OpenSceneGraph"
   url "https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-3.5.6.tar.gz"
   sha256 "58e9436b811d0344723116cb1ada6ef305bdb6d97f42f04a700a29eda17f54b2"
+  revision 1
   head "https://github.com/openscenegraph/OpenSceneGraph.git"
 
   bottle do
-    rebuild 1
-    sha256 "fa515dddcf46a25dfef02a83896cbdb404cab22381d8de06bea82fdad9d97d6d" => :sierra
-    sha256 "f0431363c7ab2fb6b72576e22f22dd6fe96b871667ad3119f5ec1806e7521e79" => :el_capitan
-    sha256 "abd62947899d155aeaf2f15dc11c34be004633b80d6bf6446f39a62b738a7e1f" => :yosemite
+    sha256 "474b230543ba6a892e755b1d8eb416430ba42dde213056cf863581bff3d48b78" => :sierra
+    sha256 "8990a6cf3269f1f8c2fcbb5092eee000a4131985b45cbf95862c7c61b609ba49" => :el_capitan
+    sha256 "18748946d6dd703de78d1a36a560bc0985b4d9399500ba710c9451f8e99fec20" => :yosemite
   end
 
   option :cxx11
@@ -40,6 +40,14 @@ class OpenSceneGraph < Formula
   if build.with? "docs"
     depends_on "doxygen" => :build
     depends_on "graphviz" => :build
+  end
+
+  # jpeg 9 compatibility
+  # Upstream issue from 18 Feb 2016 "fails to build without -fpermissive"
+  # See https://github.com/openscenegraph/OpenSceneGraph/issues/58
+  patch :p0 do
+    url "https://raw.githubusercontent.com/macports/macports-ports/a54de1ab602/graphics/OpenSceneGraph/files/patch-src_osgPlugins_jpeg_ReaderWriterJPEG.cpp.diff"
+    sha256 "c62a284d1df478a73082bb0c8eae504ffcc8a9e7b00ee541cc00543d6b163c94"
   end
 
   def install

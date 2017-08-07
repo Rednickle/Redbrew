@@ -3,12 +3,12 @@ class GdkPixbuf < Formula
   homepage "https://gtk.org"
   url "https://download.gnome.org/sources/gdk-pixbuf/2.36/gdk-pixbuf-2.36.7.tar.xz"
   sha256 "1b6e5eef09d98f05f383014ecd3503e25dfb03d7e5b5f5904e5a65b049a6a4d8"
+  revision 1
 
   bottle do
-    sha256 "084f11ee12cae842ffb825445f4555f12e13868e903ba6e51f36b1573bef8271" => :sierra
-    sha256 "0b69f8a9c8059ce76d65bb76a1d76f653310b6640b9c18ece46d4dba0a0b0ef8" => :el_capitan
-    sha256 "a2ceb99ec5bc544ba67f6161cc1f02aec5a3a816ad8cda136c1ebe998deb0b16" => :yosemite
-    sha256 "cebc52f0150e37d5ccf2277b53c9d0cba2a617b277eae48833c06f4d7060d3ae" => :x86_64_linux
+    sha256 "d973ed1da64a093a70d03d6c9261a3ee1ac4abb1d42a38f3664d4ab4113de14e" => :sierra
+    sha256 "27da664f00785a0160dae878455aa3dd7eefd394522b90a3009927985f154aaa" => :el_capitan
+    sha256 "0d76bc4545dc5ccb12d6e7e8aad2e86955f90ff7a0f597825b210ff07bd1968d" => :yosemite
   end
 
   option "with-relocations", "Build with relocation support for bundles"

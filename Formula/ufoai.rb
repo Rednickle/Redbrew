@@ -3,12 +3,12 @@ class Ufoai < Formula
   homepage "https://ufoai.org/"
   url "https://git.code.sf.net/p/ufoai/code.git", :branch => "ufoai_2.5", :revision => "3e28f7cbf9f5e1cfd0fa7fdc852f833e498757c1"
   version "2.5.0+20150216"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "74aa04bb327cb0b2498d1987253332c25d86f9b8bad37b82449451e038c4f388" => :sierra
-    sha256 "d6d5b3236cbda52cacd0fbcf6fa1ec9bd2c650cd3628e2084346be3fbf5f46eb" => :el_capitan
-    sha256 "a6b25142d6b2ba920d4fcce8ee6c9794c663ec4a10b9ef669d8d955bd717e816" => :yosemite
+    sha256 "eda8d6568f66feb8939d78563a987b28725a5259c8ee84f413916f502449bb44" => :sierra
+    sha256 "1c05592d1988fb2a06821dc59c21e9e0926cd6402fb46d4185e73b0332edfc2b" => :el_capitan
+    sha256 "34eab6d59a70dd2ae0a9520fcd7b57ad94e14804894e6bdc9741a3ad44cedf46" => :yosemite
   end
 
   depends_on "pkg-config" => :build

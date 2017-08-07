@@ -3,14 +3,13 @@ class Fbida < Formula
   homepage "https://linux.bytesex.org/fbida/"
   url "https://dl.bytesex.org/releases/fbida/fbida-2.10.tar.gz"
   sha256 "7a5a3aac61b40a6a2bbf716d270a46e2f8e8d5c97e314e927d41398a4d0b6cb6"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "f507c343f4e168984d3e67a9e1afaf41ef54c19a632c351e4782181886a1680d" => :sierra
-    sha256 "80b7410d476eb78c600e0371affe1e358048735ca46e31f135819ceca9c066d7" => :el_capitan
-    sha256 "9d5593851f4e1a378e96219288893de00fb3aaf3b8e454362d8d4c3568bcb694" => :yosemite
-    sha256 "f0c80275d3c79df13d562c200fe2cc53474c9893ceff33686196efd0cc5dd286" => :mavericks
-    sha256 "7f99cfe93aa20461e91af71cba12f362ecedf72410605775914d3a9173a7b7d2" => :mountain_lion
+    sha256 "bdc5bad7177b186bee92bc1bc732b731dd6e61fe6f69acda3b162b63b4b1da8d" => :sierra
+    sha256 "894583241a8c2d9dc4c1469aff9c54fc1bfb0753b5fc7c77ce65a146bbc37b2d" => :el_capitan
+    sha256 "955464b7cbc3ca89cce48a791f9f13ae0c128f0d5a258c630d93443ce0eabdb7" => :yosemite
   end
 
   depends_on "libexif"

@@ -3,12 +3,12 @@ class GstPluginsBad < Formula
   homepage "https://gstreamer.freedesktop.org/"
   url "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.12.2.tar.xz"
   sha256 "9c2c7edde4f59d74eb414e0701c55131f562e5c605a3ce9b091754f106c09e37"
+  revision 1
 
   bottle do
-    sha256 "3ebc1c4d2af058d38a4b836e1eb4e854be0167c7e21d7db5beca5663f198adb5" => :sierra
-    sha256 "561655cabeb887edb550dd5def4194f9d4f266265cd72b77f92a8ddb22904143" => :el_capitan
-    sha256 "9f05ed126cd2f0079b6afe48c0551682f54fbc3e267db5977814109314109cfb" => :yosemite
-    sha256 "6d12046bc11d0c75b33247bcec3973138cde6bc2d780499d234c4fcd2d25bba9" => :x86_64_linux
+    sha256 "882d05c4bceba8c66b28ee1336d3800d2247a91ecbbdb7ef92dac750b161dcf5" => :sierra
+    sha256 "f284ee2c2671d23d85d7583b2409c42b0b37fe9137c56e44802384272056c3da" => :el_capitan
+    sha256 "2977e89ca6a6de84d1270d12a3fde22143870621a7f9d0b26b2d32c092bf62ad" => :yosemite
   end
 
   head do

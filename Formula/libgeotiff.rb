@@ -3,13 +3,12 @@ class Libgeotiff < Formula
   homepage "https://geotiff.osgeo.org/"
   url "http://download.osgeo.org/geotiff/libgeotiff/libgeotiff-1.4.2.tar.gz"
   sha256 "ad87048adb91167b07f34974a8e53e4ec356494c29f1748de95252e8f81a5e6e"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "aca47d78f175424d703a44c8ba08883939c1e483a98d9ccfaa744cb3640f6bb6" => :sierra
-    sha256 "9706b69fa75b614da965847ca979d810d78b8b11974d38b2f3604f038895f6c4" => :el_capitan
-    sha256 "d736509305397408ef1b644bb11928ac1cd95630f59db728da3bbd1620d0c2a8" => :yosemite
-    sha256 "ce3b2bbed54fc676e2f6829f194c9203ddb4cba586d77dae9faf3ab139720e3e" => :x86_64_linux
+    sha256 "3e497773ae48cb38f7d7bdbaa19f137d23d87b5b1980d3feea2c818680acd145" => :sierra
+    sha256 "97b06d1759717ccfed9b2e21de20d256b8852d472ed2aaa7ce7ec16f260fbe1a" => :el_capitan
+    sha256 "90b680bcf7a45cd17ca3066713bea7c0162811ff5a20804a8afa282bf1c87638" => :yosemite
   end
 
   head do

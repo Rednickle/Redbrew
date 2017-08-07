@@ -3,13 +3,13 @@ class Mapserver < Formula
   homepage "http://mapserver.org/"
   url "http://download.osgeo.org/mapserver/mapserver-7.0.6.tar.gz"
   sha256 "dcbebd62976deef1490b084d8f6a0b2f2a1a25407efb6e058390025375539507"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "1ab6c6b519e7ba102308e125a84ad3a28a1c058c93dc9a14db33b646ca85315e" => :sierra
-    sha256 "7a89c7d190dad3b7686139102cabeb24e8fea79d739982020a95d5a7b5958138" => :el_capitan
-    sha256 "82f0e7a8b6d0f90831f74aea71e70b1463bdce213b763b559da3f23db6864c0c" => :yosemite
-    sha256 "724c2cd1c882d1c39cfdadecb6809ee953f8f85625e534363a44e9c0161c72b1" => :x86_64_linux
+    sha256 "0c7aaed0575b6136d627ad3431254d97e2e5bb81cc2027a1819c7a073b218384" => :sierra
+    sha256 "6d34027e2b3642d789d25e7bac23ea31c84ebd355c57146e4e32bc601cd8194f" => :el_capitan
+    sha256 "8fdacab080389dee4453f7c4872cce9eab67e4a8f0884b82eb30746f884ce269" => :yosemite
   end
 
   option "with-fastcgi", "Build with fastcgi support"

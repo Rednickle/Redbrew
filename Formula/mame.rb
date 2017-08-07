@@ -4,13 +4,14 @@ class Mame < Formula
   url "https://github.com/mamedev/mame/archive/mame0188.tar.gz"
   version "0.188"
   sha256 "d3e55ec783fde39124bdb867ded9eadfcf769697d6c3d933444a29a785d6c99b"
+  revision 1
   head "https://github.com/mamedev/mame.git"
 
   bottle do
     cellar :any
-    sha256 "2b39cd3ac3d30424842344b827b033b53fb2bbc658f9524a55affc1f1e60638a" => :sierra
-    sha256 "9d1b6c4447f0a05235cbf0f8ce51632e514aa16f2248d51c9126958426489374" => :el_capitan
-    sha256 "65a9b2b1cdff9ef79ec607f1c5463e053a06edd821eaf76832eb4aee7019ea65" => :yosemite
+    sha256 "66dbf48e082daf5e97dadf357958e0b73e16610099e43777d05406ee6e36dfbd" => :sierra
+    sha256 "54ae7d959d98048e160acd7278edf869455f067373ee4a786a45c3e27a37f169" => :el_capitan
+    sha256 "e885260a359a25dc09c27c293b0ad2a92b3372aa730a13c2924060f25d6f1883" => :yosemite
   end
 
   depends_on :macos => :yosemite
@@ -27,6 +28,12 @@ class Mame < Formula
 
   # Needs compiler and library support C++14.
   needs :cxx14
+
+  # jpeg 9 compatibility
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/2b7053a/mame/jpeg9.patch"
+    sha256 "be8095e1b519f17ac4b9e6208f2d434e47346d8b4a8faf001b68749aac3efd20"
+  end
 
   def install
     inreplace "scripts/src/osd/sdl.lua", "--static", ""

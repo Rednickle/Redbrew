@@ -1,7 +1,7 @@
 class Ghostscript < Formula
   desc "Interpreter for PostScript and PDF"
   homepage "https://www.ghostscript.com/"
-  revision 2
+  revision 3
 
   stable do
     url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs921/ghostscript-9.21.tar.xz"
@@ -36,10 +36,9 @@ class Ghostscript < Formula
   end
 
   bottle do
-    sha256 "fb4550deedfae1e307105ed563e1a79acd8323a75f8a775f9539c28b67d5d67f" => :sierra
-    sha256 "7299521942379bc4e6340b684eb3b5e087d25f455bb679c488c8db32cd80c296" => :el_capitan
-    sha256 "3a910db33cefd0145b0c81e94c24afb4432b78e5e11154784ff633f7d1c3d916" => :yosemite
-    sha256 "76e4f4e795676be3bc176975bf066fd3af56a5b83e1054cc4ce734b0e9534034" => :x86_64_linux
+    sha256 "efdcd55b4bda0fd1de726712250c9700858357782329112238f9a242310d46f2" => :sierra
+    sha256 "c37872c3eb02eb1aa1512cfb4bdc7669d9503e882e104c3c7764582a173fcec1" => :el_capitan
+    sha256 "e5afb61c2c630044820b44fb0c63bf7648c786f7de3f500ad76b3617c37ed4eb" => :yosemite
   end
 
   head do

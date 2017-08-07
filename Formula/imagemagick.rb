@@ -7,13 +7,13 @@ class Imagemagick < Formula
   url "https://dl.bintray.com/homebrew/mirror/imagemagick-7.0.6-5.tar.xz"
   mirror "https://www.imagemagick.org/download/ImageMagick-7.0.6-5.tar.xz"
   sha256 "5dbcd45b67514fe1981703759d008f9aa2c6b6201917679dfd35776c904e51b2"
+  revision 1
   head "http://git.imagemagick.org/repos/ImageMagick.git"
 
   bottle do
-    sha256 "1f77830d6f44810c883f5dc6b77fa00113939a50bcfafa4ce21c641faa059f1f" => :sierra
-    sha256 "7291df72c92810b450fc4aa487ae660621988342ffd0e5bab12182dd310cb041" => :el_capitan
-    sha256 "171abbf722a5497865f3c1cb4d96c8ab7719573882e0cfc34e32b4e18aa7ffae" => :yosemite
-    sha256 "775e5997a6d79358441d38d6995974481988f0a8fe04698facc8146d1ea527db" => :x86_64_linux
+    sha256 "d814418b29e0c9ccca1cdecd626f9184481534ff8a6b70771ec345af0acd730a" => :sierra
+    sha256 "02d3e50e263bc03db18a8615c13cc20d9f2f2715bc3c57931f9f3ebbd1ef95df" => :el_capitan
+    sha256 "55786ce167ebe02592800ac3779c476101a7971acbadf1340a9c631f6905afde" => :yosemite
   end
 
   option "with-fftw", "Compile with FFTW support"

@@ -3,11 +3,12 @@ class Nagios < Formula
   homepage "https://www.nagios.org/"
   url "https://downloads.sourceforge.net/project/nagios/nagios-4.x/nagios-4.3.2/nagios-4.3.2.tar.gz"
   sha256 "687814b40b03b40361377aeace057dddb23459ffb8c00434bc1a95b21ccdf796"
+  revision 1
 
   bottle do
-    sha256 "ba0760140556633d7d0e6288c4c608759f45b59d1978e98faf3f48a3bf31e1ab" => :sierra
-    sha256 "6ef8d969ea7df2495432e7b2697781b599c3fb1ad838a8a14fa8a0af96154352" => :el_capitan
-    sha256 "4505f31cb8c616a7d31449150f3b1ac6c9ae21d503ae6ccb1a07641631e4ff7f" => :yosemite
+    sha256 "db38d66e4370ea6e44e61821e1d8b5ef03e1089c4ae09ced0f28ead958a4ff0d" => :sierra
+    sha256 "fa7418e5126f78ff0e4a3b09b87892752731a68261fbceea76d3bb2bcfedeee6" => :el_capitan
+    sha256 "496a256bfd58a1e246c1e583d5471592e57632437bd28ecce7cdcd1cb92cbc0a" => :yosemite
   end
 
   depends_on "gd"
