@@ -11,6 +11,7 @@ class Libav < Formula
     sha256 "fba56f4cc7aabea0d51229ad15c3b5b0d0cdcc2a8b4c5e977a50be428ab0b72b" => :sierra
     sha256 "98f41bcea9d66b34c833fb1b5fed8efaa1fea780d051a57291c5662e4675ec5b" => :el_capitan
     sha256 "8a5544048e15d43f3096feaad9731a1963f394f9d4e6e1161bfb5c6d34ad5864" => :yosemite
+    sha256 "680e572be44f364e17ba72a54903cd3dd58270b6c13f392a412e3e475912993d" => :x86_64_linux
   end
 
   option "without-faac", "Disable AAC encoder via faac"
