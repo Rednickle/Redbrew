@@ -1,21 +1,18 @@
 class Mandoc < Formula
   desc "The mandoc UNIX manpage compiler toolset"
-  homepage "http://mdocml.bsd.lv"
-  url "http://mdocml.bsd.lv/snapshots/mdocml-1.14.1.tar.gz"
-  sha256 "356954f141ec6f5635e938c826f2e16e4619bb361c64d84a31f6775d030a615b"
+  homepage "http://mandoc.bsd.lv"
+  url "http://mandoc.bsd.lv/snapshots/mandoc-1.14.3.tar.gz"
+  sha256 "0b0c8f67958c1569ead4b690680c337984b879dfd2ad4648d96924332fd99528"
 
-  head "anoncvs@mdocml.bsd.lv:/cvs", :module => "mdocml", :using => :cvs
+  head "anoncvs@mandoc.bsd.lv:/cvs", :using => :cvs
 
   bottle do
-    sha256 "52728e48dcb9e0b97cae74eee6afd7bb338117b5fca563d7a44cbe38823fd5ab" => :sierra
-    sha256 "21820e1956453482ad50fc6e9ccdd7fd21640b81ffd5c4c059690dc457f04595" => :el_capitan
-    sha256 "f6c2cf9ff28d3ff80bb22c0fb5f5a978bf0742e61d31ca5ce0adcdb1e76728c6" => :yosemite
+    sha256 "59709d56bff5dedfe3f544b4da3d6791f32dbf4e4299a242719b39a21dc0c050" => :sierra
+    sha256 "2e23fd7255dc440233289f138edc9dada06eab91ff3570329fa5ebce425f5714" => :el_capitan
+    sha256 "dd4131a36901d8650f896c90bd6e9cc08bfe6d146db5c7461e63e0e6e2b3d49a" => :yosemite
   end
 
-  option "without-sqlite", "Only install the mandoc/demandoc utilities."
   option "without-cgi", "Don't build man.cgi (and extra CSS files)."
-
-  depends_on "sqlite" => :recommended
 
   def install
     localconfig = [
@@ -29,7 +26,7 @@ class Mandoc < Formula
       "EXAMPLEDIR=#{share}/examples",
 
       # Executable names, where utilities would be replaced/duplicated.
-      # The mdocml versions of the utilities are definitely *not* ready
+      # The mandoc versions of the utilities are definitely *not* ready
       # for prime-time on Darwin, though some changes in HEAD are promising.
       # The "bsd" prefix (like bsdtar, bsdmake) is more informative than "m".
       "BINM_MAN=bsdman",
@@ -57,7 +54,6 @@ class Mandoc < Formula
       "HOMEBREWDIR=#{HOMEBREW_CELLAR}" # ? See configure.local.example, NEWS.
     ]
 
-    localconfig << "BUILD_DB=1" if build.with? "db"
     localconfig << "BUILD_CGI=1" if build.with? "cgi"
     File.rename("cgi.h.example", "cgi.h") # For man.cgi, harmless in any case.
 
@@ -71,9 +67,6 @@ class Mandoc < Formula
       system "make"
       system "make", "install"
     end
-
-    system "make", "manpage" # Left out of the install for some reason.
-    bin.install "manpage"
   end
 
   test do
