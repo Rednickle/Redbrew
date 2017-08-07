@@ -10,6 +10,7 @@ class Re2c < Formula
     sha256 "c11f57cdde394a072ddb8952ebaaea37aafd3c8b6ac304d7bcb956a46f7818e3" => :sierra
     sha256 "5ca925ec9bedadb50237ce862d7aeac99a55af1cb5468c47af711dcdea7a1256" => :el_capitan
     sha256 "9050cac314fe497b42b42b23e52043973b0f800c1ab39a2791482ab6cdd254d6" => :yosemite
+    sha256 "8520f18f99b235eb1dd4d5d4fa4c302039543aa7a58bcb831b98c2bd8829d952" => :x86_64_linux
   end
 
   def install
