@@ -35,6 +35,8 @@ class Geos < Formula
     args << "--enable-python" if build.with?("python")
     args << "--enable-ruby" if build.with?("ruby")
 
+    ENV["PYTHON"] = Formula["python"].bin/"python2" if build.with?("python")
+
     system "./configure", *args
     system "make", "install"
   end
