@@ -1,14 +1,13 @@
 class Pango < Formula
   desc "Framework for layout and rendering of i18n text"
   homepage "http://www.pango.org/"
-  url "https://download.gnome.org/sources/pango/1.40/pango-1.40.7.tar.xz"
-  sha256 "517645c00c4554e82c0631e836659504d3fd3699c564c633fccfdfd37574e278"
+  url "https://download.gnome.org/sources/pango/1.40/pango-1.40.8.tar.xz"
+  sha256 "ce6ecd11ff0b6151af91aba6149723df64b32c085988e071e758e1c0027d46cb"
 
   bottle do
-    sha256 "56ed4949c060bc9f276fc23175a97e5ba34cb603118d92c7ef4c6b3876d6f188" => :sierra
-    sha256 "67bdaa908ae261446c384e9c80fdad3a861020219e328fcea77c2f5d4dfd5f98" => :el_capitan
-    sha256 "b310a0d7ea96190e911b772b1d80665ceed29bea3fe673d123beb078a2d57f7c" => :yosemite
-    sha256 "fc83a462c7b85962376faa3a4fbd7ce6b1c321505d87a6e7965161c2aa8bb91e" => :x86_64_linux
+    sha256 "f012bccb1fef86304ce0b3fd53711ccc14499f86b684ff002150082ba38c5557" => :sierra
+    sha256 "2341c895b18481f6e448ac7cc895b2c88e03817d88f983f243c81f1d4a575845" => :el_capitan
+    sha256 "d1fbc5e9d94b759f7917ed218b7815e1134a1df9f71695fe8652248b8fca934d" => :yosemite
   end
 
   head do
