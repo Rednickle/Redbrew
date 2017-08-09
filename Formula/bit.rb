@@ -2,14 +2,14 @@ require "language/node"
 class Bit < Formula
   desc "Distributed Code Component Manager"
   homepage "https://www.bitsrc.io"
-  url "https://bitsrc.jfrog.io/bitsrc/bit-brew/stable/bit/0.6.0/bit-0.6.0-brew.tar.gz"
-  sha256 "9c24796300d53d7cd1a1b14abc2456505692bb6193df9537f9e550698be719f1"
+  url "https://bitsrc.jfrog.io/bitsrc/bit-brew/stable/bit/0.10.3/bit-0.10.3-brew.tar.gz"
+  sha256 "e843e29b34ba8c93c68503f288be28c841c159b67a54bcc88063328167a32785"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1d7402ed5fdc6c857f14f865bdee62b100930f4187d31ad84a649e88fb62f45a" => :sierra
-    sha256 "f4cf14bb7eb79800cde0cdf752130b8de850f17431e43f145b04c5d1437896d8" => :el_capitan
-    sha256 "f4cf14bb7eb79800cde0cdf752130b8de850f17431e43f145b04c5d1437896d8" => :yosemite
+    sha256 "67a6a52d87f99c90171b82f1f10c784a686969a30366e5c119d6b450a04271bf" => :sierra
+    sha256 "67a6a52d87f99c90171b82f1f10c784a686969a30366e5c119d6b450a04271bf" => :el_capitan
+    sha256 "67a6a52d87f99c90171b82f1f10c784a686969a30366e5c119d6b450a04271bf" => :yosemite
   end
 
   def install

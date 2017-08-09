@@ -1,15 +1,15 @@
 class FaasCli < Formula
   desc "CLI for templating and/or deploying FaaS functions"
   homepage "http://docs.get-faas.com/"
-  url "https://github.com/alexellis/faas-cli/archive/0.4.tar.gz"
-  sha256 "f7ecebde2545243e9f37f7feb9fc2a171585d3f9e7998f981611f038bbc93987"
+  url "https://github.com/alexellis/faas-cli.git",
+      :tag => "0.4.5",
+      :revision => "e9c738f9a2833980a1bfc0102b3dfdf0cce2684a"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "18e22111574976f859575192424af39fcd679fcdc9c39e90a8a38c81e0fca85a" => :sierra
-    sha256 "6a863fae58f75a9487e762b5f98430cc329f0df9af1d32d4a463a9048cc81ae8" => :el_capitan
-    sha256 "01c0c83ff0ab842ea8402723c8a0b6ff436afb56fffa55e048df9cc3e4c4494e" => :yosemite
-    sha256 "1e2e741f3ddf9f6a76161d7eb36a239d7fda1d65f8524008db06ab4404b45808" => :x86_64_linux
+    sha256 "57ecf94c6e61ca56a1ab9c35fd542494248abbede4be867f010c01486fae9f47" => :sierra
+    sha256 "f80d2ebd8564816f5d133b5c8a59058c761e0f6cafa066c46ea938cbe9499906" => :el_capitan
+    sha256 "974e2513f6d2886adcb856665b9f9f562a75543a2a053a121d246114b1e51eac" => :yosemite
   end
 
   depends_on "go" => :build
@@ -20,7 +20,9 @@ class FaasCli < Formula
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/alexellis/faas-cli").install buildpath.children
     cd "src/github.com/alexellis/faas-cli" do
-      system "go", "build", "-o", bin/"faas-cli"
+      commit = Utils.popen_read("git rev-list -1 HEAD").chomp
+      system "go", "build", "-ldflags", "-X main.GitCommit=#{commit}", "-a",
+             "-installsuffix", "cgo", "-o", bin/"faas-cli"
       prefix.install_metafiles
     end
   end
@@ -59,6 +61,7 @@ class FaasCli < Formula
     expected = <<-EOS.undent
       Deploying: dummy_function.
       Removing old service.
+      Deployed.
       200 OK
       URL: http://localhost:#{port}/function/dummy_function
     EOS
