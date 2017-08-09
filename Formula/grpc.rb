@@ -1,14 +1,14 @@
 class Grpc < Formula
   desc "Next generation open source RPC library and framework"
   homepage "https://www.grpc.io/"
-  url "https://github.com/grpc/grpc/archive/v1.4.2.tar.gz"
-  sha256 "268481b9cd09aaa0758fcd14236537cbd3ebcd637f43150fdf7937582f2dc4dc"
+  url "https://github.com/grpc/grpc/archive/v1.4.3.tar.gz"
+  sha256 "d377edf3e37901ef7c11a0506ed6069dba9fc49ba477fe4fec45f9b9158952cd"
   head "https://github.com/grpc/grpc.git"
 
   bottle do
-    sha256 "1af8ade005e6145d2f69af277c6211c56b8a397cd3b6e841e24a2cb27e909d28" => :sierra
-    sha256 "4be794dee235dfe5906bb40e5fa5a75c47e929106bdd04402d268ded54fefcb2" => :el_capitan
-    sha256 "6d41dbe232e902261a289afc58d387017562259f7d096549b1f8b9b80829dd7d" => :yosemite
+    sha256 "c272cc87521a599a9fd8ea89c2798620453ffbbcef1e8e844c6ba7fdae77b7f7" => :sierra
+    sha256 "02b1475e9ecb5ce76974eda4f059f3c6a61229dddbf2f6a634985dcdabf51801" => :el_capitan
+    sha256 "410da244619e82ecdb4cc807074efad71847978fad53eb3857867e5a5ff16659" => :yosemite
   end
 
   depends_on "autoconf" => :build

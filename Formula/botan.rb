@@ -1,14 +1,14 @@
 class Botan < Formula
   desc "Cryptographic algorithms and formats library in C++"
   homepage "https://botan.randombit.net/"
-  url "https://botan.randombit.net/releases/Botan-2.1.0.tgz"
-  sha256 "460f2d7205aed113f898df4947b1f66ccf8d080eec7dac229ef0b754c9ad6294"
+  url "https://botan.randombit.net/releases/Botan-2.2.0.tgz"
+  sha256 "c794db2ec46f6ff88f37ae76825f0c258f07880b865b6707b26acfcc4567b824"
   head "https://github.com/randombit/botan.git"
 
   bottle do
-    sha256 "b40addf39ec157733de0b941ddea7c2b91af994b18c28565ccf307d141d9a9b4" => :sierra
-    sha256 "5b3337a48e4ffb9d3134d776af7e265e9979903d7ba7a9507aca38708ed41918" => :el_capitan
-    sha256 "b5209d8069b0b3832be573a3109b63347cea6e8be90f01546cf0915755fd8c5b" => :yosemite
+    sha256 "81a51ae9befa03e97b84206d7244cae9a2763f68fa7bd7f989b8e070f73731c9" => :sierra
+    sha256 "8d611e2fdb0e848193b363331fd668f4edae4139ff58d31c73a657e90cd0974f" => :el_capitan
+    sha256 "9b0bd3d8914a59621186e6147190f3068dffd36fb0822ef7b836c60acedb3bd4" => :yosemite
   end
 
   option "with-debug", "Enable debug build of Botan"
