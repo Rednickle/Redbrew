@@ -5,9 +5,7 @@ class MariadbAT101 < Formula
   sha256 "ba88b1cb9967dea2909938a34ba89373b162b0d83e5c98a0f1c94540156bf73d"
 
   bottle do
-    sha256 "3a22cd9b38eeb0c65a8d82e8183973d69307151669ec4dd3fe90287fe174df92" => :sierra
-    sha256 "df68aafcf09065d67618e7f5d306452f81fb32d589362496194ef8d3a7984b09" => :el_capitan
-    sha256 "ac3bbc3eda846ec7bf98b8a3766b979d85a32d17db73cd15b358fe24268253d9" => :yosemite
+    sha256 "03540d59ec4926e923b2efc6a5892228ecbaaa432c718aaa0e9cd97058b53f18" => :x86_64_linux
   end
 
   keg_only :versioned_formula
