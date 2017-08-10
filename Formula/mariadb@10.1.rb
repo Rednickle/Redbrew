@@ -1,14 +1,13 @@
 class MariadbAT101 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://ftp.osuosl.org/pub/mariadb/mariadb-10.1.25/source/mariadb-10.1.25.tar.gz"
-  sha256 "7205ecaa6f1bc16335ad88faa5c46be52b3ac628a5e795cb942a3f4335b2a0d6"
+  url "https://downloads.mariadb.org/f/mariadb-10.1.26/source/mariadb-10.1.26.tar.gz"
+  sha256 "ba88b1cb9967dea2909938a34ba89373b162b0d83e5c98a0f1c94540156bf73d"
 
   bottle do
-    sha256 "5dcfd27e45bd51b22ccd4c3423482f6e0b8a4b345dfbc91369977cc33938fd50" => :sierra
-    sha256 "e8e2cac6daca16aa4d0ec10be20320f2b6bf6e373d65186bc9eb406a654ca772" => :el_capitan
-    sha256 "9742332d7ca603ec1665cc2351790a7add7818d8d970c92516069aa60798a58e" => :yosemite
-    sha256 "6c7843b8a90e7c2a8b369edb24b26fdeec76261195ac024b045f3b03b43a2c27" => :x86_64_linux
+    sha256 "3a22cd9b38eeb0c65a8d82e8183973d69307151669ec4dd3fe90287fe174df92" => :sierra
+    sha256 "df68aafcf09065d67618e7f5d306452f81fb32d589362496194ef8d3a7984b09" => :el_capitan
+    sha256 "ac3bbc3eda846ec7bf98b8a3766b979d85a32d17db73cd15b358fe24268253d9" => :yosemite
   end
 
   keg_only :versioned_formula
