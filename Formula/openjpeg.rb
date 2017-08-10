@@ -1,18 +1,15 @@
 class Openjpeg < Formula
   desc "Library for JPEG-2000 image manipulation"
   homepage "http://www.openjpeg.org/"
-  url "https://github.com/uclouvain/openjpeg/archive/v2.1.2.tar.gz"
-  sha256 "4ce77b6ef538ef090d9bde1d5eeff8b3069ab56c4906f083475517c2c023dfa7"
-  revision 1
-
+  url "https://github.com/uclouvain/openjpeg/archive/v2.2.0.tar.gz"
+  sha256 "6fddbce5a618e910e03ad00d66e7fcd09cc6ee307ce69932666d54c73b7c6e7b"
   head "https://github.com/uclouvain/openjpeg.git"
 
   bottle do
     cellar :any
-    sha256 "e5d4bcad36795653f31a5deec4ed17ece781891d7421cb2841336ca48ce37d9d" => :sierra
-    sha256 "6a2608996b46e5889a8ca154b03bd6af6e01efbdd54af269b41abb859e37bebc" => :el_capitan
-    sha256 "b6321a8848d7d86113a32663bff217c2e12565ead59d1ecaf3cfe9b3d8fd8467" => :yosemite
-    sha256 "e51c464bd26795d1b4faeb69e5a5ce02f6ea9bccbf8e4300bfdca5e72db00f30" => :x86_64_linux
+    sha256 "437b7f58d8f2e8944adea7481a233bdf7f5c06609bfcf209169e677c93ab621c" => :sierra
+    sha256 "ceebb6f74ce06b2a9ea716cd6f72bdbe4590b23819e4d0a980a320ff150760bd" => :el_capitan
+    sha256 "bd0c66eb1f759d447a35203a0861698283ee148c97b96ed13922d83adaab4ab7" => :yosemite
   end
 
   option "without-doxygen", "Do not build HTML documentation."
@@ -23,15 +20,6 @@ class Openjpeg < Formula
   depends_on "little-cms2"
   depends_on "libtiff"
   depends_on "libpng"
-
-  # https://github.com/uclouvain/openjpeg/issues/862
-  # https://github.com/uclouvain/openjpeg/issues/863
-  patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/o/openjpeg2/openjpeg2_2.1.2-1.1.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/o/openjpeg2/openjpeg2_2.1.2-1.1.debian.tar.xz"
-    sha256 "b19b15ac6306c19734f0626f974c8863e4dc21a1df849a8ae81008479b5b0daf"
-    apply "patches/CVE-2016-9572_CVE-2016-9573.patch"
-  end
 
   def install
     args = std_cmake_args
@@ -56,8 +44,8 @@ class Openjpeg < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-I#{include}/openjpeg-2.1", "-L#{lib}",
-           testpath/"test.c", "-o", "test", "-lopenjp2"
+    system ENV.cc, "-I#{include}/openjpeg-2.2", "-L#{lib}", "-lopenjp2",
+           testpath/"test.c", "-o", "test"
     system "./test"
   end
 end

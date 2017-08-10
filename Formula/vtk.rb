@@ -3,12 +3,14 @@ class Vtk < Formula
   homepage "http://www.vtk.org"
   url "http://www.vtk.org/files/release/8.0/VTK-8.0.0.tar.gz"
   sha256 "c7e727706fb689fb6fd764d3b47cac8f4dc03204806ff19a10dfd406c6072a27"
+  revision 2
+
   head "https://github.com/Kitware/VTK.git"
 
   bottle do
-    sha256 "1d1b2423c8bf2c79b779ab2d5d32a983f755e6056788f489e3aaafb70ae650c5" => :sierra
-    sha256 "d771b4665170d6de59e4142c707568897216d839aadd8bbe52dba0f6a8b1061d" => :el_capitan
-    sha256 "9ea70e9cb046572350beb8ff5d3728f37ef7855855dd7f8a5e37dba3982f7e0f" => :yosemite
+    sha256 "3edc86912bd3a0946d48b8ee9e3fd6fed124bd4fa770e2f62e82dde9ac995a86" => :sierra
+    sha256 "bfebec35833698c8bebf17f5db258ce3ef4a2c1842384eaaceeb5bc310e81471" => :el_capitan
+    sha256 "0d27575aee63d23f4301eb70f88c7b0d8a1e68a31c187a8f4996eab02a56d319" => :yosemite
   end
 
   option "without-python", "Build without python2 support"
@@ -24,17 +26,7 @@ class Vtk < Formula
   depends_on :python => :recommended if MacOS.version <= :snow_leopard
   depends_on :python3 => :optional
   depends_on "qt" => :optional
-
-  # If --with-qt and --with-python, then we automatically use PyQt, too!
-  if build.with? "qt"
-    if build.with? "python"
-      depends_on "sip"
-      depends_on "pyqt5" => ["with-python", "without-python3"]
-    elsif build.with? "python3"
-      depends_on "sip"   => ["with-python3", "without-python"]
-      depends_on "pyqt5"
-    end
-  end
+  depends_on "pyqt" if build.with? "qt"
 
   needs :cxx11
 
@@ -103,7 +95,7 @@ class Vtk < Formula
         args << "-DSIP_PYQT_DIR='#{Formula["pyqt5"].opt_share}/sip'"
       end
 
-      system "cmake", *args, ".."
+      system "cmake", "..", *args
       system "make"
       system "make", "install"
     end

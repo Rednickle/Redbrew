@@ -1,14 +1,14 @@
 class Gnupg < Formula
   desc "GNU Pretty Good Privacy (PGP) package"
   homepage "https://www.gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.1.22.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.22.tar.bz2"
-  sha256 "46716faf9e1b92cfca86609f3bfffbf5bb4b6804df90dc853ff7061cfcfb4ad7"
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.1.23.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.23.tar.bz2"
+  sha256 "a94476391595e9351f219188767a9d6ea128e83be5ed3226a7890f49aa2d0d77"
 
   bottle do
-    sha256 "f0d36cbb12e9039664b4c33f4202a4ff44fb53745cb4d988c7dbca9c9c051acf" => :sierra
-    sha256 "7221bab6b284056b2841f5f3e4f0bcbfd01e16da5b72298d03511b2bfc799cac" => :el_capitan
-    sha256 "fd272a5d43bd134231fff86ca175cbb2a78e23105d475513261cb6cf661a4834" => :yosemite
+    sha256 "6bff30666e9c3dccdc3ac0a0111142c4f5708f29affb22ab9a08ed290cbf64fe" => :sierra
+    sha256 "8bd5a8bb212f11a3a18fc3e8d7e604977decc99e51db4af178e24c3b5da84af2" => :el_capitan
+    sha256 "1dfa6b63ccf23c1e7d7e198a6068bc75704fb338b734396f9c126a0f8abd2399" => :yosemite
   end
 
   option "with-gpgsplit", "Additionally install the gpgsplit utility"
@@ -42,6 +42,7 @@ class Gnupg < Formula
       --sysconfdir=#{etc}
       --enable-symcryptrun
       --with-pinentry-pgm=#{Formula["pinentry"].opt_bin}/pinentry
+      --enable-all-tests
     ]
 
     args << "--disable-ccid-driver" if build.without? "libusb"
@@ -52,12 +53,6 @@ class Gnupg < Formula
     system "make"
     system "make", "check"
     system "make", "install"
-
-    # Add symlinks from gpg2 to unversioned executables, replacing gpg 1.x.
-    bin.install_symlink "gpg2" => "gpg"
-    bin.install_symlink "gpgv2" => "gpgv"
-    man1.install_symlink "gpg2.1" => "gpg.1"
-    man1.install_symlink "gpgv2.1" => "gpgv.1"
 
     bin.install "tools/gpgsplit" if build.with? "gpgsplit"
     bin.install "tools/gpg-zip" if build.with? "gpg-zip"
