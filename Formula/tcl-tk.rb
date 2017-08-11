@@ -1,39 +1,15 @@
 class TclTk < Formula
   desc "Tool Command Language"
   homepage "https://www.tcl.tk/"
-  revision 2
-
-  stable do
-    url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.6/tcl8.6.6-src.tar.gz"
-    mirror "ftp://ftp.tcl.tk/pub/tcl/tcl8_6/tcl8.6.6-src.tar.gz"
-    version "8.6.6"
-    sha256 "a265409781e4b3edcc4ef822533071b34c3dc6790b893963809b9fe221befe07"
-
-    resource "tk" do
-      url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.6/tk8.6.6-src.tar.gz"
-      mirror "ftp://ftp.tcl.tk/pub/tcl/tcl8_6/tk8.6.6-src.tar.gz"
-      version "8.6.6"
-      sha256 "d62c371a71b4744ed830e3c21d27968c31dba74dd2c45f36b9b071e6d88eb19d"
-    end
-  end
+  url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.7/tcl8.6.7-src.tar.gz"
+  mirror "ftp://ftp.tcl.tk/pub/tcl/tcl8_6/tcl8.6.7-src.tar.gz"
+  version "8.6.7"
+  sha256 "7c6b8f84e37332423cfe5bae503440d88450da8cc1243496249faa5268026ba5"
 
   bottle do
-    sha256 "00cb0c31a7a9fb3820685bb5a0baee3e8b3d81e2b3b7f021277bbb833a710ee0" => :sierra
-    sha256 "7821833c62e38916e07c2c2a491db4d8ad7d5016a95abb39e3678dbfe3821502" => :el_capitan
-    sha256 "c0449527355ede1293309ff674ec02e9df91188f9d85173d134ed388cee0afb3" => :yosemite
-    sha256 "ba1e69947883e03b4f20bf89a3e6b36ee9cbe3dbb32d5ac0cb3c2f7a744aec6a" => :x86_64_linux
-  end
-
-  devel do
-    url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.7/tcl8.6.7rc1-src.tar.gz"
-    mirror "ftp://ftp.tcl.tk/pub/tcl/tcl8_6/tcl8.6.7rc1-src.tar.gz"
-    sha256 "2ca5d7e389482b7d77bf32dd48640437f5e814acfca1dd5ea329dba8250ec720"
-
-    resource "tk" do
-      url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.7/tk8.6.7rc1-src.tar.gz"
-      mirror "ftp://ftp.tcl.tk/pub/tcl/tcl8_6/tk8.6.7rc1-src.tar.gz"
-      sha256 "8a42af1f250d58bada58bfb6e6d87bdc911d3935b570130c8eb323245d8d90ff"
-    end
+    sha256 "0a21606596e11bc27ae105548906cc161e0e8bd1ccd0546c1df0441ae2ab1a43" => :sierra
+    sha256 "56d5506393587d99b78e458d3945833380682068091f75ea525c1d8a64d5ced9" => :el_capitan
+    sha256 "4a3b7d78452c33e84d8c55eaf71bb758e25f0aa9e16112cdd6646ba458304baf" => :yosemite
   end
 
   keg_only :provided_by_osx,
@@ -45,6 +21,13 @@ class TclTk < Formula
   unless OS.mac?
     depends_on :x11 if build.with? "tk"
     depends_on "pkg-config" => :build
+  end
+
+  resource "tk" do
+    url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.7/tk8.6.7-src.tar.gz"
+    mirror "ftp://ftp.tcl.tk/pub/tcl/tcl8_6/tk8.6.7-src.tar.gz"
+    version "8.6.7"
+    sha256 "061de2a354f9b7c7d04de3984c90c9bc6dd3a1b8377bb45509f1ad8a8d6337aa"
   end
 
   resource "tcllib" do
