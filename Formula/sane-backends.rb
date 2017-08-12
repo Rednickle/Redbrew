@@ -5,15 +5,13 @@ class SaneBackends < Formula
   mirror "https://mirrors.kernel.org/debian/pool/main/s/sane-backends/sane-backends_1.0.27.orig.tar.gz"
   mirror "https://fossies.org/linux/misc/sane-backends-1.0.27.tar.gz"
   sha256 "293747bf37275c424ebb2c833f8588601a60b2f9653945d5a3194875355e36c9"
-  revision 2
+  revision 3
   head "https://anonscm.debian.org/cgit/sane/sane-backends.git"
 
   bottle do
-    rebuild 1
-    sha256 "40f3d76b4f2d1dff26c54e370363e10559a46d79ba2c931716cde97cadd26209" => :sierra
-    sha256 "3aada5f45cf23b055afcd260e7bd7abcd04258166d6a682cb796778af66e3970" => :el_capitan
-    sha256 "23d0dbe7ddf5dcf3a2e37f95c19014a44b31431e6b080bcd771f07ef6b50f97f" => :yosemite
-    sha256 "47906aca0812cca994dafd67cc066c69a3e2b55877d05a6d73a761571262b476" => :x86_64_linux
+    sha256 "2fce948374f59735fc55c2ef4803f44fba0ac9979943dadc30d11f9a262c6fd2" => :sierra
+    sha256 "2faeb4b16e4e2ea851c1cfc100d8deedea3bb042ba3b21b66ba2865812500479" => :el_capitan
+    sha256 "68242fa7feb502d1b5001df7db05837268085f6f97e58768323566e671ac59f9" => :yosemite
   end
 
   depends_on "jpeg"
@@ -31,6 +29,11 @@ class SaneBackends < Formula
                           "--without-gphoto2",
                           "--enable-local-backends",
                           "--with-usb=yes"
+
+    # Remove for > 1.0.27
+    # Workaround for bug in Makefile.am described here: https://goo.gl/vqzVk5.
+    # It's already fixed in commit 519ff57. See https://goo.gl/Cmp6Br.
+    system "make"
     system "make", "install"
   end
 
