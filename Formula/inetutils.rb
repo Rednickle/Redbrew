@@ -9,6 +9,7 @@ class Inetutils < Formula
     sha256 "899841c7d0ae008687349fa8858da32989b447bc2214c93767547235dd68aea3" => :sierra
     sha256 "16234b74de732ad320598e361e2585f29dc6d1d74fcb63bebd351ec7a2c89aeb" => :el_capitan
     sha256 "5f0e947e5e686a2abc9994c6045fbe624037d1fbca0a649913589fb1cd209731" => :yosemite
+    sha256 "f6261a26e18d80f07ceb008554a7a762da3eac0a201955c454524b51935009c9" => :x86_64_linux
   end
 
   option "with-default-names", "Do not prepend 'g' to the binary"
