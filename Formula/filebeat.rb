@@ -3,15 +3,14 @@ class Filebeat < Formula
   homepage "https://www.elastic.co/products/beats/filebeat"
   url "https://github.com/elastic/beats/archive/v5.5.1.tar.gz"
   sha256 "b6c85901b1feb0e184dd56d9012ccda10bf62566ddfbe3d9790c771b73db3a46"
-
+  revision 1
   head "https://github.com/elastic/beats.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1f93032a00185167df3d27c363fd7fd11558a56c922b1bd76e174044984af3e4" => :sierra
-    sha256 "84b48aef5745312f307bf620429fc27277c0336ca50b3006b01372ac541cce5c" => :el_capitan
-    sha256 "646d1a08e85fe724f82fc7bcf5d536dd08c8d66fa71a954ed71519effedda144" => :yosemite
-    sha256 "cbb26cac535d324ac5eead9504ae3ac7ced1c14e0c34c28465c2fe57a65cea83" => :x86_64_linux
+    sha256 "2121385fe5c8a70582ed98e5083675ecb7fb5ccc8a2453565a73c3750e37c60d" => :sierra
+    sha256 "384f49b2b9569f51a73861c6e5a89bb17293c62b5bf2282eb935d64013a6cd38" => :el_capitan
+    sha256 "8a3fde162bac47ec335d4f10c3bbb20d3d6f02993f2ceee5a85a8b81c19152e9" => :yosemite
   end
 
   depends_on "go" => :build
@@ -24,9 +23,10 @@ class Filebeat < Formula
 
     cd gopath/"src/github.com/elastic/beats/filebeat" do
       system "make"
+      system "make", "modules"
       libexec.install "filebeat"
-
-      (etc/"filebeat").install("filebeat.yml", "filebeat.template.json", "filebeat.template-es2x.json")
+      (prefix/"module").install Dir["_meta/module.generated/*"]
+      (etc/"filebeat").install Dir["filebeat.*"]
     end
 
     prefix.install_metafiles gopath/"src/github.com/elastic/beats"
