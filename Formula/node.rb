@@ -41,6 +41,9 @@ class Node < Formula
   end
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
+
     # Never install the bundled "npm", always prefer our
     # installation from tarball for better packaging control.
     args = %W[--prefix=#{prefix} --without-npm]
