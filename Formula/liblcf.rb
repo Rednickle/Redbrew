@@ -3,14 +3,14 @@ class Liblcf < Formula
   homepage "https://easyrpg.org/"
   url "https://github.com/EasyRPG/liblcf/archive/0.5.2.tar.gz"
   sha256 "acd0bdb55a9713150fb4d68176e8f5459c5554e23d4af60c60fb1ff5f17598b0"
+  revision 1
   head "https://github.com/EasyRPG/liblcf.git"
 
   bottle do
     cellar :any
-    sha256 "f4fc2587c5a4a78dc5fefcf977934bcad7a8c6a0244d9e0e238aaa159f454ff4" => :sierra
-    sha256 "2ed8b08aa4d416cf7f913cdd1bf2f2c3425c76ffd3f558b05bf604fcd6335d85" => :el_capitan
-    sha256 "2b2cacec709a44e02329f97a0ef71a374a8cc07ca0a51288ae225f5e5034190a" => :yosemite
-    sha256 "44ba33e91e5c2b2e50a4c99839d195040f78b1a5e797997bc623fb0dc6de8177" => :x86_64_linux
+    sha256 "0d0c68c97c2d2131637b75770718046b6262a520cc9c65e95f9e0c14a53a9e9f" => :sierra
+    sha256 "6726003d6957b5e6ff8f4cbe78bf3d3b2cba3b6f935dc7a8f1397ab2c5915a76" => :el_capitan
+    sha256 "2712ab5f38846fa59885b48c365cf00fe3e7cb70d72b67498eba25c2a4502c5f" => :yosemite
   end
 
   depends_on "autoconf" => :build

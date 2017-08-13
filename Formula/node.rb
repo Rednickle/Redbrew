@@ -3,13 +3,13 @@ class Node < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v8.3.0/node-v8.3.0.tar.xz"
   sha256 "c3a836d84181724db477cb034a46a5274a3a1ea19623f886eae0c571e4b96e51"
+  revision 1
   head "https://github.com/nodejs/node.git"
 
   bottle do
-    sha256 "9a2a9a55c9ba32f24c1e7c1c1a3b3762362b3b1ae101faa31ee789cea3ef14d7" => :sierra
-    sha256 "35caba9c5694bbef88284db6fc4495068a2cf93ce1d1ca72bafe62ee62fea893" => :el_capitan
-    sha256 "afb6282fb49841534332bea3890678ba7fd8351b39ca626ee6c271c5b7823618" => :yosemite
-    sha256 "63380684edecb4bc8a7af86d404fc6a4925dd36b767840af29189de40e512632" => :x86_64_linux
+    sha256 "2dda42726f302136522fe93a05ea991e43a29ba789f155d6e56ef71e5e205f82" => :sierra
+    sha256 "94e101c5d81ba54a332509953b340d75ed2b4e1b55ad6aa0ba74b8f039c09a96" => :el_capitan
+    sha256 "14cebf238bfe4dc8857980ba072d3b70f478abb98741d131cd3093812cb5ed23" => :yosemite
   end
 
   option "with-debug", "Build with debugger hooks"
@@ -41,9 +41,6 @@ class Node < Formula
   end
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
-
     # Never install the bundled "npm", always prefer our
     # installation from tarball for better packaging control.
     args = %W[--prefix=#{prefix} --without-npm]
@@ -51,11 +48,6 @@ class Node < Formula
     args << "--with-intl=system-icu" if build.with? "icu4c"
     args << "--shared-openssl" if build.with? "openssl"
     args << "--tag=head" if build.head?
-
-    # Fix collect2: fatal error: cannot find 'ld'
-    # The snapshot feature requires the gold linker.
-    # See https://github.com/nodejs/node/issues/4212
-    args << "--without-snapshot" if OS.linux?
 
     system "./configure", *args
     system "make", "install"
