@@ -5,8 +5,8 @@
 class Wine < Formula
   desc "Run Windows applications without a copy of Microsoft Windows"
   homepage "https://www.winehq.org/"
+  revision 3
   head "https://source.winehq.org/git/wine.git"
-  revision 2
 
   stable do
     url "https://dl.winehq.org/wine/source/2.0/wine-2.0.2.tar.xz"
@@ -29,9 +29,9 @@ class Wine < Formula
   end
 
   bottle do
-    sha256 "b09ef0fe3bbcca1315b6c63b0b6a99a8fed68ff7289471d74bbfa6dce0f29446" => :sierra
-    sha256 "79db8a7071198ffbefd3e2e71a145aaa06a50e4592afe7d4c6742d5317edee2a" => :el_capitan
-    sha256 "165887c3359490f7bb82af0631007731abe2b9228e2256b86b0892f110a31db4" => :yosemite
+    sha256 "63366bc4edfc655d5684b90b7de3eea48942ba19f96dd38b953a72685d1cb2ef" => :sierra
+    sha256 "938763b483907313d93b37f7dda6d8eb332c0d27ce94c14d62f9af3084a04ce6" => :el_capitan
+    sha256 "20ebde20c833412af76f424496f1a2eb0a29227069a3a240450f2caa7fe47c21" => :yosemite
   end
 
   devel do
@@ -162,9 +162,9 @@ class Wine < Formula
   end
 
   resource "mpg123" do
-    url "https://downloads.sourceforge.net/project/mpg123/mpg123/1.25.4/mpg123-1.25.4.tar.bz2"
-    mirror "https://mpg123.orgis.org/download/mpg123-1.25.4.tar.bz2"
-    sha256 "cdb5620e8aab83f75a27dab3394a44b9cc4017fc77b2954b8425ca416db6b3e7"
+    url "https://downloads.sourceforge.net/project/mpg123/mpg123/1.25.5/mpg123-1.25.5.tar.bz2"
+    mirror "https://mpg123.orgis.org/download/mpg123-1.25.5.tar.bz2"
+    sha256 "358da8602c001e6b25dddd496f50540a419e9922f0efe513e890f266135926b1"
   end
 
   fails_with :clang do
@@ -423,6 +423,11 @@ class Wine < Formula
                                 "--enable-local-backends",
                                 "--with-usb=yes",
                                 *depflags
+          # Remove for > 1.0.27
+          # Workaround for bug in Makefile.am described here:
+          # https://lists.alioth.debian.org/pipermail/sane-devel/2017-August/035576.html.
+          # Fixed in https://anonscm.debian.org/cgit/sane/sane-backends.git/commit/?id=519ff57
+          system "make"
           system "make", "install"
         end
       end
