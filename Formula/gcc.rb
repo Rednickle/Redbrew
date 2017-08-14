@@ -43,12 +43,6 @@ class Gcc < Formula
   option "with-nls", "Build with native language support (localization)"
   option "with-jit", "Build the jit compiler"
   option "without-fortran", "Build without the gfortran compiler"
-  # enabling multilib on a host that can't run 64-bit results in build failures
-  if OS.mac?
-    option "without-multilib", "Build without multilib support" if MacOS.prefer_64_bit?
-  else
-    option "with-multilib", "Build with multilib support"
-  end
 
   depends_on "zlib" unless OS.mac?
   depends_on "binutils" if build.with? "glibc"
@@ -153,12 +147,6 @@ class Gcc < Formula
       args << "--with-ecj-jar=#{Formula["ecj"].opt_share}/java/ecj.jar"
     end
 
-    if build.without?("multilib") || !MacOS.prefer_64_bit?
-      args << "--disable-multilib"
-    else
-      args << "--enable-multilib"
-    end
-
     args << "--enable-host-shared" if build.with?("jit") || build.with?("all-languages")
 
     # Ensure correct install names when linking against libgcc_s;
@@ -171,6 +159,12 @@ class Gcc < Formula
         # "native-system-headers" will be appended
         args << "--with-native-system-header-dir=/usr/include"
         args << "--with-sysroot=#{MacOS.sdk_path}"
+      end
+
+      if MacOS.prefer_64_bit?
+        args << "--enable-multilib"
+      else
+        args << "--disable-multilib"
       end
 
       system "../configure", *args
@@ -268,16 +262,6 @@ class Gcc < Formula
       # Symlink ligcc_s.so.1 where glibc can find it.
       # Fix the error: libgcc_s.so.1 must be installed for pthread_cancel to work
       ln_sf opt_lib/"libgcc_s.so.1", glibc.lib if glibc.installed?
-    end
-  end
-
-  def caveats
-    if build.with?("multilib") then <<-EOS.undent
-      GCC has been built with multilib support. Notably, OpenMP may not work:
-        https://gcc.gnu.org/bugzilla/show_bug.cgi?id=60670
-      If you need OpenMP support you may want to
-        brew reinstall gcc --without-multilib
-      EOS
     end
   end
 
