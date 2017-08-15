@@ -22,17 +22,17 @@ class Gcc < Formula
       mirror "https://ftp.gnu.org/gnu/gcc/gcc-5.3.0/gcc-5.3.0.tar.bz2"
       sha256 "b84f5592e9218b73dbae612b5253035a7b34a9a1f7688d2e1bfaaf7267d5c4db"
     else
-      url "https://ftp.gnu.org/gnu/gcc/gcc-6.3.0/gcc-6.3.0.tar.bz2"
-      mirror "https://ftpmirror.gnu.org/gcc/gcc-6.3.0/gcc-6.3.0.tar.bz2"
-      sha256 "f06ae7f3f790fbf0f018f6d40e844451e6bc3b7bc96e128e63b09825c1f8b29f"
+      url "https://ftp.gnu.org/gnu/gcc/gcc-7.2.0/gcc-7.2.0.tar.xz"
+      mirror "https://ftpmirror.gnu.org/gcc/gcc-7.2.0/gcc-7.2.0.tar.xz"
+      sha256 "1cf7adf8ff4b5aa49041c8734bbcf1ad18cc4c94d0029aae0f4e48841088479a"
     end
   end
 
   bottle do
     cellar :any if OS.linux?
-    sha256 "9a05a75102206bfb3e37ff60b822421dd73c4a14b67f7acb258054317fd0f5ca" => :sierra
-    sha256 "c76a4b7294e41e410d37cd45d9c2f820c55001a7cfa82b71ac81d6a0051de5f4" => :el_capitan
-    sha256 "807d107ada2e8774a5bf1461d3f8dc636d1135bdfde5a64f03ccabc063a11328" => :yosemite
+    sha256 "bc96bddd0e9f7c074eab7c4036973bc60d5d5ef4489e65db64018363d63d248d" => :sierra
+    sha256 "755ed27d3aa9b60523aead68f36d17f6396b9f4b622a0972c05eae3302922d5c" => :el_capitan
+    sha256 "eecedf7c9233bd1553d3e22027f415f15a9d1a7ad11e486855bf3a8f7d36ed23" => :yosemite
     sha256 "2c6ae8e098830e19f87d8426b49d353b6cbc0b89d9259bae242d57b6694c9039" => :x86_64_linux
   end
 
