@@ -14,6 +14,12 @@ class XercesC < Formula
     sha256 "bf9d893b103031355c3110d6844cc5a80563da8d6cfd05473f0193322a9bb1a0" => :x86_64_linux
   end
 
+  pour_bottle? do
+    default_prefix = BottleSpecification::DEFAULT_PREFIX
+    reason "The bottle needs to be installed into #{default_prefix} on Linux."
+    satisfy { !OS.linux? || HOMEBREW_PREFIX.to_s == default_prefix }
+  end
+
   depends_on "curl" unless OS.mac?
 
   def install
