@@ -30,10 +30,7 @@ class Goffice < Formula
   depends_on "librsvg"
   depends_on "pango"
   depends_on "pcre"
-  unless OS.mac?
-    depends_on "libxslt"
-    depends_on "libxml2" => :run
-  end
+  depends_on "libxslt" unless OS.mac?
 
   def install
     args = %W[--disable-dependency-tracking --prefix=#{prefix}]
