@@ -1,14 +1,13 @@
 class Pango < Formula
   desc "Framework for layout and rendering of i18n text"
   homepage "http://www.pango.org/"
-  url "https://download.gnome.org/sources/pango/1.40/pango-1.40.9.tar.xz"
-  sha256 "9faea6535312fe4436b93047cf7a04af544eb52a079179bd3a33821aacce7e16"
+  url "https://download.gnome.org/sources/pango/1.40/pango-1.40.10.tar.xz"
+  sha256 "5d41d94a1f70e92ba5808e13f2bf3ef198901ddc0dc7e74e5afde994724466f6"
 
   bottle do
-    sha256 "3850faa7d83c7348bc24fecf68e5a56ca2c2ec2132076ed3200b156eac60942f" => :sierra
-    sha256 "ebb1013f265b79ebc81a762a1bb1e287e94b50b7ddbe55a67dbf550431605c83" => :el_capitan
-    sha256 "0a7e1e26f27e7a41ebe8785d6f142a21354ca269db1a9b69ebe38ead26a831b9" => :yosemite
-    sha256 "d9fe0c500d579f0f3ac23952c3d514fade68af90425342393f970ff03fba3c59" => :x86_64_linux
+    sha256 "385b73650e02cc81340abf3f10e419876f84c53b819c97c200cbd7bfd6b907a4" => :sierra
+    sha256 "e231cd0a780a1200a0080f207d3d8d423f947412983397d98523b684607e80c2" => :el_capitan
+    sha256 "42dc370bae77e2e2b02dec191aee3a162dc6a793dd9afc861466e191aa6b6af0" => :yosemite
   end
 
   head do
@@ -20,6 +19,12 @@ class Pango < Formula
     depends_on "gtk-doc" => :build
   end
 
+  # see https://bugzilla.gnome.org/show_bug.cgi?id=786347
+  # next four lines should be removed for the next release
+  depends_on "automake" => :build
+  depends_on "autoconf" => :build
+  depends_on "libtool" => :build
+  depends_on "gtk-doc" => :build
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "fontconfig"
@@ -33,7 +38,8 @@ class Pango < Formula
   end
 
   def install
-    system "./autogen.sh" if build.head?
+    # add conditional back for next release
+    system "./autogen.sh" # if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
