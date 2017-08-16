@@ -1,13 +1,13 @@
 class Gwyddion < Formula
   desc "Scanning Probe Microscopy visualization and analysis tool"
   homepage "http://gwyddion.net/"
-  url "http://gwyddion.net/download/2.48/gwyddion-2.48.tar.gz"
-  sha256 "45f4f1f987172845c4bc0e9de52e4e229a98e94d386625d654bafc2e1cadda10"
+  url "http://gwyddion.net/download/2.49/gwyddion-2.49.tar.gz"
+  sha256 "48446bc2c6680d61c16b3f637e57e09f4de631c6b80bc2b20f424f66cc896c1c"
 
   bottle do
-    sha256 "5d6b2bd0c51c46ddd92c5fded33a32fb229ab464130c581612854f0430770b4d" => :sierra
-    sha256 "6ed9942afc3c7a72d926757f178b2418d072f81a05e9c6b67e345837c66dba5a" => :el_capitan
-    sha256 "148eb8e8783ae236344fea3e15e11c872db0dfb3f6d83d848f944d6e33d7c936" => :yosemite
+    sha256 "54947cfef227f47304cfcd026eab9e8f870c6e4fc9caad0cc4b2d026b77d4713" => :sierra
+    sha256 "44f3afedf022ae6928247c87f433f360775cbc8e025f164a0d9d909fe847040b" => :el_capitan
+    sha256 "2f01f30e749a596a3d7c13daa7961bd209e58a818b997960554fd72df4383335" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -23,11 +23,9 @@ class Gwyddion < Formula
   depends_on "gtksourceview" if build.with? "python"
 
   def install
-    # Don't explicitly link against libpython. Will be patched in the next release:
-    # <https://sourceforge.net/p/gwyddion/mailman/message/35815736/>
-    inreplace "modules/pygwy/Makefile.in", /\$\(no_undefined\) \$\(PYTHON_LDFLAGS\)/, ""
     system "./configure", "--disable-dependency-tracking",
                           "--disable-desktop-file-update",
+                          "--enable-module-bundling=no",
                           "--prefix=#{prefix}",
                           "--with-html-dir=#{doc}"
     system "make", "install"
