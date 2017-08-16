@@ -3,23 +3,40 @@ class Fig2dev < Formula
   homepage "https://mcj.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/mcj/fig2dev-3.2.6a.tar.xz"
   sha256 "5e61a3d9a4f83db4b3199ee82dd54bb65b544369f1e8e38a2606c44cf71667a7"
+  revision 1
 
   bottle do
-    sha256 "31feda2231f672f7c15c2a74f9b392e0fa8378a0b7598010ed04e4a532f7a079" => :sierra
-    sha256 "ab4631a22c7d46b00f5271c390e64cf07f7acd54cd382937b153d0507c7d568f" => :el_capitan
-    sha256 "f144d58e99b3fa4b3798c30ba6c70b35b28c9840193357d89b748928200a4a48" => :yosemite
-    sha256 "1783b4bb62d38eb3180c1d1f5a211bed3ba46314cab81d205597f8313f257219" => :x86_64_linux
+    sha256 "faf054ca4097373006a95bde74efc792a663bc19f34f2f9cb59eac67c9f96740" => :sierra
+    sha256 "703e5bba6e0a413f865e6f34fb8ecc92ff64dd9469ae761947a1b0b707c4a4a9" => :el_capitan
+    sha256 "6994cc58bcf98e205b0d3d6ebbefbe2d7bcc02db84c10440a0e1c421fc08a79f" => :yosemite
   end
 
-  depends_on :x11
   depends_on "ghostscript"
   depends_on "libpng"
+  depends_on :x11 => :optional
+
+  # Upstream issue "macOS build fails without XQuartz (fig2dev 3.2.6a)"
+  # Reported 15 Aug 2017 https://sourceforge.net/p/mcj/tickets/15/
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/ace42c9/fig2dev/fig2dev-no-x11.patch"
+    sha256 "0fff7d54cc29c280f3bfa3ede9febdd7158bc923d3e7fe71a1706a1b9ed5c0ee"
+  end
 
   def install
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--enable-transfig"
+    args = %W[
+      --prefix=#{prefix}
+      --disable-dependency-tracking
+      --disable-silent-rules
+      --enable-transfig
+    ]
+
+    if build.with? "x11"
+      args << "--with-xpm" << "--with-x"
+    else
+      args << "--without-xpm" << "--without-x"
+    end
+
+    system "./configure", *args
     system "make", "install"
 
     # Install a fig file for testing

@@ -3,30 +3,29 @@ class Dmd < Formula
   homepage "https://dlang.org/"
 
   stable do
-    url "https://github.com/dlang/dmd/archive/v2.075.0.tar.gz"
-    sha256 "9c18019485eb65a11cb60645701fa0a35aa7f910f5a399a897fa8297c14c3df6"
+    url "https://github.com/dlang/dmd/archive/v2.075.1.tar.gz"
+    sha256 "98f3851c744b5cece97821aa371b7e690f7dfa1086b929385ae79e567664e89e"
 
     resource "druntime" do
-      url "https://github.com/dlang/druntime/archive/v2.075.0.tar.gz"
-      sha256 "a64e5fa94d7b367b3e9d08b03c460c10de5dcced3418bbadeb53707a0a8d2bfd"
+      url "https://github.com/dlang/druntime/archive/v2.075.1.tar.gz"
+      sha256 "5635347bff625522d50707352588d8e43d53618486f5322cc69100e97f4d2d3f"
     end
 
     resource "phobos" do
-      url "https://github.com/dlang/phobos/archive/v2.075.0.tar.gz"
-      sha256 "0d93d3d47be24995a1b1e97f0e04e7625d9e8b567e8c4a70d675af077f368f48"
+      url "https://github.com/dlang/phobos/archive/v2.075.1.tar.gz"
+      sha256 "94ba75e996904e890889b1bbe73eb8ba7dca5982cb3c6574ae7cad26384fa87c"
     end
 
     resource "tools" do
-      url "https://github.com/dlang/tools/archive/v2.075.0.tar.gz"
-      sha256 "2fb12e20fa62b3d3ffda60d2b1bed53485d7312c02d0ed10e4178f8859eb27dc"
+      url "https://github.com/dlang/tools/archive/v2.075.1.tar.gz"
+      sha256 "ba3ea0925f05b0a5d730c13f0ceae4000942157ae78e1afc4c214d55b9cbc60c"
     end
   end
 
   bottle do
-    sha256 "b1724eb67a864dd6a804cf823085087d15313c0db0310d49bb2f1cb3b743b033" => :sierra
-    sha256 "61a2eb09ffcfe61c8aea379a21291ef79d184725f49664e54f6f2cb3a087d167" => :el_capitan
-    sha256 "ebed6a8c951e6530286a3f5d9d3396ab42d62341d65df7a072986f9b5fb12007" => :yosemite
-    sha256 "9555d0fc99daf1a14138c799d3f43454b3bcc0d4807ba88db56a11cf9effa6e4" => :x86_64_linux
+    sha256 "fd47cfa377ebfd60efa81f3055cea91739ba6f5d919071a388c3099c7e147db4" => :sierra
+    sha256 "ca36760d6dade06bb0a3f338982ce84df1245ff287c2d3cbade7224bdd60d61a" => :el_capitan
+    sha256 "48df5506973862c14a85a7fb1da6f12b335da3abe977851a98047974ad4a278e" => :yosemite
   end
 
   head do

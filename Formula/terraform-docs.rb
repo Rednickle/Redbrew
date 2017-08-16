@@ -3,22 +3,22 @@ require "language/go"
 class TerraformDocs < Formula
   desc "Tool to generate documentation from Terraform modules"
   homepage "https://github.com/segmentio/terraform-docs"
-  url "https://github.com/segmentio/terraform-docs/archive/v0.1.0.tar.gz"
-  sha256 "47e66da75e179e61cde11a785487b8b05970154153c60fc765ef1f93a376abe2"
+  url "https://github.com/segmentio/terraform-docs/archive/v0.2.0.tar.gz"
+  sha256 "8f3ed47cfedde0a6e4ab8826b1d87009d06b7c04161363490b0a6c157473a146"
   head "https://github.com/segmentio/terraform-docs.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "97799cadd0bd380e3176b6126a9f8b6c314872ab4818428e6f3b1492cd3e219a" => :sierra
-    sha256 "d54e4af90588085df0d27d585d88603e9815e772871d614f8025f9a73c28e17a" => :el_capitan
-    sha256 "7736b3768981e653d21b9c7faf92161ee3a5c48ceb26acb355071bd121dc0593" => :yosemite
+    sha256 "b257ed5c8902d1866fdfdd54450a573cf794b9dab7c6b46b53bfcfc2e194d6b5" => :sierra
+    sha256 "2f837ebdd13cc095db958dbf3dcdac8fe12f4fc2bbba14e41035b791c1d5c950" => :el_capitan
+    sha256 "8a79d91615019ba653775e465abf80c5856f9779b7a89ce29987a10ae57a7223" => :yosemite
   end
 
   depends_on "go" => :build
 
   go_resource "github.com/hashicorp/hcl" do
     url "https://github.com/hashicorp/hcl.git",
-        :revision => "630949a3c5fa3c613328e1b8256052cbc2327c9b"
+        :revision => "392dba7d905ed5d04a5794ba89f558b27e2ba1ca"
   end
 
   go_resource "github.com/tj/docopt" do

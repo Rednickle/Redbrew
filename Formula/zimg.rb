@@ -1,15 +1,14 @@
 class Zimg < Formula
   desc "Scaling, colorspace conversion, and dithering library"
   homepage "https://github.com/sekrit-twc/zimg"
-  url "https://github.com/sekrit-twc/zimg/archive/release-2.6.tar.gz"
-  sha256 "dc505ec31ee7c67a32056288a729469ff83978586d731b753d5459629f0535c3"
+  url "https://github.com/sekrit-twc/zimg/archive/release-2.6a.tar.gz"
+  sha256 "d3ba0bb21a3919baf28f3caf9821cfba6ac8b40e74ee43948caae14e8a9e6a61"
   head "https://github.com/sekrit-twc/zimg.git"
 
   bottle do
     cellar :any
-    sha256 "5fa60bc4b834f2e6ff5891f1881d73fed706a11b3d4fa2ebf9312e041f5b0ceb" => :sierra
-    sha256 "4018003a418a9c223e70108856910ecb5d3b06b2d2a1f04dff9712f4d11a6407" => :el_capitan
-    sha256 "3a09a8f06caf27f53b11b6da2600a0be58e54c743b5bc1f80281c11bc37c045b" => :x86_64_linux
+    sha256 "739b8cc2e309d026abe3127f5914b9165b7522cb6c75bc4166b28e4c72e4a8b5" => :sierra
+    sha256 "9f3258f518a86b2670fdf20aa18eaee5155f84a8b081d5f7d004568068c3607a" => :el_capitan
   end
 
   depends_on "autoconf" => :build

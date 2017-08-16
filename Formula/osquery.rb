@@ -5,10 +5,11 @@ class Osquery < Formula
   url "https://github.com/facebook/osquery.git",
       :tag => "2.6.0",
       :revision => "3cd26ac48cc40f7b5a06f26af56434e662f75704"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "64bcba93bc628f65d1929ceff0f51d669002f53bb78e2aa499d3c953f34824f3" => :sierra
+    sha256 "1908dd5da24b9c6aea1a6deb8e5e852bdc25e4e8709ad3a0637e97a18262427d" => :sierra
   end
 
   fails_with :gcc => "6"
