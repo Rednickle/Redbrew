@@ -17,10 +17,10 @@ class Mongodb < Formula
   end
 
   bottle do
-    sha256 "ab9d732dd0d7f0b7dec686f3d3f82c827235ede59268431142f29adc555f0aa3" => :sierra
-    sha256 "e3fed9507f5f2b30f19da123dd33482c257d4cc72bc6a6cbebd9011e1cc3157c" => :el_capitan
-    sha256 "2b1097d45c207ff69d079b5f75bde1116859c2a5746f886783256749aa58881c" => :yosemite
-    sha256 "ba9fb2bc780ba1271bcc4c8fab5b36ba7f7ece689a33d0dc4af69eeba4953e7c" => :x86_64_linux
+    rebuild 1
+    sha256 "cc25b7b7318e8cb46b3c12b336437b1fdef23a82cb2c56603221bff22ba0e7f9" => :sierra
+    sha256 "dab827ceaa5c0fa21a1059781873898e3b36c15d4fdf954c72b70eb7dee3a954" => :el_capitan
+    sha256 "f0c9c807f836f7b07ebf40898da4a70a6d6434b21b0c78732c97ca0ce268e081" => :yosemite
   end
 
   devel do
@@ -109,17 +109,19 @@ class Mongodb < Formula
       -j#{ENV.make_jobs}
     ]
 
-    if OS.mac?
-      args << "--osx-version-min=#{MacOS.version}" if build.stable?
-      args << "CCFLAGS=-mmacosx-version-min=#{MacOS.version}" if build.devel?
-      args << "LINKFLAGS=-mmacosx-version-min=#{MacOS.version}" if build.devel?
-    end
+    args << "--osx-version-min=#{MacOS.version}" if build.stable? && OS.mac?
     args << "CC=#{ENV.cc}"
     args << "CXX=#{ENV.cxx}"
+
+    if build.devel?
+      args << "CCFLAGS=-mmacosx-version-min=#{MacOS.version}"
+      args << "LINKFLAGS=-mmacosx-version-min=#{MacOS.version}"
+    end
 
     args << "--use-sasl-client" if build.with? "sasl"
     args << "--use-system-boost" if build.with? "boost"
     args << "--use-new-tools"
+    args << "--build-mongoreplay=true"
     args << "--disable-warnings-as-errors" if !OS.mac? || MacOS.version >= :yosemite
 
     if build.with? "openssl"
@@ -131,14 +133,16 @@ class Mongodb < Formula
 
     scons "install", *args
 
-    (buildpath+"mongod.conf").write mongodb_conf
+    (buildpath/"mongod.conf").write mongodb_conf
     etc.install "mongod.conf"
-
-    (var+"mongodb").mkpath
-    (var+"log/mongodb").mkpath
 
     # Reduce the size of the bottle.
     system "strip", *Dir[bin/"*"] unless OS.mac?
+  end
+
+  def post_install
+    (var/"mongodb").mkpath
+    (var/"log/mongodb").mkpath
   end
 
   def mongodb_conf; <<-EOS.undent
