@@ -5,14 +5,11 @@ class Gtkx3 < Formula
   sha256 "b64b1c2ec20adf128ac08ee704d1f4e7b0a8d3df097d51f62edb271c7bb1bf69"
 
   bottle do
-    sha256 "da5883629947536e64cd999f7fda4b2c7859b8682683dd46632f378cfd33aaed" => :sierra
-    sha256 "b346b9d8ad6e176f29a92d5b07883653184ac25935d199014fdb11a0ddf5f51c" => :el_capitan
-    sha256 "2f87657f1c96770a85b3ae2cb577cdcc225feae73a2d2253008e69ab3e6777aa" => :yosemite
-    sha256 "886a68a09230328218cc0cca8fb51bf2728298883a6708aeecafce7399ed9b7e" => :x86_64_linux
+    rebuild 1
+    sha256 "46a97cfbe28806a5d81f3358b49733116fa80777b0f6351746844efc856434a7" => :sierra
+    sha256 "ccdf41112f2a10526efc909c04d624d7ac785a8f74a295045b33f5f1fdb37f13" => :el_capitan
+    sha256 "daa622e0bce955aab99c95f7414e4757ab2b31b19bc12a51b206446caa663301" => :yosemite
   end
-
-  # see https://bugzilla.gnome.org/show_bug.cgi?id=781118
-  patch :DATA
 
   option "with-quartz-relocation", "Build with quartz relocation support"
 
@@ -123,32 +120,3 @@ class Gtkx3 < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/gdk/quartz/gdkscreen-quartz.c b/gdk/quartz/gdkscreen-quartz.c
-index 586f7af..d032643 100644
---- a/gdk/quartz/gdkscreen-quartz.c
-+++ b/gdk/quartz/gdkscreen-quartz.c
-@@ -79,7 +79,7 @@ gdk_quartz_screen_init (GdkQuartzScreen *quartz_screen)
-   NSDictionary *dd = [[[NSScreen screens] objectAtIndex:0] deviceDescription];
-   NSSize size = [[dd valueForKey:NSDeviceResolution] sizeValue];
-
--  _gdk_screen_set_resolution (screen, size.width);
-+  _gdk_screen_set_resolution (screen, 72.0);
-
-   gdk_quartz_screen_calculate_layout (quartz_screen);
-
-@@ -334,11 +334,8 @@ gdk_quartz_screen_get_height (GdkScreen *screen)
- static gint
- get_mm_from_pixels (NSScreen *screen, int pixels)
- {
--  const float mm_per_inch = 25.4;
--  NSDictionary *dd = [[[NSScreen screens] objectAtIndex:0] deviceDescription];
--  NSSize size = [[dd valueForKey:NSDeviceResolution] sizeValue];
--  float dpi = size.width;
--  return (pixels / dpi) * mm_per_inch;
-+  const float dpi = 72.0;
-+  return (pixels / dpi) * 25.4;
- }
-
- static gchar *
