@@ -1,15 +1,25 @@
 class Getdns < Formula
   desc "Modern asynchronous DNS API"
   homepage "https://getdnsapi.net"
-  url "https://getdnsapi.net/releases/getdns-1-1-2/getdns-1.1.2.tar.gz"
-  sha256 "685fbd493601c88c90b0bf3021ba0ee863e3297bf92f01b8bf1b3c6637c86ba5"
-  revision 1
+  revision 2
+
+  stable do
+    url "https://getdnsapi.net/releases/getdns-1-1-2/getdns-1.1.2.tar.gz"
+    sha256 "685fbd493601c88c90b0bf3021ba0ee863e3297bf92f01b8bf1b3c6637c86ba5"
+
+    # Remove for > 1.1.2
+    # Upstream PR from 18 Aug 2017 "Fix issue on OS X 10.10 where TCP fast open
+    # is detected but not implemented causing TCP to fail"
+    patch do
+      url "https://github.com/getdnsapi/getdns/pull/328.patch?full_index=1"
+      sha256 "8528bc22d705502f238db7a73e9f1ddbafca398d4b133056b6b4b161adbc3929"
+    end
+  end
 
   bottle do
-    sha256 "15e207c6fac993a047a179eecff02035046d3a7a29ea17e8fa20e9bc92281eb4" => :sierra
-    sha256 "cde110a16c40f5b1d3ce054fffdb7999d5f33b766551e8bcb83f438ddda2d4ce" => :el_capitan
-    sha256 "1796fda4fe2bb1d694a0e5c840d097414809bee9bcbc962d82958663d61ab5bf" => :yosemite
-    sha256 "be48ad065514898e792b41b086177dbdc50adb3e99f225598acf92f7f0c200fd" => :x86_64_linux
+    sha256 "38f785b5316068f359f5b5167f2cdabf4c33add3c5a81b7f138efa44a1bfd688" => :sierra
+    sha256 "d72f1b67dc14a963f08b0337e030f19e2bfbe4cb9b7d1523587f491f73f0b691" => :el_capitan
+    sha256 "174bb8420ba3dca17a9d646ba06ff720332f1991406932327e0cdf34392f00cf" => :yosemite
   end
 
   head do

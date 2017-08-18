@@ -3,13 +3,12 @@ class R < Formula
   homepage "https://www.r-project.org/"
   url "https://cran.rstudio.com/src/base/R-3/R-3.4.1.tar.gz"
   sha256 "02b1135d15ea969a3582caeb95594a05e830a6debcdb5b85ed2d5836a6a3fc78"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "9b96002d2a130dba0ead8984d4a76c1b057d8ef7427d6f5895f7e0c2698d86ef" => :sierra
-    sha256 "3d75841c3a8861ba040cb5c943133e4c3b6ceab8b6b8b9f311a5e6af6dce2bba" => :el_capitan
-    sha256 "bce75ad0e8e8cbacd1e2da18b9007695d7fd3e32c0eb1e77df122aca8927e16a" => :yosemite
-    sha256 "e1e5e8bdf48aaeeeda4a9592ed276ad00d580fc29da32940902658112cf3affb" => :x86_64_linux
+    sha256 "9e142bd997897eae4cf785a2ffc712557237c10f191369f338b1b23f02c78954" => :sierra
+    sha256 "8b2cd74e219afb9477a4459aa7096190e0d19ac7f8ff02410026febcc897d749" => :el_capitan
+    sha256 "123be38bdb449655f0b66043af5c1b756f752004117b0cc31385b667600f4f38" => :yosemite
   end
 
   depends_on "pkg-config" => :build
@@ -32,6 +31,12 @@ class R < Formula
 
   # needed to preserve executable permissions on files without shebangs
   skip_clean "lib/R/bin"
+
+  resource "gss" do
+    url "https://cloud.r-project.org/src/contrib/gss_2.1-7.tar.gz", :using => :nounzip
+    mirror "https://mirror.las.iastate.edu/CRAN/src/contrib/gss_2.1-7.tar.gz"
+    sha256 "0405bb5e4c4d60b466335e5da07be4f9570045a24aed09e7bc0640e1a00f3adb"
+  end
 
   def install
     # Fix dyld: lazy symbol binding failed: Symbol not found: _clock_gettime
@@ -108,6 +113,10 @@ class R < Formula
 
     include.install_symlink Dir[r_home/"include/*"]
     lib.install_symlink Dir[r_home/"lib/*"]
+
+    # avoid triggering mandatory rebuilds of r when gcc is upgraded
+    inreplace lib/"R/etc/Makeconf", Formula["gcc"].prefix.realpath,
+                                    Formula["gcc"].opt_prefix
   end
 
   def post_install
@@ -122,5 +131,10 @@ class R < Formula
     dylib_ext = OS.mac? ? ".dylib" : ".so"
     assert_equal "[1] 2", shell_output("#{bin}/Rscript -e 'print(1+1)'").chomp
     assert_equal dylib_ext, shell_output("#{bin}/R CMD config DYLIB_EXT").chomp
+
+    testpath.install resource("gss")
+    system bin/"R", "CMD", "INSTALL", "--library=.", Dir["gss*"].first
+    assert_predicate testpath/"gss/libs/gss.so", :exist?,
+                     "Failed to install gss package"
   end
 end

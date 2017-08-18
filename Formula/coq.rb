@@ -16,7 +16,7 @@ class Coq < Formula
   url "https://coq.inria.fr/distrib/8.6.1/files/coq-8.6.1.tar.gz"
   sha256 "32f8aa92853483dec18030def9f0857a708fee56cf4287e39c9a260f08138f9d"
   revision 1
-  head "git://scm.gforge.inria.fr/coq/coq.git", :branch => "trunk"
+  head "git://scm.gforge.inria.fr/coq/coq.git"
 
   bottle do
     sha256 "968dd6001448e4f0306d8d3b35fddda5e884bad63036c8dc611d5ba28a355d49" => :x86_64_linux
@@ -32,8 +32,9 @@ class Coq < Formula
     ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
 
     ENV["OPAMYES"] = "1"
-    ENV["OPAMROOT"] = Pathname.pwd/"opamroot"
-    (Pathname.pwd/"opamroot").mkpath
+    opamroot = buildpath/"../opamroot"
+    opamroot.mkpath
+    ENV["OPAMROOT"] = opamroot
     system "opam", "init", "--no-setup"
     system "opam", "install", "ocamlfind"
 
@@ -50,6 +51,9 @@ class Coq < Formula
 
   test do
     (testpath/"testing.v").write <<-EOS.undent
+      Require Coq.omega.Omega.
+      Require Coq.ZArith.ZArith.
+
       Inductive nat : Set :=
       | O : nat
       | S : nat -> nat.
@@ -59,7 +63,16 @@ class Coq < Formula
         | S n' => S (add n' m)
         end.
       Lemma add_O_r : forall (n: nat), add n O = n.
+      Proof.
       intros n; induction n; simpl; auto; rewrite IHn; auto.
+      Qed.
+
+      Import Coq.omega.Omega.
+      Import Coq.ZArith.ZArith.
+      Open Scope Z.
+      Lemma add_O_r_Z : forall (n: Z), n + 0 = n.
+      Proof.
+      intros; omega.
       Qed.
     EOS
     system("#{bin}/coqc", "#{testpath}/testing.v")

@@ -1,14 +1,13 @@
 class Nghttp2 < Formula
   desc "HTTP/2 C Library"
   homepage "https://nghttp2.org/"
-  url "https://github.com/nghttp2/nghttp2/releases/download/v1.24.0/nghttp2-1.24.0.tar.xz"
-  sha256 "0d443cd2f45593aa42e93163cb46a03cb4a28703712a8dd8cc9102d454727316"
+  url "https://github.com/nghttp2/nghttp2/releases/download/v1.25.0/nghttp2-1.25.0.tar.xz"
+  sha256 "9553f144e60aa0d7bc5245df1c0f6a867a9fd9dc35ed6f358c6122a844d52f62"
 
   bottle do
-    sha256 "a8bd9045a3a955c9f404f503dd180b0d13233568a76e1f1669e7907853465b7e" => :sierra
-    sha256 "f2b810b25eec725f58b9b4724f5dd90f792fc733e35da2b8846e0ae39e6e6a49" => :el_capitan
-    sha256 "9250318468dae2c1ead682e55c5158536c864719bab8c9fda679529fd0f4cb3d" => :yosemite
-    sha256 "f3b8d2897005edaef56e89fbe55a58f1271618c16834f0819d7b48e197890fb2" => :x86_64_linux
+    sha256 "b48b0ff3b0bb17e343ff6d2d9cd81fdc399880793e0cab64d04e983067b9d9cf" => :sierra
+    sha256 "e5701e7eabba29583b1e067ffd8b942e091c10220efdc991dcb83cd04de45ca4" => :el_capitan
+    sha256 "b97d13831724a3436e0f71d89e04352da82ba9ab97238535a56d6062d664590a" => :yosemite
   end
 
   head do
@@ -37,8 +36,8 @@ class Nghttp2 < Formula
   depends_on "jemalloc" => :recommended
 
   resource "Cython" do
-    url "https://files.pythonhosted.org/packages/b7/67/7e2a817f9e9c773ee3995c1e15204f5d01c8da71882016cac10342ef031b/Cython-0.25.2.tar.gz"
-    sha256 "f141d1f9c27a07b5a93f7dc5339472067e2d7140d1c5a9e20112a5665ca60306"
+    url "https://files.pythonhosted.org/packages/10/d5/753d2cb5073a9f4329d1ffed1de30b0458821780af8fdd8ba1ad5adb6f62/Cython-0.26.tar.gz"
+    sha256 "4c24e2c22ddaed624d35229dc5db25049e9e225c6f64f3364326836cad8f2c66"
   end
 
   # https://github.com/tatsuhiro-t/nghttp2/issues/125
