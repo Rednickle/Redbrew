@@ -17,7 +17,6 @@ class Systemd < Formula
   depends_on "pkg-config" => :build
   depends_on "util-linux" # for libmount
   depends_on "coreutils" => :build
-  depends_on "XML::Parser" => :perl
 
   def install
     system "./configure",
