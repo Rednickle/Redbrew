@@ -47,7 +47,7 @@ class Rust < Formula
   depends_on "openssl"
   depends_on "libssh2"
   unless OS.mac?
-    depends_on "binutils" => :build
+    depends_on "binutils"
     depends_on :python
   end
   depends_on CIRequirement
