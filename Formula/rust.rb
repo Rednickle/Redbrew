@@ -50,7 +50,7 @@ class Rust < Formula
     depends_on "binutils"
     depends_on :python
   end
-  depends_on CIRequirement
+  depends_on CIRequirement => :build
 
   conflicts_with "cargo-completion", :because => "both install shell completion for cargo"
 
