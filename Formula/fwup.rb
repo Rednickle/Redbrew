@@ -3,13 +3,13 @@ class Fwup < Formula
   homepage "https://github.com/fhunleth/fwup"
   url "https://github.com/fhunleth/fwup/releases/download/v0.15.4/fwup-0.15.4.tar.gz"
   sha256 "0594ae5dd1014a610881b21289a8415c8b78ea012d2a5567d57f986625669167"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "ce72cf839975a2ad14b42b80c38ee7e0e161dd7376cf386aa93e33c5113aa951" => :sierra
-    sha256 "2ea57b58a98db74409ab474edad63998bf0c3dce7b5ece84a096cc735a92c2bd" => :el_capitan
-    sha256 "25ccb4df3872e6e39893b88957ea7ad2bf19794d2ed1b68b969032b285d542e8" => :yosemite
-    sha256 "9d4ec9c672ffc6fd419ce12a4b26e0a4440206bac0bb8168712c54ef7937d7ea" => :x86_64_linux
+    sha256 "082a2a2355ccf742ee41444aa0acc53e35aa895194ba31cd9d60df2c3eff338e" => :sierra
+    sha256 "a972b47210a86cd761cfd95d00f59b29838420d387bb491410f72fad85c190cd" => :el_capitan
+    sha256 "9a2ed135cf9292c118169c698db7a0a50df45d06551a081c55553228c69c0524" => :yosemite
   end
 
   depends_on "pkg-config" => :build
