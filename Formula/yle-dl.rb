@@ -1,17 +1,16 @@
 class YleDl < Formula
   desc "Download Yle videos from the command-line"
   homepage "https://aajanki.github.io/yle-dl/index-en.html"
-  url "https://github.com/aajanki/yle-dl/archive/2.22.tar.gz"
-  sha256 "076423a45f0b3576731568d287ce84e3f444982394b8b56759dd9ae58d77ca95"
+  url "https://github.com/aajanki/yle-dl/archive/2.23.tar.gz"
+  sha256 "74ad3a4e038b8a74a4217532d7d5c39fe11cf32e293db86b9f8ea49d38fd1419"
 
   head "https://github.com/aajanki/yle-dl.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cb3a277e4000d890875e0f88540af463e45a40ee85dde40b4ca6413670a5f5fa" => :sierra
-    sha256 "2c0d6fa6e513a9e993e30183c9a6e1baa16fcf0a2a26c937d55f1adfb79db622" => :el_capitan
-    sha256 "8cfbc33c03f710dc78934a2ad9bc639f7a64b5c891ca7a3b09308169a216f3a5" => :yosemite
-    sha256 "c0df08b4d4fdfe32c48274eda3992b364039ad406ae263b399c186a8ce52fd69" => :x86_64_linux
+    sha256 "184130ec7140496499d91f9e83838abac93111f4b7d36bdb0fe6e321988b9e80" => :sierra
+    sha256 "239df7c4f665c9deabe2f23c9948f324094e27fc75fedbd8960731c80984b109" => :el_capitan
+    sha256 "5eb6f682a636c4bc902753b9de850eafeefdb80145b571ece21921d281852eea" => :yosemite
   end
 
   depends_on "rtmpdump"
@@ -41,8 +40,8 @@ class YleDl < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/d8/82/28a51052215014efc07feac7330ed758702fc0581347098a81699b5281cb/idna-2.5.tar.gz"
-    sha256 "3cb5ce08046c4e3a560fc02f138d0ac63e00f8ce5901a56b32ec8b7994082aab"
+    url "https://files.pythonhosted.org/packages/f4/bd/0467d62790828c23c47fc1dfa1b1f052b24efdf5290f071c7a91d0d82fd3/idna-2.6.tar.gz"
+    sha256 "2c6a5de3089009e3da7c5dde64a141dbc8551d5b7f6cf4ed7c2568d0cc520a8f"
   end
 
   resource "progress" do
@@ -56,8 +55,8 @@ class YleDl < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/c3/38/d95ddb6cc8558930600be088e174a2152261a1e0708a18bf91b5b8c90b22/requests-2.18.3.tar.gz"
-    sha256 "fb68a7baef4965c12d9cd67c0f5a46e6e28be3d8c7b6910c758fbcc99880b518"
+    url "https://files.pythonhosted.org/packages/b0/e1/eab4fc3752e3d240468a8c0b284607899d2fbfb236a56b7377a329aa8d09/requests-2.18.4.tar.gz"
+    sha256 "9c443e7324ba5b85070c4a818ade28bfabedf16ea10206da1132edaa6dda237e"
   end
 
   resource "urllib3" do
