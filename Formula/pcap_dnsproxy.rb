@@ -6,8 +6,9 @@ class PcapDnsproxy < Formula
   head "https://github.com/chengr28/Pcap_DNSProxy.git"
 
   bottle do
-    sha256 "645cf86c499459e461357fe0a4d41cc451aa35b9b61dfc956bf525aa0b7814b6" => :sierra
-    sha256 "819294a6e3ec1cb7b5738bec6b1d39178707deb5be3ab87bbeda6dbbbf68c545" => :el_capitan
+    rebuild 1
+    sha256 "0862220302a6c7500de591113cc52ba6a9fe958726147c1a515aba3ecdefbbda" => :sierra
+    sha256 "956bd0e1faba69ed5b212f037c453b5648b39d16bd6ee81c5e79da821f613b8e" => :el_capitan
   end
 
   depends_on :macos => :el_capitan
@@ -21,23 +22,23 @@ class PcapDnsproxy < Formula
     (buildpath/"Source/Dependency/OpenSSL").install_symlink Formula["openssl@1.1"].opt_lib/"libcrypto.a" => "LibCrypto_macOS.a"
     xcodebuild "-project", "./Source/Pcap_DNSProxy.xcodeproj", "-target", "Pcap_DNSProxy", "-configuration", "Release", "SYMROOT=build"
     bin.install "Source/build/Release/Pcap_DNSProxy"
-    (etc/"pcap_DNSproxy").install Dir["Source/Auxiliary/ExampleConfig/*.{ini,txt}"]
+    (etc/"pcap_dnsproxy").install Dir["Source/Auxiliary/ExampleConfig/*.{ini,txt}"]
     prefix.install "Source/Auxiliary/ExampleConfig/pcap_dnsproxy.service.plist"
   end
 
-  plist_options :startup => true, :manual => "sudo #{HOMEBREW_PREFIX}/opt/pcap_dnsproxy/bin/Pcap_DNSProxy -c #{HOMEBREW_PREFIX}/etc/pcap_DNSproxy/"
+  plist_options :startup => true, :manual => "sudo #{HOMEBREW_PREFIX}/opt/pcap_dnsproxy/bin/Pcap_DNSProxy -c #{HOMEBREW_PREFIX}/etc/pcap_dnsproxy/"
 
   test do
-    (testpath/"pcap_DNSproxy").mkpath
-    cp Dir[etc/"pcap_DNSproxy/*"], testpath/"pcap_DNSproxy/"
+    (testpath/"pcap_dnsproxy").mkpath
+    cp Dir[etc/"pcap_dnsproxy/*"], testpath/"pcap_dnsproxy/"
 
-    inreplace testpath/"pcap_DNSproxy/Config.ini" do |s|
+    inreplace testpath/"pcap_dnsproxy/Config.ini" do |s|
       s.gsub! /^Direct Request.*/, "Direct Request = IPv4 + IPv6"
       s.gsub! /^Operation Mode.*/, "Operation Mode = Proxy"
       s.gsub! /^Listen Port.*/, "Listen Port = 9999"
     end
 
-    pid = fork { exec bin/"Pcap_DNSProxy", "-c", testpath/"pcap_DNSproxy/" }
+    pid = fork { exec bin/"Pcap_DNSProxy", "-c", testpath/"pcap_dnsproxy/" }
     begin
       system "dig", "google.com", "@127.0.0.1", "-p", "9999", "+short"
     ensure
