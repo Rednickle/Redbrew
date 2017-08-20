@@ -1,3 +1,18 @@
+class BrewedGlibcNotOlderRequirement < Requirement
+  fatal true
+
+  satisfy(:build_env => false) do
+    GlibcRequirement.system_version <= Glibc.version
+  end
+
+  def message
+    <<-EOS.undent
+      Your system's glibc version is #{GlibcRequirement.system_version}, and Linuxbrew's gcc version is #{Glibc.version}.
+      Installing a version of glibc that is older than your system's can break formulae installed from source.
+    EOS
+  end
+end
+
 class GawkRequirement < Requirement
   fatal true
 
@@ -49,6 +64,7 @@ class Glibc < Formula
 
   option "with-current-kernel", "Compile for compatibility with kernel not older than your current one"
 
+  depends_on BrewedGlibcNotOlderRequirement
   depends_on GawkRequirement
   depends_on LinuxKernelRequirement
 
