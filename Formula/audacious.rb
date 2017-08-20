@@ -3,19 +3,19 @@ class Audacious < Formula
   homepage "http://audacious-media-player.org"
 
   stable do
-    url "http://distfiles.audacious-media-player.org/audacious-3.8.2.tar.bz2"
-    sha256 "bdf1471cce9becf9599c742c03bdf67a2b26d9101f7d865f900a74d57addbe93"
+    url "http://distfiles.audacious-media-player.org/audacious-3.9.tar.bz2"
+    sha256 "2d8044673ac786d71b08004f190bbca368258bf60e6602ffc0d9622835ccb05e"
 
     resource "plugins" do
-      url "http://distfiles.audacious-media-player.org/audacious-plugins-3.8.2.tar.bz2"
-      sha256 "d7cefca7a0e32bf4e58bb6e84df157268b5e9a6771a0e8c2da98b03f92a5fdd4"
+      url "http://distfiles.audacious-media-player.org/audacious-plugins-3.9.tar.bz2"
+      sha256 "8bf7f21089cb3406968cc9c71307774aee7100ec4607f28f63cf5690d5c927b8"
     end
   end
 
   bottle do
-    sha256 "9664a34b740c5298f7167481328ea36b3cbea5d158a220448bfde45d9f55159f" => :sierra
-    sha256 "e5c9122460a0431d7bf7e984e778521c2f6ec056488ab542c99e22f37aaad001" => :el_capitan
-    sha256 "701dd13bdb4b65532923f3a4e8ac36269a5d9fe1000646b2631742d7e2bb8976" => :yosemite
+    sha256 "2f0e97802256bc5949e6006475d63c41d480b3ae23df2eba221fa519da0eb096" => :sierra
+    sha256 "b4dde216d4f4bd626d80b0beacc78256d43b0592784e004533fc05d80e057018" => :el_capitan
+    sha256 "e99d56f74e804f29d710da15a928b6290a4ce50b305b48349aa5624faeaca94a" => :yosemite
   end
 
   head do
