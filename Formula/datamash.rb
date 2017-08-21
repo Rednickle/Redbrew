@@ -14,7 +14,7 @@ class Datamash < Formula
   end
 
   head do
-    url "git://git.savannah.gnu.org/datamash.git"
+    url "https://git.savannah.gnu.org/git/datamash.git"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "gettext" => :build

@@ -12,6 +12,8 @@ class OpencvAT2 < Formula
     sha256 "b89cb51089b08ef84c00c5e6ccd77f16e6df20f55802ffec673f24b2c0482507" => :x86_64_linux
   end
 
+  keg_only :versioned_formula
+
   option "without-python", "Build without python2 support"
 
   depends_on "cmake" => :build
