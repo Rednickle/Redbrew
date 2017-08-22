@@ -6,9 +6,10 @@ class Ncview < Formula
   revision 4
 
   bottle do
-    sha256 "415185d4e1dba216877d4bc55020a18f62a59008b3499ffe7fa51a334274b93c" => :sierra
-    sha256 "2ab04bd88cc2d265215f48f272a50a16ef3c32cdef624e935f7ee97ec94957fb" => :el_capitan
-    sha256 "d9c28e5974e1babe1b69b121827e0392fb43e44ec2caadec2db891eb5f18c78b" => :yosemite
+    root_url "https://linuxbrew.bintray.com/bottles"
+    prefix "/home/linuxbrew/.linuxbrew"
+    cellar "/home/linuxbrew/.linuxbrew/Cellar"
+    sha256 "5bc6b65d054992f18a9b641b19b2e0fc13c10454f0c45c056e0eb6208ec2bfc3" => :x86_64_linux
   end
 
   depends_on "netcdf"
