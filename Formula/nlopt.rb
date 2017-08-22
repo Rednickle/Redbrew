@@ -6,10 +6,10 @@ class Nlopt < Formula
   revision 2
 
   bottle do
-    cellar :any
-    sha256 "183d661c2b34ff468162b4bcc3bc7c287bcab47ff1bd4b902ea00fe188db1e52" => :sierra
-    sha256 "cfb26ea39b36e9a9ad472e2600864d040f02531ba2c922798f82455a25b73a30" => :el_capitan
-    sha256 "eed62f227cdfd93ba00d7abe061b4136945a4511d67651d0fa4aa07b196b7b7d" => :yosemite
+    root_url "https://linuxbrew.bintray.com/bottles"
+    prefix "/home/linuxbrew/.linuxbrew"
+    cellar "/home/linuxbrew/.linuxbrew/Cellar"
+    sha256 "d53f53fb773c137bb9c5d12c2d97fc7ab865dcbbb49f806eb5e96e32adf54fb5" => :x86_64_linux
   end
 
   head do
