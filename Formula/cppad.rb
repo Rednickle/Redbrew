@@ -7,10 +7,10 @@ class Cppad < Formula
   head "https://github.com/coin-or/CppAD.git"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles"
+    prefix "/home/linuxbrew/.linuxbrew"
     cellar :any_skip_relocation
-    sha256 "51232231b12b01f62c24a08b18f28ee026e44867085baeb4f8f68f28b72e5f5a" => :sierra
-    sha256 "51232231b12b01f62c24a08b18f28ee026e44867085baeb4f8f68f28b72e5f5a" => :el_capitan
-    sha256 "51232231b12b01f62c24a08b18f28ee026e44867085baeb4f8f68f28b72e5f5a" => :yosemite
+    sha256 "9f4d2fee4fa6f6780fe089a2eb5927ba398d289e2d10a024fa7dcabac0aa9288" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
