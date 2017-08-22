@@ -10,9 +10,10 @@ class Imagemagick < Formula
   head "https://github.com/ImageMagick/ImageMagick.git"
 
   bottle do
-    sha256 "9e9d57ed7cd950f936841ff3635423abf6025b3c468089cabfb91a4ba1886a14" => :sierra
-    sha256 "34fd2bd30c648cc1dd93b4b887f2f68b76c2b60f174c96472d64dedeabbf2dcf" => :el_capitan
-    sha256 "e2c8e82d0c1c64de599032d9f56479d1d46439a6e8a5ca3da48eb6560dee5ea1" => :yosemite
+    root_url "https://linuxbrew.bintray.com/bottles"
+    prefix "/home/linuxbrew/.linuxbrew"
+    cellar "/home/linuxbrew/.linuxbrew/Cellar"
+    sha256 "4c9e2496b8855dfc8db16ec001769a44c01f7a6afb25b8f7e5f9623b176990a4" => :x86_64_linux
   end
 
   option "with-fftw", "Compile with FFTW support"
