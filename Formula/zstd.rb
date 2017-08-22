@@ -5,10 +5,10 @@ class Zstd < Formula
   sha256 "312fb9dc75668addbc9c8f33c7fa198b0fc965c576386b8451397e06256eadc6"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles"
+    prefix "/home/linuxbrew/.linuxbrew"
     cellar :any
-    sha256 "8ed5d6634d35dabef86531e168f7b42aee4e75e3eb373e4cc1ac68f160f26a2d" => :sierra
-    sha256 "ebb20d76a07b95d0771ae66b338fdd7e47f6bb4e7a49e8fd1ec882b91d10c762" => :el_capitan
-    sha256 "68dcd8dd4fa5f5a88c19d1a1cf8339c17723baef2554895063ef2afaf80774ef" => :yosemite
+    sha256 "8028e9b692dd03b96a4b059dabe819fde4ee749ed36081bfb2338d8c0472a088" => :x86_64_linux
   end
 
   option "without-pzstd", "Build without parallel (de-)compression tool"
