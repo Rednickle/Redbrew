@@ -3,12 +3,12 @@ class MingwW64 < Formula
   homepage "https://mingw-w64.org/"
   url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v5.0.2.tar.bz2"
   sha256 "5f46e80ff1a9102a37a3453743dae9df98262cba7c45306549ef7432cfd92cfd"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 "089a548ed9c3e0cd3fcecef5af7b9ad687ba246df5429a6665d550b41f7acfc2" => :sierra
-    sha256 "26ff8d3d34c2ec70511249ac647d266d62f7eab4fac815c0432954d0609f3c56" => :el_capitan
-    sha256 "5fdddf98667694aa44b60ec89ae41f179d853b3266140a4579d621c6d49ed5d0" => :yosemite
+    sha256 "59c6a9805b9465536ea75193729c709c23bc23748e7c7354c004eba76b1f26cf" => :sierra
+    sha256 "0b51651bf82d7fef7b0a2e90b7b4956babe907d8781a02b3b3e0a80e5597e71c" => :el_capitan
+    sha256 "a5adac170ecbfe2e24e68a43e3ae0f2974bc5f67443ddd15bbbf6c7d6a92d7a4" => :yosemite
   end
 
   depends_on "gmp"
@@ -26,9 +26,9 @@ class MingwW64 < Formula
   end
 
   resource "gcc" do
-    url "https://ftp.gnu.org/gnu/gcc/gcc-7.1.0/gcc-7.1.0.tar.bz2"
-    mirror "https://ftpmirror.gnu.org/gcc/gcc-7.1.0/gcc-7.1.0.tar.bz2"
-    sha256 "8a8136c235f64c6fef69cac0d73a46a1a09bb250776a050aec8f9fc880bebc17"
+    url "https://ftp.gnu.org/gnu/gcc/gcc-7.2.0/gcc-7.2.0.tar.xz"
+    mirror "https://ftpmirror.gnu.org/gcc/gcc-7.2.0/gcc-7.2.0.tar.xz"
+    sha256 "1cf7adf8ff4b5aa49041c8734bbcf1ad18cc4c94d0029aae0f4e48841088479a"
   end
 
   # Patch for mingw-w64 5.0.2 with GCC 7

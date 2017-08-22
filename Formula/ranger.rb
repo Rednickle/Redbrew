@@ -5,7 +5,7 @@ class Ranger < Formula
   sha256 "1433f9f9958b104c97d4b23ab77a2ac37d3f98b826437b941052a55c01c721b4"
   revision 1 unless OS.mac?
 
-  head "git://git.savannah.nongnu.org/ranger.git"
+  head "https://github.com/ranger/ranger.git"
 
   bottle do
     cellar :any_skip_relocation

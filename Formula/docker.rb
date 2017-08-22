@@ -2,15 +2,14 @@ class Docker < Formula
   desc "Pack, ship and run any application as a lightweight container"
   homepage "https://www.docker.com/"
   url "https://github.com/docker/docker-ce.git",
-      :tag => "v17.06.0-ce",
-      :revision => "02c1d876176546b5f069dae758d6a7d2ead6bd48"
+      :tag => "v17.06.1-ce",
+      :revision => "874a7374f31c77aca693d025101b2de1b20b96c2"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "87db143387285d0da18a92725af1745128e5282b11310e71e4eea9dc40899d11" => :sierra
-    sha256 "d57bf053f71e619a529ab3e65ec74814d2fd187eb01439188d8e08b774cd2220" => :el_capitan
-    sha256 "9bc0d1346144cbd64b0bbfec71a2d0c3bf4db7b836abe3aadebe6f05081ea58b" => :yosemite
-    sha256 "0a3e89f458b04ceeffe2899b81bbafcf00730076cc77da55aa4ecbec0fe1a394" => :x86_64_linux
+    sha256 "24b01e4c1a89aa7518a7a4a304a6b0a890cda82c9c136b78fa85d823fea57974" => :sierra
+    sha256 "e73f8baedf64a89d83e4a0ce26ddc464e29cc5967488f0d5f83072f84de85e78" => :el_capitan
+    sha256 "19ddddd87cc54e4b5d8190439d867589014a1e52dc65d3b6f48f200d2ffcf2ee" => :yosemite
   end
 
   option "with-experimental", "Enable experimental features"

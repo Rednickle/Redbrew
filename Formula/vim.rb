@@ -1,15 +1,14 @@
 class Vim < Formula
   desc "Vi 'workalike' with many additional features"
   homepage "https://vim.sourceforge.io/"
-  url "https://github.com/vim/vim/archive/v8.0.0946.tar.gz"
-  sha256 "be875adbb857c644f2c8f85f4452d88dc822eb2f7e876fd6c9977ba5e9039757"
+  url "https://github.com/vim/vim/archive/v8.0.0983.tar.gz"
+  sha256 "5f3d5307d7055e3a55811546f6c787f1c65d209ae5b83e36c0de16d64fda8bf2"
   head "https://github.com/vim/vim.git"
 
   bottle do
-    sha256 "edf5119f07828e31cfb8fdac35e2df4d3bd12665c6d5ff72a606a0dcfcfbdbba" => :sierra
-    sha256 "9091e0027fef945befec3954c15f13eebdd28b14c1360c2da6c1d925da4c7334" => :el_capitan
-    sha256 "8bf745f3fb8505cb3d360302dedb102bcf43c969c2b97d8dc9f6054607e7fce4" => :yosemite
-    sha256 "9e215d54fd20e7908f5e217ae2e7f36cdd026705ba12b01ecd28a2dc997fa1c7" => :x86_64_linux
+    sha256 "ef925242547d9c60bf0e06fb35213fd0aa4c2401ff16752f6bf13c543ba10ac3" => :sierra
+    sha256 "883a88d7415487525062d4e9fdf83bcb050919a95474a2e708df5f705f5c81fb" => :el_capitan
+    sha256 "6916a3ad55fcedcda4666eec25b2f263232db75a311645fcc58af73974746ca0" => :yosemite
   end
 
   deprecated_option "override-system-vi" => "with-override-system-vi"
