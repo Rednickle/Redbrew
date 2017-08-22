@@ -17,9 +17,9 @@ class Ffmpeg < Formula
   end
 
   bottle do
-    sha256 "1b419e42dd75c6d1faf17bd9bc0598bc6e2f6720f9fec1247ece6b3e2c820f31" => :sierra
-    sha256 "dffc8990189b26ea1848b0c798c7abb0bc2348b3e60d01fdb40e51d079345347" => :el_capitan
-    sha256 "96325574fe3bd2f0a2248bcd917415ce78c79917c7fa8982d736c6445e54c682" => :x86_64_linux
+    rebuild 1
+    sha256 "6e3ad60d2c3ad7430cc5edf147b1c0e50a7e695e8c74451ab0a3f9d9723ecf46" => :sierra
+    sha256 "d49156d6f3d5717add11f697361b13c5bf321161ff3d84d7062e111f0dfdb513" => :el_capitan
   end
 
   head do
@@ -162,6 +162,7 @@ class Ffmpeg < Formula
     args << "--enable-libzimg" if build.with? "zimg"
     args << "--enable-libzmq" if build.with? "zeromq"
     args << "--enable-opencl" if MacOS.version > :lion
+    args << "--enable-videotoolbox" if MacOS.version >= :mountain_lion
     args << "--enable-openssl" if build.with? "openssl"
 
     if build.with? "xz"

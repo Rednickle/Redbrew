@@ -1,14 +1,13 @@
 class Unbound < Formula
   desc "Validating, recursive, caching DNS resolver"
   homepage "https://www.unbound.net"
-  url "https://www.unbound.net/downloads/unbound-1.6.4.tar.gz"
-  sha256 "df0a88816ec31ccb8284c9eb132e1166fbf6d9cde71fbc4b8cd08a91ee777fed"
+  url "https://www.unbound.net/downloads/unbound-1.6.5.tar.gz"
+  sha256 "e297aa1229015f25bf24e4923cb1dadf1f29b84f82a353205006421f82cc104e"
 
   bottle do
-    sha256 "53d185a4939f5a2186478289cf41e294d77c2a1ee1ba1e3e1edb2706214ea324" => :sierra
-    sha256 "8b63f65a77a8c7d7de1a27c86983dac0ecf6851d78ff47218ae02a5ab2ab5973" => :el_capitan
-    sha256 "6c28b979421307de00000d28987914f2bbcdd76be5be65fe9705c2971c42ae43" => :yosemite
-    sha256 "0f4a5827890f097b31fd8cb0e8cedfe1157841d0343cc52c62827c4bd6464f91" => :x86_64_linux
+    sha256 "bcb47ed93aa45b653be0267250d7003ff4ecf047cebb1b9b5748c5937250bbee" => :sierra
+    sha256 "96fe5db92b3d4478af68f4e8c3b53a18e3726f28e3fc3bdddb5826ce372adaa4" => :el_capitan
+    sha256 "8447a8cec994a04866ec10432b807bfab7188a02d2439f7dc8ac4bf44d79de44" => :yosemite
   end
 
   depends_on "openssl"
