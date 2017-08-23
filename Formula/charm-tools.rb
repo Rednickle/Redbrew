@@ -12,7 +12,6 @@ class CharmTools < Formula
     sha256 "14a879ef21ea3dadc0a28a7f975b90e92bbf5e66096bbfeba9277c6fa8b4a3bf" => :sierra
     sha256 "d44d16471b7778680cd563cfb0202925fe1a203bdf817ee6097afc8a79a6a35e" => :el_capitan
     sha256 "53ab4562fa2bf8b036505b0e48d5ef8530fb4f8b9f21233d9c9c1544aeb6bb29" => :yosemite
-    sha256 "25cdf2beb473938611263485093373485daf279a9e2df54b917c8da3dc6e10af" => :x86_64_linux
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
