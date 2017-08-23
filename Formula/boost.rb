@@ -1,28 +1,15 @@
 class Boost < Formula
   desc "Collection of portable C++ source libraries"
   homepage "https://www.boost.org/"
-  revision 1
+  url "https://dl.bintray.com/boostorg/release/1.65.0/source/boost_1_65_0.tar.bz2"
+  sha256 "ea26712742e2fb079c2a566a31f3266973b76e38222b9f88b387e3c8b2f9902c"
   head "https://github.com/boostorg/boost.git"
 
-  stable do
-    url "https://dl.bintray.com/boostorg/release/1.64.0/source/boost_1_64_0.tar.bz2"
-    sha256 "7bcc5caace97baa948931d712ea5f37038dbb1c5d89b43ad4def4ed7cb683332"
-
-    # Remove for > 1.64.0
-    # "Replace boost::serialization::detail::get_data function."
-    # Upstream PR from 26 Jan 2017 https://github.com/boostorg/mpi/pull/39
-    patch :p2 do
-      url "https://github.com/boostorg/mpi/commit/f5bdcc1.patch?full_index=1"
-      sha256 "e3765f6fe04e50089a315f20be392c73834b06274ef6624a4b91464a7409c010"
-    end
-  end
-
   bottle do
-    cellar :any_skip_relocation
-    sha256 "94c29d2d149a6383fa4050e7cb478e3dcae66895d78b0a0492d8fff63dd73a14" => :sierra
-    sha256 "24ae06f30527b4b2375cc2c375ce1af22e4dc0db04dd65896c80231e46ea0ba8" => :el_capitan
-    sha256 "ab391a24436ffb4e32dd580d4b0de42e25f822d985273f16595ee865d7a5d995" => :yosemite
-    sha256 "850fb474c169d5614c8bcf639745ee7a5e4969dd8354080e5180d4293aa89ef1" => :x86_64_linux
+    cellar :any
+    sha256 "037c4b4abb51ba74bcf476c2408eeb5921bdef409155221a17cdbd550a5d9450" => :sierra
+    sha256 "ed698a7e5090003fef1b08f08ee12fb3779fbca7410c1ae32849ba3c930cc643" => :el_capitan
+    sha256 "b3b00a300fe522f349cda42f44ad2736990ccf7a45f3e0fc56652a811f52ef48" => :yosemite
   end
 
   option "with-icu4c", "Build regexp engine with icu support"
@@ -32,11 +19,7 @@ class Boost < Formula
 
   deprecated_option "with-icu" => "with-icu4c"
 
-  if build.cxx11?
-    depends_on "icu4c" => [:optional, "c++11"]
-  else
-    depends_on "icu4c" => :optional
-  end
+  depends_on "icu4c" => :optional
 
   unless OS.mac?
     depends_on "bzip2"
@@ -44,13 +27,6 @@ class Boost < Formula
   end
 
   needs :cxx11 if build.cxx11?
-
-  # fix error: no member named 'make_array' in namespace 'boost::serialization'
-  # https://svn.boost.org/trac/boost/ticket/12978
-  patch :p2 do
-    url "https://github.com/boostorg/serialization/commit/1d86261581230e2dc5d617a9b16287d326f3e229.diff?full_index=1"
-    sha256 "56620635277eccbb20d970d9a1cdd803b9bb18790f108bd225594ff9d2d9e8bd"
-  end
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
@@ -92,6 +68,7 @@ class Boost < Formula
             "-j#{ENV.make_jobs}",
             "--layout=tagged",
             "--user-config=user-config.jam",
+            "-sNO_LZMA=1",
             "install"]
 
     if build.with? "single"

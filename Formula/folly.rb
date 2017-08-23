@@ -3,12 +3,13 @@ class Folly < Formula
   homepage "https://github.com/facebook/folly"
   url "https://github.com/facebook/folly/archive/v2017.08.21.00.tar.gz"
   sha256 "ba8881c4d781daea3ca02663bc4b02befc6aa3c84bb1355365653e65fc1853a4"
+  revision 1
   head "https://github.com/facebook/folly.git"
 
   bottle do
     cellar :any
-    sha256 "792330965b25a184c2b1e294dc908a375f6a4597e0867ea8874fed06d34702c5" => :sierra
-    sha256 "528d166d51edac106424ddec1433fb9b128fd00a5a2c470d09a83f15d077b8f2" => :el_capitan
+    sha256 "6e2c7e20390a4d054dbf145f0e91780914d84a82cba0402a08ae534916cd8206" => :sierra
+    sha256 "0de4012b289b810a771918335d5c54356102b88b7945ba018478884f3cada8cb" => :el_capitan
   end
 
   depends_on "autoconf" => :build
