@@ -1,16 +1,15 @@
 class Gopass < Formula
   desc "The slightly more awesome Standard Unix Password Manager for Teams"
   homepage "https://www.justwatch.com/gopass"
-  url "https://www.justwatch.com/gopass/releases/1.3.1/gopass-1.3.1.tar.gz"
-  sha256 "d95e9d04440d9a81a5a5135c2e1ad381d8a27e0a54afdc4b2acc717613942e11"
+  url "https://www.justwatch.com/gopass/releases/1.3.2/gopass-1.3.2.tar.gz"
+  sha256 "83eb409ed683b6e574680e70272977299e5741b1a7e82c835f0dea9485063aba"
   head "https://github.com/justwatchcom/gopass.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "de1f1f1815431795a5ee70c67cfd47ff09a191a8cc04f42b1f2b6883b3a76559" => :sierra
-    sha256 "a7b41e377d463b9444425fd53e3c297e6ea8476458368c46fb2437760ed53616" => :el_capitan
-    sha256 "8b183db12a93b611ed480fe5d966a17fab30d6698c0ca6613e59ae1f68853199" => :yosemite
-    sha256 "c7bced595b6006690d8f73074670f8ffe9deb37f66026b305bc93a81c259d206" => :x86_64_linux
+    sha256 "05223f9c31e3aed7bf3f483eaa41159d8f1e2755fe1dd0fb24837e0ef4a13e29" => :sierra
+    sha256 "afea43d98e86969f9c7424099e63ff67cfcf5a834ef09b4db28285e43ce222e5" => :el_capitan
+    sha256 "8b2c1ce0392083f76a98cf0a7a13f1209c6476b4eb7ecff07fb075f9e9fb0f35" => :yosemite
   end
 
   depends_on "go" => :build
