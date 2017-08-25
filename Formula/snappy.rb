@@ -1,16 +1,15 @@
 class Snappy < Formula
   desc "Compression/decompression library aiming for high speed"
   homepage "https://google.github.io/snappy/"
-  url "https://github.com/google/snappy/archive/1.1.6.tar.gz"
-  sha256 "6fa92cde5b2caefd0d9a60336991ba42e5a7ddc3bdc36c5610451373751d0495"
+  url "https://github.com/google/snappy/archive/1.1.7.tar.gz"
+  sha256 "3dfa02e873ff51a11ee02b9ca391807f0c8ea0529a4924afa645fbf97163f9d4"
   head "https://github.com/google/snappy.git"
 
   bottle do
     cellar :any
-    sha256 "b36b34447922cd528aa8170776da33862196659701935708d468001a4688daec" => :sierra
-    sha256 "503ce22c869b985c9ca15ca923751227715cbedda401f184892f6614c10b6b41" => :el_capitan
-    sha256 "6c4b1694e7aa296c9bb97c52c47a747a27e82d89b5138596ef2d89ce99ddae67" => :yosemite
-    sha256 "b6fdebf37201bfd890efe0b1003eadd59437260ac697043798ddd91da1c428d4" => :x86_64_linux
+    sha256 "76e10c7f7dcb0aa2618ea961cc8201b5700e0ef6144139728586d9c2d45d91b7" => :sierra
+    sha256 "5ee06fbe8742f3bb428f2bf789b2645a1c727ca68e69a0647cb67d9d906b888e" => :el_capitan
+    sha256 "d8bd1af11a95ab58eacfc3c504ac623702b71d03317b300496fce6ecaee620c0" => :yosemite
   end
 
   depends_on "cmake" => :build
@@ -18,6 +17,9 @@ class Snappy < Formula
 
   def install
     system "cmake", ".", *std_cmake_args
+    system "make", "install"
+    system "make", "clean"
+    system "cmake", ".", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
     system "make", "install"
   end
 
