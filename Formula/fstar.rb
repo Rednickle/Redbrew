@@ -2,16 +2,15 @@ class Fstar < Formula
   desc "ML-like language aimed at program verification"
   homepage "https://www.fstar-lang.org/"
   url "https://github.com/FStarLang/FStar.git",
-      :tag => "v0.9.4.0",
-      :revision => "2137ca0fbc56f04e202f715202c85a24b36c3b29"
-  revision 2
+      :tag => "v0.9.5.0",
+      :revision => "fa9b1fda52216678e364656f5f40b3309ef8392d"
   head "https://github.com/FStarLang/FStar.git"
 
   bottle do
     cellar :any
-    sha256 "dbd43955ad872d0c7217f9d7f2c0140ca6114a162ac41b73c6dba50f7637c0ce" => :sierra
-    sha256 "55f4d2b1397c5087574f6103c4849b7167c9d094ae8293d59a59be674c3dd93a" => :el_capitan
-    sha256 "d24224b03bbb333691295e99e3322a2a5b4729d97d3d3aeac82beafab7af5274" => :yosemite
+    sha256 "8f26eeac9a1fd10074b86e775093e1cdcbcb065bd54a9385237dfc27d36cf7cb" => :sierra
+    sha256 "05e98f43735bbcb9dcd216d2ed3c530fb6b4496ea4436ecb0c4fbd3d0e7e86a9" => :el_capitan
+    sha256 "a0fd22288390c7ff5b66db38300b1e90f1d28f0c3e0e88a5368301006a54b8db" => :yosemite
   end
 
   depends_on "opam" => :build
@@ -24,26 +23,24 @@ class Fstar < Formula
     ENV["OPAMROOT"] = buildpath/"opamroot"
     ENV["OPAMYES"] = "1"
 
-    # avoid having to depend on coreutils
+    # Avoid having to depend on coreutils
     inreplace "src/ocaml-output/Makefile", "$(DATE_EXEC) -Iseconds",
                                            "$(DATE_EXEC) '+%Y-%m-%dT%H:%M:%S%z'"
 
     system "opam", "init", "--no-setup"
-    inreplace "opamroot/compilers/4.04.2/4.04.2/4.04.2.comp",
-      '["./configure"', '["./configure" "-no-graph"' # avoid X11
-
-    # remove when the OPAM deps have OCaml 4.05.0 compatible versions
-    system "opam", "switch", "4.04.2"
+    inreplace "opamroot/compilers/4.05.0/4.05.0/4.05.0.comp",
+      '["./configure"', '["./configure" "-no-graph"' # Avoid X11
 
     if build.stable?
-      system "opam", "config", "exec", "opam", "install", "batteries=2.5.3",
-             "zarith=1.4.1", "yojson=1.3.3", "pprint=20140424"
+      system "opam", "config", "exec", "opam", "install", "batteries=2.7.0",
+             "zarith=1.5", "yojson=1.4.0", "pprint=20140424", "stdint=0.4.2",
+             "menhir=20170712"
     else
       system "opam", "config", "exec", "opam", "install", "batteries", "zarith",
-             "yojson", "pprint"
+             "yojson", "pprint", "stdint", "menhir"
     end
 
-    system "opam", "config", "exec", "--", "make", "-C", "src", "boot-ocaml"
+    system "opam", "config", "exec", "--", "make", "-C", "src/ocaml-output"
 
     (libexec/"bin").install "bin/fstar.exe"
     (bin/"fstar.exe").write <<-EOS.undent
@@ -67,10 +64,10 @@ class Fstar < Formula
 
   def caveats; <<-EOS.undent
     F* code can be extracted to OCaml code.
-    To compile the generated OCaml code, you must install the
-    package 'batteries' from the Opam package manager:
+    To compile the generated OCaml code, you must install
+    some packages from the OPAM package manager:
     - brew install opam
-    - opam install batteries
+    - opam install batteries zarith yojson pprint stdint menhir
 
     F* code can be extracted to F# code.
     To compile the generated F# (.NET) code, you must install

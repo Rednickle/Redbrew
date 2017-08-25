@@ -1,15 +1,14 @@
 class Tippecanoe < Formula
   desc "Build vector tilesets from collections of GeoJSON features"
   homepage "https://github.com/mapbox/tippecanoe"
-  url "https://github.com/mapbox/tippecanoe/archive/1.22.1.tar.gz"
-  sha256 "1452a932c02dcd8a25d96fae6ac3cc6b813c143c9923d555b89280722b7ebe43"
+  url "https://github.com/mapbox/tippecanoe/archive/1.22.2.tar.gz"
+  sha256 "47cadb0b37d6bb58e0582d68834595beb7c53609b4f4f3b705e57ed48edad35b"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "20f716e335cf51eea04726b05c8caf3cfe66184d56b16d44f6712184e3bd90d6" => :sierra
-    sha256 "7468a2708b26bb84d6c92e83f0923a5973c56954620d4a8fb2844347014b874c" => :el_capitan
-    sha256 "a8b095ca7c495f14a299a6d78a3396789ff3e21f0ca1efdd5f203cda8b934a33" => :yosemite
-    sha256 "b50cd03c0d565e4adafab3a1880056a726d805403859d5b9b86429284ccc76dc" => :x86_64_linux
+    sha256 "c49f60ac7a2bde878942481f4380990e917f20655efac67c0c5ade482e675dc8" => :sierra
+    sha256 "a4e0aebe8ae80e5ec0a96bc9b460c0c595fe250ac1435c6b7aa30ac5ec57923e" => :el_capitan
+    sha256 "629b89b3c5e7c004cbd578de7d4f4117fb50accccd62e87235127183e3865800" => :yosemite
   end
 
   unless OS.mac?
