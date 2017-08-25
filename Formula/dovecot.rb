@@ -1,15 +1,14 @@
 class Dovecot < Formula
   desc "IMAP/POP3 server"
   homepage "https://dovecot.org/"
-  url "https://dovecot.org/releases/2.2/dovecot-2.2.31.tar.gz"
-  mirror "https://fossies.org/linux/misc/dovecot-2.2.31.tar.gz"
-  sha256 "034be40907748128d65088a4f59789b2f99ae7b33a88974eae0b6a68ece376a1"
+  url "https://dovecot.org/releases/2.2/dovecot-2.2.32.tar.gz"
+  mirror "https://fossies.org/linux/misc/dovecot-2.2.32.tar.gz"
+  sha256 "160b2151e2af359877f69cb2dcdfe1a3f4138ad3766e3b8562b96616e2f6bc2e"
 
   bottle do
-    sha256 "217bf7e7391c9d2c355553038c5d53411233c99f1f4c01fb4e7b88f02b46de8f" => :sierra
-    sha256 "ebe98a91f0b3db3f6cdf7999821a0aa32f124aefa1811fc2bfd8b8cfd5c5a086" => :el_capitan
-    sha256 "f4db7d8db401d9c691d7d5a81ac7bbf2d6163b2dbcf2504efea6b8e9e9b90810" => :yosemite
-    sha256 "bb7d1499370b59c9f65e6a1d956ed70815f20c2e0cc2516765202ef8f19aeba5" => :x86_64_linux
+    sha256 "fee76f57275dfcb96dfe0bba1d1da66bed84301e20da30fdcd9d926f75f0a7a8" => :sierra
+    sha256 "7e04c4a47c91a0d92f0b78f2e8152e9f7d3baeddce2dcdcf736289def0f36955" => :el_capitan
+    sha256 "c27efcd2976e85ae7160250cd3ee5735fc94653edd6bcd6a0a666e5a2a87e264" => :yosemite
   end
 
   option "with-pam", "Build with PAM support"
