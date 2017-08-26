@@ -12,9 +12,10 @@ class Infer < Formula
 
   bottle do
     cellar :any
-    sha256 "16da98afd4312582d219eaf62d6619567ee1df367d5b6b4e8e4e667e9b7908a2" => :sierra
-    sha256 "a3de914afe3ffc5e65f46fc10516607d7a4614f5a2d476d47fd053cd662f43e4" => :el_capitan
-    sha256 "8e97022052281a1e5681e9855a1d4cfe456c906897b20f10e0ef3b3e55d27443" => :yosemite
+    rebuild 1
+    sha256 "29f441fe6fa66bcad880056dc078a6a5aa4d5cb58341e90a75324c5beacb64f7" => :sierra
+    sha256 "09c4a260609ee8d6f958557026c4aefe686a89a08dfec1e74c9d2c99d318129b" => :el_capitan
+    sha256 "ebd4e93fcddbbd410849274d56324610e0f303ed7084594e5aab89741851e2f7" => :yosemite
   end
 
   option "without-clang", "Build without C/Objective-C analyzer"
@@ -29,6 +30,15 @@ class Infer < Formula
   depends_on "ncurses" unless OS.mac?
 
   def install
+    # Remove for > 0.12.0
+    # Fix conflicting version constraints:
+    # ppx_deriving -> cppo_ocamlbuild -> cppo >= 1.6.0
+    # ppx_deriving -> cppo_ocamlbuild -> jbuilder >= 1.0+beta10
+    inreplace "opam.lock" do |s|
+      s.gsub! /^cppo = 1\.4\.1$/, "cppo = 1.6.0"
+      s.gsub! /^jbuilder = 1\.0\+beta6$/, "jbuilder = 1.0+beta12"
+    end
+
     if build.without?("clang") && build.without?("java")
       odie "infer: --without-clang and --without-java are mutually exclusive"
     end

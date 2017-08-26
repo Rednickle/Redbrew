@@ -1,15 +1,14 @@
 class Libosmium < Formula
   desc "Fast and flexible C++ library for working with OpenStreetMap data."
   homepage "http://osmcode.org/libosmium/"
-  url "https://github.com/osmcode/libosmium/archive/v2.13.0.tar.gz"
-  sha256 "477552a137f3658d7b476c921a3c6d20506ab0526e89defc1c1b21cd0634d168"
+  url "https://github.com/osmcode/libosmium/archive/v2.13.1.tar.gz"
+  sha256 "a73cd56838a7438bd9ed208c9ce6794e2d55a1854039c4277a0c160d5071b909"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "186d35d2a8c27aaab3fcf426a4e5434159a6da61f9cd73c21a1fb72dadedc405" => :sierra
-    sha256 "186d35d2a8c27aaab3fcf426a4e5434159a6da61f9cd73c21a1fb72dadedc405" => :el_capitan
-    sha256 "186d35d2a8c27aaab3fcf426a4e5434159a6da61f9cd73c21a1fb72dadedc405" => :yosemite
-    sha256 "0aa4a22f64989034f677d57a9395ae54e3fdd6623912918e8f3bd6c78030295f" => :x86_64_linux
+    sha256 "e63f94d42eaf9143c6a8641e365a0fd0ca99281995e647c4964660ef40fb72eb" => :sierra
+    sha256 "e63f94d42eaf9143c6a8641e365a0fd0ca99281995e647c4964660ef40fb72eb" => :el_capitan
+    sha256 "e63f94d42eaf9143c6a8641e365a0fd0ca99281995e647c4964660ef40fb72eb" => :yosemite
   end
 
   depends_on "cmake" => :build
