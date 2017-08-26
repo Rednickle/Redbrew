@@ -1,15 +1,13 @@
 class Plplot < Formula
   desc "Cross-platform software package for creating scientific plots"
   homepage "https://plplot.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/plplot/plplot/5.12.0%20Source/plplot-5.12.0.tar.gz"
-  sha256 "8dc5da5ef80e4e19993d4c3ef2a84a24cc0e44a5dade83201fca7160a6d352ce"
-  revision 1
+  url "https://downloads.sourceforge.net/project/plplot/plplot/5.13.0%20Source/plplot-5.13.0.tar.gz"
+  sha256 "ec36bbee8b03d9d1c98f8fd88f7dc3415560e559b53eb1aa991c2dcf61b25d2b"
 
   bottle do
-    sha256 "aff26bde3a4da328de52e722694be91f598b63bae82b488e822aab7cdc0bce6a" => :sierra
-    sha256 "2c8642a2496067a0c1a21fd58a6ce390096dc31d7aeb8930bbd0a97e4719e87e" => :el_capitan
-    sha256 "6201a37bda814ab07ef18466b1cff2f4624254e6209534e7c2fff57649aee4a0" => :yosemite
-    sha256 "2995c1ce1e0ccc3be7d595b37d76021faa85ac485e7fbdc4239346125a357015" => :x86_64_linux
+    sha256 "bfc8004765fbb0ea7378951e1cbf21e1512eba73528f219bbb85acc5fef9a85d" => :sierra
+    sha256 "44fffbf81d69eb34c0746a646b2bab7d13c8c8aacab816d800e9d44ccb96762d" => :el_capitan
+    sha256 "ac125db322d3a35450b1ff0e8f4c8ceb6221e0ab8a339887d2d3177dff3b3dbe" => :yosemite
   end
 
   depends_on "cmake" => :build
@@ -21,10 +19,6 @@ class Plplot < Formula
   depends_on :fortran
   depends_on :java => :optional
   depends_on :x11 => :optional
-
-  # Patch reported upstream. Fixes 5.12 cmake issue in cmake/modules/pkg-config.cmake that gets
-  # triggered when passing `--with-fortran`
-  patch :DATA
 
   def install
     args = std_cmake_args + %w[
@@ -64,18 +58,3 @@ class Plplot < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git i/cmake/modules/pkg-config.cmake w/cmake/modules/pkg-config.cmake
-index 2b46dbe..7ecc789 100644
---- i/cmake/modules/pkg-config.cmake
-+++ w/cmake/modules/pkg-config.cmake
-@@ -230,7 +230,7 @@ function(pkg_config_link_flags link_flags_out link_flags_in)
-     "/System/Library/Frameworks/([^ ]*)\\.framework"
-     "-framework \\1"
-     link_flags
--    ${link_flags}
-+    "${link_flags}"
-     )
-     #message("(frameworks) link_flags = ${link_flags}")
-   endif(CMAKE_SYSTEM_NAME STREQUAL "Darwin")

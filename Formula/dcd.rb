@@ -2,16 +2,15 @@ class Dcd < Formula
   desc "Auto-complete program for the D programming language"
   homepage "https://github.com/dlang-community/DCD"
   url "https://github.com/dlang-community/DCD.git",
-      :tag => "v0.9.0",
-      :revision => "27a3f8a76346cb988473bfe67f4947db7dd7bc71"
+      :tag => "v0.9.1",
+      :revision => "9f4c6ddaf43544682de37d864d33b52e9648ca10"
 
   head "https://github.com/dlang-community/dcd.git", :shallow => false
 
   bottle do
-    sha256 "495bb87a467b94666178e4f4454ef96895bf2bf48a604efd7f1d6ecd43005971" => :sierra
-    sha256 "8877d9cfc361eeb82ea73d328b61c73b66c3f7781e911790d143e5ef52bfd12c" => :el_capitan
-    sha256 "78bc5c22508ba34d32c035f581cdb9bc09989fd6939c13a4f30a095aaa8fae20" => :yosemite
-    sha256 "92d540fab440156e18fe300098747bfad6d04bec49b154b03254f427ee0eb1a5" => :x86_64_linux
+    sha256 "721cfff4b43747b138373b86c8cfd373e75b645ec2177ba7581a4336ebbff137" => :sierra
+    sha256 "bc1f17d29075c6535cae3d11c53962a967e3706048a620c0a3b27e28aa5eaa2c" => :el_capitan
+    sha256 "47a7600d9a6f3a8e2fb386bb501640b47d0bd026eaefe51a5efae189efe2accb" => :yosemite
   end
 
   depends_on "dmd" => :build
