@@ -33,7 +33,7 @@ class Opencv < Formula
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j16" if ENV["CIRCLECI"]
+    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
 
     ENV.cxx11
     dylib = OS.mac? ? "dylib" : "so"
