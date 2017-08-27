@@ -5,10 +5,11 @@ class Osquery < Formula
   url "https://github.com/facebook/osquery.git",
       :tag => "2.7.0",
       :revision => "501bb22de9b44ee5c4e4d40d5267ca3d72a3c785"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "fa7f20277dd0caa46a51ae5f5e34f7f6d763e4d08a79bc1143f5df5c75afe749" => :sierra
+    sha256 "9249e8eee21107d6269bbf14e1205864501551c7be17111245e1e15739228d45" => :sierra
   end
 
   fails_with :gcc => "6"
@@ -75,6 +76,14 @@ class Osquery < Formula
   resource "thrift-0.10-patch" do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/66bf587/osquery/patch-thrift-0.10.diff"
     sha256 "bf85b2d805f7cd7c4bc0c618c756b02ce618e777b727041ab75197592c4043f2"
+  end
+
+  # remove for > 2.7.0
+  # upstream: 'Boost version 1.65 macOS fix'
+  # https://github.com/facebook/osquery/pull/3613
+  patch do
+    url "https://github.com/facebook/osquery/commit/c50a9b1e82f.patch?full_index=1"
+    sha256 "c0ce11887ac277774c622fd91824cfc583416f57e1e9130da5f0c0df68a571cd"
   end
 
   def install
