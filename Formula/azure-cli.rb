@@ -10,10 +10,10 @@ class AzureCli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f3d18c5026aa6555fa40db8b9edfdae42e7a700a89b6afafca8ef94a6f56fcf3" => :sierra
-    sha256 "8c5552016740425360800572e3a14a1f734bfe3d2a874f0e921f95ea69b86d64" => :el_capitan
-    sha256 "2fa98a93dd7e2a96f401ab4017a13e58e4b96646d4453b72c9df1e414afbc98f" => :yosemite
-    sha256 "695370f9d869325ee049b05b890824d15ab40ea95689b338d53568f447823dda" => :x86_64_linux # glibc 2.19
+    rebuild 1
+    sha256 "d2ccc6569274d56a5adb9d3748e15304b55f0c7c8dee5fabc864316bef1a35aa" => :sierra
+    sha256 "434133ceb68bdaf77b50966101e5b396c6fe5ec372a88074ea53f9efbbc2e825" => :el_capitan
+    sha256 "3fdff5d0b06bef174430471071ef03d5c253f279d33abc38678797a4b618b92f" => :yosemite
   end
 
   depends_on "node"
@@ -25,6 +25,9 @@ class AzureCli < Formula
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
     (bash_completion/"azure").write Utils.popen_read("#{bin}/azure --completion")
+
+    # fix cxxstdlib warnings caused by installed (but not used) prebuild binaries for fibers
+    rm_rf Dir[libexec/"lib/node_modules/azure-cli/node_modules/fibers/bin/*-{46,48}"]
   end
 
   test do
