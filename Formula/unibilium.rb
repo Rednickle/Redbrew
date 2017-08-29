@@ -9,6 +9,7 @@ class Unibilium < Formula
     sha256 "53b708223a2e95298390b6313ff4917f10efefc3cf349eb57688938f982ee487" => :sierra
     sha256 "5c4b97baf010a4d3482f7270e313a274a281df71beb55a8ce69b473611c955ae" => :el_capitan
     sha256 "a43da6e759273b81f501077deb01633b54591a907e2cef40ba81b1611af5692e" => :yosemite
+    sha256 "616baa57d17caafea3a96d8f08ad93c56d7534b13e80a71f78ef5c3e37da5aa0" => :x86_64_linux
   end
 
   depends_on "libtool" => :build
