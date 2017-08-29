@@ -1,16 +1,14 @@
 class Pcl < Formula
   desc "Library for 2D/3D image and point cloud processing"
   homepage "http://www.pointclouds.org/"
-  url "https://github.com/PointCloudLibrary/pcl/archive/pcl-1.8.0.tar.gz"
-  sha256 "9e54b0c1b59a67a386b9b0f4acb2d764272ff9a0377b825c4ed5eedf46ebfcf4"
-  revision 8
-
+  url "https://github.com/PointCloudLibrary/pcl/archive/pcl-1.8.1.tar.gz"
+  sha256 "5a102a2fbe2ba77c775bf92c4a5d2e3d8170be53a68c3a76cfc72434ff7b9783"
   head "https://github.com/PointCloudLibrary/pcl.git"
 
   bottle do
-    sha256 "f34f770e7f9014946fd04599406565ca1cd34d42c6093bb01976805c1c39c4af" => :sierra
-    sha256 "d84a9afa86d1abb2f0b043c98b1acb8d61bd8fda29162603908f8acde51c7e86" => :el_capitan
-    sha256 "809907a035a020a691b14cc9150b0a065619abb00d64962a511bfac1417f5b46" => :yosemite
+    sha256 "46229b4eb3d168ecaff4f83dcfff95642a05d0ff989ab89adb63ba0397c4a909" => :sierra
+    sha256 "176fb1d15c2dfbb323eb29d28929624bcf342a09dcb848f610af652e89ba5ec2" => :el_capitan
+    sha256 "bd0b24e10b74ba20d63c09af7a1292d70d8c9ff8f7ffae98fabf4591993c09d4" => :yosemite
   end
 
   depends_on "cmake" => :build

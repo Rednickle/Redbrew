@@ -4,19 +4,26 @@ class Fstar < Formula
   url "https://github.com/FStarLang/FStar.git",
       :tag => "v0.9.5.0",
       :revision => "fa9b1fda52216678e364656f5f40b3309ef8392d"
+  revision 1
   head "https://github.com/FStarLang/FStar.git"
 
   bottle do
     cellar :any
-    sha256 "8f26eeac9a1fd10074b86e775093e1cdcbcb065bd54a9385237dfc27d36cf7cb" => :sierra
-    sha256 "05e98f43735bbcb9dcd216d2ed3c530fb6b4496ea4436ecb0c4fbd3d0e7e86a9" => :el_capitan
-    sha256 "a0fd22288390c7ff5b66db38300b1e90f1d28f0c3e0e88a5368301006a54b8db" => :yosemite
+    sha256 "03c763ac9849ce6faa1919117390264e4e306cb0bd23a8fa903c7470a668697b" => :sierra
+    sha256 "5824c5f020a119683a8f5e1d3520d30fc81f03fd0f2c4544e5faa503e7626528" => :el_capitan
+    sha256 "4e730cfbc2c181a1ccc605e84f4d79c228ee698fddd9dfe719b8ac0cfc5599bc" => :yosemite
   end
 
   depends_on "opam" => :build
   depends_on "gmp"
   depends_on "ocaml" => :recommended
-  depends_on "z3" => :recommended
+
+  # FStar uses a special cutting-edge release from the Z3 team.
+  # As we don't depend on the standard release we can't use the z3 formula.
+  resource "z3" do
+    url "https://github.com/Z3Prover/z3.git",
+        :revision => "1f29cebd4df633a4fea50a29b80aa756ecd0e8e7"
+  end
 
   def install
     ENV.deparallelize # Not related to F* : OCaml parallelization
@@ -26,6 +33,12 @@ class Fstar < Formula
     # Avoid having to depend on coreutils
     inreplace "src/ocaml-output/Makefile", "$(DATE_EXEC) -Iseconds",
                                            "$(DATE_EXEC) '+%Y-%m-%dT%H:%M:%S%z'"
+
+    resource("z3").stage do
+      system "python", "scripts/mk_make.py", "--prefix=#{libexec}"
+      system "make", "-C", "build"
+      system "make", "-C", "build", "install"
+    end
 
     system "opam", "init", "--no-setup"
     inreplace "opamroot/compilers/4.05.0/4.05.0/4.05.0.comp",
@@ -45,7 +58,7 @@ class Fstar < Formula
     (libexec/"bin").install "bin/fstar.exe"
     (bin/"fstar.exe").write <<-EOS.undent
       #!/bin/sh
-      #{libexec}/bin/fstar.exe --fstar_home #{prefix} "$@"
+      #{libexec}/bin/fstar.exe --smt #{libexec}/bin/z3 --fstar_home #{prefix} "$@"
     EOS
 
     (libexec/"ulib").install Dir["ulib/*"]

@@ -1,24 +1,20 @@
 class ProtobufSwift < Formula
   desc "Implementation of Protocol Buffers in Swift"
   homepage "https://github.com/alexeyxo/protobuf-swift"
-  url "https://github.com/alexeyxo/protobuf-swift/archive/3.0.22.tar.gz"
-  sha256 "3d24391b0e91c0bf665aa045b99279300b6ebaaf0aff18a273b5f39aabcd3700"
-  revision 1
+  url "https://github.com/alexeyxo/protobuf-swift/archive/3.0.23.tar.gz"
+  sha256 "276ed362c440ebcfe258b1ccf38160983ec518a29855f35c0bf38b4a5fd38068"
 
   bottle do
     cellar :any
-    sha256 "9e75251dd05ba86f0cbb7b56e3941d56619f2db1e95d9d58c4e466dfbb745fc8" => :sierra
-    sha256 "2291fc0bf3539f69c1f92b259b03be5c343a6793e2496d05753f080f2d6d8b82" => :el_capitan
-    sha256 "abbb99094a069075df11331640e3c47ba668040445defbe01073026d6966f99e" => :yosemite
+    sha256 "0f74a058dd5e3ca763f3839e94981322c9c4e543bcc236b311cc20d0c88f18c0" => :sierra
+    sha256 "82030ac115812cf23eb628fbff924c38d28ae4349aee20105821d34e81a3a971" => :el_capitan
+    sha256 "e0a8201e45fb731000f2c3b08b4d8dc8f6ae1eaf7754c9638e081f2462f403b1" => :yosemite
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-
-  # Upstream issue "protobuf 3.4.0 build failure"
-  # Reported 16 Aug 2017 https://github.com/alexeyxo/protobuf-swift/issues/217
-  depends_on "protobuf@3.1"
+  depends_on "protobuf"
 
   def install
     system "protoc", "-Iplugin/compiler",
@@ -44,6 +40,6 @@ class ProtobufSwift < Formula
       }
     EOS
     (testpath/"test.proto").write(testdata)
-    system Formula["protobuf@3.1"].opt_bin/"protoc", "test.proto", "--swift_out=."
+    system Formula["protobuf"].opt_bin/"protoc", "test.proto", "--swift_out=."
   end
 end
