@@ -10,6 +10,7 @@ class Jsoncpp < Formula
     sha256 "fd3d570190892782c4c9d2458a2024c423527496cbbe172e132c3fe155df6d51" => :sierra
     sha256 "d2ef078761cc79854cfe639d148fa2d92c1bc773a051ad63e9cf98417efea289" => :el_capitan
     sha256 "972e64cef87ad5fb25175512c93b811b4ab2951a88c918d98c09ba15bf236754" => :yosemite
+    sha256 "9c46558d70a735e4377485a6da8e56dc26c3ba58bc125bcd48c157a8f3baa2e3" => :x86_64_linux
   end
 
   needs :cxx11
