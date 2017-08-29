@@ -11,6 +11,7 @@ class Glog < Formula
     sha256 "5e99439a7336024749810f022c255c8200b892ff04c0843225d873f9a101154f" => :high_sierra
     sha256 "3d6da0942515486003959c724fc4d946dbb4032d458d78d0a81442832817028b" => :sierra
     sha256 "5e9ccc48a1391e677775ea1fd586589c2ca14cdb36e21c9e566887f1b9319d17" => :el_capitan
+    sha256 "1ff84c13b0f101a0bac2fe42fa651c43b2bbb741eb4c87b683eb71cac7bb4ec1" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
