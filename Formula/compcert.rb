@@ -1,15 +1,14 @@
 class Compcert < Formula
   desc "Formally verified C compiler"
   homepage "http://compcert.inria.fr"
-  url "http://compcert.inria.fr/release/compcert-3.0.1.tgz"
-  sha256 "09c7dc18c681231c6e83a963b283b66a9352a9611c9695f4b0c4b7df8c90f935"
-  revision 3
+  url "https://github.com/AbsInt/CompCert/archive/v3.1.tar.gz"
+  sha256 "9d0dd07f05a9a59b865041417dc61f16a664d85415f0271eb854412638e52e47"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "10abf0396376729d32382adc206bd13d7f71af849cddec635fbce820c3f4e173" => :sierra
-    sha256 "4c5caad496117d59d28fc017e3bd871fa0a4e76874896437dbdd0db95c85c952" => :el_capitan
-    sha256 "14e895a8427d4b5720ae4d12e90406c2446cd0adfcd2046dfafb2148008c80ea" => :yosemite
+    sha256 "02d892ec34b7c991629d747b822a0f75c5e9a790113886ac4925c2df67bbcce9" => :sierra
+    sha256 "ae065d7a0008a20c42277b33166e1197931d64af120ae2dc06ff96425bf96e30" => :el_capitan
+    sha256 "895f0814f70ddc41a07496f6f99c865d132bca38654d9c44581c2a89e828dc9b" => :yosemite
   end
 
   option "with-config-x86_64", "Build Compcert with ./configure 'x86_64'"
@@ -25,10 +24,7 @@ class Compcert < Formula
     # creates problems since Xcode's gcc does not support CFI,
     # but superenv will trick it into using clang which does. This
     # causes problems with the compcert compiler at runtime.
-    inreplace "configure" do |s|
-      s.gsub! "${toolprefix}gcc", "${toolprefix}#{ENV.cc}"
-      s.gsub! "  8.6)", "  8.6.1)"
-    end
+    inreplace "configure", "${toolprefix}gcc", "${toolprefix}#{ENV.cc}"
 
     args = ["-prefix", prefix]
     args << (build.with?("config-x86_64") ? "x86_64-macosx" : "ia32-macosx")
