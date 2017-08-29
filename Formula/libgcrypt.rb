@@ -9,6 +9,7 @@ class Libgcrypt < Formula
     sha256 "e7528cc28b8287e0498a92b269b3148435dcb08b3012974a0ca3883b8e959a53" => :sierra
     sha256 "8bfa6159d5615cfca50ca7a2ef1bb5990f79a91f230b853d861f6ed356e1ac63" => :el_capitan
     sha256 "141c42f7f8e2298d504e6cc99d8b087ed698146fcb8be304a60b9f3d0409787a" => :yosemite
+    sha256 "731270dbc657a45fd3fcedbcd03ed4979b1a5b9f25968248a8b0782f0bb9df6b" => :x86_64_linux
   end
 
   depends_on "libgpg-error"
