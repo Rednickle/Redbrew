@@ -1,7 +1,7 @@
 class Couchdb < Formula
   desc "Document database server"
   homepage "https://couchdb.apache.org/"
-  revision 12
+  revision 13
 
   stable do
     url "https://www.apache.org/dyn/closer.cgi?path=/couchdb/source/1.6.1/apache-couchdb-1.6.1.tar.gz"
@@ -14,9 +14,9 @@ class Couchdb < Formula
   end
 
   bottle do
-    sha256 "d641fccaa1d8918457990521eaaf71801d95bc9814185b8e9e3f2ebace8d6ac2" => :sierra
-    sha256 "be8ff81da8e293e2c4a2a9188fdb6247128b9b0ba4951b85048523adca4b7771" => :el_capitan
-    sha256 "f4c4a1efb5794e20969e3dbf0f5d2f348e09b16daed5d96b5d68cc20e82453ba" => :yosemite
+    sha256 "e762e24878c9354a8316c83cd9c0453d44c2ba2402cb1f79da76bf54f1dffb9a" => :sierra
+    sha256 "7561fda33e55d676787f456a83edf1322b506715171188dc478ff508f5dde19c" => :el_capitan
+    sha256 "1b828b7df1f1eb8feccc278e8eb1cf138784fdb77cd805eaf29a322e144bbb07" => :yosemite
   end
 
   head do
