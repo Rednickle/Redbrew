@@ -1,24 +1,14 @@
 class Gd < Formula
   desc "Graphics library to dynamically manipulate images"
   homepage "https://libgd.github.io/"
-  revision 2
-
-  stable do
-    url "https://github.com/libgd/libgd/releases/download/gd-2.2.4/libgd-2.2.4.tar.xz"
-    sha256 "137f13a7eb93ce72e32ccd7cebdab6874f8cf7ddf31d3a455a68e016ecd9e4e6"
-
-    patch do
-      url "https://github.com/libgd/libgd/commit/381e89de16125bb0e86ffc144d6fe3e9cfdd898f.patch?full_index=1"
-      sha256 "93bcd92e7d18ef1f4cf4466482f41de8f0c65a7644c10bb88d10d59de96a13f1"
-    end
-  end
+  url "https://github.com/libgd/libgd/releases/download/gd-2.2.5/libgd-2.2.5.tar.xz"
+  sha256 "8c302ccbf467faec732f0741a859eef4ecae22fea2d2ab87467be940842bde51"
 
   bottle do
     cellar :any
-    sha256 "d8b304728206def83aa62cdb17e727f3c83aeb4e9ebd5ff6734194119df68f1e" => :sierra
-    sha256 "a55f9020931e261d17d4b6be6d4357d05eb9e1865d21581f430fea59ddadba4d" => :el_capitan
-    sha256 "bd74d64762d8b648e04f32262d19b07e7e010b3e3ed637463ce5e2302eab190f" => :yosemite
-    sha256 "cb719962de9a97c53d9f3be345d67495593bacd461969771036f6c3a462489f6" => :x86_64_linux # glibc 2.19
+    sha256 "7a2e1ebc9ef51896aa895a94c9e5cf3d9d8be760f413930079b773de78f173d2" => :sierra
+    sha256 "cece10e06be48ec2c4d1c8e995cac8ed1678b287eb982204daec2682107a740e" => :el_capitan
+    sha256 "c601d7917bce645fd0c75808d45e6d61b31453ea78bdbf81f3e0b6372b93c88c" => :yosemite
   end
 
   head do
