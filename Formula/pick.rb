@@ -9,6 +9,7 @@ class Pick < Formula
     sha256 "294113d7ae651a7ca9b9641c1db5ba6784fa2e6926bf433d3fb2dca87ea12d41" => :sierra
     sha256 "2245f9cc18f0d369c014a9b5f841359495b75bdeda1ea767506af4f01a1b2618" => :el_capitan
     sha256 "7c381625b1aabd2e07a0662428026c9f011a3a57e815cf7c6f0a4b38e46552c4" => :yosemite
+    sha256 "795852bdc7c64d8a448514bf74d923413e4eac7112cae00c643fca477c53d242" => :x86_64_linux
   end
 
   def install
