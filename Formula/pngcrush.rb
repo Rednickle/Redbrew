@@ -9,6 +9,7 @@ class Pngcrush < Formula
     sha256 "f648ad0c664699f67bba8ba791358e8b294d0c1d975f026aa67fc1635badbc73" => :sierra
     sha256 "2633aff1e7cec8bb6c55da5c4daf9f555c74e516ebcc5f3027589588f76d3e17" => :el_capitan
     sha256 "5505ea179a71996eb4fab04feebd09ebbef7e8ea4c1efba1e0184333c1883d1b" => :yosemite
+    sha256 "ba6239bf4207630191192d93d9c56e59c7e3ff47bd1dd6a3cdf80154e73d1be1" => :x86_64_linux
   end
 
   def install
