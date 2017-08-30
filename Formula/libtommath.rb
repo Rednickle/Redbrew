@@ -10,6 +10,7 @@ class Libtommath < Formula
     sha256 "e8b549106cfaebb72663904b2597ab444c67104ca1824f2a96f2c013efc3fe64" => :sierra
     sha256 "1b5e1b5d062dfb4945016516880ca227fe13b03cb214985d317f657f6a45a06e" => :el_capitan
     sha256 "7d042e9ccfd1ba6a86c97f570960116524601b0586274132d3d66c7bb6a550c2" => :yosemite
+    sha256 "dbbe41e38a29cbc04620fa63f72cad41a9d39946bf5b8bbd67525d79264d4e88" => :x86_64_linux
   end
 
   def install
