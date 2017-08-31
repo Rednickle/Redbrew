@@ -7,17 +7,15 @@ class Octave < Formula
   revision 6
 
   bottle do
-    sha256 "ba5f123341350e8ad3b892fa5d4090b84f6994bd86aa94606c79411bf81e945e" => :sierra
-    sha256 "056dad8f21144e358fce42985aa39342fa15ef1953fafe52dc62ef69be27855b" => :el_capitan
-    sha256 "dad40dc38179e025d4d597f3d15ec1388e4fe0900726cf4fcea49d0694040810" => :yosemite
-    sha256 "5a62288d717d3b46e1328b1eb59e6ee8467a5fb1d11572c246491050ae36acd0" => :x86_64_linux # glibc 2.19
+    rebuild 1
+    sha256 "4adc5c84a3eada5c44a65daabb7fdfefae6a3e492f3ba02b17a9205f942063f8" => :sierra
+    sha256 "06d173b089910c87709f1783b9d8fad8f624e4cbd2bd8cf93d39debd65ca1299" => :el_capitan
+    sha256 "ba00325662c815e50d533ba964051dc17441915f2c4c74944f95e410d0b6099a" => :yosemite
   end
 
   head do
     url "https://hg.savannah.gnu.org/hgweb/octave", :branch => "default", :using => :hg
     depends_on :hg => :build
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
     depends_on "bison" => :build
     depends_on "icoutils" => :build
     depends_on "librsvg" => :build
@@ -25,6 +23,8 @@ class Octave < Formula
   end
 
   # Complete list of dependencies at https://wiki.octave.org/Building
+  depends_on "automake" => :build
+  depends_on "autoconf" => :build
   depends_on "gnu-sed" => :build # https://lists.gnu.org/archive/html/octave-maintainers/2016-09/msg00193.html
   depends_on "pkg-config" => :build
   depends_on :fortran
@@ -79,6 +79,8 @@ class Octave < Formula
       # Upstream commit from 24 Feb 2017 https://hg.savannah.gnu.org/hgweb/octave/rev/a6e4157694ef
       inreplace "liboctave/system/file-stat.cc",
         "inline file_stat::~file_stat () { }", "file_stat::~file_stat () { }"
+      inreplace "scripts/java/module.mk",
+        "-source 1.3 -target 1.3", "" # necessary for java >1.8
     end
 
     # Default configuration passes all linker flags to mkoctfile, to be
@@ -94,6 +96,13 @@ class Octave < Formula
     else
       blas_args << "--with-blas=-lblas -llapack"
     end
+
+    # allow for recent Oracle Java (>=1.8) without requiring the old Apple Java 1.6
+    # this is more or less the same as in http://savannah.gnu.org/patch/index.php?9439
+    inreplace "libinterp/octave-value/ov-java.cc",
+      "#if ! defined (__APPLE__) && ! defined (__MACH__)", "#if 1" # treat mac's java like others
+    inreplace "configure.ac",
+      "-framework JavaVM", "" # remove framework JavaVM as it requires Java 1.6 after build
 
     args = *blas_args + %W[
       --prefix=#{prefix}

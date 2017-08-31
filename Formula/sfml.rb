@@ -9,9 +9,10 @@ class Sfml < Formula
 
   bottle do
     cellar :any
-    sha256 "351011a2dec340dff04273b266c0be498d45d11a0e4c8f3b72f7f2bd41777ea6" => :sierra
-    sha256 "d5a2a3d7b6df3694b74b14b39d0b1daee79584557e4635e3aa60c70fa6109a34" => :el_capitan
-    sha256 "f291a6bffc2a65f4175b19bd0f416e2e784b73d7686cb8f5c2b5491d6c724a29" => :yosemite
+    rebuild 1
+    sha256 "76c3949dad4b907b87d219f10eb2dae44d43cb76963a083f70935f138832d13c" => :sierra
+    sha256 "976560145b126bd482696148767f333ceda470d847064a5682abcd5c329937bd" => :el_capitan
+    sha256 "43dbf56a522f7bce55db7e5354ee0810b7abad63b97178a1ed7a73356c52577c" => :yosemite
   end
 
   depends_on "cmake" => :build
@@ -27,7 +28,15 @@ class Sfml < Formula
   depends_on :macos => :lion
 
   def install
-    args = std_cmake_args
+    # Install pkg-config files, adding the CMake flag below isn't enough, as
+    # the CMakeLists.txt file currently doesn't consider MacOS X.
+    # This was fixed upstream for the future 2.5.0 release on 2016-12-19 in:
+    # https://github.com/SFML/SFML/commit/5fe5e5d6d7792e37685a437551ffa8ed5161fcc1
+    inreplace "CMakeLists.txt",
+              "if(SFML_OS_LINUX OR SFML_OS_FREEBSD)",
+              "if(SFML_OS_LINUX OR SFML_OS_FREEBSD OR SFML_OS_MACOSX)"
+
+    args = std_cmake_args << "-DSFML_INSTALL_PKGCONFIG_FILES=TRUE"
     args << "-DSFML_BUILD_DOC=TRUE" if build.with? "doxygen"
 
     # Always remove the "extlibs" to avoid install_name_tool failure
