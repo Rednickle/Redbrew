@@ -12,6 +12,7 @@ class Chipmunk < Formula
     sha256 "11d92de45ec0fa8a25872f5ac18c92e3d1686c1d515d05d48731d19f5d3c30b3" => :sierra
     sha256 "8848acb3fa314fad434f5eb143788831544453598d047342fe20c99045225d26" => :el_capitan
     sha256 "58cc2257eb17a9d67fee0c9bb8350f88a3092f149f74deba3aba591c47ae9c00" => :yosemite
+    sha256 "a3ccd143f4c6b3cde94f1c0154062bfd301222c78b77957bcbb2ead284cea10f" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
