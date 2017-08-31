@@ -11,6 +11,7 @@ class Ipbt < Formula
     sha256 "f9dd24a2a7bd67ee00a4763b6931975f27443d906d91795962ca8a1eb647d269" => :sierra
     sha256 "3ebaf07effeb98490201a2c8cc38bfdaec25c0db5a6bf3f2936f72b944ee5309" => :el_capitan
     sha256 "511b256cd2f9eda3db809f2a46c47ed72c7a4fadef4fb16bb5197766cc966fe9" => :yosemite
+    sha256 "e34aa3fe17d78357c1d0def0bf80cf5c1b1611ea7692079a55a01310c1956b35" => :x86_64_linux
   end
 
   depends_on "ncurses" unless OS.mac?
