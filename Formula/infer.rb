@@ -2,20 +2,19 @@ class Infer < Formula
   desc "Static analyzer for Java, C and Objective-C"
   homepage "http://fbinfer.com/"
   if OS.mac?
-    url "https://github.com/facebook/infer/releases/download/v0.12.0/infer-osx-v0.12.0.tar.xz"
-    sha256 "3b97bcabf85af8feb8d6fd0b8622fe2b4fbf27fa215fab61e3a660b5435b6d21"
+    url "https://github.com/facebook/infer/releases/download/v0.12.1/infer-osx-v0.12.1.tar.xz"
+    sha256 "ce76b87bf4f70be594aaddc7402609af6338623fbb448dacca610e10bcb7c60a"
   elsif OS.linux?
-    url "https://github.com/facebook/infer/releases/download/v0.12.0/infer-linux64-v0.12.0.tar.xz"
-    sha256 "698c9ff83a23fb3d6ffa0d62d5394e691ad5e3352f27bf2d4105afdfd07cc201"
+    url "https://github.com/facebook/infer/releases/download/v0.12.1/infer-linux64-v0.12.1.tar.xz"
+    sha256 "1d26dd519c19345530a92a6ae3f7058af3bd8ddfd7c2c945d116c6fd658be6c4"
   end
   revision 1
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "29f441fe6fa66bcad880056dc078a6a5aa4d5cb58341e90a75324c5beacb64f7" => :sierra
-    sha256 "09c4a260609ee8d6f958557026c4aefe686a89a08dfec1e74c9d2c99d318129b" => :el_capitan
-    sha256 "ebd4e93fcddbbd410849274d56324610e0f303ed7084594e5aab89741851e2f7" => :yosemite
+    sha256 "57643d1549a778596cce9a4926298dd4adafea4c12995a14564a8fd4dc07a563" => :sierra
+    sha256 "667715c360743f6f3d865043da3ce423baf123f3a5e6e775ac16fb9d5e839333" => :el_capitan
+    sha256 "607cc291dbc3aa11836b975d2bcc47b7f700c9fbcf4ae83910312baed9ef0843" => :yosemite
   end
 
   option "without-clang", "Build without C/Objective-C analyzer"
@@ -30,15 +29,6 @@ class Infer < Formula
   depends_on "ncurses" unless OS.mac?
 
   def install
-    # Remove for > 0.12.0
-    # Fix conflicting version constraints:
-    # ppx_deriving -> cppo_ocamlbuild -> cppo >= 1.6.0
-    # ppx_deriving -> cppo_ocamlbuild -> jbuilder >= 1.0+beta10
-    inreplace "opam.lock" do |s|
-      s.gsub! /^cppo = 1\.4\.1$/, "cppo = 1.6.0"
-      s.gsub! /^jbuilder = 1\.0\+beta6$/, "jbuilder = 1.0+beta12"
-    end
-
     if build.without?("clang") && build.without?("java")
       odie "infer: --without-clang and --without-java are mutually exclusive"
     end

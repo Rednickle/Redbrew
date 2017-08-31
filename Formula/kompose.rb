@@ -1,15 +1,14 @@
 class Kompose < Formula
   desc "Tool to move from `docker-compose` to Kubernetes"
   homepage "http://kompose.io"
-  url "https://github.com/kubernetes/kompose/archive/v1.0.0.tar.gz"
-  sha256 "b9c9bfc9f25c67cf7d8d8b76467487255f9882fca563f8e9ef990f647cd2406e"
+  url "https://github.com/kubernetes/kompose/archive/v1.1.0.tar.gz"
+  sha256 "912c6f1e1e609372e355237604cb8915d7b8b47147a3230c35ac5d9c2615eef3"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8d1f927f25eaea188d4d72e01b2ac4114a9f27777b00f8be429fff3ee32037c2" => :sierra
-    sha256 "1053cb76c50c63737f83c81e499f0a89c20aa01d20e32a13e9aa1af021e9f603" => :el_capitan
-    sha256 "1c09acd079b72b6af858ae8ce3bc3097161a04e2c2cc62decf8d9b2aca1d2e55" => :yosemite
-    sha256 "e87afee434db2038733ea988d0e16ea31653e824b1d44635c3429bbed30d5f4e" => :x86_64_linux # glibc 2.19
+    sha256 "7ae5762b511ce9f7aa78a591da9e707a5cec548439d2afe1a3078c613fc63093" => :sierra
+    sha256 "c5cc2ef1c8473d53b1c2d62f979c97ace5cbe89b85cffb0d6a7d91a2bbf197ae" => :el_capitan
+    sha256 "1166193d1df05482f78a975f15b5e05c4d8455686734db02e7ca8ac53cdf5837" => :yosemite
   end
 
   depends_on "go" => :build

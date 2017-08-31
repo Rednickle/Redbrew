@@ -2,13 +2,13 @@ class Swiftlint < Formula
   desc "Tool to enforce Swift style and conventions"
   homepage "https://github.com/realm/SwiftLint"
   url "https://github.com/realm/SwiftLint.git",
-      :tag => "0.21.0",
-      :revision => "e8112184430baafef8f3e03e9dc1e28bdf519001"
+      :tag => "0.22.0",
+      :revision => "f074ff7f475a42323988ad4d37f1d02ad90d8f15"
   head "https://github.com/realm/SwiftLint.git"
 
   bottle do
     cellar :any
-    sha256 "fd9e4deba218bab8ec95594fbf95c1954c4602cfa1ef17e5a42f993c30363659" => :sierra
+    sha256 "ef5593b0b26311ff3a6a771e6bf15ddf0ce5eab8b67189c1a07b073bf02e595a" => :sierra
   end
 
   # Fixes the error: make: xcodebuild: Command not found

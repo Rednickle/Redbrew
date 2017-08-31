@@ -11,6 +11,11 @@ class Tmux < Formula
     sha256 "5ffa45b3316572ec0e022b97ee4afd878dc7e97dbadb51786deb68ced4dec2f5" => :x86_64_linux # glibc 2.19
   end
 
+  devel do
+    url "https://github.com/tmux/tmux/releases/download/2.6/tmux-2.6-rc.tar.gz"
+    sha256 "96ddc4e5d8a4dbd5bd1eea841e0c9d7a0484ae01e7e0de6857c5dbc7e69aaada"
+  end
+
   head do
     url "https://github.com/tmux/tmux.git"
 
