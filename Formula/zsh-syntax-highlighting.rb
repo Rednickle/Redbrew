@@ -11,6 +11,7 @@ class ZshSyntaxHighlighting < Formula
     sha256 "34fff5bf9bcacd1aaf3aad77199fc61a5ca31239236adaef0bab92452b5b4ad3" => :sierra
     sha256 "34fff5bf9bcacd1aaf3aad77199fc61a5ca31239236adaef0bab92452b5b4ad3" => :el_capitan
     sha256 "34fff5bf9bcacd1aaf3aad77199fc61a5ca31239236adaef0bab92452b5b4ad3" => :yosemite
+    sha256 "c6c1f6dae42a0900820c22d538c12e6be6b81c0c690c8e73724121fa0ccb2d24" => :x86_64_linux
   end
 
   depends_on "zsh" unless OS.mac?
