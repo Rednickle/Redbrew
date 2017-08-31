@@ -9,6 +9,7 @@ class HicolorIconTheme < Formula
     sha256 "cd8699f3944eb87b76fc89e4ca69f19df5d66aa8a4c89d636660d299e807f5b0" => :sierra
     sha256 "cd8699f3944eb87b76fc89e4ca69f19df5d66aa8a4c89d636660d299e807f5b0" => :el_capitan
     sha256 "cd8699f3944eb87b76fc89e4ca69f19df5d66aa8a4c89d636660d299e807f5b0" => :yosemite
+    sha256 "05712571f085c9c1f4624dacc8a0c1d98aa2b5ba8db0d61640b41ca3198cee06" => :x86_64_linux
   end
 
   head do
