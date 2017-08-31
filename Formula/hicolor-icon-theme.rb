@@ -1,15 +1,14 @@
 class HicolorIconTheme < Formula
   desc "Fallback theme for FreeDesktop.org icon themes"
   homepage "https://wiki.freedesktop.org/www/Software/icon-theme/"
-  url "https://icon-theme.freedesktop.org/releases/hicolor-icon-theme-0.16.tar.xz"
-  sha256 "b0f8e770815fc80f7719d367608a2eb05572570cfca2734f986deae73e7d1f39"
+  url "https://icon-theme.freedesktop.org/releases/hicolor-icon-theme-0.17.tar.xz"
+  sha256 "317484352271d18cbbcfac3868eab798d67fff1b8402e740baa6ff41d588a9d8"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "62ad54e057594fe218a8d7b5829d979883dd1118d6b65343933e3b1f5f14241f" => :sierra
-    sha256 "62ad54e057594fe218a8d7b5829d979883dd1118d6b65343933e3b1f5f14241f" => :el_capitan
-    sha256 "62ad54e057594fe218a8d7b5829d979883dd1118d6b65343933e3b1f5f14241f" => :yosemite
-    sha256 "ff44315be3f8d3e81e8d1cc287affa37a58fe0a73924ad13b57103a5eae71dc9" => :x86_64_linux # glibc 2.19
+    sha256 "cd8699f3944eb87b76fc89e4ca69f19df5d66aa8a4c89d636660d299e807f5b0" => :sierra
+    sha256 "cd8699f3944eb87b76fc89e4ca69f19df5d66aa8a4c89d636660d299e807f5b0" => :el_capitan
+    sha256 "cd8699f3944eb87b76fc89e4ca69f19df5d66aa8a4c89d636660d299e807f5b0" => :yosemite
   end
 
   head do
