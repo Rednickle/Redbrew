@@ -8,13 +8,13 @@ class Rust < Formula
   homepage "https://www.rust-lang.org/"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.19.0-src.tar.gz"
-    sha256 "15231f5053fb72ad82be91f5abfd6aa60cb7898c5089e4f1ac5910a731090c51"
+    url "https://static.rust-lang.org/dist/rustc-1.20.0-src.tar.gz"
+    sha256 "2aa4875ff4472c6e35262bbb9052cb2623da3dae6084a858cc59d36f33f18214"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          :tag => "0.20.0",
-          :revision => "a60d185c878c470876e123b0e40b0ba9f3271163"
+          :tag => "0.21.0",
+          :revision => "5b4b8b2ae3f6a884099544ce66dbb41626110ece"
     end
 
     resource "racer" do
@@ -24,10 +24,9 @@ class Rust < Formula
   end
 
   bottle do
-    sha256 "820256549befa3d777916e00e23b4d95d326c5aae9456562165f8036f99584ea" => :sierra
-    sha256 "a7e0c6f3ecff71b59d74007fcedf2f9423627ca99699a7c96eeeffaa795dc9ae" => :el_capitan
-    sha256 "1dbc83dbcdd3a3bdbcd53014a1055414d10beb92c11a872acfca0a15db4f98c6" => :yosemite
-    sha256 "c3b9cc938ebc30b5043f9b4c84dca396ea0366ad39a9ba0f080ce16e0f13aa60" => :x86_64_linux # glibc 2.19
+    sha256 "f79c48a0f62f4c781562c8dafe2a2dbf6012d63d93d4e7ab674e244957152d7b" => :sierra
+    sha256 "4fb38eeea97e9d337e996b161abf78f849bf441ccb69a193965b89457a5ad692" => :el_capitan
+    sha256 "466202b90dba96080f879bd504b72e4a31cb44d11daf9eba6fc413eb2f234898" => :yosemite
   end
 
   head do
@@ -64,12 +63,12 @@ class Rust < Formula
   resource "cargobootstrap" do
     if OS.mac?
       # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
-      url "https://static.rust-lang.org/dist/2017-06-08/cargo-0.19.0-x86_64-apple-darwin.tar.gz"
+      url "https://static.rust-lang.org/dist/2017-07-20/cargo-0.20.0-x86_64-apple-darwin.tar.gz"
       sha256 "bd0b62b6afbfb1435ac5a72cee072f0f65b29c6c0baeb11f4f9b9b16dc241151"
     elsif OS.linux?
       # From: https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
-      url "https://static.rust-lang.org/dist/2017-06-08/cargo-0.19.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "24d5e01b09ba0fb15c4b7ef4f527aca874ce2e0cebc3850fdc2535ac7e25b205"
+      url "https://static.rust-lang.org/dist/2017-07-20/cargo-0.20.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "a677d13b01d00ad13edf75c7d1b484421c7fc09338bf9ed6d456b4685bb42ed1"
     end
   end
 
