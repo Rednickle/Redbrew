@@ -5,10 +5,11 @@ class SrtpAT16 < Formula
   sha256 "1a3e7904354d55e45b3c5c024ec0eab1b8fa76fdbf4dd2ea2625dad2b3c6edde"
 
   bottle do
-    cellar :any
+    cellar :any_skip_relocation
     sha256 "2efbca3a66bc62275a59f59d928a47704c6c13094de29ff36a2ebaa674c12104" => :sierra
     sha256 "f13b678175596b07b20d6b04571111548c84572455e01d4ae1bd1a102deb016e" => :el_capitan
     sha256 "2509b155840b3c95e97fb24d0bad341e1cce9c4b899c5f9b6fcecd36e6c1e8a0" => :yosemite
+    sha256 "2a575e79969be0fc5636da1c1059ce63826d627c134a8f112a4e7d5075374bd8" => :x86_64_linux
   end
 
   keg_only :versioned_formula
