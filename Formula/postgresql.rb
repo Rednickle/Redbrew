@@ -1,15 +1,14 @@
 class Postgresql < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v9.6.4/postgresql-9.6.4.tar.bz2"
-  sha256 "2b3ab16d82e21cead54c08b95ce3ac480696944a68603b6c11b3205b7376ce13"
+  url "https://ftp.postgresql.org/pub/source/v9.6.5/postgresql-9.6.5.tar.bz2"
+  sha256 "06da12a7e3dddeb803962af8309fa06da9d6989f49e22865335f0a14bad0744c"
   head "https://github.com/postgres/postgres.git"
 
   bottle do
-    sha256 "65d94009b81569728ae82c039f0b70f3cb1d7cdf1a00650009664b4708834913" => :sierra
-    sha256 "5c66cacc2e7b66d23b60b3479391fe9b015f6d5386cc4493b12096f148e2cb3f" => :el_capitan
-    sha256 "2ad945c3b6d51d1eac93202fd024f5b9d721bcf3aaa08a949b5adf607b41fdeb" => :yosemite
-    sha256 "4ce85e40395529335b3486d5ed26228d74c620721a356d0e5b7300a1a232c345" => :x86_64_linux # glibc 2.19
+    sha256 "d1cf9ba381f1a92fc4c5df2e861d40d05993ac39c8cd222dd72cd3c820af8cb4" => :sierra
+    sha256 "3b97a7f8b60b80afbcb91eeed7a69c72227b106cc3221566268511525c3322f3" => :el_capitan
+    sha256 "8a74b1afc029179dd1ff653e5a5016476ce0fd6e6260ca2a067b1de2043d0265" => :yosemite
   end
 
   option "without-perl", "Build without Perl support"
