@@ -10,6 +10,7 @@ class DockerSwarm < Formula
     sha256 "17efa0a36074c19516377ed860540ed5e8672794607d8a1a78b7f18b12b0f403" => :sierra
     sha256 "de4c2cb59c9a198bec4bb6442cbb6fd0465964b27842d77d6d277429cfe51b27" => :el_capitan
     sha256 "01b32b2a21df9ffb5f3e0721cbb33f65aa5ef8e0207ec9648feb769fcb4ae932" => :yosemite
+    sha256 "4dfe57b9aeb03e3836c9f4bfd543b8150147473502958a18d787f4e306945af9" => :x86_64_linux
   end
 
   depends_on "go" => :build
