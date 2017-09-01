@@ -1,14 +1,14 @@
-class SrtpAT15 < Formula
+class SrtpAT16 < Formula
   desc "Implementation of the Secure Real-time Transport Protocol (SRTP)"
   homepage "https://github.com/cisco/libsrtp"
-  url "https://github.com/cisco/libsrtp/archive/v1.5.4.tar.gz"
-  sha256 "56a7b521c25134f48faff26b0b1e3d4378a14986a2d3d7bc6fefb48987304ff0"
+  url "https://github.com/cisco/libsrtp/archive/v1.6.0.tar.gz"
+  sha256 "1a3e7904354d55e45b3c5c024ec0eab1b8fa76fdbf4dd2ea2625dad2b3c6edde"
 
   bottle do
     cellar :any
-    sha256 "574082dd0e1214e6aaf6d4a0e7515eac1d29faef7b8d9c817757d9ba76688b61" => :sierra
-    sha256 "563c8b58a1333c177d79ca153c53463941201a5ac01738be23f50cb99ffe79f5" => :el_capitan
-    sha256 "6a71d0cdc64d62df915ade2c3e107317e98ffeb28902f99eb3c890af0f88999f" => :yosemite
+    sha256 "2efbca3a66bc62275a59f59d928a47704c6c13094de29ff36a2ebaa674c12104" => :sierra
+    sha256 "f13b678175596b07b20d6b04571111548c84572455e01d4ae1bd1a102deb016e" => :el_capitan
+    sha256 "2509b155840b3c95e97fb24d0bad341e1cce9c4b899c5f9b6fcecd36e6c1e8a0" => :yosemite
   end
 
   keg_only :versioned_formula

@@ -1,15 +1,15 @@
 class Dcm2niix < Formula
   desc "DICOM to NIfTI converter"
   homepage "https://www.nitrc.org/plugins/mwiki/index.php/dcm2nii:MainPage"
-  url "https://github.com/rordenlab/dcm2niix/archive/v1.0.20170724.tar.gz"
-  sha256 "90fbcf410324716e41056d94acb46ad93192af1479865b9299e4efe57cd5c2b7"
+  url "https://github.com/rordenlab/dcm2niix/archive/v1.0.20170818.tar.gz"
+  sha256 "7d8e498e1e015096526ce0af99e6d53642d69c9f56b9266f9d57d184f9172c97"
   head "https://github.com/rordenlab/dcm2niix.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "16151f67a12a03458f1cc1f5e9794ec01d50430dd29ac61ff357faee07c51223" => :sierra
-    sha256 "9d3c88c2689f255fab4d89f3cbb369948684f875d214186489d6dc8b1ac70616" => :el_capitan
-    sha256 "4a177fc2fb4fb59f1076b5518ec917df81a9a217a457e1d74e84260d8ca98c91" => :yosemite
+    sha256 "9318425b5251ffb036cc08566761a18652f95ae67240799e22d77a64faa8d2af" => :sierra
+    sha256 "7635ff296978217fd64012ebce857b3dada4cb544fdca4fff04188ee03212f3a" => :el_capitan
+    sha256 "a4eda9813749445a3ce4db31d6d37ae10c564d8b56847b67ea6c44b834827190" => :yosemite
   end
 
   option "with-batch"
