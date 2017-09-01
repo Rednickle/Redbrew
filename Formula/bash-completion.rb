@@ -13,6 +13,7 @@ class BashCompletion < Formula
     sha256 "58be92ef01d5068f37b1c00af8e9b202bdb409c93121bb0e07dcbb5e55dc3be2" => :sierra
     sha256 "58be92ef01d5068f37b1c00af8e9b202bdb409c93121bb0e07dcbb5e55dc3be2" => :el_capitan
     sha256 "58be92ef01d5068f37b1c00af8e9b202bdb409c93121bb0e07dcbb5e55dc3be2" => :yosemite
+    sha256 "d8e44d076970e70be1e5d910511f582857021c4e418db385f11be9d8ff354d1d" => :x86_64_linux
   end
 
   conflicts_with "bash-completion@2", :because => "Differing version of same formula"
