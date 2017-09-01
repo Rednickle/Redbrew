@@ -11,6 +11,7 @@ class Glm < Formula
     sha256 "44c8742891bf12707b9d3024e4dee0b371e7d91fbd4da12f6e1d21242db6acd5" => :sierra
     sha256 "44c8742891bf12707b9d3024e4dee0b371e7d91fbd4da12f6e1d21242db6acd5" => :el_capitan
     sha256 "44c8742891bf12707b9d3024e4dee0b371e7d91fbd4da12f6e1d21242db6acd5" => :yosemite
+    sha256 "7f299d6f1f160fe3d81f5d9472588b89c8cef7131c7954d07f70d2aeb51ae3ca" => :x86_64_linux
   end
 
   option "with-doxygen", "Build documentation"
