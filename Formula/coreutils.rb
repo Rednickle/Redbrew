@@ -1,48 +1,14 @@
 class Coreutils < Formula
   desc "GNU File, Shell, and Text utilities"
   homepage "https://www.gnu.org/software/coreutils"
-
-  stable do
-    url "https://ftp.gnu.org/gnu/coreutils/coreutils-8.27.tar.xz"
-    mirror "https://ftpmirror.gnu.org/coreutils/coreutils-8.27.tar.xz"
-    sha256 "8891d349ee87b9ff7870f52b6d9312a9db672d2439d289bc57084771ca21656b"
-
-    # Remove for > 8.27
-    # Fix "Undefined symbols _renameat"
-    # Reported upstream 10 Mar 2017 https://debbugs.gnu.org/cgi/bugreport.cgi?bug=26044
-    # The patches are from MacPorts. This has been fixed in HEAD.
-    if OS.mac? && MacOS.version < :yosemite
-      depends_on "autoconf" => :build
-      depends_on "automake" => :build
-      depends_on "gettext" => :build
-
-      resource "renameat_c" do
-        url "https://raw.githubusercontent.com/macports/macports-ports/61f1b0d/sysutils/coreutils/files/renameat.c"
-        sha256 "1867c22dcb4e503bd1f075e5e78b7194af25cded7286225ea77ee2ec8703a1fb"
-      end
-
-      resource "renameat_m4" do
-        url "https://raw.githubusercontent.com/macports/macports-ports/61f1b0d/sysutils/coreutils/files/renameat.m4"
-        sha256 "09e79dea1d4ae8294297948d8d092ec1e3a1a4fb104faedef8b3d8f67293fd4d"
-      end
-
-      patch :p0 do
-        url "https://raw.githubusercontent.com/macports/macports-ports/61f1b0d/sysutils/coreutils/files/patch-m4_gnulib-comp.m4-add-renameat.diff"
-        sha256 "df9bedeae2ca6d335147b5b4c3f19db2f36ff8c84973fd15fe1697de70538247"
-      end
-
-      patch :p0 do
-        url "https://raw.githubusercontent.com/macports/macports-ports/61f1b0d/sysutils/coreutils/files/patch-lib_gnulib.mk-add-renameat.c.diff"
-        sha256 "f7e2b21f04085f589c3d10c2f6ac5a4185e2b907e8bdb5bb6e4f93888d7ab546"
-      end
-    end
-  end
+  url "https://ftp.gnu.org/gnu/coreutils/coreutils-8.28.tar.xz"
+  mirror "https://ftpmirror.gnu.org/coreutils/coreutils-8.28.tar.xz"
+  sha256 "1117b1a16039ddd84d51a9923948307cfa28c2cea03d1a2438742253df0a0c65"
 
   bottle do
-    sha256 "a951d21ffbf3407ca84356d369ed6009d248b263587b79f644d9a95300465fa6" => :sierra
-    sha256 "dafd72ff298ed109503928a3d7cf1623327b4bc65318e99b48f3415b7c469ac8" => :el_capitan
-    sha256 "5d636c1ad28b1ef25c140b1486fdb368486bcca563901ad543d62ce1bd5f8b70" => :yosemite
-    sha256 "0803d0f7bd69caccb865355af0d13df48928b005fa8c2d9629f94854203c0946" => :x86_64_linux # glibc 2.19
+    sha256 "977e0b6ee439c9421ce97ce7fa48f664c1908497bf1a510ffbeecba881caf850" => :sierra
+    sha256 "52e2e39368fa5b4977bd6495ce133a535e4a06feafebd5ad2009f89d9ae4817d" => :el_capitan
+    sha256 "76e424055189d5fb2d13cfbd631a1de32dc7b1affb32b952cc3277a9af432191" => :yosemite
   end
 
   # --default-names interferes with Mac builds.
@@ -69,15 +35,6 @@ class Coreutils < Formula
   conflicts_with "idutils", :because => "both install `gid` and `gid.1`"
   conflicts_with "aardvark_shell_utils", :because => "both install `realpath` binaries"
 
-  # Fix crash from usage of %n in dynamic format strings on High Sierra
-  # Patch credit to Jeremy Huddleston Sequoia <jeremyhu@apple.com>
-  if MacOS.version >= :high_sierra
-    patch :p0 do
-      url "https://raw.githubusercontent.com/macports/macports-ports/b832494a90b/sysutils/coreutils/files/secure_snprintf.patch"
-      sha256 "57f972940a10d448efbd3d5ba46e65979ae4eea93681a85e1d998060b356e0d2"
-    end
-  end
-
   def install
     # Work around unremovable, nested dirs bug that affects lots of
     # GNU projects. See:
@@ -87,13 +44,7 @@ class Coreutils < Formula
     # https://lists.gnu.org/archive/html/bug-tar/2015-10/msg00017.html
     ENV["gl_cv_func_getcwd_abort_bug"] = "no" if MacOS.version == :el_capitan
 
-    if build.head?
-      system "./bootstrap"
-    elsif OS.mac? && MacOS.version < :yosemite
-      (buildpath/"lib").install resource("renameat_c")
-      (buildpath/"m4").install resource("renameat_m4")
-      system "autoreconf", "-fiv"
-    end
+    system "./bootstrap" if build.head?
 
     args = %W[
       --prefix=#{prefix}
