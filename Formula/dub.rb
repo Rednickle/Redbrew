@@ -1,17 +1,16 @@
 class Dub < Formula
   desc "Build tool for D projects"
   homepage "https://code.dlang.org/getting_started"
-  url "https://github.com/dlang/dub/archive/v1.4.1.tar.gz"
-  sha256 "56f99f06fb1fde0c0f5d92261032fca1eeba1e23d224b614da9fffbcb22ef442"
+  url "https://github.com/dlang/dub/archive/v1.5.0.tar.gz"
+  sha256 "3509f959cc5b34e44adaae586b62ded387ac10031f6c1aaf1cfbb4aae5af37dd"
   version_scheme 1
 
   head "https://github.com/dlang/dub.git"
 
   bottle do
-    sha256 "2cde0af323c7ecb5376f3b0615c44451f2f97d4c5856b2e1252599f4f3f81902" => :sierra
-    sha256 "64f01c4b8fdfc75d298af9b65e256b3600c87370ec8b6d05a3f28b2220f84be1" => :el_capitan
-    sha256 "a6fd6a055aaa21fe63b5fb7203d825922d12304e35ba11fea8794987b8688a62" => :yosemite
-    sha256 "3cf1637ffbeb791385570b4d66079f91926201692451ce1ed3b836357231e308" => :x86_64_linux # glibc 2.19
+    sha256 "2fa310eadd78afbe3e9fa2bf6129075d1e8ebc0cfbcbc85790576bcf887194da" => :sierra
+    sha256 "14408bc3f1ed7c5193c37bd61f570ad22f8920d6b00cce1613a582bbbced8312" => :el_capitan
+    sha256 "672931bef778a726c69692c0ca4cb3145ef5ba55cd616865dccc4e818ea0079d" => :yosemite
   end
 
   devel do
