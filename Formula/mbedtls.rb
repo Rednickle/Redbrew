@@ -10,6 +10,7 @@ class Mbedtls < Formula
     sha256 "14396d4acbb552478e1db64aa27195c8f7f2eab602b4aca4ff5118a3d45e0022" => :sierra
     sha256 "695634b3cd78db5c0fc73ac792814b34d4fa11fe78e3b2b13d8c93c5af205139" => :el_capitan
     sha256 "066b88497e6c0673ebc9552f13c5660989e5792dbde7bf954772ba30415b57cb" => :yosemite
+    sha256 "32808352fd326b1a49fb1f3b12c35805118db0c4a17a01e5b762af101c6843ce" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
