@@ -11,6 +11,7 @@ class Watchman < Formula
     sha256 "da774a8464b5ddab2342d7d8ba0211220cd630d8099b2605bc977a4574dfee1e" => :yosemite
   end
 
+  depends_on :macos => :yosemite # older versions don't support fstatat(2)
   # Bottle hard-codes statedir. See https://github.com/Linuxbrew/homebrew-core/issues/956
   pour_bottle? do
     default_prefix = BottleSpecification::DEFAULT_PREFIX
