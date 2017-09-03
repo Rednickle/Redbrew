@@ -1,15 +1,14 @@
 class Libzip < Formula
   desc "C library for reading, creating, and modifying zip archives"
   homepage "https://www.nih.at/libzip/"
-  url "https://www.nih.at/libzip/libzip-1.2.0.tar.xz"
-  sha256 "ffc0764395fba3d45dc5a6e32282788854618b9e9838337f8218b596007f1376"
+  url "https://www.nih.at/libzip/libzip-1.3.0.tar.xz"
+  sha256 "aa936efe34911be7acac2ab07fb5c8efa53ed9bb4d44ad1fe8bff19630e0d373"
 
   bottle do
     cellar :any
-    sha256 "50ffb3ac27076787296917112d8367d9e37d1e3cb095a8a5f8aaf0c10e66e8ad" => :sierra
-    sha256 "fea689c31e3100dea9767f0879b6ac9f263b52a0faeaf457b509d0b696d7fca2" => :el_capitan
-    sha256 "c950e33e4db6785c5b23f1c749c61f4fe67f721dae54a46082029f157c85eee5" => :yosemite
-    sha256 "afd80bc6688211b91acbbc55c736d9b93dae8fa42d4d8c2e0392497cd6982e2b" => :x86_64_linux # glibc 2.19
+    sha256 "4851da6bbf50facbf02119cce0f3dfabd0947f44f95a1479652c4e79121e3670" => :sierra
+    sha256 "22ecf2b59e06347de384adf7b635dd3dd3d7b0ac07328bf652eb7a12e74ac674" => :el_capitan
+    sha256 "132e57785f7973dfd451c8f44794a93e38f9f2040c0779b9eff6ba5a1f81711d" => :yosemite
   end
 
   conflicts_with "libtcod", :because => "both install `zip.h` header"
