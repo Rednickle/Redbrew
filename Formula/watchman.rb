@@ -28,6 +28,9 @@ class Watchman < Formula
   depends_on "pcre"
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j16" if ENV["CIRCLECI"]
+
     system "./autogen.sh"
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
