@@ -9,6 +9,7 @@ class Libzip < Formula
     sha256 "4851da6bbf50facbf02119cce0f3dfabd0947f44f95a1479652c4e79121e3670" => :sierra
     sha256 "22ecf2b59e06347de384adf7b635dd3dd3d7b0ac07328bf652eb7a12e74ac674" => :el_capitan
     sha256 "132e57785f7973dfd451c8f44794a93e38f9f2040c0779b9eff6ba5a1f81711d" => :yosemite
+    sha256 "774898fe0ac5bfda072643888d81cd6e20742786352d11c7134f7d4984faa63f" => :x86_64_linux
   end
 
   conflicts_with "libtcod", :because => "both install `zip.h` header"
