@@ -2,17 +2,16 @@
 class FileFormula < Formula
   desc "Utility to determine file types"
   homepage "https://www.darwinsys.com/file/"
-  url "ftp://ftp.astron.com/pub/file/file-5.31.tar.gz"
-  mirror "https://fossies.org/linux/misc/file-5.31.tar.gz"
-  sha256 "09c588dac9cff4baa054f51a36141793bcf64926edc909594111ceae60fce4ee"
+  url "ftp://ftp.astron.com/pub/file/file-5.32.tar.gz"
+  mirror "https://fossies.org/linux/misc/file-5.32.tar.gz"
+  sha256 "8639dc4d1b21e232285cd483604afc4a6ee810710e00e579dbe9591681722b50"
   head "https://github.com/file/file.git"
 
   bottle do
     cellar :any
-    sha256 "94defeca333534a5c8029c96f82a8a51f6b6d8d2e38d7a14b55146ecb84bc7f1" => :sierra
-    sha256 "461106ebaea7f18af0bf9aafdac131f901038f8b04d595e32bc050eafaa43731" => :el_capitan
-    sha256 "a9600f214a411f73615c432268c4aa76ab318e39835f8c3e20288cd746307888" => :yosemite
-    sha256 "c59ea13174a95a4bd5554ac15ffff05234678a2974abbce39630a25af598c29a" => :x86_64_linux # glibc 2.19
+    sha256 "97c729a73319a8121272b2b350acd1272dac4c056a33837b4e18fed35ee66378" => :sierra
+    sha256 "915f60a63b3cd5881a385f177becdb1f2c89f8c875a3361f7dd4c55db6fb4305" => :el_capitan
+    sha256 "aeee887f5d75f5d1d452adf2d9024bbc354bd28c5c20e4da0f8d6d7bb5f6f2f0" => :yosemite
   end
 
   keg_only :provided_by_osx

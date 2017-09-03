@@ -1,15 +1,14 @@
 class Mikutter < Formula
   desc "Extensible Twitter client"
   homepage "https://mikutter.hachune.net/"
-  url "https://mikutter.hachune.net/bin/mikutter.3.5.10.tar.gz"
-  sha256 "d794153f17e110b6696b0bf1a050817cc61dd14127cbfdcd12e566656b30bc53"
+  url "https://mikutter.hachune.net/bin/mikutter.3.5.11.tar.gz"
+  sha256 "b90b09c400fe99092b1eaa4b4f39f78b90cff4335ed94d996cc2d4de08467550"
   head "git://toshia.dip.jp/mikutter.git", :branch => "develop"
 
   bottle do
-    sha256 "aed5a9e83e5d098492b55aacd3141fa219673e3168322d4bbcae3e2bf3cd91e9" => :sierra
-    sha256 "7f15b973195df834bac7b9400dab412d9808249b0efb1c07bdecb03719a21f53" => :el_capitan
-    sha256 "da9df581f4f471799675f1097cb5bb26239c96c61d69cec81324c48e54d49f4f" => :yosemite
-    sha256 "227d13cd56df546f0f8917f8a05fdeed797de68ba1cf5120cc67ba4e0d181708" => :x86_64_linux
+    sha256 "1529e8cc45cafc9a58ab181dff4fb3a0fb35a4756e2755cce5fdbf35970e7b2c" => :sierra
+    sha256 "670f953b07945d9e60a504ac36b02b8ce3d95247df093558e078f025af55fcda" => :el_capitan
+    sha256 "c52e9cbdb5d946f8b1478a37938b952e0ead6d70355bfcabc841615b3b551c0c" => :yosemite
   end
 
   depends_on "gtk+"
@@ -57,8 +56,8 @@ class Mikutter < Formula
   end
 
   resource "gettext" do
-    url "https://rubygems.org/gems/gettext-3.2.4.gem"
-    sha256 "ffd3f6dd5b8e73dd8117ac2a7f7caabae1118de85624d47b7163f9ace1c4dd77"
+    url "https://rubygems.org/gems/gettext-3.0.9.gem"
+    sha256 "390ee547437d62d00b859383d1af816cf06f0adee9ced1949f821b720d187c93"
   end
 
   resource "gio2" do
@@ -97,8 +96,8 @@ class Mikutter < Formula
   end
 
   resource "json_pure" do
-    url "https://rubygems.org/gems/json_pure-2.1.0.gem"
-    sha256 "5a895821c7d6200764facf1a85d81e2696ef71701b08da479582910cab4bce8b"
+    url "https://rubygems.org/gems/json_pure-1.8.6.gem"
+    sha256 "55d575c4aec98249473811a256b3f3a7c12a94ad008093032f5e5f28eacd94ee"
   end
 
   resource "locale" do
@@ -122,8 +121,8 @@ class Mikutter < Formula
   end
 
   resource "mocha" do
-    url "https://rubygems.org/gems/mocha-1.3.0.gem"
-    sha256 "22f247ad94e92cef32baac2e671d1d7262f165dc933ead1940cf874c3d1fc25e"
+    url "https://rubygems.org/gems/mocha-0.14.0.gem"
+    sha256 "4bb00fdc69d628b15ad2b89ca6f490aaf92486f640282b8943fe3b43dee9a145"
   end
 
   resource "moneta" do
@@ -172,8 +171,8 @@ class Mikutter < Formula
   end
 
   resource "rake" do
-    url "https://rubygems.org/gems/rake-12.0.0.gem"
-    sha256 "f6b43059e2923ddd30128fbbf4eb2e610c020b888ad97b57d7d94abc12734806"
+    url "https://rubygems.org/gems/rake-10.5.0.gem"
+    sha256 "2b55a1ad44b5c945719d8a97c302a316af770b835187d12143e83069df5a8a49"
   end
 
   resource "ruby-hmac" do
@@ -232,8 +231,8 @@ class Mikutter < Formula
   end
 
   resource "webmock" do
-    url "https://rubygems.org/gems/webmock-3.0.1.gem"
-    sha256 "53b2422e7b07a318f43d7bb9cbb3cf82ecfdaffa5f085c69b426db9e8efc463f"
+    url "https://rubygems.org/gems/webmock-1.24.6.gem"
+    sha256 "c516e1b309697af303e647dc2f3c7222b13ef70c1c4c5afb61e64bd595c9740f"
   end
 
   def install
