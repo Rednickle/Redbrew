@@ -3,13 +3,13 @@ class Apr < Formula
   homepage "https://apr.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=apr/apr-1.6.2.tar.bz2"
   sha256 "09109cea377bab0028bba19a92b5b0e89603df9eab05c0f7dbd4dd83d48dcebd"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "b5b531052200cb05e72d836b24c589785d36606be257928b47dbe898e2712b95" => :sierra
-    sha256 "4844340e4ee02770997461fbc82b9cd038d364c1335f4f1312f1a01bab2f8d5b" => :el_capitan
-    sha256 "3f22982c60f9673fbe9d13203dc3e5540353ab5c64b2ce9ae671c65b4a928fb1" => :yosemite
-    sha256 "20f06d4f2e6ae4decf36ab5d9211beea06a2c78f25bab8edf964155703f77aae" => :x86_64_linux # glibc 2.19
+    sha256 "5a0ef0c7992eaa6fc1ac332f72cdaebfb5fc0e9fd70a00606fc72e3a5c9d0afb" => :sierra
+    sha256 "b5b9ef99e199a850bc0485fec5968ada7dece9d107df3af0014ecb7245cf5f68" => :el_capitan
+    sha256 "cca4cfe47cf5e2f504c2bba59ddb991211b4ed778b2cadda74ea418305a5d942" => :yosemite
   end
 
   keg_only :provided_by_osx, "Apple's CLT package contains apr"
@@ -33,6 +33,8 @@ class Apr < Formula
     system "make", "install"
     bin.install_symlink Dir["#{libexec}/bin/*"]
     lib.install_symlink Dir["#{libexec}/lib/*.so*"] unless OS.mac?
+
+    rm Dir[libexec/"lib/*.la"]
 
     # No need for this to point to the versioned path.
     inreplace libexec/"bin/apr-1-config", libexec, opt_libexec
