@@ -1,15 +1,13 @@
 class Gnuplot < Formula
   desc "Command-driven, interactive function plotting"
   homepage "http://www.gnuplot.info"
-  url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.0.6/gnuplot-5.0.6.tar.gz"
-  sha256 "5bbe4713e555c2e103b7d4ffd45fca69551fff09cf5c3f9cb17428aaacc9b460"
-  revision 3
+  url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.2.0/gnuplot-5.2.0.tar.gz"
+  sha256 "7dfe6425a1a6b9349b1fb42dae46b2e52833b13e807a78a613024d6a99541e43"
 
   bottle do
-    sha256 "8fbf7bc14cbca96ac3bcd5e24b3583cb62e36e0fa64ed42c73dc5f7b6d9e9a0b" => :sierra
-    sha256 "dca01f4f6ea524f23123b28f378d47b213bd5f73d4e652d3c5553f81d6547e16" => :el_capitan
-    sha256 "1dae7c1f47b6a1dff23083bffa7f33ecc3ce25a6f050a7c8c2348c2431886353" => :yosemite
-    sha256 "4a58cce1658871b59aaa7c5c77e9dfd4af3bf6c3a36546ac5dd5bcf695a723e5" => :x86_64_linux # glibc 2.19
+    sha256 "8c43e0b7e86325aee11a7bd6d49fbc7ca18480d592b806061a45a6a5d9c30545" => :sierra
+    sha256 "d070515c0ef22f4a74f93854ba4ad62c142d2c2d1e0088d9186356853e32ebf5" => :el_capitan
+    sha256 "cbc87c7746aeb65acf5231d3114672bf003c1a4583b12be229de586310a83ab1" => :yosemite
   end
 
   head do
