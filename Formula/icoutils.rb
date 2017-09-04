@@ -9,6 +9,7 @@ class Icoutils < Formula
     sha256 "e610d5929aebf62ea55523c0b78086421ee1d986629f5e3d17da3db256dccff1" => :sierra
     sha256 "1c90d46e62314b26aa041cac0c1fc8ac118a8cb99ccfd13c0480490409c19f12" => :el_capitan
     sha256 "99093a0aa622a30d769ed6ac558e35e7621658c4210266f56a00bf9a4b36efb4" => :yosemite
+    sha256 "5a04c09c4befbbc98c6442acd72463204591c7eddfefb61d758a4435af5546f3" => :x86_64_linux
   end
 
   depends_on "libpng"
