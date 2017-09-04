@@ -15,7 +15,6 @@ class Jenkins < Formula
 
   def install
     if build.head?
-      ENV.java_cache
       system "mvn", "clean", "install", "-pl", "war", "-am", "-DskipTests"
     else
       system "jar", "xvf", "jenkins.war"
@@ -57,7 +56,7 @@ class Jenkins < Formula
 
   test do
     ENV["JENKINS_HOME"] = testpath
-    ENV["_JAVA_OPTIONS"] = "-Djava.io.tmpdir=#{testpath}"
+    ENV.prepend "_JAVA_OPTIONS", "-Djava.io.tmpdir=#{testpath}"
     pid = fork do
       exec "#{bin}/jenkins"
     end

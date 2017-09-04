@@ -1,15 +1,28 @@
 class Ruby < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.1.tar.bz2"
-  sha256 "ccfb2d0a61e2a9c374d51e099b0d833b09241ee78fc17e1fe38e3b282160237c"
-  revision 1
+  revision 2
+
+  stable do
+    url "https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.1.tar.bz2"
+    sha256 "ccfb2d0a61e2a9c374d51e099b0d833b09241ee78fc17e1fe38e3b282160237c"
+
+    # https://www.ruby-lang.org/en/news/2017/08/29/multiple-vulnerabilities-in-rubygems/
+    patch :p0 do
+      url "https://bugs.ruby-lang.org/attachments/download/6692/rubygems-2612-ruby24.patch"
+      sha256 "2512420ec6aad586c6fbe80dfc32e7ec571a0168c90e451ad022b443202ab4a9"
+    end
+
+    patch :p0 do
+      url "https://bugs.ruby-lang.org/attachments/download/6693/rubygems-2613-ruby24.patch"
+      sha256 "6677689d991e07adf26355e4045a3bd9eaeca07694928644c282bd05ec13060d"
+    end
+  end
 
   bottle do
-    sha256 "f581f686392b4ca25a08eb674a9ef92ef7ce54b66c7fc63f5e7ed98cc5bb1b9f" => :sierra
-    sha256 "60cd646fce3b4e4e753cd63246f86e5ed6f5d8c2b9b35ad30c7bab6e58069cc5" => :el_capitan
-    sha256 "ea37405174624e325bb3fd41f27c87da6c81bfc90b909f4d7d9411399b7873e0" => :yosemite
-    sha256 "ff35486166de339633a76f3db11048c9a3b436139af3e406c7b8e01b79a38955" => :x86_64_linux # glibc 2.19
+    sha256 "d068a8d16f40ade0e770ed0e8670d02ae066494b2400ae614f9f84983011af1b" => :sierra
+    sha256 "fd4b77b9bfa6cae7a4dbb01d16f6f4c93f61a252e78ef4bfa6f0ac7198c9184e" => :el_capitan
+    sha256 "d45ccfe39c104f50d145027e8524deef936a4736c8bd9d71cda90ee58578805f" => :yosemite
   end
 
   head do

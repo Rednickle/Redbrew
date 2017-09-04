@@ -17,7 +17,6 @@ class Fits < Formula
   depends_on "zlib" unless OS.mac?
 
   def install
-    ENV.java_cache
     system "ant", "clean-compile-jar", "-noinput"
 
     libexec.install "lib",

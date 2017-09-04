@@ -4,6 +4,7 @@ class RubyAT23 < Formula
 
   url "https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.4.tar.xz"
   sha256 "341cd9032e9fd17c452ed8562a8d43f7e45bfe05e411d0d7d627751dd82c578c"
+  revision 1
 
   # Reverts an upstream commit which incorrectly tries to install headers
   # into SDKROOT, if defined
@@ -16,9 +17,9 @@ class RubyAT23 < Formula
   end
 
   bottle do
-    sha256 "51a3027c44128bbb9655b9d793a2bd2b14496870bc8ab353ab62b853871d0e35" => :sierra
-    sha256 "be70a90b4589fa664ece570627ab5886373eb01db3e57555588b1a81d5a532bb" => :el_capitan
-    sha256 "3d0cb6bdbac9062f6c3ee880013e2282f33351d0e6dd7951c3fe43f21c9362d3" => :yosemite
+    sha256 "7a60a8e3d435d2f39322323748f73068ca597b3b024e12f708f7add54bf6e4af" => :sierra
+    sha256 "8948eb2d87b3ecd224d773e7e8a7714d36e4b6ac07f8b99863e5181cfd4826a2" => :el_capitan
+    sha256 "a6ddd9fcc90f15aef0d624e27b48385cd04c8c04e0e14a8999b37a2b6cefa069" => :yosemite
   end
 
   keg_only :versioned_formula
@@ -35,6 +36,12 @@ class RubyAT23 < Formula
   depends_on "libyaml"
   depends_on "openssl"
   depends_on :x11 if build.with? "tcltk"
+
+  # https://www.ruby-lang.org/en/news/2017/08/29/multiple-vulnerabilities-in-rubygems/
+  patch :p0 do
+    url "https://bugs.ruby-lang.org/attachments/download/6691/rubygems-2613-ruby23.patch"
+    sha256 "510567a43d57ea9c8c7436b14e78d0a4d33380f410443dcf350b9867c9745748"
+  end
 
   def install
     # otherwise `gem` command breaks
