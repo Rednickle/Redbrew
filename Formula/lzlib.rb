@@ -9,6 +9,7 @@ class Lzlib < Formula
     sha256 "730b7d59b3c8c3f8ca12053b2be57c36effa89f036a0a5c78395455fc3619477" => :sierra
     sha256 "116cf311291d7aaf0c13c5ac9e456a40261d036f75d21c6026e0b1c623bca2f4" => :el_capitan
     sha256 "f7be3aeb9e6142bbf3b35ff6212c81615a2ac02f0a65ad77216bcd15051bf147" => :yosemite
+    sha256 "a50f1ec8acbe9d5749fc63d6c0c90675e76be1675548bb0c82859195876e6b05" => :x86_64_linux
   end
 
   def install
