@@ -8,6 +8,7 @@ class PopplerAT057 < Formula
     sha256 "42fd1c873083a927f05efb178ce7c0393f9cb08ef4c1733110c9826f58b02735" => :sierra
     sha256 "12b5602dec8bd91e069b5448c20bbca6026dc1ca2d4bcc9450b604a1abcc3cc5" => :el_capitan
     sha256 "7c4330ec76a5fce61d6a34b9fa6d57f3a6fc86242d8b8d614bb253893bbf1924" => :yosemite
+    sha256 "05ae52bf62f21e44ade601e7338896a41f7d41eca830a2e666d4e34133147ed9" => :x86_64_linux
   end
 
   keg_only :versioned_formula
