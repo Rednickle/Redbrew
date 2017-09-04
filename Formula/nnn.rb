@@ -9,6 +9,7 @@ class Nnn < Formula
     sha256 "1b9b77488be80d90fd6b90c7ed8c93df02cad18211321ba8199c629d693b5e27" => :sierra
     sha256 "a5c1d353bdb32b395f827a3b86da9fa3f7336737063531cc5862eaf80fff7d2d" => :el_capitan
     sha256 "d10bca08ca2a0dde952c1704eac053210a6e1a0bcb44daf7447866f15b8397ba" => :yosemite
+    sha256 "4a3223eb48db548cbfe3837bd03d31d3e6061f3b56e528ee47e763315802f8ea" => :x86_64_linux
   end
 
   depends_on "ncurses" unless OS.mac?
