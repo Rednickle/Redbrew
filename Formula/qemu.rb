@@ -1,16 +1,26 @@
+# Fix extraction on case-insensitive file systems.
+# Reported 4 Sep 2017 https://bugs.launchpad.net/qemu/+bug/1714750
+# This is actually an issue with u-boot and may take some time to sort out.
+class QemuDownloadStrategy < CurlDownloadStrategy
+  def stage
+    exclude = "#{name}-#{version}/roms/u-boot/scripts/Kconfig"
+    safe_system "tar", "xjf", cached_location, "--exclude", exclude
+    chdir
+  end
+end
+
 class Qemu < Formula
   desc "x86 and PowerPC Emulator"
   homepage "https://www.qemu.org/"
-  url "https://download.qemu.org/qemu-2.9.0.tar.bz2"
-  sha256 "00bfb217b1bb03c7a6c3261b819cfccbfb5a58e3e2ceff546327d271773c6c14"
-  revision 2
-
+  url "https://download.qemu.org/qemu-2.10.0.tar.bz2",
+      :using => QemuDownloadStrategy
+  sha256 "7e9f39e1306e6dcc595494e91c1464d4b03f55ddd2053183e0e1b69f7f776d48"
   head "https://git.qemu.org/git/qemu.git"
 
   bottle do
-    sha256 "531435eb8b3091f06805e66a196ea83de45eed6b8cb5788612bb9b11837a0aa0" => :sierra
-    sha256 "f7debbc6401a3f9213f642623fad98bdbc4cbae3873b907063e68dc38b11b9a0" => :el_capitan
-    sha256 "ead34e43272f2075bc5e59bc31ada233a13850e4b448dc799e69a15e92d04273" => :yosemite
+    sha256 "638634a91a1aaafc5c0575a531686e35406188d374213940f99dfaeedcb8b611" => :sierra
+    sha256 "fc975e3d3797567c3fd7b4c0c8091025e560ea11a5c4f5ddfa1cde2a166d1e45" => :el_capitan
+    sha256 "754ba01f27583feba282efef4de01507ffa84564bd89ddc2c236b98074d7bb0f" => :yosemite
   end
 
   depends_on "pkg-config" => :build
