@@ -11,6 +11,7 @@ class Pdf2htmlex < Formula
     sha256 "2d3fe2b4d681d46fca5ed3d8c93e0453fc370cec7a62960be42fc5e4108c8633" => :sierra
     sha256 "53bff72a7818a419e7a618631f4b6173e9890d5a8ec1b8714a24e10595a99587" => :el_capitan
     sha256 "8392b854ce1e88f244e92bc0cfac03f1b68f87fc69143ffee09c8d85baaa512f" => :yosemite
+    sha256 "ab3e144b15824a5d7a7a255190971e843af74c9566faf4292d809541d4f7a903" => :x86_64_linux
   end
 
   depends_on :macos => :lion
