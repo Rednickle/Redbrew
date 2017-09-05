@@ -11,6 +11,7 @@ class Fzf < Formula
     sha256 "a92959df49e4185d2a7418e520d660d85940edaf2ab8e99396c9ff9cdd097019" => :sierra
     sha256 "e7b3e45dbc4c5c1a6d9f52c22336a34cc697678e877343a01961d579ed24d4cd" => :el_capitan
     sha256 "b257a1a4d50cc38963d81b3c0af615b1e62b446e3d13643286375bad849dcff1" => :yosemite
+    sha256 "a871cc026eb194b3827c9954ecdaba7c6937120c3bda3289654fcc7a999d1fbc" => :x86_64_linux
   end
 
   depends_on "glide" => :build
