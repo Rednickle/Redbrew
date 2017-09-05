@@ -19,9 +19,10 @@ class Agda < Formula
   end
 
   bottle do
-    sha256 "8aedcb6085eca1dbe613b8474417c70ac268d004c7c24282a79c93a403d9e0a9" => :sierra
-    sha256 "d72aade4bfc553c1b63e071b96310f7a326b1d58045a481f15b37dca76d75480" => :el_capitan
-    sha256 "ad4e56ac7514318493a5e3da7062e0443c3beb21d428dd4a42ae409b31e07851" => :yosemite
+    rebuild 1
+    sha256 "d3301d6a282b9ee76525ffda96fd4ce102bc58a00e982bd8888ebddc54bfa440" => :sierra
+    sha256 "53b3cc19b25cd4cfa646fafe8637a8e3ca2d920fd82564ae5ab518b358972298" => :el_capitan
+    sha256 "4bcb41224b90cb7e0039f0c488a48cf805922abf40e24a7cf5271210e9cddfa3" => :yosemite
   end
 
   head do
@@ -48,7 +49,18 @@ class Agda < Formula
 
   depends_on :emacs => ["23.4", :recommended]
 
+  # Upstream issue from 4 Sep 2017 "Agda fails to build with happy 1.19.6"
+  # See https://github.com/agda/agda/issues/2731
+  resource "cabal-config" do
+    url "https://www.stackage.org/lts-9.1/cabal.config"
+    version "lts-9.1"
+    sha256 "615e2a56ffd64d169fcc59f02a068d579bf5bdd83b13fd6746e20b8fdc79a738"
+  end
+
   def install
+    buildpath.install resource("cabal-config")
+    inreplace "cabal.config", "             Agda ==2.5.2,\n", ""
+
     # install Agda core
     install_cabal_package :using => ["alex", "happy", "cpphs"]
 

@@ -1,16 +1,14 @@
 class Yaz < Formula
   desc "Toolkit for Z39.50/SRW/SRU clients/servers"
   homepage "https://www.indexdata.com/yaz"
-  url "http://ftp.indexdata.dk/pub/yaz/yaz-5.23.0.tar.gz"
-  sha256 "ade1c79d792fd6cb7727dd4bc4ea61743ddb49d1d4a04a038cd12c8a3a13e98a"
-  revision 1
+  url "http://ftp.indexdata.dk/pub/yaz/yaz-5.23.1.tar.gz"
+  sha256 "4fb3b1ffcec4b9a56b892c47a0a645142e45418ce5ef6a835aeebc723f7d147e"
 
   bottle do
     cellar :any
-    sha256 "d1491e4c40c994750276bfba56b459ab87a85a2e70041da3861f2e2c2cc14918" => :sierra
-    sha256 "f85aeff6965d32035bfc2e8bf9f8b41ad395845e935598d6a1fa9ae7bd73e69b" => :el_capitan
-    sha256 "8ee0f6cc909ffd292a8fd453181afebd4551e21d9a2665952f22a6e780d7b231" => :yosemite
-    sha256 "6f4df5523cde0de2f64d1a2436da610706208cae80ac870788fdf3dc0027d162" => :x86_64_linux # glibc 2.19
+    sha256 "79bff14a9d7cd50bbf71ae91b9b91d6e670b3b44d98271acbb6632aff30831c9" => :sierra
+    sha256 "1895528299deb6423bed5bbd9806693d57cc2af083eb335500510dbe9c5e388e" => :el_capitan
+    sha256 "020e949b02beddcf499e676b5920ec22d64030ce10d67420ca2a22cbf7900b76" => :yosemite
   end
 
   head do

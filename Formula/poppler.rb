@@ -3,12 +3,12 @@ class Poppler < Formula
   homepage "https://poppler.freedesktop.org/"
   url "https://poppler.freedesktop.org/poppler-0.59.0.tar.xz"
   sha256 "a3d626b24cd14efa9864e12584b22c9c32f51c46417d7c10ca17651f297c9641"
+  revision 1
 
   bottle do
-    sha256 "2d1ba2604102e94d36c2cd3d9f86de5c8d0e44955cacb49b4c8606ca96a765d2" => :sierra
-    sha256 "f71e4556d04eee86bb2c8bfd56859c844c1c32c983d0e2899d9f55e5543f756a" => :el_capitan
-    sha256 "993b5b7f994ccaae14d6840c5a46020bc370c1878476243d222b5014fd37141d" => :yosemite
-    sha256 "d5b17481a68943c9e8bc29fbb6827b025caa1a4dcfec41e0b73f588b7d998ecb" => :x86_64_linux
+    sha256 "45c498c850b6e0dd469ad01a9934e8a04c382a0765c43ffd558f36ba914e53d3" => :sierra
+    sha256 "6414db0c4132faa741c0103f404c7e5620caf11484bbf4455c29f87e5184a21f" => :el_capitan
+    sha256 "dc7456a1f84d9125b08484bfdfa28950331656b8183368e245c66b30967f2cff" => :yosemite
   end
 
   option "with-qt", "Build Qt5 backend"
@@ -39,8 +39,8 @@ class Poppler < Formula
     :because => "poppler, pdftohtml, pdf2image, and xpdf install conflicting executables"
 
   resource "font-data" do
-    url "https://poppler.freedesktop.org/poppler-data-0.4.7.tar.gz"
-    sha256 "e752b0d88a7aba54574152143e7bf76436a7ef51977c55d6bd9a48dccde3a7de"
+    url "https://poppler.freedesktop.org/poppler-data-0.4.8.tar.gz"
+    sha256 "1096a18161f263cccdc6d8a2eb5548c41ff8fcf9a3609243f1b6296abdf72872"
   end
 
   needs :cxx11 if build.with?("qt") || MacOS.version < :mavericks
@@ -48,8 +48,8 @@ class Poppler < Formula
   # Fix clang build failure due to missing user-provided default constructor
   # Reported 4 Sep 2017 https://bugs.freedesktop.org/show_bug.cgi?id=102538
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/3b766b9/poppler/clang.diff"
-    sha256 "5c380a6f769758866eaa61bced5768165959aca457431eb02eeffe2c685dee87"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/656cc7f/poppler/clang.diff"
+    sha256 "b95c454b78c83fc2a7cec276d4014c78aa4de48d247652eb3de3876f78875605"
   end
 
   def install
