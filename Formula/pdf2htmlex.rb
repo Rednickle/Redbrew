@@ -3,27 +3,22 @@ class Pdf2htmlex < Formula
   homepage "https://coolwanglu.github.io/pdf2htmlEX/"
   url "https://github.com/coolwanglu/pdf2htmlEX/archive/v0.14.6.tar.gz"
   sha256 "320ac2e1c2ea4a2972970f52809d90073ee00a6c42ef6d9833fb48436222f0e5"
-  revision 17
+  revision 18
 
   head "https://github.com/coolwanglu/pdf2htmlEX.git"
 
   bottle do
-    sha256 "2d3fe2b4d681d46fca5ed3d8c93e0453fc370cec7a62960be42fc5e4108c8633" => :sierra
-    sha256 "53bff72a7818a419e7a618631f4b6173e9890d5a8ec1b8714a24e10595a99587" => :el_capitan
-    sha256 "8392b854ce1e88f244e92bc0cfac03f1b68f87fc69143ffee09c8d85baaa512f" => :yosemite
-    sha256 "ab3e144b15824a5d7a7a255190971e843af74c9566faf4292d809541d4f7a903" => :x86_64_linux
+    sha256 "f09f3c1649dd2283d89bc6f040aa15c620316599c145d152ed2aff63fc2f5e3d" => :sierra
+    sha256 "e766e0617296e5a2c75fc013f738507af6841f08d7394b6565126393b0ca951f" => :el_capitan
+    sha256 "b15b6922ff4cfa967333f408f58581ae62073069a64d5296bfdb4beb8ed03c68" => :yosemite
   end
 
   depends_on :macos => :lion
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "gnu-getopt"
-
-  # Upstream issue "poppler 0.59.0 incompatibility"
-  # Reported 4 Sep 2017 https://github.com/coolwanglu/pdf2htmlEX/issues/733
-  depends_on "poppler@0.57"
-
-  depends_on "ttfautohint" => :recommended if MacOS.version > :snow_leopard
+  depends_on "openjpeg" # for poppler
+  depends_on "ttfautohint"
 
   # Fontforge dependencies
   depends_on "autoconf" => :build
@@ -31,13 +26,13 @@ class Pdf2htmlex < Formula
   depends_on "libtool" => :run
   depends_on "cairo"
   depends_on "freetype"
+  depends_on "gettext"
   depends_on "giflib"
   depends_on "glib"
+  depends_on "jpeg"
+  depends_on "libpng"
+  depends_on "libtiff"
   depends_on "pango"
-  depends_on "gettext"
-  depends_on "libpng"   => :recommended
-  depends_on "jpeg"     => :recommended
-  depends_on "libtiff"  => :recommended
 
   # Pdf2htmlex use an outdated, customised Fontforge installation.
   # See https://github.com/coolwanglu/pdf2htmlEX/wiki/Building
@@ -45,20 +40,25 @@ class Pdf2htmlex < Formula
     url "https://github.com/coolwanglu/fontforge.git", :branch => "pdf2htmlEX"
   end
 
+  # Upstream issue "poppler 0.59.0 incompatibility"
+  # Reported 4 Sep 2017 https://github.com/coolwanglu/pdf2htmlEX/issues/733
+  resource "poppler" do
+    url "https://poppler.freedesktop.org/poppler-0.57.0.tar.xz"
+    sha256 "0ea37de71b7db78212ebc79df59f99b66409a29c2eac4d882dae9f2397fe44d8"
+  end
+
+  resource "poppler-data" do
+    url "https://poppler.freedesktop.org/poppler-data-0.4.8.tar.gz"
+    sha256 "1096a18161f263cccdc6d8a2eb5548c41ff8fcf9a3609243f1b6296abdf72872"
+  end
+
   def install
+    ENV.cxx11 if MacOS.version < :mavericks
+
     resource("fontforge").stage do
       # Fix for incomplete giflib 5 support, see
       # https://github.com/coolwanglu/pdf2htmlEX/issues/713
       inreplace "gutils/gimagereadgif.c", "DGifCloseFile(gif)", "DGifCloseFile(gif, NULL)"
-
-      args = %W[
-        --prefix=#{prefix}/fontforge
-        --without-libzmq
-        --without-x
-        --without-iconv
-        --disable-python-scripting
-        --disable-python-extension
-      ]
 
       # Fix linker error; see: https://trac.macports.org/ticket/25012
       ENV.append "LDFLAGS", "-lintl" if OS.mac?
@@ -67,15 +67,41 @@ class Pdf2htmlex < Formula
       ENV["ARCHFLAGS"] = "-arch #{MacOS.preferred_arch}"
 
       system "./autogen.sh"
-      system "./configure", *args
-
+      system "./configure", "--prefix=#{libexec}/fontforge",
+                            "--without-libzmq",
+                            "--without-x",
+                            "--without-iconv",
+                            "--disable-python-scripting",
+                            "--disable-python-extension"
       system "make"
       system "make", "install"
     end
 
-    # Prepend the paths to always find this dep fontforge instead of another.
-    ENV.prepend_path "PKG_CONFIG_PATH", "#{prefix}/fontforge/lib/pkgconfig"
-    ENV.prepend_path "PATH", "#{prefix}/fontforge/bin"
+    ENV.prepend_path "PKG_CONFIG_PATH", "#{libexec}/fontforge/lib/pkgconfig"
+    ENV.prepend_path "PATH", "#{libexec}/fontforge/bin"
+
+    resource("poppler").stage do
+      ENV["LIBOPENJPEG_CFLAGS"] = "-I#{Formula["openjpeg"].opt_include}/openjpeg-2.2"
+
+      inreplace "poppler.pc.in", "Cflags: -I${includedir}/poppler",
+                                 "Cflags: -I${includedir}/poppler -I${includedir}"
+
+      system "./configure", "--disable-dependency-tracking",
+                            "--prefix=#{libexec}/poppler",
+                            "--enable-xpdf-headers",
+                            "--enable-poppler-glib",
+                            "--disable-gtk-test",
+                            "--enable-introspection=no",
+                            "--disable-poppler-qt4"
+      system "make", "install"
+      resource("poppler-data").stage do
+        system "make", "install", "prefix=#{libexec}/poppler"
+      end
+    end
+
+    ENV.prepend_path "PKG_CONFIG_PATH", "#{libexec}/poppler/lib/pkgconfig"
+    ENV.prepend_path "PATH", "#{libexec}/poppler/bin"
+
     system "cmake", ".", *std_cmake_args
     system "make"
     system "make", "install"

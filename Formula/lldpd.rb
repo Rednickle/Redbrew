@@ -1,23 +1,21 @@
 class Lldpd < Formula
   desc "Implementation of IEEE 802.1ab (LLDP)"
   homepage "https://vincentbernat.github.io/lldpd/"
-  url "https://media.luffy.cx/files/lldpd/lldpd-0.9.7.tar.gz"
-  sha256 "b9360355c30a3c06fd5c0a6e658f2ad8bf77037d5a17c6fcabf20e62882e0db8"
+  url "https://media.luffy.cx/files/lldpd/lldpd-0.9.8.tar.gz"
+  sha256 "9ee494e91bc33938575b2c09b26188c486ef8eac6e2155d250c189cc4e988c4f"
 
   bottle do
-    sha256 "b90cef5460c6dfb31a4e7f3eb3330839cddf2554ddcf2ff42379ca46d2d80937" => :sierra
-    sha256 "f11755d91f945ce18f7aba6d710bf7dda704dcf5e412ef72296ca5847f11bad7" => :el_capitan
-    sha256 "422483f79a29084972b100f108d40fc03c70c43473199c8978d6ea3ff49b5193" => :yosemite
+    sha256 "aabfb8c26c40e7ee1f2b23995dbf97cd0ee62112f9d027f627f4f6dde2cc4295" => :sierra
+    sha256 "ee9c6bbed49faa610ec015adbcb82c88032fdce218162bfde615589533724b7e" => :el_capitan
+    sha256 "583017bc3ecbc6abc45d65cc854faff386cc7f839a18c600304497c9ae11505a" => :yosemite
   end
 
   option "with-snmp", "Build SNMP subagent support"
-  option "with-json", "Build JSON support for lldpcli"
 
   depends_on "pkg-config" => :build
   depends_on "readline"
   depends_on "libevent"
   depends_on "net-snmp" if build.with? "snmp"
-  depends_on "jansson" if build.with? "json"
 
   def install
     readline = Formula["readline"]
@@ -35,7 +33,6 @@ class Lldpd < Formula
       "LDFLAGS=-L#{readline.lib}",
     ]
     args << (build.with?("snmp") ? "--with-snmp" : "--without-snmp")
-    args << (build.with?("json") ? "--with-json" : "--without-json")
 
     system "./configure", *args
     system "make"
