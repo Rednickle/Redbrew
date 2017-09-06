@@ -10,6 +10,7 @@ class Bashdb < Formula
     sha256 "c16468585dfc75cdc28379afdbd5a506e7a842be3cbbb91249063b614b6ab94f" => :sierra
     sha256 "c16468585dfc75cdc28379afdbd5a506e7a842be3cbbb91249063b614b6ab94f" => :el_capitan
     sha256 "c16468585dfc75cdc28379afdbd5a506e7a842be3cbbb91249063b614b6ab94f" => :yosemite
+    sha256 "5002a69990dbff757f8853424b3e76ced16da51bcba26e8585c10bb83c66c078" => :x86_64_linux
   end
 
   depends_on "bash"
