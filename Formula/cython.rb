@@ -1,15 +1,14 @@
 class Cython < Formula
   desc "Compiler for writing C extensions for the Python language"
   homepage "http://cython.org"
-  url "https://files.pythonhosted.org/packages/10/d5/753d2cb5073a9f4329d1ffed1de30b0458821780af8fdd8ba1ad5adb6f62/Cython-0.26.tar.gz"
-  sha256 "4c24e2c22ddaed624d35229dc5db25049e9e225c6f64f3364326836cad8f2c66"
+  url "https://files.pythonhosted.org/packages/68/41/2f259b62306268d9cf0d6434b4e83a2fb1785b34cfce27fdeeca3adffd0e/Cython-0.26.1.tar.gz"
+  sha256 "c2e63c4794161135adafa8aa4a855d6068073f421c83ffacc39369497a189dd5"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e829747a85647ba52254d87b4af228da072d8629a0f32d3687e6cf8ebf31be54" => :sierra
-    sha256 "027291cdf4756b3ef5d74cce90a044ccfcf7213f18f7821274958af41de09ed4" => :el_capitan
-    sha256 "48cc08535a7b0dd2d3436885c2b9f8bb175aa519824045ee3372e62731d33084" => :yosemite
-    sha256 "db431b2f74e0b6039328a93c7a7b9047f2047f2541927e1e58e3b3d1fb406915" => :x86_64_linux # glibc 2.19
+    sha256 "638b92c666264c3cd545829105c367fec7880715f4c77c299cf3689329157b35" => :sierra
+    sha256 "8ea087e6c76859af0a50b46de26093e00ed8ec9bb20fe15066be4aaa42ec0582" => :el_capitan
+    sha256 "1522c512cfa00fd1bbb1695c568a7d407f6b87ff105efe341a116e4d94033865" => :yosemite
   end
 
   keg_only <<-EOS.undent
