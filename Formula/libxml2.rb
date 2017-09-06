@@ -1,42 +1,16 @@
 class Libxml2 < Formula
   desc "GNOME XML library"
   homepage "http://xmlsoft.org"
-  revision 4
+  url "http://xmlsoft.org/sources/libxml2-2.9.5.tar.gz"
+  mirror "ftp://xmlsoft.org/libxml2/libxml2-2.9.5.tar.gz"
+  sha256 "4031c1ecee9ce7ba4f313e91ef6284164885cdb69937a123f6a83bb6a72dcd38"
   head "https://git.gnome.org/browse/libxml2.git"
-
-  stable do
-    url "http://xmlsoft.org/sources/libxml2-2.9.4.tar.gz"
-    mirror "ftp://xmlsoft.org/libxml2/libxml2-2.9.4.tar.gz"
-    sha256 "ffb911191e509b966deb55de705387f14156e1a56b21824357cdf0053233633c"
-
-    # All patches upstream already. Remove whenever 2.9.5 is released.
-    # Fixes CVE-2016-4658, CVE-2016-5131, CVE-2017-0663, CVE-2017-7375,
-    # CVE-2017-7376, CVE-2017-9047, CVE-2017-9048, CVE-2017-9049 and
-    # CVE-2017-9050.
-    patch do
-      url "https://mirrors.ocf.berkeley.edu/debian/pool/main/libx/libxml2/libxml2_2.9.4+dfsg1-3.1.debian.tar.xz"
-      mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/libx/libxml2/libxml2_2.9.4+dfsg1-3.1.debian.tar.xz"
-      sha256 "9de354bf1315f0e631505789a6059fdbcef3fd2c262b1573935cdf6acf0ee976"
-      apply "patches/0003-Fix-NULL-pointer-deref-in-XPointer-range-to.patch",
-            "patches/0004-Fix-comparison-with-root-node-in-xmlXPathCmpNodes.patch",
-            "patches/0005-Fix-XPointer-paths-beginning-with-range-to.patch",
-            "patches/0006-Disallow-namespace-nodes-in-XPointer-ranges.patch",
-            "patches/0007-Fix-more-NULL-pointer-derefs-in-xpointer.c.patch",
-            "patches/0008-Fix-attribute-decoding-during-XML-schema-validation.patch",
-            "patches/0009-Increase-buffer-space-for-port-in-HTTP-redirect-supp.patch",
-            "patches/0010-Prevent-unwanted-external-entity-reference.patch",
-            "patches/0011-Fix-handling-of-parameter-entity-references.patch",
-            "patches/0012-Fix-buffer-size-checks-in-xmlSnprintfElementContent.patch",
-            "patches/0013-Fix-type-confusion-in-xmlValidateOneNamespace.patch"
-    end
-  end
 
   bottle do
     cellar :any
-    sha256 "afd36afb4d3d51cb8bc5de392e9dc667d6e52b77e2887dc373ec5b9d69e8de47" => :sierra
-    sha256 "d4fb605cef5b7508739ac0c9a459dfb193ecf65100c322929d4bb07bfaf9179a" => :el_capitan
-    sha256 "2cb1c9ba0b6de38f0977ec7bf902bae11622881566e577a3378fd645e0ac6a76" => :yosemite
-    sha256 "79022765f56d0ae798f0aafcd663f6e3fe7c4c6536c414224ff27f2d060b3774" => :x86_64_linux
+    sha256 "b1121510780bcd6ae1a464f22312bb425daff8735dd2c647b41484461f646a7a" => :sierra
+    sha256 "09b8d61b8ae67820a739c240f4114079911a019390a6ed2fee8541439dc53660" => :el_capitan
+    sha256 "1fd3f3ec30d85289019b6845d5b394f4ab38c7543ef0a7aa3948c76c7dd3ce93" => :yosemite
   end
 
   keg_only :provided_by_macos
