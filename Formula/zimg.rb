@@ -9,6 +9,7 @@ class Zimg < Formula
     cellar :any
     sha256 "cb6afa024cc80d3a0305a036d43b1b9d460ae0fc259366545c703478051b7eee" => :sierra
     sha256 "2deb0dd71a19cb7934802bbbac885b632a4694c4b637d92d68efd4afab8e39e7" => :el_capitan
+    sha256 "3aa1268090a8d4d8a6bf201ef01425726e077d857a46f695adfa1d010c477fd8" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
