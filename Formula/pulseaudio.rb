@@ -1,14 +1,13 @@
 class Pulseaudio < Formula
   desc "Sound system for POSIX OSes"
   homepage "https://wiki.freedesktop.org/www/Software/PulseAudio/"
-  url "https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-10.99.1.tar.xz"
-  sha256 "c9791844569d8d0adb468c183d0d9fb6ac12b9db34a4a078a7773c8bac993f32"
+  url "https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-11.0.tar.xz"
+  sha256 "072305d4018fc5e75bb1b45ee6b938fa52fc9fd27493bf327415ef89ed14c969"
 
   bottle do
-    sha256 "5f1dbafa53bd5cc117e08d8c1c6207fcbb42865e3e8d202742cb9dc03971c6cb" => :sierra
-    sha256 "4a84b0cfa38aa689c2e542e235a64d15cd8d5dd447eb4f7b03a6a11985e0d3dc" => :el_capitan
-    sha256 "fc358d4cfc3b4d3a0e7822d09909cbe133842aced9e8eb10c64133f52d7f9770" => :yosemite
-    sha256 "cba68b3b8fcf0bf3c4d311fb0dfd7ec247990ffbca2f7ecdb39eda3a4838ed78" => :x86_64_linux # glibc 2.19
+    sha256 "feee09c09d98204cf95a388793a862029a235380f16205e57923455264120ffe" => :sierra
+    sha256 "317e8b66bf3e1d7b75eeb2cddcbc97ae4b2c62642ead619beafaa7c804caa27b" => :el_capitan
+    sha256 "4e944423928d9745e8487d249c3f6b84d7d4cfdd5e804c77bf6ae216d5a6060a" => :yosemite
   end
 
   head do
