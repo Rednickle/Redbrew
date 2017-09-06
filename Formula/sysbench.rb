@@ -1,14 +1,13 @@
 class Sysbench < Formula
   desc "System performance benchmark tool"
   homepage "https://github.com/akopytov/sysbench"
-  url "https://github.com/akopytov/sysbench/archive/1.0.8.tar.gz"
-  sha256 "2dad131a99578999c8159eccd2f7ec1b9da4eca9e646dfeb838cf72c00862d69"
+  url "https://github.com/akopytov/sysbench/archive/1.0.9.tar.gz"
+  sha256 "3e472d5b175dcc5a8b0ebdf102dbe64bdcc712f6c41812849490e739bf8ce483"
 
   bottle do
-    sha256 "77b68c55290a47a5cbbad077737e5e8416e4d3b426abda8bef7fb4a2eb22886f" => :sierra
-    sha256 "95dfd521f858f97ae7b24b701bbd790af896a6ef954f8168e0458993f06afcc9" => :el_capitan
-    sha256 "3ef822d841520fff15e1b690045b8d168518aca608ee1d74d5d69b2904ce74d3" => :yosemite
-    sha256 "e78eb092cbf57f7aa353a2975db8d2231d1ea84049ec1213451116ed1c93fb9e" => :x86_64_linux # glibc 2.19
+    sha256 "9c5faeb3dd75b8a37cfc16982648075f0e77733d79959286b6a9443ba33ac12e" => :sierra
+    sha256 "66c2f958b10e0617fc762ef9c5c8d548deeb2d5d5cd7c216c92baa52582740fd" => :el_capitan
+    sha256 "ccd5f98284f2831c1a3e335cd7098691d71002d1c7790615ea0ba460ccc65d47" => :yosemite
   end
 
   depends_on "autoconf" => :build
