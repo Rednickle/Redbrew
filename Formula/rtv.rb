@@ -12,6 +12,7 @@ class Rtv < Formula
     sha256 "f7fef2336343278301ad27b10cdd4b1bdf4ff54298dc294635d91b242d5a658e" => :sierra
     sha256 "fd7e1a445f216b5d6d1c9c0b63cefe6d78201367009177dafb631ab9919fc5cb" => :el_capitan
     sha256 "1bccdfc39aeb805a13d4cae3d57c512c6f086c261ddff7220da53696bf7a25cd" => :yosemite
+    sha256 "cca1a054a3aff1d47ad32683e307cde8d7032890de4dbe8c0ab04d4a687472c1" => :x86_64_linux
   end
 
   depends_on :python3
