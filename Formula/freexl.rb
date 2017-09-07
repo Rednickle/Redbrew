@@ -9,6 +9,7 @@ class Freexl < Formula
     sha256 "230274403aefedd59f70c0af9b162a88c40a51052d1d810b9e55fa56afbfaccb" => :sierra
     sha256 "1da66894b7596c4e51c9515f493b1615dd6d69cd8c0c01587d7bc0aaf6545e95" => :el_capitan
     sha256 "fa5bc38a5573eb9dfbde7210ad850ff49e5a2dd78d1c128c8831ccbb55951c1a" => :yosemite
+    sha256 "460f372412e6b4601c266736097b5fdb5a53917e10de26e4e44700e6946f36e8" => :x86_64_linux
   end
 
   option "without-test", "Skip compile-time make checks"
