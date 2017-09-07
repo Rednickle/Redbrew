@@ -8,6 +8,7 @@ class Gtksourceview3 < Formula
     sha256 "5454e5a08b99cb8c85c66d1f7e09286517f5c53253bdba12cfca4a06a279d5cb" => :sierra
     sha256 "fe523a90edd6191133aee7734ff4d7a15e5314b2532b49c2fb1684a4f3729956" => :el_capitan
     sha256 "dcb248777e32332d019006e95c7b921ecf479a5faa432dac1f5b932aa24157c3" => :yosemite
+    sha256 "7f2c617bd27760b41c137e53e0392fb4cbad97419e210bf60a782e1669f94f70" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
