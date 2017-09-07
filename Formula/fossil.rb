@@ -11,6 +11,7 @@ class Fossil < Formula
     sha256 "523704982ce10097cdf1a43d77a920c0776369a6e33757ec9ac94aa708e1b784" => :sierra
     sha256 "28b64773ea5f1cd4ebaa51ce65961e205a5b919d521d1fe473c620fa96ce757b" => :el_capitan
     sha256 "6d422e94e2ec8bf0ae41c387cf37377ca22d8523638b4613938403e912e7ea3e" => :yosemite
+    sha256 "5f3c284ee462a64c178eeda776729a9e0564950eb576708ed08125aacc0c1768" => :x86_64_linux
   end
 
   option "without-json", "Build without 'json' command support"
