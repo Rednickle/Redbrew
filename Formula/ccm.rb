@@ -1,16 +1,15 @@
 class Ccm < Formula
   desc "Create and destroy an Apache Cassandra cluster on localhost"
   homepage "https://github.com/pcmanus/ccm"
-  url "https://files.pythonhosted.org/packages/3a/0e/66cd74ac3476ca79f9b467bcafeb95a9db7688b61d6c10fced7db4a53bbc/ccm-2.8.3.tar.gz"
-  sha256 "da8c4f0ababc372de2baf259dc9a6461e278e9cb20a0cc5a4adbc001c662cbc1"
+  url "https://files.pythonhosted.org/packages/26/8a/8bb98faa4ec409efca803d6252ab424a47b7b0ff81f345b1f2813766751e/ccm-2.8.4.tar.gz"
+  sha256 "8d46669127b4fbd517bc06488e1215475e3850fc97f565c092aa964ecb7674e9"
   head "https://github.com/pcmanus/ccm.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d9f38ff936f7d68c7be0b0abf10350f3a98ab65a504c4c898d1edc9527167daf" => :sierra
-    sha256 "13b51a59bdf8b794b5c9c9c6c4541a6ef07a7e3a45883358674fc04cb84af2c2" => :el_capitan
-    sha256 "13b51a59bdf8b794b5c9c9c6c4541a6ef07a7e3a45883358674fc04cb84af2c2" => :yosemite
-    sha256 "1085e4bd3f5c8150ebe291533fc2b113b223c17a5b3cd4cdd2cbae590e9acd44" => :x86_64_linux
+    sha256 "e4a73a374d6486c787448aae5ee1b92739d74f57096a84db3dfe39f6a22866b6" => :sierra
+    sha256 "0e459b19c10d2def953a09d92ff3892b1048ff4c20fc381b83f8b7dc1cf12048" => :el_capitan
+    sha256 "0e459b19c10d2def953a09d92ff3892b1048ff4c20fc381b83f8b7dc1cf12048" => :yosemite
   end
 
   depends_on :python if MacOS.version <= :snow_leopard

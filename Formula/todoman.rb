@@ -3,16 +3,15 @@ class Todoman < Formula
 
   desc "Simple CalDAV-based todo manager"
   homepage "https://todoman.readthedocs.io/"
-  url "https://github.com/pimutils/todoman/releases/download/v3.2.1/todoman-3.2.1.tar.gz"
-  sha256 "c4da9a8d14acc6f3f18b01a91bcda1ead2dd74e97576e520a1b6a7658795eda7"
+  url "https://github.com/pimutils/todoman/releases/download/v3.2.2/todoman-3.2.2.tar.gz"
+  sha256 "132a92c61a9af454a6f52d1e0ee1e7b215e15d225dd2b7eff35786b0d57738d4"
   head "https://github.com/pimutils/todoman.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d9ad89b1fe40e4d02d7ad0fda0e4e4dc52d23f715cf3107e18b02103e40ae93f" => :sierra
-    sha256 "17786837812d62dae7f9d569d5213460c905a211b54e5ec9815a09dca17af362" => :el_capitan
-    sha256 "122461e5f674f457f6d7f16c2e747cce78f45556082edb3812d4e1b9fd437014" => :yosemite
-    sha256 "1b000f97d61673fcb1361f0623175d47af50f6d6cea7f208bf396b55f70c8266" => :x86_64_linux
+    sha256 "dbe4bcfa83928edbd421a9fb1419c4420be7ac41cc5e58f10c9b186ebc6ab919" => :sierra
+    sha256 "d10873c32180560bbde28f9b92d34bc1ea94a058ac20192ff637604cf3c07088" => :el_capitan
+    sha256 "ad272f65591711a2427e9f10dbd1a8df92b6668ecae1da4dcbfbe0584f4c4794" => :yosemite
   end
 
   depends_on :python3
