@@ -9,6 +9,7 @@ class Io < Formula
     sha256 "2d0e05344917ad3a1d322f2860030013315ceb7e8ae962cf6070d1ee8cc395d4" => :sierra
     sha256 "3a5a0e9a1ec0ce7f4bc6bcfc5fb8c782f0b1ba0451251aaab51a796452b59e67" => :el_capitan
     sha256 "16d31a7062e2c7ebab815bcd48b03aab9597a6c40071cb407e2bc6dec91fef0b" => :yosemite
+    sha256 "be56e5ec4568a194ad2566e91b9bb84675f37a44a2bd7c4eb251bcf2b90293a5" => :x86_64_linux
   end
 
   option "without-addons", "Build without addons"
