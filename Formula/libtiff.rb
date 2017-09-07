@@ -11,6 +11,7 @@ class Libtiff < Formula
     sha256 "31d87d01ab80f662899a09efa2eb517689fc758a31f1170c1ea2448d098291c2" => :sierra
     sha256 "6b2c64b6e251707fb8fc3dee0b947a8108432e1ef73fa7e8c3983596a2fd0649" => :el_capitan
     sha256 "855c2d44ad08e24f9748857b6f351f674b682bb16664c2da3f24c29223eb4657" => :yosemite
+    sha256 "33b9de82bc6007468bfc4470ff1f4e5809f6377c7aa6587957bb1e31179a9574" => :x86_64_linux
   end
 
   option :cxx11
