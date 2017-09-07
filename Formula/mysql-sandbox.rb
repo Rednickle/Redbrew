@@ -10,6 +10,7 @@ class MysqlSandbox < Formula
     sha256 "3fa11324b9653efb27173bfdde42c821e3494a330eec52c54010edbc1c7d9f03" => :sierra
     sha256 "f613b7d1d5c1d70f5d56147160bc0fc57b5376e99ee708acebd2edaea4a48f22" => :el_capitan
     sha256 "f613b7d1d5c1d70f5d56147160bc0fc57b5376e99ee708acebd2edaea4a48f22" => :yosemite
+    sha256 "0294896cbe17919255081025b0b5159587dc811a988b6f349433adbca7743cf9" => :x86_64_linux
   end
 
   def install
