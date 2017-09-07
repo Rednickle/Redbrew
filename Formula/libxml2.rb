@@ -11,6 +11,7 @@ class Libxml2 < Formula
     sha256 "b1121510780bcd6ae1a464f22312bb425daff8735dd2c647b41484461f646a7a" => :sierra
     sha256 "09b8d61b8ae67820a739c240f4114079911a019390a6ed2fee8541439dc53660" => :el_capitan
     sha256 "1fd3f3ec30d85289019b6845d5b394f4ab38c7543ef0a7aa3948c76c7dd3ce93" => :yosemite
+    sha256 "a8502d175bfb84c759e91d7ff824b04c49b3d2e2b1387b14d7257f3dffae782c" => :x86_64_linux
   end
 
   keg_only :provided_by_macos
