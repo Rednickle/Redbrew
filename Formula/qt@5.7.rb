@@ -59,17 +59,23 @@ class QtAT57 < Formula
     depends_on "glib"
     depends_on "icu4c"
     depends_on "libproxy"
+    depends_on "libxkbcommon"
     depends_on "pulseaudio"
     depends_on "sqlite"
     depends_on "systemd"
-    depends_on "libxkbcommon"
   end
 
-  # Fix QTBUG-62266
   if MacOS.version >= :high_sierra
+    # Fix QTBUG-62266
     patch do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/0af7ca663c/qt%405.7/QTBUG-62266.patch"
       sha256 "60471b893eb394db18dacae8bd38727a955742626da641dd980dbb87a8808e9e"
+    end
+
+    # Fix QTBUG-62658
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/48b7e84036/qt%405.7/QTBUG-62658.patch"
+      sha256 "1fe7fcbff566bcec3ef9c253f82a8474a0c08f4965565d5d1135df973cd75398"
     end
   end
 

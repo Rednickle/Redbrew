@@ -1,15 +1,15 @@
 class Pumba < Formula
   desc "Chaos testing tool for Docker"
   homepage "https://github.com/gaia-adm/pumba"
-  url "https://github.com/gaia-adm/pumba/archive/0.4.4.tar.gz"
-  sha256 "fdf11426752c69e79c2db10e2f57ef41c8b5d3d6815602ed11a95402b5db2d35"
+  url "https://github.com/gaia-adm/pumba/archive/0.4.5.tar.gz"
+  sha256 "eac40657ac5a12cddbf742afee31ba09bd1b0db1f9fe4270f49699fafdb9820f"
   head "https://github.com/gaia-adm/pumba.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d0e3ddea696b33bf3da8c01a98817c4c038e940942e3586fc0695a694544cdb1" => :sierra
-    sha256 "16b7fd8f80f264a5c1892f4c9645be4329cf34459ae8642e12446ce92027fb17" => :el_capitan
-    sha256 "dc4154ec8e77b384a7c496d5cdb9909fb1d845d4f10120dd2a0963b590207cd0" => :yosemite
+    sha256 "a3bc3d0a5b4a884f774fd7d0424442da279fd34dcff62b7992a4860c53f8cea5" => :sierra
+    sha256 "825f70eb70fc84aa51ed3f9cfe5ecfb616ec1ee5201586d7c8fc4c09b809a74f" => :el_capitan
+    sha256 "416382360c409b088e60055e2cd55dee70239eeb825709650395bcfd3a221858" => :yosemite
   end
 
   depends_on "go" => :build

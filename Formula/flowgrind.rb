@@ -1,15 +1,14 @@
 class Flowgrind < Formula
   desc "TCP measurement tool, similar to iperf or netperf"
   homepage "https://launchpad.net/flowgrind"
-  url "https://launchpad.net/flowgrind/trunk/flowgrind-0.7.5/+download/flowgrind-0.7.5.tar.bz2"
-  sha256 "7d7fec5e62d34422a7cadeab4a5d65eb3ffb600e8e6861fd3cbf16c29b550ae4"
-  revision 3
+  url "https://launchpad.net/flowgrind/trunk/flowgrind-0.8.0/+download/flowgrind-0.8.0.tar.bz2"
+  sha256 "2e8b58fc919bb1dae8f79535e21931336355b4831d8b5bf75cf43eacd1921d04"
 
   bottle do
     cellar :any
-    sha256 "b13583ff611b4c252d47e140555d2a05dfe619174ff77e63f4de7ab288c1e8d8" => :sierra
-    sha256 "a53dc12f90921d61c7e62d9566630fc364ba13b818cd548dc87441c68cc53bb7" => :el_capitan
-    sha256 "3b86d221274174dee723d0f8a1f49533b52e811d8a6646220e65c19973fbeb59" => :yosemite
+    sha256 "10f9b511118c62e1302d427a91b0972d61638a43b64594ba04731b7fa50fce77" => :sierra
+    sha256 "112a89ea6071526c1604047b40cf5f168cc1ca3d779fa2c4b4093c8ee3675c39" => :el_capitan
+    sha256 "a39cc57cb6353dfeae30da6c204c35956f6ef1570c3caf0419fa6c6e75ff0998" => :yosemite
   end
 
   depends_on "gsl"
