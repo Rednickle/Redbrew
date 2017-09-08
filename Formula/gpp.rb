@@ -9,6 +9,7 @@ class Gpp < Formula
     sha256 "ceec5eeca75c3ad3e2192f9fcef09857533de93e92413cc501e23e9b494da0f7" => :sierra
     sha256 "2a7f2e1371f6bcbff03db5b9b260c47cd41cb25ec1e5726dfb5ef838f3c417e0" => :el_capitan
     sha256 "2ea663aa6b1be3c2f6f11b99a31663aeab30c9e7de3712886b23b4c7cc114a5b" => :yosemite
+    sha256 "8e5d2197871994bdbc5e26cdc0aa570681e7da1063acfccd7bf966ae4c9e8aea" => :x86_64_linux
   end
 
   def install
