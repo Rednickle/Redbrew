@@ -11,6 +11,7 @@ class Gpsim < Formula
     sha256 "734a058b83a8636d7cac14f03f141ab949e7bc17abb5685747b188e27f1f3e2a" => :sierra
     sha256 "9b669b415d26e4efe157ed3d2f5f34ff8af6ce2811bbb732aeea46af7f290e94" => :el_capitan
     sha256 "4049efd02de96753275cfb5119efc843d1da0eba30f314b7b2b3e4776b5cd430" => :yosemite
+    sha256 "ac25cec9c613f3404c96d2376de658d97e3fc3b2caef89785779156cf8ff6fff" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
