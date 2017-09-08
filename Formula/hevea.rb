@@ -8,6 +8,7 @@ class Hevea < Formula
     sha256 "b22f4a1e66c2eea6faecf98834a0897334e77684312653885049835c593ad431" => :sierra
     sha256 "079afe1b83d43ea8c3e5537d199ba20ee05a6460db653df0675948390b328b94" => :el_capitan
     sha256 "4b6005785553fdd3185d7b15c74f9e8ab0632994bc6cd714ece9148203589609" => :yosemite
+    sha256 "4d4a678e0c284a2871b7f70b1ecd73e7265e0e1d43140679d25cf3bbc91ed574" => :x86_64_linux
   end
 
   depends_on "ocaml"
