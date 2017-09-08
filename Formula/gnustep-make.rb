@@ -9,6 +9,7 @@ class GnustepMake < Formula
     sha256 "7a2905ce98897c3f74f4802b66f27105c095f078074a874335f2286bec1957db" => :sierra
     sha256 "a7fc1782bf06e382a4f240f648e55d09a2294202b7f2a7bedf506823acb67fa4" => :el_capitan
     sha256 "5e005875a2b2b9edd967edcedf14ee4e927312d7e97878ea14d509e10e25186b" => :yosemite
+    sha256 "7a384adee9547bd68099f050f83ae887e992d8592df2ad2682b9421d0b513162" => :x86_64_linux
   end
 
   def install
