@@ -9,6 +9,7 @@ class Gloox < Formula
     sha256 "8268b106a2de45233f339630793ebdb46c501925faa758f0d61eb7485ced1c87" => :sierra
     sha256 "7b0dafa8d25adac387410d0bd064c2645d4fb8826c0b24b840c71e3e783eaa3b" => :el_capitan
     sha256 "12fa240ab11bad334840099b0a8574b6cce0064647b06bb433f3600669bd6cda" => :yosemite
+    sha256 "d0e17df776f6c8554363dcefdd2cb331eba426472ec3ef65b03f4c92121d862c" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
