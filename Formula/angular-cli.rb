@@ -10,6 +10,7 @@ class AngularCli < Formula
     sha256 "e9d90a0ac96bb98fa259bb79a64febd193aa624e9ad66a94df040d3d9a124ac6" => :sierra
     sha256 "e06f19e366648b888f949ba0ecabe3d54fbafb39df89461c5297572d643743ed" => :el_capitan
     sha256 "ec2c8c269735f1b9293c378619c38b0a71ee18417bb50399f5f2f8b2ce134a4c" => :yosemite
+    sha256 "01e00ce85a213da1511449f9e2b446eb4ade11f92c7c4276fe5c7a05bde56937" => :x86_64_linux
   end
 
   depends_on "node"
