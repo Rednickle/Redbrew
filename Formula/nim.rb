@@ -9,6 +9,7 @@ class Nim < Formula
     sha256 "2bc6629eb88e0c023f62e486ef45cfb31756e6c5fae5726e1cc243f6bb091f22" => :sierra
     sha256 "b18b6e44b530db76c429f6be3ef367dc993cf1f78956f006d1dcf7cd5c465cfb" => :el_capitan
     sha256 "99e962cbea6146efceba1e7eed10bea6e1ce84d8715571f57078e7e736e67751" => :yosemite
+    sha256 "74d40ccfcf68500a610522cef5e6a0552723120c8fa6f83c4ba3daa32a02fb68" => :x86_64_linux
   end
 
   head do
