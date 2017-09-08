@@ -1,12 +1,13 @@
 class Hevea < Formula
   desc "LaTeX-to-HTML translator"
   homepage "http://hevea.inria.fr/"
-  url "http://hevea.inria.fr/old/hevea-2.28.tar.gz"
-  sha256 "cde2000e4642f3f88d73a317aec54e8b6036e29e81a00262daf15aca47d0d691"
-  revision 1
+  url "http://hevea.inria.fr/old/hevea-2.30.tar.gz"
+  sha256 "9e93deac8d2cc62a8d9eae2817094cdba81cabef264d009f3d434d85ab9a249c"
 
   bottle do
-    sha256 "dff61341d8d060b754d0baf61a204d9d353db59f22c8916c11f6e519338653ba" => :x86_64_linux # glibc 2.19
+    sha256 "b22f4a1e66c2eea6faecf98834a0897334e77684312653885049835c593ad431" => :sierra
+    sha256 "079afe1b83d43ea8c3e5537d199ba20ee05a6460db653df0675948390b328b94" => :el_capitan
+    sha256 "4b6005785553fdd3185d7b15c74f9e8ab0632994bc6cd714ece9148203589609" => :yosemite
   end
 
   depends_on "ocaml"

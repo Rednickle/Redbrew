@@ -1,15 +1,14 @@
 class GsettingsDesktopSchemas < Formula
   desc "GSettings schemas for desktop components"
   homepage "https://download.gnome.org/sources/gsettings-desktop-schemas/"
-  url "https://download.gnome.org/sources/gsettings-desktop-schemas/3.24/gsettings-desktop-schemas-3.24.0.tar.xz"
-  sha256 "f6573a3f661d22ff8a001cc2421d8647717f1c0e697e342d03c6102f29bbbb90"
+  url "https://download.gnome.org/sources/gsettings-desktop-schemas/3.24/gsettings-desktop-schemas-3.24.1.tar.xz"
+  sha256 "76a3fa309f9de6074d66848987214f0b128124ba7184c958c15ac78a8ac7eea7"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b8a7f888ffff66f3f5806659a1bd0e91517ab95a12c439d0ec9551067e41ae72" => :sierra
-    sha256 "b8a7f888ffff66f3f5806659a1bd0e91517ab95a12c439d0ec9551067e41ae72" => :el_capitan
-    sha256 "b8a7f888ffff66f3f5806659a1bd0e91517ab95a12c439d0ec9551067e41ae72" => :yosemite
-    sha256 "2cf7e79ab5f580ef4ec2bec7c3d5baf2aa71cf816c4a0a675142e3c0b19ea02e" => :x86_64_linux # glibc 2.19
+    sha256 "e4f5ab8d16e84e09cf10439b7f827d80b403efe598e3b05d593b745d1d5675fa" => :sierra
+    sha256 "e4f5ab8d16e84e09cf10439b7f827d80b403efe598e3b05d593b745d1d5675fa" => :el_capitan
+    sha256 "e4f5ab8d16e84e09cf10439b7f827d80b403efe598e3b05d593b745d1d5675fa" => :yosemite
   end
 
   depends_on "pkg-config" => :build
