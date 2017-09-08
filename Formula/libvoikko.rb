@@ -10,6 +10,7 @@ class Libvoikko < Formula
     sha256 "7f734e1e1b0e20858d744b654975c403679ba3833cae41f5214c4e5ae31e4847" => :sierra
     sha256 "8ce41d927ef6b6cc3e27bfd40bb898efeb069c2314ac9d9a2b349246ec0165e6" => :el_capitan
     sha256 "b0f9d5753691aa1af8bb864f5b3ca8cc753da9e2dfdf47f4dad98394f2201811" => :yosemite
+    sha256 "c7ed141d50e07c74ad504a852d123080a2ce9b23cf9b11e7ce3e4145a0c444e1" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
