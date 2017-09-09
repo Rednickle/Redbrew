@@ -72,6 +72,7 @@ class LlvmAT4 < Formula
       sha256 "b443bb9617d776a7d05970e5818aa49aa2adfb2670047be8e9f242f58e84f01a"
     end
   end
+
   bottle do
     cellar :any
     sha256 "0c97a3cd61602de11f49bdff478a3eb43fd2b72c47b58bcd607a7a4b8652fdb2" => :sierra
@@ -79,9 +80,6 @@ class LlvmAT4 < Formula
     sha256 "1bbffa119d25d27b4b2596c0277882d0a4de3c327bfecffcce98529cd4275486" => :yosemite
     sha256 "a6f0944762edf007bac387d7fb817ee93b7e8d1dd68271c9d84cea7d14d4907b" => :x86_64_linux
   end
-
-
-  keg_only :versioned_formula
 
   pour_bottle? do
     default_prefix = BottleSpecification::DEFAULT_PREFIX
@@ -128,6 +126,8 @@ class LlvmAT4 < Formula
       url "https://llvm.org/git/polly.git", :branch => "release_40"
     end
   end
+
+  keg_only :versioned_formula
 
   option "without-compiler-rt", "Do not build Clang runtime support libraries for code sanitizers, builtins, and profiling"
   if OS.mac?
@@ -189,8 +189,8 @@ class LlvmAT4 < Formula
   end
 
   def install
-	# Reduce memory usage below 4 GB for Circle CI.
-	ENV["MAKEFLAGS"] = "-j5" if ENV["CIRCLECI"]
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j5" if ENV["CIRCLECI"]
 
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
@@ -328,8 +328,8 @@ class LlvmAT4 < Formula
     # Strip executables/libraries/object files to reduce their size
     unless OS.mac?
       system("strip", "--strip-unneeded", "--preserve-dates", *(Dir[bin/"**/*", lib/"**/*"]).select do |f|
-      f = Pathname.new(f)
-      f.file? && (f.elf? || f.extname == ".a")
+        f = Pathname.new(f)
+        f.file? && (f.elf? || f.extname == ".a")
       end)
     end
   end
