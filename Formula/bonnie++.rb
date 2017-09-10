@@ -11,6 +11,7 @@ class Bonniexx < Formula
     sha256 "3141753fc2d81aba9129baa76946cb4f2c4cef7ca634c30d86a4b284bfe6480a" => :sierra
     sha256 "fd00a22a9744919520bdfd22f01e2ad07d409fbf76a3470b3a9a4c94f06901ed" => :el_capitan
     sha256 "0607ae5fac5e62bdfd04b48a524277768145f7ab7f07e2d2f71b6c4b6b40f9eb" => :yosemite
+    sha256 "b4b5652a79eac94ca3b77e77e09f8c660f3c42179756d4626db49a0bfe8048ce" => :x86_64_linux
   end
 
   # Remove the #ifdef _LARGEFILE64_SOURCE macros which not only prohibits the
