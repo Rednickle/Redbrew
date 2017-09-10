@@ -10,6 +10,7 @@ class Ott < Formula
     sha256 "ed2772edcfd26b38e16d3fe7affef7f56e59d2104960119589147538b00feec1" => :sierra
     sha256 "346a4a25c142cac3b2c4c4c0ac05101999d034320344e74d37e6859307b1a0ec" => :el_capitan
     sha256 "6fdfc33c357a3ee8a6d89a4546c59ab916b41b2fc81cac4fcb177521f418c7b9" => :yosemite
+    sha256 "f78233851b2f878db7521f2ab7f93e01c6d8571fe610fc4f037965c76e600846" => :x86_64_linux
   end
 
   depends_on "ocaml" => :build
