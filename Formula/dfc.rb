@@ -10,6 +10,7 @@ class Dfc < Formula
     sha256 "029104b15817e039032593cb9828b76f42f4362b63eeb7d582c7d0d90fc917b8" => :sierra
     sha256 "bd407f57305b87838f0083c5a3d65493a76097fda65f4ffeebacfbcf33baeddf" => :el_capitan
     sha256 "ba254d9a1213beb84728657e996c667eb9a87f61ea118d12cf022b389a2e35b0" => :yosemite
+    sha256 "b02cf9049d7df7c8cb4b979a1cdc4005ab5c002e46d8a1db428e58632cf7368d" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
