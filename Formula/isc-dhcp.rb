@@ -8,6 +8,7 @@ class IscDhcp < Formula
     sha256 "2ad8df9f26b3c7728a791fe5f83de04cb525d6ba9634a2b894da865a22ba109e" => :sierra
     sha256 "0084e6e135ad2bdd55d6c6c9b937895ca622598632118bb5e22a1aac09e6d9e6" => :el_capitan
     sha256 "942afade1da7421427d3c5306a2ace342017967607447eb5ffa920436b46c42b" => :yosemite
+    sha256 "8591199b8e4729c27106a7c595e71a59185f82b919e016b2400e9c786fb7d62f" => :x86_64_linux
   end
 
   def install
