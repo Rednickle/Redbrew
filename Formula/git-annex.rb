@@ -14,6 +14,7 @@ class GitAnnex < Formula
     sha256 "336939972289cc2d9cb572dbb6ad90d2a32272005a7b15ad89e3912465a8e051" => :sierra
     sha256 "ef254bf553f60f063f6ade261c1e9e850add1d3cef70e457621d0a9974ef88c1" => :el_capitan
     sha256 "b201e7b0d992538f8b544ac523f98758053e4052d66daf42c9f3da1196e39f8f" => :yosemite
+    sha256 "436ea0507938b2b037d0af132e53430f5de88412753ad09c229a6e4101eb9c5f" => :x86_64_linux
   end
 
   option "with-git-union-merge", "Build the git-union-merge tool"
