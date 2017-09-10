@@ -10,6 +10,7 @@ class Mpw < Formula
     cellar :any
     sha256 "126ef4edcb6095bb0a6961986de07b23daec5dbe218e8895330d71df12c69456" => :sierra
     sha256 "4be101a8af0048f3542ca880420da11c71b1b7efe634d9fbac7569a75b2ee828" => :el_capitan
+    sha256 "2ba5ff1e63053aef58133bed91c5e4156231d9bff83c84fb15ceb473dc0fdb49" => :x86_64_linux
   end
 
   option "without-json-c", "Disable JSON configuration support"
