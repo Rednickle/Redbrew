@@ -10,6 +10,7 @@ class JsonC < Formula
     sha256 "2ce9b90873fa07bcb526c7b9aea55e58af52d88402e891227a5927a41d525ef5" => :sierra
     sha256 "6055bdc414153c7928fa30f215e8354510d9610cb3b75c75def3e6850b48e11f" => :el_capitan
     sha256 "4e6850e0b1627f622b64ae270883df999ab986046b1d4f9f0ca446fbd24a729b" => :yosemite
+    sha256 "3c49c8003fe069e1369fe1553b42207d62642e40ab11950217a8375fbfc6dce6" => :x86_64_linux
   end
 
   head do
