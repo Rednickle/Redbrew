@@ -1,21 +1,25 @@
 class Iozone < Formula
   desc "File system benchmark tool"
   homepage "http://www.iozone.org/"
-  url "http://www.iozone.org/src/current/iozone3_430.tar"
-  sha256 "e8388238326dc29359e5cb9f790d193f1e1bdadfbf260e010c50fa682387faed"
+  url "http://www.iozone.org/src/current/iozone3_465.tar"
+  sha256 "2e3d72916e7d7340a7c505fc0c3d28553fcc5ff2daf41d811368e55bd4e6a293"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2eb026a8aad1ed7efacd54ee470dcc59415ec3bc590dacbabeb1c5415bb015f2" => :sierra
-    sha256 "7482c9c9e45156126c677459b8201a0734fc3d4443c75a0903d52db79f419204" => :el_capitan
-    sha256 "6a011fd309a2eed8f726202339b1f8671eaccfc080f41f38aee9a9f76b9e4d86" => :yosemite
-    sha256 "05781c01a4a0cc49dba04466d94af788b0c783e68876f9bde302b30880407738" => :mavericks
-    sha256 "b31412026e024bf635eec5a3ad750657ef3dfca590388ef8f56429039ea708ad" => :mountain_lion
+    sha256 "8de42bd9a07de561ab96d8e8e1f5bb7e080e6b4b447e2530959c78dcd090cba6" => :sierra
+    sha256 "d40abf2cadeefd00d48a82b4087a652a53e7b306b3ad87597293c24c352a36f7" => :el_capitan
   end
 
   # Patch by @nijotz, adds O_DIRECT support when using -I flag.
   # See: https://github.com/Homebrew/homebrew/pull/10585
   patch :DATA
+
+  # Fix build failure "error: conflicting types for 'mythread_create'"
+  # Reported 10 Sep 2017 to capps AT iozone DOT org
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/56c6104/iozone/mythread_create.diff"
+    sha256 "ec1a1be0d0096c29711f2edba50c8183cfde886a55f18b41c2c7d1580d8f68c8"
+  end
 
   def install
     cd "src/current" do
