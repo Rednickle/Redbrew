@@ -8,6 +8,7 @@ class Iozone < Formula
     cellar :any_skip_relocation
     sha256 "8de42bd9a07de561ab96d8e8e1f5bb7e080e6b4b447e2530959c78dcd090cba6" => :sierra
     sha256 "d40abf2cadeefd00d48a82b4087a652a53e7b306b3ad87597293c24c352a36f7" => :el_capitan
+    sha256 "f8ec3ce36625b614685ee516299ddf2cc6ce268ad4233940c39b71401eb30269" => :x86_64_linux
   end
 
   # Patch by @nijotz, adds O_DIRECT support when using -I flag.
