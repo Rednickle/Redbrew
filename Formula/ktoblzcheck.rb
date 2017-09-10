@@ -8,6 +8,7 @@ class Ktoblzcheck < Formula
     sha256 "45ad0c35749f0d557d7300010901b8babfdc1f5d88bc9f5d9c40a05a31be51b0" => :sierra
     sha256 "a492323f12f328e1854a2a2c406cc0c470d5e61e6e4ea152d6a4b38cc54216ff" => :el_capitan
     sha256 "becae478ba0d094c71ff876db74e9946b51e72df0c6d295e4bfbe0ea337294b0" => :yosemite
+    sha256 "12f5538205d74f95086faeb657eea1f80a62339afa689e00c2e74cb964430dae" => :x86_64_linux
   end
 
   def install
