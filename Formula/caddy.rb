@@ -1,16 +1,15 @@
 class Caddy < Formula
   desc "Alternative general-purpose HTTP/2 web server"
   homepage "https://caddyserver.com/"
-  url "https://github.com/mholt/caddy/archive/v0.10.7.tar.gz"
-  sha256 "5693045653e15f92f28ce944690162a4897079b7e98d3c9c46e0907d08049ad6"
+  url "https://github.com/mholt/caddy/archive/v0.10.8.tar.gz"
+  sha256 "3328efc8b64a428d49dd27edf44c0b1d9dfdc8879366663ce002bafc3a7b2b90"
   head "https://github.com/mholt/caddy.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4abfbf0a4a2b83f92e25d207ec2d7c40273b2a117a45a2ff0526eb13a7021f24" => :sierra
-    sha256 "d16a9109c2cc999dee71a3377d40a9a4c59c81bd31db8a497e98a6a12b1c5282" => :el_capitan
-    sha256 "79952ae6f038548b3d67330b9681ec90cfb5cf34ecace2fc0b2135cb5a5eab10" => :yosemite
-    sha256 "1906312ce01b7d518aa25f14f5801e29186a5f4b11527dcee0eb0a1d19ee31e1" => :x86_64_linux # glibc 2.19
+    sha256 "f01e9029aac5d997fca341779bf8f415fe1d542aa69973c2374c12f942a7d945" => :sierra
+    sha256 "53ac6d2b1afa51d01a931fc7a56398222cf4519badf535d60511c244e717b6e4" => :el_capitan
+    sha256 "bfa547815153c8fe9571565053f5f0e86de770ec8c43aba9cc5878fa65fea53b" => :yosemite
   end
 
   depends_on "go" => :build

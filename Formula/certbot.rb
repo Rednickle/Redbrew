@@ -3,16 +3,15 @@ class Certbot < Formula
 
   desc "Tool to obtain certs from Let's Encrypt and autoenable HTTPS"
   homepage "https://certbot.eff.org/"
-  url "https://github.com/certbot/certbot/archive/v0.18.0.tar.gz"
-  sha256 "e7ec8c07fadac378d6f54c8e789aa462fdee6333b71ca7b47b892fcfa03dc858"
+  url "https://github.com/certbot/certbot/archive/v0.18.1.tar.gz"
+  sha256 "c2d5342d1dffc5506ee02e06a7288d4ce5fb6f94d6b1b2cd8e0558c3de7dcff4"
   head "https://github.com/certbot/certbot.git"
 
   bottle do
     cellar :any
-    sha256 "86950c0071bcc8645f6ad9cb002ae862456089f816ab570dd4bbe1c06655e595" => :sierra
-    sha256 "e2f45feb42229aca82b2c8265c11f1bac687db3a728a9a8781bddc465ed765e3" => :el_capitan
-    sha256 "8bbfa096e7999c60b7798e2dcee11e75bcbd4bcf5fd2eeff4d2a9f6f07ec3425" => :yosemite
-    sha256 "214677bb8155ad6463cfd3c70690b09a09c0d3213da0236ea2d8bf58a259ea1c" => :x86_64_linux
+    sha256 "50b7e67278dd181915458b87ca76bc78799a1cb21460b030b49898ae14ae9461" => :sierra
+    sha256 "cfcbb202425bd6d80b6f0cb6a7ff0220d11193455a193544221b942cd293929e" => :el_capitan
+    sha256 "8eb8e8840aab66bec9eab2594db31700732fd975a793123ad59299b6bda3cf6c" => :yosemite
   end
 
   depends_on "augeas"
