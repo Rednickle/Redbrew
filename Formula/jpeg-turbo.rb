@@ -8,6 +8,7 @@ class JpegTurbo < Formula
     cellar :any
     sha256 "21f8159b00dadb55d54ac116fad05609c037232247de5a4a68cbecaf6370efa8" => :sierra
     sha256 "467f1bf4bdc4b6cda9a9dde47eafe13270183c6c1d8dfa13d6149d1f1ae02ca8" => :el_capitan
+    sha256 "a50dbcb824af1f8a60a5503aa7b4600df78a1fd17f3879085a04e692b36af1fd" => :x86_64_linux
   end
 
   head do
