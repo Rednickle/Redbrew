@@ -14,6 +14,7 @@ class Purescript < Formula
     rebuild 1
     sha256 "c6719ba1cd153eeb9816ffc5ee3a10e5d7e25d618689ce2f416d43aeaf1a525e" => :sierra
     sha256 "474ce08419ecaaa6456f828674adf095c4b07af557f7a15881071a52ec907e98" => :el_capitan
+    sha256 "f54133d0025c009fe1a4eb52c3b0f86c5d12aaa879b6bf5f8616792af828ea59" => :x86_64_linux
   end
 
   depends_on "ghc@8.0" => :build
