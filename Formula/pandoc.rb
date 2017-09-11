@@ -12,6 +12,7 @@ class Pandoc < Formula
   bottle do
     sha256 "e5fcff4739015b69fc513900e20a8d1130a98bb29ae7770f02d4832e80841729" => :sierra
     sha256 "bfdaf40b035d17d9323d3bf736d433b109f1cf4942a9c2e2b211d065f49ae51f" => :el_capitan
+    sha256 "8e54e98bcb1e829d52c8f7eb98d529d254cbf48729d59e40edbcc7cf0ef7db42" => :x86_64_linux
   end
 
   depends_on "cabal-install" => :build
