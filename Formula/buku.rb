@@ -10,6 +10,7 @@ class Buku < Formula
     cellar :any
     sha256 "944a1e852c1e8c060e11356eb7ffcd18147a48764e0c64be08ecac5adb1c70ac" => :sierra
     sha256 "1dc0d86ccecec76b4e40f8388b65c103d240e8fd4a5e98fae96a3120bce5705c" => :el_capitan
+    sha256 "ac75f21875df54092d642505409b85d16401223d855839767014fd924df9716f" => :x86_64_linux
   end
 
   depends_on :python3
