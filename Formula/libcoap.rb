@@ -8,6 +8,7 @@ class Libcoap < Formula
     cellar :any
     sha256 "f9577ef79f4c1a7a257d04004cb64802879787bb5b5657a7aa54ab24ee102c20" => :sierra
     sha256 "a8b3fe01f85e8d9345dbe4ceddda24abd244f1b4055abcfef36e73b26e14ae86" => :el_capitan
+    sha256 "9136fd65029d0b43c91065adead6f4383cdc399ebb8fdd91d4b44d37ba95b5a6" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
