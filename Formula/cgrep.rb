@@ -13,6 +13,7 @@ class Cgrep < Formula
     cellar :any
     sha256 "ba15c5f7e86bbb71aac18461e2865413cfd90d3794f7f3e53ab241eacb2ddcbb" => :sierra
     sha256 "3427acebbfe2e88072d227cc565b4d577c6900b2694bf39b01a985dbd15f41db" => :el_capitan
+    sha256 "54d01625109b30fd197bb6b97ba68cfb93fe87fb2d5d02c038ff5fadb12affb9" => :x86_64_linux
   end
 
   depends_on "ghc" => :build
