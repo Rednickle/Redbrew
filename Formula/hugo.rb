@@ -9,6 +9,7 @@ class Hugo < Formula
     cellar :any_skip_relocation
     sha256 "5a697692798c67182aa9eefb885cf6811084ec72ba43639916be15b150bd5ea1" => :sierra
     sha256 "4db28c4ad319fd3bc943c1d38492a04428b70d53df36a1bb750987e269fdd20d" => :el_capitan
+    sha256 "7b0045607c52a8e7a0e844760fbbd3e6d1acccc0f426b7c24fe23e31f4d22445" => :x86_64_linux
   end
 
   depends_on "go" => :build
