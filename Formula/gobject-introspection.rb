@@ -9,6 +9,7 @@ class GobjectIntrospection < Formula
     rebuild 1
     sha256 "43d28cc34359e3cc6948accbe7fd3c0ef87cbd3defc2c547faed38f4df0c1249" => :sierra
     sha256 "bba36375b7fa61a41316c10e83910483cab2599474a6c9941df6e8c5c1b44885" => :el_capitan
+    sha256 "477a7f2926504a410ae9d66c4acaeebc517468422b204ff602f83bdc734eee88" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :run
