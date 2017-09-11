@@ -8,6 +8,7 @@ class Scamper < Formula
     cellar :any
     sha256 "4b4f1beef3c56eccf1bb14522110ef2758a4571c822b068831d9d0b2c6e12bda" => :sierra
     sha256 "867532f48e92fc965bd073dff7783613e1556ab416004ace51c34e74bc11beff" => :el_capitan
+    sha256 "f99da655af5c1097c032b8cabe4fe6eda7a99eabf1a06dc5af04497a8a46d0df" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
