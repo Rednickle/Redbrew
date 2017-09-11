@@ -6,19 +6,15 @@ class GobjectIntrospection < Formula
   revision 1
 
   bottle do
-    sha256 "8d3da994fb5a5db1b0e0714e0eb4da0ef7d2f25a34e81eb3215554d135a90ef0" => :sierra
-    sha256 "b5058113da00b8d46a972e4512d8be767d7ca5d5eddc3a63c91ef7b8cd962030" => :el_capitan
-    sha256 "8176290610aac389a5196195738073db6764426d815b77605f84d547b4f15f0b" => :yosemite
-    sha256 "3e60f0c41c5bf1bb6c58d2527ba7fd91efedd643e79ed31e6ed9b4de512ca8b2" => :x86_64_linux # glibc 2.19
+    rebuild 1
+    sha256 "43d28cc34359e3cc6948accbe7fd3c0ef87cbd3defc2c547faed38f4df0c1249" => :sierra
+    sha256 "bba36375b7fa61a41316c10e83910483cab2599474a6c9941df6e8c5c1b44885" => :el_capitan
   end
 
   depends_on "pkg-config" => :run
   depends_on "glib"
   depends_on "cairo"
   depends_on "libffi"
-  # never switch back to system python!
-  # https://github.com/Homebrew/homebrew-core/pull/11464#discussion_r107407934
-  depends_on "python"
 
   unless OS.mac?
     depends_on "bison"
@@ -32,13 +28,12 @@ class GobjectIntrospection < Formula
 
   def install
     ENV["GI_SCANNER_DISABLE_CACHE"] = "true"
-    ENV["PYTHON"] = Formula["python"].opt_bin/"python2"
     inreplace "giscanner/transformer.py", "/usr/share", "#{HOMEBREW_PREFIX}/share"
     inreplace "configure" do |s|
       s.change_make_var! "GOBJECT_INTROSPECTION_LIBDIR", "#{HOMEBREW_PREFIX}/lib"
     end
 
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}", "PYTHON=python"
     system "make"
     system "make", "install"
   end
