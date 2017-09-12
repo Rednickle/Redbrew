@@ -19,6 +19,7 @@ class Mongodb < Formula
   bottle do
     sha256 "abba5a957f15d3a1d46762e9834caddfeca58e6ba47cb71d4351e8f50e3a8053" => :sierra
     sha256 "aaef1e983776ffbc34c051401172d847f43961fc2f1359c2f281d9f3efc8300e" => :el_capitan
+    sha256 "b737a3e00214178cd36731e331e194dbf1f9f22513a269b23373f04aa3594c2c" => :x86_64_linux
   end
 
   devel do
