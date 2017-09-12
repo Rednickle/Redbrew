@@ -9,6 +9,7 @@ class Libmowgli < Formula
     cellar :any
     sha256 "2629985b967c9be4bbc0db47c21e33dcbc0058b370c4fbdb081d12bf370c2e10" => :sierra
     sha256 "bf9b61a75b2f0a92d811e87a93b07fb1daedd2d096c6576d1993db2b4ec5b685" => :el_capitan
+    sha256 "215f8181f55e0ac36bdf0d040ef92cbf12fa4eee7727aa49a94775c1e1675b64" => :x86_64_linux
   end
 
   depends_on "openssl"
