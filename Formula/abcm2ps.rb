@@ -7,6 +7,7 @@ class Abcm2ps < Formula
   bottle do
     sha256 "97a4b2437c3b7b7b8f9ffb5007bb8f5231d845e054c3ba82559824919985e3ad" => :sierra
     sha256 "3544a462d9f01a4b448e74873cf08de16d408b20779eb89dffb20b71a47fb93b" => :el_capitan
+    sha256 "e3eed0ef209daca9f11ef824cc3933ef9f2842b0dcb1a116bfa6255a12f48483" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
