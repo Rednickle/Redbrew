@@ -8,6 +8,7 @@ class Iozone < Formula
     cellar :any_skip_relocation
     sha256 "5182985c07c2fcdcfd5e8096c2d175e6999e9a91cd3bfe54235e103340f7ee36" => :sierra
     sha256 "39b896d0dca83fffc160be9688514dd65b7d2ce9e593e8af465b5adeaa905241" => :el_capitan
+    sha256 "5e6e918d6e25dee7fbfd9f2a4d40d9c5483089de2a440bf1a01bbf13e8f6dcbc" => :x86_64_linux
   end
 
   def install
