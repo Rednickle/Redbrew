@@ -11,6 +11,7 @@ class Todoman < Formula
     cellar :any_skip_relocation
     sha256 "d0f6294e4e4a7dbb43c221458d1a91ef77abe9fca2177a7fc0b3667871d5d106" => :sierra
     sha256 "5e9bd936abe30ba8fae7d720dda8dfbcbdc71ebf967d761fc4e3f82e9bb0b29a" => :el_capitan
+    sha256 "4196b3838436954640c2a6dda9eb4732df268b1c93d7f9ed7af7b09e5f3037b4" => :x86_64_linux
   end
 
   depends_on :python3
