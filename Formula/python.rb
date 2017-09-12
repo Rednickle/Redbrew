@@ -13,8 +13,12 @@ class Python < Formula
     sha256 "bb3bca66bbc951503b493d9518f7a150a0c5b5fa50faf3280902ea6e2f4e3304" => :x86_64_linux # glibc 2.19
   end
 
-  # Homebrew doesn't accept a wide/ucs4 option because narrow build is the de facto standard
-  # on Windows and OSX, but wide seems to be the default for linux
+  devel do
+    url "https://www.python.org/ftp/python/2.7.14/Python-2.7.14rc1.tar.xz"
+    sha256 "9d62a5d8b56a897f94ce43489ed971f5a211459727048d73c807f04f318a0fb7"
+  end
+
+  # Please don't add a wide/ucs4 option as it won't be accepted.
   # More details in: https://github.com/Homebrew/homebrew/pull/32368
   option "with-unicode-ucs4", "Build unicode support with UCS4"
   option "with-quicktest", "Run `make quicktest` after the build (for devs; may fail)"
