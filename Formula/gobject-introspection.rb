@@ -1,15 +1,12 @@
 class GobjectIntrospection < Formula
   desc "Generate introspection data for GObject libraries"
   homepage "https://live.gnome.org/GObjectIntrospection"
-  url "https://download.gnome.org/sources/gobject-introspection/1.52/gobject-introspection-1.52.1.tar.xz"
-  sha256 "2ed0c38d52fe1aa6fc4def0c868fe481cb87b532fc694756b26d6cfab29faff4"
-  revision 1
+  url "https://download.gnome.org/sources/gobject-introspection/1.54/gobject-introspection-1.54.0.tar.xz"
+  sha256 "67e76742ce78821bce8a613183368222919b24e2dcf5fe26f17726c11c422ed7"
 
   bottle do
-    rebuild 1
-    sha256 "43d28cc34359e3cc6948accbe7fd3c0ef87cbd3defc2c547faed38f4df0c1249" => :sierra
-    sha256 "bba36375b7fa61a41316c10e83910483cab2599474a6c9941df6e8c5c1b44885" => :el_capitan
-    sha256 "477a7f2926504a410ae9d66c4acaeebc517468422b204ff602f83bdc734eee88" => :x86_64_linux
+    sha256 "b6873b072bddb128505b4b86c5d8fa8162e6e04ec81ee9b7967fd3e030033ae6" => :sierra
+    sha256 "c6f6b61eaadb3180e95d2895c0182ce87993ddf88258651902ca469318e22645" => :el_capitan
   end
 
   depends_on "pkg-config" => :run
