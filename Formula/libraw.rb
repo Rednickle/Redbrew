@@ -9,6 +9,7 @@ class Libraw < Formula
     cellar :any
     sha256 "7a444524abc75a6219a3080e475d3ce495afd2d7a44854390a9bd91bf1ae785e" => :sierra
     sha256 "186e97955a3a245bdb46a46b58d8b9d5eec0f1e6c7d6d37882fe2586460ba029" => :el_capitan
+    sha256 "261d8b9050b1587df258bd43b24b3209c433679f3ca36a336b12561ed103c080" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
