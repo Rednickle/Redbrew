@@ -7,6 +7,7 @@ class GlibNetworking < Formula
   bottle do
     sha256 "6551b115dc75768d40111207fba1a1bfd2c2994469ce380e4e21798667b925b4" => :sierra
     sha256 "bee5da78fd8cc668ed831587fea46ea9485d842d5d88cc6e839cc6a6fa99e709" => :el_capitan
+    sha256 "ef420314dcf3dce37258d82061e2683081a59147992f1e754f9fa5f8130f2e8e" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
