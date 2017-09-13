@@ -11,6 +11,7 @@ class Termius < Formula
     cellar :any
     sha256 "7a83a18c139f04696adfd0f4cf127060cef6b17ca005a0aacdfa543b47047e2f" => :sierra
     sha256 "3476f0d2bc9cac2de557e5d0a85ef09ecccee16b6defe18230f67e7125f46ab9" => :el_capitan
+    sha256 "998d784832d77681e14816f37d56ce60c8a38016b2092951388045aed3ca8be6" => :x86_64_linux
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
