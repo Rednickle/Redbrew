@@ -8,6 +8,7 @@ class Mpv < Formula
   bottle do
     sha256 "593415a29d355a1077bb04cfe12af67692b332c83117636d31be70fd1f30aeb4" => :sierra
     sha256 "952313badffafedb1398e8636111646c3e1cad28aaf20888d77526a3f5e37030" => :el_capitan
+    sha256 "67a200408432071a7e2794a5195d11b03786807764e3ad3ad066f9999dfe55b9" => :x86_64_linux
   end
 
   option "with-bundle", "Enable compilation of the .app bundle."
