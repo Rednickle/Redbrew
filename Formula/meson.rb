@@ -9,6 +9,7 @@ class Meson < Formula
     cellar :any_skip_relocation
     sha256 "69d6d77375b83618148a0c1e556a21b4b3b3f23ef474eb010c9992b6ab27c2a4" => :sierra
     sha256 "69d6d77375b83618148a0c1e556a21b4b3b3f23ef474eb010c9992b6ab27c2a4" => :el_capitan
+    sha256 "7acf732fcbded421bb5bac5672e2531d61ee13f5a594a8dfe808e28354cf3fa4" => :x86_64_linux
   end
 
   depends_on :python3
