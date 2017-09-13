@@ -8,6 +8,7 @@ class Gofabric8 < Formula
     cellar :any_skip_relocation
     sha256 "c531d734b0ba04c42cbea4981e7c3eb9b710b3f7530029d0f0135fdafa377df4" => :sierra
     sha256 "65a93b3f34c56dbbaa18f5774fee17a0165b15bfdc5e43004c6f8738ce10d7f8" => :el_capitan
+    sha256 "8ad74d12d72797ce005e545343b9a729cda599c9d323221eff9e7a7a21cb6281" => :x86_64_linux
   end
 
   depends_on "go" => :build
