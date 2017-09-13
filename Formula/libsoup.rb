@@ -1,11 +1,12 @@
 class Libsoup < Formula
   desc "HTTP client/server library for GNOME"
   homepage "https://live.gnome.org/LibSoup"
-  url "https://download.gnome.org/sources/libsoup/2.58/libsoup-2.58.2.tar.xz"
-  sha256 "442300ca1b1bf8a3bbf2f788203287ff862542d4fc048f19a92a068a27d17b72"
+  url "https://download.gnome.org/sources/libsoup/2.60/libsoup-2.60.0.tar.xz"
+  sha256 "b324edbecda0884143c0853b4a2bd5bd37fb3761f12f293c621ff34b9acdc84c"
 
   bottle do
-    sha256 "afc6f9f66c0081dc1e0ba789d5bff34c07869fad70ab6d2ba2ce3ea453861b82" => :x86_64_linux # glibc 2.19
+    sha256 "57eb359d16313371a3d23862a33d9d7e98d7298f06a6d9a292942092221a002c" => :sierra
+    sha256 "b510a0a1707187667e3371b3c76d40a33d8f37c0791374d8a94d34d3391bcb0b" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
