@@ -9,6 +9,7 @@ class Mediaconch < Formula
     cellar :any
     sha256 "1a67f8876d96e0569d6c7914a6ece7fb383ed46e1805192842e79f0656a6fdc7" => :sierra
     sha256 "94029f835f3846bd8ffba1524e227c386c803070821f471fc7a8e5f8e4d3ddcb" => :el_capitan
+    sha256 "4a50a3454858a52c5145f685cd3a60f0ae538ef6d9e1060ca2f1bce26512d285" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
