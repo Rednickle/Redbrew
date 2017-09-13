@@ -8,6 +8,7 @@ class Texinfo < Formula
   bottle do
     sha256 "ad81d72c79b14e1ed7beed59202514817fde7d12cc4e37657fdc689bb081a2e2" => :sierra
     sha256 "e3099c5bc15295e7cadb2ce8b5f89d8983a8599b8d8602277aae23b9ff3482b1" => :el_capitan
+    sha256 "c7e523f8f825eb034bf079b1cb6538b280e974016c57544e4db3bf414e6be866" => :x86_64_linux
   end
 
   keg_only :provided_by_osx, <<-EOS.undent
