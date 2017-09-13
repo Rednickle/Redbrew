@@ -10,6 +10,7 @@ class Jhipster < Formula
     cellar :any_skip_relocation
     sha256 "0550deabbb5d2e6b76c990c7564a42bad47628d418c045258ed806c168e91887" => :sierra
     sha256 "b15a68fff5ddf26b52f0193f6c4be8dc72118997fc3216f3724f16b19b7b5644" => :el_capitan
+    sha256 "72643a5a9ed04a37e57d6264a9eb03f3f2788f77b5803f60e5e5e329872dedae" => :x86_64_linux
   end
 
   depends_on "node"
