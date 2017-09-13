@@ -9,6 +9,7 @@ class Caddy < Formula
     cellar :any_skip_relocation
     sha256 "009a907704d1968de79b0aadf5b9c0a97a400911b18730afaaa9d0faa84f697e" => :sierra
     sha256 "e1577fb37e85595b382d8de1a4d51991bee15bba368db23ac217025f035bccc5" => :el_capitan
+    sha256 "d6781bf063b37121ef3f9cdc80823973af3b1e9ce56e87981ee181437cf24a03" => :x86_64_linux
   end
 
   depends_on "go" => :build
