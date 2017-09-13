@@ -9,6 +9,7 @@ class Abcmidi < Formula
     cellar :any_skip_relocation
     sha256 "e9798b8dfe169ed616176b5c1516ea8df6d1835e7d73d7d8d169712e56a8e0b7" => :sierra
     sha256 "7ed456cd28e7383cedeee7821ed781a0f9458af7dacd55f667dd483fa2269bbf" => :el_capitan
+    sha256 "339e5ba3cf646b51ce22c2cf3ea70bb996b30034ff6f0230fc1d7c6de1b48aa6" => :x86_64_linux
   end
 
   def install
