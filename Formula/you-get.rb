@@ -11,6 +11,7 @@ class YouGet < Formula
     cellar :any_skip_relocation
     sha256 "e2f1dddfe0087bcb586aa06de6523e4ccffe377fe9af6dbd061fba9ac3bc4b08" => :sierra
     sha256 "9acfcf669ec2222ecfeee2a25897f357eb659a287b98f85d5b9913d5b60b2118" => :el_capitan
+    sha256 "7fb312ee6d00daa9b05d3aaf2f8beb1aff321020cb4aae5ec968fb2eb5d0323f" => :x86_64_linux
   end
 
   depends_on :python3
