@@ -8,6 +8,7 @@ class Node < Formula
   bottle do
     sha256 "19d2e1d94b81b30869cc3257cf7b3dbeb2dab504caee2f10e3939dcc6e7bc4b1" => :sierra
     sha256 "a7ff7cf8a499f60cfbd6adb92ebd29c2aa2868c31da540223ef536371645bab9" => :el_capitan
+    sha256 "ce01ae6e7522a94d4543b47b4395b877b2ea89847c570895bca38b34dcdff770" => :x86_64_linux
   end
 
   option "with-debug", "Build with debugger hooks"
