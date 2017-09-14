@@ -11,6 +11,7 @@ class Jsdoc3 < Formula
     cellar :any_skip_relocation
     sha256 "bfab5fccdd1e49260dc2166af13885de94d43acb7cc689663aa0414cef88698a" => :sierra
     sha256 "9d5a8b63309f02f86c42c7cf6973a000f4eda4ad0e1cea080a64674abea0a2da" => :el_capitan
+    sha256 "58342ebcfa56a1f855124e28d9bc7b05acc7051e792994ef24585584d2440520" => :x86_64_linux
   end
 
   depends_on "node"
