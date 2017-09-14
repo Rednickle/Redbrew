@@ -8,6 +8,7 @@ class Akamai < Formula
     cellar :any_skip_relocation
     sha256 "e997cd826985bb4b41081866e8dfb3e4d10d544013057eb096f4c9b79fe30bd3" => :sierra
     sha256 "f0c99cf085a3540494a3ff12832b81077ed0bd42e851e5f8892944ddcee2d5f1" => :el_capitan
+    sha256 "653318aa2e3fecf28dad6547260de2335d3d7892ffcc462634567e3bade70086" => :x86_64_linux
   end
 
   depends_on "go" => :build
