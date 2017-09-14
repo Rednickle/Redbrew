@@ -8,6 +8,7 @@ class Xtensor < Formula
     cellar :any_skip_relocation
     sha256 "1831caeaaef4bee75d0c4861ae857531d4929220f27132b43d0f52b4faf6d40e" => :sierra
     sha256 "1831caeaaef4bee75d0c4861ae857531d4929220f27132b43d0f52b4faf6d40e" => :el_capitan
+    sha256 "a1f445c511aa0975d2fac562995ba4bac974623e983eb03f88f300fb050aa3ee" => :x86_64_linux
   end
 
   needs :cxx14
