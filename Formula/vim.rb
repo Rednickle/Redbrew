@@ -8,6 +8,7 @@ class Vim < Formula
   bottle do
     sha256 "0a79cbf95b997a28e1d0e13f12672cde049378ff2b1e1484d48613abdcd6c921" => :sierra
     sha256 "3a65d585b71044472213ee5a150ab6da74265d01a78e3fc3c2e6e38d8b14d114" => :el_capitan
+    sha256 "c66957b9ebba26ea23c4a150e99136690f6f18d7e80ed62a3121c87e01d172f0" => :x86_64_linux
   end
 
   deprecated_option "override-system-vi" => "with-override-system-vi"
