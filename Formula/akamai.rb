@@ -1,16 +1,13 @@
 class Akamai < Formula
   desc "CLI toolkit for working with Akamai's APIs"
   homepage "https://github.com/akamai/cli"
-  url "https://github.com/akamai/cli/archive/0.3.2.tar.gz"
-  sha256 "0c1eb4ce261ca35a175d78725c415dce227885f4978e9aa4242102133cb7a5ca"
+  url "https://github.com/akamai/cli/archive/0.4.0.tar.gz"
+  sha256 "9364ccedd21dfe520d59a05ea1d0fbd83c1b4da8e2dbb6686c829a3583e626fc"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e3022b69636cc10407739c3497d6fd4250ded19ce0729415699efc2799720134" => :sierra
-    sha256 "d3e72e38b1d1b66adb10ec4f230873b78bc12b9cbe8ba1877b2ebe237f264af0" => :el_capitan
-    sha256 "01c4c5f3da394c43280aa5546fc70af4c7ff8b2f015e3e78cde9ee3f14a720da" => :yosemite
-    sha256 "0c54fc44cc3205d88c785ee056a313f01b6f8e544ef0bf11810f5d9c60352297" => :x86_64_linux # glibc 2.19
-    sha256 "f82ee3dedd471b7b6db950cef056aaa87656e64a69c3b300e1e0fd9ed947e60c" => :x86_64_linux
+    sha256 "e997cd826985bb4b41081866e8dfb3e4d10d544013057eb096f4c9b79fe30bd3" => :sierra
+    sha256 "f0c99cf085a3540494a3ff12832b81077ed0bd42e851e5f8892944ddcee2d5f1" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -30,6 +27,6 @@ class Akamai < Formula
   end
 
   test do
-    assert_match "Purge", shell_output("yes y | #{bin}/akamai install purge")
+    assert_match "Purge", shell_output("#{bin}/akamai install --force purge")
   end
 end

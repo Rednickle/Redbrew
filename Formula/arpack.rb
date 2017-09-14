@@ -27,7 +27,7 @@ class Arpack < Formula
     if build.with? "openblas"
       args << "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas"
     elsif build.with? "veclibfort"
-      args << "--with-blas=-L#{Formula["veclibfort"].opt_lib} -lvecLibFort"
+      args << "--with-blas=-L#{Formula["veclibfort"].opt_lib}\ -lvecLibFort"
     else
       args << "--with-blas=-lblas -llapack"
     end
