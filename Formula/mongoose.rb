@@ -8,6 +8,7 @@ class Mongoose < Formula
     cellar :any
     sha256 "301825dcf89cb1d176cd068415bf817d9d6ee701b1f1c434dd6970190a2b860b" => :sierra
     sha256 "c6916fbd4d4e7ce60967e65f19159a337e5037adc40318c982e3ba2e20cd9436" => :el_capitan
+    sha256 "d28e5222fb98b54d77dd26da9832ef003357e5a8dd0eedaa131bccc88c7d1680" => :x86_64_linux
   end
 
   depends_on "openssl" => :recommended
