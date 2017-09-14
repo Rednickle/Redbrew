@@ -8,6 +8,7 @@ class MongoCDriver < Formula
     cellar :any
     sha256 "5967d7e5dff1c9449e394b2595c3cf81b078e183056a55a69e8af67fe82067f2" => :sierra
     sha256 "d298b659f223aecee2a8a87ad4007954db06988b386a0ac396c8f58dfb3c9b1b" => :el_capitan
+    sha256 "6aea4e8d84b7e1abab29109d9ff5f7bc119c2dd7818f355db02e1b4efdc8b394" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
