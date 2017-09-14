@@ -8,6 +8,7 @@ class Pygobject3 < Formula
     cellar :any
     sha256 "af9b369423638e8fc2e31c6d777cb284886ac21fac08edad6823050a010ad09c" => :sierra
     sha256 "223ce7f1ca5c4b93666b50a81efd497551fe05c90f4cc73f6279eac7e733c89e" => :el_capitan
+    sha256 "444f018307d41966c01fa81edc42e154a9e2cb5e3c46aab593b48caea7eba08f" => :x86_64_linux
   end
 
   option "without-python", "Build without python2 support"
