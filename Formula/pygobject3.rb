@@ -1,16 +1,13 @@
 class Pygobject3 < Formula
   desc "GNOME Python bindings (based on GObject Introspection)"
   homepage "https://live.gnome.org/PyGObject"
-  url "https://download.gnome.org/sources/pygobject/3.24/pygobject-3.24.1.tar.xz"
-  sha256 "a628a95aa0909e13fb08230b1b98fc48adef10b220932f76d62f6821b3fdbffd"
-  revision 1
+  url "https://download.gnome.org/sources/pygobject/3.26/pygobject-3.26.0.tar.xz"
+  sha256 "7411acd600c8cb6f00d2125afa23303f2104e59b83e0a4963288dbecc3b029fa"
 
   bottle do
     cellar :any
-    sha256 "526dad2d5a56175bce619bf095c953df0c04eb35b98f62899df61515dd1ef89e" => :sierra
-    sha256 "8cee61b5ff37a70ce9b5d6d424903c046726f797c618af62c6d2c52e56fd006a" => :el_capitan
-    sha256 "5d3c6ec80eb8f41a6735c893ea340c1c4a4c13a2edf137dd40f396b8b8b7fd43" => :yosemite
-    sha256 "d2cc998d469f227e3bab7004db292f58df0f721eab14f0e5e4021798a97e62f7" => :x86_64_linux # glibc 2.19
+    sha256 "af9b369423638e8fc2e31c6d777cb284886ac21fac08edad6823050a010ad09c" => :sierra
+    sha256 "223ce7f1ca5c4b93666b50a81efd497551fe05c90f4cc73f6279eac7e733c89e" => :el_capitan
   end
 
   option "without-python", "Build without python2 support"
@@ -25,9 +22,7 @@ class Pygobject3 < Formula
 
   def install
     Language::Python.each_python(build) do |python, _version|
-      system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}", "PYTHON=#{python}"
-      system "make", "install"
-      system "make", "clean"
+      system python, *Language::Python.setup_install_args(prefix)
     end
   end
 
