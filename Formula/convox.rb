@@ -8,6 +8,7 @@ class Convox < Formula
     cellar :any_skip_relocation
     sha256 "b3a826209250c88adcc1e134b412055606843e27f674be47d20159e66359be41" => :sierra
     sha256 "ef60546659ae7851823870e5ebbe65de2f7040e9a0cb1f526da227bb14441d8f" => :el_capitan
+    sha256 "c35e0589f532228b3c5ab0f142290b7217001f14aa310bfaeaacebbdb6a23469" => :x86_64_linux
   end
 
   depends_on "go" => :build
