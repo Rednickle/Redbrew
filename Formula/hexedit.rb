@@ -1,15 +1,15 @@
 class Hexedit < Formula
   desc "View and edit files in hexadecimal or ASCII"
   homepage "http://rigaux.org/hexedit.html"
-  url "https://github.com/pixel/hexedit/archive/1.4.1.tar.gz"
-  sha256 "4104905394f1313c47e22d4c81e9df538b90cec9004b3230d68cd055b84f5715"
+  url "https://github.com/pixel/hexedit/archive/1.4.2.tar.gz"
+  sha256 "c81ffb36af9243aefc0887e33dd8e41c4b22d091f1f27d413cbda443b0440d66"
   head "https://github.com/pixel/hexedit.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6630b5d6b6d1fb2b695864ce1c9a66d2ab35052c1d5db3163a1662b8c27ce7b4" => :sierra
-    sha256 "a9b9fb50248ed14039053bbd1bf854858423175f30df85a1331ca7db168f6249" => :el_capitan
-    sha256 "8e7bbf29e6f6415cf2b1c04674d66310e21f902421982b0550f4feef19586bd7" => :yosemite
+    sha256 "9a6c6e290d26d793c2e2b85a1cc1ef0147ea70d957859228d5a363c8ebb3fb4f" => :high_sierra
+    sha256 "c93767f4bec81f4d372d4af42a7505131f61ce4992b2549210aa464ee5b309ce" => :sierra
+    sha256 "8939412f612cb0b5a8fd49fc1045bdd9dee9f729cf741fba2421ed28deeadc82" => :el_capitan
   end
 
   depends_on "autoconf" => :build
