@@ -7,9 +7,7 @@ class Hexedit < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9a6c6e290d26d793c2e2b85a1cc1ef0147ea70d957859228d5a363c8ebb3fb4f" => :high_sierra
-    sha256 "c93767f4bec81f4d372d4af42a7505131f61ce4992b2549210aa464ee5b309ce" => :sierra
-    sha256 "8939412f612cb0b5a8fd49fc1045bdd9dee9f729cf741fba2421ed28deeadc82" => :el_capitan
+    sha256 "fbdf1a49a8ab54301abb8ac9df6a5ff10190bae5f2d6c976cc61ea86e0fa411a" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
