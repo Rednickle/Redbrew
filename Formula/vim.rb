@@ -3,12 +3,13 @@ class Vim < Formula
   homepage "https://vim.sourceforge.io/"
   url "https://github.com/vim/vim/archive/v8.0.1100.tar.gz"
   sha256 "4737599b2153388b1d8621a84f2ef2162474e17c7179375b60e17f551902d8c1"
+  revision 1
+
   head "https://github.com/vim/vim.git"
 
   bottle do
-    sha256 "0a79cbf95b997a28e1d0e13f12672cde049378ff2b1e1484d48613abdcd6c921" => :sierra
-    sha256 "3a65d585b71044472213ee5a150ab6da74265d01a78e3fc3c2e6e38d8b14d114" => :el_capitan
-    sha256 "c66957b9ebba26ea23c4a150e99136690f6f18d7e80ed62a3121c87e01d172f0" => :x86_64_linux
+    sha256 "e984710833f708ef8a8d2adc9df2d4b66f1479a5ad8f14d80bf27de47e69dbc3" => :sierra
+    sha256 "3e97b0a4d7d009d04dc4ce79bca57164b17807b05ae8637568916a3ea528822a" => :el_capitan
   end
 
   deprecated_option "override-system-vi" => "with-override-system-vi"
