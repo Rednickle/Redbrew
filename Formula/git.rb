@@ -2,7 +2,6 @@ class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
   url "https://www.kernel.org/pub/software/scm/git/git-2.14.1.tar.xz"
-  mirror "http://tux.rainside.sk/pub/software/scm/git/git-2.14.1.tar.xz"
   sha256 "6f724c6d0e9e13114ab35db6f67e1b2c1934b641e89366e6a0e37618231f2cc6"
   head "https://github.com/git/git.git", :shallow => false
 
@@ -16,18 +15,9 @@ class Git < Formula
 
   option "with-blk-sha1", "Compile with the block-optimized SHA1 implementation"
   option "without-completions", "Disable bash/zsh completions from 'contrib' directory"
-  if OS.mac?
-    option "with-openssl", "Build with Homebrew's OpenSSL instead of using CommonCrypto"
-    option "with-curl", "Use Homebrew's version of cURL library"
-  else
-    option "without-openssl", "Build with the system's OpenSSL library instead of Homebrew's"
-    option "without-curl", "Build with the system's cURL library instead of Homebrew's"
-  end
   option "with-subversion", "Use Homebrew's version of SVN"
   option "with-persistent-https", "Build git-remote-persistent-https from 'contrib' directory"
 
-  deprecated_option "with-brewed-openssl" => "with-openssl"
-  deprecated_option "with-brewed-curl" => "with-curl"
   deprecated_option "with-brewed-svn" => "with-subversion"
   deprecated_option "with-pcre" => "with-pcre2"
 
@@ -36,9 +26,22 @@ class Git < Formula
   depends_on "go" => :build if build.with? "persistent-https"
 
   if OS.mac?
-    depends_on "openssl" => :optional
-    depends_on "curl" => :optional
-  else
+    if MacOS.version < :yosemite
+      depends_on "openssl"
+      depends_on "curl"
+    else
+      deprecated_option "with-brewed-openssl" => "with-openssl"
+      deprecated_option "with-brewed-curl" => "with-curl"
+
+      option "with-openssl", "Build with Homebrew's OpenSSL instead of using CommonCrypto"
+      option "with-curl", "Use Homebrew's version of cURL library"
+
+      depends_on "openssl" => :optional
+      depends_on "curl" => :optional
+    end
+  end
+
+  unless OS.mac?
     depends_on "curl"
     depends_on "expat"
     depends_on "openssl"
@@ -116,7 +119,7 @@ class Git < Formula
     ]
     args << "NO_TCLTK=1" if build.without? "tcl-tk"
 
-    if build.with? "openssl"
+    if build.with?("openssl") || MacOS.version < :yosemite
       openssl_prefix = Formula["openssl"].opt_prefix
       args += %W[NO_APPLE_COMMON_CRYPTO=1 OPENSSLDIR=#{openssl_prefix}]
     else
@@ -185,7 +188,9 @@ class Git < Formula
 
     # To avoid this feature hooking into the system OpenSSL, remove it.
     # If you need it, install git --with-openssl.
-    rm "#{libexec}/git-core/git-imap-send" if build.without? "openssl"
+    if MacOS.version >= :yosemite && build.without?("openssl")
+      rm "#{libexec}/git-core/git-imap-send"
+    end
 
     # This is only created when building against system Perl, but it isn't
     # purged by Homebrew's post-install cleaner because that doesn't check
