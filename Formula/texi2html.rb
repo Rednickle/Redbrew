@@ -8,6 +8,7 @@ class Texi2html < Formula
     rebuild 1
     sha256 "5259ab2074f122f4725058d2477233add1a32c30d385680276b06c11e06bc67f" => :sierra
     sha256 "5259ab2074f122f4725058d2477233add1a32c30d385680276b06c11e06bc67f" => :el_capitan
+    sha256 "c5c2e2fce28ce5c47f6b720a7a207bea19c95b149e6f6f2bddfb6cef82e0829b" => :x86_64_linux
   end
 
   keg_only :provided_pre_mountain_lion
