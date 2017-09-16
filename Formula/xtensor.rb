@@ -1,14 +1,13 @@
 class Xtensor < Formula
   desc "Multi-dimensional arrays with broadcasting and lazy computing"
   homepage "http://quantstack.net/xtensor"
-  url "https://github.com/QuantStack/xtensor/archive/0.11.1.tar.gz"
-  sha256 "30ecd09350eb474c6376ffe3084a391835bed5becbf1e1b388c770b4542d3df0"
+  url "https://github.com/QuantStack/xtensor/archive/0.11.2.tar.gz"
+  sha256 "2a4c5e8f0427f1f244dcfc569c7a169ffe3c4904ff4c10858e270c175c8e09c9"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1831caeaaef4bee75d0c4861ae857531d4929220f27132b43d0f52b4faf6d40e" => :sierra
-    sha256 "1831caeaaef4bee75d0c4861ae857531d4929220f27132b43d0f52b4faf6d40e" => :el_capitan
-    sha256 "a1f445c511aa0975d2fac562995ba4bac974623e983eb03f88f300fb050aa3ee" => :x86_64_linux
+    sha256 "ed836f3ec508d767544693d548ec2d694352cf97d35d21bd65a0532988d365f0" => :sierra
+    sha256 "ed836f3ec508d767544693d548ec2d694352cf97d35d21bd65a0532988d365f0" => :el_capitan
   end
 
   needs :cxx14
