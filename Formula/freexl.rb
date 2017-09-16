@@ -6,6 +6,7 @@ class Freexl < Formula
 
   bottle do
     cellar :any
+    sha256 "7ca25e585235a32101d4609650add1b1958f802abb4ed27344070f22b30aef3b" => :high_sierra
     sha256 "0acd882858992391ab7538d5ba0b7759e6ac74a66cbc2d3ab7687e21359153be" => :sierra
     sha256 "3fe58df5c022ebb71b420fa3ce3cd6d672bea6f51b4fcb7231716305add6d768" => :el_capitan
     sha256 "97ac82081562bc80e5ba128da70733c9eef24505557b93ee881e7660f0bb4e88" => :x86_64_linux
