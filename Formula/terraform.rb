@@ -11,6 +11,7 @@ class Terraform < Formula
     cellar :any_skip_relocation
     sha256 "d44d3d3fee52c184bbb9ff81d00b0f5a4bacf2f7f74c44afa80e0f0e3bb0fa68" => :sierra
     sha256 "466715f26cf36a20ba9f366f9291c9263f014b88b64fbb59c8a6f8806e6ced1a" => :el_capitan
+    sha256 "00e1cdcd9d260f505d19d513a12bddef0e75242c45c4de0b0ee08b5029e23342" => :x86_64_linux
   end
 
   depends_on "go" => :build
