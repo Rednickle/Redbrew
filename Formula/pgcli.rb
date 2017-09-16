@@ -1,16 +1,14 @@
 class Pgcli < Formula
   desc "CLI for Postgres with auto-completion and syntax highlighting"
   homepage "https://pgcli.com/"
-  url "https://files.pythonhosted.org/packages/d2/71/59473625a4df68df7593b3fb86ac5a81bc5e29e2f9247acdfa4be08d3e43/pgcli-1.7.0.tar.gz"
-  sha256 "fd8ef5011a354063dd53c95e9b39125c601f8bd406f973a74601f919aafb1181"
-  revision 2
+  url "https://files.pythonhosted.org/packages/ee/d3/653864b55a857aa6c8c7741dd0ff7bd11423b379e3c84f5152641285cc39/pgcli-1.8.0.tar.gz"
+  sha256 "9cea027fed2e86d2a6552a962f6817a391560c080f98e5f2977b9385b3315664"
 
   bottle do
     cellar :any
-    sha256 "91656947500c8f0a5d3aeb39312c6d2a3bd650a3e5641d36c276c39239fed63f" => :sierra
-    sha256 "a62aa538354e2a750093c46c88c7ad1e8815ace1df8371f1ffc5efe08cd215f9" => :el_capitan
-    sha256 "c08450475d1b959c5f298ad525466a7c2c66714961daf1acad821a52c85eaca4" => :yosemite
-    sha256 "ca1fd24c6839df84349a111e5976403494992a4af9f17ff3b882a966f89cfa79" => :x86_64_linux # glibc 2.19
+    sha256 "6c2b021c9ac39eb29ca690b80cc630073443deaf0e1295310bca4bdbd9290982" => :high_sierra
+    sha256 "f2911b481a439148f8c941e1600023ec188d5667c5d0e2f0108b19d4a63e86a9" => :sierra
+    sha256 "326e936ddc42d81239fefce3ab49a38ebaeb7c5cf33b3341c30c39c3a7e8fa2b" => :el_capitan
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
