@@ -135,13 +135,7 @@ class Gdal < Formula
       "--with-grib",
       "--with-pam",
 
-      # Backends supported by macOS.
-      *("--with-libiconv-prefix=/usr" if OS.mac?),
-      "--with-libz=#{OS.mac? ? "/usr" : Formula["zlib"].opt_prefix}",
       "--with-png=#{Formula["libpng"].opt_prefix}",
-      "--with-expat=#{OS.mac? ? "/usr" : Formula["expat"].opt_prefix}",
-
-      # Default Homebrew backends.
       "--with-jpeg=#{HOMEBREW_PREFIX}",
       "--without-jpeg12", # Needs specially configured JPEG and TIFF libraries.
       "--with-gif=#{HOMEBREW_PREFIX}",
@@ -165,6 +159,8 @@ class Gdal < Formula
       args << "--with-curl=/usr/bin/curl-config"
     else
       args << "--with-curl=#{Formula["curl"].opt_bin}/curl-config"
+      args << "--with-libz=#{Formula["zlib"].opt_prefix}"
+      args << "--with-expat=#{Formula["expat"].opt_prefix}"
     end
 
     # Optional Homebrew packages supporting additional formats.

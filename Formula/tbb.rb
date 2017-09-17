@@ -1,17 +1,13 @@
 class Tbb < Formula
   desc "Rich and complete approach to parallelism in C++"
   homepage "https://www.threadingbuildingblocks.org/"
-  url "https://github.com/01org/tbb/archive/2017_U7.tar.gz"
-  version "2017_U7"
-  sha256 "78ad6ec9dd492b9dcc4753938b06716f7458506084adc138ced09aa0aa609b6b"
+  url "https://github.com/01org/tbb/archive/2018.tar.gz"
+  sha256 "94f643f1edfaccb57d64b503c7c96f00dec64e8635c054bbaa33855d72c5822d"
 
   bottle do
     cellar :any
-    sha256 "e2516c576c96bc92b8f8b54727a2df46a82df120a570c8d5f394f30d95a91820" => :high_sierra
-    sha256 "72c2ba137d129c98f456513deb3ce3a5aea7750fc8ef1d376ef8a8816c423b45" => :sierra
-    sha256 "d96aa9da25acbf1158ec6bfc1db9c490520b50ea143b88054065388e152d3686" => :el_capitan
-    sha256 "70c6ad9af59958638e59349e8b2913a9cc1f7f9a918ad7c1f54eda49b1ad757b" => :yosemite
-    sha256 "521d543454f3aefcee331a8ebc126ec68a920f65ccc0c70acaf528d6bda98921" => :x86_64_linux # glibc 2.19
+    sha256 "ad77508883c17c264e3a7b8577efd771828cf02b9d1f8a4ba903b2e26be66422" => :sierra
+    sha256 "fa092abc70c26eb61072eba47ea51e4767a2a0c64d450e1e9993dc3addb87c5f" => :el_capitan
   end
 
   option :cxx11
@@ -21,9 +17,6 @@ class Tbb < Formula
   depends_on :macos => :lion
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "swig" => :build
-
-  # Patch clang C++11 support (reported upstream by email)
-  patch :DATA
 
   def install
     compiler = (ENV.compiler == :clang) ? "clang" : "gcc"
@@ -63,15 +56,3 @@ class Tbb < Formula
     system "./test"
   end
 end
-
-__END__
---- a/include/tbb/tbb_config.h
-+++ b/include/tbb/tbb_config.h
-@@ -740,7 +740,7 @@
-
- // The implicit upcasting of the tuple of a reference of a derived class to a base class fails on icc 13.X if the system's gcc environment is 4.8
- // Also in gcc 4.4 standard library the implementation of the tuple<&> conversion (tuple<A&> a = tuple<B&>, B is inherited from A) is broken.
--#if __GXX_EXPERIMENTAL_CXX0X__ && ((__INTEL_COMPILER >=1300 && __INTEL_COMPILER <=1310 && __TBB_GLIBCXX_VERSION>=40700) || (__TBB_GLIBCXX_VERSION < 40500))
-+#if __GXX_EXPERIMENTAL_CXX0X__ && !__clang__ && ((__INTEL_COMPILER >=1300 && __INTEL_COMPILER <=1310 && __TBB_GLIBCXX_VERSION>=40700) || (__TBB_GLIBCXX_VERSION < 40500))
- #define __TBB_UPCAST_OF_TUPLE_OF_REF_BROKEN 1
- #endif
