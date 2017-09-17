@@ -1,4 +1,3 @@
-# camlp4: Build a bottle for Linuxbrew
 class Camlp4 < Formula
   desc "Tool to write extensible parsers in OCaml"
   homepage "https://github.com/ocaml/camlp4"
