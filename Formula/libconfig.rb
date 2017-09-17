@@ -9,6 +9,7 @@ class Libconfig < Formula
     sha256 "23e530c1de99bced2f55361347920cb9149b816dcd6e273db90c8211bbbbe025" => :high_sierra
     sha256 "238bf662b61ce2ed2b3e4ef0cf932ab4c9fe784f23d5d82576b79ce552db10b6" => :sierra
     sha256 "2194870d1e0f7dcdc03df3637bfb16c92ddd03f1a65870c0498e28b06308f5bd" => :el_capitan
+    sha256 "5622eceae00c2b88f063e1e068e36635b1497539946cde70b814a0c1153cb401" => :x86_64_linux
   end
 
   head do
