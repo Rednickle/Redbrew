@@ -11,6 +11,7 @@ class Cheat < Formula
     cellar :any_skip_relocation
     sha256 "65a2bf9dc7f1c50718f9811ad89958409ec14a24c140332a468d8b6520989328" => :sierra
     sha256 "5da06a7464f2ef810c33d96f075dad2b5d5245e5d8e7700903d89daa029ca46a" => :el_capitan
+    sha256 "536cbbb46b588825d387aaf5479e6b340e328882d2c52782ae01b126021ec066" => :x86_64_linux
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
