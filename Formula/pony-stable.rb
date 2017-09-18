@@ -1,13 +1,13 @@
 class PonyStable < Formula
   desc "Dependency manager for the Pony language"
   homepage "https://github.com/ponylang/pony-stable"
-  url "https://github.com/ponylang/pony-stable/archive/0.0.1.tar.gz"
-  sha256 "b175d5a235676eaf48b62cf28d5c44f6c13b9986d5dc97f75b477285fe9ec8fb"
+  url "https://github.com/ponylang/pony-stable/archive/0.1.0.tar.gz"
+  sha256 "131da5897359b68c28a0ff82637f1d668bd34fc2dafead3e8b505fe2611ff003"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4ba9e20a3773db35d9ca8e8c56abe72a62714285196195d700ff5aef517de8d0" => :sierra
-    sha256 "d294894e3b412a47654afafa2a573b83f57aa7cc72938914c99b416fc249355c" => :el_capitan
+    sha256 "78433895ad4649cfda676d3d3b877129e82c8d2098d8b55e7ce13e2d2c7fb7ee" => :sierra
+    sha256 "e57060bb434d62c78583774510f081bdef1b0d8c3be357ce88db5b64744b8d29" => :el_capitan
   end
 
   depends_on "ponyc"
