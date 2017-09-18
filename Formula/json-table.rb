@@ -9,6 +9,7 @@ class JsonTable < Formula
     cellar :any_skip_relocation
     sha256 "e5ed8ece1e10ede4417f347703f1e62bb417c65a11f6cac5f10915d44359eb5b" => :sierra
     sha256 "3240813838be9e797fd443e5f51d6bb53fc56a8d958dd361cbc865de003619bd" => :el_capitan
+    sha256 "ecff6ae31141bf53b9bf2189e38cd23adc69ed679776750aa6a08bdf0a787aeb" => :x86_64_linux
   end
 
   def install
