@@ -8,6 +8,7 @@ class Py3cairo < Formula
     cellar :any
     sha256 "4cf4016ebd9f4083fccfacd4f215fe0e94a88960aafa9cd94cca37a5c7f894e8" => :sierra
     sha256 "544a3398f66639aadfdfe2498d0da95622de07ef8aedb734aa867b490c60f178" => :el_capitan
+    sha256 "6a68a1078115e88a7da8a066f1838de5c90b3dd27df3f130801cd848d2bb1e27" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
