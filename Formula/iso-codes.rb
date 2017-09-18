@@ -9,6 +9,7 @@ class IsoCodes < Formula
     cellar :any_skip_relocation
     sha256 "c7c14487c502aff6a72e75c6031b7a9a09501db5750ed1863fa882df46413641" => :sierra
     sha256 "c7c14487c502aff6a72e75c6031b7a9a09501db5750ed1863fa882df46413641" => :el_capitan
+    sha256 "833b07340a7bc385efa8884ac91f38152b0ca5e32ec2acc352ad748aff6b1a3b" => :x86_64_linux
   end
 
   depends_on "gettext" => :build
