@@ -1,15 +1,14 @@
 class Dlib < Formula
   desc "C++ library for machine learning"
   homepage "http://dlib.net/"
-  url "http://dlib.net/files/dlib-19.6.tar.bz2"
-  sha256 "40292a4343499b18b881f69b26a56c1ecfe95cb9b9f964f37c1064c6fc415e2c"
+  url "http://dlib.net/files/dlib-19.7.tar.bz2"
+  sha256 "825dbe45e0d379a4e5584c2918b1e0cb37e9ed75657766fd7b2b4f3e05f892d6"
   head "https://github.com/davisking/dlib.git"
 
   bottle do
     cellar :any
-    sha256 "4a454baa4e26d2e824c65d555edcf3f6e9b51713fbf4690b054482f6bdb46d5b" => :sierra
-    sha256 "3f1430496a2c1beca938d91e3dffec345baa3e0688ff092f3deec30de539b875" => :el_capitan
-    sha256 "7f37c2c5a16a93ed70736bef243e33da215e88c4641111fb4e2c9cff496aad8b" => :x86_64_linux
+    sha256 "74a4d04a7b1fd715d15b7a6dfa2a9372c864f1d840f01cfbb56e7c0297cc6d04" => :sierra
+    sha256 "89626ef8537bb2a52362531dbe1478c826004918253bace1216ab2c4b54a5c8c" => :el_capitan
   end
 
   depends_on :macos => :el_capitan # needs thread-local storage
