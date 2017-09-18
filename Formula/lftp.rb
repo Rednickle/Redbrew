@@ -8,6 +8,7 @@ class Lftp < Formula
   bottle do
     sha256 "e56859fb14981cf68ff97d007deb894d05cd1c268c2aca94fded1baac084ed4d" => :sierra
     sha256 "ba0ca7d2a9f6db308701a08f8d39a6a741301f69adc4063d950e7cb66aceeb18" => :el_capitan
+    sha256 "a027683749d23a2257aff966a530f4257e570b6aa91e37e784176b41b3a0df58" => :x86_64_linux
   end
 
   depends_on "readline"
