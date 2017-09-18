@@ -3,14 +3,13 @@ class Buku < Formula
 
   desc "Powerful command-line bookmark manager"
   homepage "https://github.com/jarun/Buku"
-  url "https://github.com/jarun/Buku/archive/v3.3.1.tar.gz"
-  sha256 "f0ea4e3b5949452179ad03c3fa9b5b1295313c3741ed11e896f07abd0502ab0b"
+  url "https://github.com/jarun/Buku/archive/v3.4.tar.gz"
+  sha256 "f5613889501d0605920add87b5e7015c958a1f6f57d23f1fb69e6bfb3e171353"
 
   bottle do
     cellar :any
-    sha256 "944a1e852c1e8c060e11356eb7ffcd18147a48764e0c64be08ecac5adb1c70ac" => :sierra
-    sha256 "1dc0d86ccecec76b4e40f8388b65c103d240e8fd4a5e98fae96a3120bce5705c" => :el_capitan
-    sha256 "ac75f21875df54092d642505409b85d16401223d855839767014fd924df9716f" => :x86_64_linux
+    sha256 "eb92d3fdff36d4e2591d63a3c85251c76e8bf46f025ec88a9859ea8efe434bb6" => :sierra
+    sha256 "96925b5a253c02f6e3aa59698b39b01b5df3843eef556084168b9da8a23de933" => :el_capitan
   end
 
   depends_on :python3
@@ -40,8 +39,8 @@ class Buku < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/5b/b9/790f8eafcdab455bcd3bd908161f802c9ce5adbf702a83aa7712fcc345b7/cffi-1.10.0.tar.gz"
-    sha256 "b3b02911eb1f6ada203b0763ba924234629b51586f72a21faacc638269f4ced5"
+    url "https://files.pythonhosted.org/packages/4e/32/4070bdf32812c89eb635c80880a5caa2e0189aa7999994c265577e5154f3/cffi-1.11.0.tar.gz"
+    sha256 "5f4ff33371c6969b39b293d9771ee91e81d26f9129be093ca1b7be357fcefd15"
   end
 
   resource "chardet" do
@@ -70,8 +69,8 @@ class Buku < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
-    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
+    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
+    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
   end
 
   resource "urllib3" do
