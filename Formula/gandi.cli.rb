@@ -10,6 +10,7 @@ class GandiCli < Formula
     cellar :any_skip_relocation
     sha256 "7fb9cbebf67957d8c7a9d472e2ddef71f0e5f06a6c2b8ce708982ea9c01b7f91" => :sierra
     sha256 "60e6dba84c5da6d71eba92776d8cb5e1b543397351a65a29aaeb9570a061747e" => :el_capitan
+    sha256 "077a11de67b1749d5c30e34166762120411e94bc72ea6fc62caf96dc0eefad5b" => :x86_64_linux
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
