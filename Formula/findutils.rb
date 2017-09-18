@@ -9,6 +9,7 @@ class Findutils < Formula
     rebuild 2
     sha256 "c1ecad1c780cb569d268ca5648570dcc753cca720ead2783943aea0363af728e" => :sierra
     sha256 "bc20b7e2a97c3277ea13fd91b44fbc0015628e8684a2bba203c38a4c7357f6c7" => :el_capitan
+    sha256 "dd4a2e64a94370d964f2521de013b2a56bbc2e2a321e95aef83aa3d95a1fe648" => :x86_64_linux
   end
 
   deprecated_option "default-names" => "with-default-names"
