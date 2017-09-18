@@ -9,6 +9,7 @@ class Libre < Formula
     cellar :any
     sha256 "b9901620a2d61f89b554a248ddf24ce36d1a441824f9c86081be66c8b8c59f94" => :sierra
     sha256 "e56bda662069338fc50a4298b7f157dfbb21d9c222ff452338853a558f4eaf15" => :el_capitan
+    sha256 "0a856274f6cbf6b52e81672a78cd51af8382f0cfd3dfe30fb2c18d201fadbc07" => :x86_64_linux
   end
 
   depends_on "openssl"
