@@ -7,6 +7,7 @@ class Libngspice < Formula
   bottle do
     sha256 "841be3e66bf1f3dd18a74f2dfd201b95acebfd32e1bd180d99037193e3437bf3" => :sierra
     sha256 "ef9fab04fd5b79cc361fa14642b59d762c7f589ea37c22e41273e97841712537" => :el_capitan
+    sha256 "533039b91457d21576a694df7be2e2dc2e53f085e664ba5c8eae846befa32f7c" => :x86_64_linux
   end
 
   head do
