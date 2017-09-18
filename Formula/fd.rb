@@ -1,13 +1,13 @@
 class Fd < Formula
   desc "Simple, fast and user-friendly alternative to find."
   homepage "https://github.com/sharkdp/fd"
-  url "https://github.com/sharkdp/fd/archive/v3.0.0.tar.gz"
-  sha256 "9124e0f531894fac8afd5a8635ab00bd70dbed3e2af6c22a9fdaf862b1b0e71c"
+  url "https://github.com/sharkdp/fd/archive/v3.1.0.tar.gz"
+  sha256 "03f35f808d4d4a7a5767ba791f259653edab0b9f6829233e98fd617f78a3faaf"
   head "https://github.com/sharkdp/fd.git"
 
   bottle do
-    sha256 "a2d149054c7fd1b651a4cc6269d82b8498ffe9f0846157ec80db0023f0be35ec" => :sierra
-    sha256 "9bd4b5373ac9b70127f8cf116ad32d3e9081875d11629f16383bdd84f092a067" => :el_capitan
+    sha256 "fb3731f970bc97458c723700f8f7da1f47b259ef96ae85e2160256c463391742" => :sierra
+    sha256 "94827a4f6413385ae1fe88bb9858c8fefaf050d161b95e37f765578784582133" => :el_capitan
   end
 
   depends_on "rust" => :build
