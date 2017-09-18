@@ -6,10 +6,9 @@ class ShadowsocksLibev < Formula
 
   bottle do
     cellar :any
-    sha256 "9dc98453a95b5f00f659167fd1cbf169e33e3672555a73e5bd3a2d553129b94b" => :high_sierra
-    sha256 "a916884173ccc51afbb830d03b36447880883608cd4f9642d252955757208a0a" => :sierra
-    sha256 "2bb3de97af9ceeb9ba70c9183c76112375fc177071bdf2b4eacce7089da405d1" => :el_capitan
-    sha256 "38a51346e6b420200705f12bba73fb6b7980d258560c6712ed2904c508504d79" => :x86_64_linux
+    rebuild 1
+    sha256 "bb95e6875fa4374272362634537df8b5d69a30a659aee5b45c56073c42dbe8d5" => :sierra
+    sha256 "61b0375223848f774a1fa2cdb28688b097538353c32d6d82e0cc3bc56ae67c87" => :el_capitan
   end
 
   depends_on "asciidoc" => :build
@@ -19,7 +18,6 @@ class ShadowsocksLibev < Formula
   depends_on "libsodium"
   depends_on "mbedtls"
   depends_on "pcre"
-  depends_on "udns"
 
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
