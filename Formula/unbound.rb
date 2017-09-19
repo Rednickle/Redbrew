@@ -7,6 +7,7 @@ class Unbound < Formula
   bottle do
     sha256 "532efb5f56d0eb0cef8212a8fbba423292ccce47b01bc92d02006260d2d616d5" => :sierra
     sha256 "e38168c1dc3b2a776fdc51e1384ff41fa1d4a8ad23c6254dacf94662489c7dd6" => :el_capitan
+    sha256 "67e6d98a6d4282f75f1ff6f28ce042cf75df042927371cc8a120e0c6040471c7" => :x86_64_linux
   end
 
   depends_on "openssl"
