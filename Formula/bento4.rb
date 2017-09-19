@@ -9,6 +9,7 @@ class Bento4 < Formula
     cellar :any_skip_relocation
     sha256 "8bb6a41d88fa6c21e5d6ac86482aa232986cf7bd8298ec525e4640b5aab81cc7" => :sierra
     sha256 "c5e4cdb5623d116bb302f179040286337ba34a8a0a1906f6e26ee95aa57ee9ee" => :el_capitan
+    sha256 "40f304117c9452a01cc0245d375966e30c891a091e4438ac029658608abe9c0f" => :x86_64_linux
   end
 
   conflicts_with "gpac", :because => "both install `mp42ts` binaries"
