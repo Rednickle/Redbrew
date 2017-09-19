@@ -1,17 +1,15 @@
 class Cppad < Formula
   desc "Differentiation of C++ Algorithms"
   homepage "https://www.coin-or.org/CppAD"
-  url "https://www.coin-or.org/download/source/CppAD/cppad-20170821.epl.tgz"
-  version "20170821"
-  sha256 "05b1cd63cab494c788b340310cd8bb28163c98edc6ed79117da55f0e15544cb5"
+  url "https://www.coin-or.org/download/source/CppAD/cppad-20170918.epl.tgz"
+  version "20170918"
+  sha256 "b101eadf749800f19bead014d92bd592716c3c8b11287e191786d9a6e3e12c5e"
   head "https://github.com/coin-or/CppAD.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "14416b6708ffd63b77e20bbcef7979d82b32a6db54d17a9a4fa4c356af1210e0" => :sierra
-    sha256 "14416b6708ffd63b77e20bbcef7979d82b32a6db54d17a9a4fa4c356af1210e0" => :el_capitan
-    sha256 "14416b6708ffd63b77e20bbcef7979d82b32a6db54d17a9a4fa4c356af1210e0" => :yosemite
-    sha256 "9286af985564694455909c671eb160bf1452fc1e67706da08f8f29f53052c3f5" => :x86_64_linux # glibc 2.19
+    sha256 "28a44229c4d7ce5d425d666e26d0a6a096833720d5c2d99583e1ebe393005364" => :sierra
+    sha256 "28a44229c4d7ce5d425d666e26d0a6a096833720d5c2d99583e1ebe393005364" => :el_capitan
   end
 
   depends_on "cmake" => :build
