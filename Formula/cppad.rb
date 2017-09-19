@@ -10,6 +10,7 @@ class Cppad < Formula
     cellar :any_skip_relocation
     sha256 "28a44229c4d7ce5d425d666e26d0a6a096833720d5c2d99583e1ebe393005364" => :sierra
     sha256 "28a44229c4d7ce5d425d666e26d0a6a096833720d5c2d99583e1ebe393005364" => :el_capitan
+    sha256 "8e6b11f95f33cabc05e8a296a171f288b6f374b68eec51ca0e062f6e00a2564e" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
