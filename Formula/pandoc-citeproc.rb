@@ -12,6 +12,7 @@ class PandocCiteproc < Formula
   bottle do
     sha256 "13e19818179d37777015359c88586f7fa5bdd852347362a04f872c0298a9fab6" => :sierra
     sha256 "1ca09cfefa7b23bad3bb181fb747e6ae7edf214992ba45b78aeb02df5dba9844" => :el_capitan
+    sha256 "86177a3457d1be867438ee0cd364ef2f73b9b212a6aeda267bf2fb7f33b6680e" => :x86_64_linux
   end
 
   depends_on "cabal-install" => :build
