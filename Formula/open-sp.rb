@@ -8,6 +8,7 @@ class OpenSp < Formula
     rebuild 4
     sha256 "77f282ed97f428763c7952365353a6b915ff3315d7808db73a51e785961e989c" => :sierra
     sha256 "03629f243a1598b2b26fc07f8b747c77b62efe88ce435d8e018167140d22b86e" => :el_capitan
+    sha256 "f01acccbb4fd2d7841b93a359353f9302d3cdcb21d212c05e98f7ad0907f5245" => :x86_64_linux
   end
 
   depends_on "docbook" => :build
