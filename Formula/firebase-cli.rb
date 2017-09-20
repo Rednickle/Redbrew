@@ -10,6 +10,7 @@ class FirebaseCli < Formula
   bottle do
     sha256 "582bb25ea4d7fbbde42ffb0282dd40ade2157c23de612546f049071bd0be7277" => :sierra
     sha256 "6c25c041eccffb7459fe141c354574a9d11993b007aa528a384fa055c70e03d7" => :el_capitan
+    sha256 "5b7e623aeae62c5f1ef9f55d7aef25f7fc0de5e77212363006de11f430bce32d" => :x86_64_linux
   end
 
   depends_on "node"
