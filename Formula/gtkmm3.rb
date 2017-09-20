@@ -8,6 +8,7 @@ class Gtkmm3 < Formula
     cellar :any
     sha256 "c5fa401269d11e40c8366e6bff718e0d884d1da5574ec2c7cdfbe341e33239ec" => :sierra
     sha256 "42f8b253f964dba53b907b83988c2b70eae9c97923b290958f33fc21ffdfa3e9" => :el_capitan
+    sha256 "455039f37e4f627bad96b0e25f55caa8a3bd05c2b671a7aaa22bda33679c918e" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
