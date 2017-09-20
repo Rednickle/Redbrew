@@ -11,6 +11,7 @@ class Kibana < Formula
   bottle do
     sha256 "dc1c7cbf5b8a5b0c653e5fdd07603d4723b8cdeaf2ae525b013e43b74d8ee77e" => :sierra
     sha256 "eee133fe2b4e83897c31befdd3e5010e7bfcdd1b06e05dbc8f4adbb0318ee406" => :el_capitan
+    sha256 "a3c331287aaf890f63c36395f45850d13e897eba3371f6d5dd246ab2c2c97dee" => :x86_64_linux
   end
 
   resource "node" do
