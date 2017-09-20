@@ -8,6 +8,7 @@ class Glibmm < Formula
     cellar :any
     sha256 "91e373202e1118e3874ecc46abfcad97faf830d0cdc94f1a974272e8df669bd4" => :sierra
     sha256 "03ee806d8bad38ca85e0000c904276bae4222c01cee4f3a8188cbdef7473426a" => :el_capitan
+    sha256 "63e4cde33dbe8626ec45bb82f79f975d9644198962dea4d4d2ec504ef49083ac" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
