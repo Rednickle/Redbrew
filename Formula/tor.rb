@@ -8,6 +8,7 @@ class Tor < Formula
   bottle do
     sha256 "c679e86562b81e82ba77616e7d28a034095607ff749defd31cf1292ec5752c1c" => :sierra
     sha256 "ca7a8914c17f071efb9a4b1a99d861827a1ea7eb2903df10e4bf485f3a525566" => :el_capitan
+    sha256 "e2ee085c35a38207d83fbeb35111d1b4ec408c0fb0bbdc2f2df20998ac8e4723" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
