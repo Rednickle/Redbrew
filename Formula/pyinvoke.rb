@@ -11,6 +11,7 @@ class Pyinvoke < Formula
     cellar :any_skip_relocation
     sha256 "d11aae306e1a7482f80ab57c8bb4f2a4c9f3e040e6fad835a2d171fb00ab7a14" => :sierra
     sha256 "29ac1318559e47eb5d9b3e09237514bdb51d6e33ea43ea11e442e678de1c1a10" => :el_capitan
+    sha256 "6aa1609e24e8f585c42ec91d12a5d1328ba2ea029595c607f46c0823b1fdb263" => :x86_64_linux
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
