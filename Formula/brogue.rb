@@ -13,6 +13,7 @@ class Brogue < Formula
     sha256 "15ae767cca7777781ec2a6d89e63ffc1822b1ab982ea966e1082d625ed5172ca" => :high_sierra
     sha256 "7843893c8f71ec2824a571324ada4818a24b9d0cdf3ee896a2fe986c2eb3d96e" => :sierra
     sha256 "29b76f520e06b81094b7036d6c8bc1d9e259d2df18dc82514ed1156027dbfa87" => :el_capitan
+    sha256 "5543131c17044563c1ebeffbd0d1da783e3aa910018ee599f0d449b1258d20ad" => :x86_64_linux
   end
 
   depends_on "ncurses" unless OS.mac?
