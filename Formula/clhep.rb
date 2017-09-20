@@ -8,6 +8,7 @@ class Clhep < Formula
     cellar :any
     sha256 "3a5b69586ffdc7d697a4f2dce52016f245a234819f166e7931ced97eea399117" => :sierra
     sha256 "415c707d943967dde9a90fba1a740fcdbd497e01f0b51b82f31d583641e2e3dd" => :el_capitan
+    sha256 "c67e2c1c7cfe0b762e384c21bb5ee03819e550bc70ab40ca919d5fb70d52343a" => :x86_64_linux
   end
 
   head do
