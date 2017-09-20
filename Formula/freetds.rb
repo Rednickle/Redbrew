@@ -8,6 +8,7 @@ class Freetds < Formula
   bottle do
     sha256 "b55cb88c08720e1e18fc061750138862bc72abbe5ee02a0bfac5c4e585828005" => :sierra
     sha256 "cc7b7af29a67ef8e6c770e4aa054f1042e34941bf97bdc74592792ecd30d6435" => :el_capitan
+    sha256 "8cb35f56c3248b0e53bf0dfb5d47842637d767b49c8778aabb0ff24056418464" => :x86_64_linux
   end
 
   head do
