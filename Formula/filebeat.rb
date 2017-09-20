@@ -9,6 +9,7 @@ class Filebeat < Formula
     cellar :any_skip_relocation
     sha256 "a85fd00a851b12b450c8e65e25c245432ef8ffc1dac328a6ea3f3623b1642dfd" => :sierra
     sha256 "9087f94c26d0b3e85d2bdaea2608613bd496530eaddc1b3dcb70deb782768617" => :el_capitan
+    sha256 "4a638711eab53bf4641a3e0aea822bb26e885ab303353d975e488e681c3673ee" => :x86_64_linux
   end
 
   depends_on "go" => :build
