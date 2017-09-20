@@ -8,6 +8,7 @@ class Kompose < Formula
     cellar :any_skip_relocation
     sha256 "6c1f0fc6d0b821719d8ebb3b2447c969512c176b5878f9a7df32333547ea8d7a" => :sierra
     sha256 "ae9f5cdbdc636d6f0f9e1afda5fccab2d0ff0054b07654657581f6c6d71e8597" => :el_capitan
+    sha256 "27728fb4b3bfc17e8b5a429f9731b55bc8013e1502a2cb645f10fb6252b47409" => :x86_64_linux
   end
 
   depends_on "go" => :build
