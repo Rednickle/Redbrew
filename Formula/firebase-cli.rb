@@ -3,15 +3,13 @@ require "language/node"
 class FirebaseCli < Formula
   desc "Firebase command-line tools"
   homepage "https://firebase.google.com/docs/cli/"
-  url "https://registry.npmjs.org/firebase-tools/-/firebase-tools-3.11.0.tgz"
-  sha256 "63a65b897fb755c5642e7a2d834922e9b4bee46d4658af2a82962364917b41dd"
+  url "https://registry.npmjs.org/firebase-tools/-/firebase-tools-3.12.0.tgz"
+  sha256 "d4dd900039c30393c5ae0c69f70872aa41b5c00fed5798d5204166210a74d327"
   head "https://github.com/firebase/firebase-tools.git"
 
   bottle do
-    sha256 "76b6cb73c565afc2ff53895c615568e9f776a1ccc6e20867c9e3d7040b509067" => :high_sierra
-    sha256 "ab3526fa51b0ce5da0637a55e92d8ae0262d7fac1aed724dcf280047cf4591ed" => :sierra
-    sha256 "381637cdd9c825f81f06e7cc0cb8fac33d7c1be0a690d357512446aa6d1a52d5" => :el_capitan
-    sha256 "5cde18968242b25230ca1e284df072bcbf7692d7cc0939f2031798235a306ab5" => :x86_64_linux
+    sha256 "582bb25ea4d7fbbde42ffb0282dd40ade2157c23de612546f049071bd0be7277" => :sierra
+    sha256 "6c25c041eccffb7459fe141c354574a9d11993b007aa528a384fa055c70e03d7" => :el_capitan
   end
 
   depends_on "node"
