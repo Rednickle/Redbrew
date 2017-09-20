@@ -9,6 +9,7 @@ class Dep < Formula
     cellar :any_skip_relocation
     sha256 "1d38003db890e4239eb5f64564ba999ca0b9f1dfffa81c4261467563d6130dae" => :sierra
     sha256 "8a98b359a60c7cc4d477c3a2e060bd94c47722ae386142393fb68bbb6a1e1a0e" => :el_capitan
+    sha256 "ef20e2b114ad066ce04414b06de0c53799281fef5b473bd671b248201c865e2a" => :x86_64_linux
   end
 
   depends_on "go"
