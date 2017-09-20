@@ -10,6 +10,7 @@ class Babel < Formula
     rebuild 1
     sha256 "102dda22f4541c686da92112bf3b7c91da7ace61e04633d19a9874ee6c3d8935" => :sierra
     sha256 "7dde27b4e0d9901fa2b2f3051fbe5b11baa3635e7bfac15ae4a0690e0270f067" => :el_capitan
+    sha256 "7aefce36cb45b334a7585aab124cc6521d23b202126ed57b1b5c4eff394b6988" => :x86_64_linux
   end
 
   devel do
