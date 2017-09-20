@@ -9,6 +9,7 @@ class Flow < Formula
     cellar :any_skip_relocation
     sha256 "2475b52b3da117c459e9ab73314de78835e48020e3102eac2ba141158b482e54" => :sierra
     sha256 "7ed66afccaf3fe8b23c71dca24cd95860bd184a4c13f089aea3e51b12da1b18e" => :el_capitan
+    sha256 "f509b9c89e4e66c30c4182c4fa6795678d0d918bce75d6650ebac6713da37968" => :x86_64_linux
   end
 
   depends_on "ocaml" => :build
