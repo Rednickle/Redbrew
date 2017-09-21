@@ -8,6 +8,7 @@ class Aespipe < Formula
     cellar :any_skip_relocation
     sha256 "7569237a2bd31170d52f161afdb3b46cc23acdc4a35c2662d0b79aac831ac2b8" => :sierra
     sha256 "5a70398747999348647c7577da0c4fb2274413f53ee65fd6fce3845cbc27e0d9" => :el_capitan
+    sha256 "4ab69e3a99b61ede2e4548d36d83198cd7522361b1d7bdfefa8ee66b05963ae7" => :x86_64_linux
   end
 
   def install
