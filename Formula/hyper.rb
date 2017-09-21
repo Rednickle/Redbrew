@@ -11,6 +11,7 @@ class Hyper < Formula
     cellar :any_skip_relocation
     sha256 "e4a94135a6be5073c8c345e5b8be8b2126fd35c6642b497d4d20baca9f233a29" => :sierra
     sha256 "d6a19110403186baebda33d434abb6046f65ab70ff611e3e65adfe1fcac2f0a8" => :el_capitan
+    sha256 "e0dedef56da3aab36965a3c89bb08f684a7d3759beb75faee3b63fc44c1e31f6" => :x86_64_linux
   end
 
   depends_on "go" => :build
