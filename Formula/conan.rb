@@ -11,6 +11,7 @@ class Conan < Formula
     cellar :any
     sha256 "db8b87350e462d64f40dad22c5efe11f3c578e8c674c18772bf33952fc9fc0c8" => :sierra
     sha256 "59c0647c5e096949a9057f3cb0d339d929cab44884417aa34ecb1ff9d50c0de8" => :el_capitan
+    sha256 "acd711fa05fd51a8615d5207c1e2b884517ed3e35409f34fede9ca44b8cf58a1" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
