@@ -9,6 +9,7 @@ class Kafka < Formula
     cellar :any_skip_relocation
     sha256 "4d1ed2948bf9cdee56aca759191f268dccbf8c0aeac983e856fa339d0a21cffd" => :sierra
     sha256 "4d1ed2948bf9cdee56aca759191f268dccbf8c0aeac983e856fa339d0a21cffd" => :el_capitan
+    sha256 "2b750694b8b177495b9a46a1bce920468a2fb87c17daf07528f493eef2152724" => :x86_64_linux
   end
 
   depends_on "zookeeper"
