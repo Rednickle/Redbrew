@@ -6,10 +6,9 @@ class Pgcli < Formula
 
   bottle do
     cellar :any
-    sha256 "6c2b021c9ac39eb29ca690b80cc630073443deaf0e1295310bca4bdbd9290982" => :high_sierra
-    sha256 "f2911b481a439148f8c941e1600023ec188d5667c5d0e2f0108b19d4a63e86a9" => :sierra
-    sha256 "326e936ddc42d81239fefce3ab49a38ebaeb7c5cf33b3341c30c39c3a7e8fa2b" => :el_capitan
-    sha256 "679830b2f041a858a9f6fcc336e96e146a60cb49f07f8f5ca86718da10604f4f" => :x86_64_linux
+    rebuild 1
+    sha256 "0c1113e26e84b844905197005b1731a4211d393d1fed2077e40223f6dc2a5082" => :sierra
+    sha256 "678d9fdc717c0198804bb497fe042ccf685237385bc00eb3e410add8c7fa2d58" => :el_capitan
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
@@ -22,8 +21,8 @@ class Pgcli < Formula
   end
 
   resource "cli-helpers" do
-    url "https://files.pythonhosted.org/packages/2b/7e/307131c2c3f3abef2d1e68b7088882c078da6ce5bb57cbe79bac12718c72/cli_helpers-0.2.1.tar.gz"
-    sha256 "a868e69e780c1fd5091c83e784e8b18e2005cab921f1dfda4ffd376271ee85ac"
+    url "https://files.pythonhosted.org/packages/03/65/9a5b81f879131076e47fa7f0e633a2e6524cdae7d14ef66a58bb810c100e/cli_helpers-0.2.3.tar.gz"
+    sha256 "eaa887b46ef448c8864ba460cce4fa26866e45e337dc32a2b4741ccb033c42f1"
   end
 
   resource "click" do
