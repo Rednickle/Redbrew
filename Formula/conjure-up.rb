@@ -3,14 +3,13 @@ class ConjureUp < Formula
 
   desc "Big software deployments so easy it's almost magical."
   homepage "https://conjure-up.io/"
-  url "https://github.com/conjure-up/conjure-up/archive/2.3.0.tar.gz"
-  sha256 "19061959052863c4467722c7ce493d6ff5053243469595b853f8bb62ef554312"
+  url "https://github.com/conjure-up/conjure-up/archive/2.3.1.tar.gz"
+  sha256 "da429aad45ef0c6a70565a3748da2cb668def684b65f04ee3c081ebce065fac7"
 
   bottle do
     cellar :any
-    sha256 "5d5d799c5519916352d9292f3099b646fc16bfe790f5dd4503425c13c3844900" => :sierra
-    sha256 "052689febe32ba4d476405d449d94c8c282ccbc69cb5c645111e7fccee7f41e7" => :el_capitan
-    sha256 "2dd0875d607701d5ae1e527f3ab8719cc160671922cc9b71ed26d7b6191bdb36" => :x86_64_linux
+    sha256 "792cd3cf9a6dd725b6448bcf2498b1bd6ad29b2b45afe1444084912b4e69af4f" => :sierra
+    sha256 "d0b050dfa5a30359b93b31ee79a016cab89a3f2bf244d4f2035a9680857a02e7" => :el_capitan
   end
 
   depends_on :python3
