@@ -6,7 +6,11 @@ class Flann < Formula
   revision 3
 
   bottle do
-    cellar :any_skip_relocation
+    cellar :any
+    sha256 "3faade159c9d3b6348083b61e63d473ce3fc85fc043473a9c957272d211e80c1" => :high_sierra
+    sha256 "96ed9c1fa35e36a2981ccdb973ed7411b1794470d4237ed8a5ce5dbaa93040f8" => :sierra
+    sha256 "37edd98d6f63cc3ebcf76ee08fb282bb5397f8d65a639e332052faee329b874c" => :el_capitan
+    sha256 "551141c983b58fead9f9cf15b5c2b2e6c591af56acb7bfb2b64bc3760218c755" => :yosemite
     sha256 "8d8aab39b18401195d3bb31129f8500bd108d3560123e251b61677b86283f9a8" => :x86_64_linux # glibc 2.19
   end
 
