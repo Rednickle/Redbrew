@@ -8,6 +8,7 @@ class DockerCloud < Formula
     cellar :any
     sha256 "b5337ce18f9053667a61f4873e3d1e8b7f910b0a668505c853531be48b95428a" => :sierra
     sha256 "90b1feb11ccb54a1481a2c23df1c70762b346d0907b7f873296b70fb6774b763" => :el_capitan
+    sha256 "b683caaa05a93da2766af75daf474ef76a488dec1fc7c321e067ffc084f7e388" => :x86_64_linux
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
