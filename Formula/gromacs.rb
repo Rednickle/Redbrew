@@ -8,6 +8,10 @@ class Gromacs < Formula
     root_url "https://linuxbrew.bintray.com/bottles"
     prefix "/home/linuxbrew/.linuxbrew"
     cellar "/home/linuxbrew/.linuxbrew/Cellar"
+    sha256 "d3cb6d19f2f26d259bb717b3575cf514f7bade230531b11ec0d1d21b4d9dd676" => :high_sierra
+    sha256 "90faa8b279f78823dae87bea50c3f1e88f9ede89678fb3f1711f643f576359a1" => :sierra
+    sha256 "10f94061644f511939db8cc4d4c06ee767901c7aebd54c95872cc547b85826f7" => :el_capitan
+    sha256 "3b93cbd26c93a4abb5401b7d87bfc8cb27d4b9641acecf47c26675f0fbd0f8e6" => :yosemite
     sha256 "1cceab50734d5240051aafaa44cd40726a996de3e92ef523c5e347e15d304ad8" => :x86_64_linux # glibc 2.19
   end
 
