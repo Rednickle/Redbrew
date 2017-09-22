@@ -8,6 +8,7 @@ class Pgcli < Formula
     cellar :any
     sha256 "0be32aadcb4d4de65908ddaf071f276ced76de0dd612a17bd994b530bffa8ad8" => :sierra
     sha256 "2f9dd812d687aaf7b4250f1ccefd834b61046fa84209b7876abb92e1ab534057" => :el_capitan
+    sha256 "e4d9088265748d9838e6e99a1b73e162678080ac7ba677f8dbd6bc8ce709966b" => :x86_64_linux
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
