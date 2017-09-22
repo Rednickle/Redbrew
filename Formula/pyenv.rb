@@ -10,6 +10,7 @@ class Pyenv < Formula
     cellar :any
     sha256 "b846f7757d45a4eed260f39f2b5e72b117140bd5208b602220420b751cf2ec41" => :sierra
     sha256 "ec7da3fa4b68b188f6a7e1ec2d99ce16245d85562114ec146f0e17f40a508f34" => :el_capitan
+    sha256 "0f89c13ab6bea74aeb5d8d453874b57f2a80301cb205f6f8518cec6394157094" => :x86_64_linux
   end
 
   depends_on "autoconf" => [:recommended, :run]
