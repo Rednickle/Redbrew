@@ -3,14 +3,13 @@ class Cmake < Formula
   homepage "https://www.cmake.org/"
   url "https://cmake.org/files/v3.9/cmake-3.9.3.tar.gz"
   sha256 "8eaf75e1e932159aae98ab5e7491499545554be62a08cbcbc7c75c84b999f28a"
+  revision 1
   head "https://cmake.org/cmake.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2ddc58f5d0fa8fc0abab86818c4a3f4901912bb334690b322597c21e39b4199c" => :high_sierra
-    sha256 "58d217a8e6369410036727070c967bd95d36f5b57da6bd4127bdcde657ee745f" => :sierra
-    sha256 "43ed6c8d693f3216d55d21e2ecbe958cffa02a7ea54e96b74172408b0f0ff00d" => :el_capitan
-    sha256 "dc4338bd5b44375b6530fc53a2871e46394f969901dc8c8ee724a3c127e0caae" => :x86_64_linux
+    sha256 "5adade9d76dbdeef0fcfd8dfcbee8a6359638607dc53eed6f82f6f4be6855126" => :high_sierra
+    sha256 "7ea7a60b1ebd5859e7d8a6d9b781e3b976cfbac22ef52e06dbf9bb3f603012ac" => :el_capitan_or_later
   end
 
   option "without-docs", "Don't build man pages"
