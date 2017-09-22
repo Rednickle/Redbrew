@@ -11,6 +11,7 @@ class Certbot < Formula
     cellar :any
     sha256 "1ff9bb79b8e9695e3a54eac7be7878deb042b76e8d2d70e833f6bd32e6d86c7d" => :sierra
     sha256 "c8db2acfbced7350c0ee295dec6c540ceaf62071d83b4b1e01b2b8b8c5942d65" => :el_capitan
+    sha256 "0ffcbb6cdfbbceb74a56440ce6fe59c5dc4c01eddba3a3de73314b0fd9663c4a" => :x86_64_linux
   end
 
   depends_on "augeas"
