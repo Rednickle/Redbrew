@@ -8,6 +8,7 @@ class Cgal < Formula
     cellar :any
     sha256 "1549619deb616b977e519cddbe45e266eb66f8f59719ea3f22d8441e247becb9" => :sierra
     sha256 "13e8723280f9b2de2a1d348cbe07f814dc3ea44e466b14781755552db9ac13c2" => :el_capitan
+    sha256 "2f4a8c6687b7223fe4960c70cd05f0577bd7a7d71704855e87455ba7889e17ac" => :x86_64_linux
   end
 
   option :cxx11
