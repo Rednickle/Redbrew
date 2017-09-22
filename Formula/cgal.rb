@@ -1,15 +1,13 @@
 class Cgal < Formula
   desc "Computational Geometry Algorithm Library"
   homepage "https://www.cgal.org/"
-  url "https://github.com/CGAL/cgal/releases/download/releases/CGAL-4.10.1/CGAL-4.10.1.tar.xz"
-  sha256 "2baef1f4cca90dc82851267c36f8632bd6b39e8a5d15c23f1d78b4172d36d743"
+  url "https://github.com/CGAL/cgal/releases/download/releases/CGAL-4.11/CGAL-4.11.tar.xz"
+  sha256 "27a7762e5430f5392a1fe12a3a4abdfe667605c40224de1c6599f49d66cfbdd2"
 
   bottle do
     cellar :any
-    sha256 "b772c7253d5e6861313250dbe9ebfa94789dafae4e34ac07db13b46246fa0894" => :high_sierra
-    sha256 "b44daae7e371390b932b531e0139de476162e6fdb37df92abca8e4d810beb183" => :sierra
-    sha256 "40e23078d1d95bc96deb33a87e29d84743652267b7016062d21ec68302f28fae" => :el_capitan
-    sha256 "77a18a541fb2029d4f658c18f1f317b01e74b6576f576d1b40691fd4cc45b16f" => :x86_64_linux
+    sha256 "1549619deb616b977e519cddbe45e266eb66f8f59719ea3f22d8441e247becb9" => :sierra
+    sha256 "13e8723280f9b2de2a1d348cbe07f814dc3ea44e466b14781755552db9ac13c2" => :el_capitan
   end
 
   option :cxx11

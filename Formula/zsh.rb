@@ -1,16 +1,13 @@
 class Zsh < Formula
   desc "UNIX shell (command interpreter)"
   homepage "https://www.zsh.org/"
-  url "https://downloads.sourceforge.net/project/zsh/zsh/5.4.1/zsh-5.4.1.tar.xz"
-  mirror "https://www.zsh.org/pub/zsh-5.4.1.tar.xz"
-  sha256 "94cbd57508287e8faa081424509738d496f5f41e32ed890e3a5498ce05d3633b"
-  revision 1
+  url "https://downloads.sourceforge.net/project/zsh/zsh/5.4.2/zsh-5.4.2.tar.gz"
+  mirror "https://www.zsh.org/pub/zsh-5.4.2.tar.gz"
+  sha256 "957bcdb2c57f64c02f673693ea5a7518ef24b6557aeb3a4ce222cefa6d74acc9"
 
   bottle do
-    sha256 "825bbbfdddd3908544bd9bbca9054c7316869cd3fa4c31f9c0d2f4d732bb1d84" => :high_sierra
-    sha256 "b791878b6d2251a51ac41513d3f575f40578af97ded3293dc0c71d4ba2b65dca" => :sierra
-    sha256 "37813f7b6bd05cda00710ce676206365c995a58735a9006ca41e35d613cf263b" => :el_capitan
-    sha256 "30055673004cefee19192fd2a812cf3f9770648080d3972d729af449b670c25b" => :x86_64_linux
+    sha256 "55f2ed8a6382432292fb285593aab95463ad51b5693577ff605b3227cda0b30c" => :sierra
+    sha256 "bcb56501b11941b5776dc4f8f3e0714fef69c0232ce764c4c413cf6a91f493c7" => :el_capitan
   end
 
   head do
@@ -29,9 +26,9 @@ class Zsh < Formula
   depends_on "ncurses" unless OS.mac?
 
   resource "htmldoc" do
-    url "https://downloads.sourceforge.net/project/zsh/zsh-doc/5.4.1/zsh-5.4.1-doc.tar.xz"
-    mirror "https://www.zsh.org/pub/zsh-5.4.1-doc.tar.xz"
-    sha256 "b8b1a40aeec852806ad2b74b0a0c534320bf517e2fe2a087c0c9d39e75dc29f1"
+    url "https://downloads.sourceforge.net/project/zsh/zsh-doc/5.4.2/zsh-5.4.2-doc.tar.xz"
+    mirror "https://www.zsh.org/pub/zsh-5.4.2-doc.tar.xz"
+    sha256 "5229cc93ebe637a07deb5b386b705c37a50f4adfef788b3c0f6647741df4f6bd"
   end
 
   def install
