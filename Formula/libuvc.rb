@@ -10,6 +10,7 @@ class Libuvc < Formula
     cellar :any
     sha256 "0e2f8e177ecefcf0cd2a2c2be399d3e45fe18956642363b6f0e9b6632a7019da" => :sierra
     sha256 "2223e66660b7c600b71cb13cc9921c687bcc33e9e85fee7ab351c383e1533657" => :el_capitan
+    sha256 "d5c0f272b07e797302fcd5128ba7b56a2c1d9006887235892a6613454cca92ce" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
