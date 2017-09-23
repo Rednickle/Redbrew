@@ -3,15 +3,13 @@ class Mycli < Formula
 
   desc "CLI for MySQL with auto-completion and syntax highlighting"
   homepage "http://mycli.net/"
-  url "https://files.pythonhosted.org/packages/d5/7e/760d88e6a3acadb90fe4ce74c058795e1438d2d47d8558699f7e67201fce/mycli-1.12.1.tar.gz"
-  sha256 "391dee20c88ecfc83a4b0def1b1839b0bd3ba0d3cd4922085490456137d3876a"
+  url "https://files.pythonhosted.org/packages/a1/a4/45c60d4b1f162e4bb8103358d50c9d138237a1c0cea64ec3294e07049dec/mycli-1.13.0.tar.gz"
+  sha256 "14c822da06a4d9d7aebddf1e509b75abbbc65d407abb9af139cf2b45cbd8e55b"
 
   bottle do
     cellar :any
-    sha256 "e7ef74159aa866ab8c216fc787c0653a57a79cded629536e81b36ed6564ad7cb" => :high_sierra
-    sha256 "d732a052914d60bc87145563b9ddbd244415507c7a850c0e3a793d7d06dcdf2b" => :sierra
-    sha256 "d65c18c7d7976b2cd4a8c8b8cbd7e1491a4033174ae8312cafc5a2bfc5e8530a" => :el_capitan
-    sha256 "e28933d009a8880ac7c59cb2cf47391fe1da16e0c2844923fbc914d01c2b6780" => :x86_64_linux
+    sha256 "7a24d473f80045db9d4858127c33389df0e61edc1e21a362b452c4110b0b242e" => :sierra
+    sha256 "db5aa402601930bf55ddcd96b919eac25d752afbbfe6e13dc6f001adfe551e74" => :el_capitan
   end
 
   depends_on :python
@@ -22,8 +20,8 @@ class Mycli < Formula
   end
 
   resource "asn1crypto" do
-    url "https://files.pythonhosted.org/packages/67/14/5d66588868c4304f804ebaff9397255f6ec5559e46724c2496e0f26e68d6/asn1crypto-0.22.0.tar.gz"
-    sha256 "cbbadd640d3165ab24b06ef25d1dca09a3441611ac15f6a6b452474fdf0aed1a"
+    url "https://files.pythonhosted.org/packages/31/53/8bca924b30cb79d6d70dbab6a99e8731d1e4dd3b090b7f3d8412a8d8ffbc/asn1crypto-0.23.0.tar.gz"
+    sha256 "0874981329cfebb366d6584c3d16e913f2a0eb026c9463efcc4aaf42a9d94d70"
   end
 
   resource "backports.csv" do
