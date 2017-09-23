@@ -10,6 +10,7 @@ class Parallel < Formula
     cellar :any_skip_relocation
     sha256 "6be71f201119df1fefb58faa7cc3c6c67e39fdd069dead2464861844abdd77aa" => :sierra
     sha256 "6be71f201119df1fefb58faa7cc3c6c67e39fdd069dead2464861844abdd77aa" => :el_capitan
+    sha256 "4b00a64ec1afb42c18bec85f172bb7eeca24e2fc3309dfc946a1b81036da74ed" => :x86_64_linux
   end
 
   conflicts_with "moreutils", :because => "both install a 'parallel' executable."
