@@ -9,6 +9,7 @@ class Overmind < Formula
     cellar :any_skip_relocation
     sha256 "732996322d3bb15e40fa7770201e322eddab0afd2568afafb1fe6586f883e84c" => :sierra
     sha256 "9772fb4a878e894bbae218d62585745f531368f08646fbd5c83b918e0c668829" => :el_capitan
+    sha256 "22779bff5e5046cfad48f7cab9109732fb47f3a040658cc1295691cbef3f0d6f" => :x86_64_linux
   end
 
   depends_on "go" => :build
