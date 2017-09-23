@@ -1,16 +1,13 @@
 class Libsodium < Formula
   desc "NaCl networking and cryptography library"
   homepage "https://github.com/jedisct1/libsodium/"
-  url "https://github.com/jedisct1/libsodium/releases/download/1.0.13/libsodium-1.0.13.tar.gz"
-  sha256 "9c13accb1a9e59ab3affde0e60ef9a2149ed4d6e8f99c93c7a5b97499ee323fd"
+  url "https://github.com/jedisct1/libsodium/releases/download/1.0.14/libsodium-1.0.14.tar.gz"
+  sha256 "3cfc84d097fdc891b40d291f2ac2c3f99f71a87e36b20cc755c6fa0e97a77ee7"
 
   bottle do
     cellar :any
-    sha256 "c29cfe0ed468d36bfc21673d1257ff8eee77583d4944c456697cb2b57c56b677" => :high_sierra
-    sha256 "faff8ef65ff555b8a86b21bb238e3dc844405cdfc3348e0f535d1552775bc542" => :sierra
-    sha256 "a83c5f4520650c8cb81b11c26a3003aa7bdebb47c19ae1f7ff1c45b249852256" => :el_capitan
-    sha256 "afb37b9e1d093888d2d898999bb59fec9496c5efda7cf7dcecfc680199f64419" => :yosemite
-    sha256 "bc2aca26c0116a388c81281ea12749a4bb12c917111971928dc79e5ffad3514a" => :x86_64_linux # glibc 2.19
+    sha256 "d615980c2afffb71dd73914c488b4d824bc3ab0ca5a8eb339c654e6699a9d9b4" => :sierra
+    sha256 "f42d3558eae5468f1b5efb90314e63d92571782fbf8325c9445c613ed73ab49e" => :el_capitan
   end
 
   head do
