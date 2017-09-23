@@ -9,6 +9,7 @@ class Brotli < Formula
     cellar :any
     sha256 "5d2597581c6af21f4bb53f2966c3cbd7a203305a66b6697b44664326f625e0e2" => :sierra
     sha256 "d559e3e3c1b2efab8727b04d51805eccdbf5215353b5a2d0603a3d1f878854d7" => :el_capitan
+    sha256 "88310924585c3c3b0e33bea1190da5272193ef1f678d38a4500adaf60968e695" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
