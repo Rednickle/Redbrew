@@ -10,6 +10,7 @@ class SnapTelemetry < Formula
     cellar :any_skip_relocation
     sha256 "1ff53b8b2f1827e2a607d81dd3db246eb1388dfd1aa7110dcf59a8e4ba606d17" => :sierra
     sha256 "50ce1be7d6e83f309d8fd62bf2b36cb03c29b726d575abfbeef895b3f628fb46" => :el_capitan
+    sha256 "88fc6b67ef8f1a47044ed06ea2744d51193e7fd26fdee82df38c8782ba99ef68" => :x86_64_linux
   end
 
   depends_on "go" => :build
