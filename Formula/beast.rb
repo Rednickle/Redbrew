@@ -9,6 +9,7 @@ class Beast < Formula
     cellar :any_skip_relocation
     sha256 "fd0b8225774ad857e296ca5fe8540ab21de86a5e951d963e2af5473f6e85a5e2" => :sierra
     sha256 "30fa27c365bed00f62c399e7724044bfc2eef0e211ca7ca41211d01446c7a27d" => :el_capitan
+    sha256 "513100e188db7c5e112cf55d09d5d8316487110144710c08524c73ab6e52144f" => :x86_64_linux
   end
 
   depends_on :ant => :build
