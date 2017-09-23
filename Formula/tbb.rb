@@ -1,15 +1,14 @@
 class Tbb < Formula
   desc "Rich and complete approach to parallelism in C++"
   homepage "https://www.threadingbuildingblocks.org/"
-  url "https://github.com/01org/tbb/archive/2018.tar.gz"
-  sha256 "94f643f1edfaccb57d64b503c7c96f00dec64e8635c054bbaa33855d72c5822d"
+  url "https://github.com/01org/tbb/archive/2018_U1.tar.gz"
+  version "2018_U1"
+  sha256 "c6462217d4ecef2b44fce63cfdf31f9db4f6ff493869899d497a5aef68b05fc5"
 
   bottle do
     cellar :any
-    sha256 "9b68623effbb821670a5bfc1f93c160b21ec0bc1d55380625e2cb46aa1eac927" => :high_sierra
-    sha256 "ad77508883c17c264e3a7b8577efd771828cf02b9d1f8a4ba903b2e26be66422" => :sierra
-    sha256 "fa092abc70c26eb61072eba47ea51e4767a2a0c64d450e1e9993dc3addb87c5f" => :el_capitan
-    sha256 "0b7ba9faa03e5f8d38b6b8a530232f253101a02c46748898123ebcfa5f1a5ca1" => :x86_64_linux
+    sha256 "7bb00f4041fb7945c675d58f6d0fa121ac28fb249a211567c0eade71d9e018a0" => :sierra
+    sha256 "b9ee2339d50a595189f9b9e9612b0cbf22f84572bf0a2de4081db698a2766de5" => :el_capitan
   end
 
   option :cxx11

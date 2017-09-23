@@ -1,16 +1,13 @@
 class Diffoscope < Formula
   desc "In-depth comparison of files, archives, and directories."
   homepage "https://diffoscope.org"
-  url "https://files.pythonhosted.org/packages/60/26/6da7f1988902edcdfea1ee6cb659a23ca5d3611abf0314a393e82bbe2c64/diffoscope-86.tar.gz"
-  sha256 "630fa7645a9f54fd48c9c1752e23af3758192aa62961e8580b541b4927bdb872"
+  url "https://files.pythonhosted.org/packages/54/23/3e1072e1326742745001992eb373ba3da07b974951a913bf6e39484a04b6/diffoscope-87.tar.gz"
+  sha256 "b62a69f095cb056f1b9e43b9d345e36b3b52b9ebe3de135978ae84ae88feba86"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d11e0411537e87876c74ae1b85931dfa5e731abf7c45c92d9c76118f63666cf8" => :high_sierra
-    sha256 "b28e89823162efd20ff8d0f617f992e80665eb963ad242c418dcb45bf131b0bd" => :sierra
-    sha256 "b28e89823162efd20ff8d0f617f992e80665eb963ad242c418dcb45bf131b0bd" => :el_capitan
-    sha256 "b28e89823162efd20ff8d0f617f992e80665eb963ad242c418dcb45bf131b0bd" => :yosemite
-    sha256 "6a49c026571d6689174580f91f8195975d4baa54254b5a86228915e077c77686" => :x86_64_linux
+    sha256 "c01cbac1383e6cee7ddb7dcee6d5d5d07ad7e04461f7f33519dead80bca78780" => :sierra
+    sha256 "c01cbac1383e6cee7ddb7dcee6d5d5d07ad7e04461f7f33519dead80bca78780" => :el_capitan
   end
 
   depends_on "libmagic"
