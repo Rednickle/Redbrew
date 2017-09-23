@@ -9,6 +9,7 @@ class KitchenSync < Formula
     cellar :any
     sha256 "2201aadfff95b4bf3e72d34ad626aaf1ccb86b8678b5b72ee99372ec98eefcf4" => :sierra
     sha256 "83dc8312a57ed7dea181a9289bca96e56e358dce031732a75738b2ac3c680d2c" => :el_capitan
+    sha256 "5a983bdee45a1b42d83e3257daf1618a7205c48b2c4423ca61120826f30144db" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
