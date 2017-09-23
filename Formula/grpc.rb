@@ -8,6 +8,7 @@ class Grpc < Formula
   bottle do
     sha256 "11b217e3992cf102f824e7831ae442c137d4febc7eae6ae8cbde04846fd79d70" => :sierra
     sha256 "e827984d6a6a2640f2b386d44018961b5f18e7be3c0044f301165383f1b0784f" => :el_capitan
+    sha256 "ded2c221cc71f63244aa4fbc1e723ea69a071dbdda3a7f23bbbb412f8af41829" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
