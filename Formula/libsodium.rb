@@ -8,6 +8,7 @@ class Libsodium < Formula
     cellar :any
     sha256 "d615980c2afffb71dd73914c488b4d824bc3ab0ca5a8eb339c654e6699a9d9b4" => :sierra
     sha256 "f42d3558eae5468f1b5efb90314e63d92571782fbf8325c9445c613ed73ab49e" => :el_capitan
+    sha256 "8ba76e8898186f064de5289177ab71405b3f918934b4bdce7db1e39812899cd9" => :x86_64_linux
   end
 
   head do
