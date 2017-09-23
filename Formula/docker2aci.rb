@@ -1,16 +1,13 @@
 class Docker2aci < Formula
   desc "Library and CLI tool to convert Docker images to ACIs"
   homepage "https://github.com/appc/docker2aci"
-  url "https://github.com/appc/docker2aci/archive/v0.16.0.tar.gz"
-  sha256 "7a8abe8b809a0dcf7a583c6a8ba8232eedb97d30750fa4b4f0620e9db6e504fb"
+  url "https://github.com/appc/docker2aci/archive/v0.17.0.tar.gz"
+  sha256 "31c0c59f9b98d7ae5e643f060d914ef1e27dc8e2c17708593d24a4af7d9fcc01"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "912c1d916c2e0414592cedfcdea040b7aeb8017ee9febcf6b109c7cdce61e508" => :high_sierra
-    sha256 "07aa14d46698ae7cd5aaef1048dbc1e802361846bdae134c2ed08796d01e6f75" => :sierra
-    sha256 "5487ddd0cb050bca91e6663ee430ddf08ec7995b4c4c31d9a39b91fb99f3217c" => :el_capitan
-    sha256 "aef97426abd25cb8b8c0e20ba2285b8c63c31fb98a34a1af55c36bd9749185ad" => :yosemite
-    sha256 "a1dec7f9bec6ba4b00de4de0b7ee751baad82e71b2db0e586e2f520349491501" => :x86_64_linux # glibc 2.19
+    sha256 "1450bc41df34664d2258d919f9dbcf87d00e7657e228761a1197b6bbcb492e8f" => :sierra
+    sha256 "90c8ade536b1f6b907e48dc6cffd0b2f2035f4b2c515ca2a005becfdf180329d" => :el_capitan
   end
 
   depends_on "go" => :build
