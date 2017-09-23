@@ -6,6 +6,7 @@ class NoMoreSecrets < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ad2927337af4e85d6bff3fbdcfeb2e435c85de8d527d23a3644c7add3c7acab0" => :high_sierra
     sha256 "97ff320dd7639a7a71fbfa4f7e72fb7c66e4b60ea0f6a6adc4583c63cbda05ac" => :sierra
     sha256 "78c52bd9f179967cb240c8f49763e03e512092ee476b73e38166bfa79757664f" => :el_capitan
     sha256 "d5f1a4c9cd5475c3c827311068e2dac60cdc3bda46ecaa5d1925bba8fd868312" => :x86_64_linux
