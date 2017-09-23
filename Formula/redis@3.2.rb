@@ -9,6 +9,7 @@ class RedisAT32 < Formula
     cellar :any_skip_relocation
     sha256 "78f7a36a2e4ac2bf8d5efdb70e9ac84eb50d9e6ce815d8c4d25e1268ce67aa5a" => :sierra
     sha256 "a73d084f4aef70d0f7c614317c66cb9ca55614ccb2363f62af59276d431ee3e0" => :el_capitan
+    sha256 "701dd76b47a787421bb286503e50e48d07b548ba4e72c02744bd1ccdeea0a770" => :x86_64_linux
   end
 
   keg_only :versioned_formula
