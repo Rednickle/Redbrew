@@ -9,6 +9,7 @@ class AzureCli < Formula
     cellar :any
     sha256 "8bcfae41789536fcb7f8e6d87e9498b3d418b2fa6b1e77734788da43a115bc4d" => :sierra
     sha256 "ce446f37268b06242914af7581da4947c8ea524b6d8d8c034c1526331ea40b66" => :el_capitan
+    sha256 "6972944e01c9416468e1e5542b703ef669ca48aa08001016a13ac27e0d5c611b" => :x86_64_linux
   end
 
   depends_on "openssl"
