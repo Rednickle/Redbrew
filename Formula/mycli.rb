@@ -10,6 +10,7 @@ class Mycli < Formula
     cellar :any
     sha256 "7a24d473f80045db9d4858127c33389df0e61edc1e21a362b452c4110b0b242e" => :sierra
     sha256 "db5aa402601930bf55ddcd96b919eac25d752afbbfe6e13dc6f001adfe551e74" => :el_capitan
+    sha256 "5301dbe9083fc45eab417473a6f3de2b89177db0baa2fc8159ff45a0ee8372ae" => :x86_64_linux
   end
 
   depends_on :python
