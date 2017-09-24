@@ -9,6 +9,7 @@ class Faad2 < Formula
     sha256 "40909a4ad9969a5a2634678fe44b1aacb076abf159b6006c16746d91e61b9a79" => :high_sierra
     sha256 "7c3d0b7c58da02be5a2a9e0764e64aecc04083a8bd2b69399af472b4ac843252" => :sierra
     sha256 "65c4ff67358a9f81bbc9b137c77960d95721807c44b2feacc9a7bcd50ce842c7" => :el_capitan
+    sha256 "9d079575c1106749bff5f6b294394817ea15d624e21b2d3ec9a2c28c010e7e9c" => :x86_64_linux
   end
 
   def install
