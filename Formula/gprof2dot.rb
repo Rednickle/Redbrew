@@ -11,6 +11,7 @@ class Gprof2dot < Formula
     sha256 "b557363c9161ff1cd9de06cfb116eac29886c31f655c57d031ef2c6641fe876c" => :high_sierra
     sha256 "4cbf98d1320170ed6287d0b58bc7c810e29529de2ea5d5c4c2545443c6f5e3e2" => :sierra
     sha256 "2fe7080ddad320a9f73638f8d1ad072e97d6ba80825221414bae015019672852" => :el_capitan
+    sha256 "cf119d9998427ca193f5008f5dba9539789d4da885767ef8f391c29a4acb4863" => :x86_64_linux
   end
 
   depends_on "graphviz" => :recommended
