@@ -9,6 +9,7 @@ class Weechat < Formula
     sha256 "69a15e609806b8420221bafb53ff3338ef82560f49708e6b3fa6bfb5baa7a67b" => :high_sierra
     sha256 "570a601c017682fff13db36344460f5ebeb6d730404f908a9f4bbf8518c90b38" => :sierra
     sha256 "d0153220302d1b7bb86bd11fc33956ad2fdec31f81364fdbad01ec1ca7e3dfa8" => :el_capitan
+    sha256 "25fec45693752842789a8008fa1437154ad8056b2f23fc1c923eff54172216a5" => :x86_64_linux
   end
 
   option "with-perl", "Build the perl module"
