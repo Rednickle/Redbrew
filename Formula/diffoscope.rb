@@ -6,6 +6,7 @@ class Diffoscope < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "453d63eb31d2d451450c64f3e6f6125fda90c717db7fec0313ec551c49015e4f" => :high_sierra
     sha256 "c01cbac1383e6cee7ddb7dcee6d5d5d07ad7e04461f7f33519dead80bca78780" => :sierra
     sha256 "c01cbac1383e6cee7ddb7dcee6d5d5d07ad7e04461f7f33519dead80bca78780" => :el_capitan
     sha256 "e683eb2a517c28eaa8cbf02dc3c2c00d6522f920a3161f2ce8832fd71a295ed9" => :x86_64_linux
@@ -27,6 +28,8 @@ class Diffoscope < Formula
   end
 
   def install
+    ENV.delete("PYTHONPATH") # play nice with libmagic --with-python
+
     pyver = Language::Python.major_minor_version "python3"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{pyver}/site-packages"
 
