@@ -1,17 +1,14 @@
 class Python < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/2.7.13/Python-2.7.13.tar.xz"
-  sha256 "35d543986882f78261f97787fd3e06274bfa6df29fac9b4a94f73930ff98f731"
-  revision 1
+  url "https://www.python.org/ftp/python/2.7.14/Python-2.7.14.tar.xz"
+  sha256 "71ffb26e09e78650e424929b2b457b9c912ac216576e6bd9e7d204ed03296a66"
   head "https://github.com/python/cpython.git", :branch => "2.7"
 
   bottle do
-    sha256 "5a617cbd734132ff8380e3ec9643ac06a5fc06a2cc5be9044f40cd43d108f323" => :high_sierra
-    sha256 "8a58d3c4b797a08aba0e5bcac22f6987d32d95078ad43843fc1bcadb169f4ac1" => :sierra
-    sha256 "0d2238ff1c7e21ebf87c201655d0b85b34473a78d56188b014f0bc43fd617efa" => :el_capitan
-    sha256 "dfc9bb395cb6d25f1fb214f4915185d8bcd853e1142b371f859a54137fad57fb" => :yosemite
-    sha256 "bb3bca66bbc951503b493d9518f7a150a0c5b5fa50faf3280902ea6e2f4e3304" => :x86_64_linux # glibc 2.19
+    sha256 "3659f6c46f76cf28a671b942ec765013ee83618d7dade8eeab91b60ba618bddd" => :high_sierra
+    sha256 "06edf884300cb7bef5b66c377c7736a1f8bff553288fc0b8b6709bcfc51bd23b" => :sierra
+    sha256 "ee90369b3812099c0f7eb60b1bfd4e365861a621830968745fb6b4db736c7acf" => :el_capitan
   end
 
   devel do
@@ -57,8 +54,8 @@ class Python < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/26/d1/dc7fe14ce4a3ff3faebf1ac11350de4104ea2d2a80c98393b55c84362b0c/setuptools-32.1.0.tar.gz"
-    sha256 "86d57bf86edc0ecfd2dc0907ed3710bc4501fb13a06c0fcaf7632305b00ce832"
+    url "https://files.pythonhosted.org/packages/a4/c8/9a7a47f683d54d83f648d37c3e180317f80dc126a304c45dc6663246233a/setuptools-36.5.0.zip"
+    sha256 "ce2007c1cea3359870b80657d634253a0765b0c7dc5a988d77ba803fc86f2c64"
   end
 
   resource "pip" do
@@ -67,8 +64,8 @@ class Python < Formula
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/c9/1d/bd19e691fd4cfe908c76c429fe6e4436c9e83583c4414b54f6c85471954a/wheel-0.29.0.tar.gz"
-    sha256 "1ebb8ad7e26b448e9caa4773d2357849bf80ff9e313964bcaf79cbf0201a1648"
+    url "https://files.pythonhosted.org/packages/fa/b4/f9886517624a4dcb81a1d766f68034344b7565db69f13d52697222daeb72/wheel-0.30.0.tar.gz"
+    sha256 "9515fe0a94e823fd90b08d22de45d7bde57c90edce705b22f5e1ecf7e1b653c8"
   end
 
   # Patch to disable the search for Tk.framework, since Homebrew's Tk is
