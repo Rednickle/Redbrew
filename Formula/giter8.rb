@@ -9,6 +9,7 @@ class Giter8 < Formula
     sha256 "d802cf462c8283e0c9663a61dde82bce7d482da24b2ce71b2cb233e5c589e362" => :high_sierra
     sha256 "3841b04b665c9121d698fadfe94d4dc0ccaa4c5b36d7a590d54186c7d7583afc" => :sierra
     sha256 "1d45736f60b6fdb1af3e2ee607b256caa99536e27a237d2f834fe2d3fb15326f" => :el_capitan
+    sha256 "6c4b4dcf953b5fb153c0bede0821d7e803067b6a1554c01770d711c1021a1145" => :x86_64_linux
   end
 
   depends_on :java => "1.6+"
