@@ -82,7 +82,7 @@ class Subversion < Formula
         s.gsub! "env.Append(LIBPATH=['$OPENSSL\/lib'])",
         "\\1\nenv.Append(CPPPATH=['$ZLIB\/include'])\nenv.Append(LIBPATH=['$ZLIB/lib'])"
       end unless OS.mac?
-      system "2to3", "--write", "--fix=print", "SConstruct"
+      system "2to3-", "--write", "--fix=print", "SConstruct"
 
       # scons ignores our compiler and flags unless explicitly passed
       args = %W[
