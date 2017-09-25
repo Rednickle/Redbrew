@@ -1,17 +1,14 @@
 class Libmodplug < Formula
   desc "Library from the Modplug-XMMS project"
   homepage "https://modplug-xmms.sourceforge.io/"
-  url "https://downloads.sourceforge.net/modplug-xmms/libmodplug/0.8.8.5/libmodplug-0.8.8.5.tar.gz"
-  sha256 "77462d12ee99476c8645cb5511363e3906b88b33a6b54362b4dbc0f39aa2daad"
+  url "https://downloads.sourceforge.net/modplug-xmms/libmodplug/0.8.9.0/libmodplug-0.8.9.0.tar.gz"
+  sha256 "457ca5a6c179656d66c01505c0d95fafaead4329b9dbaa0f997d00a3508ad9de"
 
   bottle do
     cellar :any
-    rebuild 2
-    sha256 "062e8e12816b7ffb6ce57205330f5a1dd3a5a43b0fff5b532654c4f47897f3d6" => :high_sierra
-    sha256 "38452a474601b4d222b0051f04c05604ac7a1ef55e72c500c07f438991b2c43c" => :sierra
-    sha256 "32f92108df7cbcb04fd08ee34cace282a39b073e37e3116df181c1674f3089a3" => :el_capitan
-    sha256 "ca58e85ca80a2d2199a37203fd1df19d112a4c63e357b96d0348043fbc3a93f8" => :yosemite
-    sha256 "c384456109eaced707376c862ddb087f355838958e32ec35ceb544cc6169d098" => :mavericks
+    sha256 "6c81a49fbb133f52435bbfc03bba42c98e10e326b427fa92e149581ddc74f135" => :high_sierra
+    sha256 "2a7155e77cf0e272929f29c7490aed863676bea467f8201b15837ceb1c7ccdee" => :sierra
+    sha256 "33b8ce4240bd8aa140512ff9ab9729484467bbc5453258d3cfd0c6aebf56200c" => :el_capitan
   end
 
   resource "testmod" do

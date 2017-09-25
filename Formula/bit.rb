@@ -1,23 +1,23 @@
 require "language/node"
+
 class Bit < Formula
   desc "Distributed Code Component Manager"
   homepage "https://www.bitsrc.io"
-  url "https://bitsrc.jfrog.io/bitsrc/bit-brew/stable/bit/0.10.3/bit-0.10.3-brew.tar.gz"
-  sha256 "e843e29b34ba8c93c68503f288be28c841c159b67a54bcc88063328167a32785"
+  url "https://registry.npmjs.org/bit-bin/-/bit-bin-0.10.7.tgz"
+  sha256 "d033b76974be7103933abe1fc937297d29c19aa1cdabbba8d5032ebd9d4f72f0"
+  head "https://github.com/teambit/bit.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "afc34fb0172b2eb1a579b4334a084c0df77b7ad6977a11d3641a72dca6211487" => :high_sierra
-    sha256 "67a6a52d87f99c90171b82f1f10c784a686969a30366e5c119d6b450a04271bf" => :sierra
-    sha256 "67a6a52d87f99c90171b82f1f10c784a686969a30366e5c119d6b450a04271bf" => :el_capitan
-    sha256 "67a6a52d87f99c90171b82f1f10c784a686969a30366e5c119d6b450a04271bf" => :yosemite
+    sha256 "0e00d7cdb1da0e636a21134b33964b16740c33230ebf71718d5275f486440030" => :high_sierra
+    sha256 "c64efc7326daf26db022b41ed20875f4e142018c39c736c3a8c98af9fc8f313b" => :sierra
+    sha256 "d48e4cd09f6cb35938a2a079cfcffdedcba88badbe8ef269f120e51302ebf0b9" => :el_capitan
   end
 
+  depends_on "node"
+
   def install
-    libexec.install Dir["*"]
-    bin.install_symlink Dir["#{libexec}/bin/bit"]
-    bin.install_symlink Dir["#{libexec}/bin/bit.js"]
-    bin.install_symlink "#{libexec}/bin/node" => "bitNode"
+    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
   test do
