@@ -9,6 +9,7 @@ class EyeD3 < Formula
     sha256 "678c663366717665bfe79d307b3d93ce2a594e27a680f19e0d84a6b1e84a1594" => :high_sierra
     sha256 "b36cabe996a48a9dd14e177e9cab30545e1a6b0d1c614025341cda9f69a73903" => :sierra
     sha256 "2dfd39304a741c18c5816d481c9b0ef80eee367f2039f9b4f906660f0d6cb2f3" => :el_capitan
+    sha256 "231810a2c463d68bccbbfd9439b0ba571000453934494f7756c8c09dc1542e7c" => :x86_64_linux
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
