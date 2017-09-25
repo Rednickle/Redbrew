@@ -1,17 +1,16 @@
 class Mpw < Formula
   desc "Stateless/deterministic password and identity manager"
   homepage "https://ssl.masterpasswordapp.com/"
-  url "https://ssl.masterpasswordapp.com/mpw-2.6-cli-2-0-g30fdb54e.tar.gz"
-  version "2.6-cli-2"
-  sha256 "c206e512d193a154814a7c5d1faa8dc89e3fa0817b059bd6d957a61dc8ee1e68"
+  url "https://ssl.masterpasswordapp.com/mpw-2.6-cli-3-0-ga85eff42.tar.gz"
+  version "2.6-cli-3"
+  sha256 "b22290113b5509f9c44dfe8d3604e5a23e3fc840aaf73e053a7bcae734698894"
   head "https://github.com/Lyndir/MasterPassword.git"
 
   bottle do
     cellar :any
-    sha256 "a0730bb6569b8ff04987db2e48540201520c15a4b5c44acc89b322672d1e939f" => :high_sierra
-    sha256 "126ef4edcb6095bb0a6961986de07b23daec5dbe218e8895330d71df12c69456" => :sierra
-    sha256 "4be101a8af0048f3542ca880420da11c71b1b7efe634d9fbac7569a75b2ee828" => :el_capitan
-    sha256 "2ba5ff1e63053aef58133bed91c5e4156231d9bff83c84fb15ceb473dc0fdb49" => :x86_64_linux
+    sha256 "05681e05efdfb32add95d4c7247df77a664e75b1527e7999eb39f1df2de93448" => :high_sierra
+    sha256 "bf72e25886a10bdc0db199c572cc9a66673f0a05ade08a808ca4cd9f8d29d11d" => :sierra
+    sha256 "5e87ee4db6aad28b461330a23c5d801567103f27c785cb1ce979d14af1512fa8" => :el_capitan
   end
 
   option "without-json-c", "Disable JSON configuration support"
