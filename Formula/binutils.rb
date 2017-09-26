@@ -10,6 +10,7 @@ class Binutils < Formula
     sha256 "8b09492986a9dc598763dacd168c6e30508e39fb6c61864e78e9bf8368d77563" => :high_sierra
     sha256 "274240a3aa74644d55054f45e26bc4242197cb514ae4817c128f194dc7b97901" => :sierra
     sha256 "e7e5167576c31a03bdc517ba46f28e8a0dc49531b004c96dd1598418f4dce8aa" => :el_capitan
+    sha256 "a641cb5b69d2640167c6182cdcdf58f4999542b634d6d86a2825d49a8d006515" => :x86_64_linux # glibc 2.5
   end
 
   # No --default-names option as it interferes with Homebrew builds.
