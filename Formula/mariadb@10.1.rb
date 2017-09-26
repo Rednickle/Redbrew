@@ -1,10 +1,13 @@
 class MariadbAT101 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.org/f/mariadb-10.1.26/source/mariadb-10.1.26.tar.gz"
-  sha256 "ba88b1cb9967dea2909938a34ba89373b162b0d83e5c98a0f1c94540156bf73d"
+  url "https://downloads.mariadb.org/f/mariadb-10.1.27/source/mariadb-10.1.27.tar.gz"
+  sha256 "1fd9a09d90903bf97b534162cabc47b79dea47f5ae9880cb8119c143de8540d4"
 
   bottle do
+    sha256 "444edd8961bad7f80599a2d66f8923ea954483867ba9ed15c72dab5ee26d51de" => :high_sierra
+    sha256 "a5ca4f46c73b565280a50ddfc65de2110a3458c57eda47bcb58404d35cb644f6" => :sierra
+    sha256 "5cab7e19ccddb7102738c300249bee9c97534395f6e8ddb479c5334eeb87e79c" => :el_capitan
     sha256 "03540d59ec4926e923b2efc6a5892228ecbaaa432c718aaa0e9cd97058b53f18" => :x86_64_linux # glibc 2.19
   end
 
@@ -45,6 +48,7 @@ class MariadbAT101 < Formula
       -DINSTALL_DOCDIR=share/doc/#{name}
       -DINSTALL_INFODIR=share/info
       -DINSTALL_MYSQLSHAREDIR=share/mysql
+      -DWITH_PCRE=bundled
       -DWITH_SSL=yes
       -DDEFAULT_CHARSET=utf8
       -DDEFAULT_COLLATION=utf8_general_ci
