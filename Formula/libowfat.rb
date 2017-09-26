@@ -10,6 +10,7 @@ class Libowfat < Formula
     sha256 "43e3968245f33399038ffb25f48618be370cb8242f38ddc36170b76cfd0da3fe" => :high_sierra
     sha256 "4f719fe2a03651ecea7882464e5b8fd1f4f3b1e32a0f75f9e5cd9e66ad32a123" => :sierra
     sha256 "be87e0da446834d6f8f808c434e854ff7c9eb88c3f899fc48a830b36117cac83" => :el_capitan
+    sha256 "beea0e18c72c3d479d5b39900d153995390536ceaed650dad8ef6800e2587b94" => :x86_64_linux
   end
 
   def install
