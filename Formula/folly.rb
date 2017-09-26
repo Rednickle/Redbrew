@@ -1,16 +1,15 @@
 class Folly < Formula
   desc "Collection of reusable C++ library artifacts developed at Facebook"
   homepage "https://github.com/facebook/folly"
-  url "https://github.com/facebook/folly/archive/v2017.09.18.00.tar.gz"
-  sha256 "588b9bf141b91387e45b5a4a86ecf1ddd2c35078a4ce2b50df6dfcefe407313e"
+  url "https://github.com/facebook/folly/archive/v2017.09.25.00.tar.gz"
+  sha256 "129fee88050122ad86b1170605f7e3c22d225627cc6be3360df378418ffffdb8"
   head "https://github.com/facebook/folly.git"
 
   bottle do
     cellar :any
-    sha256 "5949309d046067cc6f8950a11ae7e38c6ddbd0ac65104bfac8d3db78ab28965b" => :high_sierra
-    sha256 "ac9e0747a7faa53d99b31c4dea839be3c3280548e3b6e6563a55738591a14ec0" => :sierra
-    sha256 "3831309e570852c498e5fcbd94d088de0f817c1b9d0fbd9a1c7d8f4ce56490bc" => :el_capitan
-    sha256 "a66c8c176bfa1e5ebc9154c1b99d40e04c4090076d8df1efb17fe5248ce3349f" => :x86_64_linux
+    sha256 "6a71781931f0f666bfcd65cc9a80576d096e5d8aa7b796681f73dcd075f167da" => :high_sierra
+    sha256 "bd42965dea465fac122c28902fc1dff1b875a8471578d369159e3a5982afc296" => :sierra
+    sha256 "4f93097cceb7d07d9bdcfa964da27de3245a5879dd9decb7adaf29f19052cf7a" => :el_capitan
   end
 
   depends_on "autoconf" => :build
