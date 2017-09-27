@@ -4,15 +4,13 @@ class Rcs < Formula
   url "https://ftp.gnu.org/gnu/rcs/rcs-5.9.4.tar.xz"
   mirror "https://ftpmirror.gnu.org/rcs/rcs-5.9.4.tar.xz"
   sha256 "063d5a0d7da1821754b80c639cdae2c82b535c8ff4131f75dc7bbf0cd63a5dff"
+  revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "4a0bfe31593e4dd12b9e7d519ddd1610ed845138860860812b070af12704b25d" => :high_sierra
-    sha256 "ab6a22a53f0dba4b112dcd1968ec10675eeb7768653c8ec31a77956bda1bb347" => :sierra
-    sha256 "78f1d531b800653dde89794a55e92ba4cf367084c9ce5dd31da7aaf4b7785dac" => :el_capitan
-    sha256 "81c6feabf9806d1912e553809a73e9c531607e0281613f940fbc6dc8e47a5ede" => :yosemite
-    sha256 "5eae8b3cb0c8b9aef306811d6fb62a9eef0350bfa2f01f398b60fa13cae00b79" => :mavericks
+    cellar :any
+    sha256 "4db2b0c7c6e847a60a17bf7dd3c13b68e4c390bb93f51de7cc09afa5242ad4f1" => :high_sierra
+    sha256 "a4da901d15710afc151c6bdf1fe0257ca7d0e7ecf9a0586ccee95127e87748e9" => :sierra
+    sha256 "67cea3736a9840099458ab2a7572fe9b8eb8cfcaa73c15805cbefd13e8be3ea3" => :el_capitan
   end
 
   # Fixes use of _Noreturn attribute
@@ -20,6 +18,13 @@ class Rcs < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/3fff7c990b8df4174045834b9c1210e7736ff5a4/rcs/noreturn.patch"
     sha256 "ac2f5ad1df932361e19c6184d2dfddfbe7664184ac4c24a3224c85707cd4da9f"
+  end
+
+  if MacOS.version >= :high_sierra
+    patch :p0 do
+      url "https://raw.githubusercontent.com/macports/macports-ports/b76d1e48dac/editors/nano/files/secure_snprintf.patch"
+      sha256 "57f972940a10d448efbd3d5ba46e65979ae4eea93681a85e1d998060b356e0d2"
+    end
   end
 
   def install

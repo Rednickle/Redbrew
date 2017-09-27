@@ -13,7 +13,6 @@ class Vips < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "fftw"
   depends_on "fontconfig"
   depends_on "gettext"
   depends_on "giflib"
@@ -28,8 +27,9 @@ class Vips < Formula
   depends_on "little-cms2"
   depends_on "orc"
   depends_on "pango"
-  depends_on "poppler"
   depends_on "pygobject3"
+  depends_on "fftw" => :recommended
+  depends_on "poppler" => :recommended
   depends_on "graphicsmagick" => :optional
   depends_on "imagemagick" => :optional
   depends_on "jpeg-turbo" => :optional
