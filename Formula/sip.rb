@@ -12,6 +12,7 @@ class Sip < Formula
     sha256 "c4d6314ca12004c84f71bfc40a819f3165bed21ad40093dd731b2726adb93715" => :high_sierra
     sha256 "cba83d5c6cc562ddf8d5785ef46706e15b4a3d45b3cb98f97904259e96ade675" => :sierra
     sha256 "7a95afc0a4ceb321e8d16f45ebf48bb7ad2f7e66c5d19b1b66efff36007ee28d" => :el_capitan
+    sha256 "8bc1cb3643a68c423754086d94f17028a19cf2f5696f0eacc31840a61d120672" => :x86_64_linux
   end
 
   depends_on :python => :recommended
