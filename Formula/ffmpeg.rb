@@ -6,7 +6,10 @@ class Ffmpeg < Formula
     url "https://ffmpeg.org/releases/ffmpeg-3.3.4.tar.bz2"
     sha256 "5ef5e9276c311c74ab2e9d301c2d7ee10e1f2cbd758c6f13d6cb9514dffbac7e"
 
+    option "with-schroedinger", "Enable Dirac video format"
+
     depends_on "yasm" => :build
+    depends_on "schroedinger" => :optional
 
     # Upstream commit from 23 Jun 2017 "Add support for LibOpenJPEG v2.2/git"
     # See https://github.com/FFmpeg/FFmpeg/commit/078322f33ced4b2db6ac3e5002f98233d6fbf643
@@ -42,7 +45,6 @@ class Ffmpeg < Formula
   option "with-openssl", "Enable SSL support"
   option "with-rtmpdump", "Enable RTMP protocol"
   option "with-rubberband", "Enable rubberband library"
-  option "with-schroedinger", "Enable Dirac video format"
   option "with-sdl2", "Enable FFplay media player"
   option "with-snappy", "Enable Snappy library"
   option "with-tools", "Enable additional FFmpeg tools"
@@ -95,7 +97,6 @@ class Ffmpeg < Formula
   depends_on "opus" => :optional
   depends_on "rtmpdump" => :optional
   depends_on "rubberband" => :optional
-  depends_on "schroedinger" => :optional
   depends_on "sdl2" => :optional
   depends_on "snappy" => :optional
   depends_on "speex" => :optional
@@ -186,7 +187,7 @@ class Ffmpeg < Formula
     # prevents GCC from building VDA support.
     # See: https://github.com/Homebrew/homebrew/issues/33741
     # VDA works on macOS only: https://trac.ffmpeg.org/wiki/HWAccelIntro#VDA
-    if OS.mac? && MacOS.version != :yosemite || ENV.compiler == :clang
+    if !build.head? && (OS.mac? && MacOS.version != :yosemite || ENV.compiler == :clang)
       args << "--enable-vda"
     else
       args << "--disable-vda"
