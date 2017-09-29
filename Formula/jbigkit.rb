@@ -23,6 +23,8 @@ class Jbigkit < Formula
 
   deprecated_option "with-check" => "with-test"
 
+  conflicts_with "netpbm", :because => "both install `pbm.5` and `pgm.5` files"
+
   def install
     # Fix fatal error: jbig.h: No such file or directory
     inreplace "Makefile", "$(MAKE) -e", "$(MAKE)" unless OS.mac?

@@ -9,11 +9,10 @@ class Awscli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "f4d2c2708e500081cdd01638f79aadfbe7519f23bebcadece27868db9f606f65" => :high_sierra
-    sha256 "f3ee683be62b7dfd6a2aca88172c543363afa7d8c47b78f552cfcf11870b895d" => :sierra
-    sha256 "cbf133991d3ab0f459620df004a11324d3157f9241c221a4b4c11c26ca01b6d5" => :el_capitan
-    sha256 "de77667f3992a2a694dba5f6f47959a1ebd7d29072b4e4c38cd4f29566a28855" => :x86_64_linux
+    rebuild 3
+    sha256 "afe7e20189473c901c4b0ca69d7bac8e654ddbe723947827353fc19f8ed16e46" => :high_sierra
+    sha256 "2766c45a690e0efee701816f9287a2c479f98e2bbbd00202fe26c6ee6f75e312" => :sierra
+    sha256 "d586e05ee5f97967675f4118956b04a1524382307fb8f2ea6e844a9da173209f" => :el_capitan
   end
 
   # Use :python on Lion to avoid urllib3 warning
@@ -30,8 +29,17 @@ class Awscli < Formula
     venv.pip_install_and_link buildpath
     pkgshare.install "awscli/examples"
 
+    rm Dir["#{bin}/{aws.cmd,aws_bash_completer,aws_zsh_completer.sh}"]
     bash_completion.install "bin/aws_bash_completer"
-    zsh_completion.install "bin/aws_zsh_completer.sh" => "_aws"
+    zsh_completion.install "bin/aws_zsh_completer.sh"
+    (zsh_completion/"_aws").write <<-EOS.undent
+        #compdef aws
+        _aws () {
+          local e
+          e=$(dirname ${funcsourcetrace[1]%:*})/aws_zsh_completer.sh
+          if [[ -f $e ]]; then source $e; fi
+        }
+    EOS
   end
 
   def caveats; <<-EOS.undent

@@ -31,6 +31,8 @@ class Netpbm < Formula
     depends_on "zlib"
   end
 
+  conflicts_with "jbigkit", :because => "both install `pbm.5` and `pgm.5` files"
+
   def install
     cp "config.mk.in", "config.mk"
 
