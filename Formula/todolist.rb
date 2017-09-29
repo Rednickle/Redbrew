@@ -10,6 +10,7 @@ class Todolist < Formula
     sha256 "3b4b8d23cb5b1fd8dd1bad37cf27688ec151d3e79e3b593e0ed49b5c7511a8a7" => :high_sierra
     sha256 "8aeeaa40bf1a97facb75fc2f559c0f5534b576061758476ea5538e32be3000fe" => :sierra
     sha256 "80d0eac56e379fea4c651cc9e38ae07dac6bfd3464b7b31153a47c74da9b35cb" => :el_capitan
+    sha256 "0c342b534301bdcf0e5e5f7c5a90ebce162852d828f219b10250bbe89996e372" => :x86_64_linux
   end
 
   depends_on "go" => :build
