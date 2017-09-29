@@ -8,6 +8,7 @@ class Numpy < Formula
     sha256 "44b42ff9b9adcb0b1529568174fdb943737403df45ad0f743d6a74757caad183" => :high_sierra
     sha256 "2b07c8f8a10351deafeb6e8d3bb7a667a02e93d4b7d17545c3c318118c1fae22" => :sierra
     sha256 "6347719f2b90ad714e2e4f63820d224a9505ccd97abe04fe47435126bcd20df8" => :el_capitan
+    sha256 "1907a53d32a5e4c31e2f037c082675ec87ef08fa337c7253148389cc63c7e163" => :x86_64_linux
   end
 
   head do
