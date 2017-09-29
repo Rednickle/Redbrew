@@ -1,15 +1,13 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.org/f/mariadb-10.2.8/source/mariadb-10.2.8.tar.gz"
-  sha256 "8dd250fe79f085e26f52ac448fbdb7af2a161f735fae3aed210680b9f2492393"
+  url "https://downloads.mariadb.org/f/mariadb-10.2.9/source/mariadb-10.2.9.tar.gz"
+  sha256 "12e0a01c52591ee77cf0f940fe65df024457fa16c70f08c6116048d576096124"
 
   bottle do
-    sha256 "093bf84e1a5e817feb6c11ba9ab2e7bc4ab548f4c56d25fdb481413f93d3a81a" => :high_sierra
-    sha256 "9e48833ade80bfbc889268560c62d13a2cef9fdeabee05be802b9887a71ae39c" => :sierra
-    sha256 "d1cbe9c6126883199776854c197ed7ed1f50dc164416c5dc7a0c0d3177c765ed" => :el_capitan
-    sha256 "e55ad3f2d6efef790c6053463fb2e56878db251512da3c1286aae11a5d430663" => :yosemite
-    sha256 "4996b04e03724f178a3d152bdff5b50fedad606a40e62a10e1b781f0b6c488d5" => :x86_64_linux # glibc 2.19
+    sha256 "d8f169b8d953f644bcf552a4cfd75d886ff728a85181e5fae8115a278a18fc08" => :high_sierra
+    sha256 "a7a047aca123a520c9749931ee2fdecfdb878135eb9d2f7172dddb380cf9191e" => :sierra
+    sha256 "3fe7139710c7b9221e4b0f11a9ef6608ab642b425e920055fd186d0b8195719a" => :el_capitan
   end
 
   devel do
@@ -71,7 +69,7 @@ class Mariadb < Formula
       -DCOMPILATION_COMMENT=Homebrew
     ]
 
-    # Disable RocksDB becaus of build failure: https://jira.mariadb.org/browse/MDEV-13585
+    # Disable RocksDB becaus of build failure: https://jira.mariadb.org/browse/MDEV-13928
     args << "-DPLUGIN_ROCKSDB=NO"
 
     # disable TokuDB, which is currently not supported on macOS
