@@ -2,15 +2,15 @@ class KubernetesCli < Formula
   desc "Kubernetes command-line interface"
   homepage "https://kubernetes.io/"
   url "https://github.com/kubernetes/kubernetes.git",
-      :tag => "v1.7.6",
-      :revision => "4bc5e7f9a6c25dc4c03d4d656f2cefd21540e28c"
+      :tag => "v1.8.0",
+      :revision => "0b9efaeb34a2fc51ff8e4d34ad9bc6375459c4a4"
   head "https://github.com/kubernetes/kubernetes.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a499344c006d875583820b40edb7919938e5fc1cb11571914257247d80d6a09d" => :high_sierra
-    sha256 "bc0cc306c4f81a7624a67440f78100be9bd12ecd79252757d77e14e6ed43a65f" => :sierra
-    sha256 "5a359f9fac9c6f450a22d1d458663f90078a66e710bd29d03dbe4955c08c2247" => :el_capitan
+    sha256 "f32e3efdf35b5585072762efe51ed47dd3d6cad9e7ad7be9c64e451f17e25d71" => :high_sierra
+    sha256 "72ab1e2ff27ffec9ffd9c995a882f14be557c52846ab8f713eb1140b96b1474f" => :sierra
+    sha256 "60a8c190b1e0b35e7c65d3992cc71cfa4d1231df188ed38bb8a5cc1208974684" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -37,14 +37,7 @@ class KubernetesCli < Formula
 
       # Install zsh completion
       output = Utils.popen_read("#{bin}/kubectl completion zsh")
-      # Note: The explicit header to enable auto-loading by compinit
-      # can be removed after Kubernetes 1.8.0 when kubernetes/kubernetes#50561
-      # becomes available upstream.
-      (zsh_completion/"_kubectl").write <<-EOS.undent
-        #compdef kubectl
-        #{output}
-        _complete kubectl
-      EOS
+      (zsh_completion/"_kubectl").write output
 
       # Install man pages
       # Leave this step for the end as this dirties the git tree

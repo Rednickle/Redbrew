@@ -1,17 +1,13 @@
 class Logstalgia < Formula
   desc "Web server access log visualizer with retro style"
   homepage "http://logstalgia.io/"
-  url "https://github.com/acaudwell/Logstalgia/releases/download/logstalgia-1.0.7/logstalgia-1.0.7.tar.gz"
-  sha256 "5553fd03fb7be564538fe56e871eac6e3caf56f40e8abc4602d2553964f8f0e1"
-  revision 2
+  url "https://github.com/acaudwell/Logstalgia/releases/download/logstalgia-1.0.8/logstalgia-1.0.8.tar.gz"
+  sha256 "32e05fc601d48993749665e47d553ae8ab2190c7ec5350c1fe562fcf9638388a"
 
   bottle do
-    rebuild 1
-    sha256 "e3c15e1e7c682bc3a186202a6f868b396371d7f4517c25574329ecd3ccb95cf4" => :high_sierra
-    sha256 "d075772d62ab3bfd0816dc0aaa9bfff86277b6d590fabb1e1ede7213f5fc5d80" => :sierra
-    sha256 "529e9f890e9fe1dda35ed4318499aa02c2254d05c22d9e4d93f3b08f17539fd9" => :el_capitan
-    sha256 "69f55d7dd17d0f601e6ed520f1715402e209ac9bddfda4acb610ad61b1c2c851" => :yosemite
-    sha256 "c9b5d22f174cfa3e33be73801973f71241ba085ea9afa1718879533b1995901b" => :x86_64_linux # glibc 2.19
+    sha256 "57cee03375921c5d1cab999a217bfc8dcb551d3f643708d61550a380cc9b22c9" => :high_sierra
+    sha256 "f9b7f68acc5ffbb3eadad8510a5a86e7b9883506c30c2866aac8f58636509835" => :sierra
+    sha256 "bdfd5eef17767bf73128d3530191c81b1a5345bbf1b6f46341e745c0acda4215" => :el_capitan
   end
 
   head do
