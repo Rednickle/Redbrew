@@ -1,20 +1,18 @@
 require "language/go"
 
-class GitlabCiMultiRunner < Formula
+class GitlabRunner < Formula
   desc "The official GitLab CI runner written in Go"
-  homepage "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner"
-  url "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git",
-      :tag => "v9.5.0",
-      :revision => "413da38a72634601bf435f6215d6669cd5a4e40e"
-  head "https://gitlab.com/gitlab-org/gitlab-ci-multi-runner.git"
+  homepage "https://gitlab.com/gitlab-org/gitlab-runner"
+  url "https://gitlab.com/gitlab-org/gitlab-runner.git",
+      :tag => "v10.0.0",
+      :revision => "2055cfdc9ab6a2ba5aa3a84fe14372cd214e08db"
+  head "https://gitlab.com/gitlab-org/gitlab-runner.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "96b7bb2bac51c8494bc760291803846e140a2761e23e48b8b555e39bb2cbfc64" => :high_sierra
-    sha256 "3b5f6024763210b3f83a187ff903ded10051c29a974b53d19d74479dfc8df573" => :sierra
-    sha256 "810a9b4c7edd299bfc61ad44ceba7208c4e127e44baf778858a6f1af1500d4f8" => :el_capitan
-    sha256 "9e7473da8fd43a3025904ff09b2f95eb580d33f0e20c13d909888c2f1a94a768" => :yosemite
-    sha256 "2dad66dc1ac692fe276b4604000136519d162a30f469d1ab93f3ea18352fd339" => :x86_64_linux # glibc 2.19
+    sha256 "8ce3f395f542c5abb98e9ab34014ee86f791287c11bec8a774cf22f94bfbeb38" => :high_sierra
+    sha256 "acb74e44d98d45fda10816b30f2bed34075162978e374d1f11148eeaddf19e64" => :sierra
+    sha256 "a3a7f46a1e240cfecaec968020da021450fad8bd5a8625a43b07ae685791c02d" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -26,22 +24,22 @@ class GitlabCiMultiRunner < Formula
   end
 
   resource "prebuilt-x86_64.tar.xz" do
-    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v9.5.0/docker/prebuilt-x86_64.tar.xz",
+    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.0.0/docker/prebuilt-x86_64.tar.xz",
         :using => :nounzip
-    version "9.5.0"
-    sha256 "b771f522bb628d694fde2933fd293d4e4bfd1facf9b9650ecc940f8e6f817717"
+    version "10.0.0"
+    sha256 "9c88e6f924f14ab6802103436bb6419cc4da1c46a77f39a1bc40349abfbf2e8f"
   end
 
   resource "prebuilt-arm.tar.xz" do
-    url "https://gitlab-ci-multi-runner-downloads.s3.amazonaws.com/v9.5.0/docker/prebuilt-arm.tar.xz",
+    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.0.0/docker/prebuilt-arm.tar.xz",
         :using => :nounzip
-    version "9.5.0"
-    sha256 "12d3106afeec6eacba9771e6c08ec851c002160b0c37b6a03516f035473a9746"
+    version "10.0.0"
+    sha256 "9c56f8a58eaec81ed0da6242177672fef28ea49b784abd8e78e69b5d67cde3a7"
   end
 
   def install
     ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/gitlab.com/gitlab-org/gitlab-ci-multi-runner"
+    dir = buildpath/"src/gitlab.com/gitlab-org/gitlab-runner"
     dir.install buildpath.children
     ENV.prepend_create_path "PATH", buildpath/"bin"
     Language::Go.stage_deps resources, buildpath/"src"
@@ -59,25 +57,24 @@ class GitlabCiMultiRunner < Formula
                            "prebuilt-x86_64.tar.xz",
                            "prebuilt-arm.tar.xz"
 
-      proj = "gitlab.com/gitlab-org/gitlab-ci-multi-runner"
+      proj = "gitlab.com/gitlab-org/gitlab-runner"
       commit = Utils.popen_read("git", "rev-parse", "--short", "HEAD").chomp
       branch = version.to_s.split(".")[0..1].join("-") + "-stable"
       built = Time.new.strftime("%Y-%m-%dT%H:%M:%S%:z")
       system "go", "build", "-ldflags", <<-EOS.undent
-             -X #{proj}/common.NAME=gitlab-ci-multi-runner
+             -X #{proj}/common.NAME=gitlab-runner
              -X #{proj}/common.VERSION=#{version}
              -X #{proj}/common.REVISION=#{commit}
              -X #{proj}/common.BRANCH=#{branch}
              -X #{proj}/common.BUILT=#{built}
       EOS
 
-      bin.install "gitlab-ci-multi-runner"
-      bin.install_symlink bin/"gitlab-ci-multi-runner" => "gitlab-runner"
+      bin.install "gitlab-runner"
       prefix.install_metafiles
     end
   end
 
-  plist_options :manual => "gitlab-ci-multi-runner start"
+  plist_options :manual => "gitlab-runner start"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
@@ -92,7 +89,7 @@ class GitlabCiMultiRunner < Formula
         <string>#{plist_name}</string>
         <key>ProgramArguments</key>
         <array>
-          <string>#{opt_bin}/gitlab-ci-multi-runner</string>
+          <string>#{opt_bin}/gitlab-runner</string>
           <string>run</string>
           <string>--working-directory</string>
           <string>#{ENV["HOME"]}</string>

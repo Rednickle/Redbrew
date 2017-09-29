@@ -43,6 +43,11 @@ class Ghostscript < Formula
     sha256 "19d983ef6cbc0f4d342a17038feed7711bc60e00c14c76ab971b50aa50ddb94b" => :x86_64_linux # glibc 2.19
   end
 
+  devel do
+    url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs922rc1/ghostscript-9.22rc1.tar.gz"
+    sha256 "d307041c35141999f38a4da6a1e86b8bdf2ad237b2bf973c551851940ed5b09b"
+  end
+
   head do
     # Can't use shallow clone. Doing so = fatal errors.
     url "https://git.ghostscript.com/ghostpdl.git", :shallow => false
