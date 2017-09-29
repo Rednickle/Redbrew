@@ -4,16 +4,15 @@ class GitlabRunner < Formula
   desc "The official GitLab CI runner written in Go"
   homepage "https://gitlab.com/gitlab-org/gitlab-runner"
   url "https://gitlab.com/gitlab-org/gitlab-runner.git",
-      :tag => "v10.0.0",
-      :revision => "2055cfdc9ab6a2ba5aa3a84fe14372cd214e08db"
+      :tag => "v10.0.1",
+      :revision => "e991d1b4262d4f0ec1cfe3d7f5b7de2e91aa4ddc"
   head "https://gitlab.com/gitlab-org/gitlab-runner.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8ce3f395f542c5abb98e9ab34014ee86f791287c11bec8a774cf22f94bfbeb38" => :high_sierra
-    sha256 "acb74e44d98d45fda10816b30f2bed34075162978e374d1f11148eeaddf19e64" => :sierra
-    sha256 "a3a7f46a1e240cfecaec968020da021450fad8bd5a8625a43b07ae685791c02d" => :el_capitan
-    sha256 "a0ad006d59d330831e91276b3ccbb5694c50d6912193a657ff338446f822d621" => :x86_64_linux
+    sha256 "fad02c7eb1e464927cac93a288e6190004ab428e2ed8089c1c4f32024262b3a3" => :high_sierra
+    sha256 "0ce1faef4c4b3a3682ee4d17a814eedc1de289d8c946b14cda94d51769b1e1cc" => :sierra
+    sha256 "fe502ae7e210d0ef0545fc9df625f551ac2e49f05d73017e8dd8d5bb0ee0e6d7" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -25,17 +24,17 @@ class GitlabRunner < Formula
   end
 
   resource "prebuilt-x86_64.tar.xz" do
-    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.0.0/docker/prebuilt-x86_64.tar.xz",
+    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.0.1/docker/prebuilt-x86_64.tar.xz",
         :using => :nounzip
-    version "10.0.0"
-    sha256 "9c88e6f924f14ab6802103436bb6419cc4da1c46a77f39a1bc40349abfbf2e8f"
+    version "10.0.1"
+    sha256 "7e087f61ead5f2d8ffd9344816effb081a86e7c1ca7328c13ffda922b59ad171"
   end
 
   resource "prebuilt-arm.tar.xz" do
-    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.0.0/docker/prebuilt-arm.tar.xz",
+    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.0.1/docker/prebuilt-arm.tar.xz",
         :using => :nounzip
-    version "10.0.0"
-    sha256 "9c56f8a58eaec81ed0da6242177672fef28ea49b784abd8e78e69b5d67cde3a7"
+    version "10.0.1"
+    sha256 "21d3f2704d876d25c896ac51a7da0b1a9b1ed8aea4a59a342d9a5937be10f4cf"
   end
 
   def install

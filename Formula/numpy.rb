@@ -1,24 +1,21 @@
 class Numpy < Formula
   desc "Package for scientific computing with Python"
   homepage "http://www.numpy.org"
-  url "https://files.pythonhosted.org/packages/c0/3a/40967d9f5675fbb097ffec170f59c2ba19fc96373e73ad47c2cae9a30aed/numpy-1.13.1.zip"
-  sha256 "c9b0283776085cb2804efff73e9955ca279ba4edafd58d3ead70b61d209c4fbb"
-  revision (OS.mac? ? 1 : 2)
+  url "https://files.pythonhosted.org/packages/b9/33/c64cb1d2f447727cb687f0a4ac12cdcd7dd5cae8db73a548b41b2284b08a/numpy-1.13.2.zip"
+  sha256 "90ceeb683d69ef86cb424818d0bff7597b2a8d05f459679cf43d243c4442b8ba"
 
   bottle do
-    sha256 "999689e3fe0f63cd4c4142fcf58e722b8abd544e80d40796be7e826dc5cfb976" => :high_sierra
-    sha256 "936fecb5154bd0e12d7f136468718e799bd4085b69d2e99bb3358be7e6cd658b" => :sierra
-    sha256 "93f36c7114c91d205dca6f473745ac9d53b15c70cebde6e7fec3f796a9f8d98f" => :el_capitan
-    sha256 "bd5c8a0ba531d9b194c48e16317f8b4f9c4f7f298c5824cd1f7876611acabb3c" => :yosemite
-    sha256 "779316c7f7f926f26c29dac38034d5d420df61ac79792e3f35f898f707087e93" => :x86_64_linux # glibc 2.19
+    sha256 "44b42ff9b9adcb0b1529568174fdb943737403df45ad0f743d6a74757caad183" => :high_sierra
+    sha256 "2b07c8f8a10351deafeb6e8d3bb7a667a02e93d4b7d17545c3c318118c1fae22" => :sierra
+    sha256 "6347719f2b90ad714e2e4f63820d224a9505ccd97abe04fe47435126bcd20df8" => :el_capitan
   end
 
   head do
     url "https://github.com/numpy/numpy.git"
 
     resource "Cython" do
-      url "https://files.pythonhosted.org/packages/10/d5/753d2cb5073a9f4329d1ffed1de30b0458821780af8fdd8ba1ad5adb6f62/Cython-0.26.tar.gz"
-      sha256 "4c24e2c22ddaed624d35229dc5db25049e9e225c6f64f3364326836cad8f2c66"
+      url "https://files.pythonhosted.org/packages/94/63/f54920c2ddbe3e1341a4c268f7091bf1bf53c3d84f4b115aa5beea64aef9/Cython-0.27.tar.gz"
+      sha256 "b932b5194e87a8b853d493dc1b46e38632d6846a86f55b8346eb9c6ec3bdc00b"
     end
   end
 
