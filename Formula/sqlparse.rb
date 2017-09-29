@@ -11,6 +11,7 @@ class Sqlparse < Formula
     sha256 "e4ec0cc5f8d0b388deee1a472d90dc3007f97ea34f5850e103b72fd3861242fa" => :high_sierra
     sha256 "81b99b0f9d66e749b781faaf3beabf199a9381ada9723bb2ef1ebb1b80240154" => :sierra
     sha256 "7155f5eca1b0f127a1f82846842c50e540460093ebc0b6735b724979594b6a06" => :el_capitan
+    sha256 "751c7f91872aa85068a5a6711ab49ea12f2304f085a4e8446ac150262baa2265" => :x86_64_linux
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
