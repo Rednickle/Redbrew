@@ -10,6 +10,7 @@ class Afuse < Formula
     sha256 "900e55a47834181f518e87e7cbaaf0f3f078b0d40631ffccfc776e82c7c61f87" => :sierra
     sha256 "a4c0f86a179ca8c5d1e3977ff167dbcd1abff4ec1ee17fd5700a3fb602c781a3" => :el_capitan
     sha256 "2a57c7752c7b461f6b628a1c30e845fe13685eab394d933e8da3aebf7102ae9c" => :yosemite
+    sha256 "665941554de04597c0d573ce254e81b956159d3266de707316a1f5d0933ea24c" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
