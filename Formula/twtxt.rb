@@ -9,6 +9,7 @@ class Twtxt < Formula
     sha256 "2acd447c2233ff8820270c546b79eb22b3aeb6034dabc58198934115e797e261" => :high_sierra
     sha256 "58c726382f159731b92891a8d19b5860a6d4f057d28856896b4de9343bb86666" => :sierra
     sha256 "7875855c0b5ba87335d6bb76dc900604b215fccce80156eacdbc81b9ee555c8c" => :el_capitan
+    sha256 "9ab844b208602e3689a9f1cb164d3d59d538e1f9b13366460823e91cc4851d8c" => :x86_64_linux
   end
 
   depends_on :python3
