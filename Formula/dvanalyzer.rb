@@ -10,6 +10,7 @@ class Dvanalyzer < Formula
     sha256 "59667b7174026e959f123ebbf8f8e30559dabb70814565f8bec8316c4b9c02b1" => :high_sierra
     sha256 "fb066074dde3b6e94ba30bf37bc85c2e17ef30a7e2b8f874b1a09f3aca2275f7" => :sierra
     sha256 "0e138c105a1f4604dbb4b7c911e83c660f2078cb24af6ba0ba12564a6e93d9c0" => :el_capitan
+    sha256 "8fb153dacbee299079b32dc7f85c9d8d832e9e691a82d87719cdfe66bd6b9061" => :x86_64_linux
   end
 
   def install
