@@ -10,6 +10,7 @@ class Twemcache < Formula
     sha256 "7992ac700ca1044335e84a77d09152b2b4a214dd595064f462049dd0ad65d92e" => :high_sierra
     sha256 "cd20b77b8e04478fb459fcd3b31bb49f4c6015362420b8ffd726305af9763895" => :sierra
     sha256 "fd57a26c75cb67d097894a9c757bd50b2799b1a6e8ba20510345a1f1ef5eee61" => :el_capitan
+    sha256 "a8e3738ed8405dfefbaced33ab66472f9da64488eb2f3ab72db95e8f309c2620" => :x86_64_linux
   end
 
   option "with-debug", "Debug mode with assertion panics enabled"
