@@ -9,6 +9,7 @@ class Libsmi < Formula
     sha256 "8c1bba9799c48d5b977dafbbd31a61722cb0aea36c478720cbd67a240b3d42cc" => :high_sierra
     sha256 "92f1085c6337464387892efd275acf3b0eba9947a07ff353d4b02e16f912bce4" => :sierra
     sha256 "bf050ac873b082e36bfb280cd2325c00bc679b54be6ece47d0bfd1135ae7a872" => :el_capitan
+    sha256 "17cbe1247e9f01611b25b546b6343bc5e0c7f5cdb167fb663a822b830c0cfcec" => :x86_64_linux
   end
 
   def install
