@@ -1,17 +1,15 @@
 class Etcd < Formula
   desc "Key value store for shared configuration and service discovery"
   homepage "https://github.com/coreos/etcd"
-  url "https://github.com/coreos/etcd/archive/v3.2.7.tar.gz"
-  sha256 "b91a40102b944ba8e4dad439721c7068eccbc1d0cb0e7f2ded9dad134d2875ce"
+  url "https://github.com/coreos/etcd/archive/v3.2.8.tar.gz"
+  sha256 "800dff80c28fdcf753d8819f0a531ad974742e204489ad0050e2601fd1379ee8"
   head "https://github.com/coreos/etcd.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "237f40262debee967ca6487de2bb0f9dec39480496b5ee671505cee40d3e0a6f" => :high_sierra
-    sha256 "8245f62c4af1c66720226aa29a7f02824e52d7ca330bd33bf7cdc6b9c5f8cdaa" => :sierra
-    sha256 "4504914d52f6e55f9144cb5143f5f104305405bd7cad87c9813e7ff882e72844" => :el_capitan
-    sha256 "89e310f706e6af8e39222d7b93736db3f23192a7e51efa59eb64a0142122a7d8" => :yosemite
-    sha256 "dfd9f85d71d244daaedb70e95a119251cbcdbb7d6495462755f211337f6fd5bc" => :x86_64_linux
+    sha256 "b4e6e542ca128b3e0ad8103dd279e60427b8269e7f9ac2e0275938d11469a6e8" => :high_sierra
+    sha256 "365df8c1ad176fa7e2850b3f513cdf277e6fad8d806f26f99c01f07d057e42b9" => :sierra
+    sha256 "7846055325e39bf34f8b08ea75b600d2879ebf3d3cf1c48ab2ae20c31e5db47d" => :el_capitan
   end
 
   depends_on "go" => :build
