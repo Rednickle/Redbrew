@@ -6,9 +6,11 @@ class Gdcm < Formula
   revision 1
 
   bottle do
+    cellar :any_skip_relocation
     sha256 "3fd15851c093b4e0c2481233268e41614b26dde24aa2c13f9107402ae8bf2ddd" => :high_sierra
     sha256 "4fad6b9761ca2ab4c9b26b418d57ef26f2dd19bebb77a658b5b5aadda0212098" => :sierra
     sha256 "dbfbcaa31ceaedc98985614899601f771e951cbd6c115223082ab73ef111f231" => :el_capitan
+    sha256 "64b75dcdc6f4bb909162c81668500a5d31f00e630acac7e790695dd494d6f826" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
