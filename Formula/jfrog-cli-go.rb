@@ -1,16 +1,14 @@
 class JfrogCliGo < Formula
   desc "Command-line interface for Jfrog Artifactory and Bintray"
   homepage "https://github.com/JFrogDev/jfrog-cli-go"
-  url "https://github.com/JFrogDev/jfrog-cli-go/archive/1.10.3.tar.gz"
-  sha256 "4a0bc9366e5decaa770f58c06e20a0a78ac6357eb4fdd6816edb28602e2a58ac"
+  url "https://github.com/JFrogDev/jfrog-cli-go/archive/1.11.0.tar.gz"
+  sha256 "7e743d6a203a36bcc2b799412e601963a7c69b13283d5f3de8327492b3f86085"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "91d084f32c3e2362eb19305ada0eff36185e4a380c2ade587d4df892d63469e1" => :high_sierra
-    sha256 "8a56c17abae144f59821f04f837fea1529ab2ec6e22df7c83254083592cc5848" => :sierra
-    sha256 "27072ca98e5592f2201e402e14cf5d27b60d1030bc2922b7eaa0641953ca601a" => :el_capitan
-    sha256 "887079198d50d118194add5c7e23bfcb91afcbb3a67ac07a13b5225f54468090" => :yosemite
-    sha256 "a757bb89291187f20043b3744afc4974298046e05a1ae2374a7236ffa6bca367" => :x86_64_linux
+    sha256 "c23797f601d8d837c8ce32e44e3128985e3aed2c3e63d0915b37953d27ad648b" => :high_sierra
+    sha256 "b7f691574c4170a57faf529565017834c39b78ebb7c95181c2ca2a621bb3fe99" => :sierra
+    sha256 "71dc936601261d8f643610b3e9d91096c48fb89a102329b863d557ba4bb0b29f" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -19,7 +17,7 @@ class JfrogCliGo < Formula
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/jfrogdev/jfrog-cli-go").install Dir["*"]
     cd "src/github.com/jfrogdev/jfrog-cli-go" do
-      system "go", "build", "-o", bin/"jfrog", "jfrog/main.go"
+      system "go", "build", "-o", bin/"jfrog", "jfrog-cli/jfrog/main.go"
       prefix.install_metafiles
     end
   end
