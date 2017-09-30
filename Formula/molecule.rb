@@ -8,11 +8,10 @@ class Molecule < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "abbcd44fb7c2ce7258a0622c9f33bf0a235b2f60a39ffd3399b4e1c48f90773f" => :sierra
-    sha256 "8158a0e0b04210df50374c6bc8ecdb9eb6dfdf21ed366b07f5189cc6b86cca39" => :el_capitan
-    sha256 "97e8946334422df187c1fa5965184e856ce6f129028bbef2f2b6d22144977929" => :yosemite
-    sha256 "f64cebef522625fb6e6d80974e4d6ee2f9fde7c7c7f89ed7b55f30f54d425c02" => :x86_64_linux # glibc 2.19
+    rebuild 2
+    sha256 "bb2c94a0b78cadbf9ddd9ace48f479a7fb9ab69fe2300ecd730c620dfc111165" => :high_sierra
+    sha256 "23e417ecf65861515498f99ce76b31f474b8e3f089c7dcc4e0643d1bc94b96e0" => :sierra
+    sha256 "1b1e618a6f47580ab6badf747ffd8bb7dd68d9f4c4fe2a2b5e6e60f4ff93e35c" => :el_capitan
   end
 
   depends_on :python
@@ -63,8 +62,8 @@ class Molecule < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/a1/32/e3d6c3a8b5461b903651dd6ce958ed03c093d2e00128e3f33ea69f1d7965/cffi-1.9.1.tar.gz"
-    sha256 "563e0bd53fda03c151573217b3a49b3abad8813de9dd0632e10090f6190fdaf8"
+    url "https://files.pythonhosted.org/packages/4e/32/4070bdf32812c89eb635c80880a5caa2e0189aa7999994c265577e5154f3/cffi-1.11.0.tar.gz"
+    sha256 "5f4ff33371c6969b39b293d9771ee91e81d26f9129be093ca1b7be357fcefd15"
   end
 
   resource "chardet" do
@@ -93,8 +92,8 @@ class Molecule < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/81/fb/97d649657687d483753880cf663cf78015e1b8fb495d565feb49f1d56a24/cryptography-1.8.2.tar.gz"
-    sha256 "8e88ebac371a388024dab3ccf393bf3c1790d21bc3c299d5a6f9f83fb823beda"
+    url "https://files.pythonhosted.org/packages/9c/1a/0fc8cffb04582f9ffca61b15b0681cf2e8588438e55f61403eb9880bd8e0/cryptography-2.0.3.tar.gz"
+    sha256 "d04bb2425086c3fe86f7bc48915290b13e798497839fbb18ab7f6dffcf98cc3a"
   end
 
   resource "docker-py" do
