@@ -1,15 +1,15 @@
 class Root < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern.ch"
-  url "https://root.cern.ch/download/root_v6.10.04.source.tar.gz"
-  version "6.10.04"
-  sha256 "461bde21d78608422310f04c599e84ce8dfbdd91caf12c2a54db6c01f8228f5b"
+  url "https://root.cern.ch/download/root_v6.10.06.source.tar.gz"
+  version "6.10.06"
+  sha256 "02ba62b2a732f4f8d7beecb29556545cc30d122bc87da904473de69a8972ed74"
   head "http://root.cern.ch/git/root.git"
 
   bottle do
-    sha256 "670fb1844918af34669436dc9c2e503dfb6f7b43c1d959495fe73235f3eda8d0" => :sierra
-    sha256 "1c6406fb816573f8bf640ce13f1d74ff22df4aa4426139eaeba07abbfc63fc9f" => :el_capitan
-    sha256 "d4783e3fa16a01a570d58c545501524f826d9d6ad72be773010800b9695759b1" => :yosemite
+    sha256 "d7b475b07c9b70ed7d2ed3d54a339dcdf977ccabe8ca02f19a10964cf114ba6a" => :high_sierra
+    sha256 "e34e041f0204a3361e8c84519cbb18675f1efd89bbc806d0c4a062aedb317d99" => :sierra
+    sha256 "27072e27a0af013c7daf578244ff029a6c51eedcdbabf58356e2a19c62873bc0" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -26,7 +26,28 @@ class Root < Formula
 
   skip_clean "bin"
 
+  # 3 upstream commits that fix compilation with Xcode 9
+  if DevelopmentTools.clang_build_version >= 900
+    patch do
+      url "https://github.com/root-project/root/commit/26350842.patch?full_index=1"
+      sha256 "27d29c775d8c8100ebd7f206eeb8364a30015f39a1af1a00203ef80ff1a04cd9"
+    end
+
+    patch do
+      url "https://github.com/root-project/root/commit/9339de9e.patch?full_index=1"
+      sha256 "f7386c626fcc64791cfcbe35a0efc10c245c10e4f0547687334592da70c99ab5"
+    end
+
+    patch do
+      url "https://github.com/root-project/root/commit/7d585604.patch?full_index=1"
+      sha256 "3ff15aa6f15621d14d07de06ed4e31f901d07da54695fae1948dba5e2884fc8f"
+    end
+  end
+
   def install
+    # Work around "error: no member named 'signbit' in the global namespace"
+    ENV.delete("SDKROOT") if DevelopmentTools.clang_build_version >= 900
+
     args = std_cmake_args + %W[
       -Dgnuinstall=ON
       -DCMAKE_INSTALL_ELISPDIR=#{share}/emacs/site-lisp/#{name}
@@ -71,7 +92,16 @@ class Root < Formula
 
     mkdir "builddir" do
       system "cmake", "..", *args
-      system "make", "install"
+
+      # Work around superenv stripping out isysroot leading to errors with
+      # libsystem_symptoms.dylib (only available on >= 10.12) and
+      # libsystem_darwin.dylib (only available on >= 10.13)
+      if MacOS.version < :high_sierra
+        system "xcrun", "make", "install"
+      else
+        system "make", "install"
+      end
+
       chmod 0755, Dir[bin/"*.*sh"]
     end
   end
