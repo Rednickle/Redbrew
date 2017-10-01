@@ -22,7 +22,7 @@ class Libssh2 < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "openssl" => :recommended
+  depends_on "openssl"
 
   def install
     args = %W[
