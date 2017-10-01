@@ -13,6 +13,7 @@ class Hledger < Formula
     sha256 "126f06d1834f603f412ae656c28dc2ecdf6adaa6bdbc55154def1f87bbf46814" => :high_sierra
     sha256 "67cf9c8b5ba330902abc89484de6bb78b863471a6d7afa64a32d5b2cbdba0275" => :sierra
     sha256 "a4d14f951b5eb3265229c3cb6c33080d29e5fa1360db9c1878460c39183e57b6" => :el_capitan
+    sha256 "ef3a2626fd6985b1e82848bb1bc22d14a48e00d2a52ed85a7b4dfed57f45667f" => :x86_64_linux
   end
 
   depends_on "ghc" => :build
