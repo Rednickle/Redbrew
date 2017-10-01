@@ -6,16 +6,15 @@ class Python3 < Formula
   head "https://github.com/python/cpython", :using => :git
 
   bottle do
-    sha256 "be2eb6bebbeab99df1a20b7a04233d5310cac5c70c086a17cf3604718b3d6f26" => :high_sierra
-    sha256 "a0cde735f5c8e959d09ef9077dc18be2f84db8ec0bdccf99828d991c0f24688f" => :sierra
-    sha256 "59f5676f3263d26f0d2b73988a60ce30d188d66b8fe7fe141f08b315c3939efd" => :el_capitan
-    sha256 "3bf948638b7b0de06d7ce0d03ef035cd558929b330e8513e6ecee70390b06cc1" => :yosemite
-    sha256 "fe0c3671c74611bcc76581539ad1458242b0249e33cf9fc2160d0c8aec97c7b5" => :x86_64_linux # glibc 2.19
+    rebuild 1
+    sha256 "cfcb5a2094e0318bc6b0585658250dc26b37260c5b3c9225578f7bfd1dbac8fc" => :high_sierra
+    sha256 "a2bf378319e452223331b951b14d209f3798db227415c92fb0f89865e48e1a21" => :sierra
+    sha256 "ddf221e8fe138eaaab3a78cff4f72606c73c29d7e30f0047d49c4684da047a77" => :el_capitan
   end
 
   devel do
-    url "https://www.python.org/ftp/python/3.6.2/Python-3.6.2rc1.tar.xz"
-    sha256 "16bd96ec3e26365a110d8fd9f582f9123edf9cca04a65c5304c91f524129ca05"
+    url "https://www.python.org/ftp/python/3.7.0/Python-3.7.0a1.tar.xz"
+    sha256 "aab053dc3c23b829c60e973ce5972c4e58ffb5e26210acc26611e0d766a06eea"
   end
 
   option "with-tcl-tk", "Use Homebrew's Tk instead of macOS Tk (has optional Cocoa and threads support)"
@@ -45,8 +44,8 @@ class Python3 < Formula
   skip_clean "bin/easy_install3", "bin/easy_install-3.4", "bin/easy_install-3.5", "bin/easy_install-3.6"
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/87/1a/33d3d05569e857c5c5cc3e90d197bf4d9696dc740a05f66a09599d66e5bd/setuptools-32.2.0.zip"
-    sha256 "634313924fd186a2be0489c96965f5a909b666bd652eb3e16724913c707ec33f"
+    url "https://files.pythonhosted.org/packages/a4/c8/9a7a47f683d54d83f648d37c3e180317f80dc126a304c45dc6663246233a/setuptools-36.5.0.zip"
+    sha256 "ce2007c1cea3359870b80657d634253a0765b0c7dc5a988d77ba803fc86f2c64"
   end
 
   resource "pip" do
@@ -55,8 +54,8 @@ class Python3 < Formula
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/c9/1d/bd19e691fd4cfe908c76c429fe6e4436c9e83583c4414b54f6c85471954a/wheel-0.29.0.tar.gz"
-    sha256 "1ebb8ad7e26b448e9caa4773d2357849bf80ff9e313964bcaf79cbf0201a1648"
+    url "https://files.pythonhosted.org/packages/fa/b4/f9886517624a4dcb81a1d766f68034344b7565db69f13d52697222daeb72/wheel-0.30.0.tar.gz"
+    sha256 "9515fe0a94e823fd90b08d22de45d7bde57c90edce705b22f5e1ecf7e1b653c8"
   end
 
   fails_with :clang do
