@@ -9,6 +9,7 @@ class Sbcl < Formula
     sha256 "a5843166c72ff4ffb275691d2736a2d3c04cee6d70cbc8639955e941cb91edeb" => :high_sierra
     sha256 "db621045a92096aff0faf660b82d76326b47ed162cf4a887ea18e0dc7d44c085" => :sierra
     sha256 "ada112e0d4f3f3977f368527f77a3463a4d374cd5630ebf80707c5ba99b072f4" => :el_capitan
+    sha256 "3491fc0494b770865454d7a35f9c8adedb245c283a6905ede777d1a1833f7f52" => :x86_64_linux
   end
 
   option "with-internal-xref", "Include XREF information for SBCL internals (increases core size by 5-6MB)"
