@@ -1,17 +1,15 @@
 class GetIplayer < Formula
   desc "Utility for downloading TV and radio programmes from BBC iPlayer"
   homepage "https://github.com/get-iplayer/get_iplayer"
-  url "https://github.com/get-iplayer/get_iplayer/archive/v3.02.tar.gz"
-  sha256 "45f38f25ea03d089523c0a4ecdc6905f1980e32e0df3bc922bad1bb282894675"
+  url "https://github.com/get-iplayer/get_iplayer/archive/v3.03.tar.gz"
+  sha256 "1c0eb9e56b6517eb35fe6006fda08b809dfefaea2d4f38b34e517a06176a7364"
   head "https://github.com/get-iplayer/get_iplayer.git", :branch => "develop"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1b0a08bfc130b21c45356248b11a66d6a6dc2b6c1f5739a387f3b69d073b2220" => :high_sierra
-    sha256 "25b0b4c1deb8ee39f528fc81ca1c436d6ee16b9b5f4764a9eff8ecffff22fd22" => :sierra
-    sha256 "25b0b4c1deb8ee39f528fc81ca1c436d6ee16b9b5f4764a9eff8ecffff22fd22" => :el_capitan
-    sha256 "9430c06cc056ce2f7b474bed1e199e4d3ddaa648e2ce611dcf2828be24cb89ed" => :yosemite
-    sha256 "3ef36e62c67c412d57025a9a61dc84f2370bbe6583820aeda9e6399de478b2c7" => :x86_64_linux # glibc 2.19
+    sha256 "f2057da46a8a9bed1481cc661d61f7e9fe90f3c9d90318ba6e5e65075f787f8b" => :high_sierra
+    sha256 "83c27ed70acc0303f9a7dcc47fc7fbfe6aa32139c1dee27c77037b53d7729519" => :sierra
+    sha256 "caa77d9b5cb627580b628261a15248a67a49a74d33fd42541081a7aea185710d" => :el_capitan
   end
 
   depends_on "atomicparsley" => :recommended
@@ -25,8 +23,8 @@ class GetIplayer < Formula
   end
 
   resource "Mojolicious" do
-    url "https://cpan.metacpan.org/authors/id/S/SR/SRI/Mojolicious-7.43.tar.gz"
-    sha256 "ca177da7b0c1e2a31a1880c4a06afbbd1ada1da57146bfa030b7912a3d608b5e"
+    url "https://cpan.metacpan.org/authors/id/S/SR/SRI/Mojolicious-7.46.tar.gz"
+    sha256 "86212646e4859ddb2e003360dd5658bda6b2552202e5361908a27330c2747646"
   end
 
   def install
@@ -53,7 +51,7 @@ class GetIplayer < Formula
     output = shell_output("\"#{bin}/get_iplayer\" --refresh --refresh-include=\"BBC None\" --quiet dontshowanymatches 2>&1")
     assert_match "get_iplayer #{pkg_version}-homebrew", output, "Unexpected version"
     assert_match "INFO: 0 matching programmes", output, "Unexpected output"
-    assert_match "INFO: Using concurrent indexing", output,
+    assert_match "INFO: Indexing tv programmes (concurrent)", output,
                          "Mojolicious not found"
   end
 end
