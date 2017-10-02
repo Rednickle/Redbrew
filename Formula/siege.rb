@@ -8,6 +8,7 @@ class Siege < Formula
     sha256 "a5e4990ab448ec37e9e5e7b392a7bf6aee03313bad6d89c6fda45decd4ddecf4" => :high_sierra
     sha256 "84ad0232db938f558c2ad57b5c61382b136483c3d4f106f6fcea7e647d2b9982" => :sierra
     sha256 "4ffac4100438cc7d6784a64774770ffe219bf330e96890c77eb012bab0f02ba5" => :el_capitan
+    sha256 "baa821f8f559ac657e63778e3cdc51e6eb2f7982afb59a742ea435b620a15658" => :x86_64_linux
   end
 
   depends_on "openssl"
