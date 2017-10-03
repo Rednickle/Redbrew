@@ -10,6 +10,7 @@ class Googler < Formula
     sha256 "bf8468d63558338aff15cba95770d788976468e4fbdf2cc2e71d04f826d7b142" => :high_sierra
     sha256 "bf8468d63558338aff15cba95770d788976468e4fbdf2cc2e71d04f826d7b142" => :sierra
     sha256 "bf8468d63558338aff15cba95770d788976468e4fbdf2cc2e71d04f826d7b142" => :el_capitan
+    sha256 "74fb9011cdd468da698af475e47ceb59b6760886294aac13c8768742aae08d32" => :x86_64_linux
   end
 
   depends_on :python3
