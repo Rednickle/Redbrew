@@ -10,6 +10,7 @@ class Bento4 < Formula
     sha256 "d787cb4572295b9f28af0b1adb928526b5119dd0ed59cb756180264614db63b1" => :high_sierra
     sha256 "f0c08300eecef32c759169ad70d1eec5d6c6cbb5fd1adb57fa2059baaca974bb" => :sierra
     sha256 "ca87f6c11a24d18d09fc87d96b0c67e5ee43516468432126cca79ac091005b4b" => :el_capitan
+    sha256 "0058cc52e8b8319283793924b0c814f88d4901935c19b472f465610fc0bd0239" => :x86_64_linux
   end
 
   conflicts_with "gpac", :because => "both install `mp42ts` binaries"
