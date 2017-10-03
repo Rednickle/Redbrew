@@ -10,6 +10,7 @@ class Minisign < Formula
     sha256 "a970943a3b17e6ba9550af0eaad04f85323cf3cc48c8c251e8aec5ef313246f0" => :high_sierra
     sha256 "d59b465ca65ca6379891aca251945ca46ac6377439ff46be05881c505d99c14c" => :sierra
     sha256 "f80d1749268802ec6a71e91bd45a7d54e3db4b186ad353b85054e4940427d552" => :el_capitan
+    sha256 "ea84ebdbefd039a400fc388c65a69c72ec301aad96a7060a6d6e6d608b473624" => :x86_64_linux
   end
 
   depends_on "libsodium"
