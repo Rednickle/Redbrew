@@ -3,15 +3,13 @@ class Fwup < Formula
   homepage "https://github.com/fhunleth/fwup"
   url "https://github.com/fhunleth/fwup/releases/download/v0.15.4/fwup-0.15.4.tar.gz"
   sha256 "0594ae5dd1014a610881b21289a8415c8b78ea012d2a5567d57f986625669167"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "a2692d08a3908d069bd564d1062b85e647c4915054997b2df6986dd794885564" => :high_sierra
-    sha256 "082a2a2355ccf742ee41444aa0acc53e35aa895194ba31cd9d60df2c3eff338e" => :sierra
-    sha256 "a972b47210a86cd761cfd95d00f59b29838420d387bb491410f72fad85c190cd" => :el_capitan
-    sha256 "9a2ed135cf9292c118169c698db7a0a50df45d06551a081c55553228c69c0524" => :yosemite
-    sha256 "aea10a2477f0232d70405f4ae2d2f3317ec7d80b9db3025b6e34aca6bcd19251" => :x86_64_linux # glibc 2.19
+    sha256 "15a2f61a12cf0b8f839a6d1c3c5627cfe49de9f30cb65cd7f302a9b11358a373" => :high_sierra
+    sha256 "8b620a8ac59a18782af4e6884cc2275682d8017a61aaba21207d381120cb80c4" => :sierra
+    sha256 "8585c666a1f67927196cdfe982335c590e76b22dc9845603e84ed2d514d1563e" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
