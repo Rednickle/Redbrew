@@ -12,6 +12,7 @@ class DnscryptWrapper < Formula
     sha256 "59c874097529e0452f179d7e4b28a615513e052aac90695bc0c11337488d1bca" => :high_sierra
     sha256 "1aade3b9e53552e46a05697643819e9d4b2ce0a0feea5aad91d4965d988c9831" => :sierra
     sha256 "de819d82dcafb4b28cddaf150e3773c2b65a9e1c3211a3d68b0b46c72581c8e2" => :el_capitan
+    sha256 "23442da13929034157030799d899f70a7da2e473b2995d5e4150158679e50174" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
