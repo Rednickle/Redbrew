@@ -8,6 +8,7 @@ class Baobab < Formula
     sha256 "79af97969e50a395e46f26764ac1301c604b7eaea79dc55ca6e97d0e80892709" => :high_sierra
     sha256 "9ac8b22b290f7fd9f27d186f9d830179ab8f872fac8a997f29b01b0cf8a14786" => :sierra
     sha256 "ba775ce84312519ee0da57407c63eaa29157de455ecd2cfca9bb9349ad09ba34" => :el_capitan
+    sha256 "f7968c3114fca12585ad1ade7b32157cb0f4ee26a70b4d818781a27ea11371df" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
