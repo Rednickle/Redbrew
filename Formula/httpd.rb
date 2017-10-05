@@ -3,12 +3,12 @@ class Httpd < Formula
   homepage "https://httpd.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=httpd/httpd-2.4.27.tar.bz2"
   sha256 "71fcc128238a690515bd8174d5330a5309161ef314a326ae45c7c15ed139c13a"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 "936085a3765b2f865811de1a7717f2c356da6f70bd4a9b1cf42428234092ae0e" => :high_sierra
-    sha256 "9f3f88db8996c64b68e15283ef9b63c1a80356797480049ff461b79097b88496" => :sierra
-    sha256 "b16c00dcbf6011f23843872a6d7c4bd73192ac375d0d0f95799209bb0c6a61fe" => :el_capitan
+    sha256 "49f4675c0b52a38a80a7967d4ff8a07c488e07b81f5d892be4ff610247a3e499" => :high_sierra
+    sha256 "b92c29f42107ae34dcec13a29aaf0c0957131689965dc9f61797b2eec8993984" => :sierra
+    sha256 "b5eb03e0cb735d67e23280219b7d6ea8cc1d7c43e283ae245556e6d96bb01fbf" => :el_capitan
   end
 
   depends_on "apr"
@@ -25,6 +25,9 @@ class Httpd < Formula
       "@exp_iconsdir@", "#{opt_pkgshare}/icons"
     inreplace "docs/conf/extra/httpd-multilang-errordoc.conf.in",
       "@exp_errordir@", "#{opt_pkgshare}/error"
+
+    # fix default user/group when running as root
+    inreplace "docs/conf/httpd.conf.in", /(User|Group) daemon/, "\\1 _www"
 
     # use Slackware-FHS layout as it's closest to what we want.
     # these values cannot be passed directly to configure, unfortunately.
@@ -45,6 +48,9 @@ class Httpd < Formula
                           "--enable-mpms-shared=all",
                           "--enable-mods-shared=all",
                           "--enable-pie",
+                          "--enable-suexec",
+                          "--with-suexec-bin=#{opt_bin}/suexec",
+                          "--with-suexec-caller=_www",
                           "--with-port=8080",
                           "--with-sslport=8443",
                           "--with-apr=#{Formula["apr"].opt_prefix}",
@@ -53,6 +59,9 @@ class Httpd < Formula
                           "--with-ssl=#{Formula["openssl"].opt_prefix}",
                           "--with-pcre=#{Formula["pcre"].opt_prefix}"
     system "make", "install"
+
+    # suexec does not install without root
+    bin.install "support/suexec"
 
     # remove non-executable files in bin dir (for brew audit)
     rm bin/"envvars"
@@ -83,6 +92,15 @@ class Httpd < Formula
       s.gsub! "${prefix}/lib/httpd/modules",
               "#{HOMEBREW_PREFIX}/lib/httpd/modules"
     end
+  end
+
+  def caveats
+    <<-EOS.undent
+      DocumentRoot is #{var}/www.
+
+      The default ports have been set in #{etc}/httpd/httpd.conf to 8080 and in
+      #{etc}/httpd/extra/httpd-ssl.conf to 8443 so that httpd can run without sudo.
+    EOS
   end
 
   def post_install
@@ -131,7 +149,7 @@ class Httpd < Formula
       end
       sleep 3
 
-      assert_match expected_output, shell_output("curl 127.0.0.1:8080")
+      assert_match expected_output, shell_output("curl -s 127.0.0.1:8080")
     ensure
       Process.kill("TERM", pid)
       Process.wait(pid)
