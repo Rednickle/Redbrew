@@ -5,10 +5,10 @@ class Dnsmasq < Formula
   sha256 "c92e5d78aa6353354d02aabf74590d08980bb1385d8a00b80ef9bc80430aa1dc"
 
   bottle do
-    sha256 "fa112cd1167d0375339fb1f42fa8b276af8ef926609d9cb4000da30cbc3dfc25" => :high_sierra
-    sha256 "15494091216fa563b62795bab5445add7671ba8c503d1cf051a2d38056ebd7bd" => :sierra
-    sha256 "a8edec8b6f7a08911809780906e52f7609eb3432e6a06e676ba0edd668de1735" => :el_capitan
-    sha256 "1ed6b0c0d0cc58e08417b420d8f955cef20c400f74da1eae59702993cf62b103" => :x86_64_linux
+    rebuild 1
+    sha256 "29b9a8f0b872785a893a2446098ea979a4172938aac84d4dcbc42e55ffb15e73" => :high_sierra
+    sha256 "8ec8cbc805daeeba93b450ec5c5fea02cdcc7978cf93a4e8032bb836c83c5f03" => :sierra
+    sha256 "84a562c8c0ff1a83cabfaa0bf50c9a05169715ce879c4308efbc132e66302120" => :el_capitan
   end
 
   option "with-libidn", "Compile with IDN support"
@@ -23,15 +23,6 @@ class Dnsmasq < Formula
 
   def install
     ENV.deparallelize
-
-    # Re-evaluate whether this is needed for dnsmasq > 2.77
-    # Fix __memcpy_chk crash in strcpy(cache->name.sname, canon);
-    # Reported 12 Jul 2017 to simon AT thekelleys DOT org DOT uk
-    # See https://github.com/Homebrew/homebrew-core/issues/14463
-    if MacOS.version >= :sierra
-      inreplace "src/config.h", "#define SMALLDNAME 50 ",
-                                "#define SMALLDNAME 255 "
-    end
 
     # Fix etc location
     inreplace %w[dnsmasq.conf.example src/config.h man/dnsmasq.8
