@@ -10,6 +10,7 @@ class Pdf2svg < Formula
     sha256 "c57b1efab2f8c4b9e501ed58a9e0611b972597c2d0c394f3418e28c565222b02" => :high_sierra
     sha256 "a574a847ce8935f2a211415663615622bc085ca0ea4773b5cfc84b16e65675d3" => :sierra
     sha256 "d34fb16f1ce0e44158403ad5dfcb8fc4122ae484957aee341b6f430a4c44eac3" => :el_capitan
+    sha256 "bc6e8d56ec0e15799d444a42b31535f66774ad1257daeefda96b519de4f96ffd" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
