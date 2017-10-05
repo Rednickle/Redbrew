@@ -20,6 +20,7 @@ class Zshdb < Formula
     sha256 "1cb2482a1e326d2849d1692a871704aafdf2fec05cffd0d22d2193cc1da07caf" => :high_sierra
     sha256 "1cb2482a1e326d2849d1692a871704aafdf2fec05cffd0d22d2193cc1da07caf" => :sierra
     sha256 "1cb2482a1e326d2849d1692a871704aafdf2fec05cffd0d22d2193cc1da07caf" => :el_capitan
+    sha256 "6f228ba0a12d9940dceb7966bddc8670f794fce526df9d8d5934fa079191212b" => :x86_64_linux
   end
 
   head do
