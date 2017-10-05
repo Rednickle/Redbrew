@@ -10,6 +10,7 @@ class Pdftoipe < Formula
     sha256 "e73279630e3f78e02a30bf50cf3e45e7c2c8d4cda9e666b11e7e015cbed2584f" => :high_sierra
     sha256 "97f47ec973b07866cc87be02a79f7988583bc7f70b9653729359c5becebcd05a" => :sierra
     sha256 "01885e1627554ffc6b098c78999d96a081844b14c0ad30b98d4407cceeca0cbf" => :el_capitan
+    sha256 "47128d13ef6f2d7e45a518c6d72babe0456ee4c00ba165cb9e4a2d7210b027de" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
