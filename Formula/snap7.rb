@@ -10,6 +10,7 @@ class Snap7 < Formula
     sha256 "5540f68aadc159b4a590079b1b4f06b042438f0f714456af3f5dfbfc34af47ac" => :high_sierra
     sha256 "edd667d4018983951999c21da14d1929b95a9dba2a908c88e721ad7febc2fa5d" => :sierra
     sha256 "45c77c8c6862e3c2b0840c3a32d23a95d53d73b7b35960f747a380bc5563d00e" => :el_capitan
+    sha256 "bc9440ea3c7969fe229ebf6b26baccdde4fc53604797efb1d4c602c7f21d3b69" => :x86_64_linux
   end
 
   def install
