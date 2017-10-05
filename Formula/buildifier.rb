@@ -10,6 +10,7 @@ class Buildifier < Formula
     sha256 "a486db453f4b9901d00b57395c3b0a8212e95abc9af08b4e53b2b54c115a4447" => :high_sierra
     sha256 "41977ab25b828d6a155f815eb04b06a705ef35cbe41f430f9b145c4aa1c48c41" => :sierra
     sha256 "af36ea0545473e8811915386c19d278a2be4fcdbdd9f74eaaaf9e87dac2c5821" => :el_capitan
+    sha256 "5c6a3e8a243b54dd4ffce192f3ffa3804d32db72c5dc7961821bafe54c9adae8" => :x86_64_linux
   end
 
   depends_on "go" => :build
