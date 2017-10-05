@@ -11,6 +11,7 @@ class Quex < Formula
     sha256 "d6365ec16ae1d94f38793ed9b92aae51e2bbfa8f046ecd4974bcdbddc03c324d" => :high_sierra
     sha256 "d6365ec16ae1d94f38793ed9b92aae51e2bbfa8f046ecd4974bcdbddc03c324d" => :sierra
     sha256 "d6365ec16ae1d94f38793ed9b92aae51e2bbfa8f046ecd4974bcdbddc03c324d" => :el_capitan
+    sha256 "f3ef1b93e9d939f0c5208d111d9741675ef0911e8e8ae479d71c6a93f4acb855" => :x86_64_linux
   end
 
   def install
