@@ -10,6 +10,7 @@ class Geth < Formula
     sha256 "684e166bf299f5310e92aad08adf24d1c2e79bfd2b53a6708c5e952d7b825057" => :high_sierra
     sha256 "f5bf22916a659231a2b1b9948051c4b167744e8e21fc865dacd55888f5c95a6e" => :sierra
     sha256 "05ddf156a58fab5dba3a2522e3090a38eefecb06a503b1dd3672536bb74097b4" => :el_capitan
+    sha256 "329331ba7c4fe303a539205b58117700854d8a90dfde19c3bb093a1808da6e5e" => :x86_64_linux
   end
 
   depends_on "go" => :build
