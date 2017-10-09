@@ -10,6 +10,7 @@ class Dc3dd < Formula
     sha256 "1b509e74c2a309676eefcd37fd82de1f4646395123e0cbdb38715598e2ea6fef" => :high_sierra
     sha256 "2f7f30890920cddd8b35c5b0f0c0c27fd3f4d3528e18156f8ae86ed9b144b9aa" => :sierra
     sha256 "9455b48212360afa374b22a5387604d310abb5dbfa90818d8745753b22d8a367" => :el_capitan
+    sha256 "ef2c6ef329f9dc7602cb9ac6f38b11385ad0f2768ebd756375d9ca1aab88fdf2" => :x86_64_linux
   end
 
   depends_on "gettext"
