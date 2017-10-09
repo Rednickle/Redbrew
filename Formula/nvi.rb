@@ -11,6 +11,7 @@ class Nvi < Formula
     sha256 "4ac03e9bc7afe7e7349a5c16f917d19ed3f0a27efdf71a4cf4163828232ea45b" => :high_sierra
     sha256 "c2f50939879bea71f2c5463d68b8c26abb146997fe0f8c5206fcf8bb8a958f90" => :sierra
     sha256 "c5401f6b0ad0e628ca973e902a9f59e9b5339eda80f4869dc1d183c1f4aae838" => :el_capitan
+    sha256 "cb3108fff0ecf7064004af9ae209ef01cc7f0c24906bb16cefa449e0dea4e483" => :x86_64_linux
   end
 
   depends_on "xz" => :build # Homebrew bug. Shouldn't need declaring explicitly.
