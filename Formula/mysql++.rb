@@ -10,6 +10,7 @@ class Mysqlxx < Formula
     sha256 "44549b6b92ecf8288923b6111a67c3dcf16f5ba0a0ca47f4fd38a31b99545452" => :sierra
     sha256 "1f0e3bc7e6e25924bb95113ee0cbd7c99402dc51744682258b3548c756431239" => :el_capitan
     sha256 "f9837534007c15fdf73e607ddc58c1d5c0d1d20ff2de7e2d1dea20716b823cc9" => :yosemite
+    sha256 "57ff55b11b386f925e340490b6305ec936ed9a9f58b5e04c80108cd66ae42021" => :x86_64_linux
   end
 
   depends_on :mysql
