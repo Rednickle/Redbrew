@@ -6,16 +6,31 @@ end
 class CrystalLang < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
-  url "https://github.com/crystal-lang/crystal/archive/0.23.1.tar.gz"
-  sha256 "8cf1b9a4eab29fca2f779ea186ae18f7ce444ce189c621925fa1a0c61dd5ff55"
   revision 1
-  head "https://github.com/crystal-lang/crystal.git"
+
+  stable do
+    url "https://github.com/crystal-lang/crystal/archive/0.23.1.tar.gz"
+    sha256 "8cf1b9a4eab29fca2f779ea186ae18f7ce444ce189c621925fa1a0c61dd5ff55"
+
+    resource "shards" do
+      url "https://github.com/crystal-lang/shards/archive/v0.7.1.tar.gz"
+      sha256 "31de819c66518479682ec781a39ef42c157a1a8e6e865544194534e2567cb110"
+    end
+  end
 
   bottle do
     sha256 "58e75099554b6862dba0d33f3cdecf9e5410ee37d00dcd6f3839d55b884abb7b" => :high_sierra
     sha256 "1bfb73971b5b19560264c5bf35faa43f5ff5ac4928776f2d7d21d23b1f649fac" => :sierra
     sha256 "78391956a8800ce2c2cac06bc88d3e0b64a9ec60ab822de67bd8765bade48b8a" => :el_capitan
     sha256 "95de886631dd75cffdde78319c37aa26eaafd6bd8f39dfb4e3744c3c3d321bb8" => :yosemite
+  end
+
+  head do
+    url "https://github.com/crystal-lang/crystal.git"
+
+    resource "shards" do
+      url "https://github.com/crystal-lang/shards.git"
+    end
   end
 
   option "without-release", "Do not build the compiler in release mode"
@@ -40,11 +55,6 @@ class CrystalLang < Formula
       url "https://github.com/crystal-lang/crystal/releases/download/#{version}/crystal-#{version}-1-linux-x86_64.tar.gz"
       sha256 "1d0348e1df3c56f9c29a3a76254c074846389fe5bed659c2cc1051bab83e1a5a"
     end
-  end
-
-  resource "shards" do
-    url "https://github.com/crystal-lang/shards/archive/v0.7.1.tar.gz"
-    sha256 "31de819c66518479682ec781a39ef42c157a1a8e6e865544194534e2567cb110"
   end
 
   def install
