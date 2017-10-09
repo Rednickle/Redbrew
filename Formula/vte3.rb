@@ -1,13 +1,13 @@
 class Vte3 < Formula
   desc "Terminal emulator widget used by GNOME terminal"
   homepage "https://developer.gnome.org/vte/"
-  url "https://download.gnome.org/sources/vte/0.48/vte-0.48.4.tar.xz"
-  sha256 "1030ef9a8bb9e01460a0d7db32e36872703070021ac18519712bfa90d331ab40"
+  url "https://download.gnome.org/sources/vte/0.50/vte-0.50.1.tar.xz"
+  sha256 "cf1708e3e573160e1db107014b3ef70888fefe6b668373fed70e8d1cac45a8c2"
 
   bottle do
-    sha256 "e1bb27d958d94feddb5d745921d3f392db84dda8d3a2666ac86c1695db1970e5" => :high_sierra
-    sha256 "db491ed7619230387db5156abd20f10e8b00dc5e5147a0df8b6ad553fafdcbaf" => :sierra
-    sha256 "909074f1905cada9784dcb88f4ff9ba856e54c134ff0fed388efab65cab312ef" => :el_capitan
+    sha256 "aef370f70dc0be9784f7f3a27c8b9227984bf11decea9588d5ca20848c49b3e0" => :high_sierra
+    sha256 "18c6bd3fd21bb86e250e970b4c7b2ec86746237fd409347141df5c55db5f350b" => :sierra
+    sha256 "3a4ed053662741acec0afaacfd312a4e001614ae864accf4ec7b2c4de7877194" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -18,6 +18,12 @@ class Vte3 < Formula
   depends_on "vala"
   depends_on "gobject-introspection"
   depends_on "pcre2"
+
+  # patch taken from https://bugzilla.gnome.org/show_bug.cgi?id=788476
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/6ce03e3/vte3/fix-strchrnul.patch"
+    sha256 "ea498b8233e643defda58f48d6bbadc5d334b931c0a2cf73bddc8ae222e9520e"
+  end
 
   def install
     args = [
