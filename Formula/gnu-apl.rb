@@ -10,6 +10,7 @@ class GnuApl < Formula
     sha256 "33e8f7db591cfbd0fda5b244acbf13f21e9507a6b534b9cd2735c2dc37f16424" => :high_sierra
     sha256 "1b7b6f3d268ac7f32f1d23e64be979cbf382b728c92c6e852f75b09eb19fddfb" => :sierra
     sha256 "797a920a7f564443b7a7b5c5ee065e6d6da25e2395c87dc6f1846adc3dedd109" => :el_capitan
+    sha256 "7dcabf62e707870ed092b57daaa2c8eb573d9db116e44301a90b28bae47002ff" => :x86_64_linux
   end
 
   head do
