@@ -39,7 +39,7 @@ class Menhir < Formula
     EOS
 
     system "#{bin}/menhir", "--dump", "--explain", "--infer", "test.mly"
-    assert File.exist? "test.ml"
-    assert File.exist? "test.mli"
+    assert_predicate testpath/"test.ml", :exist?
+    assert_predicate testpath/"test.mli", :exist?
   end
 end

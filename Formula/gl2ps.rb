@@ -68,6 +68,6 @@ class Gl2ps < Formula
       return if ENV["CIRCLECI"] || ENV["TRAVIS"]
     end
     system "./test"
-    assert File.exist?("test.eps") && File.size("test.eps") > 0
+    assert_predicate testpath/"test.eps", :exist? && File.size("test.eps") > 0
   end
 end
