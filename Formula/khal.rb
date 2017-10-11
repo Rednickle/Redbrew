@@ -13,6 +13,7 @@ class Khal < Formula
     sha256 "5fa63ff4ec81dc9b5b72ad553636ce899584e7ac4ec265bddded0453e0de3069" => :high_sierra
     sha256 "0f70a0cf9e761fb25fa3e7b8ad45fe935f3e46b393d10daa345a4b1d27bef7a9" => :sierra
     sha256 "3006d316948618c8a0702b4fba2b568f43fca5fa51d3836c8d6b8e7966f858ff" => :el_capitan
+    sha256 "4882918bbce30853e10a679abccd527cd1ec3d4396810fe66e8089fc3b934ee1" => :x86_64_linux
   end
 
   depends_on :python3
