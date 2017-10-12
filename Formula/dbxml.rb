@@ -9,6 +9,7 @@ class Dbxml < Formula
     sha256 "e1564424c73549fb4f4bc894343ec49d28ed0530f719472f3adf7495b73bd884" => :high_sierra
     sha256 "eafcf704fb5fe6bfb10b6fbc9f2a117da2eaa4d7577e7ba715d64872b5dd26c5" => :sierra
     sha256 "cfe1a3628daa3194ce60d109501c6c8694d7e0ff9fab11a1b64da423b00d518f" => :el_capitan
+    sha256 "0bebe2538f251f029d1138dda5d0b7ae214be7ed4a362936dda43755cb8cfb60" => :x86_64_linux
   end
 
   depends_on "xerces-c"
