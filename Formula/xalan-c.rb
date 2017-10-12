@@ -10,6 +10,7 @@ class XalanC < Formula
     sha256 "24ddfd8ff41dbe54a5570db2a004247f92ef4bc1c897554ea83dfe7c138a172f" => :high_sierra
     sha256 "dfe6413a8d4cba234c105d0936a671a34742d2ac0103db863a644bf78538c28c" => :sierra
     sha256 "0b99ebef6e23b1c0d1e67d4ed8130130ad5c7b6af03f43ea9248c2d78e19a5cc" => :el_capitan
+    sha256 "263e1a1314c7e6490530dce0e10940052480f9bad379439811becaeb035ec88e" => :x86_64_linux
   end
 
   option "with-docs", "Install HTML docs"
