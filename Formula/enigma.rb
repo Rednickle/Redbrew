@@ -9,6 +9,7 @@ class Enigma < Formula
     sha256 "fe7c8716e916535682f46b41905aa139da60a5505302b9001a02f14e804264d1" => :high_sierra
     sha256 "81fc41187a6160df18f1b73c0ddaea5f263723764cf16821fffc83c3163e105a" => :sierra
     sha256 "75cdd9b0325226c732ce8d6989234abb05d8af4591e2369f78b48df0802f67d5" => :el_capitan
+    sha256 "2156641402f405d442710ba2a7b22dca2b0fb75dad4191c587d1deb54eba6d6f" => :x86_64_linux
   end
 
   head do
