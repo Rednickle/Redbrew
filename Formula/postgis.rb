@@ -1,15 +1,14 @@
 class Postgis < Formula
   desc "Adds support for geographic objects to PostgreSQL"
   homepage "https://postgis.net/"
-  url "http://download.osgeo.org/postgis/source/postgis-2.3.2.tar.gz"
-  sha256 "e92e34c18f078a3d1a2503cd870efdc4fa9e134f0bcedbbbdb8b46b0e6af09e4"
+  url "http://download.osgeo.org/postgis/source/postgis-2.4.0.tar.gz"
+  sha256 "02baa90f04da41e04b6c18eedfda53110c45ae943d4e65050f6d202f7de07d29"
 
   bottle do
     cellar :any
-    sha256 "4a6e31335c38a83e9119c6d7e5e4228d7be0dbea9c2f4ffd9a043ae4141bc3a5" => :high_sierra
-    sha256 "cea4e412efe966694749f6e1feaa11db1dd47970a9f6ac63afd1765b50f56d85" => :sierra
-    sha256 "83a1e64c57c69d4e85a1678e772798b2cd04aaba26ab5ce75b678d41d7bc6cf7" => :el_capitan
-    sha256 "719efe3d8589e4923ff5a89e542df813053b59695b9d16f1cb2eb88db93e62ce" => :yosemite
+    sha256 "9fa7f47dbd88524947e011db8c27b7567bd473eadcb3629f4ec96a8b84e7a99f" => :high_sierra
+    sha256 "4fe94159f621045c81052087d78586b473a245f2b608351b666046dc36bb81c4" => :sierra
+    sha256 "67093bd03cff0a51f2b4e82ca492a17339a4ebacf3f6b75186346d18320cf87e" => :el_capitan
   end
 
   head do
@@ -117,11 +116,11 @@ class Postgis < Formula
   def caveats
     <<-EOS.undent
       To create a spatially-enabled database, see the documentation:
-        https://postgis.net/docs/manual-2.2/postgis_installation.html#create_new_db_extensions
+        https://postgis.net/docs/manual-2.4/postgis_installation.html#create_new_db_extensions
       If you are currently using PostGIS 2.0+, you can go the soft upgrade path:
         ALTER EXTENSION postgis UPDATE TO "#{version}";
       Users of 1.5 and below will need to go the hard-upgrade path, see here:
-        https://postgis.net/docs/manual-2.2/postgis_installation.html#upgrading
+        https://postgis.net/docs/manual-2.4/postgis_installation.html#upgrading
 
       PostGIS SQL scripts installed to:
         #{opt_pkgshare}
