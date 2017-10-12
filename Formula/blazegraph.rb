@@ -28,7 +28,7 @@ class Blazegraph < Formula
         <key>RunAtLoad</key>
         <true/>
         <key>WorkingDirectory</key>
-        <string>#{prefix}</string>
+        <string>#{opt_prefix}</string>
       </dict>
     </plist>
     EOS
@@ -40,7 +40,7 @@ class Blazegraph < Formula
     end
     sleep 5
     Process.kill("TERM", server)
-    File.exist? "blazegraph.jnl"
-    File.exist? "rules.log"
+    assert_predicate testpath/"blazegraph.jnl", :exist?
+    assert_predicate testpath/"rules.log", :exist?
   end
 end
