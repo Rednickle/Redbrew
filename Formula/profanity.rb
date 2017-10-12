@@ -9,6 +9,7 @@ class Profanity < Formula
     sha256 "927877fecb1306de71150281968d62ebc20d3e2fb70a43706d759d31f9b46d3d" => :high_sierra
     sha256 "e1944f29f1fb1233f43c9beac4e4f6c4af247e64e94fa9c1c3b77fc4071124aa" => :sierra
     sha256 "759ebf658a3a869b22da48f7c6a99dbad605c75af19931cef996ef3484df5d29" => :el_capitan
+    sha256 "db1d923738b3d88e5c4b1b92fa5a6273498e64a4f4b347aaac0e0e52df297e3c" => :x86_64_linux
   end
 
   head do
