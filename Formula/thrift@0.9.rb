@@ -9,6 +9,7 @@ class ThriftAT09 < Formula
     sha256 "9bf6dbb1699dd2e47ec08c0a6c45d922bfe44e39541cfa824c6d3fa0e612cbee" => :high_sierra
     sha256 "52d2ce63e41f13d81c4df4cff528d5bd25b75b09316a59e0cd7060bbb313a831" => :sierra
     sha256 "167da043b6111631373371b51e2b6678d84602179d034827dd221e88f6211027" => :el_capitan
+    sha256 "98a88960c239ba27228a007a990682ecc70f466274659873a81d2a95e588e6d0" => :x86_64_linux
   end
 
   keg_only :versioned_formula
