@@ -10,6 +10,7 @@ class Msgpuck < Formula
     sha256 "50197e08a5b55fbe804109ad01dfa815a6dde2b11b688d89a58154fed2d8d54f" => :high_sierra
     sha256 "6f4011d177bf2e42f94f853bc93283ada6c48df8fdb7269135def453e65e598d" => :sierra
     sha256 "b0accfedd2582109acec3297878bb943360282520a31b0d1c16c4ec1aa70a362" => :el_capitan
+    sha256 "dfd81546c490cf3fb421fa698c647f034cd99095721bf895456a13c0615c8423" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
