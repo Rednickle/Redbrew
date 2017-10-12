@@ -11,6 +11,7 @@ class Mpw < Formula
     sha256 "dae1000a0cf67648b022a23f07b9696c45040946118195874aafee9c752a83ec" => :high_sierra
     sha256 "b58efb809596866dba6265a55bcd1be7d59ffa95cd74d3297ea0019badcb911a" => :sierra
     sha256 "b9a997a1c4ba244b904b430e545da399f633bce79464bee3b0153c7707b484cf" => :el_capitan
+    sha256 "a4e6d12b9b8680a487c4b4fa2b8d2d16c06dab13ce93836435498f5f1993f317" => :x86_64_linux
   end
 
   option "without-json-c", "Disable JSON configuration support"
