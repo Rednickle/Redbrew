@@ -9,6 +9,7 @@ class MecabUnidicExtended < Formula
     sha256 "8890b4d95d0c3ee114ec48ea95d66c1d8b8a273949a912140fa477ad9265be0b" => :high_sierra
     sha256 "8890b4d95d0c3ee114ec48ea95d66c1d8b8a273949a912140fa477ad9265be0b" => :sierra
     sha256 "8890b4d95d0c3ee114ec48ea95d66c1d8b8a273949a912140fa477ad9265be0b" => :el_capitan
+    sha256 "c14895b68204bd2028de382ab46b5efea0eb4fb218991370930c3a434bff23e0" => :x86_64_linux
   end
 
   depends_on "mecab"
