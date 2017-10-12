@@ -1,16 +1,14 @@
 class Zile < Formula
   desc "Text editor development kit"
   homepage "https://www.gnu.org/software/zile/"
-  url "https://ftp.gnu.org/gnu/zile/zile-2.4.13.tar.gz"
-  mirror "https://ftpmirror.gnu.org/zile/zile-2.4.13.tar.gz"
-  sha256 "c795f369ea432219c21bf59ffc9322fd5f221217021a8fbaa6f9fed91778ac0e"
-  revision 1
+  url "https://ftp.gnu.org/gnu/zile/zile-2.4.14.tar.gz"
+  mirror "https://ftpmirror.gnu.org/zile/zile-2.4.14.tar.gz"
+  sha256 "7a78742795ca32480f2bab697fd5e328618d9997d6f417cf1b14e9da9af26b74"
 
   bottle do
-    sha256 "29bd460d08eeb0f7ad14372d47ad7c4d4fe6b8a79393eddbdcf1e60b69225a37" => :high_sierra
-    sha256 "49034f6c2d94b5035fdb13855347d855f18c02149948638215e21f3f42e7edfc" => :sierra
-    sha256 "a02381458e1aecc2475c3845de501a455664eac121677fafd5e92a818068e614" => :el_capitan
-    sha256 "bfdc473d51b35643694f93bc2a5de4b78ce3449b159b1e8a4a8e06d180850a45" => :x86_64_linux
+    sha256 "4d1d81f3d9b08e43cfa4ea8aa2e6fd16b8529f6d97876d3456c4682e625ca0f5" => :high_sierra
+    sha256 "0fa34a0d34ca7b3158dd7368f8f225709a282e2f574380f3d0e5f2872a1923fc" => :sierra
+    sha256 "3ce1299d9c4f58bda18ddfc62d8af3b48843355bb9ff0cc2b13830f84a5fe08c" => :el_capitan
   end
 
   # https://github.com/mistydemeo/tigerbrew/issues/215
@@ -26,15 +24,6 @@ class Zile < Formula
   depends_on "help2man" => :build
   depends_on "bdw-gc"
   depends_on "ncurses" unless OS.mac?
-
-  # Fix crash from usage of %n in dynamic format strings on High Sierra
-  # Patch credit to Jeremy Huddleston Sequoia <jeremyhu@apple.com>
-  if MacOS.version >= :high_sierra
-    patch :p0 do
-      url "https://raw.githubusercontent.com/macports/macports-ports/14451f57e89/devel/bison/files/secure_snprintf.patch"
-      sha256 "57f972940a10d448efbd3d5ba46e65979ae4eea93681a85e1d998060b356e0d2"
-    end
-  end
 
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"

@@ -1,16 +1,15 @@
 class Ibex < Formula
   desc "C++ library for constraint processing over real numbers."
   homepage "http://www.ibex-lib.org/"
-  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.5.2.tar.gz"
-  sha256 "ef8a0988002b9d5f0897696ce434f0eb6170d335f58c0961ccd578eb7f3fc3d3"
+  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.5.3.tar.gz"
+  sha256 "f5ae337c75f7d3c6a6eab5c97b772b59daebd89095628f6b1ee31c8f4a82139d"
   head "https://github.com/ibex-team/ibex-lib.git"
 
   bottle do
     cellar :any
-    sha256 "6b23c61b11e42afa080927febf25c6bde7dbb7f401ccffc66da3f3e5b195e702" => :high_sierra
-    sha256 "c0554d687b9f2f0bb9a5bed47fa3e0e72ba269643875351bd46ba292fb125574" => :sierra
-    sha256 "9f20ec5533a0a27acff5b9126e2a33492e39f476d37a1e063f9d9bfd02f3ba52" => :el_capitan
-    sha256 "37e542b00a05bfe1061025d9ef2ee6cc96e38eb7b35135f9b4e6f4ad4927eb0e" => :x86_64_linux
+    sha256 "c38ad8be624e34076dc3c5758a968932b777db0bd304135e77ccc3f8896c71f7" => :high_sierra
+    sha256 "dc78f48056adc99205820e93f44f515be9a654e154bb5da02b70044a965d25de" => :sierra
+    sha256 "3f0f1711cd85b1c9ef4a8acd94a8ff4fae566e22478bc716405b9751c7562ab8" => :el_capitan
   end
 
   option "with-java", "Enable Java bindings for CHOCO solver."
@@ -61,14 +60,13 @@ class Ibex < Formula
     inreplace %w[makefile slam/makefile] do |s|
       s.gsub! /CXXFLAGS.*pkg-config --cflags ibex./,
               "CXXFLAGS := -I#{include} -I#{include}/ibex "\
-                          "-I#{include}/ibex/3rd/coin -I#{include}/ibex/3rd"
+                          "-I#{include}/ibex/3rd"
       s.gsub! /LIBS.*pkg-config --libs  ibex./, "LIBS := -L#{lib} -libex"
     end
 
-    system "make", "ctc01", "ctc02", "symb01", "solver01", "solver02"
+    system "make", "ctc01", "ctc02", "symb01"
     system "make", "-C", "slam", "slam1", "slam2", "slam3"
     %w[ctc01 ctc02 symb01].each { |a| system "./#{a}" }
-    %w[solver01 solver02].each { |a| system "./#{a}", "c3D.bch", "1e-05", "10" }
     %w[slam1 slam2 slam3].each { |a| system "./slam/#{a}" }
   end
 end
