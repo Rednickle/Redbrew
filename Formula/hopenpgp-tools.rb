@@ -14,6 +14,7 @@ class HopenpgpTools < Formula
     sha256 "6e699e81923fbe33e36db553be9870571db50872e0c11d7fc78de72b8f085481" => :high_sierra
     sha256 "737bd1e9d2e19a802f45479c329ddea0d6ac5cbe3e6dc11d104839f265ab74b4" => :sierra
     sha256 "a228013b2ba95ac2c3d54d84cf3fec0f40e22d18fc0509a855d2b8aa5b306a19" => :el_capitan
+    sha256 "9f3690d7aa50440fa2a4b1bcc4fa28460bb1ce50fcd4daeb39027090cb35da15" => :x86_64_linux
   end
 
   depends_on "ghc@8.0" => :build
