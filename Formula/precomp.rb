@@ -1,22 +1,18 @@
 class Precomp < Formula
   desc "Command-line precompressor to achieve better compression"
   homepage "http://schnaader.info/precomp.php"
-  url "https://github.com/schnaader/precomp-cpp/archive/v0.4.5.tar.gz"
-  sha256 "39add141554f0186200911ab61838b69f5777956b3dfd37d82bb6923607258dc"
+  url "https://github.com/schnaader/precomp-cpp/archive/v0.4.6.tar.gz"
+  sha256 "673b9ceb0df62abb5ef12ab0600a18fc3b82003cc9af5e1cc2f196237ed350d3"
   head "https://github.com/schnaader/precomp-cpp.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3984c5a8010fe9f82d3b8fdc757211def7af9675be330ba7883b867ca5d29c55" => :high_sierra
-    sha256 "d1d6345d53fe8a80389d3fcbb3aa3fcb3abf62ec16eca16023fc42bf3b9452aa" => :sierra
-    sha256 "327439d7580922ac4bbbdc521787a21327ec71e34b15bcbd8482322f3c196c55" => :el_capitan
-    sha256 "3fed5611b1df7a57fccb4beb9138a03135d984ed0a0cc7cc3ae0fd930b4921ac" => :x86_64_linux
+    sha256 "83f6d3eec9ce5b05a5cc7197e89fc6fe968c7ecb71c795343ead7ec98edcf758" => :high_sierra
+    sha256 "93eaa1f454f3af8d1c9872c263e3e67b56aac5e6772a65ccce8c9ec493c6989c" => :sierra
+    sha256 "62c8a72958b6fa8ef0208560ff0ad6abf187aae842715bb84cddb21d46a69d35" => :el_capitan
   end
 
   def install
-    # HEAD already has that, but current stable version does not compile with clang without that patch
-    inreplace "contrib/packmp3/Makefile", "-fsched-spec-load ", ""
-
     # Seems like Yosemite does not like the -s flag
     inreplace "Makefile", " -s ", " "
 
