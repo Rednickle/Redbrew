@@ -9,6 +9,7 @@ class Remake < Formula
     sha256 "0833fb8f15c06fca9c97627ffdc9fc53e3a27feed22939ddf92b8aff84898cf3" => :high_sierra
     sha256 "de499d499d391b95f1da22ea69e7c4f700b4adebb4c7054001f8fefad157cd06" => :sierra
     sha256 "5409f2e163381938a90b049ef127e21250e05aefc00f1eff87e31e2921a29121" => :el_capitan
+    sha256 "249c2b19862ef6046efe60876d06fce20b8a8248f4d2162a49630a76a2c81624" => :x86_64_linux
   end
 
   def install
