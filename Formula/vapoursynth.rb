@@ -11,6 +11,7 @@ class Vapoursynth < Formula
     sha256 "395ceeb23551cfe36b1fcacf15c3dce35697373b287caf59e6f1918b874e6c3a" => :high_sierra
     sha256 "223896633f0a26a4fa6281fb47ce3339071b5e2eb00b69ce8add6988984d282b" => :sierra
     sha256 "f1fce97b0975d8e8b9651e02f89e762958da784ff5cd2600f13e943fc9a23851" => :el_capitan
+    sha256 "227edc58a03e94fcb54572d50e00f35e294a24921e11b6e5879e81e324e94df8" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
