@@ -9,6 +9,7 @@ class Doitlive < Formula
     sha256 "ced8f310f83d06ccda2efa39311fa8b6092a5e8584aefc4f0e4575908a60287c" => :high_sierra
     sha256 "ced8f310f83d06ccda2efa39311fa8b6092a5e8584aefc4f0e4575908a60287c" => :sierra
     sha256 "4420d12d87d42f46c11520f387941a21f2c631de0737466c665bb7c5bcebb856" => :el_capitan
+    sha256 "8a68a4151ef3c44338414c1b0b9e405f7d1b810d4657992e6f9d4382f76172f0" => :x86_64_linux
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
