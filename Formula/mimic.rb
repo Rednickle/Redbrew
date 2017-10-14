@@ -33,6 +33,6 @@ class Mimic < Formula
 
   test do
     system bin/"mimic", "-t", "Hello, Homebrew!", "test.wav"
-    assert (testpath/"test.wav").exist?
+    assert_predicate testpath/"test.wav", :exist?
   end
 end
