@@ -10,6 +10,7 @@ class Meson < Formula
     sha256 "b29b8e4a61308d73c4744200a7aee75f0c3389d2359b29993a7c8cb6e4a680e2" => :high_sierra
     sha256 "b29b8e4a61308d73c4744200a7aee75f0c3389d2359b29993a7c8cb6e4a680e2" => :sierra
     sha256 "b29b8e4a61308d73c4744200a7aee75f0c3389d2359b29993a7c8cb6e4a680e2" => :el_capitan
+    sha256 "5a17ba00305a07f5352889a71515e488439c2ac5357f2ae96656cbdcf8e37ef2" => :x86_64_linux
   end
 
   depends_on :python3
