@@ -108,7 +108,7 @@ class GoAT16 < Formula
 
     if build.with? "godoc"
       assert_predicate libexec/"bin/godoc", :exist?
-      assert File.executable?(libexec/"bin/godoc")
+      assert_predicate libexec/"bin/godoc", :executable?
     end
   end
 end
