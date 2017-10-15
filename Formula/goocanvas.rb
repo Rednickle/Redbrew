@@ -8,6 +8,7 @@ class Goocanvas < Formula
     sha256 "b7124d1a527133154e512e1161139b548b6a85de02a60bb0af6a846609c9cfdc" => :high_sierra
     sha256 "a3606de14cd0673059212876471fcef7f77dad186c643b02f7dd1ce4298616e4" => :sierra
     sha256 "b668a762e8d82306d39be7f8bf72e739d3a6f84624b93c786f01a9c910854724" => :el_capitan
+    sha256 "7c0a711df5335e67b60d6c41786ad1c45fc088c0557373014c690ee9d64c5bf9" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
