@@ -13,6 +13,7 @@ class Bench < Formula
     sha256 "b8d3039bacf0a9fa9b10188779b8c79bf7b309f79b7a98495cf04e7ef7f5f99b" => :high_sierra
     sha256 "5b668c20f1e2ec14f81aee4c84df692741f46d5b1663cebac949c769eeb04ec3" => :sierra
     sha256 "bad9f0285cc2f6307e001dc62950b35afd940f38ff1f6157bab2757aca8b9a3c" => :el_capitan
+    sha256 "4b516fc371f4e5fea0329f63dacc56467d904e8a222e5b27b2df1f143f4115ad" => :x86_64_linux
   end
 
   depends_on "cabal-install" => :build
