@@ -9,6 +9,7 @@ class Axel < Formula
     sha256 "18d458adef55854c33e4be487ce77eaa294fa9b7c8f09bcd3aff68cea063c2ab" => :high_sierra
     sha256 "2ed9747656442072e684c56a6354fcbfd1179b01cd0873cc77760a6e64270662" => :sierra
     sha256 "10257917ed87edf070064ad51dac4a3685415f969a6999a5a55938aab355f584" => :el_capitan
+    sha256 "f7f088317e990228db4b0411595f0bba3e36b130abcaccd528aa04ac664ccfdd" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
