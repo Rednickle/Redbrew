@@ -12,6 +12,7 @@ class Sops < Formula
     sha256 "3dedf944ce5698912fcf9172156a336ce168de78a1f15c0db40c3ba185de46aa" => :high_sierra
     sha256 "21d0532514798628c5af33c92ec3adea09a6ca07ad3c404d918d6211c6164efd" => :sierra
     sha256 "ce7144a246937c7626cbc11ce5b08fe8ced6820ffa64eba7198c88d3b8feb11e" => :el_capitan
+    sha256 "e82f3a0fd3aee2816dddef1cd46e29dcfafbddf5e8df0d40fde83f47a905f957" => :x86_64_linux
   end
 
   depends_on "go" => :build
