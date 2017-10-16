@@ -10,6 +10,7 @@ class Filebeat < Formula
     sha256 "92173157ec00a13854851caa9ab28bc7eb3d9fda9b403d50ddf259f812ba01f8" => :high_sierra
     sha256 "a845781508ccefbba4da8acf02b84df6fca75b97f21ecc02425ec39b68d579ce" => :sierra
     sha256 "2512e3d9c30734b5329ea95841b491787b0dab2f043db5b6927be17201b5dcf9" => :el_capitan
+    sha256 "d93906225fdb3935afbfa25eda0653078a3b7475420260b0b8d1bb68ed44ed93" => :x86_64_linux
   end
 
   depends_on "go" => :build
