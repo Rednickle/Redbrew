@@ -10,6 +10,7 @@ class Scons < Formula
     sha256 "45b5033015138593fb5b2a6dfa4d74b1db3feff8c6a6e49a8a510682af6bcd3f" => :high_sierra
     sha256 "45b5033015138593fb5b2a6dfa4d74b1db3feff8c6a6e49a8a510682af6bcd3f" => :sierra
     sha256 "45b5033015138593fb5b2a6dfa4d74b1db3feff8c6a6e49a8a510682af6bcd3f" => :el_capitan
+    sha256 "3f76977a3afc73fca2c07fc11e60efc573390e7885f0bdc943c49bc537a4bc9d" => :x86_64_linux
   end
 
   # Remove for > 3.0.0
