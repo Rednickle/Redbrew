@@ -1,16 +1,15 @@
 class YleDl < Formula
   desc "Download Yle videos from the command-line"
   homepage "https://aajanki.github.io/yle-dl/index-en.html"
-  url "https://github.com/aajanki/yle-dl/archive/2.24.tar.gz"
-  sha256 "eb97f95705138931e6161ee663c4895e7f28bc0e94c008d877aad31fb7d02e26"
+  url "https://github.com/aajanki/yle-dl/archive/2.25.tar.gz"
+  sha256 "b1f76b4bfa08560d1a09fd5533ebf7266233ec4b5d5856da5c95ebe46fcf61b4"
   head "https://github.com/aajanki/yle-dl.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "341e92422f2e072c3418d98fbad16419a924411a02ebfdf24cfa245ba3be8c16" => :high_sierra
-    sha256 "ac90bd6d00f2dcf9b44cbd4cc7fb73f895cd517c9397c817838bda8e861983ac" => :sierra
-    sha256 "6be2e829af20a2e1a485d233d77e91eaf7f920cf6d1f5516e123cee736432e73" => :el_capitan
-    sha256 "bcc1e49b73dd5b27beef4cafc1af14090627269dca70d0a3c0b4b28d076c0fa0" => :x86_64_linux
+    sha256 "98efae3959211735efa479f2184d360e950186badc196e852a14ccdc93a6c061" => :high_sierra
+    sha256 "cd0dc8adf3820103301955c3ef657002781c0abdea55b53531e7d5e2ddb6fc97" => :sierra
+    sha256 "14ad8d3e2432acd5f06e6f745adedb90f62a66e39f84b1b9afa82c5aab2f0fb9" => :el_capitan
   end
 
   depends_on "rtmpdump"
