@@ -9,6 +9,7 @@ class Libwpd < Formula
     sha256 "b240b96a69dc164ef6f4cdc3cdff10339cb1ce5d1593380319e8f41004d82d26" => :high_sierra
     sha256 "5e7bd127154ff012858b889ab8b40c47498887f7cf5ef5c9d71eb8230d7ac68e" => :sierra
     sha256 "c5368f8e62e66db7f5afcf1fb6b807af0d4a2ac5673863a787b16329e484f457" => :el_capitan
+    sha256 "e330196d2d7b5d239c1ccc14b53f9cd769ba2ad8f5134b4c1948f33acbe5753a" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
