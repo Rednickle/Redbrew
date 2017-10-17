@@ -8,16 +8,15 @@ end
 class Qt < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/5.9/5.9.1/single/qt-everywhere-opensource-src-5.9.1.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.9/5.9.1/single/qt-everywhere-opensource-src-5.9.1.tar.xz"
-  sha256 "7b41a37d4fe5e120cdb7114862c0153f86c07abbec8db71500443d2ce0c89795"
+  url "https://download.qt.io/official_releases/qt/5.9/5.9.2/single/qt-everywhere-opensource-src-5.9.2.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.9/5.9.2/single/qt-everywhere-opensource-src-5.9.2.tar.xz"
+  sha256 "6c6171a4d1ea3fbd4212d6a04899650218583df3ec583a8a6a4a589fe18620ff"
   head "https://code.qt.io/qt/qt5.git", :branch => "5.9", :shallow => false
 
   bottle do
-    rebuild 1
-    sha256 "783fbd1ab5ffed9dcb413f1b93a8ad991990719e3bb7e0084c58e3bc6d416cdc" => :high_sierra
-    sha256 "53420a9afdd6d1a0d1dc9a6d4961fd378fc293ed13266b6f46d9c1b3c00f6244" => :sierra
-    sha256 "4ff8892013f1404d8acf0f960387f8a94b27cb3ab4010fa05f992e2b25a8d1c5" => :el_capitan
+    sha256 "bbba35b2261a372ebd5511dc6db7687fd772c28c8dfd86d4604f8d6087be210e" => :high_sierra
+    sha256 "9fa18fecb5c9f99e21f3725bcdebf531fda2336a115d117e3c35ef3ddaf85163" => :sierra
+    sha256 "aaa16640e5c34d3bad308b496c3cd8ef32f7294b6ac4f007d582720449062482" => :el_capitan
   end
 
   keg_only "Qt 5 has CMake issues when linked"
@@ -37,6 +36,7 @@ class Qt < Formula
   depends_on :postgresql => :optional
 
   # http://lists.qt-project.org/pipermail/development/2016-March/025358.html
+  # Doesn't seem to be a 5.9.2 for this yet.
   resource "qt-webkit" do
     url "https://download.qt.io/official_releases/qt/5.9/5.9.1/submodules/qtwebkit-opensource-src-5.9.1.tar.xz"
     sha256 "28a560becd800a4229bfac317c2e5407cd3cc95308bc4c3ca90dba2577b052cf"
@@ -76,15 +76,6 @@ class Qt < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/a627e0a/qt5/QTBUG-56814.patch"
     sha256 "b18e4715fcef2992f051790d3784a54900508c93350c25b0f2228cb058567142"
-  end
-
-  # Patch fixing bugs QTBUG-62266 and QTBUG-62658 on macOS 10.13 High Sierra
-  # https://github.com/Homebrew/homebrew-core/issues/17075
-  if MacOS.version >= :sierra
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/45282b5b48/qt/high-sierra.diff"
-      sha256 "d8589d747a9ce0b7b7ddf1b59c4d999bbf8a02261e047a602cff39bea151eb42"
-    end
   end
 
   def install

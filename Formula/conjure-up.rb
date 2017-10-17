@@ -6,12 +6,13 @@ class ConjureUp < Formula
   url "https://github.com/conjure-up/conjure-up/archive/2.3.1.tar.gz"
   sha256 "da429aad45ef0c6a70565a3748da2cb668def684b65f04ee3c081ebce065fac7"
 
+  revision 1
+
   bottle do
     cellar :any
-    sha256 "d557b765effbc4f473f3fadaeba0a81f0603e20e76630546d2fdadc4f88fcc5a" => :high_sierra
-    sha256 "792cd3cf9a6dd725b6448bcf2498b1bd6ad29b2b45afe1444084912b4e69af4f" => :sierra
-    sha256 "d0b050dfa5a30359b93b31ee79a016cab89a3f2bf244d4f2035a9680857a02e7" => :el_capitan
-    sha256 "d906f685f3487ea7c6ec85363d1f02367abb3ef8c1c13a6eb63b1715e8b53c54" => :x86_64_linux
+    sha256 "dce6e95f356c75f3d3befe8d10ab159dab457fe369723aad3d2f0223f8d0a28f" => :high_sierra
+    sha256 "13d1a9d2e4dc966507c199f6b703ccd9bb3ee1978a54d0f8bd3673eb278f8896" => :sierra
+    sha256 "c3264850707fcbce8414af8fe6b632dd45c022cf3dae130fbf88ea9f53058dab" => :el_capitan
   end
 
   depends_on :python3
@@ -20,16 +21,12 @@ class ConjureUp < Formula
   depends_on "jq"
   depends_on "wget"
   depends_on "redis"
+  depends_on "awscli"
 
   # list generated from the 'requirements.txt' file in the repository root
   resource "aiofiles" do
     url "https://files.pythonhosted.org/packages/28/51/913ed4312b63b0a1b6cad5a761b2c163eb20e353c7a3f19f08e04e8675e5/aiofiles-0.3.1.tar.gz"
     sha256 "6c4936cea65175277183553dbc27d08b286a24ae5bd86f44fbe485dfcf77a14a"
-  end
-
-  resource "awscli" do
-    url "https://files.pythonhosted.org/packages/91/31/9b420c49cbbc4316bdec5596b659adba934b9209a647bf0a780dc4b11a3b/awscli-1.11.123.tar.gz"
-    sha256 "74808159d67c31ce00f6ef1ea7a7f15794cc9cc16d23e25689bf18c30de24c48"
   end
 
   resource "botocore" do

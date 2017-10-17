@@ -11,6 +11,11 @@ class Emacs < Formula
     sha256 "760c34fb38730f2cd9d60fb3e39723c549267d6ad643e952a1fd6e927d8d5a4b" => :x86_64_linux
   end
 
+  devel do
+    url "https://alpha.gnu.org/gnu/emacs/pretest/emacs-26.0.90.tar.xz"
+    sha256 "efb27124cb8f3eeba9472f4f5774b5d9bf4f87fd4d6023aae78469fb5667cf2c"
+  end
+
   head do
     url "https://github.com/emacs-mirror/emacs.git"
 

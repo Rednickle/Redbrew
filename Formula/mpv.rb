@@ -36,7 +36,6 @@ class Mpv < Formula
   depends_on "rubberband" => :optional
   depends_on "uchardet" => :optional
   depends_on "vapoursynth" => :optional
-  depends_on "libcdio" => :optional
   depends_on :x11 => :optional
 
   depends_on :macos => :mountain_lion
@@ -73,7 +72,6 @@ class Mpv < Formula
     args << "--enable-libbluray" if build.with? "libbluray"
     args << "--enable-dvdnav" if build.with? "libdvdnav"
     args << "--enable-dvdread" if build.with? "libdvdread"
-    args << "--enable-cdda" if build.with? "libcdio"
     args << "--enable-pulse" if build.with? "pulseaudio"
 
     system "./bootstrap.py"

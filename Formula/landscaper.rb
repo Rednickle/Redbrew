@@ -2,16 +2,15 @@ class Landscaper < Formula
   desc "Manage the application landscape in a Kubernetes cluster"
   homepage "https://github.com/Eneco/landscaper"
   url "https://github.com/Eneco/landscaper.git",
-      :tag => "1.0.10",
-      :revision => "c715c3b05d73ee8baf6b1c141524ff90ed80af2e"
+      :tag => "1.0.11",
+      :revision => "4fd0758658b712e24f71a966eea7ab2bf0d8c15b"
   head "https://github.com/Eneco/landscaper.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 2
-    sha256 "fe9570f84cdf1baf376e0c558cb034d922cc98e2f0c3652afe0fd5b6436db7f5" => :high_sierra
-    sha256 "1a306751424fc1dca36efd98dc163a4f268ec9da70eeb3a643e2896a38f5d60d" => :sierra
-    sha256 "6a2412371823a8c7c6886ded24d29831d45567a0fd54f5a970b7f25d9bdbd774" => :el_capitan
+    sha256 "31cb813c0d2e9e5e13051e5f687f0f7c81e0c6575e8b36abea579ff348399c5b" => :high_sierra
+    sha256 "dc237afff0749bfca2ecd5559853e1ab287687e7453f4467c86a7031f3f20d0f" => :sierra
+    sha256 "b79291aab46e45bd7ae380df9730c56796a2e6228a79898db58b28971f33e94a" => :el_capitan
   end
 
   depends_on "go" => :build
