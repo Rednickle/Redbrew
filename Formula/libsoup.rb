@@ -8,6 +8,7 @@ class Libsoup < Formula
     sha256 "d5e72b8e4d0d06d891cfc807cc45c08f4a7194af605b755dd35e2690eda5ccbd" => :high_sierra
     sha256 "96f4b18629e32c5b617079d507f90552c77ce37bea1341119c31524cafb7bada" => :sierra
     sha256 "c0d6f7bf8cb0ed99aa70f61e96ef41733228de4523350dfc99515e93c67b6ca1" => :el_capitan
+    sha256 "b7c9e0e7524ae986f98ddf67c702b578e20b722e5d663549e7654c2e2b3ff52a" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
