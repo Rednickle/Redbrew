@@ -1,15 +1,14 @@
 class Fwup < Formula
   desc "Configurable embedded Linux firmware update creator and runner"
   homepage "https://github.com/fhunleth/fwup"
-  url "https://github.com/fhunleth/fwup/releases/download/v0.16.0/fwup-0.16.0.tar.gz"
-  sha256 "5375421774d073773fb410a5152755a256a445d43d0bc0523ddf6c9d4657a4c2"
+  url "https://github.com/fhunleth/fwup/releases/download/v0.16.1/fwup-0.16.1.tar.gz"
+  sha256 "4c53a3c25c2e7c55a3a4d73f56c819213260b16b68964a774457349c559fef49"
 
   bottle do
     cellar :any
-    sha256 "6519560162fd726a35ad9faeaacc2d177de4a00594e9a091ba640dac4eb9b5ed" => :high_sierra
-    sha256 "af6ad960d4dd6683a353c1ea5ec32463a9d71141599eaa32bd290fc25a534e64" => :sierra
-    sha256 "fc27958f4c66b4d401c78693e10342c1d930ae5d533a26dee767144abd3c7fff" => :el_capitan
-    sha256 "4436f56e78bb0814f9cad940327f8e96d0674c3b3e2ba4c4677ede22ffab292c" => :x86_64_linux
+    sha256 "e19e41c26047b1c27e1ff5c9188658a0d7088fa6a93e33a913f11915acd7ad38" => :high_sierra
+    sha256 "a1d765a4f5151987ce46db594ccfa667423a5f4a959595f742284e04f8540fc4" => :sierra
+    sha256 "84c89cc966ba10d384d45f5757291a3ea6fbd89815fed59ab4ec1cddbecabd0e" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

@@ -3,13 +3,13 @@ class NodeAT6 < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v6.11.4/node-v6.11.4.tar.xz"
   sha256 "4c2f0435e3088136ac4bc75236a7717f189d590a13f490065e7b3b8e5aacd450"
+  revision 1
   head "https://github.com/nodejs/node.git", :branch => "v6.x-staging"
 
   bottle do
-    sha256 "5142f7a40f1cd847476402ed2a8119eedd300b69ba66cb2e723ba77f643c302b" => :high_sierra
-    sha256 "a01c18722a1e0bd706610c236973b7a4b38daf938d0df52b0731efc7d5206c60" => :sierra
-    sha256 "6edf9e30997b1b8a89c4799ee92434552134be230968632d4c4c9415f8bf13f7" => :el_capitan
-    sha256 "c4aa1ecd6233a5b19e77194a3d39fc197b4057c50a54d106d348f34f13f35f64" => :x86_64_linux
+    sha256 "74a7028d76df0c5d8a4337693183e5558edf2e46cda1534a6e0633052ae43a53" => :high_sierra
+    sha256 "68135b66205498f0d294b8c9bb5d70799cd8e3d772d309150549d33d822aadf5" => :sierra
+    sha256 "5d3f79943fae2332090e942fe95f0c0fae0f4c53ef8b45a38a3ee894c299e741" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -34,8 +34,8 @@ class NodeAT6 < Formula
 
   # Keep in sync with main node formula
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-5.3.0.tgz"
-    sha256 "dd96ece7cbd6186a51ca0a5ab7e1de0113333429603ec2ccb6259e0bef2e03eb"
+    url "https://registry.npmjs.org/npm/-/npm-5.4.2.tgz"
+    sha256 "04dc5f87b1079d59d51404d4b4c4aacbe385807a33bd15a8f2da2fabe27bf443"
   end
 
   resource "icu4c" do
@@ -71,6 +71,10 @@ class NodeAT6 < Formula
       bootstrap.install resource("npm")
       system "node", bootstrap/"bin/npm-cli.js", "install", "-ddd", "--global",
              "--prefix=#{libexec}", resource("npm").cached_download
+
+      # Fix from chrmoritz for ENOENT issue with @ in path to node
+      inreplace libexec/"lib/node_modules/npm/node_modules/libnpx/index.js",
+                "return child.escapeArg(npmPath, true)", "return npmPath"
 
       # The `package.json` stores integrity information about the above passed
       # in `cached_download` npm resource, which breaks `npm -g outdated npm`.
