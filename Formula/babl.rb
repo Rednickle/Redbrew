@@ -8,6 +8,7 @@ class Babl < Formula
     sha256 "485a493419f46bc32a31f7506eaa40b689ed6301d74cd139806f7b9c5662ed07" => :high_sierra
     sha256 "9c25fa7bc86e773a6466d959653834bfcc2435b17149e5f7a973adc8c0db9075" => :sierra
     sha256 "36a4b1036d745ac25cf58deed53d7f3b6408c7a147facc18f3f08bd711ceaf82" => :el_capitan
+    sha256 "33229700b1fd9985de9fd7c29359ce65d09a3c4c7717146f38ab74569b86d70d" => :x86_64_linux
   end
 
   head do
