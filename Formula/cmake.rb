@@ -1,15 +1,31 @@
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
-  url "https://cmake.org/files/v3.9/cmake-3.9.4.tar.gz"
-  sha256 "b5d86f12ae0072db520fdbdad67405f799eb728b610ed66043c20a92b4906ca1"
   head "https://cmake.org/cmake.git"
+
+  stable do
+    url "https://cmake.org/files/v3.9/cmake-3.9.4.tar.gz"
+    sha256 "b5d86f12ae0072db520fdbdad67405f799eb728b610ed66043c20a92b4906ca1"
+
+    # The two patches below fix cmake for undefined symbols check on macOS 10.12
+    # They can be removed for cmake >= 3.10
+    patch do
+      url "https://gitlab.kitware.com/cmake/cmake/commit/96329d5dffdd5a22c5b4428119b5d3762a8857a7.diff"
+      sha256 "c394d1b6e59e9bcf8e5db8a0a1189203e056c230a22aa8d60079fea7be6026bd"
+    end
+
+    patch do
+      url "https://gitlab.kitware.com/cmake/cmake/commit/f1a4ecdc0c62b46c90df5e8d20e6f61d06063894.diff"
+      sha256 "d32fa9c342d88e53b009f1fbeecc5872a79eec4bf2c8399f0fc2eeda5b0a4f1e"
+    end
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bef13423dca0f53a4398e96607521d3ab15738fc39b70d979f00c2a94d1e9a22" => :high_sierra
-    sha256 "60d8a966fddfe3164e7b1b4013bcb75e32d4fe3e76ca77ed0861168c0c9eeb00" => :el_capitan_or_later
-    sha256 "1c75a3ba562778b3ed15beaf1fbd8963086a0e6048ace2c707b7ea34c337e976" => :x86_64_linux
+    rebuild 1
+    sha256 "dd13b29406393f2df7088b1c8dd8ec90d828fff5b153d29f313a1f5bc8832264" => :high_sierra
+    sha256 "5e5980f27df56130f095a218889fcb40fc20b6a7f019d22d5bbe2fb0a5174650" => :sierra
+    sha256 "a49fdf3f5fb7566aaaced94151f5ea57a4477697b2a45331541c317ba9671cad" => :el_capitan
   end
 
   option "without-docs", "Don't build man pages"

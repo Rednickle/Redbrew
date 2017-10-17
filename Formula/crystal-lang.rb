@@ -6,7 +6,7 @@ end
 class CrystalLang < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
-  revision 2
+  revision 3
 
   stable do
     url "https://github.com/crystal-lang/crystal/archive/0.23.1.tar.gz"
@@ -19,9 +19,9 @@ class CrystalLang < Formula
   end
 
   bottle do
-    sha256 "a57ec5a499522122697d1b42f377d2b424aff8ac336b5b46ed6a424f893a2b3c" => :high_sierra
-    sha256 "f3f545a3aadbef0fb0580ad4f03d2d5b490c1977f0976a6848f60d77f390c84f" => :sierra
-    sha256 "021ebb7d8d98eaa1b9dea1fef6c9f35a14ea10f70267a551b51ece32312474f4" => :el_capitan
+    sha256 "91a0f66c1d2a9538699aff8366b13508299550abade47c8fa266d96836e0eb4c" => :high_sierra
+    sha256 "613ee02629654a29249b7e720ad3205547cbdc8ee37c77354c75c7e472e492d1" => :sierra
+    sha256 "3b8042840d831b6e13177e2ecbc5b700a9ac9591c6dc451ff01cc6b70c33b20a" => :el_capitan
   end
 
   head do
@@ -41,6 +41,7 @@ class CrystalLang < Formula
   depends_on "bdw-gc"
   depends_on "llvm@4"
   depends_on "pcre"
+  depends_on "gmp" # std uses it but it's not linked
   depends_on "libyaml" if build.with? "shards"
   depends_on CIRequirement
 
