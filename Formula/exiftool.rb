@@ -6,14 +6,13 @@ class Exiftool < Formula
   url "https://www.sno.phy.queensu.ca/~phil/exiftool/Image-ExifTool-10.55.tar.gz"
   mirror "https://downloads.sourceforge.net/project/exiftool/Image-ExifTool-10.55.tar.gz"
   sha256 "029b81a43f423332c00b76b5402fd8f85dee975fad41a734b494faeda4e41f7d"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "89bf92b3ae7c5f60a085e87f0eef9604a8537d4c392d2c04a1743dd6c581414d" => :high_sierra
-    sha256 "89bf92b3ae7c5f60a085e87f0eef9604a8537d4c392d2c04a1743dd6c581414d" => :sierra
-    sha256 "89bf92b3ae7c5f60a085e87f0eef9604a8537d4c392d2c04a1743dd6c581414d" => :el_capitan
-    sha256 "219fcf45bc89515d260e2697392e29e919e2aca0cc3baae8f9e7574592238380" => :x86_64_linux
+    sha256 "5039ab4f2bc31d2afc9b4cd1fab9ab5d6deec2bf2d1bba0a95f4d54e747dd117" => :high_sierra
+    sha256 "5039ab4f2bc31d2afc9b4cd1fab9ab5d6deec2bf2d1bba0a95f4d54e747dd117" => :sierra
+    sha256 "5039ab4f2bc31d2afc9b4cd1fab9ab5d6deec2bf2d1bba0a95f4d54e747dd117" => :el_capitan
   end
 
   devel do
@@ -27,9 +26,12 @@ class Exiftool < Formula
     inreplace "exiftool", "$exeDir/lib", libexec/"lib"
 
     system "perl", "Makefile.PL"
+    system "make", "all"
     libexec.install "lib"
     bin.install "exiftool"
     doc.install Dir["html/*"]
+    man1.install "blib/man1/exiftool.1"
+    man3.install Dir["blib/man3/*"]
   end
 
   test do
