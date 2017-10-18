@@ -11,6 +11,7 @@ class Cfitsio < Formula
     sha256 "8b21e0a610d1caa8d8900546d2b2d9f83f74a9f1bd0d3e729f1ab1ad28b81813" => :high_sierra
     sha256 "b2f55b8504d79e27d23b5fa93f77ff9bc2488eef4f5ed94c7a16757505df4462" => :sierra
     sha256 "7681f60baee8d9a73639be3f54d7f4a1c71c9fc9f4ac7fd0e3ba20cb2a2c3c7b" => :el_capitan
+    sha256 "c95189293d9295bd7f6501da4176a0634d9e9e57faf4a034a984cbe08c35e3d2" => :x86_64_linux
   end
 
   def install
