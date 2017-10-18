@@ -8,6 +8,7 @@ class Loc < Formula
     sha256 "2c66f5b54d8769dd96f34992db4dd6fc5d84344ce16553f2ee47c6fc6818a861" => :high_sierra
     sha256 "276bb55a29fa8e24a968376e040a648aefac8710e968c507040a12a2d5979edd" => :sierra
     sha256 "c3a745729bbcbb8fbda867e82946ce3d20078beca4bb08265ceb6467691ca0da" => :el_capitan
+    sha256 "820e62f8206e98f2db7c1edd33549d8d2c9deefca085624924ad3004c783e428" => :x86_64_linux
   end
 
   depends_on "rust" => :build
