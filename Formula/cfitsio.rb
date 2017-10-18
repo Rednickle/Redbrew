@@ -1,18 +1,16 @@
 class Cfitsio < Formula
   desc "C access to FITS data files with optional Fortran wrappers"
   homepage "https://heasarc.gsfc.nasa.gov/docs/software/fitsio/fitsio.html"
-  url "https://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/cfitsio3410.tar.gz"
-  mirror "ftp://heasarc.gsfc.nasa.gov/software/fitsio/c/cfitsio3410.tar.gz"
-  version "3.410"
-  sha256 "a556ac7ea1965545dcb4d41cfef8e4915eeb8c0faa1b52f7ff70870f8bb5734c"
+  url "https://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/cfitsio3420.tar.gz"
+  mirror "ftp://heasarc.gsfc.nasa.gov/software/fitsio/c/cfitsio3420.tar.gz"
+  version "3.420"
+  sha256 "6c10aa636118fa12d9a5e2e66f22c6436fb358da2af6dbf7e133c142e2ac16b8"
 
   bottle do
     cellar :any
-    sha256 "747fb428a1dddfe61be0c3ded3d7210ee8000add63899c4a0821c79981743d68" => :high_sierra
-    sha256 "a72624afaa8ea443c369bb0488fc1c9777c0eb69406366abe5fb8baa9535cc1c" => :sierra
-    sha256 "3fed2108f06719ca7661466ae8cdaf9a8a1c36fd45e44472377e66ff483b62f6" => :el_capitan
-    sha256 "113ce9d721d80abc9d09aa5e4e947ee62a618c16e47510a3c2e58ae97211d5ac" => :yosemite
-    sha256 "c55a15ba046b2a4bc254ca78ae7d49d1c6093092a46ef04f356e25b46bbeced8" => :x86_64_linux # glibc 2.19
+    sha256 "8b21e0a610d1caa8d8900546d2b2d9f83f74a9f1bd0d3e729f1ab1ad28b81813" => :high_sierra
+    sha256 "b2f55b8504d79e27d23b5fa93f77ff9bc2488eef4f5ed94c7a16757505df4462" => :sierra
+    sha256 "7681f60baee8d9a73639be3f54d7f4a1c71c9fc9f4ac7fd0e3ba20cb2a2c3c7b" => :el_capitan
   end
 
   def install
