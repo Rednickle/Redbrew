@@ -9,6 +9,7 @@ class Itstool < Formula
     sha256 "4d9aec732db3d58433a777f5922a5f24e963e8875f7cc1cb9f7781573d5277ea" => :high_sierra
     sha256 "4d9aec732db3d58433a777f5922a5f24e963e8875f7cc1cb9f7781573d5277ea" => :sierra
     sha256 "4d9aec732db3d58433a777f5922a5f24e963e8875f7cc1cb9f7781573d5277ea" => :el_capitan
+    sha256 "d8d16398e46322b42d8e3ec3fa6cba6c2e3c9878f4fb78826500949d4cfdfe27" => :x86_64_linux
   end
 
   head do
