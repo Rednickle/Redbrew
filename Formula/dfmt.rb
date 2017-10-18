@@ -15,6 +15,13 @@ class Dfmt < Formula
     sha256 "a201c83a77064aa017f718d82c5f74f6a480b4b7a82b885a0ad354e5504a002a" => :x86_64_linux # glibc 2.19
   end
 
+  devel do
+    url "https://github.com/dlang-community/dfmt.git",
+      :tag => "v0.6.0-alpha.1",
+      :revision => "02a735cb0c10d711c5f08fc26572f98bc5fdf0ff"
+    version "0.6.0-alpha.1"
+  end
+
   depends_on "dmd" => :build
 
   def install
