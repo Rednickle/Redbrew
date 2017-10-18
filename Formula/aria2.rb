@@ -9,6 +9,7 @@ class Aria2 < Formula
     sha256 "d97e97cf8f8cafceae11083b69911e9067ade8bf9112a4baffc79219580aa790" => :high_sierra
     sha256 "87e3e594eebbf6820cb1af881a570cceee6fd8621c883033208fc970a4bc52fa" => :sierra
     sha256 "dce6d7d93b447edbfbc47d5a5d5ea69129015de3a504f2cb20b78e91d5117ec1" => :el_capitan
+    sha256 "f8154d811699a5bb112adac1a091ccbab49c4bcfc930abf205d344630b455ad2" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
