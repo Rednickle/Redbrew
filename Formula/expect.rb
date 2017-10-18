@@ -8,6 +8,7 @@ class Expect < Formula
     sha256 "c5abbb16dfe9ff703c9eaf1cebe29a1d1611d3ccd12313525a9a08c0c195c0d0" => :high_sierra
     sha256 "410e1257189d177984dcaabdb5b92aad29aacf7f9ad16d314cf472131d2f329e" => :sierra
     sha256 "862a30f66b267ae389da407174844ee311b0ef4a971e53654f1378da393b5cea" => :el_capitan
+    sha256 "6b3ca2c421d4798b075a63687ef0ac86a237cf67b2807631ce3096db62db47f6" => :x86_64_linux
   end
 
   option "with-threads", "Build with multithreading support"
