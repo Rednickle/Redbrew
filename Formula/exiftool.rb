@@ -13,6 +13,7 @@ class Exiftool < Formula
     sha256 "89bf92b3ae7c5f60a085e87f0eef9604a8537d4c392d2c04a1743dd6c581414d" => :high_sierra
     sha256 "89bf92b3ae7c5f60a085e87f0eef9604a8537d4c392d2c04a1743dd6c581414d" => :sierra
     sha256 "89bf92b3ae7c5f60a085e87f0eef9604a8537d4c392d2c04a1743dd6c581414d" => :el_capitan
+    sha256 "219fcf45bc89515d260e2697392e29e919e2aca0cc3baae8f9e7574592238380" => :x86_64_linux
   end
 
   devel do
