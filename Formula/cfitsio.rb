@@ -14,8 +14,12 @@ class Cfitsio < Formula
     sha256 "c95189293d9295bd7f6501da4176a0634d9e9e57faf4a034a984cbe08c35e3d2" => :x86_64_linux
   end
 
+  option "with-reentrant", "Build with support for concurrency"
+
   def install
-    system "./configure", "--prefix=#{prefix}"
+    args = ["--prefix=#{prefix}"]
+    args << "--enable-reentrant" if build.with? "reentrant"
+    system "./configure", *args
     system "make", "shared"
     system "make", "install"
     (pkgshare/"testprog").install Dir["testprog*"]
