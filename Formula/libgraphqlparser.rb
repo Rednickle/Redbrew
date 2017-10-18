@@ -9,6 +9,7 @@ class Libgraphqlparser < Formula
     sha256 "cffca81b24fb0914f2904592156f6ac7d6971807b81d72234cb0218fc7481cde" => :high_sierra
     sha256 "15805dc7067558d8af112caa85ebcb777122640d41cc1b7998e070ebdeafd62d" => :sierra
     sha256 "89d55800b60e750453ab196237c0935c89e069b26da608325a469c4ca4cddfb0" => :el_capitan
+    sha256 "610aa6d67d635f984c0a8cf6ae56dd9b9c6d067408725e04e1606fc63666c22f" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
