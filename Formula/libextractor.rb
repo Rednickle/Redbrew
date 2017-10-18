@@ -9,6 +9,7 @@ class Libextractor < Formula
     sha256 "d547400beebeae3290adfa6d63add9b9c722d4dd65533e77a4be0b8bf315b8c5" => :high_sierra
     sha256 "af73939dbc95fb9f2ed2bfcbf8217cff2b07a9f0716cfedbaaa57c03321f3d16" => :sierra
     sha256 "10267b6dd613e42a5335b2ed4b06f47319cfbfcee2a4455f32fe216d9cbd630d" => :el_capitan
+    sha256 "6b66615b29708df1c0854291768bf6ee5b943c27a7207a6c232578543b09f795" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
