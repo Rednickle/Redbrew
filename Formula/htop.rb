@@ -28,8 +28,6 @@ class Htop < Formula
     depends_on "ncurses"
   end
 
-  conflicts_with "htop-osx", :because => "both install an `htop` binary"
-
   def install
     system "./autogen.sh" if build.head?
     system "./configure", "--prefix=#{prefix}"

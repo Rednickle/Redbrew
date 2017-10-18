@@ -14,6 +14,12 @@ class Sundials < Formula
     sha256 "396a052ce7b2da9ad205260cac3a0b615f33f676ed635945b7aae8fe45be62d7" => :x86_64_linux # glibc 2.19
   end
 
+  devel do
+    url "https://computation.llnl.gov/projects/sundials/download/sundials-3.0.0-beta-2.tar.gz"
+    sha256 "0e597707b4210dee9ab3583f072c2e5513b28cbbd8465296fc5c203074b225dd"
+    version "3.0.0-beta-2"
+  end
+
   option "with-openmp", "Enable OpenMP multithreading"
 
   depends_on "cmake" => :build
