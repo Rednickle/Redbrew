@@ -1,15 +1,14 @@
 class Itstool < Formula
   desc "Make XML documents translatable through PO files"
   homepage "http://itstool.org/"
-  url "http://files.itstool.org/itstool/itstool-2.0.3.tar.bz2"
-  sha256 "8c7a5c639eb4714a91ad829910fd06c1c677abcbbb60aee9211141faa7fb02c7"
+  url "http://files.itstool.org/itstool/itstool-2.0.4.tar.bz2"
+  sha256 "97c208b51da33e0b553e830b92655f8deb9132f8fbe9a646771f95c33226eb60"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "da09d7d185c9c44226324cdcad03bb73ac20468a4231c4ecc75f7ccf32457a23" => :high_sierra
-    sha256 "da09d7d185c9c44226324cdcad03bb73ac20468a4231c4ecc75f7ccf32457a23" => :sierra
-    sha256 "da09d7d185c9c44226324cdcad03bb73ac20468a4231c4ecc75f7ccf32457a23" => :el_capitan
-    sha256 "0fda060f84e1da13d784b78018b9e9c49caf1d78cecf171dba16129fbe52ba94" => :x86_64_linux
+    sha256 "4d9aec732db3d58433a777f5922a5f24e963e8875f7cc1cb9f7781573d5277ea" => :high_sierra
+    sha256 "4d9aec732db3d58433a777f5922a5f24e963e8875f7cc1cb9f7781573d5277ea" => :sierra
+    sha256 "4d9aec732db3d58433a777f5922a5f24e963e8875f7cc1cb9f7781573d5277ea" => :el_capitan
   end
 
   head do
