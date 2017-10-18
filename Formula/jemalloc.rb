@@ -1,9 +1,8 @@
 class Jemalloc < Formula
   desc "malloc implementation emphasizing fragmentation avoidance"
-  homepage "http://www.canonware.com/jemalloc/"
+  homepage "http://jemalloc.net/"
   url "https://github.com/jemalloc/jemalloc/releases/download/5.0.1/jemalloc-5.0.1.tar.bz2"
   sha256 "4814781d395b0ef093b21a08e8e6e0bd3dab8762f9935bbfb71679b0dea7c3e9"
-  head "https://github.com/jemalloc/jemalloc.git"
 
   bottle do
     cellar :any
@@ -14,8 +13,28 @@ class Jemalloc < Formula
     sha256 "9026d07786ad063d3b8956d18cca34e5ba09fa252fe80016b2498f9fcd09628b" => :x86_64_linux # glibc 2.19
   end
 
+  head do
+    url "https://github.com/jemalloc/jemalloc.git"
+
+    depends_on "autoconf" => :build
+    depends_on "docbook-xsl" => :build
+  end
+
   def install
-    system "./configure", "--disable-debug", "--prefix=#{prefix}", "--with-jemalloc-prefix="
+    args = %W[
+      --disable-debug
+      --prefix=#{prefix}
+      --with-jemalloc-prefix=
+    ]
+
+    if build.head?
+      args << "--with-xslroot=#{Formula["docbook-xsl"].opt_prefix}/docbook-xsl"
+      system "./autogen.sh", *args
+      system "make", "dist"
+    else
+      system "./configure", *args
+    end
+
     system "make"
     system "make", "check"
     system "make", "install"
