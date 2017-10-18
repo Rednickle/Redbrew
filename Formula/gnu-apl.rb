@@ -24,6 +24,7 @@ class GnuApl < Formula
   # GNU Readline is required; libedit won't work.
   depends_on "readline"
   depends_on :macos => :mavericks
+  depends_on "libpq" => :optional
 
   def install
     # Work around "error: no member named 'signbit' in the global namespace"
