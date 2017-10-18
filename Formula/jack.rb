@@ -16,6 +16,7 @@ class Jack < Formula
     sha256 "abc0921ccf479b78ccd3d9ce393290800bed6c059046dc9f42029cc4c954b3ad" => :high_sierra
     sha256 "abc0921ccf479b78ccd3d9ce393290800bed6c059046dc9f42029cc4c954b3ad" => :sierra
     sha256 "85a868bc1467309193251f81640e54d91a3ee2369cf83dae2f2e4cca2755dddf" => :el_capitan
+    sha256 "5171d96db1c99da85d6df5f8100192c7bd9ae26066c3f62758d4fdbd615276bf" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
