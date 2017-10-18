@@ -9,6 +9,7 @@ class Moc < Formula
     sha256 "44bdffa1f83c2ce249d9d402fa3956b12f49ae63b702b849f01b93bd1c3fe433" => :high_sierra
     sha256 "85dd651a6ceffd30d05c41570b2c81c0eeb7211f3f8f63afc4580272c619df72" => :sierra
     sha256 "87493722fdef24873f9a2f9900a1cf5a4758c7b76f5c648668bd8ce1932076a3" => :el_capitan
+    sha256 "3c0fd4a7935b9164b9108af4c43e9320cb96a62b48855ab5d983f91006b2e3be" => :x86_64_linux
   end
 
   devel do
