@@ -1,22 +1,20 @@
 class Leiningen < Formula
   desc "Build tool for Clojure"
   homepage "https://github.com/technomancy/leiningen"
-  url "https://github.com/technomancy/leiningen/archive/2.7.1.tar.gz"
-  sha256 "953c95c2656c46320c88dc683202030fdd9554e8390a4b4aaaba6d019088df6f"
+  url "https://github.com/technomancy/leiningen/archive/2.8.0.tar.gz"
+  sha256 "c02919055d23420a919f9a133457d49fd85141565e24bc2c45c1ec1ad6c11bec"
   head "https://github.com/technomancy/leiningen.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b125fb1aa617747bdb525aff71138ee29cb3bfa30709af362aef851e76dcccc8" => :high_sierra
-    sha256 "2b1ff53df573fc457ebb75c93c31bc272230b481490177341bb061a2f10fb86c" => :sierra
-    sha256 "2b1ff53df573fc457ebb75c93c31bc272230b481490177341bb061a2f10fb86c" => :el_capitan
-    sha256 "2b1ff53df573fc457ebb75c93c31bc272230b481490177341bb061a2f10fb86c" => :yosemite
-    sha256 "e280c3861125b3e48bd1c2b969bb570fdc61f38f999cbb959111863f983ba046" => :x86_64_linux # glibc 2.19
+    sha256 "9a00b911bef1efeff0330b0bba8c767ea0085296f183c6a47322773db007c517" => :high_sierra
+    sha256 "9a00b911bef1efeff0330b0bba8c767ea0085296f183c6a47322773db007c517" => :sierra
+    sha256 "9a00b911bef1efeff0330b0bba8c767ea0085296f183c6a47322773db007c517" => :el_capitan
   end
 
   resource "jar" do
-    url "https://github.com/technomancy/leiningen/releases/download/2.7.1/leiningen-2.7.1-standalone.zip", :using => :nounzip
-    sha256 "2ddc7e89bbb45cf1ca3d666a10dce0d3f154b77ad201aa58f430e84e71587c47"
+    url "https://github.com/technomancy/leiningen/releases/download/2.8.0/leiningen-2.8.0-standalone.zip", :using => :nounzip
+    sha256 "69c8c553553d1e02ca89bfa2a7650acf80b75511d193bfaa60236342e1356075"
   end
 
   def install
