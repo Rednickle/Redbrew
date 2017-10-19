@@ -10,6 +10,7 @@ class Netcdf < Formula
     sha256 "5e9d59f810ec8c3e69cb5df8f38fb9cb261aad529c3bf276081cb18db0ad77f0" => :high_sierra
     sha256 "ad5f2f999dbad25c23b8a968ef48a16fe666857ed5b521c4d818025fa56d7b46" => :sierra
     sha256 "f4166a011114db4b6dbb5606877583e607eb0e384d1dcf98e84d1762da915ea9" => :el_capitan
+    sha256 "bac749697e1858dea360ac175de19e0ac59f3771dd0d0de30b0c901b4914bb72" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
