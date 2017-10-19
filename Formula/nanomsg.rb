@@ -9,6 +9,7 @@ class Nanomsg < Formula
     sha256 "9d2f717a002b9525f7da3c501990132d649cc82e4010a0a1411a602802c10380" => :high_sierra
     sha256 "aa36e77ee27a492b5d995fb83b0c9b0b505c4fa5d4849cff51fb704309d40fb3" => :sierra
     sha256 "e64e92e97f269381d4b1b58e7f8e5be5718beab1823b08bc1f847e8188f9b42c" => :el_capitan
+    sha256 "bea17104cd75034c51eca7f4496250d4584dcf07a526403d10c12315aa83e6fc" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
