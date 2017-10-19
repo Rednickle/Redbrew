@@ -10,6 +10,7 @@ class GitAppraise < Formula
     sha256 "e515979b703cef062e19829399ddb441c91d835e25814614c938af36764fc0d4" => :high_sierra
     sha256 "c048f2cce708e7c85c74d18758e47d3959cce29e2f8e70bca021b1564e65092d" => :sierra
     sha256 "e12ce185286565f4f07f48f1deb2fd4a19043bcafb337de94b9ba7148291b91b" => :el_capitan
+    sha256 "c32da22cd50d604799065ab2e1a48921d55f78fb2278f5ba78a9b85c86e85229" => :x86_64_linux
   end
 
   depends_on "go" => :build
