@@ -5,9 +5,10 @@ class Httpd < Formula
   sha256 "c1197a3a62a4ab5c584ab89b249af38cf28b4adee9c0106b62999fd29f920666"
 
   bottle do
-    sha256 "9052787a9e83dcd5a00e60a752d55f3b8f794738291d306f760eb5d3fbc2b527" => :high_sierra
-    sha256 "24a11f73011740d5d95d6382eba225b4b1a54722af9090d17b62a96aaba9754f" => :sierra
-    sha256 "a762f7c1b9dd5e2fa69555d79056b5a19bd92ed4a2ad354ce89d267de4d8f11f" => :el_capitan
+    rebuild 1
+    sha256 "f564a4ffc37f71ff98c8a9884afc409be90f84e2e4375dd45215f93713ac63d0" => :high_sierra
+    sha256 "000b5848667175cc8fd43cca662391491dc53c1c82b05859a369b5c154e9c55d" => :sierra
+    sha256 "50b5f8a620a9ad242caf43a2e404d6f782699785516d8e6a7d94729c794ba0cd" => :el_capitan
   end
 
   depends_on "apr"
@@ -54,6 +55,7 @@ class Httpd < Formula
                           "--with-sslport=8443",
                           "--with-apr=#{Formula["apr"].opt_prefix}",
                           "--with-apr-util=#{Formula["apr-util"].opt_prefix}",
+                          "--with-mpm=prefork",
                           "--with-nghttp2=#{Formula["nghttp2"].opt_prefix}",
                           "--with-ssl=#{Formula["openssl"].opt_prefix}",
                           "--with-pcre=#{Formula["pcre"].opt_prefix}"
@@ -140,11 +142,11 @@ class Httpd < Formula
         LoadModule authz_core_module #{lib}/httpd/modules/mod_authz_core.so
         LoadModule unixd_module #{lib}/httpd/modules/mod_unixd.so
         LoadModule dir_module #{lib}/httpd/modules/mod_dir.so
-        LoadModule mpm_event_module #{lib}/httpd/modules/mod_mpm_event.so
+        LoadModule mpm_prefork_module #{lib}/httpd/modules/mod_mpm_prefork.so
       EOS
 
       pid = fork do
-        exec bin/"httpd", "-DFOREGROUND", "-f", "#{testpath}/httpd.conf"
+        exec bin/"httpd", "-X", "-f", "#{testpath}/httpd.conf"
       end
       sleep 3
 
