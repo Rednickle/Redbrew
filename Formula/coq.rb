@@ -13,17 +13,14 @@ end
 class Coq < Formula
   desc "Proof assistant for higher-order logic"
   homepage "https://coq.inria.fr/"
-  url "https://coq.inria.fr/distrib/8.6.1/files/coq-8.6.1.tar.gz"
-  sha256 "32f8aa92853483dec18030def9f0857a708fee56cf4287e39c9a260f08138f9d"
-  revision 1
-  head "git://scm.gforge.inria.fr/coq/coq.git"
+  url "https://github.com/coq/coq/archive/V8.7.0.tar.gz"
+  sha256 "f376207ed051b3fd27c519f44b25eb25f8dddbce22715f68c3cedfd2e4b39297"
+  head "https://github.com/coq/coq.git"
 
   bottle do
-    sha256 "0b8d2c22b383dab49d00916b1a23f8e5172c94989f7e481d8d85b649f0a2c31b" => :high_sierra
-    sha256 "275c1d6a33704757eb283ec5d2562193387f093e7dbe7c2cb4a4e96264d3aedf" => :sierra
-    sha256 "7c8e6073149ee473fbeb7801975e6b57e1297ef113292504ac120556fdec1dc6" => :el_capitan
-    sha256 "d6b4b69e7c3ae0f5b6aed761dd552ad35c9f7b7eac8646909e483b8940268f74" => :yosemite
-    sha256 "968dd6001448e4f0306d8d3b35fddda5e884bad63036c8dc611d5ba28a355d49" => :x86_64_linux # glibc 2.19
+    sha256 "9fb0fc75bd4e70ded62131e90ab69f864eea83f8e36af4c796bdd9fab9b6a188" => :high_sierra
+    sha256 "b338308d66bb15c1869d4d2fd2866c60c123aa0d64468e8ddc8f6877a9bcf016" => :sierra
+    sha256 "1436182a25030ea3e118f696a3df0606957734bb000d782fef8ab021b8c0b687" => :el_capitan
   end
 
   depends_on "opam" => :build
