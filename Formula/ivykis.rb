@@ -9,6 +9,7 @@ class Ivykis < Formula
     sha256 "6de73482d7d358088ded2c8af43993710f2967c2e8c4cd8aa67a6600aefb35bd" => :high_sierra
     sha256 "3a9f5bdc6f40b4d7f9e7cdfcee7ad993cf02e2ac8fda0d20217ba6c10b783446" => :sierra
     sha256 "1f202587109188602e9da0e064ffbf08242726eba5fd51037638441ada78d3e1" => :el_capitan
+    sha256 "1fb0b5c1f6358b46c9f25f706830cd41863ce46e7291c4c2f66dceca9e30b866" => :x86_64_linux
   end
 
   depends_on "automake" => :build
