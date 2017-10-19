@@ -10,6 +10,7 @@ class Nanomsgxx < Formula
     sha256 "b35ef1c194aea9a8b1c59495dadec535d748ad21003843caf1d520743d4e6a88" => :high_sierra
     sha256 "31944634bba1c194586658fd0d7ab9bc5c2564f334a9fbbea3d1af57dc43ef55" => :sierra
     sha256 "e70ca4633486bd83259989bf62041e5e140401fbecc7bb4e855375229b016312" => :el_capitan
+    sha256 "100c9b80bd6d07433fcb0c8d42117e697ea83fa3facef2c050854f6fe7c4d4c7" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
