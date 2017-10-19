@@ -5,15 +5,14 @@ class GitAnnex < Formula
 
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-6.20171003/git-annex-6.20171003.tar.gz"
-  sha256 "51edd74b98cbf5baa38e2197fb60b8b04d8cc375a686859ee74cb5e54a53de3b"
+  url "https://hackage.haskell.org/package/git-annex-6.20171018/git-annex-6.20171018.tar.gz"
+  sha256 "ad049707bed0c5c0b2b6d70b353ccc6a7902df93fe626836bc9c90ff3caf599d"
   head "git://git-annex.branchable.com/"
 
   bottle do
-    sha256 "14506f7f7538daa7395484890b860441ce3a390c81e6c7ed58fd6669fd215a7f" => :high_sierra
-    sha256 "0d04414621e85f62e2826b4abc00322b4ab638d6fbce1e08d8e445d34dfeb701" => :sierra
-    sha256 "f7587ce10d93624d4c7ab3983c93309aae2cb799fb96b7ef881aba3a040aa134" => :el_capitan
-    sha256 "9cb71f56f14b644a73186df57df8aa5a792984d1ee4e8e98bb014e770e293514" => :x86_64_linux
+    sha256 "69d411c1ad24b5b098bca71bc9693867273b287588602a74da19330cc07ca896" => :high_sierra
+    sha256 "d66abc7ff7e7c9142515ae06ffcbd10a9619c9f6246ffaf509636b94b6e0b5c4" => :sierra
+    sha256 "76d6adcf508f47a6fde44bfb2aa675960a7082d414ce576ed7181a8b9b6f40fc" => :el_capitan
   end
 
   option "with-git-union-merge", "Build the git-union-merge tool"
@@ -27,13 +26,8 @@ class GitAnnex < Formula
   depends_on "xdot" => :recommended
 
   def install
-    # The fingertree constraint can be removed after the next release of reducers (>v3.12.1)
-    # https://git-annex.branchable.com/bugs/fingertree___62____61___0.1.2_causes_build_to_fail_on_reducers/
-    # git-annex is broken with aws 0.17, error: "Couldn't match expected type 'AWS.Configuration'"
-    # https://git-annex.branchable.com/bugs/Cannot_build_with_aws_0.17.1/
-    install_cabal_package "--constraint", "fingertree<0.1.2.0", "--constraint", "aws<0.17",
-                          "--allow-newer=aws:time", :using => ["alex", "happy", "c2hs"],
-                                                    :flags => ["s3", "webapp"] do
+    install_cabal_package :using => ["alex", "happy", "c2hs"],
+                          :flags => ["s3", "webapp"] do
       # this can be made the default behavior again once git-union-merge builds properly when bottling
       if build.with? "git-union-merge"
         system "make", "git-union-merge", "PREFIX=#{prefix}"
