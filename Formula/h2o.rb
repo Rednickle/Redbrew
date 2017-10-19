@@ -8,6 +8,7 @@ class H2o < Formula
     sha256 "05e55f9200a569b44094ceafcb11b516391ec6a99c49df6a076584b6239ccc4e" => :high_sierra
     sha256 "6cc8687866d2209cc02b24d4395f1072338c2c51178422dec676687e5f54104c" => :sierra
     sha256 "927ca501a4423e447d3cbdd51123077251deb47adb38c351bbff07a8a537366f" => :el_capitan
+    sha256 "107be4da3227f12eb4f06cb43816f7932c14389c8172da55261593a12693bd2f" => :x86_64_linux
   end
 
   option "with-libuv", "Build the H2O library in addition to the executable"
