@@ -9,6 +9,7 @@ class Dvm < Formula
     sha256 "35e1aaec1421df4159cf0f18d7dbc3deb1620ac84159e05e52cab2b069e69e5b" => :high_sierra
     sha256 "edc8e7c2e5aa099cc14be57247961cb79ef5f677610d0301786cfce41ed55e48" => :sierra
     sha256 "25ea32a37d52751a050f7814205ddc711e5fd1530fc79d4bbe2c987c94152e0c" => :el_capitan
+    sha256 "912e4e6ba48a686b625925ba0f52c651b73a9bb1da18126861c51edef2d7e3f3" => :x86_64_linux
   end
 
   depends_on "go" => :build
