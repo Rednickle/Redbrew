@@ -11,6 +11,7 @@ class Gmp < Formula
     sha256 "eadb377c507f5d04e8d47861fa76471be6c09dc54991540e125ee1cbc04fecd6" => :high_sierra
     sha256 "90715336080bd2deb92bd74361f50d91fe288d18e4c18a70a8253add6aa13200" => :sierra
     sha256 "0e0c340b4c09a4f00daf45890e8f36afa03d251a8ed3bba6ae4876149914b420" => :el_capitan
+    sha256 "982feb05de02cb3907835e1d3f78c39834f98bf8a6e382467f78e151294a93f2" => :x86_64_linux
   end
 
   depends_on "m4" => :build unless OS.mac?
