@@ -11,6 +11,7 @@ class Molecule < Formula
     sha256 "7c151fc29a57ff977b9bc86cf5c980cfb8d81dfffb63fbd7021bbf0311fe7846" => :high_sierra
     sha256 "e9875af13103fb544161ae42a1cd4c5979d69a104f21e9c86684f6ed2d50fc13" => :sierra
     sha256 "5c2a2ba6751aa7b6e97399bdc95707dd4e621044dfbb99c2744463445f5db855" => :el_capitan
+    sha256 "6d55935b530d6afde43dada83f45b2d83fa53cb4a42e6833f76c35c41212a9a8" => :x86_64_linux
   end
 
   depends_on :python
