@@ -10,6 +10,7 @@ class Leiningen < Formula
     sha256 "9a00b911bef1efeff0330b0bba8c767ea0085296f183c6a47322773db007c517" => :high_sierra
     sha256 "9a00b911bef1efeff0330b0bba8c767ea0085296f183c6a47322773db007c517" => :sierra
     sha256 "9a00b911bef1efeff0330b0bba8c767ea0085296f183c6a47322773db007c517" => :el_capitan
+    sha256 "f1edff33d46f10b815e5b87efb0d6aa8d6c18dba07caca9b5a97ee50a1b95df3" => :x86_64_linux
   end
 
   resource "jar" do
