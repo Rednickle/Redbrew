@@ -8,6 +8,7 @@ class Librest < Formula
     sha256 "9051b6736cc74cc7cf4869d80be7573b13361f33464f89eb88bccae86d22c1e9" => :high_sierra
     sha256 "a799cab80624c9a4ad497725f13889608fee9f22030a85add84bd246a79a1693" => :sierra
     sha256 "a2499387aa86673e5c7a04c88df26ca47f7b3498687c40b32dbcf14619084899" => :el_capitan
+    sha256 "4add3942e27098db6b88ac89ac4a54d23d23d58976bc4f3b52a4379f13d13505" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
