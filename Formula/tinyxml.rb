@@ -44,7 +44,7 @@ class Tinyxml < Formula
     (lib+"pkgconfig/tinyxml.pc").write pc_file
   end
 
-  def pc_file; <<-EOS.undent
+  def pc_file; <<~EOS
     prefix=#{opt_prefix}
     exec_prefix=${prefix}
     libdir=${exec_prefix}/lib
@@ -59,11 +59,11 @@ class Tinyxml < Formula
   end
 
   test do
-    (testpath/"test.xml").write <<-EOS.undent
+    (testpath/"test.xml").write <<~EOS
       <?xml version="1.0" ?>
       <Hello>World</Hello>
     EOS
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <tinyxml.h>
 
       int main()

@@ -21,7 +21,7 @@ class Abcm2ps < Formula
   end
 
   test do
-    (testpath/"voices.abc").write <<-EOF.undent
+    (testpath/"voices.abc").write <<~EOS
       X:7
       T:Qui Tolis (Trio)
       C:Andre Raison
@@ -40,7 +40,7 @@ class Abcm2ps < Formula
       V:Trompette
       %%MIDI program 56
       "Trompette"z3|z3 |z3 |z3 |:Mc>BA|PGA/G/F|PE>EF|PEF/E/D|C>CPB,|A,G,F,-|
-    EOF
+    EOS
 
     system "#{bin}/abcm2ps", testpath/"voices"
     assert_predicate testpath/"Out.ps", :exist?

@@ -20,7 +20,7 @@ class Bibutils < Formula
   end
 
   test do
-    (testpath/"test.bib").write <<-EOS.undent
+    (testpath/"test.bib").write <<~EOS
       @article{Homebrew,
           title   = {Something},
           author  = {Someone},

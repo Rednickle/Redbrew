@@ -40,7 +40,7 @@ class Vdirsyncer < Formula
 
   test do
     ENV["LC_ALL"] = "en_US.UTF-8"
-    (testpath/".config/vdirsyncer/config").write <<-EOS.undent
+    (testpath/".config/vdirsyncer/config").write <<~EOS
       [general]
       status_path = "#{testpath}/.vdirsyncer/status/"
       [pair contacts]
@@ -56,7 +56,7 @@ class Vdirsyncer < Formula
       path = "~/.contacts/b/"
       fileext = ".vcf"
     EOS
-    (testpath/".contacts/a/foo/092a1e3b55.vcf").write <<-EOS.undent
+    (testpath/".contacts/a/foo/092a1e3b55.vcf").write <<~EOS
       BEGIN:VCARD
       VERSION:3.0
       EMAIL;TYPE=work:username@example.org

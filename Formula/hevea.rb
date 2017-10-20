@@ -22,7 +22,7 @@ class Hevea < Formula
   end
 
   test do
-    (testpath/"test.tex").write <<-EOS.undent
+    (testpath/"test.tex").write <<~EOS
       \\documentclass{article}
       \\begin{document}
       \\end{document}

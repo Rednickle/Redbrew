@@ -25,7 +25,7 @@ class GitNow < Formula
 
     system "make", "prefix=#{libexec}", "install"
 
-    (bin/"git-now").write <<-EOS.undent
+    (bin/"git-now").write <<~EOS
       #!/bin/sh
       PATH=#{Formula["gnu-getopt"].opt_bin}:$PATH #{libexec}/bin/git-now "$@"
     EOS
@@ -34,7 +34,7 @@ class GitNow < Formula
   end
 
   test do
-    (testpath/".gitconfig").write <<-EOS.undent
+    (testpath/".gitconfig").write <<~EOS
       [user]
         name = Real Person
         email = notacat@hotmail.cat

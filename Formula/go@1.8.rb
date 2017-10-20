@@ -63,7 +63,7 @@ class GoAT18 < Formula
     bin.install_symlink libexec/"bin/godoc"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     A valid GOPATH is required to use the `go get` command.
     If $GOPATH is not specified, $HOME/go will be used by default:
       https://golang.org/doc/code.html#GOPATH
@@ -74,7 +74,7 @@ class GoAT18 < Formula
   end
 
   test do
-    (testpath/"hello.go").write <<-EOS.undent
+    (testpath/"hello.go").write <<~EOS
     package main
 
     import "fmt"

@@ -294,7 +294,7 @@ class Jupyter < Formula
     rm_rf Dir["#{libexec}/share/jupyter/kernels"]
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Additional kernels can be installed into the shared jupyter directory
       #{etc}/jupyter
     EOS
@@ -304,7 +304,7 @@ class Jupyter < Formula
     assert_match "python2", shell_output("#{bin}/jupyter kernelspec list")
 
     if build.with? "console"
-      (testpath/"console.exp").write <<-EOS.undent
+      (testpath/"console.exp").write <<~EOS
         spawn #{bin}/jupyter-console
         expect "In "
         send "exit\r"
@@ -313,7 +313,7 @@ class Jupyter < Formula
     end
 
     if build.with? "notebook"
-      (testpath/"notebook.exp").write <<-EOS.undent
+      (testpath/"notebook.exp").write <<~EOS
         spawn #{bin}/jupyter-notebook --no-browser
         expect "NotebookApp"
       EOS
@@ -321,7 +321,7 @@ class Jupyter < Formula
     end
 
     if build.with? "nbconvert"
-      (testpath/"nbconvert.ipynb").write <<-EOS.undent
+      (testpath/"nbconvert.ipynb").write <<~EOS
         {
           "cells": []
         }
@@ -331,7 +331,7 @@ class Jupyter < Formula
     end
 
     if build.with? "qtconsole"
-      (testpath/"qtconsole.exp").write <<-EOS.undent
+      (testpath/"qtconsole.exp").write <<~EOS
         spawn #{bin}/jupyter-qtconsole
       EOS
       system "expect", "-f", "qtconsole.exp" if which("expect")

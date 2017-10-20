@@ -35,7 +35,7 @@ class Aggregate < Formula
 
   test do
     # Test case taken from here: http://horms.net/projects/aggregate/examples.shtml
-    test_input = <<-EOS.undent
+    test_input = <<~EOS
       10.0.0.0/19
       10.0.255.0/24
       10.1.0.0/24
@@ -46,7 +46,7 @@ class Aggregate < Formula
       10.1.3.0/25
     EOS
 
-    expected_output = <<-EOS.undent
+    expected_output = <<~EOS
       10.0.0.0/19
       10.0.255.0/24
       10.1.0.0/23

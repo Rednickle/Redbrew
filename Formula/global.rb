@@ -82,7 +82,7 @@ class Global < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
        int c2func (void) { return 0; }
        void cfunc (void) {int cvar = c2func(); }")
     EOS

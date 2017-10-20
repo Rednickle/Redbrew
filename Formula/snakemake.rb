@@ -82,7 +82,7 @@ class Snakemake < Formula
   end
 
   test do
-    (testpath/"Snakefile").write <<-EOS.undent
+    (testpath/"Snakefile").write <<~EOS
       rule testme:
           output:
                "test.out"

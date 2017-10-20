@@ -35,7 +35,7 @@ class BdwGc < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <assert.h>
       #include <stdio.h>
       #include "gc.h"

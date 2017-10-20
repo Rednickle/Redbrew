@@ -76,7 +76,7 @@ class Io < Formula
   end
 
   test do
-    (testpath/"test.io").write <<-EOS.undent
+    (testpath/"test.io").write <<~EOS
       "it works!" println
     EOS
 

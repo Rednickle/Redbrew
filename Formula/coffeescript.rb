@@ -30,7 +30,7 @@ class Coffeescript < Formula
   end
 
   test do
-    (testpath/"test.coffee").write <<-EOS.undent
+    (testpath/"test.coffee").write <<~EOS
       square = (x) -> x * x
       list = [1, 2, 3, 4, 5]
 

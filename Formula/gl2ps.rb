@@ -30,7 +30,7 @@ class Gl2ps < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <#{OS.mac? ? "GLUT" : "GL"}/glut.h>
       #include <gl2ps.h>
 

@@ -29,7 +29,7 @@ class Cairomm < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <cairomm/cairomm.h>
 
       int main(int argc, char *argv[])

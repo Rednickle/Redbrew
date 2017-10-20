@@ -39,7 +39,7 @@ class Supervisor < Formula
   plist_options :manual => "supervisord -c #{HOMEBREW_PREFIX}/etc/supervisord.ini"
 
   def plist
-    <<-EOS.undent
+    <<~EOS
       <?xml version="1.0" encoding="UTF-8"?>
       <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
       <plist version="1.0">
@@ -69,7 +69,7 @@ class Supervisor < Formula
   end
 
   test do
-    (testpath/"sd.ini").write <<-EOS.undent
+    (testpath/"sd.ini").write <<~EOS
       [unix_http_server]
       file=supervisor.sock
 

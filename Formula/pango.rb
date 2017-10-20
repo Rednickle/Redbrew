@@ -50,7 +50,7 @@ class Pango < Formula
 
   test do
     system "#{bin}/pango-view", "--version"
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <pango/pangocairo.h>
 
       int main(int argc, char *argv[]) {

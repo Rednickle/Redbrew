@@ -27,7 +27,7 @@ class Ntl < Formula
   end
 
   test do
-    (testpath/"square.cc").write <<-EOS.undent
+    (testpath/"square.cc").write <<~EOS
       #include <iostream>
       #include <NTL/ZZ.h>
 

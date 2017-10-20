@@ -21,7 +21,7 @@ class Unibilium < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <unibilium.h>
       #include <stdio.h>
 

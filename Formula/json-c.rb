@@ -32,7 +32,7 @@ class JsonC < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-'EOS'.undent
+    (testpath/"test.c").write <<~'EOS'
       #include <stdio.h>
       #include <json-c/json.h>
 

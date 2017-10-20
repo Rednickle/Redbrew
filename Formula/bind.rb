@@ -50,7 +50,7 @@ class Bind < Formula
     end
   end
 
-  def named_conf; <<-EOS.undent
+  def named_conf; <<~EOS
     //
     // Include keys file
     //
@@ -110,7 +110,7 @@ class Bind < Formula
     EOS
   end
 
-  def localhost_zone; <<-EOS.undent
+  def localhost_zone; <<~EOS
     $TTL    86400
     $ORIGIN localhost.
     @            1D IN SOA    @ root (
@@ -125,7 +125,7 @@ class Bind < Formula
     EOS
   end
 
-  def named_local; <<-EOS.undent
+  def named_local; <<~EOS
     $TTL    86400
     @       IN      SOA     localhost. root.localhost.  (
                                           1997022700 ; Serial
@@ -141,7 +141,7 @@ class Bind < Formula
 
   plist_options :startup => true
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

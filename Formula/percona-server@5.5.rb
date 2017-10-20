@@ -105,7 +105,7 @@ class PerconaServerAT55 < Formula
     mv "#{bin}/mysqlaccess.conf", libexec
 
     # Install my.cnf that binds to 127.0.0.1 by default
-    (buildpath/"my.cnf").write <<-EOS.undent
+    (buildpath/"my.cnf").write <<~EOS
       # Default Homebrew MySQL server config
       [mysqld]
       # Only allow connections from localhost
@@ -114,7 +114,7 @@ class PerconaServerAT55 < Formula
     etc.install "my.cnf"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Set up databases to run AS YOUR USER ACCOUNT with:
         unset TMPDIR
         mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix percona-server55)" --datadir=#{datadir} --tmpdir=/tmp
@@ -142,7 +142,7 @@ class PerconaServerAT55 < Formula
 
   plist_options :manual => "mysql.server start"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

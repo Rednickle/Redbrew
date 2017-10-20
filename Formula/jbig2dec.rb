@@ -27,7 +27,7 @@ class Jbig2dec < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <stdint.h>
       #include <stdlib.h>
       #include <jbig2.h>

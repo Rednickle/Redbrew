@@ -23,7 +23,7 @@ class Tcsh < Formula
   end
 
   test do
-    (testpath/"test.csh").write <<-EOS.undent
+    (testpath/"test.csh").write <<~EOS
       #!#{bin}/tcsh -f
       set ARRAY=( "t" "e" "s" "t" )
       foreach i ( `seq $#ARRAY` )

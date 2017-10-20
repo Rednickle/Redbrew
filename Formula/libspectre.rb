@@ -30,7 +30,7 @@ class Libspectre < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <libspectre/spectre.h>
 
       int main(int argc, char *argv[]) {

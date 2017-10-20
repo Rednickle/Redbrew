@@ -103,10 +103,10 @@ class Pypy < Formula
 
     # Tell distutils-based installers where to put scripts
     scripts_folder.mkpath
-    (distutils+"distutils.cfg").atomic_write <<-EOF.undent
+    (distutils+"distutils.cfg").atomic_write <<~EOS
       [install]
       install-scripts=#{scripts_folder}
-    EOF
+    EOS
 
     %w[setuptools pip].each do |pkg|
       resource(pkg).stage do
@@ -123,7 +123,7 @@ class Pypy < Formula
     %w[easy_install_pypy pip_pypy].each { |e| (HOMEBREW_PREFIX/"bin").install_symlink bin/e }
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     A "distutils.cfg" has been written to:
       #{distutils}
     specifying the install-scripts folder as:

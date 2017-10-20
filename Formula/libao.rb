@@ -36,7 +36,7 @@ class Libao < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <ao/ao.h>
       int main() {
         ao_initialize();

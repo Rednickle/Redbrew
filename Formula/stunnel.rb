@@ -43,7 +43,7 @@ class Stunnel < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
       A bogus SSL server certificate has been installed to:
         #{etc}/stunnel/stunnel.pem
 
@@ -56,7 +56,7 @@ class Stunnel < Formula
   end
 
   test do
-    (testpath/"tstunnel.conf").write <<-EOS.undent
+    (testpath/"tstunnel.conf").write <<~EOS
       cert = #{etc}/stunnel/stunnel.pem
 
       setuid = nobody

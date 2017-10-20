@@ -51,7 +51,7 @@ class Freeimage < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <FreeImage.h>
       int main() {
          FreeImage_Initialise(0);

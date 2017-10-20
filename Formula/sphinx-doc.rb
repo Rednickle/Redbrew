@@ -13,7 +13,7 @@ class SphinxDoc < Formula
     sha256 "b1c64a6c9de068b13cda1543d3744a5ab44b04b1f342ba4b89d1241d7d8fa377" => :x86_64_linux
   end
 
-  keg_only <<-EOS.undent
+  keg_only <<~EOS
     this formula is mainly used internally by other formulae.
     Users are advised to use `pip` to install sphinx-doc
   EOS

@@ -37,7 +37,7 @@ class Mongoose < Formula
   end
 
   test do
-    (testpath/"hello.html").write <<-EOS.undent
+    (testpath/"hello.html").write <<~EOS
       <!DOCTYPE html>
       <html>
         <head>

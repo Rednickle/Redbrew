@@ -44,7 +44,7 @@ class Ode < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <ode/ode.h>
       int main() {
         dInitODE();

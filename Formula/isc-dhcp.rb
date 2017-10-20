@@ -73,7 +73,7 @@ class IscDhcp < Formula
     (prefix+"homebrew.mxcl.dhcpd6.plist").chmod 0644
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     This install of dhcpd expects config files to be in #{etc}.
     All state files (leases and pids) are stored in #{var}/dhcpd.
 
@@ -94,7 +94,7 @@ class IscDhcp < Formula
   plist_options :startup => true
 
   def plist
-    <<-EOS.undent
+    <<~EOS
     <?xml version='1.0' encoding='UTF-8'?>
     <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
                     "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -116,7 +116,7 @@ class IscDhcp < Formula
   end
 
   def plist_dhcpd6
-    <<-EOS.undent
+    <<~EOS
     <?xml version='1.0' encoding='UTF-8'?>
     <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
                     "http://www.apple.com/DTDs/PropertyList-1.0.dtd">

@@ -32,7 +32,7 @@ class Aspcud < Formula
   end
 
   test do
-    fixture = <<-EOS.undent
+    fixture = <<~EOS
       package: foo
       version: 1
 

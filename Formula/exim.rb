@@ -80,7 +80,7 @@ class Exim < Formula
   end
 
   # Inspired by MacPorts startup script. Fixes restart issue due to missing setuid.
-  def startup_script; <<-EOS.undent
+  def startup_script; <<~EOS
     #!/bin/sh
     PID=#{var}/spool/exim/exim-daemon.pid
     case "$1" in
@@ -104,7 +104,7 @@ class Exim < Formula
     EOS
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Start with:
       exim_ctl start
     Don't forget to run it as root to be able to bind port 25.

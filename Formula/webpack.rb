@@ -22,7 +22,7 @@ class Webpack < Formula
   end
 
   test do
-    (testpath/"index.js").write <<-EOS.undent
+    (testpath/"index.js").write <<~EOS
       function component () {
         var element = document.createElement('div');
         element.innerHTML = 'Hello' + ' ' + 'webpack';

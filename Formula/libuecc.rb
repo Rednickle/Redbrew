@@ -22,7 +22,7 @@ class Libuecc < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <stdlib.h>
       #include <libuecc/ecc.h>
 

@@ -32,7 +32,7 @@ class Assimp < Formula
 
   test do
     # Library test.
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <assimp/Importer.hpp>
       int main() {
         Assimp::Importer importer;
@@ -43,7 +43,7 @@ class Assimp < Formula
     system "./test"
 
     # Application test.
-    (testpath/"test.obj").write <<-EOS.undent
+    (testpath/"test.obj").write <<~EOS
       # WaveFront .obj file - a single square based pyramid
 
       # Start a new group:

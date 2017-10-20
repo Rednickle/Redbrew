@@ -80,7 +80,7 @@ class Perl < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     By default non-brewed cpan modules are installed to the Cellar. If you wish
     for your modules to persist across updates we recommend using `local::lib`.
 

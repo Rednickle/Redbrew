@@ -106,7 +106,7 @@ class PostgresXc < Formula
     return unless framework_python.exist?
     unless (archs_for_command framework_python).include? :x86_64
       opoo "Detected a framework Python that does not have 64-bit support in:"
-      puts <<-EOS.undent
+      puts <<~EOS
         #{framework_python}
 
         The configure script seems to prefer this version of Python over any others,
@@ -123,7 +123,7 @@ class PostgresXc < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     To get started with Postgres-XC, read the documents at
       https://sourceforge.net/projects/postgres-xc/files/Publication/
       https://postgres-xc.sourceforge.io/docs/1_0/tutorial-start.html
@@ -181,7 +181,7 @@ class PostgresXc < Formula
     extra ? super().dirname+(plist_name(extra)+".plist") : super()
   end
 
-  def gtm_startup_plist(name); <<-EOPLIST.undent
+  def gtm_startup_plist(name); <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -206,10 +206,10 @@ class PostgresXc < Formula
       <string>#{var}/postgres-xc/#{name}/server.log</string>
     </dict>
     </plist>
-    EOPLIST
+    EOS
   end
 
-  def gtm_proxy_startup_plist(name); <<-EOPLIST.undent
+  def gtm_proxy_startup_plist(name); <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -240,10 +240,10 @@ class PostgresXc < Formula
       <string>#{var}/postgres-xc/#{name}/server.log</string>
     </dict>
     </plist>
-    EOPLIST
+    EOS
   end
 
-  def coordinator_startup_plist(name); <<-EOPLIST.undent
+  def coordinator_startup_plist(name); <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -270,10 +270,10 @@ class PostgresXc < Formula
       <string>#{var}/postgres-xc/#{name}/server.log</string>
     </dict>
     </plist>
-    EOPLIST
+    EOS
   end
 
-  def datanode_startup_plist(name); <<-EOPLIST.undent
+  def datanode_startup_plist(name); <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -300,7 +300,7 @@ class PostgresXc < Formula
       <string>#{var}/postgres-xc/#{name}/server.log</string>
     </dict>
     </plist>
-    EOPLIST
+    EOS
   end
 
   test do

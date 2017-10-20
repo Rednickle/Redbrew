@@ -21,7 +21,7 @@ class Sqlparse < Formula
   end
 
   test do
-    expected = <<-EOS.undent.chomp
+    expected = <<~EOS.chomp
       select *
         from foo
     EOS

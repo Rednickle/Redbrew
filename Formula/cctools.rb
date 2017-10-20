@@ -149,7 +149,7 @@ class Cctools < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     cctools's version of ld was not built.
     EOS
   end

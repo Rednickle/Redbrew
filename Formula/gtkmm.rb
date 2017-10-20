@@ -36,7 +36,7 @@ class Gtkmm < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <gtkmm.h>
 
       int main(int argc, char *argv[]) {

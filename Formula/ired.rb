@@ -18,7 +18,7 @@ class Ired < Formula
   end
 
   test do
-    input = <<-EOS.undent
+    input = <<~EOS
       w"hello wurld"
       s+7
       r-4

@@ -34,7 +34,7 @@ class ApacheArrow < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include "arrow/api.h"
       int main(void)
       {

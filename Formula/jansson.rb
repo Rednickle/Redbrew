@@ -20,7 +20,7 @@ class Jansson < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <jansson.h>
       #include <assert.h>
 

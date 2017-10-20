@@ -152,7 +152,7 @@ class MysqlCluster < Formula
     (var/"mysql-cluster/conf/config.ini").write config_ini unless File.exist? var/"mysql-cluster/conf/config.ini"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     To get started with MySQL Cluster, read MySQL Cluster Quick Start at
       https://dev.mysql.com/downloads/cluster/
 
@@ -188,7 +188,7 @@ class MysqlCluster < Formula
     EOS
   end
 
-  def my_cnf; <<-EOCNF.undent
+  def my_cnf; <<~EOS
     [mysqld]
     ndbcluster
     datadir=#{var}/mysql-cluster/mysqld_data
@@ -196,10 +196,10 @@ class MysqlCluster < Formula
     port=5000
     # Only allow connections from localhost
     bind-address = 127.0.0.1
-    EOCNF
+    EOS
   end
 
-  def config_ini; <<-EOCNF.undent
+  def config_ini; <<~EOS
     [ndb_mgmd]
     hostname=localhost
     datadir=#{var}/mysql-cluster/ndb_data
@@ -219,7 +219,7 @@ class MysqlCluster < Formula
 
     [mysqld]
     NodeId=50
-    EOCNF
+    EOS
   end
 
   # Override Formula#plist_name
@@ -234,7 +234,7 @@ class MysqlCluster < Formula
 
   plist_options :manual => "mysql.server start"
 
-  def mysqld_startup_plist(name); <<-EOS.undent
+  def mysqld_startup_plist(name); <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -257,7 +257,7 @@ class MysqlCluster < Formula
     EOS
   end
 
-  def ndb_mgmd_startup_plist(name); <<-EOS.undent
+  def ndb_mgmd_startup_plist(name); <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -286,7 +286,7 @@ class MysqlCluster < Formula
     EOS
   end
 
-  def ndbd_startup_plist(name); <<-EOS.undent
+  def ndbd_startup_plist(name); <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

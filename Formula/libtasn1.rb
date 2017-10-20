@@ -21,7 +21,7 @@ class Libtasn1 < Formula
   end
 
   test do
-    (testpath/"pkix.asn").write <<-EOS.undent
+    (testpath/"pkix.asn").write <<~EOS
       PKIX1 { }
       DEFINITIONS IMPLICIT TAGS ::=
       BEGIN
@@ -31,7 +31,7 @@ class Libtasn1 < Formula
       }
       END
     EOS
-    (testpath/"assign.asn1").write <<-EOS.undent
+    (testpath/"assign.asn1").write <<~EOS
       dp PKIX1.Dss-Sig-Value
       r 42
       s 47

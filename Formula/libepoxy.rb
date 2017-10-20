@@ -31,7 +31,7 @@ class Libepoxy < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
 
       #include <epoxy/gl.h>
       #ifdef OS_MAC

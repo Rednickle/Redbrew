@@ -24,7 +24,7 @@ class Minisign < Formula
 
   test do
     (testpath/"homebrew.txt").write "Hello World!"
-    (testpath/"keygen.sh").write <<-EOS.undent
+    (testpath/"keygen.sh").write <<~EOS
       #!/usr/bin/expect -f
       set timeout -1
       spawn #{bin}/minisign -G
@@ -43,7 +43,7 @@ class Minisign < Formula
     assert_predicate testpath/"minisign.pub", :exist?
     assert_predicate testpath/".minisign/minisign.key", :exist?
 
-    (testpath/"signing.sh").write <<-EOS.undent
+    (testpath/"signing.sh").write <<~EOS
       #!/usr/bin/expect -f
       set timeout -1
       spawn #{bin}/minisign -Sm homebrew.txt

@@ -21,7 +21,7 @@ class Geth < Formula
   end
 
   test do
-    (testpath/"genesis.json").write <<-EOS.undent
+    (testpath/"genesis.json").write <<~EOS
       {
         "config": {
           "homesteadBlock": 10

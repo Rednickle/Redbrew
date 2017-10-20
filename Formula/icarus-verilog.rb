@@ -35,7 +35,7 @@ class IcarusVerilog < Formula
   end
 
   test do
-    (testpath/"test.v").write <<-EOS.undent
+    (testpath/"test.v").write <<~EOS
       module main;
         initial
           begin

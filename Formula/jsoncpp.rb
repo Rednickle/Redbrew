@@ -32,7 +32,7 @@ class Jsoncpp < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <json/json.h>
       int main() {
         Json::Value root;

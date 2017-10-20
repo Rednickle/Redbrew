@@ -261,7 +261,7 @@ class Wine < Formula
                                   "#{dirs.last}/openssl")
 
         confs = archs.map do |arch|
-          <<-EOS.undent
+          <<~EOS
             #ifdef __#{arch}__
             #{(Pathname.pwd/"build-#{arch}/opensslconf.h").read}
             #endif
@@ -476,13 +476,13 @@ class Wine < Formula
   end
 
   def caveats
-    s = <<-EOS.undent
+    s = <<~EOS
       You may want to get winetricks:
         brew install winetricks
     EOS
 
     if build.with? "x11"
-      s += <<-EOS.undent
+      s += <<~EOS
 
         By default Wine uses a native Mac driver. To switch to the X11 driver, use
         regedit to set the "graphics" key under "HKCU\/Software\/Wine\/Drivers" to

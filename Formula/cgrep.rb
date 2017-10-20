@@ -27,7 +27,7 @@ class Cgrep < Formula
 
   test do
     path = testpath/"test.rb"
-    path.write <<-EOS.undent
+    path.write <<~EOS
       # puts test comment.
       puts "test literal."
     EOS

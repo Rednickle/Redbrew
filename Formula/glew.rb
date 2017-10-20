@@ -34,7 +34,7 @@ class Glew < Formula
       ohai "Can not test without a display."
       return true
     end
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <GL/glew.h>
       #include <#{OS.mac? ? "GLUT" : "GL"}/glut.h>
 

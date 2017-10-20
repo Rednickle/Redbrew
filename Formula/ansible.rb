@@ -565,14 +565,14 @@ class Ansible < Formula
 
   test do
     ENV["ANSIBLE_REMOTE_TEMP"] = testpath/"tmp"
-    (testpath/"playbook.yml").write <<-EOF.undent
+    (testpath/"playbook.yml").write <<~EOS
       ---
       - hosts: all
         gather_facts: False
         tasks:
         - name: ping
           ping:
-    EOF
+    EOS
     (testpath/"hosts.ini").write [
       "localhost ansible_connection=local",
       *(" ansible_python_interpreter=" + which("python2") unless OS.mac?),

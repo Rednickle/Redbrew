@@ -23,7 +23,7 @@ class AppleGcc42 < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
       NOTE:
       This formula provides components that were removed from XCode in the 4.2
       release. There is no reason to install this formula if you are using a
@@ -39,7 +39,7 @@ class AppleGcc42 < Formula
   end
 
   test do
-    (testpath/"hello-c.c").write <<-EOS.undent
+    (testpath/"hello-c.c").write <<~EOS
       #include <stdio.h>
       int main()
       {
@@ -50,7 +50,7 @@ class AppleGcc42 < Formula
     system "#{bin}/gcc-4.2", "-o", "hello-c", "hello-c.c"
     assert_equal "Hello, world!\n", `./hello-c`
 
-    (testpath/"hello-cc.cc").write <<-EOS.undent
+    (testpath/"hello-cc.cc").write <<~EOS
       #include <iostream>
       int main()
       {
@@ -61,7 +61,7 @@ class AppleGcc42 < Formula
     system "#{bin}/g++-4.2", "-o", "hello-cc", "hello-cc.cc"
     assert_equal "Hello, world!\n", `./hello-cc`
 
-    fixture = <<-EOS.undent
+    fixture = <<~EOS
       integer,parameter::m=10000
       real::a(m), b(m)
       real::fact=0.5

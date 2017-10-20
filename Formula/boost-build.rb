@@ -22,10 +22,10 @@ class BoostBuild < Formula
   end
 
   test do
-    (testpath/"hello.cpp").write <<-EOF.undent
+    (testpath/"hello.cpp").write <<~EOS
       #include <iostream>
       int main (void) { std::cout << "Hello world"; }
-    EOF
+    EOS
     (testpath/"Jamroot.jam").write("exe hello : hello.cpp ;")
 
     system bin/"b2", "release"

@@ -22,7 +22,7 @@ class Algol68g < Formula
 
   test do
     path = testpath/"hello.alg"
-    path.write <<-EOS.undent
+    path.write <<~EOS
       print("Hello World")
     EOS
 

@@ -20,7 +20,7 @@ class Remake < Formula
   end
 
   test do
-    (testpath/"Makefile").write <<-EOS.undent
+    (testpath/"Makefile").write <<~EOS
       all:
       \techo "Nothing here, move along"
     EOS

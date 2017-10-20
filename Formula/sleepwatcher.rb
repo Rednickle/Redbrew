@@ -46,7 +46,7 @@ class Sleepwatcher < Formula
     prefix.install Dir["config/*.plist"]
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     For SleepWatcher to work, you will need to read the following:
 
       #{prefix}/ReadMe.rtf

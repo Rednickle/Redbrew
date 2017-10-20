@@ -81,7 +81,7 @@ class OpencvAT2 < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <opencv/cv.h>
       #include <iostream>
       int main() {
