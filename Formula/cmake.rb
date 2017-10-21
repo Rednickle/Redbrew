@@ -35,6 +35,7 @@ class Cmake < Formula
     sha256 "679bfd5a1928006744149b43560ac58774999d0b5eb4202ae03263eabb88f1dd" => :high_sierra
     sha256 "84277818d679745c2dc7cef2233e784df33273cd957df461695188027bf95784" => :sierra
     sha256 "d22b4dfb08ef4b85cdc0c942475d08eadec26618d5b797fbe8e9605e1f0641d8" => :el_capitan
+    sha256 "539dc96434b05e2f1b6fe34fcdeaee3ab2f330ed7c3d345b5450f78c2286f9f3" => :x86_64_linux
   end
 
   devel do
