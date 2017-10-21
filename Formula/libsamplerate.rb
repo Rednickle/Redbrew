@@ -36,8 +36,8 @@ class Libsamplerate < Formula
     s = ""
     if build.without? "libsndfile"
       s += <<~EOS
-      Unless this formula is built with libsndfile, the example program,
-      "sndfile-resample", is broken and hence, removed from installation.
+        Unless this formula is built with libsndfile, the example program,
+        "sndfile-resample", is broken and hence, removed from installation.
       EOS
     end
     s
