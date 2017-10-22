@@ -9,6 +9,7 @@ class Check < Formula
     sha256 "fd175fded31ecc36ad06beeb18e05fd4d5f5bc538e1a445e86b703bf34373fd8" => :high_sierra
     sha256 "6ad1ff9e52d767968efb2b73b563b171561421818a86185c03639f65f0a22ab3" => :sierra
     sha256 "5de09e615daf7e12f1b10485b7bc8cb5382e04f856dc516056bae0a30b5f6b49" => :el_capitan
+    sha256 "d34a6b9db7235c4e9233626201c99da1f2bd5c30aca4389a3ab1b813b81e936a" => :x86_64_linux
   end
 
   depends_on "gawk" unless OS.mac?
