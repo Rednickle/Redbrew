@@ -1,15 +1,14 @@
 class Faac < Formula
   desc "ISO AAC audio encoder"
   homepage "http://www.audiocoding.com/faac.html"
-  url "https://downloads.sourceforge.net/project/faac/faac-src/faac-1.29/faac-1.29.8.tar.gz"
-  sha256 "ea0d508cd1aa9d1c00998fa922dc8a4a1535892c204483cba27e5d55bec48973"
+  url "https://downloads.sourceforge.net/project/faac/faac-src/faac-1.29/faac-1.29.8.2.tar.gz"
+  sha256 "49f397b5604cf60fe5d453a34568a4fd403750445e3ff5b9ef82138f9b230747"
 
   bottle do
     cellar :any
-    sha256 "e4d7b558b5e7717dcef5b1e4cc9d1b5d3ba9ac66e8978d6de74473d74fdfed66" => :high_sierra
-    sha256 "a076d1ee1869b9363e63371688f3c04af1e2db5195fc378e85d05e77ecbb6002" => :sierra
-    sha256 "9f59be85d6d94a7487c66a0e97833a44775f878ce96c27f360fd2a689b3591cc" => :el_capitan
-    sha256 "9af7e1c098b045af768a3a732441cac29d13d78b0e459eae4bbafe704fb48433" => :x86_64_linux
+    sha256 "5095668f558a03878ac785fceea965ba2d1b2cd42c94f2c0ed12f8e78db8a73b" => :high_sierra
+    sha256 "3d608eaaa2ca08d191d7a6064dc7e7b97b0d599dc2bca3caac475caa9cbb20a2" => :sierra
+    sha256 "bd669444cd56c2fb6a8cf014218df2fdd209ea8da39c12d4d4668e5a3425e8ac" => :el_capitan
   end
 
   def install
