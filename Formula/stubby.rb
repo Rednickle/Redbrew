@@ -9,6 +9,7 @@ class Stubby < Formula
     sha256 "00e904e923b55b9a797eb3202545ec14bdd865b54ee4daf65e3243a67b43e771" => :high_sierra
     sha256 "f797aa1673f93935b8d5bb06e7727caa4280aa0cd8c7b22bd0f5c50d1cb5a4cb" => :sierra
     sha256 "d99ee8fba08835a5f910fcdcb4c52594f0fd0519c9bd61b7cce8f567e5c0a579" => :el_capitan
+    sha256 "f30582b91c7645c5fd4546f0721a2cc6c032c8a87c3ffdc951cc0230b076a4fe" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
