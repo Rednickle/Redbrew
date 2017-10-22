@@ -10,6 +10,7 @@ class Wxmaxima < Formula
     sha256 "8f80844c94e38e0e405a274aec094b7f9aea238762703639790de8e2de3280f2" => :high_sierra
     sha256 "d4173dbf5d8d08e94b6ff9b39fc6eb88aaa57e309a1c6e8f93310a0ea9c09bae" => :sierra
     sha256 "62be362ff5d80cd7334fdb00e4b71aa24e4cf65d560e54861e70196e1e9fdddb" => :el_capitan
+    sha256 "f246786bdd85d93fa8899bf75a7f011fd325bdfbcc259c3f805d35740695c9c0" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
