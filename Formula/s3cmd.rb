@@ -10,6 +10,7 @@ class S3cmd < Formula
     sha256 "b78ccd0c98b3bad7db9e6e5fec6382ae99bc31c692f87a525c1de44db892800e" => :high_sierra
     sha256 "eced51cbc0547a531347011af6720d86f0ecbb3138512c7c01733e9011d18d85" => :sierra
     sha256 "fc4aa3b27ee199034923de841b1e432702036f95b2168502ff148b610880d702" => :el_capitan
+    sha256 "dc8b457bba45851984dda5c4c882d80e835b809b732520bd009d2304561314cc" => :x86_64_linux
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
