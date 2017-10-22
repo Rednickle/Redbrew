@@ -8,6 +8,7 @@ class Atk < Formula
     sha256 "08bf533625443e9f7e47c08d163fcc74fcc973c6aae9b61b6ef1a09d506d6a3b" => :high_sierra
     sha256 "cce0be459801eb065dd540baee6aec81740895e46f422722f23c9bfb3dd0a1ff" => :sierra
     sha256 "40860eef1dacca8db3f7de7b1c2aa302e352ea6cd9f05a3ab84234b77bcf6b1c" => :el_capitan
+    sha256 "3562081e05affba3fc7a24e8f0dde97b09f6ea565069959f18fdbbccc1a21382" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
