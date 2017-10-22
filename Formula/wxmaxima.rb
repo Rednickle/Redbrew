@@ -1,16 +1,15 @@
 class Wxmaxima < Formula
   desc "Cross platform GUI for Maxima"
   homepage "https://andrejv.github.io/wxmaxima"
-  url "https://github.com/andrejv/wxmaxima/archive/Version-17.10.0.tar.gz"
-  sha256 "97ce3e0a9f8d38a11e9170fedc8320eece5d0a57a8c8cbef7bc8856dbcbd9770"
+  url "https://github.com/andrejv/wxmaxima/archive/Version-17.10.1.tar.gz"
+  sha256 "61276008be667779b4cde4d17b10c179c869d94a2eb2b4f273974fccc2609f62"
   head "https://github.com/andrejv/wxmaxima.git"
 
   bottle do
     cellar :any
-    sha256 "05282c6782b96398eb023255801c8f10c5983d61d9339ccde823f0052af51ba0" => :high_sierra
-    sha256 "9555a0e4f5680489639e1c7c8602b7170ef14dedf9213679c911795a8871249c" => :sierra
-    sha256 "139a99757866736469e8c90bbce49ccf93dfa1f351b2650d779ae3f3bc09ba1b" => :el_capitan
-    sha256 "6329e1ec34268fbfdd1afcadac61795eaa11fcb96731e806d59723e95582d130" => :x86_64_linux
+    sha256 "8f80844c94e38e0e405a274aec094b7f9aea238762703639790de8e2de3280f2" => :high_sierra
+    sha256 "d4173dbf5d8d08e94b6ff9b39fc6eb88aaa57e309a1c6e8f93310a0ea9c09bae" => :sierra
+    sha256 "62be362ff5d80cd7334fdb00e4b71aa24e4cf65d560e54861e70196e1e9fdddb" => :el_capitan
   end
 
   depends_on "autoconf" => :build

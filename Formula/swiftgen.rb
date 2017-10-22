@@ -2,17 +2,17 @@ class Swiftgen < Formula
   desc "Swift code generator for assets, storyboards, Localizable.strings, …"
   homepage "https://github.com/SwiftGen/SwiftGen"
   url "https://github.com/SwiftGen/SwiftGen.git",
-      :tag => "5.1.2",
-      :revision => "a55d6d382c47e0feac50f25d93e260e2b8d6cb37"
+      :tag => "5.2.0",
+      :revision => "fbf8836f2b63cfcd98999e51b255a25688d04897"
   head "https://github.com/SwiftGen/SwiftGen.git"
 
   bottle do
     cellar :any
-    sha256 "d8acad4fd19b2e9e34e3e87fa9238c50535e299160da4e48d05a0342bffddf2e" => :high_sierra
-    sha256 "2607116727b5f63799627de2613fc51967c0fe6b767a00edd4278739059e2b17" => :sierra
+    sha256 "d1aaef5752c49d31d8c589744060b2a2b5bd101bab7b90716f3133c7bda2bc71" => :high_sierra
+    sha256 "b29a196ae18e8490ddc4a10591cc8e1f5967ba3aafeca11a19f6b8c871ef057d" => :sierra
   end
 
-  depends_on :xcode => ["8.3", :build]
+  depends_on :xcode => ["9.0", :build]
 
   # Depends on xcode
   depends_on :macos
