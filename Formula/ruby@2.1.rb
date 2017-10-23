@@ -9,6 +9,7 @@ class RubyAT21 < Formula
     sha256 "0dbeb3ff828d3c131a42187993bc5283526dd3a068be973cfcaec33552479e68" => :high_sierra
     sha256 "e9525acda285c6c4847ea1e4c41daf63ba4d578ca724d8e0e147cb639673b3f3" => :sierra
     sha256 "f8130b5c1248bec5526c50dcd046329f2c60f0d07e44df69b99c952a0dc8e7ad" => :el_capitan
+    sha256 "21a2b5dd5906cea8aacb8738cc4277a2aaf33a8f91d2d27de3c0134266d3a0b2" => :x86_64_linux
   end
 
   keg_only :versioned_formula
