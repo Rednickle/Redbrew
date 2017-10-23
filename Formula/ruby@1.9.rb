@@ -9,6 +9,7 @@ class RubyAT19 < Formula
     sha256 "4b31231e21353c3a20d4219436a4139b38ad8bcb94d1c068f4d9ead77d1871c8" => :high_sierra
     sha256 "396d8f741478eeb0979adacb41ca3cb215367818d9d9b179964d432ae2392a37" => :sierra
     sha256 "ad981e7989661f0e564d86e0b1b61d76c5968969cc5d2666180e3efa2a82dff0" => :el_capitan
+    sha256 "2394bd5eb107ac5e0010cbb07f82f0683fa51bc2076bdac6d5ed1f6a94e945e2" => :x86_64_linux
   end
 
   keg_only :versioned_formula
