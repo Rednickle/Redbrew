@@ -9,6 +9,7 @@ class Sdl2Image < Formula
     sha256 "bf5ff1c94ebde257e9d397fcab3d2ba42e870c771ff948ca54c25146f7da2f07" => :high_sierra
     sha256 "a9cda2a4abd47e4084212fdbb90c601dce4a1e599c0dcaad95b0fe139a5dad1a" => :sierra
     sha256 "cbe47c5ce034bea17df0ed477b143e6695ac81dda3c03de71252373ff0b1703f" => :el_capitan
+    sha256 "772773f7ceb396fafb0331737ea268ec051869fa082fa57699559c73122fbe73" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
