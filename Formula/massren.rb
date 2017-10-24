@@ -9,6 +9,7 @@ class Massren < Formula
     sha256 "99afbeedc3d8ab1e3cf8ca525ac22f1b02efefbfd75b145b342f773cea639be6" => :high_sierra
     sha256 "14874a768ef7f34aa638cdbd62aa32d2b07fc5c0e6668c86f6f080f172f0fe45" => :sierra
     sha256 "ea67caccb6dacdbed8979f3dc243e224ff1900928dedf1ea8800f5256f3456b2" => :el_capitan
+    sha256 "7d6bd10514253acd7a9769cf9ddad77327291745839202ae727e432bd6332e7f" => :x86_64_linux
   end
 
   depends_on "go" => :build
