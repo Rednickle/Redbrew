@@ -9,6 +9,7 @@ class Juju < Formula
     sha256 "ee37c70eda2d00f624e7db97f2008a5f9276409a50506f231015eb06b6206525" => :high_sierra
     sha256 "aa57fc5ca264acc9d271e8659de015b0b753534ecfce0f88221583ec6d27399c" => :sierra
     sha256 "13d751f7364ce04d42f26fd073d37a3dd045086ed7f8002b612fa7a6ad5fa76c" => :el_capitan
+    sha256 "440bbe7650a1908f4ddbb81135d479174a429ba1ac2794b13f6a37b56b6646d4" => :x86_64_linux
   end
 
   depends_on "go" => :build
