@@ -9,6 +9,7 @@ class Sleuthkit < Formula
     sha256 "abbed8f1e02a2da3259481fac0a7583102f694e81afd757b4b7fc82102eb1e26" => :high_sierra
     sha256 "ea17c0cafff9eca82611837ce3d440dc7b66dd39a091dbd3b0286b95f84e2dda" => :sierra
     sha256 "0ae85140753e439df39bcfdf4abe0a25c779fadd5692dd214cb937b2f042adc6" => :el_capitan
+    sha256 "3e0b8d19352481ff14a623d03284c3b22806031239b2d1cd55636de27c415b08" => :x86_64_linux
   end
 
   option "with-jni", "Build Sleuthkit with JNI bindings"
