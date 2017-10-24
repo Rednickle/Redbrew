@@ -11,6 +11,7 @@ class AwsElasticbeanstalk < Formula
     sha256 "d207f4eeab0a523875daa5a9836ede61f346e9ed46b3b7d9a38c21f70e7a352c" => :high_sierra
     sha256 "ddb90d10aa4616b390a7b4f3ab8d2b8e09ca4e447f4d8cd2ef0843e34acb633d" => :sierra
     sha256 "1c6b7218472b429695d8390642fa2e53f2fec98e254190d030f919449d7b546f" => :el_capitan
+    sha256 "7b137c8adcaf98f1ddd8e2d2314602f031d49592c16c1dda1a66720624b27e77" => :x86_64_linux
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
