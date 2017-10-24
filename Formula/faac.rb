@@ -9,6 +9,7 @@ class Faac < Formula
     sha256 "1184a2c62467c59f783412bf24824c6ce10ca920bee361caaea19a810f232471" => :high_sierra
     sha256 "e6cbb94356716e9bbc11daf55c25f1e55c27b1015c01cc463ffad664f732e08c" => :sierra
     sha256 "c74ebbc64a420957f2a78ec19a1f64f0dc69e15169b2063a85963c4ff4563135" => :el_capitan
+    sha256 "6fc8cbbd5626341e0e429d47c351c52f0c18bb6ad28c469bf8803899c202bef5" => :x86_64_linux
   end
 
   def install
