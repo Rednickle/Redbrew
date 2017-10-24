@@ -11,6 +11,7 @@ class Parallel < Formula
     sha256 "f7bb925832c91a144c49e96be762059b87a4c28dd7066ac5d38f2a676b8efa09" => :high_sierra
     sha256 "f7bb925832c91a144c49e96be762059b87a4c28dd7066ac5d38f2a676b8efa09" => :sierra
     sha256 "f7bb925832c91a144c49e96be762059b87a4c28dd7066ac5d38f2a676b8efa09" => :el_capitan
+    sha256 "832b0f67a248b6d5021390bc63138bff63c964c31207a475a2168651ed13df5e" => :x86_64_linux
   end
 
   conflicts_with "moreutils", :because => "both install a 'parallel' executable."
