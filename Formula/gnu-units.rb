@@ -9,6 +9,7 @@ class GnuUnits < Formula
     sha256 "6e3a72a2e7391796bc6871e3941e56b95b50bf399995146d827c3269ae166f5f" => :high_sierra
     sha256 "2f2e9cba813d42b5433e9dd8d3d3f7438536ad25ab1e03ff92ce92109c15ec1b" => :sierra
     sha256 "966e5ae5598ad8340de8840e0dab273f7ecc2193bf932a533078c78f4d702779" => :el_capitan
+    sha256 "988b6f9695cac3d34487d71a26ae557c2c4e27265940b88121eed79607b8c4d5" => :x86_64_linux
   end
 
   deprecated_option "default-names" => "with-default-names"
