@@ -9,6 +9,7 @@ class Docker2aci < Formula
     sha256 "d290f70a22e626cbb77bae170833cc85722d8117caac9cd06b615d9fa7e7082c" => :high_sierra
     sha256 "592a831c0425d69dc6dcda04c326cc3cc6c92c198f6b04787877c0d784ee6e55" => :sierra
     sha256 "6dce9bc1299cafa3b9bdd090b33145421b2fe3dfed9bb9bfc4fad75363cfd1b2" => :el_capitan
+    sha256 "212126ba40a74ae4fa945ebb7f01c12040e46fc953d4ff0821ea56e0f1b73dc4" => :x86_64_linux
   end
 
   depends_on "go" => :build
