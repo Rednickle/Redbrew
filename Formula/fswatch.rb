@@ -1,16 +1,14 @@
 class Fswatch < Formula
   desc "Monitor a directory for changes and run a shell command"
   homepage "https://github.com/emcrisostomo/fswatch"
-  url "https://github.com/emcrisostomo/fswatch/releases/download/1.10.0/fswatch-1.10.0.tar.gz"
-  sha256 "f0b35bcc27e73dbeeb2e74567f978e11b239a2ea229f870ce27b39593ab0eb72"
+  url "https://github.com/emcrisostomo/fswatch/releases/download/1.11.0/fswatch-1.11.0.tar.gz"
+  sha256 "9ad5fc35f835d37445dd4bc87738c5824d98c1ed564d0491b0a6625073b6c128"
 
   bottle do
     cellar :any
-    sha256 "c9f0c406fe6de43548579a14dea3dabe4a9d8b79866a8257f4ac8b9b7be13b83" => :high_sierra
-    sha256 "9aa56eadde3e8fe4f7164d96820b5caff1477e47d45679ca500066f592579596" => :sierra
-    sha256 "b244fd87527e532e68ad15105976054039d2ca069b7aa5de4b1d25a38baa88df" => :el_capitan
-    sha256 "a65c53d70582be908c908c30479053b4688e27a87b35cb0c66e86bd2e6751024" => :yosemite
-    sha256 "97e6f8e379823fe754eecf661da4d056c3e34e616ab4311a981d459a746b5783" => :x86_64_linux # glibc 2.19
+    sha256 "6ebd15db05bb0a0b3722ec1f2a8819d6db117ac259a029aa6d667194a537e17e" => :high_sierra
+    sha256 "420b804f6672ed03d1e9c83923d83ef8794c3fb52239bf3844a31534c8d6c59f" => :sierra
+    sha256 "e26fd44a355bd21f7228765dee8fd71cb92ef529cadefde9446057d4183cddef" => :el_capitan
   end
 
   needs :cxx11
