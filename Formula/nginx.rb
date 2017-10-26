@@ -10,6 +10,7 @@ class Nginx < Formula
     sha256 "b773b2394e84c697d5193242589361c611869560200269e4b325634c2ca1464c" => :high_sierra
     sha256 "817a7928bd81518e419c6837c1483cacf4d969f3d6acbf711567f5d5f731497f" => :sierra
     sha256 "4e9d4c1ce74bc3b3fea4d90ba6c7c73c6d0457eff26da37163f9393dfc027ac0" => :el_capitan
+    sha256 "27126266d52579b43d083420c8ee2a6f447f2c79db2f3fff530da8863a4e3cb5" => :x86_64_linux
   end
 
   devel do
