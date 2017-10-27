@@ -9,6 +9,7 @@ class Bindfs < Formula
     sha256 "ec6a8af7ad9f59d12311781d34f0f9b03bf261bcf1d70e053b6a173cb6b1777f" => :high_sierra
     sha256 "e5b418a99136e9360000fecea2546774a1e101d2d559ccde7c0c5da1a216e235" => :sierra
     sha256 "964698c965bf549db65bc9f9a41c244e515f90639bd753fa40b44f34615aede8" => :el_capitan
+    sha256 "8457584cb39f1f816cd266eb0abe46093c366479e915addcf9640c58d4d8d633" => :x86_64_linux
   end
 
   head do
