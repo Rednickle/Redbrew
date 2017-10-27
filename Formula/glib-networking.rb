@@ -8,6 +8,7 @@ class GlibNetworking < Formula
     sha256 "656488bcc70e2347d705dfc32ef38952088c8d7a2279766e139c19485c5d87aa" => :high_sierra
     sha256 "7afca55538868826fd196e670de31a16740efb44490f1633c57d49ac1ac3c7c3" => :sierra
     sha256 "4ef4b72f13a2f5c83e63c7594b2a643ca93f5f141b90554a70bc7f8532af5070" => :el_capitan
+    sha256 "f00a1596f0916efbbca07fcd7cd27531dc14a8d2c6c372f2d41fc35ae070a28d" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
