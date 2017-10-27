@@ -62,8 +62,11 @@ class LibreadlineJava < Formula
       s.change_make_var! "INCLUDES", "-I $(JAVAINCLUDE) -I $(JAVANATINC) -I #{readline.opt_include}"
       s.change_make_var! "LIBPATH", "-L#{readline.opt_lib}"
       s.change_make_var! "CC", "cc"
-      s.gsub! "LIB_EXT := so", "LIB_EXT := jnilib" if OS.mac?
-      s.gsub! "$(CC) -shared $(OBJECTS) $(LIBPATH) $($(TG)_LIBS) -o $@", "$(CC) -install_name #{HOMEBREW_PREFIX}/lib/$(LIB_PRE)$(TG).$(LIB_EXT) -dynamiclib $(OBJECTS) $(LIBPATH) $($(TG)_LIBS) -o $@" if OS.mac?
+      if OS.mac?
+        s.gsub! "LIB_EXT := so", "LIB_EXT := jnilib"
+        s.gsub! "$(CC) -shared $(OBJECTS) $(LIBPATH) $($(TG)_LIBS) -o $@",
+        "$(CC) -install_name #{HOMEBREW_PREFIX}/lib/$(LIB_PRE)$(TG).$(LIB_EXT) -dynamiclib $(OBJECTS) $(LIBPATH) $($(TG)_LIBS) -o $@"
+      end
     end
 
     pkgshare.mkpath
