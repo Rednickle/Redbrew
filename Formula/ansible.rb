@@ -9,10 +9,10 @@ class Ansible < Formula
 
   bottle do
     cellar :any
-    sha256 "8f1233ad770be150b5bcdc53d5d7a6308b355aa8974fc3db8051212652a91165" => :high_sierra
-    sha256 "9f0d1a10cef79df20fc8deb2792234baa1dab98edf404035e3b56dac6a896472" => :sierra
-    sha256 "e5275735c88e8d03a60b8981b99f5e5b250dd53a0b859aad692695479ea2a20e" => :el_capitan
-    sha256 "8d7dd41d048701ef06d7f4d12b7c7e34cdb86334a77acfcb7925d8437a4395cd" => :x86_64_linux
+    rebuild 1
+    sha256 "d28a5ced078eff66134e029283756e1d73a58c828d51088471f832cd4390b0a8" => :high_sierra
+    sha256 "c9529b220dda41ede966599959b4ea176f328824fb8f602928366fb9ac035ceb" => :sierra
+    sha256 "31b000feeeadf303fe0b2cabfdb540522aff1ded36bdff06900fbb8641fc650a" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -42,6 +42,7 @@ class Ansible < Formula
   #   junos-eznc (Juniper device support)
   #   jxmlease (Juniper device support)
   #   dnspython (DNS Lookup - dig)
+  #   pysphere (VMware vSphere support)
 
   ### setup_requires dependencies
   resource "pbr" do
@@ -408,6 +409,11 @@ class Ansible < Formula
   resource "pyserial" do
     url "https://files.pythonhosted.org/packages/cc/74/11b04703ec416717b247d789103277269d567db575d2fd88f25d9767fe3d/pyserial-3.4.tar.gz"
     sha256 "6e2d401fdee0eab996cf734e67773a0143b932772ca8b42451440cfed942c627"
+  end
+
+  resource "pysphere" do
+    url "https://files.pythonhosted.org/packages/a3/53/582ad19aae059b777f1105e6c7f6fa96f2ab6e7f018d94497fbe1518548d/pysphere-0.1.7.zip"
+    sha256 "cef3cb3a6836f1cf092caf4613123d084f36b0e96fa48a27708c0e868df8a1ea"
   end
 
   resource "python-cinderclient" do
