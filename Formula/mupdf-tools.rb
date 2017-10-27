@@ -24,6 +24,7 @@ class MupdfTools < Formula
     sha256 "94addefb7d39510f957626c19684981ca0d86e5455c6fe35d7c830b64f21e99d" => :high_sierra
     sha256 "910a059aef7e0726bea610e75288e7655916d58f4ba9727eda0b5f1c993e75f7" => :sierra
     sha256 "f1233228a7f33499ff4d5f3f3eb20d871c4146c760d9d4ecb01de9004248a0b3" => :el_capitan
+    sha256 "d2240ffd8ee023347278be3ec2b4d28ff437a9eff110a4dc03826931885430b4" => :x86_64_linux
   end
 
   def install
