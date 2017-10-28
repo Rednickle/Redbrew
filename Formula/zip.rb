@@ -10,6 +10,7 @@ class Zip < Formula
     sha256 "6e89078c79888ab6829b4e98544727e2e2b5d078f78b3f8994706c90f898240a" => :high_sierra
     sha256 "ff9b6863a660158ce2b1eda37238c4cc262339efc16ee5ec4440171348a4f966" => :sierra
     sha256 "f322da61ebb597af80807b12fff0141e6ba507dd146b188bd1d964813b1141b8" => :el_capitan
+    sha256 "ad24b4e9fc9c9026ea6013ecf6d8e65c7f162b8b2b5133030a6a6787efe23bf1" => :x86_64_linux
   end
 
   keg_only :provided_by_macos
