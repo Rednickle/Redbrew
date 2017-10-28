@@ -9,6 +9,7 @@ class Apr < Formula
     sha256 "df09dd9ba91dc0db6a6f5ac8d97b82203d5930af14494a790860b9cf3635c0a4" => :high_sierra
     sha256 "2e3d88d6204b023756dd52d70385dcbd405bdc91295b023b7d04e1bfe1f95ccf" => :sierra
     sha256 "16cdb68cf34cc80919c8689c64310313b04a181c6a57901440398d19a668dd38" => :el_capitan
+    sha256 "493120ce1bbae540daed8dee9b92d74280213f19d4456aebf0f9e7acc31c60de" => :x86_64_linux
   end
 
   keg_only :provided_by_osx, "Apple's CLT package contains apr"
