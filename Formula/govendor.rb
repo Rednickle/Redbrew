@@ -10,6 +10,7 @@ class Govendor < Formula
     sha256 "38df7324a3a5292636a57c8c17cbdda94a0d529fa42f2e446f372a49b5697f26" => :high_sierra
     sha256 "5708cee7e053271235d433cc1f7450f10540129810016095db622652621dc528" => :sierra
     sha256 "52e2dd5debbd16a4da952ce16dd37d2697e16ba8509ff1e9a9551e7303ec6949" => :el_capitan
+    sha256 "c12b5a5d9cd1c2feeb18347040d44db6dbc51d954ca9982754fd53645907e400" => :x86_64_linux
   end
 
   depends_on "go"
