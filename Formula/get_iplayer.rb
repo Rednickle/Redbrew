@@ -3,14 +3,14 @@ class GetIplayer < Formula
   homepage "https://github.com/get-iplayer/get_iplayer"
   url "https://github.com/get-iplayer/get_iplayer/archive/v3.06.tar.gz"
   sha256 "fba3f1abd01ca6f9aaed30f9650e1e520fd3b2147fe6aa48fe7c747725b205f7"
+  revision 1
   head "https://github.com/get-iplayer/get_iplayer.git", :branch => "develop"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1ed429e5a0b2df706f9015c8ca40f5b485e7e0ae68dfee45c76f784eca32b553" => :high_sierra
-    sha256 "1c9101656db2554d72b6f53d13fba9f84890f82119414675c5f62fb7e126373e" => :sierra
-    sha256 "1c9101656db2554d72b6f53d13fba9f84890f82119414675c5f62fb7e126373e" => :el_capitan
-    sha256 "6528e3d7a88ce1f74528f3faba23f60c965d7c2f38419dac50d70d4d236a1ee5" => :x86_64_linux
+    sha256 "4113bdf731e4d06b6873dc4e14c3bfb8aa12b5532b5e25e26308e1657f60f91b" => :high_sierra
+    sha256 "a2bdef5acce8128f0890ca8fe9a3d1e80fe790374aa84f3e808f02fb525429c6" => :sierra
+    sha256 "713b87dd2c684257b270da96cdf6acea40b820fe492c4342796a20cbee58bff0" => :el_capitan
   end
 
   depends_on "atomicparsley" => :recommended
@@ -23,6 +23,11 @@ class GetIplayer < Formula
     sha256 "11950da7636cb786efd3bfb5891da4c820975276bce43175214391e5c32b7b96"
   end
 
+  resource "IO::Socket::SSL" do
+    url "https://cpan.metacpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.052.tar.gz"
+    sha256 "e4897a9b17cb18a3c44aa683980d52cef534cdfcb8063d6877c879bfa2f26673"
+  end
+
   resource "Mojolicious" do
     url "https://cpan.metacpan.org/authors/id/S/SR/SRI/Mojolicious-7.48.tar.gz"
     sha256 "86d28e66a352e808ab1eae64ef93b90a9a92b3c1b07925bd2d3387a9e852388e"
@@ -30,6 +35,7 @@ class GetIplayer < Formula
 
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
+    ENV["NO_NETWORK_TESTING"] = "1"
 
     resources.each do |r|
       r.stage do
