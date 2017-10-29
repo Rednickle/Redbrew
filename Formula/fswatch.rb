@@ -9,6 +9,7 @@ class Fswatch < Formula
     sha256 "a9850136df474bb8d70499236285e61e8aa6a17557168d6107506e507cc22b8e" => :high_sierra
     sha256 "8fe64e87fe1269d8497d520aafb0f4543ac286656990a4a6785b526437adc9bd" => :sierra
     sha256 "ccc110c3c8f008abc615f96358119e8400c03190d785681197badd5f10e0a978" => :el_capitan
+    sha256 "065306d90c3f82865a1f95e277591dcdf03652c0fc6f35cf9e54f1d731d401d3" => :x86_64_linux
   end
 
   needs :cxx11
