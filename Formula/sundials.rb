@@ -10,6 +10,7 @@ class Sundials < Formula
     sha256 "e22f9416e3309857c71408e6a3062439a2d1da3a533221033373220e7d22c05c" => :high_sierra
     sha256 "3541a02039939d3335c012d116654d12a2fbdf4ad658f7f66cda7fde9331b0b3" => :sierra
     sha256 "a01431c6d358ffa85e1ffcb44653d298e3571319e3e77acd31bdf710d1c7af2f" => :el_capitan
+    sha256 "292ba6be0fbbbae2e80f1855057e644695307ebc22a314f9e83b396ccd05a519" => :x86_64_linux
   end
 
   devel do
