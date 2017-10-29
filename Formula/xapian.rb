@@ -10,6 +10,7 @@ class Xapian < Formula
     sha256 "091e71844cbd10c6d47e1a3bd7bc6eafc6868d01c73f7bc80ec0c5c89b3953e5" => :high_sierra
     sha256 "0575873ed3b9ccd8193e8d643541e68b84b4cc258c8a62bb28a6dd62188adb1e" => :sierra
     sha256 "2fdf665d79e63dc34597f64d457326af35154e37bb4e24db6dd030a8973fbf8e" => :el_capitan
+    sha256 "cfc514140a06310fcebc942c5aeacb50273cbcafb6eb6ef6f42ebf147407a16f" => :x86_64_linux
   end
 
   option "with-java", "Java bindings"
