@@ -9,6 +9,7 @@ class Yash < Formula
     sha256 "efa74af51e2b6eb275952a2ae604e722630b730073417b4277b58631c07ec233" => :high_sierra
     sha256 "ca4885e4c6331f0ca14b85420ddbf1106a5f554b27425078d9922b6fc87daf0a" => :sierra
     sha256 "418f3180d168044f1f462e3d5e0d26d49dd32ad4b4782ad48db4c91c0a416254" => :el_capitan
+    sha256 "14e0b7c0e474355b04c3be5a4c147132bcd68386a38f7192fda2f9c013e85b27" => :x86_64_linux
   end
 
   depends_on "gettext"
