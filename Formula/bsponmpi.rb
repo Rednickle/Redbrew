@@ -9,6 +9,7 @@ class Bsponmpi < Formula
     sha256 "2d3c362d85b10c9a1bd1b4adc45ac2576abe0a86c15408d20c375bffd9e05494" => :high_sierra
     sha256 "a3b6f8429913d14a42ac9174d9ba30d44f076b9e2b148e7a9409d9b352c66e2f" => :sierra
     sha256 "1142baa7c3a19719304237927f4eb43f8aa405a260c808ef0332c2d8d979b51e" => :el_capitan
+    sha256 "41545e8c22247beb37328310c250f57f7344cf5ab122a5041b124248103ac49f" => :x86_64_linux
   end
 
   depends_on "scons" => :build
