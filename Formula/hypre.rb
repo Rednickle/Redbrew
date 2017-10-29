@@ -11,6 +11,7 @@ class Hypre < Formula
     sha256 "e0d1c37af0624bd9c7638bd1288c9cc523160ceabeecceb7534bed6bdf0248df" => :high_sierra
     sha256 "bc90328c270fde57f6c1966ef076f095455d5297c4a996db79f44cd4e7258e11" => :sierra
     sha256 "302d24880cb100ea35d51961c01992fb4acc151f88a760703443928c5739ea9f" => :el_capitan
+    sha256 "19f310b8fea4f882be4cf4bd13cddb4a6874e2e493021301185ab66a4c290cdd" => :x86_64_linux
   end
 
   option "without-accelerate", "Build without Accelerate framework (use internal BLAS routines)"
