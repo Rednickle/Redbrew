@@ -8,6 +8,7 @@ class Libical < Formula
     sha256 "e00639c8e22c1e65492d11fc1486f38f8c1e898cbca7d704777040e088d3192b" => :high_sierra
     sha256 "640045615ee37609804b4f19479e813d7cbcbdbcc5ba92821c11507ed38768b7" => :sierra
     sha256 "8188a81db33ac7f104254a24b5c94480445d50b09a71c11f14bf5d06086b7a0e" => :el_capitan
+    sha256 "560f86ef89622a44ca782c5ea8909cccfcd3697f0d98f2cf5b1ca2dd05546914" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
