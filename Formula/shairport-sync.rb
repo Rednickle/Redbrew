@@ -10,6 +10,7 @@ class ShairportSync < Formula
     sha256 "9174235ef8340d4b8f160e0fcf052c233a2c6e66d5879d45ee3a858dd1ab1545" => :high_sierra
     sha256 "b607275ef422390cfdecbf262f88871f7f964f849d8060348154b616730f3754" => :sierra
     sha256 "b69cbc09b42d2ca57edfdc00e6dd041c6d810ca9248a9f61beb596f1c8578e8d" => :el_capitan
+    sha256 "aeb1a4c28f4456cb3f772c1be6900cf8026ee263fdb03b71b1b99e1f2402ac98" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
