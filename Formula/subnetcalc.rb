@@ -9,6 +9,7 @@ class Subnetcalc < Formula
     sha256 "c730ad755d22afd5e2fd2017910c4d69d693813fb632d761ea52992847b47f88" => :high_sierra
     sha256 "29f37e42624b4fb437bf7795c0341f3b1b2e31dcf025b796b6a198532c21ba4b" => :sierra
     sha256 "5d90401c8ef320206a3479945b536c0dace81e1c18bfcd3ce67d418fea059b55" => :el_capitan
+    sha256 "f2c48713cd066c10fbf2b396c3fea5a79b264fbb16c9b91408f15453c50cc9b0" => :x86_64_linux
   end
 
   head do
