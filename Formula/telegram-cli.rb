@@ -11,6 +11,7 @@ class TelegramCli < Formula
     sha256 "938c36ae945666dc88be1aec3e714a79a71d42f9daa1010d0e73206b61f9a635" => :high_sierra
     sha256 "e9ff00dd7a4983b41b08519f0a756990a0aa30bc2263b6e262f72ee3e9b23ce2" => :sierra
     sha256 "caabf1d19eb2b5b04560e9dc15583eb7dc3c0b0a733c732d73da09abf51dbbaf" => :el_capitan
+    sha256 "14e69a815eacb0d728166b5ff2483fbc928cca13b5912e9d7a2ee7edd70bd81f" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
