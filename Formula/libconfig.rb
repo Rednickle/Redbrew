@@ -1,23 +1,19 @@
 class Libconfig < Formula
   desc "Configuration file processing library"
-  homepage "https://www.hyperrealm.com/libconfig/"
-  url "https://github.com/hyperrealm/libconfig/archive/v1.6.tar.gz"
-  sha256 "18739792eb463d73525d7aea9b0a48b14106fae1cfec09aedc668d8c1079adf1"
+  homepage "https://hyperrealm.github.io/libconfig/"
+  url "https://github.com/hyperrealm/libconfig/archive/v1.7.tar.gz"
+  sha256 "6f7ce87ecfe11327ec7f9f3a016c5007286b327eee1adf5145ff70238b379304"
+  head "https://github.com/hyperrealm/libconfig.git"
 
   bottle do
-    rebuild 1
-    sha256 "23e530c1de99bced2f55361347920cb9149b816dcd6e273db90c8211bbbbe025" => :high_sierra
-    sha256 "238bf662b61ce2ed2b3e4ef0cf932ab4c9fe784f23d5d82576b79ce552db10b6" => :sierra
-    sha256 "2194870d1e0f7dcdc03df3637bfb16c92ddd03f1a65870c0498e28b06308f5bd" => :el_capitan
-    sha256 "5622eceae00c2b88f063e1e068e36635b1497539946cde70b814a0c1153cb401" => :x86_64_linux
+    sha256 "b9b5c4811c278a7ea7e193685a5b352e80121d28defb23715df4b66e98e33af2" => :high_sierra
+    sha256 "31ed172343eb35e862fe8e8eb1d4850845ea376b8857a1e44239ba8873e9e4e3" => :sierra
+    sha256 "ac4deedc89f0c4712ffde498f1eae572c34a5ef1b804a18a1d087fda0f5b43d9" => :el_capitan
   end
 
-  head do
-    url "https://github.com/hyperrealm/libconfig.git"
-    depends_on "automake" => :build
-    depends_on "autoconf" => :build
-    depends_on "libtool" => :build
-  end
+  depends_on "automake" => :build
+  depends_on "autoconf" => :build
+  depends_on "libtool" => :build
 
   unless OS.mac?
     depends_on "flex" => :build
@@ -25,14 +21,8 @@ class Libconfig < Formula
   end
 
   def install
-    system "autoreconf", "-i" if build.head?
+    system "autoreconf", "-fiv"
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
-
-    # Fixes "scanner.l:137:59: error: too few arguments to function call ..."
-    # Forces regeneration of the BUILT_SOURCES "scanner.c" and "scanner.h"
-    # Reported 6 Jun 2016: https://github.com/hyperrealm/libconfig/issues/66
-    touch "lib/scanner.l"
-
     system "make", "install"
   end
 

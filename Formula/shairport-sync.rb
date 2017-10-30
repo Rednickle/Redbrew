@@ -3,13 +3,13 @@ class ShairportSync < Formula
   homepage "https://github.com/mikebrady/shairport-sync"
   url "https://github.com/mikebrady/shairport-sync/archive/3.1.3.tar.gz"
   sha256 "dd0484d7e8ee7631aee78c78b3762abbdba7ec3f2ee8cd6c1e361544c1414da3"
+  revision 1
   head "https://github.com/mikebrady/shairport-sync.git", :branch => "development"
 
   bottle do
-    sha256 "c83d9653824bc9e70d4d75948145d0d96df5a7e9c060f972cde70521ae9d8f3e" => :high_sierra
-    sha256 "95a81a8ee4104463273cbf8334f5be48cda7a68e4982785e5ac737f600dd0baa" => :sierra
-    sha256 "4549d627e2876033eb847dda67e9fc907baa19539a750700b2c80379032db1cb" => :el_capitan
-    sha256 "5d66cdc0f51cecaac9ebacb0eafb7ceb1166d0f25cca2ab9cbe240ff6a645394" => :x86_64_linux
+    sha256 "9174235ef8340d4b8f160e0fcf052c233a2c6e66d5879d45ee3a858dd1ab1545" => :high_sierra
+    sha256 "b607275ef422390cfdecbf262f88871f7f964f849d8060348154b616730f3754" => :sierra
+    sha256 "b69cbc09b42d2ca57edfdc00e6dd041c6d810ca9248a9f61beb596f1c8578e8d" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
