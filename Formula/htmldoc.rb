@@ -9,6 +9,7 @@ class Htmldoc < Formula
     sha256 "a5cb80a8a89142e19ccfb556f7f1e6cf237a79a1533aa5edf259417a86b7c033" => :high_sierra
     sha256 "524ad03f947350cd7724ea078d7c0671a857bb20c0ff394efd3cfd9d4dd078b9" => :sierra
     sha256 "2bf69586aaec539be7069cdfdd21e611ee784165ff6b74bcdaf56ca80b9c0539" => :el_capitan
+    sha256 "1f655046868d6b648956d334d6ed3ec5e82d79c515138af174ff39426488c653" => :x86_64_linux
   end
 
   depends_on "libpng"
