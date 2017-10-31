@@ -3,12 +3,12 @@ class Opencv < Formula
   homepage "https://opencv.org/"
   url "https://github.com/opencv/opencv/archive/3.3.1.tar.gz"
   sha256 "5dca3bb0d661af311e25a72b04a7e4c22c47c1aa86eb73e70063cd378a2aa6ee"
+  revision 1
 
   bottle do
-    sha256 "b4abe849aa3f965411b0a8c8ccfae2e7f63b91744ba0ebfd4fc1e7d946a1675e" => :high_sierra
-    sha256 "420185fe2b1cde2edc2a9bf6ca8c6cbd72d1e5e246e1f674a04642680c3a0016" => :sierra
-    sha256 "587dc73af688f88df7d4e870d54dd65a6864578c5c37f84b1ac669fa55f2be14" => :el_capitan
-    sha256 "6ff750875ffe742211d0db41076b0e752f8f049840d9c76b3f73879611d432f1" => :x86_64_linux
+    sha256 "c857504e05f1150938a618c101a38f52761d874ef477d71f319dd22b530467a1" => :high_sierra
+    sha256 "5a09d9bc84475db0026df47363f983c9104610ceece82270bdf60730b546e12b" => :sierra
+    sha256 "745cdcae976045ee39b0f6912446a879ecc63b2d3d50898df2457745ebef2dc0" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -22,6 +22,7 @@ class Opencv < Formula
   depends_on :python
   depends_on :python3
   depends_on "numpy"
+  depends_on "tbb"
   depends_on "openblas" unless OS.mac?
 
   needs :cxx11
@@ -73,7 +74,7 @@ class Opencv < Formula
       -DWITH_OPENEXR=ON
       -DWITH_OPENGL=OFF
       -DWITH_QT=OFF
-      -DWITH_TBB=OFF
+      -DWITH_TBB=ON
       -DWITH_VTK=OFF
       -DBUILD_opencv_python2=ON
       -DBUILD_opencv_python3=ON
