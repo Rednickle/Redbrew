@@ -9,6 +9,7 @@ class Prest < Formula
     sha256 "798f4a38ff9c561b29b5b7db938ceafc9bc720c94f9f332657d1f2c64ff813ab" => :high_sierra
     sha256 "77f47a1cc27feb1b923d617fccc750d252661655d15582135a49e2b975baadb4" => :sierra
     sha256 "8fa3ca1a6776a29c4c9e96d815e05e3aa20182844f9b9bde3b96e04ed12d4d99" => :el_capitan
+    sha256 "2c792e1e4a9d5c3fe50d549885c10f45bef983dee29dea91d31a9650490db7ad" => :x86_64_linux
   end
 
   depends_on "go" => :build
