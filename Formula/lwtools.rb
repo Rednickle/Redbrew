@@ -9,6 +9,7 @@ class Lwtools < Formula
     sha256 "5a96b0c26f79b3c829682787bb3417915165ede98b03cd3930f702f5de7d505c" => :high_sierra
     sha256 "cd48eff4a17ae3af580ab16883e56746d5e9037e85ca3115daed1319509441a3" => :sierra
     sha256 "f79d18b3454c1c117d3103195b4026ada7306eb32cc0773fed95ab3b598140f9" => :el_capitan
+    sha256 "f13cf6e8a5847bdb43ae4cedf44ea8177fb7f6eae8f30b6e76ea9773b923ec7b" => :x86_64_linux
   end
 
   def install
