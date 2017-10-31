@@ -11,6 +11,7 @@ class Mkdocs < Formula
     sha256 "cce6df16d9b8785e482c45ba161cc02e8eb87c55ea101aecda871f1ca87dec70" => :high_sierra
     sha256 "95eeb56a7d582b317d7a65ae8ad4a2931f842859bab39cab41e1314ba6e5349e" => :sierra
     sha256 "4a2379194baf44440ad9ccb8a061e6da7e45eacdbb515c64f8699f7232cf372c" => :el_capitan
+    sha256 "3056e9268518877dbce8d9a5d979a267625001c8382aba0786a3b69dc72af1b8" => :x86_64_linux
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
