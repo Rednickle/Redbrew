@@ -2,25 +2,14 @@ class Dbus < Formula
   # releases: even (1.10.x) = stable, odd (1.11.x) = development
   desc "Message bus system, providing inter-application communication"
   homepage "https://wiki.freedesktop.org/www/Software/dbus"
-  url "https://dbus.freedesktop.org/releases/dbus/dbus-1.10.24.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.10.24.orig.tar.gz"
-  sha256 "71184eb27638e224579ffa998e88f01d0f1fef17a7811406e53350735eaecd1b"
+  url "https://dbus.freedesktop.org/releases/dbus/dbus-1.12.0.tar.gz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.12.0.orig.tar.gz"
+  sha256 "39af0d9267391434b549c5c4adc001b735518c96f7630c3fe7162af1d13ef3c0"
 
   bottle do
-    sha256 "94aa4146fefeb941bcb7b8d65d7109dea8b35ba2eac306b6b6815b274e8716ac" => :high_sierra
-    sha256 "aa7bee810c612aa0640961473691aff286dfff84d99c8f090722ed44d6940061" => :sierra
-    sha256 "0b6302f7811cdd47df1b897db2e673d83519e8f5e5543e7ce0eca6f1934e73ec" => :el_capitan
-    sha256 "c2e10f6a6c79cd7253cdd62114164fc979116c617e309423cee6ea5adad277e4" => :x86_64_linux
-  end
-
-  devel do
-    url "https://dbus.freedesktop.org/releases/dbus/dbus-1.11.22.tar.gz"
-    mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.11.22.orig.tar.gz"
-    sha256 "0bd375efd574d3d10d2f154dacad02987a64578531857e13a385936e1119a85b"
-
-    depends_on "coreutils" => :build
-    depends_on "pkg-config" => :build
-    depends_on "expat"
+    sha256 "5a63cbb97d2a67a8cf436b9e8e2839244866e99c270d75bf4da81328c7e47c56" => :high_sierra
+    sha256 "c5d996e65bcea606002e529a29d9aef1beecf22f87dd2e80f608588097f8d51b" => :sierra
+    sha256 "ed30ee39295625f8cfdb5360400f64dbda511c4e7a08d7288e9a3897bcf83811" => :el_capitan
   end
 
   head do
@@ -29,10 +18,7 @@ class Dbus < Formula
     depends_on "autoconf" => :build
     depends_on "autoconf-archive" => :build
     depends_on "automake" => :build
-    depends_on "coreutils" => :build
     depends_on "libtool" => :build
-    depends_on "pkg-config" => :build
-    depends_on "expat"
   end
 
   depends_on "xmlto" => :build
@@ -47,12 +33,12 @@ class Dbus < Formula
   depends_on "expat" unless OS.mac?
 
   def install
-    unless build.stable?
-      ENV.prepend_path "PATH", Formula["coreutils"].opt_libexec/"gnubin"
-    end
-
     # Fix the TMPDIR to one D-Bus doesn't reject due to odd symbols
     ENV["TMPDIR"] = "/tmp"
+
+    # macOS doesn't include a pkg-config file for expat
+    ENV["EXPAT_CFLAGS"] = "-I#{MacOS.sdk_path}/usr/include"
+    ENV["EXPAT_LIBS"] = "-lexpat"
 
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
@@ -67,8 +53,11 @@ class Dbus < Formula
                           ("--with-launchd-agent-dir=#{prefix}" if OS.mac?),
                           "--without-x",
                           "--disable-tests"
-    system "make"
-    ENV.deparallelize
+
+    # Fix "../build-aux/install-sh: invalid option: -m700"
+    # Reported 31 Oct 2017 https://bugs.freedesktop.org/show_bug.cgi?id=103521
+    inreplace "test/Makefile", "-m700 ", "-m 700 "
+
     system "make", "install"
   end
 
