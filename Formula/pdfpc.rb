@@ -9,6 +9,7 @@ class Pdfpc < Formula
     sha256 "ea0c731b612f89e6f76493155454a44a84a66f82399a3cd58f1caf2ce485bb9a" => :high_sierra
     sha256 "f450f182e9e260757977c209c36071bf4a28d6cb59e7ce941eb6b10af320ff7a" => :sierra
     sha256 "787d3ad90500210572de480501314b30ff0b5086b24e7fa6f5363efabf30f89c" => :el_capitan
+    sha256 "06924c06ff8db71e523d4d16038f90e7e058e09d81d28732ccea8ac8724d5034" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
