@@ -6,10 +6,10 @@ class NodeAT4 < Formula
   head "https://github.com/nodejs/node.git", :branch => "v4.x-staging"
 
   bottle do
-    sha256 "d76bdbeaca23dd426a13b9434e18f1df3139f848386c56bec6997031acee6261" => :high_sierra
-    sha256 "6410b6d66923eb923ad24ffa8c926638e4c30b5273a018040ea9f6cefe4b8eb0" => :sierra
-    sha256 "459d1ded7ce52fd39de17ea5ecb8e46ffd782dbb879e6cc9fe628f50172a157e" => :el_capitan
-    sha256 "81b9d578b3662ab1ced910c1ea656ed094c09453c79b3c2047eacdcbb188ec55" => :x86_64_linux
+    rebuild 1
+    sha256 "1a1a395afc2d909a7d689b958c37023f5c2970713bc6371b468a83f3b5d432e8" => :high_sierra
+    sha256 "685127a91db8250b88e682c2a0fa9690ce4492b5a9dd1522c2ef269d00b085ae" => :sierra
+    sha256 "c55d9c5723928f544f79b5017a485aaba2a1be7b7ab74af33fbc025decf0bdf3" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -25,8 +25,8 @@ class NodeAT4 < Formula
 
   # Keep in sync with main node formula
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-5.4.2.tgz"
-    sha256 "04dc5f87b1079d59d51404d4b4c4aacbe385807a33bd15a8f2da2fabe27bf443"
+    url "https://registry.npmjs.org/npm/-/npm-5.5.1.tgz"
+    sha256 "b8b9afb0bb6211a289f969f66ba184ca5bc83abf6a570e0853ea5185073dca6f"
   end
 
   resource "icu4c" do
@@ -149,7 +149,7 @@ class NodeAT4 < Formula
       system "#{HOMEBREW_PREFIX}/bin/npm", *npm_args, "install", "bignum" unless head?
       assert_predicate HOMEBREW_PREFIX/"bin/npx", :exist?, "npx must exist"
       assert_predicate HOMEBREW_PREFIX/"bin/npx", :executable?, "npx must be executable"
-      assert_match "< hello >", shell_output("#{HOMEBREW_PREFIX}/bin/npx --cache=#{HOMEBREW_CACHE}/npm_cache cowsay hello")
+      assert_match "< hello >", shell_output("#{HOMEBREW_PREFIX}/bin/npx cowsay hello")
     end
   end
 end
