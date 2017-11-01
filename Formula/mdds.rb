@@ -9,6 +9,7 @@ class Mdds < Formula
     sha256 "8a1fdd8f95754d6a6d3eea4c96e166e99b9d13711900785cb1755c4f231f274d" => :high_sierra
     sha256 "8a1fdd8f95754d6a6d3eea4c96e166e99b9d13711900785cb1755c4f231f274d" => :sierra
     sha256 "8a1fdd8f95754d6a6d3eea4c96e166e99b9d13711900785cb1755c4f231f274d" => :el_capitan
+    sha256 "4823e43f9c4df2ddd2f921a22eceed471bc1ea3088be901520c9478436a0374c" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
