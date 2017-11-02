@@ -11,6 +11,7 @@ class Dub < Formula
     sha256 "02dca616f9005a97e8a808132e4db53a7b09a7c68b57ba1b7c617bf2548fe9af" => :high_sierra
     sha256 "93a16cf901414234c4345df869c818cadced49f50d15f54ee3e75100e5b16641" => :sierra
     sha256 "dfc6c60757b75435bb16018ae05e4ea8c3de8137922bfdc7043a33492a985a7e" => :el_capitan
+    sha256 "3dc5cb901231ef47f6b68ee2e0ad3af872411f3dbedda14015259a8b1bc3f1b5" => :x86_64_linux
   end
 
   devel do
