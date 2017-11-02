@@ -10,6 +10,7 @@ class Expat < Formula
     sha256 "0ef65624ae99120f21c4ef319a8a056697db296efd9bbd662529334711c7bc15" => :high_sierra
     sha256 "653edd989854be055f50853486a4945d68e49cc8f6e944776bf2be67b51ac304" => :sierra
     sha256 "618683020e64ef1ca99d0c2f388262cf32117d93d7f047bf8251461d8af3f04e" => :el_capitan
+    sha256 "a8a7a769116d83656c94d42112247f40fad130f78d32a28614649867e28b970a" => :x86_64_linux
   end
 
   keg_only :provided_by_osx, "macOS includes Expat 1.5"
