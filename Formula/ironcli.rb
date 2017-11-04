@@ -9,6 +9,7 @@ class Ironcli < Formula
     sha256 "c4f4ad82734f93b32a2f64e1adaaf493fa38b4e34cbc9298fbbdc02851003343" => :high_sierra
     sha256 "14d4bcd4ac89e89fb09b27994ba372d1e25690724c99b7ffbfb0231466c01bca" => :sierra
     sha256 "62bed7f56cf23a148407527ff2b1234638ae0b365806ccc79c602ee081eed1dc" => :el_capitan
+    sha256 "1e21387baef4dc4421649413232a17313a831d80702018417ee56892216d05cf" => :x86_64_linux
   end
 
   depends_on "dep" => :build
