@@ -10,6 +10,7 @@ class Libxml2 < Formula
     sha256 "ff9bf7d946d5413fb1f2837a187bd026f469a67b78ba6589f5b565f0133b58f2" => :high_sierra
     sha256 "0b9bc0fe308a22b557822d0bc254f209e33bd7b4948d7d08a14d620e1f8b6a3b" => :sierra
     sha256 "cdcc13eab3436e1c44dcae42396e519e4a5119552818b656a2c7a5d878b9a912" => :el_capitan
+    sha256 "0680e822ae4efb38df31366db7ea288af10d51638b3c348a6f7eb789d5f5af51" => :x86_64_linux
   end
 
   head do
