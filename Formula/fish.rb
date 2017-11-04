@@ -16,6 +16,11 @@ class Fish < Formula
     sha256 "f6f5228f03f1bc27dd914e800b07a720eeb0ac7b6112c23a7bed50a11259e53b" => :x86_64_linux # glibc 2.19
   end
 
+  devel do
+    url "https://github.com/fish-shell/fish-shell/releases/download/2.7b1/fish-2.7b1.tar.gz"
+    sha256 "326dbea5d0f20eba54fa0b0c5525e58b4a39ebd8c52c14cfffc5f4d6cdf55385"
+  end
+
   head do
     url "https://github.com/fish-shell/fish-shell.git", :shallow => false
 

@@ -7,15 +7,15 @@ class Erlang < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "http://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/archive/OTP-20.1.3.tar.gz"
-  sha256 "dbf203824bb03f2574174100ef59d80d15b3dffe33649fddaf836cd3d6ca0cde"
+  url "https://github.com/erlang/otp/archive/OTP-20.1.4.tar.gz"
+  sha256 "4fff4f8c96e1a626e2384eb6d9178971e905089bd69a24436174b873400c068d"
   head "https://github.com/erlang/otp.git"
 
   bottle do
     cellar :any
-    sha256 "f1b9b61eeed997d4b28efa56935b7d0b198ec35cb3cd3013fad4be80fa6cbcda" => :high_sierra
-    sha256 "15dfd99560eb114c460e02af14fd5f0bbadb05e9eff4f85aaf8bc73e3ab5e5ee" => :sierra
-    sha256 "627bc2e57b62193716a0dd6c303a07212e787692329d5cd41be8dd98660dd1b4" => :el_capitan
+    sha256 "97c49b882ede0b34a0814460f8ca57a52afd205ce57e30feacef9b9a23134114" => :high_sierra
+    sha256 "107dbca62bd827d0d4763a4f46070ac2de5ae19952ef33b0934a6545ae492b61" => :sierra
+    sha256 "3838aab4d5f7fcc89608d12246a2bc84b289174fdcb3a74be21fa6b3a44cab59" => :el_capitan
   end
 
   option "without-hipe", "Disable building hipe; fails on various macOS systems"
