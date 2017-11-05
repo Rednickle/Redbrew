@@ -8,6 +8,7 @@ class Aspcud < Formula
     sha256 "700beffd0ba38265dc95a4b3c344a1974355cb4c20fc50eb7f2d500aaf0ee956" => :high_sierra
     sha256 "73c4df24738a0cea1339241f641657c6e7cb5aecddaba3cb2ecd5e2f6b46fdb5" => :sierra
     sha256 "2658d95252c4d154e3e1aa42fd9762850da1114a8e19c9721c07bb306cbb2955" => :el_capitan
+    sha256 "7b39267f0b4982769ee5f92aa2d9f2326845078ecaa2a97c2999c19bfaad7396" => :x86_64_linux
   end
 
   depends_on "boost" => :build
