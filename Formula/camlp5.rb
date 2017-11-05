@@ -11,6 +11,7 @@ class Camlp5 < Formula
     sha256 "c2159630c54f7bad58b9417eb0c92514cac1d950afc0e3143c5ee3212cff3baf" => :high_sierra
     sha256 "fbea5b4bc60b78bad1ecab18750fc45e7105f09274c7493c393ac38005ecc4fb" => :sierra
     sha256 "16cced0fbb0ccbd4eabecaca68f9dd9a121cea46b917c9eca061d782823471c6" => :el_capitan
+    sha256 "4d5582dbfa629595f12057f2d283ffbfbdaa9f564f064f168bea5bdf980dc532" => :x86_64_linux
   end
 
   deprecated_option "strict" => "with-strict"
