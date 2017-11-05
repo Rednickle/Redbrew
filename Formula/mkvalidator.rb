@@ -9,6 +9,7 @@ class Mkvalidator < Formula
     sha256 "5f0c85894cd7d4a7c5cdce1e26c5cc7c15ac7baa6c32a63e3474632f7727d8af" => :high_sierra
     sha256 "5f0c85894cd7d4a7c5cdce1e26c5cc7c15ac7baa6c32a63e3474632f7727d8af" => :sierra
     sha256 "6c253cdf3c824b6e37af7cca51bf05a930785286bc83ec367e10500d9645519c" => :el_capitan
+    sha256 "a2a885db355b402fb299ee9e3e47b986eb1b8ea9b674f63b83c5fc9646848707" => :x86_64_linux
   end
 
   resource "tests" do
