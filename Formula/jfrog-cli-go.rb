@@ -9,6 +9,7 @@ class JfrogCliGo < Formula
     sha256 "5e7361475cebfaba86f981251d3c33004b4466e5ebfdcb0491ed5a3c09d05232" => :high_sierra
     sha256 "69686c6b4b68cdeba7fb841425afb22ce451e5ba57f8a695f7653d022f473d2f" => :sierra
     sha256 "86dd6960c2322a8e1f9b610c47e51d0534f392b585ac209e200f9bec977dbf5c" => :el_capitan
+    sha256 "616f9720b4c95049610a111de7a2d5403b2edbf9bb7dfd0a44556ff6fefb43f7" => :x86_64_linux
   end
 
   depends_on "go" => :build
