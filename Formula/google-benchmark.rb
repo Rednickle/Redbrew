@@ -10,6 +10,7 @@ class GoogleBenchmark < Formula
     sha256 "cd223b9dfaed9208c8c683e933525c46f0a871a3e4bad67b818577f3b1d761ab" => :high_sierra
     sha256 "59851a02622cbb62c485cf9d42a7b364ded70c0b40ce11c133f79195e2ea9844" => :sierra
     sha256 "5052dafe9ca883c844dcf1f85270851d4163d7a2d134b2ebb96a592b30c53590" => :el_capitan
+    sha256 "4c467f663b1bc18bf6c1b0d5f841ad8395d97daf9d17b10c157fa1a61589e10e" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
