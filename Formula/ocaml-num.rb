@@ -9,6 +9,7 @@ class OcamlNum < Formula
     sha256 "91fe9987b76ad40318368ab127bbdb82c74c176ccba723a3fe5ebd3a13fb5523" => :high_sierra
     sha256 "d73e9d1b6601fcdbcede7c74cc0326897ebcbd566860f6ae796be0f215d6ce97" => :sierra
     sha256 "c114181c1020d48f475ac78a78c29cc7a9c24baa68d8527170708d0f54439425" => :el_capitan
+    sha256 "8d23a8c998427688c7e22d9e4d96cabdb7cf506f997f9c97cf20467c59ed9716" => :x86_64_linux
   end
 
   depends_on "ocaml"
