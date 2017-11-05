@@ -10,6 +10,7 @@ class Ccm < Formula
     sha256 "3e6e86162facfffb7095fb69b8ed28b37757b3a42359ea60337b220c09864739" => :high_sierra
     sha256 "b20396ffd7026668b819ed79bebce793e1d9e8abb5a6a5cc36292d6e253458c4" => :sierra
     sha256 "4b2ca9280e88312401ba3c6af41d4f57583fd5b3ecca38563b1ed07cf8f49a11" => :el_capitan
+    sha256 "60b9735c25507781857241c9c8533553062b8c7969e8e2854b3c0a5a3f2b2c3c" => :x86_64_linux
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
