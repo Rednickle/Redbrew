@@ -10,6 +10,7 @@ class AwsShell < Formula
     sha256 "bcf11cf566551b154bdae41b623a47edf70e6434e24e34997dabfa817aaf3ce2" => :high_sierra
     sha256 "07acd0d0820ac23928cc09294965ba0d940fc87ccbe70ca96f8a59f5b23a6dd5" => :sierra
     sha256 "adfcbbdfe945223c373cd4c9eb8f2ef45d35cbcd9c860ce81d49647f8311a65d" => :el_capitan
+    sha256 "f3c9166ce4e70bbe4c97132fb28c34975dad4f42724087b56f7e28becfc88a5d" => :x86_64_linux
   end
 
   # Use :python on Lion to avoid urllib3 warning
