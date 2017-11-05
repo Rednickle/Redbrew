@@ -1,13 +1,11 @@
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
-  revision 1
-
   head "https://cmake.org/cmake.git"
 
   stable do
-    url "https://cmake.org/files/v3.9/cmake-3.9.4.tar.gz"
-    sha256 "b5d86f12ae0072db520fdbdad67405f799eb728b610ed66043c20a92b4906ca1"
+    url "https://cmake.org/files/v3.9/cmake-3.9.5.tar.gz"
+    sha256 "6220c1683b4e6bb8f38688fa3ffb17a7cf39f36317c2ddfdc3f12f09d086c166"
 
     # The two patches below fix cmake for undefined symbols check on macOS 10.12
     # They can be removed for cmake >= 3.10
@@ -31,11 +29,9 @@ class Cmake < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "679bfd5a1928006744149b43560ac58774999d0b5eb4202ae03263eabb88f1dd" => :high_sierra
-    sha256 "84277818d679745c2dc7cef2233e784df33273cd957df461695188027bf95784" => :sierra
-    sha256 "d22b4dfb08ef4b85cdc0c942475d08eadec26618d5b797fbe8e9605e1f0641d8" => :el_capitan
-    sha256 "539dc96434b05e2f1b6fe34fcdeaee3ab2f330ed7c3d345b5450f78c2286f9f3" => :x86_64_linux
+    sha256 "11031d0edee8240e43fef2884956462a3e0dfcc1e89972161e52af0cb6580f7e" => :high_sierra
+    sha256 "6f4c377f8efa511a4a8f0045ecd3b2a2dcc7c14326d7016c37e5f98722276bdb" => :sierra
+    sha256 "08a66044e187a0b4e69b8e26f4a557c4c7d4a9937d59c3aa5dd4a117d21bd483" => :el_capitan
   end
 
   devel do
