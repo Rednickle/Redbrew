@@ -7,23 +7,23 @@ class Awscli < Formula
   url "https://github.com/aws/aws-cli/archive/1.11.180.tar.gz"
   sha256 "fd264eabd8d2a61cc395aa800943e88aa377c19ab241722e2e64387473ecf169"
   head "https://github.com/aws/aws-cli.git", :branch => "develop"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9ac710ce943621d5ef04bfc0838148d4c121b19f504b8f43243c61fb2a81a776" => :high_sierra
-    sha256 "5c9958516eb45f0554398d3c8a7bbc7fdb82755ef83f8f0c808954879b8c8e57" => :sierra
-    sha256 "5524cf400902d28180cb43dc6ff9f3dd2b4fa89c1e3e35c34d9284c995df496c" => :el_capitan
-    sha256 "0049d3f0ab775ba0a248e76cd1b8af6e2dad0e1fd9cb04ca575d3523df5b3b9d" => :x86_64_linux
+    sha256 "168d726049366b4cbd1278e0e4a4e0e7e406d555e13e3681a968ca629776c67c" => :high_sierra
+    sha256 "89085a16f39f881464052f776895eda734618eb8d8b649c9e9866bae4c6d9796" => :sierra
+    sha256 "8028eba1b1001b91a622b0e83fa544d19761cb99113a73c13dbdaf997015918d" => :el_capitan
   end
 
-  # Use :python on Lion to avoid urllib3 warning
-  # https://github.com/Homebrew/homebrew/pull/37240
-  depends_on :python if MacOS.version <= :lion
+  # Some AWS APIs require TLS1.2, which system Python doesn't have before High
+  # Sierra
+  depends_on :python3
 
   depends_on "libyaml" unless OS.mac?
 
   def install
-    venv = virtualenv_create(libexec)
+    venv = virtualenv_create(libexec, "python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
                               "--ignore-installed", buildpath
     system libexec/"bin/pip", "uninstall", "-y", "awscli"
