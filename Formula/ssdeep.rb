@@ -9,6 +9,7 @@ class Ssdeep < Formula
     sha256 "1c8a9a487676961755daf5688ec478a5925f3a0dfe36faeb7027878600ef2384" => :high_sierra
     sha256 "84677545f87098d9c5d74719044c56616a8788f1320c9258794807dac2343328" => :sierra
     sha256 "c07f5558ed32f7de17f349cbc62e56cf277d3d30c83fa7844bdf41000729dcba" => :el_capitan
+    sha256 "196f6fbb9e5b008ab981b091d867361b43f07c29bbacc840f7c23f1f8ffd7161" => :x86_64_linux
   end
 
   def install
