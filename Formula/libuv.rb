@@ -1,16 +1,15 @@
 class Libuv < Formula
   desc "Multi-platform support library with a focus on asynchronous I/O"
   homepage "https://github.com/libuv/libuv"
-  url "https://github.com/libuv/libuv/archive/v1.15.0.tar.gz"
-  sha256 "17afc94ec307be28fe8d4316679171219770df4f993905a79643c7583e106489"
+  url "https://github.com/libuv/libuv/archive/v1.16.0.tar.gz"
+  sha256 "fe53b53eee3b15db8ae1b25cbfb8740944273e02f5ccd731b176800e2807d832"
   head "https://github.com/libuv/libuv.git", :branch => "v1.x"
 
   bottle do
     cellar :any
-    sha256 "c14c938e98be4ee894b67b5a138a60120d386e630404ee33e4a21dadd2702118" => :high_sierra
-    sha256 "888486e403aaaf122ee0643575824107478c07f0014e474857ad6d6bc8aada44" => :sierra
-    sha256 "2114a5273196755e1a19f10f1f48f82b44977725b6451ead34baf2020d27d919" => :el_capitan
-    sha256 "464e311d2a6814e85431539dcb0b619adcab6d462fcae76273de32dc863f829a" => :x86_64_linux
+    sha256 "796593e30461af1e8f2c4559de6460697725d9f42d8fe3fa9370a3aafef47782" => :high_sierra
+    sha256 "7b7f199afc57a77ef8d0ded0c0f5f4abaa033676f006fb84f78ba7a3a07d48bf" => :sierra
+    sha256 "0af20d131bb5bc512e0130158a1ebfaac79868a1c3af712b026cfc8c24f303b4" => :el_capitan
   end
 
   option "with-test", "Execute compile time checks (Requires Internet connection)"
