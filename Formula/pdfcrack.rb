@@ -9,6 +9,7 @@ class Pdfcrack < Formula
     sha256 "267ea30516a748d4e47e36608dbac86b4447ce1f27b96c8333f7866a1787128d" => :high_sierra
     sha256 "aa99f4d2cdf38a95b2ce720875c446a83a15f4b912d09e6b70e41caa5e95cf55" => :sierra
     sha256 "56e86ec915cc0f470b12a7f5ce22afb12d03a79bc99285a71503fbea1769204d" => :el_capitan
+    sha256 "969553dd7bedf264394934158933bd9e85a6e6b82e5d75639f99ceb6cae77746" => :x86_64_linux
   end
 
   def install
