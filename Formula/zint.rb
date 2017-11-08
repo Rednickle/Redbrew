@@ -10,6 +10,7 @@ class Zint < Formula
     sha256 "ede8253010c8b2523c7f4b097d5d0b4e5bfe4164fd13041690e3e8179b2add1b" => :high_sierra
     sha256 "d6df75c981b5e66e594b7890909fa64a3c40d761a0bf20a78255f54c443ec0d9" => :sierra
     sha256 "89e62db21897ceec3a49c4e8815fdf91fd135ca6ca08938027c1d9d6f1b4fb50" => :el_capitan
+    sha256 "accd1d91920bd7c1804b3aaba4617d37dbf75a12031d049bf651c75d25224895" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
