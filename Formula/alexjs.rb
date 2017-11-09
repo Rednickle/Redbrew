@@ -11,6 +11,7 @@ class Alexjs < Formula
     sha256 "98235c0024fdbf9109169020bfbe6e184e6d64843ee29d0c532aa2703650ba08" => :high_sierra
     sha256 "89e37a748cc72279043da0fd9d7208f5dbe4612d1823d628de33b1a8c6f9e90e" => :sierra
     sha256 "2010daebcecbbe252a3d57b1144734793177027d699826cf67a632ea4d6b475d" => :el_capitan
+    sha256 "5aa5d3ff7f0721110d8c9f4ea41669479b150c59e8609186168c7b6781e4c354" => :x86_64_linux
   end
 
   depends_on "node"
