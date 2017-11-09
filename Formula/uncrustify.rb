@@ -10,6 +10,7 @@ class Uncrustify < Formula
     sha256 "49d8b499a14ce721a4cdf98ac496a7def753342d827e826bc8cd50f334f56e14" => :high_sierra
     sha256 "be5b6c836b51d5a57fb21a9388433b6765a9df434001095b1331e70e0c3ad697" => :sierra
     sha256 "5d6cad2bb86f47fb43e6fa2d4c08b427e622d2e5a4635745e912fa290202d970" => :el_capitan
+    sha256 "34ecfb4cfb3688ee4fdf9ed986614a2e92b9f93704ca56a75e6b11b1f7673735" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
