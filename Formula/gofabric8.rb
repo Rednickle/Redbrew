@@ -9,6 +9,7 @@ class Gofabric8 < Formula
     sha256 "f398cc6a96d5b20bc206169c4f521a3a0a40ec65797d165f9a090f292ff246ad" => :high_sierra
     sha256 "40f861862c096e274b5fe84e48dfdf27ca206def6de7ac8734930c34f5e04b5d" => :sierra
     sha256 "51d55fe260aa791bf93068a9e6e22561f4437562160c1133463c0214c26c4dca" => :el_capitan
+    sha256 "286e43e0245cb174332daf0924318a06e8658d16ba5649d39c5656ca6a96a449" => :x86_64_linux
   end
 
   depends_on "go" => :build
