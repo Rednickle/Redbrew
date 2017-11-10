@@ -9,6 +9,7 @@ class Libcue < Formula
     sha256 "88f893cd81af245a0f573cad9ddc4cbfddb1c8f948da7a01fd3218a32673626f" => :high_sierra
     sha256 "90efcf7400fece2beb2ce1a433331c87602fe6414dbbd09233c535dbb3d1d9a1" => :sierra
     sha256 "ccedc0b4aa350161a33a29241d250ef4cb3fab0f47a71c9cce19593edab62332" => :el_capitan
+    sha256 "8ca3f62eb5ef40e872160be3feaac424e04b6415f7cfc78ad236e9e497f2172a" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
