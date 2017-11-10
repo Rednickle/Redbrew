@@ -1,26 +1,14 @@
 class Grpc < Formula
   desc "Next generation open source RPC library and framework"
   homepage "https://www.grpc.io/"
+  url "https://github.com/grpc/grpc/archive/v1.7.2.tar.gz"
+  sha256 "0343496a3e79d5fb7ea7be5fa466d8e00ef0ad459394047b1a874100fd605711"
   head "https://github.com/grpc/grpc.git"
 
-  stable do
-    url "https://github.com/grpc/grpc/archive/v1.6.7.tar.gz"
-    sha256 "0ed08e406eb3ecb1ab88b1eb183c7c51a996dae8fa79a0e6fbb9561c9098bf96"
-
-    # Fix "error: use of undeclared identifier 'INT_MAX'"
-    # Upstream PR from 12 Sep 2017 "Fix headers on flow control"
-    # See https://github.com/grpc/grpc/pull/12525
-    patch do
-      url "https://github.com/grpc/grpc/commit/b2f490c565e.patch?full_index=1"
-      sha256 "47e44873afd5a157d7ff1527b5cdb0f08f236589a33de616d2d6d2690a5bc6b2"
-    end
-  end
-
   bottle do
-    sha256 "6a5c18584c79c72376a976dac256558f6f4217c9ce852aac53d46342581db575" => :high_sierra
-    sha256 "cdee88720146ca4854126adf19981c8f53fde2286103327f71702e2b7fab64a6" => :sierra
-    sha256 "22f0bb317c166c5bb076debbec4b78560b869051fff07daa7a25e28e93d6cc95" => :el_capitan
-    sha256 "7b8a931019f5f1347323817a99c5de2b602ce7840f25eab25d766a8a62cbb0ce" => :x86_64_linux
+    sha256 "99861c580d4e289544f638eadce925db4e7282bf37df2cb0fc12c7ae70e83f2b" => :high_sierra
+    sha256 "2a9f6f2c175869a29ca0bdec17f6509b48665745fd1470c87bf10760ce3b7345" => :sierra
+    sha256 "b3ebb29f4de7cc57eacbd6f1e39038899b8f58fe86f7b6f646f25a40a649afb3" => :el_capitan
   end
 
   depends_on "autoconf" => :build
