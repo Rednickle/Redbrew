@@ -1,15 +1,14 @@
 class Gdcm < Formula
   desc "Grassroots DICOM library and utilities for medical files"
   homepage "https://sourceforge.net/projects/gdcm/"
-  url "https://downloads.sourceforge.net/project/gdcm/gdcm%202.x/GDCM%202.8.2/gdcm-2.8.2.tar.gz"
-  sha256 "5462c7859e01e5d5d0fb86a19a6c775484a6c44abd8545ea71180d4c41bf0f89"
-  revision 3
+  url "https://downloads.sourceforge.net/project/gdcm/gdcm%202.x/GDCM%202.8.4/gdcm-2.8.4.tar.gz"
+  sha256 "8f480d0a9b0b331f2e83dcc9cdb3d957f10eb32ee4db90fc1c153172dcb45587"
+  revision 1
 
   bottle do
-    sha256 "54e79ccdefa56ee00dde4039dabfc76979e15d5aae538980a4a105781a517bb6" => :high_sierra
-    sha256 "c6324cf523bed29c56d32229bdcb661eec55911fc2a6ee29e93f0bf4720bc22a" => :sierra
-    sha256 "fdd3a77c4c97a997de9ab0e7c80674991b334d918d31dc14262628de9d712ac1" => :el_capitan
-    sha256 "f3314e22771f88bfda881873635e19236b0dbda3bcc41def1d565c0ab2b92802" => :x86_64_linux
+    sha256 "83362d1601aa95241a7b1294e779d0183291ebd9e7e50b4741f0dce0b6b59407" => :high_sierra
+    sha256 "4349a60c9814b1547e55a5f7f8100df5ddff56d09e7603f86030e0f694c78f63" => :sierra
+    sha256 "378faeaa0ee49dbac57742dfa9d57b63c5fc932e746330d51faf1ecf26d382e0" => :el_capitan
   end
 
   option "without-python", "Build without python2 support"
