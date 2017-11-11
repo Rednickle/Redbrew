@@ -8,6 +8,7 @@ class Libogg < Formula
     sha256 "1b3faf0793a08736aa1baca0a64aeba93f9d8692472eadfbcca264c9a7308538" => :high_sierra
     sha256 "fedf2c7b4aa2c5051851f47a2131a4f1802791ed3c948446442277ecbabcf32c" => :sierra
     sha256 "67653400da7efbb94fd400c8b90124977d80280dd04ef6771dbe2d8fd2d5aec4" => :el_capitan
+    sha256 "92b61f3d5e8a6a268e5e3b63f8425d751d7fab3f5f56de49b0863186268fc124" => :x86_64_linux
   end
 
   head do
