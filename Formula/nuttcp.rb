@@ -9,6 +9,7 @@ class Nuttcp < Formula
     sha256 "80b4a1b94e21a1b94d960fefddfbe235597ccc687f3f815a7aee989fb0d53a07" => :high_sierra
     sha256 "50f44fadb6a471f65fac82065681ed42b44cf1c6ea78680db9e0ade3725577a0" => :sierra
     sha256 "6b2eab6b736721543d321f9577ac8ee94c3cefd5026bb0d39084c4d721853249" => :el_capitan
+    sha256 "fe455d806ee9494ad1056c30364c095ac70e0599b849e46bd67a2972d228bac6" => :x86_64_linux
   end
 
   def install
