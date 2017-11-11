@@ -8,6 +8,7 @@ class Nickle < Formula
     sha256 "32d7348bd2d8201b3e72a875d2b8f9de280cdeb15b43d8c5cf635941f7807ee5" => :high_sierra
     sha256 "a4bf85c667af66a966bfba67f0bc3caea752ae13a808133c928509c80edca796" => :sierra
     sha256 "40df920677e85b1ded1911a88e70d46b35c1379fa06ef60e96bbff3b3990ae16" => :el_capitan
+    sha256 "c68fe18e06822e094a36b082fecb69e9d72d70f701f0d7a770c9418336955c18" => :x86_64_linux
   end
 
   depends_on "readline"
