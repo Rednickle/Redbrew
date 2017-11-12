@@ -1,18 +1,16 @@
 class Poco < Formula
   desc "C++ class libraries for building network and internet-based applications"
   homepage "https://pocoproject.org/"
-  url "https://pocoproject.org/releases/poco-1.7.9/poco-1.7.9p1-all.tar.gz"
-  sha256 "76f698d3e537879664f56a3dfde3a88e88f06c13b6474dd6a0ee6ad7f6ab4e4a"
+  url "https://pocoproject.org/releases/poco-1.8.0/poco-1.8.0-all.tar.gz"
+  sha256 "c0f2ca3fbbb701bfaa55796d7b6ef35127cb27d4333c2e75074c601276371fc0"
 
   head "https://github.com/pocoproject/poco.git", :branch => "develop"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "a660300244ce2567e1abeebf18db634f517692dbb2b2d4765074050fb522539a" => :high_sierra
-    sha256 "995f536da783631be5266076fd0caae50657d13f682e089102e56d747c6f09ca" => :sierra
-    sha256 "e8b196801ed82c2190847c5a7bcd9af79e1adbaabcd2841fc3645a7412df364e" => :el_capitan
-    sha256 "c9994bf53c4177827116131088f8d9be60171fc57e8fef1d6cd36dce43308488" => :x86_64_linux
+    sha256 "5cd62e42f9ad7474eec3e19f23e931d68d22f3223a40270c293489e4df1e273f" => :high_sierra
+    sha256 "7169cfe55d2a2f5c0a3bf84f0ea7563669e99c086295cf11ce8f8fa037de1c60" => :sierra
+    sha256 "e7d22874f68e594a3a3bba87e5b22376ef53e2da3c374ae1e50ed0b367d919f3" => :el_capitan
   end
 
   option "with-static", "Build static libraries (instead of shared)"
