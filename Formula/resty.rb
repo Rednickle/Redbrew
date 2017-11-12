@@ -10,6 +10,7 @@ class Resty < Formula
     sha256 "e65c38b826157c35f2e3acd50846be691b6b1a6231a23c62567c24a052d0dc7e" => :high_sierra
     sha256 "fb754eb95b4cb573eef1807f5dcddab59e021a4326022a9fb8126fb8e80ff247" => :sierra
     sha256 "435854dd9bc54f09e46f3f895fc0801ce90a30b23b8d9f109f361f89666fcfe1" => :el_capitan
+    sha256 "1c6a12ebf97852447f6f16628fdf0acd3f9d156404ab3ca9aa680c2275f40538" => :x86_64_linux
   end
 
   resource "JSON" do
