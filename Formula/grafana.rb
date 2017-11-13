@@ -1,15 +1,15 @@
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases"
   homepage "https://grafana.com"
-  url "https://github.com/grafana/grafana/archive/v4.5.2.tar.gz"
-  sha256 "bd0db92baa964b222b2da5bdb937aa1b3afff6ba5c6ef5d32f8c1a5909e326a2"
+  url "https://github.com/grafana/grafana/archive/v4.6.1.tar.gz"
+  sha256 "7c9f82e97fcf248776a08596ff00298402af8660f6e975c15a2b680abd692de2"
   head "https://github.com/grafana/grafana.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "53b862eba615d034e700cf497ac298b85231a2f178eeb54c3294be9732daedd2" => :high_sierra
-    sha256 "88e0db96b1539dfad9fcb368c887f6cc6678d7fb69dfb452ac2e66e5a7ddf1f1" => :sierra
-    sha256 "002a5be3d23082b8d25ed9d5168e013c73117b1ec8351ee3dbfdd622302a2c75" => :el_capitan
+    sha256 "1048d8017aa27d24c33f05d401037a42a60ded81494be916e35f89c28188b5da" => :high_sierra
+    sha256 "b2087b7e264de30cd0b9d37843defa038f9b1c1061cd9b267e88f71308038149" => :sierra
+    sha256 "8543fac047840058a351d4003d4dc21f7a1d4b75e4c266f87a0640f2a7c64645" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -45,8 +45,7 @@ class Grafana < Formula
       cp("conf/sample.ini", "conf/grafana.ini.example")
       etc.install "conf/sample.ini" => "grafana/grafana.ini"
       etc.install "conf/grafana.ini.example" => "grafana/grafana.ini.example"
-      pkgshare.install "conf", "vendor"
-      pkgshare.install "public_gen" => "public"
+      pkgshare.install "conf", "vendor", "public"
     end
   end
 
