@@ -3,14 +3,14 @@ class Heartbeat < Formula
   homepage "https://www.elastic.co/products/beats/heartbeat"
   url "https://github.com/elastic/beats/archive/v5.6.4.tar.gz"
   sha256 "c06f913af79bb54825483ba0ed4b31752db5784daf3717f53d83b6b12890c0a4"
+  revision 1
   head "https://github.com/elastic/beats.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "20986173981fa6f02304c7d26467e732f4e462459242baeec4bdc63f731c94c7" => :high_sierra
-    sha256 "1797b8e4893688a81cac01a1d1575856627b8b00d329a5eb4087299c7e251c8b" => :sierra
-    sha256 "b34edc1c359c9bbfea92b2abe888ef29dc0da06f0156afeca72c76c3f8ddb460" => :el_capitan
-    sha256 "17b326bfb26198010cfa4fe886a0edec295b5470bdbcfef3548f45f3dc254448" => :x86_64_linux
+    sha256 "52b31b3092830800ddb1ef7509b5ad695b5640ba408c79acc4964bf074a58437" => :high_sierra
+    sha256 "9a15bd756c3bcb20e1badcdb72692363a40299df5fc414466470d01cf8725169" => :sierra
+    sha256 "b120f90f7631822333b4b5daefe1761fe479485b37b14ecdee452ca835ed5fcd" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -21,7 +21,8 @@ class Heartbeat < Formula
 
     cd "src/github.com/elastic/beats/heartbeat" do
       system "make"
-      libexec.install "heartbeat"
+      (libexec/"bin").install "heartbeat"
+      libexec.install "_meta/kibana"
 
       (etc/"heartbeat").install Dir["heartbeat*.{json,yml}"]
       prefix.install_metafiles
@@ -29,9 +30,9 @@ class Heartbeat < Formula
 
     (bin/"heartbeat").write <<~EOS
       #!/bin/sh
-        exec #{libexec}/heartbeat \
+        exec #{libexec}/bin/heartbeat \
         -path.config #{etc}/heartbeat \
-        -path.home #{prefix} \
+        -path.home #{libexec} \
         -path.logs #{var}/log/heartbeat \
         -path.data #{var}/lib/heartbeat \
         "$@"
