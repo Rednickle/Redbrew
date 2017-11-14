@@ -10,6 +10,7 @@ class Opencoarrays < Formula
     sha256 "0b3c41477130ef24703e1a5bee9ea5f2cda98ef9a7f9bda4bfa8f6ef31ed5e09" => :high_sierra
     sha256 "2942b86101f1f15f1e8a558c78806eb128434faf25051f4afdc3dd4067a9ef4d" => :sierra
     sha256 "54a04a4d7859e2fe5b3a7d7be8b14b0ae6cae9b8ee284192dd20e2cf7380c178" => :el_capitan
+    sha256 "c61e6606ee79f37dea4a253ab5add575e4bec968ce8bc5f120f605cff408d9b1" => :x86_64_linux
   end
 
   option "without-test", "Skip build time tests (not recommended)"
