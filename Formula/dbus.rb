@@ -2,15 +2,14 @@ class Dbus < Formula
   # releases: even (1.10.x) = stable, odd (1.11.x) = development
   desc "Message bus system, providing inter-application communication"
   homepage "https://wiki.freedesktop.org/www/Software/dbus"
-  url "https://dbus.freedesktop.org/releases/dbus/dbus-1.12.0.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.12.0.orig.tar.gz"
-  sha256 "39af0d9267391434b549c5c4adc001b735518c96f7630c3fe7162af1d13ef3c0"
+  url "https://dbus.freedesktop.org/releases/dbus/dbus-1.12.2.tar.gz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.12.2.orig.tar.gz"
+  sha256 "272bb5091770b047c8188b926d5e6038fa4fe6745488b2add96b23e2d9a83d88"
 
   bottle do
-    sha256 "5a63cbb97d2a67a8cf436b9e8e2839244866e99c270d75bf4da81328c7e47c56" => :high_sierra
-    sha256 "c5d996e65bcea606002e529a29d9aef1beecf22f87dd2e80f608588097f8d51b" => :sierra
-    sha256 "ed30ee39295625f8cfdb5360400f64dbda511c4e7a08d7288e9a3897bcf83811" => :el_capitan
-    sha256 "cbfd5f75d732377947f2516e02121174819f5d0a88ba613c38f4992dbea946aa" => :x86_64_linux
+    sha256 "0e119f7daf329cb528d1df2c7d3729c5e3bd1ce182304a6f528a3089f1cedfa0" => :high_sierra
+    sha256 "36a437a12147e6e8f9ac21ad8a989823c8d3cb0d6e4825634fd0c5c95692853b" => :sierra
+    sha256 "edc027d1a14a0a282510c0bad27b0d37642d39a408a71176c7f429827f204b9d" => :el_capitan
   end
 
   head do
@@ -54,11 +53,6 @@ class Dbus < Formula
                           ("--with-launchd-agent-dir=#{prefix}" if OS.mac?),
                           "--without-x",
                           "--disable-tests"
-
-    # Fix "../build-aux/install-sh: invalid option: -m700"
-    # Reported 31 Oct 2017 https://bugs.freedesktop.org/show_bug.cgi?id=103521
-    inreplace "test/Makefile", "-m700 ", "-m 700 "
-
     system "make", "install"
   end
 
