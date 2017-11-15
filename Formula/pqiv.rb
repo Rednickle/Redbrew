@@ -1,17 +1,15 @@
 class Pqiv < Formula
   desc "Powerful image viewer with minimal UI"
   homepage "https://github.com/phillipberndt/pqiv"
-  url "https://github.com/phillipberndt/pqiv/archive/2.9.tar.gz"
-  sha256 "e57298ae7123bd6b01b751f6ef2d7a7853e731a3271b50095683442a406da99c"
-  revision 4
+  url "https://github.com/phillipberndt/pqiv/archive/2.10.tar.gz"
+  sha256 "d612cf1fc7d03596b24eadbe45ba4422ad5cf243d7157d122ca7dc309feaacb6"
   head "https://github.com/phillipberndt/pqiv.git"
 
   bottle do
     cellar :any
-    sha256 "02bb55f6a47cf3e4260cf5627474fd094e32e3c4f973fee83ef85c6b1e9507ea" => :high_sierra
-    sha256 "f7d7e7a6734500be3aa6da75eae659c7d76f3712f38b47be530ddaba1f8ffe64" => :sierra
-    sha256 "2e472275da8bb37ab3de82284590721ee6614f9e64df8acd70f007805b944492" => :el_capitan
-    sha256 "f7fb9c331a053488be8c8453e92a718bb1d5b41d87a9f86d3a6dbc5280658ec9" => :x86_64_linux
+    sha256 "34ce5fbe3862892bec535178bd21c1d7583d1aa24bfaeab563c17260d6dde688" => :high_sierra
+    sha256 "2ce461b056e8501f943d3aad2d2a16365e614a75d5064d1cecb8c55b874173fc" => :sierra
+    sha256 "98ba26ff046536172ae69703946409d5714345904c07728b69a374da39669ea6" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
