@@ -9,6 +9,7 @@ class Streamlink < Formula
     sha256 "df3c2fd970330311673a293f72f736b45f4aa45716e652c12844a19e5dbb8d97" => :high_sierra
     sha256 "e89c0e7d4496016f268ebb312d8b3db39557ccadafbfaeae751453074c389a93" => :sierra
     sha256 "e32ba44879d89cfeed23ac45abef84cf20651c4854814c7563f221a1f47f0989" => :el_capitan
+    sha256 "dafb0fb77165e9fda98edfce82601e9c506defd42fad7202f7d4bcb16c6f3c06" => :x86_64_linux
   end
 
   # Use :python on Yosemite and prior to avoid needing urllib3[secure]
