@@ -47,6 +47,7 @@ class Grafana < Formula
       etc.install "conf/sample.ini" => "grafana/grafana.ini"
       etc.install "conf/grafana.ini.example" => "grafana/grafana.ini.example"
       pkgshare.install "conf", "vendor", "public"
+      prefix.install_metafiles
     end
   end
 

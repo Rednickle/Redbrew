@@ -41,6 +41,7 @@ class Minio < Formula
     end
 
     bin.install buildpath/"minio"
+    prefix.install_metafiles
   end
 
   def post_install

@@ -42,6 +42,7 @@ class MinioMc < Formula
     end
 
     bin.install buildpath/"mc"
+    prefix.install_metafiles
   end
 
   test do
