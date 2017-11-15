@@ -14,6 +14,7 @@ class Purescript < Formula
     sha256 "b1e281b76d895e1791902765491a35ed2524cff90ecb99a72a190b1e0f387b77" => :high_sierra
     sha256 "01c8ec5708e23689a7e47a2cea0a3130cdcc4cce3b621c3b4c6b3653a1481617" => :sierra
     sha256 "ee0a11eb6bfd302a27653c074a0d237b5bdf570579394b94fe21ee0638a8e0ef" => :el_capitan
+    sha256 "9b6a1abf7f5528da216b8abc6863d7adf9ebdbbff97cc4a8d20a9ad586629a49" => :x86_64_linux
   end
 
   depends_on "cabal-install" => :build
