@@ -8,6 +8,7 @@ class Gnuplot < Formula
     sha256 "3b2620d5fbb8f935b5339b56baddf78667f72ef297f085e273a240b3fc5e801c" => :high_sierra
     sha256 "4d1bd48b17d6d386c17c63765dfccf6e6152b3673a1133cb79be755cbdc717fe" => :sierra
     sha256 "3b31fc045ad50cecb2ca2e8fba8d74a427a1139d3c7c3759acbccc5102b2a4dc" => :el_capitan
+    sha256 "17d6bed240a19e7b5ede758ee7221d282852ec7c90a64a82bfd5ced566fd7c8f" => :x86_64_linux
   end
 
   head do
