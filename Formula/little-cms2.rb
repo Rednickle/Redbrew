@@ -1,15 +1,17 @@
 class LittleCms2 < Formula
   desc "Color management engine supporting ICC profiles"
   homepage "http://www.littlecms.com/"
-  url "https://downloads.sourceforge.net/project/lcms/lcms/2.9/lcms2-2.9.tar.gz"
-  sha256 "00756bed09ce059a68289f10de56b00267667647393ddc30400cb87c0d9037d5"
+  # Ensure release is announced on http://www.littlecms.com/download.html
+  url "https://downloads.sourceforge.net/project/lcms/lcms/2.8/lcms2-2.8.tar.gz"
+  sha256 "66d02b229d2ea9474e62c2b6cd6720fde946155cd1d0d2bffdab829790a0fb22"
+  revision 2
+  version_scheme 1
 
   bottle do
     cellar :any
-    sha256 "92d1a9e56ddf0a885cae2434cba907c7c3023eacf12c5255810aab212faf4355" => :high_sierra
-    sha256 "8ed590232348abf555a007b9aa9cd9a612e23f78826cfa4d7883d5e86157a40b" => :sierra
-    sha256 "9c1e5c2040ffcfea2e52493ff6084655c210bbe2c09b35da0a64fa37d63fe708" => :el_capitan
-    sha256 "71e5e34e4c98e2ae022fd122ef9f1e20a2295903b8084a68888a1e9c44565438" => :x86_64_linux
+    sha256 "dd5a35dde6f45c11960ade379eafa77279dc03cc9e031c426294f987096c34ef" => :high_sierra
+    sha256 "07b2dc8194334d2f57298c9121de1a2a923f171aa13226f1bee21c64e99b8ba0" => :sierra
+    sha256 "0f9d803c751712b1d5ce5020d7a0a4cff758e72dbf0c1476ec9cb23cd29738bc" => :el_capitan
   end
 
   depends_on "jpeg" => :recommended
