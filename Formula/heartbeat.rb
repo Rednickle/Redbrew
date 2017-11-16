@@ -10,6 +10,7 @@ class Heartbeat < Formula
     sha256 "1b45593df06d6357e4903f35289a929996870b5d684185501d708ceff8ab3ed3" => :high_sierra
     sha256 "88e5206e04aac99fd3b04435f0cf5a17f9e49b73725c8b001f1dc5c9f56328b8" => :sierra
     sha256 "e58bfac4745b0fa66e4d660b8ced0da5707107ecb2d62f978e2baf024e5640c2" => :el_capitan
+    sha256 "d3495c95ce27d7644c80460a9a9585da20cb2bb8f2633e5d5b8457d4d3991e91" => :x86_64_linux
   end
 
   depends_on "go" => :build
