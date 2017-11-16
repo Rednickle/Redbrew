@@ -1,35 +1,30 @@
 require "language/node"
 
-class Kibana < Formula
+class KibanaAT56 < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      :tag => "v6.0.0",
-      :revision => "f8bc449f5a6b28d0597730b1cf03fefe7e33422e"
+      :tag => "v5.6.4",
+      :revision => "efd2403e605c9f695a87929083421ba09f3ac54e"
   head "https://github.com/elastic/kibana.git"
 
   bottle do
-    sha256 "d36792a23c71a68e2361ad9ed22ad04c08d15c298d207d470880b6da633a5304" => :high_sierra
-    sha256 "5296f320ffabc02cf521b243f09a811e80184cf4fbe76ae9181b89268b9825c0" => :sierra
-    sha256 "d0ab882df05d1ec930affb76c2b995f91f10a7badfaad260d65df4670aa95524" => :el_capitan
+    sha256 "69d2107515b2c050f69a7298314302a290a181d05ea97c009c45282e510f45d7" => :high_sierra
+    sha256 "a46e37480294eb0860f1ada1e32890f90916ecf0ea70176602efcfa04b907ec0" => :sierra
+    sha256 "a753db9cd0b979e49ef37ea25cd20c8695470d094c8c9a88a697e732ce9c20e2" => :el_capitan
   end
+
+  keg_only :versioned_formula
 
   resource "node" do
-    url "https://github.com/nodejs/node.git",
-        :tag => "v6.11.5",
-        :revision => "e4f3e73b8cb58291380afbdb333c85789f2a5ce9"
+    url "https://nodejs.org/dist/v6.11.1/node-v6.11.1.tar.xz"
+    sha256 "6f6655b85919aa54cb045a6d69a226849802fcc26491d0db4ce59873e41cc2b8"
   end
 
-  depends_on :python => :build unless OS.mac?
-
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
-
     resource("node").stage do
       system "./configure", "--prefix=#{libexec}/node"
-      # Test disabled for Linux as it fails with a timout on circle CI
-      system "make", "test" unless ENV["CIRCLECI"]
+      system "make", "test"
       system "make", "install"
     end
 

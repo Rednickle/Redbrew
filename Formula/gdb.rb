@@ -33,6 +33,14 @@ class Gdb < Formula
     depends_on "xz"
   end
 
+  fails_with :clang do
+    build 600
+    cause <<~EOS
+      clang: error: unable to execute command: Segmentation fault: 11
+      Test done on: Apple LLVM version 6.0 (clang-600.0.56) (based on LLVM 3.5svn)
+    EOS
+  end
+
   def install
     args = [
       "--prefix=#{prefix}",

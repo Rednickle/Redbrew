@@ -15,6 +15,7 @@ class GobjectIntrospection < Formula
   depends_on "glib"
   depends_on "cairo"
   depends_on "libffi"
+  depends_on :python if MacOS.version <= :mavericks
 
   unless OS.mac?
     depends_on "bison"

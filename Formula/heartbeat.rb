@@ -1,17 +1,15 @@
 class Heartbeat < Formula
   desc "Lightweight Shipper for Uptime Monitoring"
   homepage "https://www.elastic.co/products/beats/heartbeat"
-  url "https://github.com/elastic/beats/archive/v5.6.4.tar.gz"
-  sha256 "c06f913af79bb54825483ba0ed4b31752db5784daf3717f53d83b6b12890c0a4"
-  revision 1
+  url "https://github.com/elastic/beats/archive/v6.0.0.tar.gz"
+  sha256 "c4a8130934eb132f637e0a76ed4d764b92e7ed469abc97587a3625a61668744e"
   head "https://github.com/elastic/beats.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "52b31b3092830800ddb1ef7509b5ad695b5640ba408c79acc4964bf074a58437" => :high_sierra
-    sha256 "9a15bd756c3bcb20e1badcdb72692363a40299df5fc414466470d01cf8725169" => :sierra
-    sha256 "b120f90f7631822333b4b5daefe1761fe479485b37b14ecdee452ca835ed5fcd" => :el_capitan
-    sha256 "6c0ab53e06bf45db502abe9ef923c8432c50f1fc707684858f99a8d9c8d17607" => :x86_64_linux
+    sha256 "1b45593df06d6357e4903f35289a929996870b5d684185501d708ceff8ab3ed3" => :high_sierra
+    sha256 "88e5206e04aac99fd3b04435f0cf5a17f9e49b73725c8b001f1dc5c9f56328b8" => :sierra
+    sha256 "e58bfac4745b0fa66e4d660b8ced0da5707107ecb2d62f978e2baf024e5640c2" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -82,17 +80,18 @@ class Heartbeat < Formula
         path: "#{testpath}/heartbeat"
         filename: heartbeat
         codec.format:
-          string: '%{[up]}'
+          string: '%{[monitor]}'
     EOS
     pid = fork do
-      exec bin/"heartbeat", "-path.config", testpath/"config"
+      exec bin/"heartbeat", "-path.config", testpath/"config", "-path.data",
+                            testpath/"data"
     end
-    sleep 1
+    sleep 5
 
     begin
       assert_match "hello", pipe_output("nc -c -l #{port}", "goodbye\n", 0)
-      sleep 1
-      assert_equal "true", (testpath/"heartbeat/heartbeat").read.chomp
+      sleep 5
+      assert_match "\"status\":\"up\"", (testpath/"heartbeat/heartbeat").read
     ensure
       Process.kill "SIGINT", pid
       Process.wait pid
