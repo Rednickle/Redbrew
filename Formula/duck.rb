@@ -1,25 +1,15 @@
 class Duck < Formula
   desc "Command-line interface for Cyberduck (a multi-protocol file transfer tool)"
   homepage "https://duck.sh/"
+  # check the changelog for the latest stable version: https://cyberduck.io/changelog/
+  url "https://dist.duck.sh/duck-src-6.3.0.27105.tar.gz"
+  sha256 "a0353402df02685ab9053110ad4842600b733e694fd9c31a98780c1fd742c97c"
   head "https://svn.cyberduck.io/trunk/"
 
-  stable do
-    # check the changelog for the latest stable version: https://cyberduck.io/changelog/
-    url "https://dist.duck.sh/duck-src-6.2.10.26754.tar.gz"
-    sha256 "45b4281a788673f838825064a339f2d2f07356f05a76a011aaa2e3e54a267430"
-
-    # Remove for > 6.2.10
-    # Upstream commit from 27 Oct 2017 "Fix compile with Java 9."
-    patch do
-      url "https://github.com/iterate-ch/cyberduck/commit/612a973d11.patch?full_index=1"
-      sha256 "4689550c2b31643b89abf8286a9dedbf94860bba5e8a4fd66764d467b6be9157"
-    end
-  end
-
   bottle do
-    sha256 "707a2209244f1179dfa4943191de1fbc359fe4b65844018d13e22e9c719a3fbf" => :high_sierra
-    sha256 "bd4c6ebec0ef8a3ac48d9bfc75789708c74819318b83eb0beb8a2867aade75d3" => :sierra
-    sha256 "655c6fafa5fbd111203e5eeb31afbce60dec2b64de01434314a37db466e41075" => :el_capitan
+    sha256 "34001237200dcb58878ecce6ddc1f4dab67f1e1d0e33703b655dfc226c7d3ef7" => :high_sierra
+    sha256 "f173c0133306981da1ac7e172afc5111227f68720f64ffb1ca68da37906f21ba" => :sierra
+    sha256 "6ac9acf7221a27068efc0261f2ac8d31be59a2cd0737531fa4bb45526e33ce1d" => :el_capitan
   end
 
   depends_on :macos
