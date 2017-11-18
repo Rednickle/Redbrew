@@ -10,6 +10,7 @@ class GitReview < Formula
     sha256 "5187b16328f105d195c58b4a978f8232b98b47e9cb91557f15ce4ca439a50385" => :high_sierra
     sha256 "5187b16328f105d195c58b4a978f8232b98b47e9cb91557f15ce4ca439a50385" => :sierra
     sha256 "661bd93e96795bb2ef4a0260fc441fd6eb437bb109e9f4353a577db638617c58" => :el_capitan
+    sha256 "cdbb1fb8034daf2d52730b711b84306ab43a9c3d5b7a96c678fb08fb9a3e3220" => :x86_64_linux
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
