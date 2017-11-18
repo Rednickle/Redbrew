@@ -6,10 +6,10 @@ class Kompose < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0386945efe36c8d20ca0ac36af7f10ab70c42cbcae741981a711da46b6318b4d" => :high_sierra
-    sha256 "7a433e3aa759039c2f2340c5a2d627e295ddb27ee22ee3162c574a6be32d641a" => :sierra
-    sha256 "c784ee4a5f45721e76fca2f0abc7df00d8e4c488409a6fbc1da38983cfc67cb5" => :el_capitan
-    sha256 "54e07f3f1b171b8f4d04930b0ba1aee991b3cff4fe24755dd7c731371d5f5c19" => :x86_64_linux
+    rebuild 1
+    sha256 "1c08e503104f73b3a5df1cb1ca48c95b10fdf5121ebdbd3d89c0592467366b46" => :high_sierra
+    sha256 "7b143c9f8ce85343ba279c9b0f647085ab65866a6f80b30ed24188e1e5a6109a" => :sierra
+    sha256 "879f93a28c1ee5f655e0e01f15fbba816bf62f3742b6e2483e5e3427d5a6c0c4" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -20,6 +20,12 @@ class Kompose < Formula
     ln_s buildpath, buildpath/"src/github.com/kubernetes/kompose"
     system "make", "bin"
     bin.install "kompose"
+
+    output = Utils.popen_read("#{bin}/kompose completion bash")
+    (bash_completion/"kompose").write output
+
+    output = Utils.popen_read("#{bin}/kompose completion zsh")
+    (zsh_completion/"_kompose").write output
   end
 
   test do
