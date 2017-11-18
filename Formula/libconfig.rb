@@ -9,6 +9,7 @@ class Libconfig < Formula
     sha256 "393d13238b0259162bca7c1f61cc56f96370b3e84db24609bbcab6913bd6ac1e" => :high_sierra
     sha256 "bb0326e6418c46f2c387e6e161e859d19e26efeefb86101d6056c66047f14523" => :sierra
     sha256 "7f3cd7d160f43c050d05c462cb56ef8a31db13f06de7507b305a7cc14d244d65" => :el_capitan
+    sha256 "3d4978992e3e531e30289c61a14259750b23c0d3db1440eafd7803a9828aa0d1" => :x86_64_linux
   end
 
   depends_on "automake" => :build
