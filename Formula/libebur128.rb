@@ -9,6 +9,7 @@ class Libebur128 < Formula
     sha256 "08c235e9351b64387741f30f34f71483fd78743cd62e339b5a62266e72be2d15" => :high_sierra
     sha256 "b79fe900621465bf9af18a442b8691e14bf89e45b3e0088b2c84666db774efc7" => :sierra
     sha256 "da7197eb5d23c53de167ea9e892a5cbc1e8781ae9f3909ffd23d08c2dfb60158" => :el_capitan
+    sha256 "a60434b6ad7c63d37bca269cff51769437e00a6f99b8872068ea235b079ff1ee" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
