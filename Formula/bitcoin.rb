@@ -10,6 +10,7 @@ class Bitcoin < Formula
     sha256 "e0900bda0b5cca8dfefabda7e0cd41fedc4736e63a796e5ea0652936d8c22f38" => :high_sierra
     sha256 "7c8f5d953c3de4dc48f3928a29ab2fc405ab0d459d1b4038af6060f5382d835e" => :sierra
     sha256 "9b41218716c3b58491793303e5a877f5b83ed0051257d6970341e087536e428e" => :el_capitan
+    sha256 "70703465f56c1844747a2b0064cc25c6a4d864a87d9b6e053dda7433eae21cb9" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
