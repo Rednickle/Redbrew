@@ -9,6 +9,7 @@ class Paperkey < Formula
     sha256 "a541e2c254870a1e53049a478dd7067537a7d3e9ededad8123fd7d9f7c48f576" => :high_sierra
     sha256 "9c96b3110a0af3abb54d19f6fb73b60bbcf1868e5343ba69fde37d7abbd5714c" => :sierra
     sha256 "e98cb1a1b43ec005129d6346a7d6df00bcc50ce12366bb741581f448f9321d59" => :el_capitan
+    sha256 "9c7b34d6523641e551d1930ce4cf9a46a2389df8f5ca8f2dfc6079e5372ee748" => :x86_64_linux
   end
 
   resource "secret.gpg" do
