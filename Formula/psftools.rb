@@ -9,6 +9,7 @@ class Psftools < Formula
     sha256 "40c3b6b56dfa842d6a3058d5082bbe16dd3ef0360258279cca98f9da05ec9cd4" => :high_sierra
     sha256 "532260f14b0b77301c7bf6b89ae1cf7f5948f26dc9d27898bb5588cb9cd4f99e" => :sierra
     sha256 "ecfe3cabea7cb93be49b1189394253c09f8614877e76f8d7f59a7c1e05bc0128" => :el_capitan
+    sha256 "f4cc1d5b595a2aec79b8e36ad9b1fbbd9986b26b8d93a39017db5d4fdf129caa" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
