@@ -9,6 +9,7 @@ class TaskSpooler < Formula
     sha256 "8045397e275ade52621a1ab3a21e3eddf277fafd1beea60db2d10bc15d11b8f2" => :high_sierra
     sha256 "e0f7e33946d3f8c93782692b3bab5833cb2e882f1fb47a4473b69e39ce3e7378" => :sierra
     sha256 "9403d0c240bad09d576288d6b5ed94057dad03ceb30a4893a935c13f9e58af7f" => :el_capitan
+    sha256 "ecb5d5c109434f54192d7e02a3d51651571694159b83a21053214d6c827fa786" => :x86_64_linux
   end
 
   conflicts_with "moreutils",
