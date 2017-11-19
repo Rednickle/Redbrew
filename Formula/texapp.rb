@@ -9,6 +9,7 @@ class Texapp < Formula
     sha256 "6615c40b9f733227163ad90b0082c40e7a5885c8ffa36dcb6c5892c09367c279" => :high_sierra
     sha256 "6615c40b9f733227163ad90b0082c40e7a5885c8ffa36dcb6c5892c09367c279" => :sierra
     sha256 "6615c40b9f733227163ad90b0082c40e7a5885c8ffa36dcb6c5892c09367c279" => :el_capitan
+    sha256 "84560f05d9dff6dfec4878d4393c248e210ec29f3081edf35078bcb7018bfca7" => :x86_64_linux
   end
 
   depends_on "readline" => :optional
