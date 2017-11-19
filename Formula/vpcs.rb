@@ -9,6 +9,7 @@ class Vpcs < Formula
     sha256 "ac52b231d875679e7bd4da3a09c6b5bc833e5b93fe5a77749dc834b1d82d21d5" => :high_sierra
     sha256 "78c7e415e9bcbdf28cfdda5d37fce9cc7d735b01d61400b41239e0cdee17ada5" => :sierra
     sha256 "0f1a65e672fd1d2dbc866279835231ec3737e64c514f38a08bf409807e910222" => :el_capitan
+    sha256 "8fbfdc99c4e42b01c655d68cd2fc0a7a23ecd9b9d2df6a7e414e00498ba38c5c" => :x86_64_linux
   end
 
   def install
