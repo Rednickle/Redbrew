@@ -8,6 +8,7 @@ class Calcurse < Formula
     sha256 "0fbabcf326ec92cf28ec57ff76f77e1a6fa41217f7d11ef5090c18b7bfc5b8aa" => :high_sierra
     sha256 "0a4237919a02a48d0c661ae43a4da579c69bf826921af07d14d9ade6f835374a" => :sierra
     sha256 "4cca241225bacb88ffd8c9f97e8c7b4027068551523f07874975362995eacf54" => :el_capitan
+    sha256 "92808d3d108e29428e93e6e6c889602ef89e96a5f204c2eb2f2209f64519ee94" => :x86_64_linux
   end
 
   depends_on "gettext"
