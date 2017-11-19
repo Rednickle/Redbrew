@@ -9,6 +9,7 @@ class Rdfind < Formula
     sha256 "f9cf95ddb7039e4e1a9afcf84e92cb3abdcdcd8e95d9db1862a363b4399f5ea2" => :high_sierra
     sha256 "6e47f48f21af1db473c225fa8bb48682b865fd150fcc4794b0cc5e463cbbd73a" => :sierra
     sha256 "bd9e2a6f1c907f7032df5929b2d5b8ac8394cd3f54c6f0b0d72b753c212b519d" => :el_capitan
+    sha256 "2ee858ab1e363b05738aac20f2a81bc993eea3ea5ba8d1419250b5bb84b2adc6" => :x86_64_linux
   end
 
   depends_on "nettle"
