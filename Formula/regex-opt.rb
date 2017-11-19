@@ -9,6 +9,7 @@ class RegexOpt < Formula
     sha256 "a7f1e5b8eb46eb11388c8eed77f24d547c1448b228cf7ca35f2e5cb0145bab88" => :high_sierra
     sha256 "110befc20e434b5d6294d9f3ad2592cae2bfaedec4e8fa1c3cff7265e83acc27" => :sierra
     sha256 "7c3d9a1af7a3797bd556cc66402c558cfaaffce4d956094fcdd4fcd1b3a4bc3c" => :el_capitan
+    sha256 "8950ed7e0ea57e8aee495d1cc46043cd8448c831239ed46494744c0c0cd61f79" => :x86_64_linux
   end
 
   def install
