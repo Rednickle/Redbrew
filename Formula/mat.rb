@@ -9,6 +9,7 @@ class Mat < Formula
     sha256 "2ff667933d3ed9542e39d129f4b81d47918ecd768430a80616306922aba56d4e" => :high_sierra
     sha256 "6cc51d125ec0093a4c4bca86c371461bb7bbf454a95267521b8e5dd64a12f12e" => :sierra
     sha256 "c9a7a83fc8822a6bb0bcedb4222e09ef8a19cbe21c39ef8b95be4faa3b230ed6" => :el_capitan
+    sha256 "c487f51fca2a761d00ed04a2232c6778221c1df8010cdde92b34aff3fd334d94" => :x86_64_linux
   end
 
   depends_on :python => :optional
