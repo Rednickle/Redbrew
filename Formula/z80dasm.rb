@@ -9,6 +9,7 @@ class Z80dasm < Formula
     sha256 "aa3f2ab337305b4dcbb37e868fcc537e04cac5fd4a2af7c8548347965f26a226" => :high_sierra
     sha256 "527e7f1cd02531e634745086a7b74eafa57fa8e1f676c3ad60d552f0d6d9ef20" => :sierra
     sha256 "35be0cbdb1c9abc7277c740d7da130bb8b8f7bc50f744ae8a8ea3965a228b9ed" => :el_capitan
+    sha256 "ba13e1e8635045945d2529b4f66efec4913bae4f63b6fdcf8795a1a03c840a4f" => :x86_64_linux
   end
 
   def install
