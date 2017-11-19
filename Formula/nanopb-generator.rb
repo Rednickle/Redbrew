@@ -9,6 +9,7 @@ class NanopbGenerator < Formula
     sha256 "030d054005b5167d327d8cd95df7e04a8bfdc66dd2354890babafa11c197a18e" => :high_sierra
     sha256 "030d054005b5167d327d8cd95df7e04a8bfdc66dd2354890babafa11c197a18e" => :sierra
     sha256 "a5f6e9fab63d0ecf3f7f52f1191ff16b7e01d2de063b9163462e4d5a49082b00" => :el_capitan
+    sha256 "b8c235e9125f2d9a64f71f4449d2d0fa94282c6dea62f1bcea9e6247cf1a43e5" => :x86_64_linux
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
