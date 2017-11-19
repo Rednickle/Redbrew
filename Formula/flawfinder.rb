@@ -11,6 +11,7 @@ class Flawfinder < Formula
     sha256 "3ce1dbcf1966511728bb4bffd74c00391835f2b2e10f51984546ebdde6f32879" => :high_sierra
     sha256 "3ce1dbcf1966511728bb4bffd74c00391835f2b2e10f51984546ebdde6f32879" => :sierra
     sha256 "3ce1dbcf1966511728bb4bffd74c00391835f2b2e10f51984546ebdde6f32879" => :el_capitan
+    sha256 "082f921fca87c4bf52049de8cf4395c0a1417d0773d36c0ea63f9e8019c3de12" => :x86_64_linux
   end
 
   resource "flaws" do
