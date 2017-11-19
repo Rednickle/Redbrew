@@ -10,6 +10,7 @@ class When < Formula
     sha256 "5f1858e4c42591c1c30c54f4bf1fecd1961b1fc2a6990f45289720ebc1ad4892" => :high_sierra
     sha256 "5f1858e4c42591c1c30c54f4bf1fecd1961b1fc2a6990f45289720ebc1ad4892" => :sierra
     sha256 "5f1858e4c42591c1c30c54f4bf1fecd1961b1fc2a6990f45289720ebc1ad4892" => :el_capitan
+    sha256 "7fd2aacf489e58ae53ee3dede756bd4cbee957037390d4f20850c9484fa69762" => :x86_64_linux
   end
 
   def install
