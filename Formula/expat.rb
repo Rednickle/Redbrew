@@ -13,7 +13,7 @@ class Expat < Formula
     sha256 "a8a7a769116d83656c94d42112247f40fad130f78d32a28614649867e28b970a" => :x86_64_linux
   end
 
-  keg_only :provided_by_osx, "macOS includes Expat 1.5"
+  keg_only :provided_by_macos
 
   # On Ubuntu 14, fix the error: You do not have support for any sources of high quality entropy
   depends_on "libbsd" unless OS.mac?
