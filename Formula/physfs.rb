@@ -10,6 +10,7 @@ class Physfs < Formula
     sha256 "03128f703af35b557fe9e6792dc93dec7b520e7d38a86b782cfdc5e00f850a71" => :high_sierra
     sha256 "9549999aa9862efb9f59fd0448eef8bdfb458cef44367bad6a4fe436584e1977" => :sierra
     sha256 "a8b9f8b640dc1aca30c1505fd738474f71f6122d86216bdaa33e4e3135d97367" => :el_capitan
+    sha256 "0b3a8caa76802e630dd45e64622e66678c0c36aa4c6a7b2ca69e4b0a1a624b3b" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
