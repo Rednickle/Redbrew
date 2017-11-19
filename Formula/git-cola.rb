@@ -10,6 +10,7 @@ class GitCola < Formula
     sha256 "2aaadd48e3fc112c3e20a366ab798de2d76c965a2f5e2acc5922444a1efec1b8" => :high_sierra
     sha256 "2aaadd48e3fc112c3e20a366ab798de2d76c965a2f5e2acc5922444a1efec1b8" => :sierra
     sha256 "2aaadd48e3fc112c3e20a366ab798de2d76c965a2f5e2acc5922444a1efec1b8" => :el_capitan
+    sha256 "803a5b011b0797d6d17aa72b3943c568b6ba775e566f792e7074aa596e1c8ba0" => :x86_64_linux
   end
 
   option "with-docs", "Build manpages and HTML docs"
