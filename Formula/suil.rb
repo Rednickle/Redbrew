@@ -8,6 +8,7 @@ class Suil < Formula
     sha256 "3afa0d6be51f6edd803fa1d295a5b1816e2ea36a53c0921174360231b41dfe95" => :high_sierra
     sha256 "a31a360a2eb861408d9b7df5abee8f1368b83899bacb0ac065e37dd9290b8220" => :sierra
     sha256 "ebd26a4d8d4d7ff3531ea93c3da499b333dd42b8ffa0b3ad70d79976a5c5fbe9" => :el_capitan
+    sha256 "71abd25e23d3d206d94bddfbe9629bec20cffb721bc0880f35c6b3a7cc7c1690" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
