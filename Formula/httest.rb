@@ -9,6 +9,7 @@ class Httest < Formula
     sha256 "f10e8bb19fd3e2336f38be2dd6572dee152c0e89a0a46f2c46d3082c9eb82588" => :high_sierra
     sha256 "e831dbdbebadc52f9cb76759ccf28564d74748a08a6074056b5b33b299e16e67" => :sierra
     sha256 "230797d386a267bbe2cc60de874f9da4cb58abcebd6d420d768a2d7e9a0a7e51" => :el_capitan
+    sha256 "076e30f833afb339600167d01ad4b5d5b22f57d1c4dcf37cc92a6cfbc1dfb5d8" => :x86_64_linux
   end
 
   depends_on "apr"
