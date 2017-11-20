@@ -1,15 +1,14 @@
 class Mikutter < Formula
   desc "Extensible Twitter client"
   homepage "https://mikutter.hachune.net/"
-  url "https://mikutter.hachune.net/bin/mikutter.3.5.14.tar.gz"
-  sha256 "14d2699e975900d134cadb1d7026f121dfa6fac0444c4d6c74cad4d19545dd67"
+  url "https://mikutter.hachune.net/bin/mikutter.3.5.15.tar.gz"
+  sha256 "1e970525b692be1a109d25e529969f64540eff31ace5149c4d2056f1c34e4150"
   head "git://toshia.dip.jp/mikutter.git", :branch => "develop"
 
   bottle do
-    sha256 "1a0a06b6526a0fa3fb8e5d56c1ad63e687d3276bc3df6196a4a2eb83e2e6656c" => :high_sierra
-    sha256 "7e555a4546b87dcc93db72ac90fde313e5a1890ba86e5225e3e5cd4b30d41517" => :sierra
-    sha256 "a98851954ca9b1ed96db40b1a8a535c759165b889313a767edb33511de9d8306" => :el_capitan
-    sha256 "5e20ef6ad1ae5ea064bfc380a6dc870356d8cfdfb52021d06b87339c65c4dc1c" => :x86_64_linux
+    sha256 "42759a2388cd184cd25ec5daf2ea844a14ea6468c2b8e82a3e1baec01ad98782" => :high_sierra
+    sha256 "d2af5f4d8829e82e3d98a48d3e0d8d602fc9e619a7090d3bdccfcd7a6cfb269d" => :sierra
+    sha256 "56cbed56ee0a06a0eb9f0e3062ac2752d16d98feff2dc6664f84e68973a10c82" => :el_capitan
   end
 
   depends_on "gtk+"
