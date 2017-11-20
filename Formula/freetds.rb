@@ -1,15 +1,14 @@
 class Freetds < Formula
   desc "Libraries to talk to Microsoft SQL Server and Sybase databases"
   homepage "http://www.freetds.org/"
-  url "ftp://ftp.freetds.org/pub/freetds/stable/freetds-1.00.70.tar.gz"
-  mirror "https://fossies.org/linux/privat/freetds-1.00.70.tar.gz"
-  sha256 "197fbd902970c95d74e9d69da94db7d346ef0b7836c5eaf520f9917a8ab64658"
+  url "http://www.freetds.org/files/stable/freetds-1.00.77.tar.bz2"
+  mirror "https://fossies.org/linux/privat/freetds-1.00.77.tar.bz2"
+  sha256 "f82051c4e52ec5f8a60c07379a39484af26845255eab6e7da69838ddfd424a40"
 
   bottle do
-    sha256 "cb74512024248731f73803d76bd32b73d87c159375e77e2296d4abbdf84e4309" => :high_sierra
-    sha256 "29e8d4f88be36c1d99e5b849196cca6d47ee65d14d1bff6c8c475b3fc56f07f9" => :sierra
-    sha256 "e7a89f162912686750fc41ef3cae6e5339f39ea95570f2dde8f150980f00e252" => :el_capitan
-    sha256 "72f68cf38238b44507e4d631ad5f3165b0184591ed707ef154ef7987916f001c" => :x86_64_linux
+    sha256 "110e30d04075525b70c1989a374ca9fa588b2292f53c1b92f7d1a499b1abceb6" => :high_sierra
+    sha256 "8aa498d10610cda5244e003c083316981cc6676f497e56ef74510c98fdc8b963" => :sierra
+    sha256 "46c8b5b9e2d399dcec4e418345ce550b3d67df1c1f66751f430f083883e32c0b" => :el_capitan
   end
 
   head do
