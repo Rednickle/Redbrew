@@ -3,13 +3,13 @@ class Mikutter < Formula
   homepage "https://mikutter.hachune.net/"
   url "https://mikutter.hachune.net/bin/mikutter.3.5.15.tar.gz"
   sha256 "1e970525b692be1a109d25e529969f64540eff31ace5149c4d2056f1c34e4150"
+  revision 1
   head "git://toshia.dip.jp/mikutter.git", :branch => "develop"
 
   bottle do
-    sha256 "42759a2388cd184cd25ec5daf2ea844a14ea6468c2b8e82a3e1baec01ad98782" => :high_sierra
-    sha256 "d2af5f4d8829e82e3d98a48d3e0d8d602fc9e619a7090d3bdccfcd7a6cfb269d" => :sierra
-    sha256 "56cbed56ee0a06a0eb9f0e3062ac2752d16d98feff2dc6664f84e68973a10c82" => :el_capitan
-    sha256 "a8145b51b602964731537845e33d6f2080bc521dc628be83d713400debb2c17b" => :x86_64_linux
+    sha256 "e92b36405da63a293c7e0a5403f5a4ac169244c671b3754231b80be4790ae950" => :high_sierra
+    sha256 "5ebd403b2b44bf1f20987b5818c12521402bb5d7f5c11f3ea5d649f297bff02d" => :sierra
+    sha256 "585042a808c140a313dccd73d2b58245f925496104d7a61d576b8b4170c8eecb" => :el_capitan
   end
 
   depends_on "gtk+"
@@ -250,29 +250,40 @@ class Mikutter < Formula
 
     (bin/"mikutter").write(exec_script)
     pkgshare.install_symlink libexec/"core/skin"
-    libexec.install_symlink lib/"mikutter/plugin"
+
+    # enable other formulae to install plugins
+    libexec.install_symlink HOMEBREW_PREFIX/"lib/mikutter/plugin"
   end
 
   def exec_script
     <<~EOS
       #!/bin/bash
-      export GEM_HOME="#{opt_lib}/mikutter/vendor"
+
       export DISABLE_BUNDLER_SETUP=1
-      export GTK_PATH="#{Formula["gtk+"].opt_lib}/gtk-2.0"
+
+      # also include gems/gtk modules from other formulae
+      export GEM_HOME="#{HOMEBREW_PREFIX}/lib/mikutter/vendor"
+      export GTK_PATH="#{HOMEBREW_PREFIX}/lib/gtk-2.0"
+
       exec ruby "#{libexec}/mikutter.rb" "$@"
     EOS
   end
 
   test do
-    (testpath/"test_plugin").write <<~EOS
+    (testpath/".mikutter/plugin/test_plugin/test_plugin.rb").write <<~EOS
       # -*- coding: utf-8 -*-
-      Plugin.create(:brew) do
-        Delayer.new { Thread.exit }
+      Plugin.create(:test_plugin) do
+        require 'logger'
+
+        Delayer.new do
+          log = Logger.new(STDOUT)
+          log.info("loaded test_plugin")
+          exit
+        end
       end
     EOS
-    system bin/"mikutter", "generate", "test_plugin"
-    assert File.file?(testpath/".mikutter/plugin/test_plugin/test_plugin.rb")
     system bin/"mikutter", "plugin_depends",
            testpath/".mikutter/plugin/test_plugin/test_plugin.rb"
+    system bin/"mikutter", "--plugin=test_plugin", "--debug"
   end
 end
