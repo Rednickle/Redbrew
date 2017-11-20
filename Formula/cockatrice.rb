@@ -12,6 +12,7 @@ class Cockatrice < Formula
     sha256 "b758e61b7b75441e4e32b4eb09d95c5756d95f2e1960e9fa5fc7caf2fe7874b5" => :high_sierra
     sha256 "a677a4a67620fe47c14f25a0349ea76b086870ada0cab93aecaf78aff1dea919" => :sierra
     sha256 "bc12c371557059da0a1c277ed49208f495deb817275ca4b82a38e7713a90c99e" => :el_capitan
+    sha256 "a2cdd5af63512f981696e6dae273ffdad8b7ea78dc646e4bb16a61a1904d118d" => :x86_64_linux
   end
 
   depends_on :macos => :mavericks
