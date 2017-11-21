@@ -10,6 +10,7 @@ class DockerLs < Formula
     sha256 "946e27ec3c35ec19d98c1a8efdf59a809db23926f97d3cd98b195d15c28491cd" => :high_sierra
     sha256 "1815a65eab86116dfc1de21331352348d59f391cdbc2ed1454a1847f62b21845" => :sierra
     sha256 "d011c19d2e36dd798ffa5723448cfeb1d95c25b7e78ad4b64207f4c79c5be383" => :el_capitan
+    sha256 "3fd62c952adeafdfde327184a6a2dc19b129b3c7b358be64a554ea99b95020c9" => :x86_64_linux
   end
 
   depends_on "go" => :build
