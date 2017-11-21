@@ -9,6 +9,7 @@ class Orc < Formula
     sha256 "bc08fab45dc2650b71950bff090bb09e64595778f3810bca442775b7973a43dd" => :high_sierra
     sha256 "6eafe23ac5c17b765ca6f59eb65c52d782d2858bbca7a4f374b77258dedb828f" => :sierra
     sha256 "c640dd001774b981101cbc223c51e31aafb35a6b8bc2e2fc3fc2c15dbfe3fbae" => :el_capitan
+    sha256 "a0e7b14ada2475bf53b8ed1fa9dbe1ed42da2b8f44ef6a387f111250bb4ae8ae" => :x86_64_linux
   end
 
   def install
