@@ -3,14 +3,13 @@ require "language/node"
 class AngularCli < Formula
   desc "CLI tool for Angular"
   homepage "https://cli.angular.io/"
-  url "https://registry.npmjs.org/@angular/cli/-/cli-1.5.2.tgz"
-  sha256 "f7ff4b89a9b16047f13507aaac37abbf31e7491738e0598b5ff3318c5e683842"
+  url "https://registry.npmjs.org/@angular/cli/-/cli-1.5.3.tgz"
+  sha256 "165a66dd904d0842bf91e8576b77d7ee64e07c7e7fc2820df027adc433a2a689"
 
   bottle do
-    sha256 "ddaa1c02ce1abe7ef8c8c1a11296dff3505498dab5fb0c5cd19d642840ce0ae0" => :high_sierra
-    sha256 "26a71837f246b7f7dd3461738b39ed184381cee9d9498b664d1b6322c613879a" => :sierra
-    sha256 "e4ad2671fce0abccaafe2f1a73450386ae6c3e691086cc05f4663a8c4638334f" => :el_capitan
-    sha256 "9eff632af0a9c496372ccdb74853b9cf3cc744fde83b8440e030a177eb0d4585" => :x86_64_linux
+    sha256 "76570bdb22c91474582937140cec6975d7662f4e0b47fac0defdd63e0ff0de23" => :high_sierra
+    sha256 "034df40172ef5402a89521e3e3a6638e6f7ee023694a8e4f7920cdd7c91b2f65" => :sierra
+    sha256 "ba3d96622dd9d8d109b7069c679360ffb23adc4a0f345d885b1eeb51daac2c2e" => :el_capitan
   end
 
   depends_on "node"
