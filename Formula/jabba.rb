@@ -10,6 +10,7 @@ class Jabba < Formula
     sha256 "1c23d02756f7701a08fa4805bd6e6ae267fb51e3587b7e2748d267b76cfb7e06" => :high_sierra
     sha256 "1194d7753a570997667238c59ef05ca0c5f8c34029986b5cf7289fe48c656f15" => :sierra
     sha256 "177f97bc1d5da9cc38c187d75e213a292f7b526de424e095efcc8446225fdf14" => :el_capitan
+    sha256 "c246f502633d627abe69f7eefd3eec440ed2260eaa99d7961c8498b9ae040c5c" => :x86_64_linux
   end
 
   depends_on "go" => :build
