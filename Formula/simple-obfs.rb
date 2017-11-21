@@ -4,12 +4,13 @@ class SimpleObfs < Formula
   url "https://github.com/shadowsocks/simple-obfs.git",
       :tag => "v0.0.5",
       :revision => "a9c43588e4cb038e6ac02f050e4cab81f8228dff"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "58e68065d6330d4caa4bb5ed41e1c710eff2de931394a58246e495a0594cb59a" => :high_sierra
-    sha256 "91b12c599757a609bcdac412ba4f1e86a8a1e7aaac78adb9dbc92a11d5ce14d9" => :sierra
-    sha256 "5e8700c86709dcf6d045a7d0b842097a3ca06a0cc4a28d9750aa47f3161e528e" => :el_capitan
+    sha256 "08024887dc9fba3f56425181dd34dba1ecf185dad688b85d20a7b70ec07afbae" => :high_sierra
+    sha256 "831de4a180d61c801397ead63a0130d8d2eb102afb526ef81bcecb2f9d1d029b" => :sierra
+    sha256 "eccfcd8d4016297999d730fd185624b42e903f7dfac43bd6227c337c2b3aafea" => :el_capitan
   end
 
   depends_on "asciidoc" => :build
@@ -17,7 +18,6 @@ class SimpleObfs < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "xmlto" => :build
-  depends_on "c-ares"
   depends_on "libev"
 
   def install

@@ -1,16 +1,15 @@
 class YleDl < Formula
   desc "Download Yle videos from the command-line"
   homepage "https://aajanki.github.io/yle-dl/index-en.html"
-  url "https://github.com/aajanki/yle-dl/archive/2.27.tar.gz"
-  sha256 "e93b00164ff9df748580e53a1e7fb556885df8cd8602912669a776d7008ac3f2"
+  url "https://github.com/aajanki/yle-dl/archive/2.28.tar.gz"
+  sha256 "0dd37a5dc1a6b0f8dc5ef98ef3aaeadf66888950ced37edbfb37bf1c66014df3"
   head "https://github.com/aajanki/yle-dl.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3babe54f684e27d338c1f7fbc9be5fb448258d788a43c8c4cabe0f1be7e837d8" => :high_sierra
-    sha256 "eee686f8e5aca91a19f0e7111e0f565c3f94292ef296c304e6c43d9fd5f57e92" => :sierra
-    sha256 "328a2a7ebbb490852b385db64e1a259203c2b250b6fcb8417cce0254102cb02e" => :el_capitan
-    sha256 "cdb64a7e8e3d3ab072d6b81daa544b6caae00aa390adafda8e36930386c06b65" => :x86_64_linux
+    sha256 "b8a6bc9fac308ef94cd0a2e66f623b878685b48a2caca260223f1e4a641149d5" => :high_sierra
+    sha256 "b7980ca02700d40451030ad9f704da35ca6e780c3cd474fd5acc944dd4245a72" => :sierra
+    sha256 "1ff77e42706106ad5bbf845d8235f2c9ecdcdf10941b3f1add1622d5206194da" => :el_capitan
   end
 
   depends_on "rtmpdump"
@@ -76,6 +75,9 @@ class YleDl < Formula
   end
 
   def install
+    # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
+
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
     (resources - [resource("AdobeHDS.php")]).each do |r|
       r.stage do
