@@ -5,13 +5,13 @@ class ConjureUp < Formula
   homepage "https://conjure-up.io/"
   url "https://github.com/conjure-up/conjure-up/archive/2.4.1.tar.gz"
   sha256 "f3f897522691d9ab2016db675b5e1a5cf209f071b1e1784d1e35619ea12a4965"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "eecfaf3e95f3183f06c49e70f3a277db3f460ebef79c5724ed78a154628287b1" => :high_sierra
-    sha256 "8c5434a86e540ce687e60e56447df4bd9ebc4d4c6d33aa55c0cc1418c308a54d" => :sierra
-    sha256 "d9bd553c293d1476d28afef8328312a627734aa80f2a2fcec288c784ff47432c" => :el_capitan
-    sha256 "0aeff2afa65cdd1cae2f8dc71c91115eba14465167bfb5e81709a9e0f1fb1fd5" => :x86_64_linux
+    sha256 "8131ca55b4f2d5ac097f978e450e8f09866ab8aa0f215ad3c3c388274f62b06a" => :high_sierra
+    sha256 "fd2885a2417c7df76a9b4805cf81909ee1d7e1237d9c8401bf082826a398e70a" => :sierra
+    sha256 "9cbb6b8566161814ca60cdbd6a04e0d19e6e7cbe704413ef4920a6c2d0bdd83f" => :el_capitan
   end
 
   depends_on :python3
@@ -21,6 +21,7 @@ class ConjureUp < Formula
   depends_on "wget"
   depends_on "redis"
   depends_on "awscli"
+  depends_on "pwgen"
 
   # list generated from the 'requirements.txt' file in the repository root
   resource "aiofiles" do
@@ -205,6 +206,8 @@ class ConjureUp < Formula
 
   def install
     virtualenv_install_with_resources
+    bin.install_symlink "#{libexec}/bin/kv-cli"
+    bin.install_symlink "#{libexec}/bin/juju-wait"
   end
 
   test do

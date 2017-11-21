@@ -9,11 +9,10 @@ class Ansible < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "d28a5ced078eff66134e029283756e1d73a58c828d51088471f832cd4390b0a8" => :high_sierra
-    sha256 "c9529b220dda41ede966599959b4ea176f328824fb8f602928366fb9ac035ceb" => :sierra
-    sha256 "31b000feeeadf303fe0b2cabfdb540522aff1ded36bdff06900fbb8641fc650a" => :el_capitan
-    sha256 "61e0899f243eb1b4b21e47694965ff164c76a202b0d342e041f3544d317dff67" => :x86_64_linux
+    rebuild 2
+    sha256 "a5a75307df81c8661b282a5f3f96e16329ce2198a6722269f9ba567c61a13a91" => :high_sierra
+    sha256 "bce8d584a3c95a16382aba3a8fefa3cd511f92e390a93f24f52e512583e02cd7" => :sierra
+    sha256 "3e5b369b62c8eeb9995e762663821942873d4aead64754c44840ee31e14b2b12" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -44,6 +43,7 @@ class Ansible < Formula
   #   jxmlease (Juniper device support)
   #   dnspython (DNS Lookup - dig)
   #   pysphere (VMware vSphere support)
+  #   python-consul (Consul support)
 
   ### setup_requires dependencies
   resource "pbr" do
@@ -377,6 +377,11 @@ class Ansible < Formula
     sha256 "3d948f64138c25633613f303bcc471126eae67c04d5e3f6b7b8ce6242f8653e0"
   end
 
+  resource "ply" do
+    url "https://files.pythonhosted.org/packages/ce/3d/1f9ca69192025046f02a02ffc61bfbac2731aab06325a218370fd93e18df/ply-3.10.tar.gz"
+    sha256 "96e94af7dd7031d8d6dd6e2a8e0de593b511c211a86e28a9c9621c275ac8bacb"
+  end
+
   resource "positional" do
     url "https://files.pythonhosted.org/packages/24/7e/3b1450db76eb48a54ea661a43ae00950275e11840042c5217bd3b47b478e/positional-1.2.1.tar.gz"
     sha256 "cf48ea169f6c39486d5efa0ce7126a97bed979a52af6261cf255a41f9a74453a"
@@ -395,6 +400,11 @@ class Ansible < Formula
   resource "pycrypto" do
     url "https://files.pythonhosted.org/packages/60/db/645aa9af249f059cc3a368b118de33889219e0362141e75d4eaf6f80f163/pycrypto-2.6.1.tar.gz"
     sha256 "f2ce1e989b272cfcb677616763e0a2e7ec659effa67a88aa92b3a65528f60a3c"
+  end
+
+  resource "pyhcl" do
+    url "https://files.pythonhosted.org/packages/8a/fb/2ef771488865f15da6f0e8997e01cf019efffc6a8d1848181df27f10adca/pyhcl-0.3.9.tar.gz"
+    sha256 "0bda1b46ae06f6d48e70509ecd2a4b65db0ae835726f8e30b2ca7e8684581223"
   end
 
   resource "pyparsing" do
@@ -420,6 +430,11 @@ class Ansible < Formula
   resource "python-cinderclient" do
     url "https://files.pythonhosted.org/packages/d9/04/a62863d814966a2d265a6731a34f64d70182b032ef99d2eac9fde27cb91f/python-cinderclient-3.2.0.tar.gz"
     sha256 "57bd7225a01b5575135e3c602dfda047f0459edb7ce233b9ac2d7565719a8b5c"
+  end
+
+  resource "python-consul" do
+    url "https://files.pythonhosted.org/packages/7a/8f/9f8eaab8826a59e1beb0808ed77bbb4b8153679ef24c0ef27011f87e4d8b/python-consul-0.7.2.tar.gz"
+    sha256 "ef0b7c8a2d8efba5f9602f45aadbe5035e22a511d245624ed732af81223a6571"
   end
 
   resource "python-dateutil" do
