@@ -1,21 +1,19 @@
 class Ibex < Formula
   desc "C++ library for constraint processing over real numbers"
   homepage "http://www.ibex-lib.org/"
-  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.6.2.tar.gz"
-  sha256 "2d2a5e746825c21cc6284df9c24f1cbb7f9903a745b3f5f87515140c43311c61"
+  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.6.3.tar.gz"
+  sha256 "55f6d1dddadd8818cef0d1251a5637cb21ccf353f22392360375f2deed213864"
   head "https://github.com/ibex-team/ibex-lib.git"
 
   bottle do
     cellar :any
-    sha256 "2ea5ed4839a0ff0afca3aa40186ffddf1aa93ef6f1320d79bd18a84686f369c1" => :high_sierra
-    sha256 "c95514baf8f01276312f4efd94ee7991ddcbaa85ad490994f56bc3087b7a347e" => :sierra
-    sha256 "75c15a91ac8f8cbcc9425bf2b23ffdf283bb121dc3c685ed8aa8ddd50a2d8121" => :el_capitan
-    sha256 "bb1f9d2e9f13eedd831db0a82cb6ae3aa429592a7b1a4a3911a67ff5a29a9748" => :x86_64_linux
+    sha256 "b64d56dc20a566e3276edca37326f005070dee046bb20be81302e4ecf2748d66" => :high_sierra
+    sha256 "c4777f842a2536da1d5fcd0962a4dc4cada8cb135c1892778c8f3415308b2e7d" => :sierra
+    sha256 "098308ad900c41c1fb8b8136a8cae0f9d85b3e78b36008ca2ae949cc40ca01e7" => :el_capitan
   end
 
   option "with-java", "Enable Java bindings for CHOCO solver."
   option "with-ampl", "Use AMPL file loader plugin"
-  option "without-ensta-robotics", "Don't build the Contractors for robotics (SLAM) plugin"
 
   depends_on :java => ["1.8+", :optional]
   depends_on "bison" => :build
@@ -43,7 +41,6 @@ class Ibex < Formula
 
     args << "--with-jni" if build.with? "java"
     args << "--with-ampl" if build.with? "ampl"
-    args << "--with-param-estim" if build.with? "param-estim"
 
     system "./waf", "configure", *args
     system "./waf", "install"
@@ -67,9 +64,14 @@ class Ibex < Formula
       s.gsub! /LIBS.*pkg-config --libs  ibex./, "LIBS := -L#{lib} -libex"
     end
 
-    system "make", "lab1", "lab2", "lab3", "lab4"
-    system "make", "-C", "slam", "slam1", "slam2", "slam3"
-    %w[lab1 lab2 lab3 lab4].each { |a| system "./#{a}" }
-    system "./slam/slam3"
+    (1..8).each do |n|
+      system "make", "lab#{n}"
+      system "./lab#{n}"
+    end
+
+    (1..3).each do |n|
+      system "make", "-C", "slam", "slam#{n}"
+      system "./slam/slam#{n}"
+    end
   end
 end
