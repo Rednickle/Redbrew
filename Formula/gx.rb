@@ -12,6 +12,7 @@ class Gx < Formula
     sha256 "60573c959e0877aa25f448910b0600d6788ff8900e89dfc7434f19efa9a2575d" => :high_sierra
     sha256 "a7936fa87c047a13fdaad4ec0ebd33e74249f8b8d2956958d2000859381f7c1a" => :sierra
     sha256 "6b2dfac7e7be30c1022965eb7da46d89e277129ba9e090321a4c601c230e6ff4" => :el_capitan
+    sha256 "e8f4f0b223b9ca6d266a5c190fb717584baf599940b7590e34aa772174fde8f7" => :x86_64_linux
   end
 
   depends_on "go" => :build
