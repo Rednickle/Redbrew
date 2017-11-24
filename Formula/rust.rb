@@ -3,8 +3,8 @@ class Rust < Formula
   homepage "https://www.rust-lang.org/"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.21.0-src.tar.gz"
-    sha256 "1707c142244b5bd909993559c6116c81987c1de21d6207c05d3ecbe5bba548fa"
+    url "https://static.rust-lang.org/dist/rustc-1.22.1-src.tar.gz"
+    sha256 "8b7a42bdd6eb205a8c533eb41b5c42389a88158d060aed1e0f461f68c1fd3fd3"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
@@ -13,17 +13,15 @@ class Rust < Formula
     end
 
     resource "racer" do
-      url "https://github.com/racer-rust/racer/archive/2.0.10.tar.gz"
-      sha256 "8e81da4f238117affe7631a7656b219294950ff17b2bea85794060be11b80489"
+      url "https://github.com/racer-rust/racer/archive/2.0.12.tar.gz"
+      sha256 "1fa063d90030c200d74efb25b8501bb9a5add7c2e25cbd4976adf7a73bf715cc"
     end
   end
 
   bottle do
-    rebuild 1
-    sha256 "7bbcdc9254aee72448fd4663b0f386702575b1382fca9c1e8202a1b592d73701" => :high_sierra
-    sha256 "2abe9b9bb9e233946b72934aa19c291f1a020d5d26393559a44cb35103f158c6" => :sierra
-    sha256 "4ca443f1f7ac1fbdc4efe62dcb066b300f35714cc2d6861e0486b81ae109ef31" => :el_capitan
-    sha256 "029466fcfad20e54ef04b93467a13623726eb6809812c14c313196ec2e838703" => :x86_64_linux
+    sha256 "f20bd883470995e102ce4a76a074d10f53b17a9359c9065b1781ce37da6faaf3" => :high_sierra
+    sha256 "e281337dfd6a0291f231e4efc9fe72e3fc8a070b7e41c69944ddfc4371d350dc" => :sierra
+    sha256 "5791955f53485bbe4ec6b2ffa7ce837e63630996ccebb775962a245911bdc6ee" => :el_capitan
   end
 
   head do
@@ -62,11 +60,11 @@ class Rust < Formula
   resource "cargobootstrap" do
     if OS.mac?
       # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
-      url "https://static.rust-lang.org/dist/2017-08-31/cargo-0.21.0-x86_64-apple-darwin.tar.gz"
-      sha256 "05720fe91343c6ed5c4995f7b06677a08a585209f6f504d192722f3bb585bc9d"
+      url "https://static.rust-lang.org/dist/2017-10-12/cargo-0.22.0-x86_64-apple-darwin.tar.gz"
+      sha256 "8968697ae6eef3b178438a6d5563f531e499308dcea7f4915665dbcec54c851a"
     elsif OS.linux?
       # From: https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
-      url "https://static.rust-lang.org/dist/2017-08-31/cargo-0.21.0-x86_64-unknown-linux-gnu.tar.gz"
+      url "https://static.rust-lang.org/dist/2017-10-12/cargo-0.22.0-x86_64-unknown-linux-gnu.tar.gz"
       sha256 "caccf4ab039c806a9e6fdc7fe389cc88fb771e28e30d93c07a5c56ef845cdf57"
     end
   end
@@ -74,9 +72,20 @@ class Rust < Formula
   def install
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["MAKEFLAGS"] = "-j12 -l2.5" if ENV["CIRCLECI"]
+
+    # Fix build failure for compiler_builtins "error: invalid deployment target
+    # for -stdlib=libc++ (requires OS X 10.7 or later)"
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version if OS.mac?
+
+    # Fix build failure for cmake v0.1.24 "error: internal compiler error:
+    # src/librustc/ty/subst.rs:127: impossible case reached" on 10.11, and for
+    # libgit2-sys-0.6.12 "fatal error: 'os/availability.h' file not found
+    # #include <os/availability.h>" on 10.11 and "SecTrust.h:170:67: error:
+    # expected ';' after top level declarator" among other errors on 10.12
+    ENV["SDKROOT"] = MacOS.sdk_path if OS.mac?
+
     args = ["--prefix=#{prefix}"]
     args << "--disable-rpath" if build.head?
-    args << "--enable-clang" if ENV.compiler == :clang
     args << "--llvm-root=#{Formula["llvm"].opt_prefix}" if build.with? "llvm"
     if build.head?
       args << "--release-channel=nightly"
