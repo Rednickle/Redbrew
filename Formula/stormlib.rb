@@ -10,6 +10,7 @@ class Stormlib < Formula
     sha256 "b76d57a2af0971b96c0cc46b3e24078486f732131b6845e92cbd776b4d5c20c7" => :high_sierra
     sha256 "aa27fedf8877032a52c85f9a7a57a94149e9fd2c18f25351fd6a61203e5a797d" => :sierra
     sha256 "71e3d5e94f69c23c8f0d5181b4bc130c3202aa6c99e0e42c4b6508b71be0167a" => :el_capitan
+    sha256 "29de1152bd547973e6f70c7fe1473d19c7c7e3fd5fc340891cee0522c942fc5d" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
