@@ -9,6 +9,7 @@ class Xxhash < Formula
     sha256 "e293e34c6ab4c7cbc9c3a2d0d05eeff9fbc3814ba6b53dfcfb2dbc79fa0266cd" => :high_sierra
     sha256 "efdd05995c21ec6eba0407fe3bea8fbff171834c3b460d60e41849d4e335e510" => :sierra
     sha256 "1bac778b6424ce4118b2b280e0231728a8f275125833e741a36587a3fc8a1634" => :el_capitan
+    sha256 "854d430dc0a4f8c1b3a1f01e6522d665f7dc83f189611c2990e90faabd5ef517" => :x86_64_linux
   end
 
   def install
