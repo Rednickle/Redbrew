@@ -10,6 +10,7 @@ class Avimetaedit < Formula
     sha256 "30a2632fe1d48e4d42fd676dcb16dda6fec0fa7de91026031f0bbe269cec4229" => :high_sierra
     sha256 "72c069835864beea09634216566cbaeac6f747368abb05aed393081aa91bf74c" => :sierra
     sha256 "d110ea050c73fe9b397a3e225bd5a41f90fad95c4fc3f5af9e0c25f5aa2f50e7" => :el_capitan
+    sha256 "548cdfeabe45b0fd45a6282572ca30b56306b2df32dee5f8a3091145fe3ac7dd" => :x86_64_linux
   end
 
   def install
