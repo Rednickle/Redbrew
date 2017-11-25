@@ -8,6 +8,7 @@ class SwiProlog < Formula
     sha256 "ab3ce2c5eb038eed8f52749e95e78f3e1c130a8b235c116964f73043953a8421" => :high_sierra
     sha256 "426dc37770a8c6f883b37ac5cbcc37e8d25b1938d0fa7ed4be62699ed24ab98a" => :sierra
     sha256 "7267f46402210486dcac808e9b32be515a76708ec3dd1145f6eff80bdd8a9ab1" => :el_capitan
+    sha256 "16d36ae72b24af945b6bda7b613aee3239dd56d38e4001298382608a18049a09" => :x86_64_linux
   end
 
   devel do
