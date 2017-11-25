@@ -9,6 +9,7 @@ class Kvazaar < Formula
     sha256 "81e3084935b40153b533da73526e453280ffb09fac29745d43d4e305b462aa9a" => :high_sierra
     sha256 "0f8150c11184a4a7af203db7e11b9942ceeabd8442e82ff2e34c53145cd85be3" => :sierra
     sha256 "918e7ad37489d7bc2c602b47678f85392bcaeca1805e01953e7dabe54c1a153b" => :el_capitan
+    sha256 "cfff1d774fc364d5f2d968f1fda71332e6302bf6596af936ec18a5479842319d" => :x86_64_linux
   end
 
   head do
