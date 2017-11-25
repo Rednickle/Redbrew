@@ -9,6 +9,7 @@ class Roswell < Formula
     sha256 "89472d6028ae82adfe0035726267d92f496cf25fbc9dec93f6fc36a4be33eb8c" => :high_sierra
     sha256 "0cc199e14297b5ac81caf564bc6c9a7571e361cf49a445fa5dfa106745a8cf5e" => :sierra
     sha256 "01cf8d7ae7591ee285e0eef4a3ec651fab6bea95d32f7dd9143a90e319e583c2" => :el_capitan
+    sha256 "87508dcdd75e7b00a8c9c1383cc3f9b5ddd110e2afc5841dfaa72f0347d4ebcb" => :x86_64_linux
   end
 
   depends_on "automake" => :build
