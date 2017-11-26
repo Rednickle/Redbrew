@@ -12,6 +12,11 @@ class LibatomicOps < Formula
     sha256 "86eff851fe38470ee1736c65b8fecd61e7dfc31586e3dcb4498fa6dd20e5413d" => :x86_64_linux
   end
 
+  devel do
+    url "https://github.com/ivmai/libatomic_ops/releases/download/v7.6.0/libatomic_ops-7.6.0.tar.gz"
+    sha256 "8e2c06d1d7a05339aae2ddceff7ac54552854c1cbf2bb34c06eca7974476d40f"
+  end
+
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make"

@@ -3,13 +3,12 @@ class Exim < Formula
   homepage "https://exim.org"
   url "https://ftp.exim.org/pub/exim/exim4/exim-4.89.tar.bz2"
   sha256 "912f2ee03c8dba06a3a4c0ee40522d367e1b65dc59e38dfcc1f5d9eecff51ab0"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 "e034ee4ff0a3a7c4ba72be9c9dd971dc0e3d26c4559dc30e5c6a67608e54d216" => :high_sierra
-    sha256 "cfacabfcec0746abc0b8c285216bec3604de3f5974cba9d70efed4564cfb9972" => :sierra
-    sha256 "76f0bff4cbc20acbfc51728c5110ebfb2aa201a14f543fe05f70bd1a77c1e613" => :el_capitan
-    sha256 "72bbb523f8536eb4dfbfd9c9ac2599ea8b51f0fca2abd19495609bbe76986f3f" => :x86_64_linux
+    sha256 "86e970eff2b21a8933e27119b8fee1c3178657954794385158008724ddf52acc" => :high_sierra
+    sha256 "6a1bb5f8975b03ea51a9b9989e77e5781e4f0caee6bc8e6278f6f5fa7f90a130" => :sierra
+    sha256 "d76d3be78c6f7bebc4c727bd4ac13392f0c5f0a105b8cda60b27519a095cbf01" => :el_capitan
   end
 
   deprecated_option "support-maildir" => "with-maildir"
@@ -22,9 +21,9 @@ class Exim < Formula
   # Patch applied upstream but doesn't apply cleanly from git.
   # https://github.com/Exim/exim/commit/65e061b76867a9ea7aeeb535341b790b90ae6c21
   patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/e/exim4/exim4_4.89-7.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/e/exim4/exim4_4.89-7.debian.tar.xz"
-    sha256 "e24464a5a803e4063b32e42543f9a9352ed2fa6bfde7b0f608e59582a23a853f"
+    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/e/exim4/exim4_4.89-11.debian.tar.xz"
+    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/e/exim4/exim4_4.89-11.debian.tar.xz"
+    sha256 "13572f80d8eb93b7d3186bb2cc12c80d9931885dfb6c40ef8a9d477ecdc040e0"
     apply "patches/75_fixes_01-Start-exim-4_89-fixes-to-cherry-pick-some-commits-fr.patch"
     apply "patches/75_fixes_02-Cleanup-prevent-repeated-use-of-p-oMr-to-avoid-mem-l.patch"
     apply "patches/75_fixes_03-Fix-log-line-corruption-for-DKIM-status.patch"
@@ -36,6 +35,13 @@ class Exim < Formula
     apply "patches/75_fixes_10-Fix-cache-cold-random-callout-verify.-Bug-2147.patch"
     apply "patches/75_fixes_11-On-callout-avoid-SIZE-every-time-but-noncacheable-rc.patch"
     apply "patches/75_fixes_12-Fix-build-for-earlier-version-Berkeley-DB.patch"
+    apply "patches/75_fixes_13-Document-CVE-assignment-for-Berkeley-DB-issue.patch"
+    apply "patches/75_fixes_14-DKIM-fix-signing-bug-induced-by-total-size-of-parame.patch"
+    apply "patches/75_fixes_15-SOCKS-fix-unitialized-pointer.patch"
+    apply "patches/75_fixes_16-Fix-crash-in-transport-on-second-smtp-connect-fail-f.patch"
+    apply "patches/75_fixes_17-Fix-queue_run_in_order-to-ignore-the-PID-portion-of-.patch"
+    apply "patches/75_fixes_18-Use-safer-routine-for-possibly-overlapping-copy.patch"
+    apply "patches/78_Disable-chunking-BDAT-by-default.patch"
   end
 
   def install
