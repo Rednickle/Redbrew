@@ -11,6 +11,7 @@ class Sdl2Mixer < Formula
     sha256 "59fd0d4343dda8debc065287159db481952de7b1d19ea61dbfad53aabe6303fd" => :high_sierra
     sha256 "51f1a40c82e76b67f8cbb808c896ca74af48b1d3b56911132b964380521b3688" => :sierra
     sha256 "3fa56b0dbad2057e60927a46635c260c0287396ce556bc3f55f622cd7ff61bc1" => :el_capitan
+    sha256 "d2c629e8bc8aef411a54aab0e0f1a292b8e49fcf1d6c0c57f3e751bc2b14b05a" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
