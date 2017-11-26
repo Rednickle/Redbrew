@@ -3,24 +3,24 @@ class Sceptre < Formula
 
   desc "Build better AWS infrastructure"
   homepage "https://sceptre.cloudreach.com"
-  url "https://github.com/cloudreach/sceptre/archive/v1.2.1.tar.gz"
-  sha256 "45c82d8521b7025aaad14ead88708dbf50e91aa8bb87c12126247189d451f0af"
+  url "https://github.com/cloudreach/sceptre/archive/v1.3.1.tar.gz"
+  sha256 "23d22667fb86378f5b82eeb6218dbb76acf0902853cf9218822376a88ad2fe33"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "91abd86e2c90682468abfecf3e70116687d0b485aee0040d60792141cd65cf5a" => :high_sierra
-    sha256 "ea43673b34ebfdb8d25394fec51c48bcf82471166a5092921082c69ad99181cf" => :sierra
-    sha256 "2f814ef6e4a094b46a6922f77cd209f670adcb08d63086da9128989ea514141c" => :el_capitan
+    sha256 "b2fb6a6c525f89155642a9b77b4c13a647ca8f10e1b6af57364bb7f5c755a6d5" => :high_sierra
+    sha256 "d6bf89fc0696b2816734b934e2e234a8a42da4d2515932eab52d8422062fd1bf" => :sierra
+    sha256 "ec52839a13a8c7ceebe53753a7e9c54f8cb38c93c63c68a079f51bd10664a8e6" => :el_capitan
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/b6/7c/b9caa157b514e0a456286172862428a83814e4eda114ea1e80267de85378/boto3-1.4.7.tar.gz"
-    sha256 "f79f77dca2280f7780f39d72a5088f4cf2b626c0921e7185ed6ac17abfdd7e6c"
+    url "https://files.pythonhosted.org/packages/7b/82/ff2cc1627733040b19369d5d561331b378150e02312f1d1b9424a91ae9d0/boto3-1.4.8.tar.gz"
+    sha256 "332c6a17fd695581dd6f9ed825ce13c2d5ee3a6f5e1b079bed0ff7293809faf0"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/48/b8/c3ad76df412b1f61fe8bfb4464fdd3081d2f995cd503df3c8457c6300c15/botocore-1.7.10.tar.gz"
-    sha256 "816c4522bd5da4738fe6c249baa53926c2ea345a4233bcca0fc1cc3b92518071"
+    url "https://files.pythonhosted.org/packages/17/72/d8c0e46c690eab58c4a778450bada1541100222320cf10a06ddac8920d75/botocore-1.8.1.tar.gz"
+    sha256 "257f3f85bc292ce4569a3232a4f3b5b07d411d1b51f901218339057682c45d2b"
   end
 
   resource "click" do
@@ -84,8 +84,8 @@ class Sceptre < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
-    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
+    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
+    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
   end
 
   def install
