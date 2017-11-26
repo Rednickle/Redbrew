@@ -10,6 +10,7 @@ class Libdivecomputer < Formula
     sha256 "09dd65b72be93f3364b0b0da389fc4aa4d1fea2094ffe53275544e74ac6a7674" => :high_sierra
     sha256 "bbc60092aee1409bd0001e2f3cfdde47bb3d2348d3bf18f1fc6921920607f947" => :sierra
     sha256 "507134023caaaebd5b1689f324aea50839e13f57d180f7134ee270edc2b02cf6" => :el_capitan
+    sha256 "b8eac2045925aa3802083f90657336d6c2c4425e65ffd5ae9d0d11a45c64eb4a" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
