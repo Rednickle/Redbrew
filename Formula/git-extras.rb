@@ -18,6 +18,7 @@ class GitExtras < Formula
     sha256 "77f2a8b3366b1f9016b4ef1a34a3d3b33f59d1fa8a7ffab65803ee7c0bdcd4dc" => :high_sierra
     sha256 "77f2a8b3366b1f9016b4ef1a34a3d3b33f59d1fa8a7ffab65803ee7c0bdcd4dc" => :sierra
     sha256 "77f2a8b3366b1f9016b4ef1a34a3d3b33f59d1fa8a7ffab65803ee7c0bdcd4dc" => :el_capitan
+    sha256 "ba530fac9aad0abc3a4726dcce8acb5d74b1b65ebcec697a2c790668508715fc" => :x86_64_linux
   end
 
   conflicts_with "git-utils",
