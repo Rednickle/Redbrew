@@ -12,6 +12,7 @@ class LittleCms2 < Formula
     sha256 "c232c3e514ef478c4fab797dab8db675045eae3611043063d338c256f4ecb941" => :high_sierra
     sha256 "a0ce195a712977870d9ddc414c0c5cd1b373d4e04b7130b80d00f911d04fe5b4" => :sierra
     sha256 "fa72bb1ce13889405ee93519be86ff1cede056d8c74e1d1671cca52013762ec0" => :el_capitan
+    sha256 "d22224ff78fc838210b032de4385b83b5b94b6d47aad6e479bc70a5643e0f0f7" => :x86_64_linux
   end
 
   depends_on "jpeg" => :recommended
