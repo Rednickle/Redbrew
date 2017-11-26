@@ -16,6 +16,7 @@ class Ldc < Formula
     sha256 "b282682e7002a5ca1cc69e195ac49b746aafe06d120c0e64e0daefcd5171574e" => :high_sierra
     sha256 "73dda487ecba87af435727755d477d8170f61fd5c9b60658b121948aa9b79b6f" => :sierra
     sha256 "775e20c82003b21ab01401cce815c6e19155d9cc594db10f8835530bffc7a81d" => :el_capitan
+    sha256 "b42d1a882e86bf8eb8d54098e00a4c015f09924779a8f1de04cba0b210a535e8" => :x86_64_linux
   end
 
   devel do
