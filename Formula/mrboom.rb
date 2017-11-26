@@ -5,10 +5,11 @@ class Mrboom < Formula
   sha256 "166593ceed047464650b2de3c377c3cac1c9e3d807abe374e03b901f8ed6ab6e"
 
   bottle do
-    cellar :any
+    cellar :any_skip_relocation
     sha256 "c90ac297157ea0ef5b20602c4b72d880c0510c581ec4b27cf933aaece3fc3d73" => :high_sierra
     sha256 "be0b87327561ee9744c20f82ed7a75e0e009e19772018c1930a195ac8b291fc7" => :sierra
     sha256 "45f3fa69504692270ad5f7e5bd50b03132b37d558d77a2e0d4bd27f2f6f7d420" => :el_capitan
+    sha256 "439696026202d2418ea1d3722e140135db36881cdbd61b503756349dbc274769" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
