@@ -9,6 +9,7 @@ class AdwaitaIconTheme < Formula
     sha256 "eec6e0d4f27ebc17d4fbded8fe48ffb213f2aa6a861d084adcc956ecd4a80ed4" => :high_sierra
     sha256 "eec6e0d4f27ebc17d4fbded8fe48ffb213f2aa6a861d084adcc956ecd4a80ed4" => :sierra
     sha256 "eec6e0d4f27ebc17d4fbded8fe48ffb213f2aa6a861d084adcc956ecd4a80ed4" => :el_capitan
+    sha256 "dab9f62bbfbf6ce11eed6ab0f8aba784b3f4eb961454601ae38e1a0d81d9c817" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
