@@ -8,6 +8,7 @@ class Pdnsrec < Formula
     sha256 "09f11d4b0f1b0c13ad5b34b1c30577640a72873dfe7643d25a85c648f1093f7d" => :high_sierra
     sha256 "caea7cad55d4ccc38560a3b7aeee083c403ed21e66da498d713ba681b97e1efe" => :sierra
     sha256 "3fbc2a3e03594bfd9b3157a8da73afe50ce02b36b24d3e6a983ca58e641301bc" => :el_capitan
+    sha256 "5b56ede80540bb04bc932213b5af49d588a7cfe2b507a2470ec55ab894808da4" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
