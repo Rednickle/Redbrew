@@ -9,6 +9,7 @@ class Polyml < Formula
     sha256 "5a1f478b3b2b26ab1f2326031c5ea930aa97ac08b83881151e976942c674df65" => :high_sierra
     sha256 "d4c027b336791cc932cebddb6ea901af8a17f482511e9858a4766b380a1b3391" => :sierra
     sha256 "5adaaa6d45b674090dd49918532a5035737e7d7d2a1acf861a053ac96d297596" => :el_capitan
+    sha256 "c5bf1973a16ed7786240499ed4cdd9025008b4dfb700e7eea64db2377f378f06" => :x86_64_linux
   end
 
   def install
