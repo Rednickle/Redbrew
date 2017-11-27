@@ -44,8 +44,11 @@ class Zeromq < Formula
     args << "--with-norm" if build.with? "norm"
     args << "--enable-drafts" if build.with?("drafts")
 
-    ENV["LIBUNWIND_LIBS"] = "-framework System" if OS.mac?
-    ENV["LIBUNWIND_CFLAGS"] = "-I#{MacOS.sdk_path}/usr/include" if OS.mac?
+    if OS.mac?
+      ENV["LIBUNWIND_LIBS"] = "-framework System"
+      sdk = MacOS::CLT.installed? ? "" : MacOS.sdk_path
+      ENV["LIBUNWIND_CFLAGS"] = "-I#{sdk}/usr/include"
+    end
 
     system "./autogen.sh" if build.head?
     system "./configure", *args

@@ -3,15 +3,14 @@ class Sdl2Mixer < Formula
   homepage "https://www.libsdl.org/projects/SDL_mixer/"
   url "https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-2.0.2.tar.gz"
   sha256 "4e615e27efca4f439df9af6aa2c6de84150d17cbfd12174b54868c12f19c83bb"
-  revision 1
+  revision 3
   head "https://hg.libsdl.org/SDL_mixer", :using => :hg
 
   bottle do
     cellar :any
-    sha256 "59fd0d4343dda8debc065287159db481952de7b1d19ea61dbfad53aabe6303fd" => :high_sierra
-    sha256 "51f1a40c82e76b67f8cbb808c896ca74af48b1d3b56911132b964380521b3688" => :sierra
-    sha256 "3fa56b0dbad2057e60927a46635c260c0287396ce556bc3f55f622cd7ff61bc1" => :el_capitan
-    sha256 "d2c629e8bc8aef411a54aab0e0f1a292b8e49fcf1d6c0c57f3e751bc2b14b05a" => :x86_64_linux
+    sha256 "294939d7e15b8e173e9d52dc2abfedec5c49d42f98a806db3fa5277f464202b1" => :high_sierra
+    sha256 "6551ecd136aa19fec2a6e6234f34da4a4ffe6d0a5ed2461e7e0cd184f76ba45e" => :sierra
+    sha256 "effd6b19570fca9ee6c57483f96cc87cc48fe308bc272a9dffee66e68c77a793" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -32,6 +31,7 @@ class Sdl2Mixer < Formula
       --disable-music-flac-shared
       --disable-music-midi-fluidsynth-shared
       --disable-music-mod-mikmod-shared
+      --enable-music-mod-modplug
       --disable-music-mod-modplug-shared
       --disable-music-mp3-smpeg-shared
     ]
@@ -39,7 +39,6 @@ class Sdl2Mixer < Formula
     args << "--disable-music-flac" if build.without? "flac"
     args << "--disable-music-midi-fluidsynth" if build.without? "fluid-synth"
     args << "--enable-music-mod-mikmod" if build.with? "libmikmod"
-    args << "--disable-music-mod-modplug" if build.without? "libmodplug"
 
     if build.with? "smpeg2"
       args << "--with-smpeg-prefix=#{Formula["smpeg2"].opt_prefix}"
