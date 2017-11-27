@@ -1,16 +1,15 @@
 class Restic < Formula
   desc "Fast, efficient and secure backup program"
   homepage "https://restic.github.io/"
-  url "https://github.com/restic/restic/archive/v0.7.3.tar.gz"
-  sha256 "6d795a5f052b3a8cb8e7571629da14f00e92035b7174eb20e32fd1440f68aaff"
+  url "https://github.com/restic/restic/archive/v0.8.0.tar.gz"
+  sha256 "7b4c65fae9cf9cb7ce70928fe6580fa9d077c425e1831958098ebc4537ae16c2"
   head "https://github.com/restic/restic.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fcaf988b191c6d859a77fd670f88e3d866cb7e5df07d098367a3d65520b27221" => :high_sierra
-    sha256 "fcaf988b191c6d859a77fd670f88e3d866cb7e5df07d098367a3d65520b27221" => :sierra
-    sha256 "fcaf988b191c6d859a77fd670f88e3d866cb7e5df07d098367a3d65520b27221" => :el_capitan
-    sha256 "f0478f38c0d4560842cbe21de30a1835af182daa1f34882a909a2f2740610633" => :x86_64_linux
+    sha256 "b4d2f9f3f517e26a008d70fa5d4f3e782ea036e836980765f1b33e665ed24bc1" => :high_sierra
+    sha256 "b4d2f9f3f517e26a008d70fa5d4f3e782ea036e836980765f1b33e665ed24bc1" => :sierra
+    sha256 "b4d2f9f3f517e26a008d70fa5d4f3e782ea036e836980765f1b33e665ed24bc1" => :el_capitan
   end
 
   depends_on "go" => :build
