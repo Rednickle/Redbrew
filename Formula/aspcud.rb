@@ -3,26 +3,25 @@ class Aspcud < Formula
   homepage "https://potassco.org/aspcud/"
   url "https://github.com/potassco/aspcud/archive/v1.9.4.tar.gz"
   sha256 "3645f08b079e1cc80e24cd2d7ae5172a52476d84e3ec5e6a6c0034492a6ea885"
+  revision 1
 
   bottle do
-    sha256 "700beffd0ba38265dc95a4b3c344a1974355cb4c20fc50eb7f2d500aaf0ee956" => :high_sierra
-    sha256 "73c4df24738a0cea1339241f641657c6e7cb5aecddaba3cb2ecd5e2f6b46fdb5" => :sierra
-    sha256 "2658d95252c4d154e3e1aa42fd9762850da1114a8e19c9721c07bb306cbb2955" => :el_capitan
-    sha256 "7b39267f0b4982769ee5f92aa2d9f2326845078ecaa2a97c2999c19bfaad7396" => :x86_64_linux
+    sha256 "07f0e44c6cf608f20da7a37744d7559c1f7b77fc3151bcd37ea0af9fbd39cde7" => :high_sierra
+    sha256 "c3c886728b9713da9ec4837b7faf19832219636743654f5b94dbe83b09c83bae" => :sierra
+    sha256 "d9f4bb9cd64ba31b4786fc848813cf665ff5f37c761cfb0bacd6c70b50fd9a58" => :el_capitan
   end
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "re2c" => :build
-  depends_on "gringo"
-  depends_on "clasp"
+  depends_on "clingo"
 
   needs :cxx14
 
   def install
     args = std_cmake_args
-    args << "-DASPCUD_GRINGO_PATH=#{Formula["gringo"].opt_bin}/gringo"
-    args << "-DASPCUD_CLASP_PATH=#{Formula["clasp"].opt_bin}/clasp"
+    args << "-DASPCUD_GRINGO_PATH=#{Formula["clingo"].opt_bin}/gringo"
+    args << "-DASPCUD_CLASP_PATH=#{Formula["clingo"].opt_bin}/clasp"
 
     mkdir "build" do
       system "cmake", "..", *args
@@ -32,14 +31,12 @@ class Aspcud < Formula
   end
 
   test do
-    fixture = <<~EOS
+    (testpath/"in.cudf").write <<~EOS
       package: foo
       version: 1
 
       request: foo >= 1
     EOS
-
-    (testpath/"in.cudf").write(fixture)
     system "#{bin}/aspcud", "in.cudf", "out.cudf"
   end
 end
