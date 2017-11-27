@@ -9,6 +9,7 @@ class Stunnel < Formula
     sha256 "3999aeebd42c9be5a6264746dfa009709d164929d20d26f86cfff30740c4639d" => :high_sierra
     sha256 "619f3838b8e165fc019854242d8c60f5d4d72369d70be1d78cecc46042a2c0b9" => :sierra
     sha256 "20be9c5027e7d0990079543d0288d51962fdb1d1812f0bdbce22884969eb45ef" => :el_capitan
+    sha256 "920d6b8c0e89767658d61b74bb433d0a05dd93d6c5e44ce118e97a1a42568425" => :x86_64_linux
   end
 
   depends_on "openssl"
