@@ -6,15 +6,14 @@ end
 class Bazel < Formula
   desc "Google's own build tool"
   homepage "https://bazel.build/"
-  url "https://github.com/bazelbuild/bazel/releases/download/0.7.0/bazel-0.7.0-dist.zip"
-  sha256 "a084a9c5d843e2343bf3f319154a48abe3d35d52feb0ad45dec427a1c4ffc416"
-  revision 1
+  url "https://github.com/bazelbuild/bazel/releases/download/0.8.0/bazel-0.8.0-dist.zip"
+  sha256 "aa840321d056abd3c6be10c4a1e98a64f9f73fff9aa89c468dae8c003974a078"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a64a3d9c81d3c55f4b8bc216c31a73323579a87a5ba9e8b692cfbea8b31917cd" => :high_sierra
-    sha256 "31718c991ed0d1b4fe92296e0ccb472b908dccabc1d78b29ccf6e8a2b5b2cf1d" => :sierra
-    sha256 "6a6eadd2c6ba3c56b9d592366337775e3933aae70bda18387e464c77f3049aac" => :el_capitan
+    sha256 "d520b2179836981c0caa8bf6f30c0af358a04ed25531f07a723091a323512850" => :high_sierra
+    sha256 "23f5efc1f93950b8a66fed135e6e4ffd492df6664455c2ee35ff92fb927499d3" => :sierra
+    sha256 "348245044d0eae3182d0521b28469cedf0a9de40286a1efbe728ede0c85b1f3c" => :el_capitan
   end
 
   depends_on :java => "1.8"
