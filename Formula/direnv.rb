@@ -1,17 +1,15 @@
 class Direnv < Formula
   desc "Load/unload environment variables based on $PWD"
   homepage "https://direnv.net/"
-  url "https://github.com/direnv/direnv/archive/v2.13.1.tar.gz"
-  sha256 "eea1d4eb4c95c1a6d41bb05a35ed0e106d497f10761e5d0e1c3b87d07c70c7b4"
+  url "https://github.com/direnv/direnv/archive/v2.13.2.tar.gz"
+  sha256 "04fdbd3fe7ddf496a3da41cb6e767100d8d6f6b52fef9e2217c9e330b0e6257d"
   head "https://github.com/direnv/direnv.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "5c47aaf4555aace5386f6cfa4ee76105271d01c6e470f27887349f42f332f4c3" => :high_sierra
-    sha256 "71876677847d22b01698c45fc1b12174ee1ef78c10e294ba5a72d6984157a931" => :sierra
-    sha256 "46de205de4bcb4bd5b196ee4164e84dfca156adb811fe56bea117933260600b9" => :el_capitan
-    sha256 "ec6e5145f0edeeab125b47c96de347bfecdf90f8114b9747945bd0ecadab5434" => :x86_64_linux
+    sha256 "246785d00c6d5cce2e0a21d8b6dda4ac0497414de11b1d0d4089ee185b98fca2" => :high_sierra
+    sha256 "fcf790131bba61afc0fdeccc82d6612e7b44d9d92583babacdc31158cf62e360" => :sierra
+    sha256 "21a3cc6a14c9bae0bd5cd83cefa27269027c9d891453217e840d43ff5c0b1c5b" => :el_capitan
   end
 
   depends_on "go" => :build

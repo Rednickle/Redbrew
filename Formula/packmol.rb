@@ -1,19 +1,14 @@
 class Packmol < Formula
   desc "Packing optimization for molecular dynamics simulations"
   homepage "https://www.ime.unicamp.br/~martinez/packmol/"
-  url "https://github.com/leandromartinez98/packmol/archive/17.221.tar.gz"
-  sha256 "b5dcdeb694ffc17f620a4517e4eba67018145774d6fa06c4076bfbfe79400407"
+  url "https://github.com/leandromartinez98/packmol/archive/17.332.tar.gz"
+  sha256 "f7489327a8fe3e9eedd0630faf17e69777a9bf7f17190df48d3ea6ca641cd0ae"
   head "https://github.com/leandromartinez98/packmol.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
-    prefix "/home/linuxbrew/.linuxbrew"
-    cellar :any_skip_relocation
-    sha256 "94c754110714ab922137e7b2dc01e2ba580795364b9200954520dc77b2302022" => :high_sierra
-    sha256 "b08cdbaf8889812816c9a3999304fef09edbb4ebee08932d5aad2a3b09b2377b" => :sierra
-    sha256 "551f3a99d27dcc0d4c1a4c56526d22e2bcea25a8dc1551da62b806bc6760c3d4" => :el_capitan
-    sha256 "cf3c0f1d3cc39e1832432db174acb4f06ad53b460a927b76b63c97b6cba0baad" => :yosemite
-    sha256 "6668bde18b3bb98332f2d6fa3ad5cbab1128983aabbbbd0caa6168bc6f1dd5a3" => :x86_64_linux # glibc 2.19
+    sha256 "ad82a016da674cba104db626e71a10069449c580f687fa925668176d97f214be" => :high_sierra
+    sha256 "447c2060019f52d192080449efac203fa0ab61cf3f94e88098008f729c8c0188" => :sierra
+    sha256 "c870b673a5b70562a410b22b30feb39a3d7a0ce00e6223cc85602f96fe2b5fd5" => :el_capitan
   end
 
   depends_on :fortran
