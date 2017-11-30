@@ -1,22 +1,23 @@
 class Httest < Formula
   desc "Provides a large variety of HTTP-related test functionality"
   homepage "https://htt.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/htt/htt2.4/httest-2.4.22/httest-2.4.22.tar.gz"
-  sha256 "b63ab35ee500cf7985df7c365aca20f41dde0bab585f67865cf588b2ff1206fb"
+  url "https://downloads.sourceforge.net/project/htt/htt2.4/httest-2.4.23/httest-2.4.23.tar.gz"
+  sha256 "52a90c9719b35226ed1e26a5262df0d14aeb63b258187656bf1eb30ace53232c"
 
   bottle do
     cellar :any
-    sha256 "f10e8bb19fd3e2336f38be2dd6572dee152c0e89a0a46f2c46d3082c9eb82588" => :high_sierra
-    sha256 "e831dbdbebadc52f9cb76759ccf28564d74748a08a6074056b5b33b299e16e67" => :sierra
-    sha256 "230797d386a267bbe2cc60de874f9da4cb58abcebd6d420d768a2d7e9a0a7e51" => :el_capitan
-    sha256 "076e30f833afb339600167d01ad4b5d5b22f57d1c4dcf37cc92a6cfbc1dfb5d8" => :x86_64_linux
+    sha256 "688badfeee292b330513c5b2f82553a768259dfe71b440ab1d59c1b7052728c1" => :high_sierra
+    sha256 "b4e4fdc797548136fe2a7c7e2dd5b65a40862c6f13b48e2a89d66cfc45a4dc64" => :sierra
+    sha256 "83fe0d8248e25a67cac3948d3debbdb754940b7ebb85ee8f3d7104bb3ef6bc38" => :el_capitan
   end
 
   depends_on "apr"
   depends_on "apr-util"
   depends_on "openssl"
   depends_on "pcre"
-  depends_on "lua"
+  depends_on "lua" => :recommended
+  depends_on "nghttp2" => :recommended
+  depends_on "spidermonkey" => :recommended
 
   def install
     # Fix "fatal error: 'pcre/pcre.h' file not found"
@@ -24,10 +25,23 @@ class Httest < Formula
     (buildpath/"brew_include").install_symlink Formula["pcre"].opt_include => "pcre"
     ENV.prepend "CPPFLAGS", "-I#{buildpath}/brew_include"
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--with-apr=#{Formula["apr"].opt_bin}",
-                          "--enable-lua-module"
+    # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for libxml2
+    if MacOS.version == :sierra || MacOS.version == :el_capitan
+      ENV["SDKROOT"] = MacOS.sdk_path
+    end
+
+    args = [
+      "--disable-dependency-tracking",
+      "--prefix=#{prefix}",
+      "--enable-html-module",
+      "--enable-xml-module",
+      "--with-apr=#{Formula["apr"].opt_bin}",
+    ]
+    args << "--enable-lua-module" if build.with? "lua"
+    args << "--enable-h2-module" if build.with? "nghttp2"
+    args << "--enable-js-module" if build.with? "spidermonkey"
+
+    system "./configure", *args
     system "make", "install"
   end
 
