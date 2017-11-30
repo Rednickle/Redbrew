@@ -7,15 +7,10 @@ class Cmake < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0f789d5e9d3ca2c2fef5a3587c824b991fd57ea14a30f4722a93ffcd2610bded" => :high_sierra
-    sha256 "886c3b67d73d101308c2bfa3a63e00d31a37e6e3682311b65b8bd76e04b03c8e" => :sierra
-    sha256 "d1752e5789c7e91ee368cdf40a138b6fad8eea267e779917aae2b5e788121f5a" => :el_capitan
-    sha256 "67d08963141a3a14f606fbb977f40f5380fa30d4e96b024720b31f35b0161ad8" => :x86_64_linux
-  end
-
-  devel do
-    url "https://cmake.org/files/v3.10/cmake-3.10.0-rc5.tar.gz"
-    sha256 "7c4322f778d0ac67413de0a3217c1638675d4fceab6564c9b448d617d41aedf6"
+    rebuild 1
+    sha256 "fa4888d1d009e32398d0ec312b641f86f6eac53cdfd13e5dae57c07922c8033c" => :high_sierra
+    sha256 "5a6c5af53ce59a89d3f31880fdcc169359ec6ad49daa78ebcaf333c32f481590" => :sierra
+    sha256 "5e1d7d0abd668e008a695f51778d52b06a229ba6fef5014397f8dab9e4578eca" => :el_capitan
   end
 
   option "without-docs", "Don't build man pages"
@@ -56,7 +51,7 @@ class Cmake < Formula
       args << "--sphinx-man" << "--sphinx-build=#{Formula["sphinx-doc"].opt_bin}/sphinx-build"
     end
 
-    system "./bootstrap", *args
+    system "./bootstrap", *args, "--", "-DCMAKE_BUILD_TYPE=Release"
     system "make"
     system "make", "install"
 
