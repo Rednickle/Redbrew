@@ -10,6 +10,7 @@ class Redis < Formula
     sha256 "9cc4e545ac0e96c14ad13841950b7a963f19eac46849fd26de4d1b829198bebc" => :high_sierra
     sha256 "88e7e310bf3264470211d4c9b3bac937bec6cdccf8b5183dd67d850206ed67fb" => :sierra
     sha256 "495fa5cb115db0c08f77ed7d73b0fb21aab05e554ecdb15f83a46dab9a52b441" => :el_capitan
+    sha256 "064c52bc214fbed67c6611566aa6aff8c4a73210e68945357c3341d7413c2cae" => :x86_64_linux
   end
 
   option "with-jemalloc", "Select jemalloc as memory allocator when building Redis"
