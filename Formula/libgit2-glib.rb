@@ -8,6 +8,7 @@ class Libgit2Glib < Formula
     sha256 "41e72a9af021ede5b2d2a6388d87d1a3cf91828257512291b443622973b4fdda" => :high_sierra
     sha256 "20c1bd5ed07328d63aedc9c15c974d3ce970f8a67cfd2fb1d3e5c1471a1d0259" => :sierra
     sha256 "d50c3cfe95b48a7542d79606f1673c9f03cab6653098da2bb9ac4a809546db32" => :el_capitan
+    sha256 "d151d5a1b25f559d40cc212d4fd2e875e14e8b5d9adf0fcff1eb61e328eee6bf" => :x86_64_linux
   end
 
   head do
