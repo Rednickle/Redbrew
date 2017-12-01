@@ -9,6 +9,7 @@ class Lbdb < Formula
     sha256 "8534e8877459b70cba8909e56e86e5e5941b925fce778f8b129eb0d665fe0e46" => :high_sierra
     sha256 "f3f84de13606899c190dd2088e5c3c368ebe4114f345fb2c0ea89675da9edf2d" => :sierra
     sha256 "da46a60964f9a2dfe184dfb4dc21c07d1b5eb680819a26459319b9c0e8cff295" => :el_capitan
+    sha256 "f5f6a11cff3ffb180bbb719368018b5638f47203c70a5c07ecbfb49b28e82d82" => :x86_64_linux
   end
 
   depends_on "abook" => :recommended
