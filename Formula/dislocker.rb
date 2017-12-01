@@ -8,6 +8,7 @@ class Dislocker < Formula
     sha256 "1b1fede1c17fb9829555c1ec85ea883a4b1fe7ae13f6ba595ec5504a06949f87" => :high_sierra
     sha256 "68728e2f7ba2aae2b25fa4ef51596e62294bb1ca2b73f4def09b955dc5648f29" => :sierra
     sha256 "fc7988168917b9635fb81cf1411aaaeec893e25a1be7e2bdefe40a6e80747c0a" => :el_capitan
+    sha256 "c786dc1a19f2d0855a47f43ee77a7b68b682a4a03e4e38803244dd33e87f3c7c" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
