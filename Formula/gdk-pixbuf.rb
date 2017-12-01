@@ -20,7 +20,7 @@ class GdkPixbuf < Formula
   depends_on "jpeg"
   depends_on "libtiff"
   depends_on "libpng"
-  depends_on "gobject-introspection"
+  depends_on "gobject-introspection" => :recommended
   depends_on "shared-mime-info" unless OS.mac?
 
   # gdk-pixbuf has an internal version number separate from the overall
@@ -45,7 +45,6 @@ class GdkPixbuf < Formula
       --disable-maintainer-mode
       --enable-debug=no
       --prefix=#{prefix}
-      --enable-introspection=yes
       --disable-Bsymbolic
       --enable-static
       --without-gdiplus
@@ -53,6 +52,12 @@ class GdkPixbuf < Formula
 
     args << "--enable-relocations" if build.with?("relocations")
     args << "--disable-modules" if build.without?("modules")
+
+    if build.with? "gobject-introspection"
+      args << "--enable-introspection=yes"
+    else
+      args << "--enable-introspection=no"
+    end
 
     included_loaders = ARGV.value("with-included-loaders")
     args << "--with-included-loaders=#{included_loaders}" if included_loaders
