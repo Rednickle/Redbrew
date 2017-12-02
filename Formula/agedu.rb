@@ -11,6 +11,7 @@ class Agedu < Formula
     sha256 "ffc34134229c14b1fe7d65fa01c90724715228738aecfef82cdb8f79be1550ef" => :high_sierra
     sha256 "05d4afaee3fa14b005a7a4bab7c1c13b6d704b834fdd2f0ff63bb22721f1cb24" => :sierra
     sha256 "ccba7a5902c861069e5bc82e565c34857cffaf98c408145d2b3917d23319bc61" => :el_capitan
+    sha256 "1675797e595911217596591013159a234af2d538fb97a88ad2b08d7cec92e349" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
