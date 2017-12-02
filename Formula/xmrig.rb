@@ -1,15 +1,14 @@
 class Xmrig < Formula
   desc "Monero (XMR) CPU miner"
   homepage "https://github.com/xmrig/xmrig"
-  url "https://github.com/xmrig/xmrig/archive/v2.4.2.tar.gz"
-  sha256 "72ecbf76cde84bad7af3ed0af20d82223fb6ccb2de37f8a4ea90959200b1e605"
+  url "https://github.com/xmrig/xmrig/archive/v2.4.3.tar.gz"
+  sha256 "56a4eb05e0b310b044ae30203dfb63664cdfb520c9c28dac29fa1886ca59cbc2"
 
   bottle do
     cellar :any
-    sha256 "0f724c618ea55140036dafbb1a60f88a0a1a6a38c6d46520196e86dbaf1a86d6" => :high_sierra
-    sha256 "54978a0c00a2231cf6c219f40ec41c173783b03403284a9064e4e2961fc02976" => :sierra
-    sha256 "b5b300b3e6a4eea81f36f2aaf59822d268f4e780a1288a05cabd8ef1fcb83683" => :el_capitan
-    sha256 "efbd5cbc014aae13b92f1681b0aff1307bf81430255b5795bfaedacc46028d87" => :x86_64_linux
+    sha256 "5742b2cd0227c225a809addaed2e7d552fccbc99fd9f52381a341622e59a2842" => :high_sierra
+    sha256 "067a7f98841ff910160caaad61c0b4977e85221454ecc2d846a467eb130bbbf8" => :sierra
+    sha256 "3a274f5c98cd7fb6946e208bf2b4e1a5309ce43f92e937208e188324bef3a937" => :el_capitan
   end
 
   depends_on "cmake" => :build
