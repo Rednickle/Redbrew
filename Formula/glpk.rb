@@ -10,6 +10,7 @@ class Glpk < Formula
     sha256 "0edf15d46002b9c704114574f134755b711fcc334478c7858ca5c1a7825cf22e" => :high_sierra
     sha256 "01862dd45d86c83f65c57a8b3e8e26dc8ce9dc865a6d5606db7f560792c0ecbe" => :sierra
     sha256 "e9e737b3c9dbeb639f1e6dd7d43fad8589d4df9a1407b6448c8f56ddbe0eded8" => :el_capitan
+    sha256 "7c06950f88de8a945f1989b40772cb9b61a62c01b5a113a0765ee9552e1cb5f8" => :x86_64_linux
   end
 
   depends_on "gmp"
