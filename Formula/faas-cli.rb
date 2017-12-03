@@ -2,15 +2,14 @@ class FaasCli < Formula
   desc "CLI for templating and/or deploying FaaS functions"
   homepage "http://docs.get-faas.com/"
   url "https://github.com/openfaas/faas-cli.git",
-      :tag => "0.5.0",
-      :revision => "91177ec27037eccaf6e827c265a0e452e772f1ab"
+      :tag => "0.5.1",
+      :revision => "d1d38e9b2d5600a3485442b75641bf73b566313b"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "d99296c998fc2ff6297318ea21f33045f06fae7b7fc1901b9631b183772510bc" => :high_sierra
-    sha256 "d089d80543a49c8c65b3714060b7723b600ee5d815adf54263a486866756bc96" => :sierra
-    sha256 "d3c16359a6b3fbb6f7e8255b1110b50cf528f80e3be8cd1b4ff5942c65aee135" => :el_capitan
+    sha256 "fb551bfa0db0374198b07387b6ecbe1278ae12c6012cbb2389da687f343824e6" => :high_sierra
+    sha256 "d3cd94acd089f7ab4a2d301363841bffbd34d7338b7912e187420ea1551f5503" => :sierra
+    sha256 "39218f56765ec45c8288807b97d2fe4c78106d4159abca5d4d8f5958a400ded1" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -81,7 +80,7 @@ class FaasCli < Formula
       rm_rf "template"
 
       output = shell_output("#{bin}/faas-cli deploy -yaml test.yml 2>&1", 1)
-      assert_match "stat ./template/python/template.yml", output
+      assert_match "Stat ./template/python/template.yml", output
 
       assert_match "ruby", shell_output("#{bin}/faas-cli template pull 2>&1")
       assert_match "node", shell_output("#{bin}/faas-cli new --list")
