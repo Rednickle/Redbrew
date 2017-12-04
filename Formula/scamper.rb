@@ -9,6 +9,7 @@ class Scamper < Formula
     sha256 "4b168f7c545d74832238c7e20eb15ea33be7c350cbf589cadbf15f037eca086f" => :high_sierra
     sha256 "df41e331b530c669f3de0030def505a993a83b2c2800b5ae4b7e9e2ab9234d23" => :sierra
     sha256 "14c56f27c7f7acea88ebaae5606f9bc836f98e0110d340c1b1870d5f48aebe75" => :el_capitan
+    sha256 "01a5a7e1323b95f9001169ab847b49854df608f2c868ce3a38d30d913a20bc79" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
