@@ -9,6 +9,7 @@ class Ats2Postiats < Formula
     sha256 "b68cf423d03e8a3cb372df57eede48e72b26d6fce24faeb2bac84856ac25c7a5" => :high_sierra
     sha256 "8c08cc614c4d67faf13d6d9c7b7be5fb7fcca00d3721f4928c7dd9f58401d0d1" => :sierra
     sha256 "4cfd10d974ee7e0ee570adb733785a7d122262e1ea0a5dc825b51eca9409f12d" => :el_capitan
+    sha256 "280e0db5f45d2397f0639734f269265694abf768ff8eb9cd60698db03d544dc7" => :x86_64_linux
   end
 
   depends_on "gmp"
