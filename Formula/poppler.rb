@@ -1,14 +1,13 @@
 class Poppler < Formula
   desc "PDF rendering library (based on the xpdf-3.0 code base)"
   homepage "https://poppler.freedesktop.org/"
-  url "https://poppler.freedesktop.org/poppler-0.61.1.tar.xz"
-  sha256 "1266096343f5163c1a585124e9a6d44474e1345de5cdfe55dc7b47357bcfcda9"
+  url "https://poppler.freedesktop.org/poppler-0.62.0.tar.xz"
+  sha256 "5b9a73dfd4d6f61d165ada1e4f0abd2d420494bf9d0b1c15d0db3f7b83a729c6"
 
   bottle do
-    sha256 "19c1f79d20eb82931cf288cd66da19972537f3bb6862d31f05ee13fba69ad295" => :high_sierra
-    sha256 "a81f8e5c998238f2c399c4917eff6b14ef1fa708841ff5b21e0a868391071e4b" => :sierra
-    sha256 "1621eced6c3d6d11a1e04df49e0d1619a465f8922a47f307e21855ceb1e77159" => :el_capitan
-    sha256 "78374c599fd79160cdc81d57abaa27246f88e916398420fd752f3ef7162af393" => :x86_64_linux
+    sha256 "e7ef8133d2a55b7b9d060e1bb39e85daa421805315b78cdaac2eb74e6ee7e50b" => :high_sierra
+    sha256 "67553e08dc541aa5db51e480b768a289095cf236279fe46defb4061783967bf8" => :sierra
+    sha256 "3797b24ecd422d96b7418c942c26937dd14af4e4e0b135c15cb1164a109ab5af" => :el_capitan
   end
 
   option "with-qt", "Build Qt5 backend"
@@ -69,7 +68,7 @@ class Poppler < Formula
     if build.with? "little-cms2"
       args << "-DENABLE_CMS=lcms2"
     else
-      args << "-DENABLE_CMS=OFF"
+      args << "-DENABLE_CMS=none"
     end
 
     system "cmake", ".", *args
