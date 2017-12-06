@@ -8,6 +8,7 @@ class Gmime < Formula
     sha256 "d046da22ebd37b9071a9d3485b85035b77c2484628bcd626dc0a722417992d5b" => :high_sierra
     sha256 "f0dda96e5c79eaec0b115b8de98888c59bbe16705bfa798f1b89b8e887f7cbee" => :sierra
     sha256 "fc9b749c6f50cf3973af08c7ad07d036b6411905ea2356a7f110246b0fe832c0" => :el_capitan
+    sha256 "5e891703feb7bcfdb0f733578c2162c182ac706c2b7ad2c178c21ee75a672f48" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
