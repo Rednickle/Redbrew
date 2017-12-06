@@ -11,6 +11,7 @@ class GandiCli < Formula
     sha256 "e10419a340f36c6dc7c084bcc2a11e6842518e269d6d1556e24371c608d42797" => :high_sierra
     sha256 "e4c50c0808a2612f4f0e8760c67bc8881e0e6298e54e97209c146e18f5c7f37e" => :sierra
     sha256 "b60eddd8819423f9baf6f4a3b4ee1df5c8996bd35094170384145a5eefa15cff" => :el_capitan
+    sha256 "448ceaeb90f03b9e279a39e57cdb1da57317a793bb519dd8e179d5f5f777ccb0" => :x86_64_linux
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
