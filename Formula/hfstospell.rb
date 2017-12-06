@@ -3,14 +3,13 @@ class Hfstospell < Formula
   homepage "https://hfst.github.io/"
   url "https://github.com/hfst/hfst-ospell/releases/download/v0.4.5/hfstospell-0.4.5.tar.gz"
   sha256 "cf10817d1d82f0a7268992ab6ccf475fae2d838e6b9fc59eb6db38e9c21a311e"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "4caf4783345654c7cdea9d47ffabc6cfb4b77f01d98de626e6b0e65c4e5cb7ac" => :high_sierra
-    sha256 "6d42bafd9ece439af37329183b65644973e8a64bf1b4a93a13fe543d8ecdbe38" => :sierra
-    sha256 "e6c21f06dc9a48e9106b26598db0fad40f4cf98310818e4ec1659ca5228614e9" => :el_capitan
-    sha256 "749db395f939581fbf9c7302caea13f7defab3d14d76e8829e0d2e50f7673558" => :yosemite
-    sha256 "754279b3d2e133433fe8f0dd6c37acf10dc2282534d3837e77d81124ff61c9ef" => :x86_64_linux
+    sha256 "2314e93dcc176c5f9e9da0abefc25fd1ec7367eef0aa36a1d84ff2032a770304" => :high_sierra
+    sha256 "bc9c8a3a8aa90fd6fa47b6137f6d7a5382bf93a1af4968598645bb065c8982c7" => :sierra
+    sha256 "8b1cb189c4c13aa258ac656807821409932ff161392c663ef0ad5fd217282483" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

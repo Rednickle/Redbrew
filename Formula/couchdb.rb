@@ -3,11 +3,12 @@ class Couchdb < Formula
   homepage "https://couchdb.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=/couchdb/source/1.7.1/apache-couchdb-1.7.1.tar.gz"
   sha256 "91200aa6fbc6fa5e2f3d78ef40e39d8c1ec7c83ea1c2cd730d270658735b2cad"
+  revision 1
 
   bottle do
-    sha256 "84c03a7294b36bad1a8010d781fc1eb24d86cdbc1805a01e6ad13cb13bcf1c7c" => :high_sierra
-    sha256 "f4d81091853d092c194f1fd30ef0fcae85ea870e0adc44d5aef09f64ead7435d" => :sierra
-    sha256 "0ed486ff8a74c2e7f09328dee04114324661b78e77200cd6d05f1e9fe76bebe9" => :el_capitan
+    sha256 "a7fcfe0f31303b89adb502c69a67dead903183c6fbc29faced7898533f263d0b" => :high_sierra
+    sha256 "d9c0cd294347db3452540bc14903d45060fef65b83379844669f518b2dc30aba" => :sierra
+    sha256 "ec03d65dee109b5f4088e6cc72a595971358723a8102ee0bf568fac699552843" => :el_capitan
   end
 
   head do

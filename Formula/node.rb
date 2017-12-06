@@ -1,6 +1,7 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
+  revision 1
 
   stable do
     url "https://nodejs.org/dist/v8.9.1/node-v8.9.1.tar.xz"
@@ -15,10 +16,9 @@ class Node < Formula
   end
 
   bottle do
-    sha256 "0600f98fdc2f2e3679bb3f4f7aae5f8fc7a7b905114c09b5cef2f1f9cc3775b3" => :high_sierra
-    sha256 "c112e694699cfc7f2a621e690667e11135ef71c00dcfa4755e98f73f96992d48" => :sierra
-    sha256 "732cd9c6bc10cdfb9e4f18afb0d193e96a26339646b602e65849b0637c62df6d" => :el_capitan
-    sha256 "5a46053fadd793096c12bc2ac0ca68a6579d279f17f740979f6b5cb5a28ef739" => :x86_64_linux
+    sha256 "213c0f0d98130bbfd81b4259c9e9dfcea0d6652ec9c9cbfc40f25d92adcc67d0" => :high_sierra
+    sha256 "0dd466e57da4f9fd39ca9508411f043d6c2d701309f4ea351d74ab9e3708511b" => :sierra
+    sha256 "bbcc1813e11dbd1c3dba995456b5e0d86ea4cf25690dec9b51d7b8b9cdf0458d" => :el_capitan
   end
 
   devel do
