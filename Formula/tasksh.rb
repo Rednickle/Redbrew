@@ -10,6 +10,7 @@ class Tasksh < Formula
     sha256 "17f99be8d0aea4c43877fbfb121b7989047f04650ccffa85e948859e8ee51e0b" => :high_sierra
     sha256 "fd1b333c777401c53d5ddc8aaf52150a2a15fea4230a91d457d9d99ce2819ee7" => :sierra
     sha256 "d695adcf10582123053612d98ed4bf988b22c50919598bf167bc2e62db142352" => :el_capitan
+    sha256 "eca60f6195117a4fce9b80aa4e6d5c1d72e56231b6893d2812694565d01b2da0" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
