@@ -9,6 +9,7 @@ class SqlTranslator < Formula
     sha256 "f87e7806b60397f81c5809064461122212e0f315c537d56bf57c96f817ccbf15" => :high_sierra
     sha256 "818830904b111492162e3d4b15c6a60a8d8bc9a9ee36177d58a8a8a5cfc19852" => :sierra
     sha256 "da952c02e589eb260aa425983183edccd0d83b29a12d2e863e9f0cfee6f10dba" => :el_capitan
+    sha256 "3eadc0a43a7f1d5cc36b2ae1074225e81a4ec81fe74cdd409d6116833a76d9ed" => :x86_64_linux
   end
 
   def install
