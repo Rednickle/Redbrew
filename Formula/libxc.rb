@@ -1,16 +1,14 @@
 class Libxc < Formula
   desc "Library of exchange and correlation functionals for codes"
   homepage "http://octopus-code.org/wiki/Libxc"
-  url "http://www.tddft.org/programs/octopus/down.php?file=libxc/libxc-3.0.0.tar.gz"
-  sha256 "5542b99042c09b2925f2e3700d769cda4fb411b476d446c833ea28c6bfa8792a"
-  revision 1
+  url "http://www.tddft.org/programs/octopus/down.php?file=libxc/3.0.1/libxc-3.0.1.tar.gz"
+  sha256 "836692f2ab60ec3aca0cca105ed5d0baa7d182be07cc9d0daa7b80ee1362caf7"
 
   bottle do
     cellar :any
-    sha256 "d3322d32b265367ac0c798073dd6b68394faa006c88b9aedbe88138b92930afe" => :high_sierra
-    sha256 "984695d0b1ffadebe99d03c5c9061740bb45eaa6024595bb675213d388a3cebf" => :sierra
-    sha256 "a5f71cb519b4573600046acfa3203febeb9bc56e79c89978289421dc8e07be01" => :el_capitan
-    sha256 "729c2a9d858dae15cdc960c6a816ae6f153307c078cc2b21cad51263f0b27879" => :yosemite
+    sha256 "486f2f22de676ceaf711a7203de362038d7f5aa1908bef486bb25fe2bb9a1948" => :high_sierra
+    sha256 "79cfab56e69b107c8bc616ef1348d7ab1ea969a5283001abd79c689159f51e68" => :sierra
+    sha256 "6618cfcb1cd1a7d69991e97fbc1cda0d67b0dc1f99232057cc0cac9895e031e6" => :el_capitan
   end
 
   depends_on :fortran
@@ -21,9 +19,6 @@ class Libxc < Formula
                           "FCCPP=#{ENV.fc} -E -x c",
                           "CC=#{ENV.cc}",
                           "CFLAGS=-pipe"
-    system "make"
-    # Disable testsuite, as of 3.0.0 is fails due to upstream issue: http://www.tddft.org/trac/libxc/ticket/22
-    # system "make", "check"
     system "make", "install"
   end
 

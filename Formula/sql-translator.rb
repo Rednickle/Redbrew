@@ -1,15 +1,14 @@
 class SqlTranslator < Formula
   desc "Manipulate structured data definitions (SQL and more)"
   homepage "https://github.com/dbsrgits/sql-translator/"
-  url "https://cpan.metacpan.org/authors/id/I/IL/ILMARI/SQL-Translator-0.11022.tar.gz"
-  sha256 "f6f98d26d19bc2b092053191bf85911729b51d110c7372e52852c9ed4798b874"
+  url "https://cpan.metacpan.org/authors/id/I/IL/ILMARI/SQL-Translator-0.11023.tar.gz"
+  sha256 "5905a47b2861a11baa90b594f7d8f385a348e66c052cb935e3d78723c5a93b40"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "df466a30cb68a8a08b1357006d7ebfda5c8916022dec5ea07e2bc460b19c7f45" => :high_sierra
-    sha256 "985aed14180365adb98a1ac7f53886e734407d4bb13718913bb90f13e6118fa7" => :sierra
-    sha256 "1303b6f25378895b08f1097e45771c0cab3b9d590f5089b7681d8c98572d228f" => :el_capitan
-    sha256 "17a9d8b4f483dbf5e20981abee273890bc2e0b0cb70a388b3b3be75f5ae5b438" => :x86_64_linux
+    sha256 "f87e7806b60397f81c5809064461122212e0f315c537d56bf57c96f817ccbf15" => :high_sierra
+    sha256 "818830904b111492162e3d4b15c6a60a8d8bc9a9ee36177d58a8a8a5cfc19852" => :sierra
+    sha256 "da952c02e589eb260aa425983183edccd0d83b29a12d2e863e9f0cfee6f10dba" => :el_capitan
   end
 
   def install

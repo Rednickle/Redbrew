@@ -3,15 +3,15 @@ class Osc < Formula
 
   desc "The command-line interface to work with an Open Build Service"
   homepage "https://github.com/openSUSE/osc"
-  url "https://github.com/openSUSE/osc/archive/0.162.0.tar.gz"
-  sha256 "34b853e1e27c526fb5dccc45084524612c627fdd8e2c0342ec60ab391063aae9"
+  url "https://github.com/openSUSE/osc/archive/0.162.1.tar.gz"
+  sha256 "529d627bf10117f43f52f6e6db09e9663474ae984b7be93cae9a686b52bd932c"
   head "https://github.com/openSUSE/osc.git"
 
   bottle do
     cellar :any
-    sha256 "30f042a82a07868235ca6493c10325bc614ac0c87faf0eff175dcbf72d916ffb" => :high_sierra
-    sha256 "2b2615e95962c4e7a73fb3f423cc2f18cd871be9f7d2591e477378208ef99402" => :sierra
-    sha256 "546882a5ec44a9cc4bc703c697f215a702f0bc66db655eeb0269af262927a9b2" => :el_capitan
+    sha256 "5a6ceb89aa5c491bd61e53107dd9b28f10c8393791158f5b8ecf034dbdbc7d6d" => :high_sierra
+    sha256 "0ca18dc46293ce26f11e46bfc18670dc036b7c692608a93b2ab306c80bbaa695" => :sierra
+    sha256 "043bdca5680a6bf33dc77a570263e1745c1d245f44dddd3b41381b652422bfa7" => :el_capitan
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
