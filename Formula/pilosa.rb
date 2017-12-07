@@ -3,15 +3,14 @@ require "language/go"
 class Pilosa < Formula
   desc "Distributed bitmap index that queries across data sets"
   homepage "https://www.pilosa.com"
-  url "https://github.com/pilosa/pilosa/archive/v0.8.1.tar.gz"
-  sha256 "52ff3b46a4ba05a056afa96609d7f9c73b9b4650b5b4af54c1a0cea58907357b"
+  url "https://github.com/pilosa/pilosa/archive/v0.8.2.tar.gz"
+  sha256 "130d6b37378f7dc0b9512a573b49bfaa95580606c770b999328fe78fd233869e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e20e744e82449c1ce0a60b6086df9d30c71ca8da06bd3850e87dd75bd4556e00" => :high_sierra
-    sha256 "aa75078a4834c9b8033e2f3a076072ac290ce9fe5d5cbc86799cfe94982cbe9b" => :sierra
-    sha256 "d7ad7bce575ee00a0580404799ecad8aaddba131c88f1075a4fe56e499f31f32" => :el_capitan
-    sha256 "3802d9461848eb775063f51bcc10f5b771659c32ccd04a6ee2b1f43774cc3cf5" => :x86_64_linux
+    sha256 "14ffaaf0f050f8724b5e13093f8621ab7231f3ce40d84e558ed09f9877b55afb" => :high_sierra
+    sha256 "642716113530750a75640034630194b06c599e1b4226f3d74cb795d953835506" => :sierra
+    sha256 "f299ff27a4eab01db8c178ac234013c7ebd362882ad39d1edc36906daa9ac013" => :el_capitan
   end
 
   depends_on "go" => :build

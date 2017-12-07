@@ -5,14 +5,14 @@ class Ansible < Formula
   homepage "https://www.ansible.com/"
   url "https://releases.ansible.com/ansible/ansible-2.4.2.0.tar.gz"
   sha256 "315f1580b20bbc2c2f1104f8b5e548c6b4cac943b88711639c5e0d4dfc4d7658"
+  revision 1
   head "https://github.com/ansible/ansible.git", :branch => "devel"
 
   bottle do
     cellar :any
-    sha256 "954f2e17d5ccb2c466d2775589b69313b0f79e9e1762bf7bbbec87cab3a3b364" => :high_sierra
-    sha256 "c18b6617a6ecd523a394a9358bc0679eaddef99fbf1f956dfbab9c6a70c21a77" => :sierra
-    sha256 "df00c0c0294cc2806071abc574b8fb132f5760e63e363994c3a4e7c11942ec69" => :el_capitan
-    sha256 "dd2a59376af288d25d482db75887ec7d96d0e40df9ca9953dd3786b2e9a0eecd" => :x86_64_linux
+    sha256 "46df64427c738857044796801c44fa2e6d5a14ce74880eae1f2523096df79952" => :high_sierra
+    sha256 "fa03a18e1af0e5c0cb5e5869488b4ba6933c78d6a2a58f879443e53425455358" => :sierra
+    sha256 "c20d3f73b4e004c21861deb9654cf148e946ac0e526e7e888b85dde8640684e7" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -76,10 +76,9 @@ class Ansible < Formula
     sha256 "6007daf714d0cd5524bbe436e2d42b3c20e68da66289559341e48d2cd6d25811"
   end
 
-  # Use < 2.9 until https://github.com/ansible/ansible/issues/23779 is resolved
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/5f/bd/5815d4d925a2b8cbbb4b4960f018441b0c65f24ba29f3bdcfb3c8218a307/Jinja2-2.8.1.tar.gz"
-    sha256 "35341f3a97b46327b3ef1eb624aadea87a535b8f50863036e085e7c426ac5891"
+    url "https://files.pythonhosted.org/packages/56/e6/332789f295cf22308386cf5bbd1f4e00ed11484299c5d7383378cf48ba47/Jinja2-2.10.tar.gz"
+    sha256 "f84be1bb0040caca4cea721fcbbbbd61f9be9464ca236387158b0feea01914a4"
   end
 
   resource "MarkupSafe" do
