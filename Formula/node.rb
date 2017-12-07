@@ -19,6 +19,7 @@ class Node < Formula
     sha256 "213c0f0d98130bbfd81b4259c9e9dfcea0d6652ec9c9cbfc40f25d92adcc67d0" => :high_sierra
     sha256 "0dd466e57da4f9fd39ca9508411f043d6c2d701309f4ea351d74ab9e3708511b" => :sierra
     sha256 "bbcc1813e11dbd1c3dba995456b5e0d86ea4cf25690dec9b51d7b8b9cdf0458d" => :el_capitan
+    sha256 "74784517fa0737e41776b56f45c33240d41f9ba52352a9542e58e92b80119069" => :x86_64_linux
   end
 
   devel do
