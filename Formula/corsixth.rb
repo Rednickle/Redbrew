@@ -1,7 +1,7 @@
 class Corsixth < Formula
   desc "Open source clone of Theme Hospital"
   homepage "https://github.com/CorsixTH/CorsixTH"
-  revision 1
+  revision 2
   head "https://github.com/CorsixTH/CorsixTH.git"
 
   stable do
@@ -16,10 +16,9 @@ class Corsixth < Formula
   end
   bottle do
     cellar :any
-    sha256 "5e338a006640ff951d2d087317daeae35936b159465ab180b0132eba69b2f412" => :high_sierra
-    sha256 "ce70fb520401ead2b042a2322887a4e04d84ff3ee94ff0895df63603930570b8" => :sierra
-    sha256 "b3c2a857a44b0072b0499767f9bfe5c7ef562038351481ab4c647f48e52bbc4f" => :el_capitan
-    sha256 "879015e727a6decec4d24f65d810890caa766107339e81f1e6c6b96a70e1b944" => :yosemite
+    sha256 "8ad4f5e7b203376341eed4b887f53fb7c6642d36dc18cdc16f10abb8ab9b777e" => :high_sierra
+    sha256 "8f64c1ac8341a56c48c2ebceaa6ce24bf2321474217f6e9a3738c233108f6dfb" => :sierra
+    sha256 "1216a1356bcff19b334a00bf97f983047b216ad30b3edb0fef2125c0749ec563" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -46,8 +45,8 @@ class Corsixth < Formula
     ENV["FULL_PRODUCT_NAME"] = "CorsixTH.app"
 
     luapath = libexec/"vendor"
-    ENV["LUA_PATH"] = "#{luapath}/share/lua/5.2/?.lua"
-    ENV["LUA_CPATH"] = "#{luapath}/lib/lua/5.2/?.so"
+    ENV["LUA_PATH"] = "#{luapath}/share/lua/5.3/?.lua"
+    ENV["LUA_CPATH"] = "#{luapath}/lib/lua/5.3/?.so"
 
     resources.each do |r|
       r.stage do
@@ -55,14 +54,10 @@ class Corsixth < Formula
       end
     end
 
-    # Ensures it uses the intended Lua (5.2) rather than 5.1/5.3 or
-    # attempting to use a combination of two Luas, which can happen.
-    inreplace "CMake/FindLua.cmake" do |s|
-      s.gsub! "lua53 lua5.3 lua-5.3 liblua.5.3.dylib", ""
-      s.gsub! "include/lua53 include/lua5.3 include/lua-5.3", "include"
-    end
-
-    system "cmake", ".", *std_cmake_args
+    system "cmake", ".", "-DLUA_INCLUDE_DIR=#{Formula["lua"].opt_include}",
+                         "-DLUA_LIBRARY=#{Formula["lua"].opt_lib}/liblua.dylib",
+                         "-DLUA_PROGRAM_PATH=#{Formula["lua"].opt_bin}/lua",
+                         *std_cmake_args
     system "make"
     prefix.install "CorsixTH/CorsixTH.app"
 
@@ -73,6 +68,6 @@ class Corsixth < Formula
   test do
     app = prefix/"CorsixTH.app/Contents/MacOS/CorsixTH"
     assert_includes MachO::Tools.dylibs(app),
-                    "#{Formula["lua"].opt_lib}/liblua.5.2.dylib"
+                    "#{Formula["lua"].opt_lib}/liblua.5.3.dylib"
   end
 end

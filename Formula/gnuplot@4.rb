@@ -3,14 +3,12 @@ class GnuplotAT4 < Formula
   homepage "http://www.gnuplot.info"
   url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/4.6.7/gnuplot-4.6.7.tar.gz"
   sha256 "26d4d17a00e9dcf77a4e64a28a3b2922645b8bbfe114c0afd2b701ac91235980"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "858c52906786fc159c6990adac2a3fb871a9c477145aa2b5d063fbe9016943d4" => :high_sierra
-    sha256 "6cd2fac81f5d126176e64b4930419fb5c08d871c23241d357bcb960f0f7fc66c" => :sierra
-    sha256 "05c8929edada3b90266c4cb44ef4d69861fa6883cf7b8121f66089f148506875" => :el_capitan
-    sha256 "2c56072a9b684840d6255ac2652a3b9fd87b2f5b115e471e5981ff33a3e4e54c" => :yosemite
-    sha256 "0d323eed3fb62c67c948098a2435f688c0b719b9ab723a6373dd6f4d28410084" => :x86_64_linux # glibc 2.19
+    sha256 "27435780b2fd1a5aa6cae54d829758af3e67f09814e393af2a4b99ba7680be4f" => :high_sierra
+    sha256 "22c1e2e18e582e43a234b4e4d98c1a332093d95c20b5bfd05cd74317c9bafaad" => :sierra
+    sha256 "bf1eda673d961f221a4183993e966e6ff93818a2edb566b18e0d80f2cf0daed3" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -18,14 +16,16 @@ class GnuplotAT4 < Formula
   option "with-pdflib-lite", "Build the PDF terminal using pdflib-lite"
   option "with-wxmac", "Build the wxWidgets terminal using pango"
   option "with-cairo", "Build the Cairo based terminals"
-  option "without-lua", "Build without the lua/TikZ terminal"
+  option "without-lua@5.1", "Build without the lua/TikZ terminal"
   option "with-test", "Verify the build with make check (1 min)"
   option "without-emacs", "Do not build Emacs lisp files"
   option "with-aquaterm", "Build with AquaTerm support"
   option "with-x11", "Build with X11 support"
 
+  deprecated_option "without-lua" => "without-lua@5.1"
+
   depends_on "pkg-config" => :build
-  depends_on "lua" => :recommended
+  depends_on "lua@5.1" => :recommended
   depends_on "gd" => :recommended
   depends_on "readline"
   depends_on "libpng"
@@ -38,6 +38,8 @@ class GnuplotAT4 < Formula
   depends_on :x11 => :optional
 
   def install
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["lua@5.1"].opt_libexec/"lib/pkgconfig"
+
     if build.with? "aquaterm"
       # Add "/Library/Frameworks" to the default framework search path, so that an
       # installed AquaTerm framework can be found. Brew does not add this path
@@ -69,7 +71,7 @@ class GnuplotAT4 < Formula
       args << "--without-cairo" if build.without? "cairo"
     end
 
-    args << "--without-lua" if build.without? "lua"
+    args << "--without-lua" if build.without? "lua@5.1"
     args << (build.with?("emacs") ? "--with-lispdir=#{elisp}" : "--without-lisp-files")
     args << (build.with?("aquaterm") ? "--with-aquaterm" : "--without-aquaterm")
     args << (build.with?("x11") ? "--with-x" : "--without-x")

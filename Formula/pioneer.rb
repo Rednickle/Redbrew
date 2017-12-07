@@ -3,12 +3,13 @@ class Pioneer < Formula
   homepage "https://pioneerspacesim.net/"
   url "https://github.com/pioneerspacesim/pioneer/archive/20171001.tar.gz"
   sha256 "154118bd3dac2f9b8ea43a837bcb967abcc8c3a8ee5ab61d35183bae85e8b0db"
+  revision 1
   head "https://github.com/pioneerspacesim/pioneer.git"
 
   bottle do
-    sha256 "8a6ba36e5a1a04c72fee3ef5921762108a6a7be7ba7b31c9dade6faa220f8c78" => :high_sierra
-    sha256 "01e84d6dd7be3f2444df347ecfdf8bf34a02b7ac6627b7d18b2fe4e3b258f214" => :sierra
-    sha256 "76430af8d72959d5f2ae2224c85456d57e397028bd48181a1f1de0d62bf60748" => :el_capitan
+    sha256 "65265e875bbc35e9e90f7fa30593b21c32f4c014c8a4682ea2e9c6c9319ff671" => :high_sierra
+    sha256 "92d9c019e5073d48a0394258e1b0f5685797a0aa2a696b485500562a98560928" => :sierra
+    sha256 "8a459fcca3bdcd04caaae6c3613ad0dd351ad535a7b6b4f2359a3b58ed382abf" => :el_capitan
   end
 
   depends_on "autoconf" => :build
@@ -21,7 +22,6 @@ class Pioneer < Formula
   depends_on "libsigc++"
   depends_on "libvorbis"
   depends_on "libpng"
-  depends_on "lua"
 
   needs :cxx11
 
@@ -33,8 +33,7 @@ class Pioneer < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
-                          "--with-version=#{version}",
-                          "--with-external-liblua"
+                          "--with-version=#{version}"
     system "make", "install"
   end
 
