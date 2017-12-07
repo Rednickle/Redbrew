@@ -8,6 +8,7 @@ class Krb5 < Formula
     sha256 "c31f35f264498fbf82bfb940e6c671e53ca1acf9db338ff6bfbc11c43e790a19" => :high_sierra
     sha256 "dbf24c411aa982dcc5c1496ee026205f8fb5f6e51531490e1d7f4aafd14a3473" => :sierra
     sha256 "542388bcad53bf98142ed2803ab1054be4e2bbb89920a883f504fdd254db5fae" => :el_capitan
+    sha256 "2d92387f17f61d0e7a8979474e307078c106201e1ffd2e82a41239e3f53848e3" => :x86_64_linux
   end
 
   keg_only :provided_by_osx
