@@ -11,6 +11,7 @@ class Slackcat < Formula
     sha256 "d1bcaa0c2b10cb857978689be04d2a75865ea353259a5531a3da124fdf239eac" => :high_sierra
     sha256 "ba66b3b7c0d0376edf14e8b951026bd79b8d2f52cd8d3826ce4a1fc3b11d7004" => :sierra
     sha256 "b97794811a471a2cd1cb0ef9cd0045b2e2b68502c7c979239eda0b1ec56c9db3" => :el_capitan
+    sha256 "b2bdffa815020b9b360ea4f215f203a5911384a8ec7cf4c0de142478e1c6af4e" => :x86_64_linux
   end
 
   depends_on "go" => :build
