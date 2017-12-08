@@ -8,6 +8,7 @@ class Menhir < Formula
     sha256 "314f530185298fcfad36331846e019f34866375c958cb6b61180263eb410bb3b" => :high_sierra
     sha256 "00816e8642823c64930316235f1d24a83eb6189825d5d49454fc6aea8b4bae53" => :sierra
     sha256 "7f66544bf41a1419eb3863bd9ce165c4ef765d0730386c64844e3768c085d4e3" => :el_capitan
+    sha256 "9206290fa1b18263c1f2de0027c7aa9c5d3e8c16afb99465bde077d6a1735f74" => :x86_64_linux
   end
 
   depends_on "ocamlbuild" => :build
