@@ -11,6 +11,7 @@ class Pqiv < Formula
     sha256 "13281416fdaab777ae5916d89eb56cee84924e968b7e16f41fdb16aca7822945" => :high_sierra
     sha256 "032562d45f4e1adf14aef733377e6da187266b29cd43829822d0a14bdf34bf41" => :sierra
     sha256 "5709bce082c1cc02a0c71c4e98d2f6840e6d752fcc23e51cbc73fcdbe2af8680" => :el_capitan
+    sha256 "b965f05da877dfff5341eb1c7408580cb7a727e42f35efe1d0fc2fc47ae363de" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
