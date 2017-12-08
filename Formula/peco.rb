@@ -1,17 +1,15 @@
 class Peco < Formula
   desc "Simplistic interactive filtering tool"
   homepage "https://github.com/peco/peco"
-  url "https://github.com/peco/peco/archive/v0.5.1.tar.gz"
-  sha256 "1acbf8f7f077208a8d4406a37be88783432455d6ff905e0a19168c7c2a34f1c8"
+  url "https://github.com/peco/peco/archive/v0.5.2.tar.gz"
+  sha256 "347593999c27d9e67bbd1add38de065d2b586cf9d9758c3a0873c69287ca6986"
   head "https://github.com/peco/peco.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e5adad1de9144d6ef9b5c53dd713272e47dbf1ba13fecdc92059f54cd342e7fa" => :high_sierra
-    sha256 "78e54d92559b862a2620392cd0274e59693718a69c1a133d2b0d932889bad2c6" => :sierra
-    sha256 "d91fdde06f21ab5d27ff2fba0118facfbda8f77d9d3cdfb8368bb1a4678e2470" => :el_capitan
-    sha256 "0740fec8c778247f3bbeac76376fff7097cc8ed756d0c029f106c21fa105705e" => :yosemite
-    sha256 "e2b137b8ebec18377b36d07ebdbb833d319495ac44cac6bcee9394e8dd31e502" => :x86_64_linux # glibc 2.19
+    sha256 "ae89ca515edd1ea135391c49b5bd59a58b61429b5853c8637270508704e7e49a" => :high_sierra
+    sha256 "e887238702e3e59f087e4b61d35fc600c62e2f24be735199e500b97b87e10ac2" => :sierra
+    sha256 "6469680e257c01946da55709a43432cd8036bfbd42f0ec19ce6dc61c8a29a76d" => :el_capitan
   end
 
   depends_on "glide" => :build
