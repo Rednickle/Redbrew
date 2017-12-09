@@ -8,6 +8,7 @@ class GstValidate < Formula
     sha256 "0b8e22d0ada1de4fea3c343fe26858527bc4818cecef4850ab46967bea74fc80" => :high_sierra
     sha256 "1edcd085b4b312ccbaf986e6eca15b2c7c8ed22655681f20947802bd1d3e2aab" => :sierra
     sha256 "209e3247c566b3de9a2d81ed1c62197cf969d444144f17abcc4fcb092853d274" => :el_capitan
+    sha256 "b7d90def0a25ef9191b6dbe2cdb7497629f12a8af4da78d2caccf63867df4176" => :x86_64_linux
   end
 
   head do
