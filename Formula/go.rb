@@ -21,6 +21,15 @@ class Go < Formula
     sha256 "cdd56c9910593fbae1768913371e4569af1c9e5cfae4b7c383c7ac2d3c07320c" => :x86_64_linux
   end
 
+  devel do
+    url "https://dl.google.com/go/go1.10beta1.src.tar.gz"
+    sha256 "841df62b20fd915d83a2e43b7d043c2a3781c299de78abc45480eec575186b6b"
+
+    resource "gotools" do
+      url "https://go.googlesource.com/tools.git"
+    end
+  end
+
   head do
     url "https://go.googlesource.com/go.git"
 
