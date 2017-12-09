@@ -10,6 +10,7 @@ class Peco < Formula
     sha256 "ae89ca515edd1ea135391c49b5bd59a58b61429b5853c8637270508704e7e49a" => :high_sierra
     sha256 "e887238702e3e59f087e4b61d35fc600c62e2f24be735199e500b97b87e10ac2" => :sierra
     sha256 "6469680e257c01946da55709a43432cd8036bfbd42f0ec19ce6dc61c8a29a76d" => :el_capitan
+    sha256 "94b0fdd02d0a3044fe93689003fbced8c7abbf422c9ee080143172dd18609452" => :x86_64_linux
   end
 
   depends_on "glide" => :build
