@@ -1,24 +1,17 @@
-class Node < Formula
+class NodeAT8 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v9.2.1/node-v9.2.1.tar.xz"
-  sha256 "200de3c145e79d5da5361ab079df199cec13dbd10902df9cf9a75c6546cd4582"
-  head "https://github.com/nodejs/node.git"
+  url "https://nodejs.org/dist/v8.9.3/node-v8.9.3.tar.xz"
+  sha256 "748ddb3baa6b85e6a56e38aacd066586e7581952f84a92bc8152248a9be6b2da"
+  head "https://github.com/nodejs/node.git", :branch => "v8.x-staging"
 
   bottle do
-    sha256 "04d9c714ae4c1a6e6eb631470140f4d13b7263a8707b4cabc6b1b9c496fc6021" => :high_sierra
-    sha256 "575fd2dcfa69d4cdb6c36b7b74b1d7c801536fe7f22a23ce44010629b777da9c" => :sierra
-    sha256 "3793af762a4115ac08157392dad9c24730531d6c97fe5d35cf068256e89a7fd1" => :el_capitan
+    sha256 "899582fed0fa0ed47288d738823dd3c5fc7a995de793c71dbc52a0a8acfac4d3" => :high_sierra
+    sha256 "fd37dad5fcf40255a85257303f8e3c2041b4c548f56bcf07e431a11d1c49dc60" => :sierra
+    sha256 "2377e6e333fedaac08cf9b5fffe414078c810b4ec5f00255304c13480039df2b" => :el_capitan
   end
 
-  head do
-    url "https://github.com/nodejs/node.git"
-
-    resource "npm" do
-      url "https://registry.npmjs.org/npm/-/npm-5.6.0.tgz"
-      sha256 "b1f0de3767136c1d7b4b0f10e6eb2fb3397e2fe11e4c9cddcd0030ad1af9eddd"
-    end
-  end
+  keg_only :versioned_formula
 
   option "with-debug", "Build with debugger hooks"
   option "with-openssl", "Build against Homebrew's OpenSSL instead of the bundled OpenSSL"
@@ -26,14 +19,7 @@ class Node < Formula
   option "without-completion", "npm bash completion will not be installed"
   option "without-icu4c", "Build with small-icu (English only) instead of system-icu (all locales)"
 
-  deprecated_option "enable-debug" => "with-debug"
-
-  if OS.mac?
-    depends_on :python => :build if MacOS.version <= :snow_leopard
-  else
-    # Needed at runtime (for the tests on Linux for example)
-    depends_on :python
-  end
+  depends_on :python => :build if MacOS.version <= :snow_leopard
   depends_on "pkg-config" => :build
   depends_on "icu4c" => :recommended
   depends_on "openssl" => :optional
@@ -46,17 +32,13 @@ class Node < Formula
     fails_with :gcc => n
   end
 
-  # We track major/minor from upstream Node releases.
-  # We will accept *important* npm patch releases when necessary.
+  # Keep in sync with main node formula
   resource "npm" do
     url "https://registry.npmjs.org/npm/-/npm-5.6.0.tgz"
     sha256 "b1f0de3767136c1d7b4b0f10e6eb2fb3397e2fe11e4c9cddcd0030ad1af9eddd"
   end
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
-
     # Never install the bundled "npm", always prefer our
     # installation from tarball for better packaging control.
     args = %W[--prefix=#{prefix} --without-npm]

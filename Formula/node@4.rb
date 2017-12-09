@@ -1,15 +1,14 @@
 class NodeAT4 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v4.8.6/node-v4.8.6.tar.xz"
-  sha256 "a5b1e94f9879035387a7005a4ec9cd45a9cc2ac43ad548cd7a3b9fd4941f1774"
+  url "https://nodejs.org/dist/v4.8.7/node-v4.8.7.tar.xz"
+  sha256 "03479a8ce6affedde75d80a6c8c351a7afb5a85b8d7e5119ab6f349100e641f8"
   head "https://github.com/nodejs/node.git", :branch => "v4.x-staging"
 
   bottle do
-    sha256 "c8c62221cb2ebb08f7c9be17f86e0c9c20376fdff1d00bc284dff61ab21baa5a" => :high_sierra
-    sha256 "6bb7e7bf118b58593eb9f0b589d61cd2635dcdbc7be4e395a9bb53bd1b5568dd" => :sierra
-    sha256 "571b5cf4287542d6a580a09541f846d2b49294dbd6d803a0b0f8b38dce43b236" => :el_capitan
-    sha256 "e04d7734415c86baa99c819cc39a07e463117d6763635567436b22cb6d333bdb" => :x86_64_linux
+    sha256 "8dae44c7d34843c03af6606db7315f93dbf1730a5541ceaa6e2125b62700967c" => :high_sierra
+    sha256 "a7cceeb30fefe85695c2ad57ad2c03d2e1dbfc93f3ef998edd32a44532dc5f2f" => :sierra
+    sha256 "17570799d5b9e0e89f5a80b331544fd758ba33b93360c5f1db7c56266e846fea" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -25,8 +24,8 @@ class NodeAT4 < Formula
 
   # Keep in sync with main node formula
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-5.5.1.tgz"
-    sha256 "b8b9afb0bb6211a289f969f66ba184ca5bc83abf6a570e0853ea5185073dca6f"
+    url "https://registry.npmjs.org/npm/-/npm-5.6.0.tgz"
+    sha256 "b1f0de3767136c1d7b4b0f10e6eb2fb3397e2fe11e4c9cddcd0030ad1af9eddd"
   end
 
   resource "icu4c" do
@@ -64,10 +63,6 @@ class NodeAT4 < Formula
       bootstrap.install resource("npm")
       system "node", bootstrap/"bin/npm-cli.js", "install", "-ddd", "--global",
              "--prefix=#{libexec}", resource("npm").cached_download
-
-      # Fix from chrmoritz for ENOENT issue with @ in path to node
-      inreplace libexec/"lib/node_modules/npm/node_modules/libnpx/index.js",
-                "return child.escapeArg(npmPath, true)", "return npmPath"
 
       # The `package.json` stores integrity information about the above passed
       # in `cached_download` npm resource, which breaks `npm -g outdated npm`.
