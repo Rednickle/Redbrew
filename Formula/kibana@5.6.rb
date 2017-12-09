@@ -4,14 +4,14 @@ class KibanaAT56 < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      :tag => "v5.6.4",
-      :revision => "efd2403e605c9f695a87929083421ba09f3ac54e"
+      :tag => "v5.6.5",
+      :revision => "80f98787eb860a4e7ef9b6500cf84b65e331d1fc"
   head "https://github.com/elastic/kibana.git"
 
   bottle do
-    sha256 "69d2107515b2c050f69a7298314302a290a181d05ea97c009c45282e510f45d7" => :high_sierra
-    sha256 "a46e37480294eb0860f1ada1e32890f90916ecf0ea70176602efcfa04b907ec0" => :sierra
-    sha256 "a753db9cd0b979e49ef37ea25cd20c8695470d094c8c9a88a697e732ce9c20e2" => :el_capitan
+    sha256 "3e880f44e84bb3955e6bb8469668272355860a4f5255042959848ab1089b0ff4" => :high_sierra
+    sha256 "8974c41db25b412bc897f88f4792a902e0fe60842648f1cd972b4e97b3d3f2f4" => :sierra
+    sha256 "0da051fa54dfa07d9f48772d98bc68e582b0e1b2a26bb0a79a1bf45ca9676078" => :el_capitan
   end
 
   keg_only :versioned_formula
