@@ -9,6 +9,7 @@ class Thrift < Formula
     sha256 "d1c648d84f21b567f1468625523b78d496d49954a3f5f28ce127f3eca7c0e2e4" => :high_sierra
     sha256 "710f79cf150713e4e24ce03b605fcd3ea56651b58bb7afe64d8b4a948842616f" => :sierra
     sha256 "e6f40c95f93331dda62d7cbfe0ce4f467c17e73e4a4a05f859e29a58533b52d8" => :el_capitan
+    sha256 "9ff4a1123b5548198de5527c7bc5f7ad714cd050f72f3f760175fe69e7078b47" => :x86_64_linux
   end
 
   head do
