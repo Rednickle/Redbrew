@@ -8,6 +8,7 @@ class GstPython < Formula
     sha256 "37c0332ed18ee5d58d9db56ff22c19fb0e3cd8739c09c871794f693e0f8b5e7e" => :high_sierra
     sha256 "6598a869b0f5c14ec998d76765bce824770a277fa2a347a3cfff7057239e7145" => :sierra
     sha256 "bfc462ac51775a104b04521ed05aa12ddbd1dd9636c44d1172b80c2f0098b023" => :el_capitan
+    sha256 "b3af45b2a9e545874b169bf12b104cab11063d06ecec2b90faba9da8bbae3fd8" => :x86_64_linux
   end
 
   option "without-python", "Build without python 2 support"
