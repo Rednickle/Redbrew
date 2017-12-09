@@ -3,14 +3,14 @@ class Folly < Formula
   homepage "https://github.com/facebook/folly"
   url "https://github.com/facebook/folly/archive/v2017.12.04.00.tar.gz"
   sha256 "39888af40b052f8fff8c3a07ef05b39f3d53484b58c93c909cc9f4ea9c928a6f"
+  revision 1
   head "https://github.com/facebook/folly.git"
 
   bottle do
     cellar :any
-    sha256 "f3b0560e925a9ce2512b3da7d39f5db7f44dada1eb421ccf32cdd6cf9ef0f73c" => :high_sierra
-    sha256 "ad18d50a01d6ce6dbdaa40c2f3436dbc4acadb3da29f127042ca56fbf9eb60e8" => :sierra
-    sha256 "a6bcf7b8b6c0c7915df465322b40c79d987dab900096e7693140fe8af7d3d72c" => :el_capitan
-    sha256 "2174f534db935ac0476e1e4af2d873f6dce6bde0cec24d6fb84b3930f8d43930" => :x86_64_linux
+    sha256 "31ef13560440070b3f2331c7ffbdeb13759b0bbb4121b397f82d4541b84d831f" => :high_sierra
+    sha256 "212392309a371d1b741d49bd574e9ee349064fd5b592cf3071fac0de00dcc4a7" => :sierra
+    sha256 "9ab5739ff79c217fca14559722eb1537962e5c560ee740b46ab7d0122d9b90e8" => :el_capitan
   end
 
   depends_on "autoconf" => :build
