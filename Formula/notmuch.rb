@@ -10,6 +10,7 @@ class Notmuch < Formula
     sha256 "bc991ca4a45404087eac6a81fc1fad797d9ff5e1056665a8c6d842c31db37fd8" => :high_sierra
     sha256 "a16ac99e0ce08091080aeb1dfcc08a2014df928dd8c853bc294b46c7c1732ad6" => :sierra
     sha256 "82223bd0189a3badbcd2a377182d2f2e35066847dbf264fc6b39bec09da8d3d5" => :el_capitan
+    sha256 "9cb0423089949ef2345228f8ae9a7e3010f1d10a146ea9afeab7b05b3b1a5f77" => :x86_64_linux
   end
 
   option "without-python", "Build without python support"
