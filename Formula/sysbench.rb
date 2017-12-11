@@ -1,14 +1,13 @@
 class Sysbench < Formula
   desc "System performance benchmark tool"
   homepage "https://github.com/akopytov/sysbench"
-  url "https://github.com/akopytov/sysbench/archive/1.0.10.tar.gz"
-  sha256 "34cfe9989a4610c15359a2d88b59a09f5c18846f42ce49175953c3e600deebbe"
+  url "https://github.com/akopytov/sysbench/archive/1.0.11.tar.gz"
+  sha256 "2621d274d9103496e22c57863faec11f855f25db838fae0248be6e825a426dbe"
 
   bottle do
-    sha256 "71501daf2051bcdc9bc34047e11e532128f7a7998559bf46e7478c54d92d6292" => :high_sierra
-    sha256 "b0ca4c4ba1b18d15810ebe62bf751df313870d29b6488b5cf584b62cd518cb47" => :sierra
-    sha256 "aa258212e72d3c3460a3ad741fd27e166d2d0c532d3a772a706a459b76b467a9" => :el_capitan
-    sha256 "cdb56a9e301db0ee251c7093f66b447ce0a0168e16099c6eeaa99f877dc6112d" => :x86_64_linux
+    sha256 "ea05ab0bb421a4d7c7b4d2192ab0d483764697b83de39c212e17fa6e899fd52f" => :high_sierra
+    sha256 "2f97a304fecfbc2428b65f9f760d93177d0a655cf5009b62eebacd4111ad8dcc" => :sierra
+    sha256 "deb440f558ad154318daf9587086bf53176807ae8b3a15aff1c3bd2f73d35e18" => :el_capitan
   end
 
   depends_on "autoconf" => :build
