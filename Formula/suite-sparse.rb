@@ -9,6 +9,7 @@ class SuiteSparse < Formula
     sha256 "541d22d94ddcd237368883c891d7457c2b41c855ae10ce775354552f2dbff896" => :high_sierra
     sha256 "f8b7d69319110184afedf314c52d1fc8a26fa7c53bfe61c48351847798747589" => :sierra
     sha256 "5a2be932d3950d6c2e06d3fa8eab50eb89c40cee6aede977dbfc6f0eb586772a" => :el_capitan
+    sha256 "306a086e852065c2f71ed3c5a0981e57a55bebfbc488d66add6e9885f019230f" => :x86_64_linux
   end
 
   depends_on "metis"
