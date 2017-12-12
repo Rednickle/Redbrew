@@ -3,17 +3,15 @@
 class Qt < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/5.9/5.9.3/single/qt-everywhere-opensource-src-5.9.3.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.9/5.9.3/single/qt-everywhere-opensource-src-5.9.3.tar.xz"
-  sha256 "57acd8f03f830c2d7dc29fbe28aaa96781b2b9bdddce94196e6761a0f88c6046"
-  head "https://code.qt.io/qt/qt5.git", :branch => "5.9", :shallow => false
-  revision 1 unless OS.mac?
+  url "https://download.qt.io/official_releases/qt/5.10/5.10.0/single/qt-everywhere-src-5.10.0.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.10/5.10.0/single/qt-everywhere-opensource-src-5.10.0.tar.xz"
+  sha256 "936d4cf5d577298f4f9fdb220e85b008ae321554a5fcd38072dc327a7296230e"
+  head "https://code.qt.io/qt/qt5.git", :branch => "5.10", :shallow => false
 
   bottle do
-    sha256 "570ca1b244dbcecc74d2b7813e5659024eba1500640c84b1b6eedcd96dd1ba6f" => :high_sierra
-    sha256 "a05e2f102433b8e0eee1c8cbd0f27949c9314f7ebf237766bcf191ffdb4b6940" => :sierra
-    sha256 "42eae12f322119d24b695fdb29678b50b020dfde0a24bdd8caf4a952649ac2d0" => :el_capitan
-    sha256 "daa84f49a6460ef6ad0e260175de264d3ec7692c2cef1d7a21453f30965e2a5e" => :x86_64_linux
+    sha256 "332ab2f3eb7c13510f460c13d28a562db03297149a3615feb9e3d467fafde56c" => :high_sierra
+    sha256 "c93cf6ead1774cfa7a369c92c7d6a69154bc0dd5b48a0e7ddf3a78202c4a3dc5" => :sierra
+    sha256 "44425e23d8b9c2b8b2f50d850ca94dcd411cd89e20e057c8d6505c9056d06328" => :el_capitan
   end
 
   keg_only "Qt 5 has CMake issues when linked"
@@ -57,13 +55,16 @@ class Qt < Formula
     depends_on "linuxbrew/xorg/mesa"
   end
 
-  # Remove for >= 5.10
-  # Fix for upstream issue "macdeployqt does not work with Homebrew"
-  # See https://bugreports.qt.io/browse/QTBUG-56814
-  # Upstream commit from 23 Dec 2016 https://github.com/qt/qttools/commit/8f9b747f030bb41556831a23ec2a8e7e76fb7dc0#diff-2b6e250f93810fd9bcf9bbecf5d2be88
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a627e0a/qt5/QTBUG-56814.patch"
-    sha256 "b18e4715fcef2992f051790d3784a54900508c93350c25b0f2228cb058567142"
+  # Remove for > 5.10.0
+  # Fix "error: 'loadFileURL:allowingReadAccessToURL:' is only available on
+  # macOS 10.11 or newer [-Werror,-Wunguarded-availability]"
+  # Reported 8 Dec 2017 https://bugreports.qt.io/browse/QTBUG-65075
+  # Equivalent to upstream fix from 8 Dec 2017 https://codereview.qt-project.org/#/c/213993/
+  if OS.mac? && MacOS::Xcode.version >= "9.0"
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/9c97726e2b153099049326ade23fe24b52b778fe/qt/QTBUG-65075.diff"
+      sha256 "a51595868c6173ab53463107e0ee3355576002c32ab80897587c3607589cfd22"
+    end
   end
 
   def install
