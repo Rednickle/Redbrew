@@ -1,15 +1,13 @@
 class Advancemame < Formula
   desc "MAME with advanced video support"
   homepage "http://www.advancemame.it/"
-  url "https://github.com/amadvance/advancemame/releases/download/v3.5/advancemame-3.5.tar.gz"
-  sha256 "779b3b43e3fbdf4bb24e97c418499cd4550446494e19f5d576827242b0821814"
+  url "https://github.com/amadvance/advancemame/releases/download/v3.6/advancemame-3.6.tar.gz"
+  sha256 "6759dd524bfdf071ceb95a56df87464693a3c62df7cc3127acc7e83f9f4606cf"
 
   bottle do
-    sha256 "68814ac2f24c61b03e395f0b39141b8d1a32a39f193c25a8a1e21000bdae7556" => :high_sierra
-    sha256 "2a64703b056e341dd6ee4773038f5d4fa289ae120e64b852d103c41cffec3fee" => :sierra
-    sha256 "1f67883e185c7d2afe1bfef2ab7eac425c15c4540d648cabb40b2cde8aba0e7f" => :el_capitan
-    sha256 "1865a05529d60f846bb97b29c936aaf49f975d788d3687a7b7e87fcd0681bf3d" => :yosemite
-    sha256 "0a072a3930f59fcb28f77cff990e47c8d147f6c039ca6d9ea7af8b810f9cd7ec" => :x86_64_linux # glibc 2.19
+    sha256 "fa66fa22aa3e275bd8583113e0943590d2b8fe92d31283ca658937d44331feef" => :high_sierra
+    sha256 "68ab0490dc3beebf944a884fe1ae0b97bf05a797bfae462450cd964ac0a97831" => :sierra
+    sha256 "34e74bd32f1802e7a05683cfaee3147bd90fb1c6d10e75be40074b0495fdf97c" => :el_capitan
   end
 
   depends_on "sdl"

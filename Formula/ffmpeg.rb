@@ -1,15 +1,14 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-3.4.tar.bz2"
-  sha256 "5d8911fe6017d00c98a359d7c8e7818e48f2c0cc2c9086a986ea8cb4d478c85e"
+  url "https://ffmpeg.org/releases/ffmpeg-3.4.1.tar.bz2"
+  sha256 "f3443e20154a590ab8a9eef7bc951e8731425efc75b44ff4bee31d8a7a574a2c"
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
-    sha256 "1807e00fdfc308feaa78924e0b6991b26e6f37ea379ac82b78dca038a0f67a7b" => :high_sierra
-    sha256 "fb6b9798000d2a108b514763a08b5fe2fe9176bcb7e4676d0d8948d0e3d663b6" => :sierra
-    sha256 "82954cce27930c0416716931fda0c54bc21464394cf1c4cfe54232c670f040e0" => :el_capitan
-    sha256 "6390585b6970e793c1b10c218de5a6fd9d13204dea7e6216fd0dc607789ccfdc" => :x86_64_linux
+    sha256 "f43c9bfbe55f3e97dea63db39cbfb18e53d34796ead8be52f0d9796121427214" => :high_sierra
+    sha256 "5069b7263c6cd80702c7d388ad846c8bbea575ee7e7469f1320def2e5da6bc47" => :sierra
+    sha256 "02239274124b1c5b883cfa4da0a1e4e175d14587dd72b181cc91c1f815cadaf5" => :el_capitan
   end
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
@@ -178,6 +177,6 @@ class Ffmpeg < Formula
     # Create an example mp4 file
     mp4out = testpath/"video.mp4"
     system bin/"ffmpeg", "-filter_complex", "testsrc=rate=1:duration=1", mp4out
-    assert mp4out.exist?
+    assert_predicate mp4out, :exist?
   end
 end
