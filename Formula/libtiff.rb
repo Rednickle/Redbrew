@@ -1,17 +1,15 @@
 class Libtiff < Formula
   desc "TIFF library and utilities"
   homepage "http://libtiff.maptools.org/"
-  url "http://download.osgeo.org/libtiff/tiff-4.0.8.tar.gz"
-  mirror "https://fossies.org/linux/misc/tiff-4.0.8.tar.gz"
-  sha256 "59d7a5a8ccd92059913f246877db95a2918e6c04fb9d43fd74e5c3390dac2910"
-  revision 5
+  url "http://download.osgeo.org/libtiff/tiff-4.0.9.tar.gz"
+  mirror "https://fossies.org/linux/misc/tiff-4.0.9.tar.gz"
+  sha256 "6e7bdeec2c310734e734d19aae3a71ebe37a4d842e0e23dbb1b8921c0026cfcd"
 
   bottle do
     cellar :any
-    sha256 "62c0b911f0e0e0e999d6362088888c754422de923f450b8d718b9bf9ec353f57" => :high_sierra
-    sha256 "b47df6ebeef991de9a33768c646677e26c447c2838b59aaae4e4e701d808e87f" => :sierra
-    sha256 "1a6b89cb8cc27e38d178799ec56498447fd74a9b758428149b103f41b6005b0b" => :el_capitan
-    sha256 "579ac3b993d1a1b4044c32ca71bd1c05af0c89810b432149dc9df4d11ca1ee42" => :x86_64_linux
+    sha256 "3fba691b7c0df7b8dc941749ea5f4e4c3db3ca0b445412b0cb575aa3b1b71d37" => :high_sierra
+    sha256 "b4972b2e2a693b080518b3e2f4e749df550cbd5b4b9cd8e5773d2debce90ed69" => :sierra
+    sha256 "bffb176a37a98cc2eb75bd625d764775ff84dbef73276e7cd4fb4fb82d838b2b" => :el_capitan
   end
 
   option :cxx11
@@ -20,29 +18,6 @@ class Libtiff < Formula
   depends_on "jpeg"
   depends_on "xz" => :optional
   depends_on "zlib" unless OS.mac?
-
-  # All of these have been reported upstream & should
-  # be fixed in the next release, but please check.
-  patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.8-6.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/t/tiff/tiff_4.0.8-6.debian.tar.xz"
-    sha256 "9307f5343882fa0d8229d20f35cd03cf113dc88881bf697b0ee2b3969ffdbe72"
-    apply "patches/01-CVE-2015-7554.patch",
-          "patches/02-CVE.patch",
-          "patches/03-CVE.patch",
-          "patches/04-CVE-2016-10095_CVE-2017-9147.patch",
-          "patches/05-CVE-2017-9936.patch",
-          "patches/06-OOM_in_gtTileContig.patch",
-          "patches/07-CVE-2017-10688.patch",
-          "patches/08-LZW_compression_regression.patch",
-          "patches/09-CVE-2017-11335.patch",
-          "patches/10-CVE-2017-13726.patch",
-          "patches/11-CVE-2017-13727.patch",
-          "patches/12-prevent_OOM_in_gtTileContig.patch",
-          "patches/13-prevent_OOP_in_TIFFFetchStripThing.patch",
-          "patches/14-CVE-2017-12944.patch",
-          "patches/15-avoid_floating_point_division_by_zero_in_initCIELabConversion.patch"
-  end
 
   def install
     ENV.cxx11 if build.cxx11?
