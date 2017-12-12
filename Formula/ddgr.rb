@@ -9,6 +9,7 @@ class Ddgr < Formula
     sha256 "95ac5d584bbcdb95da96c92b40a04e014fc8c0c34b265a9d0d95dae177bb1ce4" => :high_sierra
     sha256 "95ac5d584bbcdb95da96c92b40a04e014fc8c0c34b265a9d0d95dae177bb1ce4" => :sierra
     sha256 "95ac5d584bbcdb95da96c92b40a04e014fc8c0c34b265a9d0d95dae177bb1ce4" => :el_capitan
+    sha256 "6d28d0744e5f19ca9fa8c98c796b9e3568aff84032711a1f44fa95543da419c5" => :x86_64_linux
   end
 
   depends_on :python3
