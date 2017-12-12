@@ -9,6 +9,7 @@ class PythonMarkdown < Formula
     sha256 "88c387a1bf72eb8099a9f28e97696944ab406a002495b53099ac54de2a4efe93" => :high_sierra
     sha256 "88c387a1bf72eb8099a9f28e97696944ab406a002495b53099ac54de2a4efe93" => :sierra
     sha256 "88c387a1bf72eb8099a9f28e97696944ab406a002495b53099ac54de2a4efe93" => :el_capitan
+    sha256 "194e299e87965f9606b641a4e58113ce4e7c6c9f4491b908de77d19a91007cbe" => :x86_64_linux
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
