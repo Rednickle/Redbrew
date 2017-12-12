@@ -3,13 +3,13 @@ class Sundials < Formula
   homepage "https://computation.llnl.gov/casc/sundials/main.html"
   url "https://computation.llnl.gov/projects/sundials/download/sundials-3.1.0.tar.gz"
   sha256 "18d52f8f329626f77b99b8bf91e05b7d16b49fde2483d3a0ea55496ce4cdd43a"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "8912bb18905be789670243cf66c950f376632a669442d82195567abbe7005bd6" => :high_sierra
-    sha256 "5152878671da66c199dee3010ad2801c9488e3c0c12dca004d483dfb99099047" => :sierra
-    sha256 "86559a65cb0973cae8d4c536923f0ff2bc0dffddcf1fc510089f9a97e657aaaa" => :el_capitan
-    sha256 "0762ee851ce3b4d22c1dd1bf5016f3e99b370e546c15ccc04e6a13fa95efc525" => :x86_64_linux
+    sha256 "2d5e0f605ecbe4a247c0297211ed08aaa631f5845c6a488be812f10973475ebd" => :high_sierra
+    sha256 "94b42c6996a5c275cc200d394434dfb8f497edb0b98aa3c14f59b72ef82eac7d" => :sierra
+    sha256 "5c99d85c9248f6042a9d6ea6e5ee9c787221350abf042122f76d3982bfa216e1" => :el_capitan
   end
 
   option "with-openmp", "Enable OpenMP multithreading"
