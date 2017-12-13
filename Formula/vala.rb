@@ -8,6 +8,7 @@ class Vala < Formula
     sha256 "e38a9bed5ecdbcaa8037ad5f5f94426a3631825dde79c6c4ca7dd6b2834b9044" => :high_sierra
     sha256 "9c90aeb93d320f87ce8fd7284928c061e596b234112b210ae8966d5888c6877f" => :sierra
     sha256 "e58858915ba78a2917a1e2488a56e9cc8ea79e7a034ee6a8649a086d0697de95" => :el_capitan
+    sha256 "198dde276aaa545f6287253ff8815d2fb7bf82af97effc404b1446f511b8a5ff" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :run
