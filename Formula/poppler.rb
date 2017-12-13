@@ -13,6 +13,7 @@ class Poppler < Formula
 
   option "with-qt", "Build Qt5 backend"
   option "with-little-cms2", "Use color management system"
+  option "with-nss", "Use NSS library for PDF signature validation"
 
   deprecated_option "with-qt4" => "with-qt"
   deprecated_option "with-qt5" => "with-qt"
@@ -32,6 +33,7 @@ class Poppler < Formula
   depends_on "openjpeg"
   depends_on "qt" => :optional
   depends_on "little-cms2" => :optional
+  depends_on "nss" => :optional
 
   unless OS.mac?
     depends_on "curl"
