@@ -15,6 +15,15 @@ class Jq < Formula
     sha256 "64f3511b44e0c569a27e186d1e73b55af04404347b8e2aa0318c6005e830bd9a" => :x86_64_linux # glibc 2.19
   end
 
+  devel do
+    url "https://github.com/stedolan/jq.git", :tag => "jq-1.6rc1"
+    version "1.6rc1"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   head do
     url "https://github.com/stedolan/jq.git"
 
