@@ -3,17 +3,15 @@ class Mujs < Formula
   homepage "http://dev.mujs.com/"
   # use tag not tarball so the version in the pkg-config file isn't blank
   url "https://github.com/ccxvii/mujs.git",
-      :tag => "1.0.1",
-      :revision => "4792d16f17b15a1eca3c2a9c856dc13fda1d23c5"
-  revision 1
+      :tag => "1.0.2",
+      :revision => "2cb57c6e7188a8438c58e1e3fc452b7ad06bee33"
   head "https://github.com/ccxvii/mujs.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "57916969b297fa3afa5f05bb97ab42debb6a7214bd1541d3d01001c198f17796" => :high_sierra
-    sha256 "469aadeb58ef4fc9c79ef047ea8632ab0824361d28ec6bb0059416e99a724c0a" => :sierra
-    sha256 "1e38c739d7f9823fd5c4aa901eee9896d04493679f0871fec83e3ed5a3f3251e" => :el_capitan
-    sha256 "0e53aed3f8dd1515a48cab5149727463f1d10d7570c781c0ae38b0834c8361ae" => :x86_64_linux
+    sha256 "626374af292ec4ea2b31b6deadcda1604e31f0a8c827b16a621a44258a2a4098" => :high_sierra
+    sha256 "aae5886954d24c0dfa35f2a1802cdccd3afa37f368181e92f12d7e7009af5ab8" => :sierra
+    sha256 "e001713a3180f685919fe453748eabcc9560d4aa8fcba5058948ac0306909f6c" => :el_capitan
   end
 
   def install
