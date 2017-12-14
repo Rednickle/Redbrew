@@ -12,6 +12,7 @@ class Mujs < Formula
     sha256 "626374af292ec4ea2b31b6deadcda1604e31f0a8c827b16a621a44258a2a4098" => :high_sierra
     sha256 "aae5886954d24c0dfa35f2a1802cdccd3afa37f368181e92f12d7e7009af5ab8" => :sierra
     sha256 "e001713a3180f685919fe453748eabcc9560d4aa8fcba5058948ac0306909f6c" => :el_capitan
+    sha256 "2f1999c3dda9c43225a31023e5243436908fd0d12559f0f4d7e7c8f770c14728" => :x86_64_linux
   end
 
   def install
