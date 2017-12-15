@@ -10,6 +10,7 @@ class Gitup < Formula
     sha256 "8a11d7864ef368045ba5ebed1580fe3a22f4e04b24f4f24c9678eefbf186afc7" => :high_sierra
     sha256 "8a11d7864ef368045ba5ebed1580fe3a22f4e04b24f4f24c9678eefbf186afc7" => :sierra
     sha256 "c1659d82d045517de16860042a53360b5ce061c8d13e57b8ea15db624ad7289f" => :el_capitan
+    sha256 "7ddae7fb1f16cfb072c1efe79d90ca35f92b9cd7ac3a885bc0a080cea765d28d" => :x86_64_linux
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
