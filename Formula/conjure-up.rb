@@ -5,18 +5,19 @@ class ConjureUp < Formula
   homepage "https://conjure-up.io/"
   url "https://github.com/conjure-up/conjure-up/archive/2.4.2.tar.gz"
   sha256 "ca5557ca7c11eb01bb0c840a4897b4048eea9313e0a1db309e8326c478add96e"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "c5a3dded8aad9d0a5f0ba1013eb13001f9a55fa1ac2cd1688f75482e57acc176" => :high_sierra
-    sha256 "c6c8d1f5386be268fad3ca4af49eb925966fe5247d99bf1646c93a1c54fc12e5" => :sierra
-    sha256 "88a87d5f59277b7a211a5a2dbe0e3bf410279e48cb78b9e1955cf49c25c9f4f1" => :el_capitan
-    sha256 "f055e99372b20323098dd1646f857c6f2e97b5a49122ad7c4f1005ff2b485dfe" => :x86_64_linux
+    sha256 "e36a64fb114d767194917f5f5d0c7b83691334639cf2de39bfdb322df4aa1f6d" => :high_sierra
+    sha256 "285015d9d98a0bb764629694305e8133df7d0058d21ac015349ab3c6e4d6490f" => :sierra
+    sha256 "5c3d2d6570094795f773ccd2a32c92677edd37edae9eb212044acb9de07b34bc" => :el_capitan
   end
 
   depends_on :python3
   depends_on "libyaml"
   depends_on "juju"
+  depends_on "juju-wait"
   depends_on "jq"
   depends_on "wget"
   depends_on "redis"
@@ -207,7 +208,6 @@ class ConjureUp < Formula
   def install
     virtualenv_install_with_resources
     bin.install_symlink "#{libexec}/bin/kv-cli"
-    bin.install_symlink "#{libexec}/bin/juju-wait"
   end
 
   test do
