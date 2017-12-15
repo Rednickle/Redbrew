@@ -1,15 +1,14 @@
 class Pushpin < Formula
   desc "Reverse proxy for realtime web services"
   homepage "http://pushpin.org"
-  url "https://dl.bintray.com/fanout/source/pushpin-1.17.0.tar.bz2"
-  sha256 "3cd1d869dced330af712d64f72e18a80545bdd60f96c6af83c0cdd7c6ba8f416"
+  url "https://dl.bintray.com/fanout/source/pushpin-1.17.1.tar.bz2"
+  sha256 "58a8f845289b213dc755242d6008b2f01fc285ce3f462f5a68bf70a481b1f727"
   head "https://github.com/fanout/pushpin.git"
 
   bottle do
-    sha256 "b3fb2d68965c52057f290fe6dfb5aed85902052a00b2e32248a3dda1b66b7e23" => :high_sierra
-    sha256 "810b474f85f657447250cabefc61cbe6c453cb237458ae884d64717a499d3e4a" => :sierra
-    sha256 "4dba2208e2718a64ed9e646d02edfd32420b848be151a14aecb746665a183753" => :el_capitan
-    sha256 "d7cd4891c701f8efd141c514d39760d41519b37fb3cf28ec12fc149de0f41bb4" => :x86_64_linux
+    sha256 "b63c08681b18510cf718b5151aba2ba20f9f0afa2ad0abbaded107545edd247f" => :high_sierra
+    sha256 "3ba9ba61ffa4d4a32581af4b6145c9a41ac46ad77de2005bba148f2724251302" => :sierra
+    sha256 "ebae2dc077cc44552a3622d0908db8fb96c975a8e10947da0b04a34f8b1c184a" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -19,10 +18,6 @@ class Pushpin < Formula
   depends_on "zurl"
 
   def install
-    # Fix "Unable to find the 'qmake' tool for Qt 4 or 5." wit Qt 5.10
-    # Reported 11 Dec 2017 https://github.com/fanout/pushpin/issues/47651
-    inreplace "configure", "?.?.?)", "?.??.?)"
-
     system "./configure", "--prefix=#{prefix}", "--configdir=#{etc}", "--rundir=#{var}/run", "--logdir=#{var}/log", "--extraconf=QMAKE_MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
     system "make"
     system "make", "check"

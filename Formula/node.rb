@@ -1,15 +1,14 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v9.2.1/node-v9.2.1.tar.xz"
-  sha256 "200de3c145e79d5da5361ab079df199cec13dbd10902df9cf9a75c6546cd4582"
+  url "https://nodejs.org/dist/v9.3.0/node-v9.3.0.tar.xz"
+  sha256 "b288075e2f09faf33046583271a4e85c34684b5b637973dd6eaa5445220c57cd"
   head "https://github.com/nodejs/node.git"
 
   bottle do
-    sha256 "04d9c714ae4c1a6e6eb631470140f4d13b7263a8707b4cabc6b1b9c496fc6021" => :high_sierra
-    sha256 "575fd2dcfa69d4cdb6c36b7b74b1d7c801536fe7f22a23ce44010629b777da9c" => :sierra
-    sha256 "3793af762a4115ac08157392dad9c24730531d6c97fe5d35cf068256e89a7fd1" => :el_capitan
-    sha256 "c2e6e3f6341f34e310960deafabb77af85ece866a1d179b483a4413a03b49723" => :x86_64_linux
+    sha256 "17bc119bd070908aa80427bbdd98e4ed35764d30e14c4846f53c7589fad325a1" => :high_sierra
+    sha256 "b4580965a8b9cff06d27eb109b77ddb32c88bf75eab8e2f6c3cb20dd83975c16" => :sierra
+    sha256 "6736c632096bb82eef4e7800fc30cf6442f2e11e11849fb2a85ffcc21c483a6a" => :el_capitan
   end
 
   head do

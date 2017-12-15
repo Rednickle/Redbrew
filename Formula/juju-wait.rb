@@ -3,15 +3,14 @@ class JujuWait < Formula
 
   desc "Juju plugin for waiting for deployments to settle"
   homepage "https://launchpad.net/juju-wait"
-  url "https://pypi.python.org/packages/96/82/6b1b566b75f668605469d9af220bed0104bd4dc12c66160771b32f3aab58/juju-wait-2.5.0.tar.gz"
-  sha256 "05354b87e65b19a67176e470b4edf2588ae3ec301576b4a5214bc698c420671e"
+  url "https://pypi.python.org/packages/3d/c2/8cce9ec8386be418a76566fcd2e7dcbaa7138a92b0b9b463306d9191cfd7/juju-wait-2.6.2.tar.gz"
+  sha256 "86622804896e80f26a3ed15dff979584952ba484ccb5258d8bab6589e26dd46d"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "17703a8fca9d4706d855d771822044a4f04cd803ce764417707b855cfef3f67d" => :high_sierra
-    sha256 "14d7675bfaa400e2b070d3154b3b9c6fc2770d758616a3dd0226fb55d156c595" => :sierra
-    sha256 "20b5b1bca90eaddac10a42671993d860c2edecdf805262fd6564267544298baa" => :el_capitan
+    sha256 "638bebc1e82aa89779892f07079d8f512030f9a10e106b8468adad33eb7d8846" => :high_sierra
+    sha256 "d742459b613fba6e91634641b10f7f9a87994eaba3098573acab9fc11f11622a" => :sierra
+    sha256 "8e776297c6d7477122efbc04b0a8d45b4bae4e32613928f76e217b2888a2ebdb" => :el_capitan
   end
 
   depends_on :python3
