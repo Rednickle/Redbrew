@@ -12,6 +12,7 @@ class Pyenv < Formula
     sha256 "c2a9311f69d53462ccb1f210264302481260741064be2faa7a70f69c75673a20" => :high_sierra
     sha256 "a8e9cb1e87e53e5332bea57303ec50e90cb1697bf67949b4a11d63850adc2e18" => :sierra
     sha256 "c4106c40d7b9dc3b8dfa533e3710f7c8fba12d2fdd410a00a0c0608ac5ed16ed" => :el_capitan
+    sha256 "c5576ac9ce71c4dfe429acd971124451f34be34144029aabd5f641b854efbec1" => :x86_64_linux
   end
 
   depends_on "autoconf" => [:recommended, :run]
