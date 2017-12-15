@@ -9,6 +9,7 @@ class Goolabs < Formula
     sha256 "ab0b7c65238efb2edf103012ad0b13a6738dda0f0caec39d723cf39df6c2a2f7" => :high_sierra
     sha256 "ab0b7c65238efb2edf103012ad0b13a6738dda0f0caec39d723cf39df6c2a2f7" => :sierra
     sha256 "4f4676626f0872b4c86f3c35c0b80e2e028cf9f0f0b5fae8bbf655f55f552513" => :el_capitan
+    sha256 "89fb30080f1a46abb146a38ac1dda7138902c3d5638bbf3571da13e1b1089bf7" => :x86_64_linux
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
