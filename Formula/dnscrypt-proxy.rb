@@ -3,14 +3,14 @@ class DnscryptProxy < Formula
   homepage "https://dnscrypt.org"
   url "https://github.com/jedisct1/dnscrypt-proxy/archive/1.9.5.tar.gz"
   sha256 "947000568f79ab4d036b259d9cf3fe6fdf8419860d9ad18004ac767db0dbd5ac"
-  revision 1
+  revision 2
 
   head "https://github.com/jedisct1/dnscrypt-proxy.git"
 
   bottle do
-    sha256 "2fd6cc2b0ec7730290eafb55560b95c8bbc42df874ef03fe4c7b1faab49619fc" => :high_sierra
-    sha256 "ef7459f7e9ba0e1d0f88e91d51309d93faaf5c4778d87098dea0509536467158" => :sierra
-    sha256 "6a278225af005fbf91a401c7b8f4f277b2d714a83c7621c51937825af4991f0e" => :el_capitan
+    sha256 "14222baf3db570e64577e12af6b7d6aff571a04e77ce6a97b394ac60f409dc70" => :high_sierra
+    sha256 "a40f76505186a1a32b7ef18bdb7e522ffd17e327a8c3a3434c688673993ff6ed" => :sierra
+    sha256 "2ace7b2dc537c46d9a27e7cc095fb23381c8b9eae3a1093001093b57f2fd6d8d" => :el_capitan
   end
 
   option "without-plugins", "Disable support for plugins"
@@ -75,6 +75,7 @@ class DnscryptProxy < Formula
   def post_install
     return if build.without? "minisign"
 
+    ENV["PATH"] = PATH.new(ENV["PATH"]).prepend(Formula["minisign"].opt_bin)
     system bin/"dnscrypt-update-resolvers"
   end
 
