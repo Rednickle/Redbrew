@@ -10,6 +10,7 @@ class FbiServefiles < Formula
     sha256 "0065f2be62f713c4200dabbf528fbc1d50d206efe7c6b03cfc1f73c1213723b1" => :high_sierra
     sha256 "8f68dde6bf8594d3e9f47bf6e39dd4b427bcc733f3a383075bdc9934efe3e0e9" => :sierra
     sha256 "fb14ed2b7103bc58d79da73cb7ab150da741bdbbf12dea007233327520d8b5b2" => :el_capitan
+    sha256 "9a8310deb92e9bb8945fa233bca11e38ab3264db602696e5f79d3e3802519708" => :x86_64_linux
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
