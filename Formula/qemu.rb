@@ -1,26 +1,14 @@
-# Fix extraction on case-insensitive file systems.
-# Reported 4 Sep 2017 https://bugs.launchpad.net/qemu/+bug/1714750
-# This is actually an issue with u-boot and may take some time to sort out.
-class QemuDownloadStrategy < CurlDownloadStrategy
-  def stage
-    exclude = "#{name}-#{version}/roms/u-boot/scripts/Kconfig"
-    safe_system "tar", "xjf", cached_location, "--exclude", exclude
-    chdir
-  end
-end
-
 class Qemu < Formula
   desc "x86 and PowerPC Emulator"
   homepage "https://www.qemu.org/"
-  url "https://download.qemu.org/qemu-2.10.1.tar.bz2",
-      :using => QemuDownloadStrategy
-  sha256 "8e040bc7556401ebb3a347a8f7878e9d4028cf71b2744b1a1699f4e741966ba8"
+  url "https://download.qemu.org/qemu-2.11.0.tar.bz2"
+  sha256 "c4f034c7665a84a1c3be72c8da37f3c31ec063475699df062ab646d8b2e17fcb"
   head "https://git.qemu.org/git/qemu.git"
 
   bottle do
-    sha256 "842262ef860430268534ad50d3ba726b640fcdd1475b51c173fd15e16ea3e80e" => :high_sierra
-    sha256 "be33f7ae7ac0115d5f0f1342f91d6327e637c4584cda47e52519ef80743142a0" => :sierra
-    sha256 "3ebf7f8ee199a5785183504a22c5952a0359a439296eb8052d75c408e0c879cd" => :el_capitan
+    sha256 "ec48d836a2d6fd75b3f9369c38f04caa8de892976db86333a7f118210a048ecb" => :high_sierra
+    sha256 "dee2e64d11b0c685719152d7a37cfdb8b3e1ce9977a74fa105f36ae18f21a925" => :sierra
+    sha256 "aad18d02017bcecc82118fad09f86fd8d286228374c51376ec0d7f10fcda93e0" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -55,14 +43,6 @@ class Qemu < Formula
 
   def install
     ENV["LIBTOOL"] = "glibtool"
-
-    # Fixes "dyld: lazy symbol binding failed: Symbol not found: _clock_gettime"
-    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
-      inreplace %w[hw/i386/kvm/i8254.c include/qemu/timer.h linux-user/strace.c
-                   roms/skiboot/external/pflash/progress.c
-                   roms/u-boot/arch/sandbox/cpu/os.c ui/spice-display.c
-                   util/qemu-timer-common.c], "CLOCK_MONOTONIC", "NOT_A_SYMBOL"
-    end
 
     args = %W[
       --prefix=#{prefix}
