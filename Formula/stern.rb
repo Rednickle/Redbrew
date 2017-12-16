@@ -12,6 +12,7 @@ class Stern < Formula
     sha256 "a68996e613063c260146902daa371db533ae911f96a4836e0ad797f7fcf750df" => :high_sierra
     sha256 "c2499dd1dc239e477cf726824882505bcc8dec9dc88167c3ee8ce5bf97dd4c8e" => :sierra
     sha256 "a859e5e08c7b14c4dc73d0af89327658af4731c9d522929e930741c326adc3f2" => :el_capitan
+    sha256 "bb9418b43c956ab9cedd45bc0372d405ad619d7c0f6f22aaafd6bc331e920035" => :x86_64_linux
   end
 
   depends_on "go" => :build
