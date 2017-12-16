@@ -3,12 +3,13 @@ class NodeAT8 < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v8.9.3/node-v8.9.3.tar.xz"
   sha256 "748ddb3baa6b85e6a56e38aacd066586e7581952f84a92bc8152248a9be6b2da"
+  revision 1
   head "https://github.com/nodejs/node.git", :branch => "v8.x-staging"
 
   bottle do
-    sha256 "899582fed0fa0ed47288d738823dd3c5fc7a995de793c71dbc52a0a8acfac4d3" => :high_sierra
-    sha256 "fd37dad5fcf40255a85257303f8e3c2041b4c548f56bcf07e431a11d1c49dc60" => :sierra
-    sha256 "2377e6e333fedaac08cf9b5fffe414078c810b4ec5f00255304c13480039df2b" => :el_capitan
+    sha256 "80c3e8e3edac956e3a1c93ae0194a77733f7e832ca6129654032bb00645ff3e6" => :high_sierra
+    sha256 "4073afca5c864da6ad48199ab888a6df55e4a3fbca21f55b4c46deaf97319c04" => :sierra
+    sha256 "e42c5de5dc729d01174301d6859bc380dcef98a377d13a4700b548a268f4337b" => :el_capitan
   end
 
   keg_only :versioned_formula
