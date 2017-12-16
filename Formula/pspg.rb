@@ -9,6 +9,7 @@ class Pspg < Formula
     cellar :any
     sha256 "d159b8f3c7bad990fd57208f0b9255baf29be41e59182aa9b414d0660769c1df" => :sierra
     sha256 "5854a75e2b6f62830d5e3b5597950130409f236c9b790b4147cdc2a013155252" => :el_capitan
+    sha256 "2c6e934a3135a6d2df360c25c21d995b37db7c5ab028ee399706adccab379118" => :x86_64_linux
   end
 
   depends_on "ncurses"
