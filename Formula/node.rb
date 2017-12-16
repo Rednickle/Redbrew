@@ -3,22 +3,13 @@ class Node < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v9.3.0/node-v9.3.0.tar.xz"
   sha256 "b288075e2f09faf33046583271a4e85c34684b5b637973dd6eaa5445220c57cd"
+  revision 1
   head "https://github.com/nodejs/node.git"
 
   bottle do
-    sha256 "17bc119bd070908aa80427bbdd98e4ed35764d30e14c4846f53c7589fad325a1" => :high_sierra
-    sha256 "b4580965a8b9cff06d27eb109b77ddb32c88bf75eab8e2f6c3cb20dd83975c16" => :sierra
-    sha256 "6736c632096bb82eef4e7800fc30cf6442f2e11e11849fb2a85ffcc21c483a6a" => :el_capitan
-    sha256 "b5e8a3ebe6cc2d324d1e7e684fdbfe011d3135f6c705bd6c387e53887d0530b8" => :x86_64_linux
-  end
-
-  head do
-    url "https://github.com/nodejs/node.git"
-
-    resource "npm" do
-      url "https://registry.npmjs.org/npm/-/npm-5.6.0.tgz"
-      sha256 "b1f0de3767136c1d7b4b0f10e6eb2fb3397e2fe11e4c9cddcd0030ad1af9eddd"
-    end
+    sha256 "188615153c48551f552428879e57805c1137e6fe69a38be68f5f0a6e6b3bd60e" => :high_sierra
+    sha256 "55f054e0aad43b4cfc06b5b6b2bc2f12c0aa4556fae670718e683dceac09adb8" => :sierra
+    sha256 "77590f6971b1340ba9038c0a6c5f8bc867ad20b0356944d42bad8be8d17389ac" => :el_capitan
   end
 
   option "with-debug", "Build with debugger hooks"

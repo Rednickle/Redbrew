@@ -3,12 +3,13 @@ class Libphonenumber < Formula
   homepage "https://github.com/googlei18n/libphonenumber"
   url "https://github.com/googlei18n/libphonenumber/archive/v8.8.8.tar.gz"
   sha256 "ef39c4f38c80eaec5655aa7708df8103915730bd1dd11e03eaa7efb5ddc8dece"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "0a3c34edf9a1d1fd180b9228ca92014253e9dec693938f600bba913d4e5517ef" => :high_sierra
-    sha256 "fb9c23dc8b661acf98ec71f6b2b2b9e0163c84b0329d7eca57ec2ff2951185c5" => :sierra
-    sha256 "6260972a44f7fb5943d57cb947dab7fa1f3ff496a214202ae8b51e29ff2f5524" => :el_capitan
+    sha256 "23761cbbaca28a92e4f61e106af7394f2a0fc317b01fa08e69636fc9e645424d" => :high_sierra
+    sha256 "3aa8b02ae49aed546b3fd919a73f4db30fc1721ecf22d521e3677a77624c916b" => :sierra
+    sha256 "3559b3efa01cc7f8827c0fbd5adffd69b0ddf0722744e793689d1553ad5f9522" => :el_capitan
   end
 
   depends_on "cmake" => :build
