@@ -3,12 +3,12 @@ class Pyqt < Formula
   homepage "https://www.riverbankcomputing.com/software/pyqt/download5"
   url "https://downloads.sourceforge.net/project/pyqt/PyQt5/PyQt-5.9.2/PyQt5_gpl-5.9.2.tar.gz"
   sha256 "c190dac598c97b0113ca5e7a37c71c623f02d1d713088addfacac4acfa4b8394"
+  revision 1
 
   bottle do
-    sha256 "4e111ba8e35f8fe50e45e1ed1ff25ba1882578c2c33c1da5bb95794019621cfe" => :high_sierra
-    sha256 "67bef8d3eaec8d31a3cf7096a701a3deea0442e6a4c12dc9922ea2592e5edc1d" => :sierra
-    sha256 "efe64dce088ce8484728af53ea2df8beeaac1e04f95e74a64579a3e922f907d0" => :el_capitan
-    sha256 "8f0f14d2f2ee5cd601b62d6e03451308585c17143a164024edff68654453b44b" => :x86_64_linux
+    sha256 "54bef599d86f1ab94f4d5bb934ee273d7b2d39fe4fefffe60227bf985186eaa8" => :high_sierra
+    sha256 "9b0504fc1c37cc0fb6d9786e532827e76dab80676c3c988355502a42669f68a4" => :sierra
+    sha256 "c910f2b11ada0c796f730e13e35812c60f6c4e68ed21338646575bb2c17a335c" => :el_capitan
   end
 
   option "with-debug", "Build with debug symbols"
