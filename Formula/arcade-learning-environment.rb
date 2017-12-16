@@ -1,16 +1,15 @@
 class ArcadeLearningEnvironment < Formula
   desc "Platform for AI research"
   homepage "https://github.com/mgbellemare/Arcade-Learning-Environment"
-  url "https://github.com/mgbellemare/Arcade-Learning-Environment/archive/v0.5.2.tar.gz"
-  sha256 "bc158b4fb8edc5034f8f8b4ca1a90d48590f516b33f9edec325fce8762418069"
+  url "https://github.com/mgbellemare/Arcade-Learning-Environment/archive/v0.6.0.tar.gz"
+  sha256 "da4597edf8ebef99961394daca44fa30148c778adff59ee5aec073ea94dcc175"
   head "https://github.com/mgbellemare/Arcade-Learning-Environment.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "d031a38caf79f301366df5cc5dfa6bca2408beb27c861ad00ee832f044d4b57b" => :high_sierra
-    sha256 "95345e80e773b61d36a31cf8f8e98666c8749dd498ed0923f1453310b2dfd4b0" => :sierra
-    sha256 "f12551af8c216c1bc17e87e97b1cd7024aeff2405a8e63b2fb3b73535e34372a" => :el_capitan
-    sha256 "608ad685eacb07a1130c0a94ac7bc8a86d5f9502c9902e04dc5613d8dd1d0c48" => :x86_64_linux
+    cellar :any
+    sha256 "209f649196b2f933ef85969199c772861cdc014789a5b38254d64f5f8901d7e8" => :high_sierra
+    sha256 "945cf13cda0c218beb42c67647caa94b8e538b8e5a64f62f3c70ff4dcb91f316" => :sierra
+    sha256 "fae373f7210a248e3819175902e7e5038bcfbc436f0a49e9bc715c83dbe3818c" => :el_capitan
   end
 
   depends_on "cmake" => :build
