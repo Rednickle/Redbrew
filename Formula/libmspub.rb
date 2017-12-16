@@ -10,6 +10,7 @@ class Libmspub < Formula
     sha256 "9ed0993ee29f49d6d985c635ff34f7829a24a5e97e05d807029920f786187865" => :high_sierra
     sha256 "9f792b907588715c3b821f4ea2d3811495bd8c66c2912769815cb6eb92a7ddfe" => :sierra
     sha256 "cbc7146537b0333d2b1b343fe66adc63d2a0c7efb987a154d44d8b8386a51b82" => :el_capitan
+    sha256 "647e20a63b462927ef2310107d743304ab25e74d2b45f409c49b575d232b131c" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
