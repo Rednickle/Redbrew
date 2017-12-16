@@ -10,6 +10,7 @@ class Libcdr < Formula
     sha256 "a1a24122adee68bbb8fe4d2d2cda90def40230fea990a36091eb860bce3ae086" => :high_sierra
     sha256 "4e8fdcf4cdc32e9b9d2dfe00c7ec74fc53e4a4389d13f866b697cce6a6ff05eb" => :sierra
     sha256 "4d5b32ef2b229897a3126e55e231cb878d2ecee165a2b519fa5b298c07b562d3" => :el_capitan
+    sha256 "69a08df8958060e7c531b36450a2a00b39c6631923baf3dbc0b0327888e3c7a1" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
