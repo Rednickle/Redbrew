@@ -46,7 +46,7 @@ class Emscripten < Formula
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j4" if ENV["CIRCLECI"]
+    ENV["MAKEFLAGS"] = "-j2" if ENV["CIRCLECI"]
 
     ENV.cxx11
     # OSX doesn't provide a "python2" binary so use "python" instead.
