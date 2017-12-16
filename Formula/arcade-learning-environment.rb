@@ -10,6 +10,7 @@ class ArcadeLearningEnvironment < Formula
     sha256 "209f649196b2f933ef85969199c772861cdc014789a5b38254d64f5f8901d7e8" => :high_sierra
     sha256 "945cf13cda0c218beb42c67647caa94b8e538b8e5a64f62f3c70ff4dcb91f316" => :sierra
     sha256 "fae373f7210a248e3819175902e7e5038bcfbc436f0a49e9bc715c83dbe3818c" => :el_capitan
+    sha256 "abd6feff2a092deb2e6121ed2478cce9c5ec10514a6134646b5daf77468cf691" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
