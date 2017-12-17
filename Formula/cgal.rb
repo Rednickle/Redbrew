@@ -12,10 +12,9 @@ class Cgal < Formula
     sha256 "2f4a8c6687b7223fe4960c70cd05f0577bd7a7d71704855e87455ba7889e17ac" => :x86_64_linux
   end
 
-  option :cxx11
-  option "with-qt", "Build ImageIO and Qt components of CGAL"
   option "with-eigen", "Build with Eigen3 support"
   option "with-lapack", "Build with LAPACK support"
+  option "with-qt", "Build ImageIO and Qt components of CGAL"
 
   deprecated_option "imaging" => "with-qt"
   deprecated_option "with-imaging" => "with-qt"
@@ -23,22 +22,13 @@ class Cgal < Formula
   deprecated_option "with-qt5" => "with-qt"
 
   depends_on "cmake" => :build
+  depends_on "boost"
+  depends_on "gmp"
   depends_on "mpfr"
-
   depends_on "qt" => :optional
   depends_on "eigen" => :optional
 
-  if build.cxx11?
-    depends_on "boost" => "c++11"
-    depends_on "gmp"   => "c++11"
-  else
-    depends_on "boost"
-    depends_on "gmp"
-  end
-
   def install
-    ENV.cxx11 if build.cxx11?
-
     args = std_cmake_args + %W[
       -DCMAKE_BUILD_WITH_INSTALL_RPATH=ON
       -DCMAKE_INSTALL_NAME_DIR=#{HOMEBREW_PREFIX}/lib

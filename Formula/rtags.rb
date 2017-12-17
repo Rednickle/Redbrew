@@ -4,18 +4,21 @@ class Rtags < Formula
   url "https://github.com/Andersbakken/rtags.git",
       :tag => "v2.16",
       :revision => "8ef7554852541eced514c56d5e39d6073f7a2ef9"
+  revision 1
+
   head "https://github.com/Andersbakken/rtags.git"
 
   bottle do
-    sha256 "69cadaf72e1948d1dedb7622991163428db247463a0d83d6a87f3f4187c0a0d3" => :high_sierra
-    sha256 "6a608af2ecfc12a85bb66d6523482bb7c42c0d63f9fb71856ec7c2607cc343f9" => :sierra
-    sha256 "1cefd4c5c61647bebf8fd6df8d3c106181f6598db685e0800e85b9db74d43525" => :el_capitan
-    sha256 "01984de9f202187f6ec8f07164bbc01c56d4b9b0604fb843946919ad83541ab8" => :x86_64_linux
+    sha256 "b42483bba5424f2019954901d584de3e495c96184fb9fb50eeb3242250a5bad2" => :high_sierra
+    sha256 "1d3f505793e5f387713fe571e862327416b4824a66033ed4979946c221f3b9c7" => :sierra
+    sha256 "da5ceb320d2baa220449d80b082986606b90a33a110c494f51684efebdec651b" => :el_capitan
   end
 
   depends_on "cmake" => :build
   depends_on "llvm"
   depends_on "openssl"
+
+  depends_on :emacs => ["24.3", :recommended]
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
