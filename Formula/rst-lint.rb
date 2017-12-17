@@ -11,6 +11,7 @@ class RstLint < Formula
     sha256 "79937d81644e4078ebe68d823353818c0ad27101cecb344da69b2dfe3385ad36" => :high_sierra
     sha256 "eba17238c6294b34c746ecb7203770cd09d1c19513f0ad0b4f1777e1932bfbfc" => :sierra
     sha256 "e41c9a9a6aa7d3527686354d46dd2ec1b203063c282acd82f28154400bc4b5c9" => :el_capitan
+    sha256 "1047963f8853fa3b640a43e1b1074d1680065d5f1a3cd27540e0912b34b20b86" => :x86_64_linux
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
