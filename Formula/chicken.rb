@@ -9,6 +9,7 @@ class Chicken < Formula
     sha256 "199bb0ca7a8b534fc1d5873d9bdd977bc7522f381fd35fea016a874a49fb1d19" => :high_sierra
     sha256 "b8e06f1d8f765466982ef62889aca28012ee21ebc613db9b3ed3490019999fcf" => :sierra
     sha256 "cb2786e345617675c288b2b3bc8a93300591fd19cfe4f9264d1d4ba17ae745d8" => :el_capitan
+    sha256 "9fbe371f7e727d68f0645c3d75cca4079674dbf323d85b71616fae60bd571d33" => :x86_64_linux
   end
 
   def install
