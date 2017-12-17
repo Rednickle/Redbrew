@@ -9,6 +9,7 @@ class Pmd < Formula
     sha256 "92a283d6461a59d682b25770fd4aca0684014c0b994a37e191ac11e92428afe7" => :high_sierra
     sha256 "ba1a84f493c0e053359910c6daaa90354046a35fc7dca80dad6f98bda9951a81" => :sierra
     sha256 "ae9edf319e8394038b2f3d73fe60ec30579be37b6673f6f48e77d639322958c7" => :el_capitan
+    sha256 "5e30ae174f78d815632295f275ae4cfa1bb7ff1d5df3771f4a14c9d7817517e1" => :x86_64_linux
   end
 
   depends_on :java => "1.8+"
