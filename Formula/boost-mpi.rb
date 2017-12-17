@@ -3,24 +3,19 @@ class BoostMpi < Formula
   homepage "https://www.boost.org/"
   url "https://dl.bintray.com/boostorg/release/1.65.1/source/boost_1_65_1.tar.bz2"
   sha256 "9807a5d16566c57fd74fb522764e0b134a8bbe6b6e8967b83afefd30dcd3be81"
-  revision 1
+  revision 2
   head "https://github.com/boostorg/boost.git"
 
   bottle do
-    sha256 "ab1599905ccc3891aaf12ccb8fc7d82a48f3c62c5a0b949c9594fcec41f11f96" => :high_sierra
-    sha256 "c6a68706caf6d58e6e2efed6d96a56877c9b198bb4ea9036013b144fc589f5d3" => :sierra
-    sha256 "268a16ac0a424bf62366591a4b6b8a1347ab82705aa70d3ede245fd81e9565f1" => :el_capitan
+    sha256 "301417fb45f41d0cf3060f0f5654e580899b7218b50af538c69b3d8000c6d3c4" => :high_sierra
+    sha256 "78140b724b975b313899bab0aefc7997063bb53e3d8ffcd8811a3605a494a559" => :sierra
+    sha256 "56927915a89a02bed6bcbf6838bdd9ee72cbcfdaacf1c1a0db8e87f07dbf1b73" => :el_capitan
   end
 
-  option :cxx11
+  depends_on "boost"
+  depends_on :mpi => [:cc, :cxx]
 
-  if build.cxx11?
-    depends_on "boost" => "c++11"
-    depends_on "open-mpi" => "c++11"
-  else
-    depends_on "boost"
-    depends_on :mpi => [:cc, :cxx]
-  end
+  needs :cxx11
 
   def install
     # "layout" should be synchronized with boost
@@ -33,16 +28,11 @@ class BoostMpi < Formula
             "threading=multi,single",
             "link=shared,static"]
 
-    # Build in C++11 mode if boost was built in C++11 mode.
     # Trunk starts using "clang++ -x c" to select C compiler which breaks C++11
     # handling using ENV.cxx11. Using "cxxflags" and "linkflags" still works.
-    if build.cxx11?
-      args << "cxxflags=-std=c++11"
-      if ENV.compiler == :clang
-        args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++"
-      end
-    elsif Tab.for_name("boost").cxx11?
-      odie "boost was built in C++11 mode so boost-mpi must be built with --c++11."
+    args << "cxxflags=-std=c++11"
+    if ENV.compiler == :clang
+      args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++"
     end
 
     open("user-config.jam", "a") do |file|

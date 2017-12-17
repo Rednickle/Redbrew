@@ -3,23 +3,23 @@ class BoostPython < Formula
   homepage "https://www.boost.org/"
   url "https://dl.bintray.com/boostorg/release/1.65.1/source/boost_1_65_1.tar.bz2"
   sha256 "9807a5d16566c57fd74fb522764e0b134a8bbe6b6e8967b83afefd30dcd3be81"
+  revision 1
   head "https://github.com/boostorg/boost.git"
 
   bottle do
     cellar :any
-    sha256 "8377ee93d0bb678b2c69e9f2956607b4c04e4c226a780be60b452ac2d7e02de7" => :high_sierra
-    sha256 "d811c19f1eef548746972475d98f68f431f62af075a9c9e984911f6cb45ebb75" => :sierra
-    sha256 "37b52bcae4be5fb7db46487e494bc8c3da0ddbe2dab2e7f20ffba4e7eb3827e4" => :el_capitan
-    sha256 "28e1853e51af2f853dfd84135a62215c3d3142126742648f1e76434f218756dc" => :yosemite
-    sha256 "3ac68822f9965e56a4c5c4a70844a45eec7a247861e293692c0bfbbaef65c521" => :x86_64_linux
+    sha256 "cc913dbdf2fcd107d089dae8bdc428ba3fc13f8a035038602263233564ac928b" => :high_sierra
+    sha256 "78f5e363d73448e6d9c79618511c90af13515714ac283a24449eeb90a4fdef8c" => :sierra
+    sha256 "fbeeda33c58cebac4ddf0114494cd59c40bb6217b758cc8433527a470ab68a9d" => :el_capitan
   end
 
-  option :cxx11
   option "without-python", "Build without python 2 support"
 
   depends_on :python3 => :optional
   depends_on "boost"
   depends_on :python => :recommended unless OS.mac?
+
+  needs :cxx11
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
@@ -35,16 +35,11 @@ class BoostPython < Formula
             "threading=multi,single",
             "link=shared,static"]
 
-    # Build in C++11 mode if boost was built in C++11 mode.
     # Trunk starts using "clang++ -x c" to select C compiler which breaks C++11
     # handling using ENV.cxx11. Using "cxxflags" and "linkflags" still works.
-    if build.cxx11?
-      args << "cxxflags=-std=c++11"
-      if ENV.compiler == :clang
-        args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++"
-      end
-    elsif Tab.for_name("boost").cxx11?
-      odie "boost was built in C++11 mode so boost-python must be built with --c++11."
+    args << "cxxflags=-std=c++11"
+    if ENV.compiler == :clang
+      args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++"
     end
 
     # disable python detection in bootstrap.sh; it guesses the wrong include directory

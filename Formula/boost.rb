@@ -3,21 +3,19 @@ class Boost < Formula
   homepage "https://www.boost.org/"
   url "https://dl.bintray.com/boostorg/release/1.65.1/source/boost_1_65_1.tar.bz2"
   sha256 "9807a5d16566c57fd74fb522764e0b134a8bbe6b6e8967b83afefd30dcd3be81"
+  revision 1
   head "https://github.com/boostorg/boost.git"
 
   bottle do
     cellar :any
-    sha256 "b7b199b8c4e40a8a32a9c8852989645c1e1e30e9f11b49927f400299ab60b1cf" => :high_sierra
-    sha256 "3d896801bccfc3f3ee1934e5764a5a613eaae8fda5567deb8e9f8b3fa0c2727f" => :sierra
-    sha256 "97f9486b46396c659741b069697e9acc5e146c8df12631a4981d7ad168f806e2" => :el_capitan
-    sha256 "0970b4eef313fe6188a4318b949a727d658ef31522aebc3ddaa44a877b67444a" => :yosemite
-    sha256 "38e4c8dac584fbe5fc6b7fce8494149bca82ca467a07260c72e230389e44ebe2" => :x86_64_linux
+    sha256 "8a898e237ed16951935979f8b5876e4b58e87e1c38979d6087aac0bfb5556380" => :high_sierra
+    sha256 "a06e8fdb39bc1a92d1e2bf2858c349a53da50832b01abddfbd11d48cf93fc301" => :sierra
+    sha256 "395110d82711fbc026e5aad344bd51b82ff0f3928ca31e03185ac3fe5215af1c" => :el_capitan
   end
 
   option "with-icu4c", "Build regexp engine with icu support"
   option "without-single", "Disable building single-threading variant"
   option "without-static", "Disable building static library variant"
-  option :cxx11
 
   deprecated_option "with-icu" => "with-icu4c"
 
@@ -28,7 +26,7 @@ class Boost < Formula
     depends_on "zlib"
   end
 
-  needs :cxx11 if build.cxx11?
+  needs :cxx11
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
@@ -87,11 +85,9 @@ class Boost < Formula
 
     # Trunk starts using "clang++ -x c" to select C compiler which breaks C++11
     # handling using ENV.cxx11. Using "cxxflags" and "linkflags" still works.
-    if build.cxx11?
-      args << "cxxflags=-std=c++11"
-      if ENV.compiler == :clang
-        args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++"
-      end
+    args << "cxxflags=-std=c++11"
+    if ENV.compiler == :clang
+      args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++"
     end
 
     # Fix error: bzlib.h: No such file or directory
