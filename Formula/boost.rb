@@ -11,6 +11,7 @@ class Boost < Formula
     sha256 "8a898e237ed16951935979f8b5876e4b58e87e1c38979d6087aac0bfb5556380" => :high_sierra
     sha256 "a06e8fdb39bc1a92d1e2bf2858c349a53da50832b01abddfbd11d48cf93fc301" => :sierra
     sha256 "395110d82711fbc026e5aad344bd51b82ff0f3928ca31e03185ac3fe5215af1c" => :el_capitan
+    sha256 "fa8e6b649186b0e79c152b60a854114d9b907315dcde0759c5df1f8d4c40f37b" => :x86_64_linux
   end
 
   option "with-icu4c", "Build regexp engine with icu support"
