@@ -1,27 +1,25 @@
 class Fn < Formula
   desc "Command-line tool for the fn project"
   homepage "https://fnproject.github.io"
-  url "https://github.com/fnproject/cli/archive/0.4.28.tar.gz"
-  sha256 "748ba7f4bc2c48232ceca8927d0b805a99bb395969190bd9242e87c0db9a19a2"
+  url "https://github.com/fnproject/cli/archive/0.4.30.tar.gz"
+  sha256 "0f042406882a239ee2a5be975c65d834008e1d487207bd8db1f8ce3c94ceb899"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ef8da0e65ed602ffbddf094a1c538d4cb2db2e432c1cca61801ed01f1182828e" => :high_sierra
-    sha256 "fbe39f0928cd884a17bfa27875b3c048244ea43f49b0cbcefe2949ec96a1676d" => :sierra
-    sha256 "1bdb941ddcbb87d6ed341f64cab843a6f95502e013605fea58b0a132a869ef47" => :el_capitan
-    sha256 "7dfff154e55b847b46506331e2103bdd8ebe94c4d0d2750ac1ca78d3e3b4c745" => :x86_64_linux
+    sha256 "22f901d72ed10ab1ce9a5be48cc3678f95d314cd0ed1df32d13ca690f107d106" => :high_sierra
+    sha256 "11b7611cb001e407e14c41fd3eeb9e9e59bd8427d12878367856711fe82abb3e" => :sierra
+    sha256 "6f400f0354a8a76df2a832af72c9fc0fc70d130c0539799979e04c647376aaf2" => :el_capitan
   end
 
+  depends_on "dep" => :build
   depends_on "go" => :build
-  depends_on "glide" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
     dir = buildpath/"src/github.com/fnproject/cli"
     dir.install Dir["*"]
     cd dir do
-      system "glide", "install", "-v", "--force", "--skip-test"
+      system "dep", "ensure"
       system "go", "build", "-o", "#{bin}/fn"
       prefix.install_metafiles
     end
