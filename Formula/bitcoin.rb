@@ -1,9 +1,8 @@
 class Bitcoin < Formula
   desc "Decentralized, peer to peer payment network"
   homepage "https://bitcoin.org/"
-  url "https://github.com/bitcoin/bitcoin/archive/v0.15.1.tar.gz"
-  sha256 "e429d4f257f2b5b6d0caaf36ed1a5f5203e5918c57837efac00b0c322a1fef79"
-  head "https://github.com/bitcoin/bitcoin.git"
+  url "https://bitcoin.org/bin/bitcoin-core-0.15.1/bitcoin-0.15.1.tar.gz"
+  sha256 "34de2dbe058c1f8b6464494468ebe2ff0422614203d292da1c6458d6f87342b4"
 
   bottle do
     cellar :any
@@ -13,9 +12,14 @@ class Bitcoin < Formula
     sha256 "70703465f56c1844747a2b0064cc25c6a4d864a87d9b6e053dda7433eae21cb9" => :x86_64_linux
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  head do
+    url "https://github.com/bitcoin/bitcoin.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   depends_on "pkg-config" => :build
   depends_on "berkeley-db@4"
   depends_on "boost"
@@ -35,7 +39,7 @@ class Bitcoin < Formula
       ENV.delete("SDKROOT")
     end
 
-    system "./autogen.sh"
+    system "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--with-boost-libdir=#{Formula["boost"].opt_lib}",

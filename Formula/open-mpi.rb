@@ -33,6 +33,9 @@ class OpenMpi < Formula
   conflicts_with "lcdf-typetools", :because => "both install same set of binaries."
 
   def install
+    # otherwise libmpi_usempi_ignore_tkr gets built as a static library
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
+
     ENV.cxx11 if build.cxx11?
 
     args = %W[
@@ -80,7 +83,7 @@ class OpenMpi < Formula
     EOS
     system bin/"mpicc", "hello.c", "-o", "hello"
     system "./hello"
-    system bin/"mpirun", "-np", "4", "./hello"
+    system bin/"mpirun", "./hello"
     (testpath/"hellof.f90").write <<~EOS
       program hello
       include 'mpif.h'
@@ -94,6 +97,6 @@ class OpenMpi < Formula
     EOS
     system bin/"mpif90", "hellof.f90", "-o", "hellof"
     system "./hellof"
-    system bin/"mpirun", "-np", "4", "./hellof"
+    system bin/"mpirun", "./hellof"
   end
 end
