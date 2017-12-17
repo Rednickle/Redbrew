@@ -10,6 +10,7 @@ class AmqpCpp < Formula
     sha256 "59eea4c77112bae85d4bdd28a2173fa26030a046fb0cd3621c8cb8cbe872bb21" => :high_sierra
     sha256 "7e8798ab7af1e516e1a230427734428445c0396d36621bc1134e8d9c68ad15ab" => :sierra
     sha256 "f0b2f7257e5082cf0e11bc12d4d93a8a2c6642aa7ee29335812dfd05740421b8" => :el_capitan
+    sha256 "00112a40040ca049fddcb6eb017ee71c306bff5214c17dee43298100d1918ba2" => :x86_64_linux
   end
 
   needs :cxx11
