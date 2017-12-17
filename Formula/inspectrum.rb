@@ -6,9 +6,11 @@ class Inspectrum < Formula
   head "https://github.com/miek/inspectrum.git"
 
   bottle do
+    cellar :any_skip_relocation
     sha256 "c982163a1a70eb676d6fe8e9744a25e03edeea31744ce30beef75f6c47e924d1" => :high_sierra
     sha256 "b34f9c01e3a888f97d1c832c7fbcf4f4a036c3bcf47f058b81f41affe4f0f94c" => :sierra
     sha256 "f384448eac77bffb041890951b4ba401b11587eefc9d089162fbe63b7cd08e42" => :el_capitan
+    sha256 "d5ac7ab6fae948115c9288f1f69d5afdcef51ff038734d805eace4899a458e80" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
