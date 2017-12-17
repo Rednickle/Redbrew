@@ -3,14 +3,14 @@ class Ykman < Formula
 
   desc "Tool for managing your YubiKey configuration"
   homepage "https://developers.yubico.com/yubikey-manager/"
-  url "https://developers.yubico.com/yubikey-manager/Releases/yubikey-manager-0.4.6.tar.gz"
-  sha256 "6f9aae731e1c71ea65bea48911aa33a29b284afbabe9430f84e07a27cfcfcbeb"
+  url "https://developers.yubico.com/yubikey-manager/Releases/yubikey-manager-0.5.0.tar.gz"
+  sha256 "c4a7c6f8af3c7f719a0c1dfcbe12440667c60137f74188ff8d4c5506bd631118"
 
   bottle do
     cellar :any
-    sha256 "49bdc999cf7b014966613d10df701bf77117ea96d746cc94586f7fff2fc2c4d2" => :high_sierra
-    sha256 "2ffce72e2292548bdaf9b3ff0d519da7f02ce0c75bb042997c7092b3668f7348" => :sierra
-    sha256 "1c23b2f634d4580ed908d8f7b6b9edb895895e5aa11ce3bc8182fae5377968f5" => :el_capitan
+    sha256 "b00045a4cc486784a87de4b41e5284fd73441d73bcd64846394a7837facfa0e2" => :high_sierra
+    sha256 "ed2e9137f756dd1dfc16a884fb3d9a9bbfa5906619b753f4b16afe5999f6c929" => :sierra
+    sha256 "199b9f7049bb469f25187399e101729b313e7f644a1c558d4f5664809ac10cfc" => :el_capitan
   end
 
   head do
@@ -25,8 +25,8 @@ class Ykman < Formula
   depends_on "openssl"
 
   resource "asn1crypto" do
-    url "https://files.pythonhosted.org/packages/31/53/8bca924b30cb79d6d70dbab6a99e8731d1e4dd3b090b7f3d8412a8d8ffbc/asn1crypto-0.23.0.tar.gz"
-    sha256 "0874981329cfebb366d6584c3d16e913f2a0eb026c9463efcc4aaf42a9d94d70"
+    url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
+    sha256 "9d5c20441baf0cb60a4ac34cc447c6c189024b6b4c6cd7877034f4965c464e49"
   end
 
   resource "cffi" do
@@ -40,8 +40,8 @@ class Ykman < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/bf/da/6a9f49cc7a970380c8235b3adab0c08c7c3d4814876f7383b33e3882a577/cryptography-2.1.1.tar.gz"
-    sha256 "2699ed21e1f73dd1bdb7b0b22a517295de07809d535b23e200dd22166037fe6f"
+    url "https://files.pythonhosted.org/packages/78/c5/7188f15a92413096c93053d5304718e1f6ba88b818357d05d19250ebff85/cryptography-2.1.4.tar.gz"
+    sha256 "e4d967371c5b6b2e67855066471d844c5d52d210c36c28d49a8507b96e2c5291"
   end
 
   resource "enum34" do
@@ -65,8 +65,8 @@ class Ykman < Formula
   end
 
   resource "pyOpenSSL" do
-    url "https://files.pythonhosted.org/packages/ee/6a/cd78737dd990297205943cc4dcad3d3c502807fd2c5b18c5f33dc90ca214/pyOpenSSL-17.3.0.tar.gz"
-    sha256 "29630b9064a82e04d8242ea01d7c93d70ec320f5e3ed48e95fcabc6b1d0f6c76"
+    url "https://files.pythonhosted.org/packages/3b/15/a5d90ab1a41075e8f0fae334f13452549528f82142b3b9d0c9d86ab7178c/pyOpenSSL-17.5.0.tar.gz"
+    sha256 "2c10cfba46a52c0b0950118981d61e72c1e5b1aac451ca1bc77de1a679456773"
   end
 
   resource "pyscard" do
