@@ -9,6 +9,7 @@ class Gpsbabel < Formula
     sha256 "e93459121437da0a431110d2328b797e0c0f08c6ad0d8868a8fc54eacad113f8" => :high_sierra
     sha256 "6beb905104938716330e3c08a8369844ea31a9fbdc91fca3efc2e218ea9ba9a4" => :sierra
     sha256 "b99754ca018e38fd12b8604ca9ad249590e363586b9fe48dd416b02b93d0c8be" => :el_capitan
+    sha256 "2e21b4f872e0d71cd6ca72490c092ef33dd266fc48801b91a52005b65c0847d9" => :x86_64_linux
   end
 
   depends_on "qt"
