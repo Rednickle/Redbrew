@@ -14,10 +14,7 @@ class Log4cplus < Formula
     sha256 "59a7fa066d39e30d90df722f84b1fdedf83788cf51141aa876b0a8c9fe984e42" => :x86_64_linux # glibc 2.19
   end
 
-  option :cxx11
-
   def install
-    ENV.cxx11 if build.cxx11?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"

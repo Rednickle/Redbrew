@@ -14,13 +14,11 @@ class GoogleSparsehash < Formula
     sha256 "ed022642809ddcc995f6a46546d902d002b12c962fc47e0a33418347513885a6" => :x86_64_linux # glibc 2.19
   end
 
-  option :cxx11
   option "without-test", "Skip build-time tests (not recommended)"
 
   deprecated_option "without-check" => "without-test"
 
   def install
-    ENV.cxx11 if build.cxx11?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "check" if build.with? "test"

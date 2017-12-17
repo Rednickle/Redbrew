@@ -13,7 +13,6 @@ class Libtiff < Formula
     sha256 "866af0cb09073c0f9076c042d87eccedbdfbfba89218b4c0ae8c282eca5aec84" => :x86_64_linux
   end
 
-  option :cxx11
   option "with-xz", "Include support for LZMA compression"
 
   depends_on "jpeg"
@@ -21,8 +20,6 @@ class Libtiff < Formula
   depends_on "zlib" unless OS.mac?
 
   def install
-    ENV.cxx11 if build.cxx11?
-
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}

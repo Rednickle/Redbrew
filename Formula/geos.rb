@@ -13,7 +13,6 @@ class Geos < Formula
     sha256 "68d2c33f2cff05d4ba5ab476adbce4398db16e6ae9815cea33e13d6e685f0ca0" => :x86_64_linux # glibc 2.19
   end
 
-  option :cxx11
   option "without-python", "Do not build the Python extension"
   option "with-ruby", "Build the ruby extension"
 
@@ -21,8 +20,6 @@ class Geos < Formula
   depends_on :python unless OS.mac?
 
   def install
-    ENV.cxx11 if build.cxx11?
-
     # https://trac.osgeo.org/geos/ticket/771
     inreplace "configure" do |s|
       s.gsub! /PYTHON_CPPFLAGS=.*/, %Q(PYTHON_CPPFLAGS="#{`python-config --includes`.strip}")

@@ -21,7 +21,6 @@ class Asio < Formula
   end
 
   option "with-boost-coroutine", "Use Boost.Coroutine to implement stackful coroutines"
-  option :cxx11
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -33,7 +32,7 @@ class Asio < Formula
   needs :cxx11 if build.without? "boost"
 
   def install
-    ENV.cxx11 if build.cxx11? || build.without?("boost")
+    ENV.cxx11 if build.without? "boost"
 
     if build.head?
       cd "asio"

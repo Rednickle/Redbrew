@@ -16,10 +16,7 @@ class Gmp < Formula
 
   depends_on "m4" => :build unless OS.mac?
 
-  option :cxx11
-
   def install
-    ENV.cxx11 if build.cxx11?
     args = %W[--prefix=#{prefix} --enable-cxx]
 
     if OS.mac?

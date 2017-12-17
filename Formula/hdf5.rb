@@ -17,8 +17,6 @@ class Hdf5 < Formula
 
   deprecated_option "enable-parallel" => "with-mpi"
 
-  option :cxx11
-
   depends_on "zlib" unless OS.mac?
 
   depends_on "autoconf" => :build
@@ -29,8 +27,6 @@ class Hdf5 < Formula
   depends_on :mpi => [:optional, :cc, :cxx, :f90]
 
   def install
-    ENV.cxx11 if build.cxx11?
-
     inreplace %w[c++/src/h5c++.in fortran/src/h5fc.in tools/src/misc/h5cc.in],
       "${libdir}/libhdf5.settings", "#{pkgshare}/libhdf5.settings"
 

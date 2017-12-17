@@ -14,18 +14,11 @@ class Taglib < Formula
     sha256 "21e6f4544e28589b0a503990ddf167f8dc6e8b69728a1906a076e2f6be3475eb" => :x86_64_linux # glibc 2.19
   end
 
-  option :cxx11
-
   depends_on "cmake" => :build
 
   def install
-    ENV.cxx11 if build.cxx11?
-    args = std_cmake_args + %w[
-      -DWITH_MP4=ON
-      -DWITH_ASF=ON
-      -DBUILD_SHARED_LIBS=ON
-    ]
-    system "cmake", *args
+    system "cmake", "-DWITH_MP4=ON", "-DWITH_ASF=ON", "-DBUILD_SHARED_LIBS=ON",
+                    *std_cmake_args
     system "make", "install"
   end
 
