@@ -165,6 +165,7 @@ class Kontena < Formula
     sha256 "a2aa389c7b1615d7c3cbeab2aceb7420c4117084c9cabab4f619ffbf7e926376" => :high_sierra
     sha256 "9e618bf792135d62d21894eb781cf506545fc57f5ba9a863d60af67f91b84140" => :sierra
     sha256 "5ab1353f88480f709dc936d5123168aa6a5b8ff09073ff9a036727d062f41f6c" => :el_capitan
+    sha256 "8e81123fe07aad8d6890912de99b0c0ae852d0fa6b6b2c2394e8e2b6c503e5ea" => :x86_64_linux
   end
 
   depends_on :ruby => "2.1"
