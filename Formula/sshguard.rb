@@ -10,6 +10,7 @@ class Sshguard < Formula
     sha256 "eb13c51b65f9007163ade54a5f01699da82b4ba3c225af30a57ed05593bfe60e" => :high_sierra
     sha256 "63b4d94b319432258792e9d00a0474c11c1bc37fe19deee1c7ee62f2980c982d" => :sierra
     sha256 "4231ea2fbff92a76b72e8f3707e4600451e9315740cd5864c54641dc8bd75857" => :el_capitan
+    sha256 "a9f8fd77e6346f154d43c2021a0c3914796690ab3df2f34229496c5ebe787558" => :x86_64_linux
   end
 
   head do
