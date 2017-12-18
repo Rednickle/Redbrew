@@ -1,14 +1,14 @@
 class Urh < Formula
   desc "Universal Radio Hacker"
   homepage "https://github.com/jopohl/urh"
-  url "https://files.pythonhosted.org/packages/83/7f/c950206b46aad12af5a8c0d055b85a107151d3089534b81c230e18067b87/urh-1.9.0.tar.gz"
-  sha256 "ccbfdd6c8a866dcd83164d32a904502ba4640bcedf1068ff184a1fd50f98f4a7"
+  url "https://files.pythonhosted.org/packages/0a/f7/6a6d5666c01a4d7817198b8051b1215b0e2f03c19f7dff06a0a773bb07c1/urh-1.9.1.tar.gz"
+  sha256 "78b09c44eaa1a175cc25677a916c6390f896f1b78adcc7528991651655182fca"
   head "https://github.com/jopohl/urh.git"
 
   bottle do
-    sha256 "129b8f78370947c78a7c530c3141637bbcf3d1aad347671a452efd7a07a24954" => :high_sierra
-    sha256 "2d369dcca48d5a9ccfbada89ff51b275cb4f028cecf255483981a2bc38ff9948" => :sierra
-    sha256 "b4ea6bdbef8b6961fb70caf39636e0a48f7e67066c544cd7832455810e98a078" => :el_capitan
+    sha256 "0ba579f1d404e0880b165c71dbe620929b037a70e6d97c5072e76f9e2651e33b" => :high_sierra
+    sha256 "7e97d3f11a7d586c7913ef9bbdbdae70b17f35e5fe5d1ce4e4b634c9a5690d34" => :sierra
+    sha256 "b62f975582f2baf62ee8d0bd0cdae3ac9ca03aba64feae269769fae99b80dd4f" => :el_capitan
   end
 
   option "with-hackrf", "Build with libhackrf support"
