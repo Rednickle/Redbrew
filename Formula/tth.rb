@@ -9,6 +9,7 @@ class Tth < Formula
     sha256 "5b06f95fbccf3847cbabee3dec070cae76763acef5b0801e0870359639a20880" => :high_sierra
     sha256 "22b58ab69a94f8e031efa6662179b14a2ba57bf0582174eda559abc0e3cf9701" => :sierra
     sha256 "d02002b9156fc175d253f30ac2e5e7fa29a32e3c109caeaa3367d33fa496eb8f" => :el_capitan
+    sha256 "8885e1de0ce11108d999935f49bbb35da7e5a22fd2a18343007d77028cba11cb" => :x86_64_linux
   end
 
   def install
