@@ -5,22 +5,23 @@ class Hadolint < Formula
 
   desc "Smarter Dockerfile linter to validate best practices"
   homepage "http://hadolint.lukasmartinelli.ch/"
-  url "https://github.com/lukasmartinelli/hadolint/archive/v1.2.3.tar.gz"
-  sha256 "03a342fcb65d86b20ae1728d107344da36ceab87e7e846cb2f802924aa218aac"
+  url "https://github.com/lukasmartinelli/hadolint/archive/v1.2.4.tar.gz"
+  sha256 "e8c2051373e029e2e8258a9d5b720edc97e4f980600f7bee2e9acef15502a99c"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "61393af8a04e698208a9b055811be04d216e50843888343e00d4b5a5da099e01" => :high_sierra
-    sha256 "a951547c4fd61d291494592319d9030a18602dca4627384d7ca4c88bb508fa26" => :sierra
-    sha256 "c4c7695838ced29657ee3e342a5daccfc45148e284c87bdd0ac10713a3cf6f83" => :el_capitan
-    sha256 "15aad772c7a00078aec5c8882146689decdc568955885b547d04c8900a36e06a" => :x86_64_linux
+    sha256 "95731202fdc25da1ce4f56fcc7ef1c0cd5e729bb07d7edbe8908bdcea5423770" => :high_sierra
+    sha256 "74f74eb4f0e3a9a07873d0f3d3eb1760ae38dd7b07835f447b93ca4789066dbb" => :sierra
+    sha256 "8d2d5f0f9a65940f41bc0f537c0c0ae23436486fd14ed2786fa267b84f8e69fc" => :el_capitan
   end
 
   depends_on "ghc" => :build
   depends_on "cabal-install" => :build
 
   def install
-    install_cabal_package
+    # Fix "Couldn't match expected type 'CheckSpec'"
+    # Reported 18 Dec 2017 https://github.com/hadolint/hadolint/issues/143
+    install_cabal_package "--constraint=ShellCheck<0.4.7"
   end
 
   test do
