@@ -3,13 +3,12 @@ class RubyAT19 < Formula
   homepage "https://www.ruby-lang.org/"
   url "https://cache.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p551.tar.bz2"
   sha256 "b0c5e37e3431d58613a160504b39542ec687d473de1d4da983dabcf3c5de771e"
-  revision 6
+  revision 7
 
   bottle do
-    sha256 "c6ace732f66dd384961e2d39297ab70d29bf491c60eac0f78eea1c4512862018" => :high_sierra
-    sha256 "058150867dc5377bc436b3f1b82c61bb83f7a9d42e16ecafa7d19bb65e64e726" => :sierra
-    sha256 "e9bf2aa03c65f9e906f9a9fc79eb4c10451a166d0ba7a5d725bea5350d40c95e" => :el_capitan
-    sha256 "36041a83613a98689ce63a67df40dfe94fbbec5737fe47fe929324a7eb2161e8" => :x86_64_linux
+    sha256 "0aa012a4c8ae0dd20ff32f5b572e5a5af37a20de5667a82fa937ec0f3adac0f9" => :high_sierra
+    sha256 "01b20a7d33643c889f5803bab304f689fdcd618a6c9651bba2ddd019cd6ec534" => :sierra
+    sha256 "e6cab8bd92071e87379e1e217789199a18ff9b5a86b4c3c7bdb9dd32f968508d" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -29,8 +28,8 @@ class RubyAT19 < Formula
   # but a revision bump should not be forced every update
   # unless there are security fixes in that Rubygems release.
   resource "rubygems" do
-    url "https://rubygems.org/rubygems/rubygems-2.7.3.tgz"
-    sha256 "cf234e4f1ffeb7cad951f2f87cd426132c6106bb6e303073c4bc9eaae6b3400b"
+    url "https://rubygems.org/rubygems/rubygems-2.6.14.tgz"
+    sha256 "406a45d258707f52241843e9c7902bbdcf00e7edc3e88cdb79c46659b47851ec"
   end
 
   def program_suffix

@@ -3,12 +3,12 @@ class Ruby < Formula
   homepage "https://www.ruby-lang.org/"
   url "https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.3.tar.xz"
   sha256 "23677d40bf3b7621ba64593c978df40b1e026d8653c74a0599f0ead78ed92b51"
+  revision 1
 
   bottle do
-    sha256 "696054a95610b7c6543ac52d1363e544cfda8a9a39c9665beb6c64a162bbd573" => :high_sierra
-    sha256 "8482cef7d3bfd55241312e279058ccef0b816756b7e8c1a9a62a2af5d6004ba6" => :sierra
-    sha256 "dfd5d2ae7af2a46cefb1f5e59af947021ccda5d4fdb1c782a97b8c0a524e4059" => :el_capitan
-    sha256 "af007014bfa8159663f03df2562583aae869b30dde30a39478ac5b8fa9918681" => :x86_64_linux
+    sha256 "f65d0a31c1149e479ec84c9953ac203d65c0f931b9ab346efae58faed468afda" => :high_sierra
+    sha256 "97d54b2626c04642997487f06819332c10a6eb62c700a1861d0c3535ce8a3411" => :sierra
+    sha256 "20280496ac72c4d0755272f176148d7826fa4a8205cace414beb3c7231563b5b" => :el_capitan
   end
 
   devel do
@@ -37,8 +37,8 @@ class Ruby < Formula
   # The exception is Rubygem security fixes, which mandate updating this
   # formula & the versioned equivalents and bumping the revisions.
   resource "rubygems" do
-    url "https://rubygems.org/rubygems/rubygems-2.7.3.tgz"
-    sha256 "cf234e4f1ffeb7cad951f2f87cd426132c6106bb6e303073c4bc9eaae6b3400b"
+    url "https://rubygems.org/rubygems/rubygems-2.6.14.tgz"
+    sha256 "406a45d258707f52241843e9c7902bbdcf00e7edc3e88cdb79c46659b47851ec"
   end
 
   def program_suffix

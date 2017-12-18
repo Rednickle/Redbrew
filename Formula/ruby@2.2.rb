@@ -3,12 +3,12 @@ class RubyAT22 < Formula
   homepage "https://www.ruby-lang.org/"
   url "https://cache.ruby-lang.org/pub/ruby/2.2/ruby-2.2.9.tar.xz"
   sha256 "313b44b1105589d00bb30b9cccf7da44d263fe20a2d8d269ada536d4a7ef285c"
+  revision 1
 
   bottle do
-    sha256 "bbb0ec366709fd53fc067c2bba714835e333b3ed9c1bc9dc2f887b83a31a5800" => :high_sierra
-    sha256 "e77c136a8d980d7d0139664691e245da2887226e8f518a91d95fddaee4dada57" => :sierra
-    sha256 "b8bb15cdb5d6687a851c33319774232e6009f0eb37c46ad7187f197eeb375335" => :el_capitan
-    sha256 "c6f53d5670b99c7eea2165b2c35514a16d626e6ae62f397ac793526c2be88fcb" => :x86_64_linux
+    sha256 "bcde97f083584bd4d404c5304081fc542e39d7951df032060e3c9239db01fe80" => :high_sierra
+    sha256 "1c32a70a0b373d91e4e15bb79f7a7e57d2ee3ec720d03cf6a4916dc8b2e8fdd5" => :sierra
+    sha256 "3e7d0f389ce9adbcb4533f2c351a6a7c3c2f8563878a1fba3bfbe6549083275c" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -30,8 +30,8 @@ class RubyAT22 < Formula
   # but a revision bump should not be forced every update
   # unless there are security fixes in that Rubygems release.
   resource "rubygems" do
-    url "https://rubygems.org/rubygems/rubygems-2.7.3.tgz"
-    sha256 "cf234e4f1ffeb7cad951f2f87cd426132c6106bb6e303073c4bc9eaae6b3400b"
+    url "https://rubygems.org/rubygems/rubygems-2.6.14.tgz"
+    sha256 "406a45d258707f52241843e9c7902bbdcf00e7edc3e88cdb79c46659b47851ec"
   end
 
   def program_suffix
