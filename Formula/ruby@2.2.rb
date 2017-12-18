@@ -8,6 +8,7 @@ class RubyAT22 < Formula
     sha256 "bbb0ec366709fd53fc067c2bba714835e333b3ed9c1bc9dc2f887b83a31a5800" => :high_sierra
     sha256 "e77c136a8d980d7d0139664691e245da2887226e8f518a91d95fddaee4dada57" => :sierra
     sha256 "b8bb15cdb5d6687a851c33319774232e6009f0eb37c46ad7187f197eeb375335" => :el_capitan
+    sha256 "c6f53d5670b99c7eea2165b2c35514a16d626e6ae62f397ac793526c2be88fcb" => :x86_64_linux
   end
 
   keg_only :versioned_formula
