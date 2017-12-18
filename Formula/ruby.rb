@@ -1,15 +1,13 @@
 class Ruby < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.2.tar.xz"
-  sha256 "748a8980d30141bd1a4124e11745bb105b436fb1890826e0d2b9ea31af27f735"
-  revision 1
+  url "https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.3.tar.xz"
+  sha256 "23677d40bf3b7621ba64593c978df40b1e026d8653c74a0599f0ead78ed92b51"
 
   bottle do
-    sha256 "5a1d5adf5f9b0f151a484edcc292764a0b0dbef61eb667c59aa850d0ad3d7626" => :high_sierra
-    sha256 "4f9eda03468b35441712c442bd4f2493b706e2f3cd311e0e330571b6edbc6ce5" => :sierra
-    sha256 "251c9fe64952fdf202df879a111fe450e4de65dd3349435bcd354ecd937aaac4" => :el_capitan
-    sha256 "23de5d220fd0f8abfe5bfae51bdd7a05b07c1afe7902b2709aacc8610e68c45c" => :x86_64_linux
+    sha256 "696054a95610b7c6543ac52d1363e544cfda8a9a39c9665beb6c64a162bbd573" => :high_sierra
+    sha256 "8482cef7d3bfd55241312e279058ccef0b816756b7e8c1a9a62a2af5d6004ba6" => :sierra
+    sha256 "dfd5d2ae7af2a46cefb1f5e59af947021ccda5d4fdb1c782a97b8c0a524e4059" => :el_capitan
   end
 
   devel do
@@ -38,8 +36,8 @@ class Ruby < Formula
   # The exception is Rubygem security fixes, which mandate updating this
   # formula & the versioned equivalents and bumping the revisions.
   resource "rubygems" do
-    url "https://rubygems.org/rubygems/rubygems-2.6.14.tgz"
-    sha256 "406a45d258707f52241843e9c7902bbdcf00e7edc3e88cdb79c46659b47851ec"
+    url "https://rubygems.org/rubygems/rubygems-2.7.3.tgz"
+    sha256 "cf234e4f1ffeb7cad951f2f87cd426132c6106bb6e303073c4bc9eaae6b3400b"
   end
 
   def program_suffix
@@ -127,9 +125,7 @@ class Ruby < Formula
       rm_f bin/"gem#{program_suffix}"
 
       # Drop in the new version.
-      (rg_in/"rubygems").install Dir[buildpath/"vendor_gem/lib/rubygems/*"]
-      rg_in.install buildpath/"vendor_gem/lib/rubygems.rb"
-      rg_in.install buildpath/"vendor_gem/lib/ubygems.rb"
+      rg_in.install Dir[buildpath/"vendor_gem/lib/*"]
       bin.install buildpath/"vendor_gem/bin/gem" => "gem#{program_suffix}"
     end
   end

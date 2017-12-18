@@ -3,13 +3,12 @@ class RubyAT20 < Formula
   homepage "https://www.ruby-lang.org/"
   url "https://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p648.tar.bz2"
   sha256 "087ad4dec748cfe665c856dbfbabdee5520268e94bb81a1d8565d76c3cc62166"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 "7d4fcb90460fded78df836ada2a2fdef835c8067beb4a19f42f3873e9a1ed633" => :high_sierra
-    sha256 "69ee3562d030513be9bbc073812799031a5a847fb34492e2472abc8a7028c2a0" => :sierra
-    sha256 "416169d3f7e02b8502a934d8308e16e3d04fa712c453ec75e6f5649f4f545631" => :el_capitan
-    sha256 "edf72133dfd65cc01665776a46e567b64e9af0a3f26bf93789174f4e44224a24" => :x86_64_linux
+    sha256 "10ac2c0176bf5b82c87ba53e8e2a1d09b6e60688f2c27bf2c0f57f3aa90c3d49" => :high_sierra
+    sha256 "f71d3092ca55a25c529780b64424cd4a7032bf482870cc7e645a50ec283dc887" => :sierra
+    sha256 "d708a5c0f16b92a2d7d24a100fcf4f6fc06075344d07049976ee238dfd457c1c" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -30,8 +29,8 @@ class RubyAT20 < Formula
   # but a revision bump should not be forced every update
   # unless there are security fixes in that Rubygems release.
   resource "rubygems" do
-    url "https://rubygems.org/rubygems/rubygems-2.6.14.tgz"
-    sha256 "406a45d258707f52241843e9c7902bbdcf00e7edc3e88cdb79c46659b47851ec"
+    url "https://rubygems.org/rubygems/rubygems-2.7.3.tgz"
+    sha256 "cf234e4f1ffeb7cad951f2f87cd426132c6106bb6e303073c4bc9eaae6b3400b"
   end
 
   def program_suffix
@@ -103,9 +102,7 @@ class RubyAT20 < Formula
       rm_f bin/"gem#{program_suffix}"
 
       # Drop in the new version.
-      (rg_in/"rubygems").install Dir[buildpath/"vendor_gem/lib/rubygems/*"]
-      rg_in.install buildpath/"vendor_gem/lib/rubygems.rb"
-      rg_in.install buildpath/"vendor_gem/lib/ubygems.rb"
+      rg_in.install Dir[buildpath/"vendor_gem/lib/*"]
       bin.install buildpath/"vendor_gem/bin/gem" => "gem#{program_suffix}"
     end
   end

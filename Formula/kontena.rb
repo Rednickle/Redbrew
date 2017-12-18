@@ -2,6 +2,7 @@ class Kontena < Formula
   desc "Command-line client for Kontena container orchestration platform"
   homepage "https://kontena.io/"
   head "https://github.com/kontena/kontena.git"
+  revision 1
 
   stable do
     url "https://github.com/kontena/kontena.git",
@@ -161,10 +162,9 @@ class Kontena < Formula
 
   bottle do
     cellar :any
-    sha256 "69b5c6fbb98e275ebf4bef48138ee006ea069208c09c9809eaf12ae0dc369a0e" => :high_sierra
-    sha256 "7a11d302a4fda847baabc40917286e6ee98c9f69f42b8af91412c475b6ca5945" => :sierra
-    sha256 "c4a3a362072177d7fa188dd76aaec969a56cbe2a2086a200def6022b6401cbc4" => :el_capitan
-    sha256 "d55218f1346d154159369652eb8ac3dbc0ed6d2ba48d86600765e0ddb36c3589" => :x86_64_linux
+    sha256 "a2aa389c7b1615d7c3cbeab2aceb7420c4117084c9cabab4f619ffbf7e926376" => :high_sierra
+    sha256 "9e618bf792135d62d21894eb781cf506545fc57f5ba9a863d60af67f91b84140" => :sierra
+    sha256 "5ab1353f88480f709dc936d5123168aa6a5b8ff09073ff9a036727d062f41f6c" => :el_capitan
   end
 
   depends_on :ruby => "2.1"

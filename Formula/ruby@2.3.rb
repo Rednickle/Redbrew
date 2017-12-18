@@ -1,15 +1,13 @@
 class RubyAT23 < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.5.tar.xz"
-  sha256 "7d3a7dabb190c2da06c963063342ca9a214bcd26f2158e904f0ec059b065ffda"
-  revision 1
+  url "https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.6.tar.xz"
+  sha256 "e0d969ac22d4a403c1204868bb9c0d068aa35045bb3934cf50b17b7f66059f56"
 
   bottle do
-    sha256 "605435f3ae30cb2b172f35602cbfb3aee7db9e5f3cee30b424845d692eab8e82" => :high_sierra
-    sha256 "8aabf6bc30feda15303987ad5956d366a3addc9a2484ae07522d408c01c93810" => :sierra
-    sha256 "424e78d39c9bcd09500a3b63e48312c67b4ff4b7699a735e8bd853b5644f6fd6" => :el_capitan
-    sha256 "a963eb6243a286ae326dc077416b58833be3d163056acfe9dcb0449faf43f63e" => :x86_64_linux
+    sha256 "4281e99f44dffbac92e212ab66360a5c5f91af2de0113ad31ff91ee37b450c5d" => :high_sierra
+    sha256 "6426502b080997b82c99dc90fa885b81c84cb49e1722ff8d7b365aecab796e62" => :sierra
+    sha256 "d4e2d5f3d4a1ab879bc34831149d705e2a154316d421cc9886be589123ef3fb2" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -31,8 +29,8 @@ class RubyAT23 < Formula
   # but a revision bump should not be forced every update
   # unless there are security fixes in that Rubygems release.
   resource "rubygems" do
-    url "https://rubygems.org/rubygems/rubygems-2.6.14.tgz"
-    sha256 "406a45d258707f52241843e9c7902bbdcf00e7edc3e88cdb79c46659b47851ec"
+    url "https://rubygems.org/rubygems/rubygems-2.7.3.tgz"
+    sha256 "cf234e4f1ffeb7cad951f2f87cd426132c6106bb6e303073c4bc9eaae6b3400b"
   end
 
   def program_suffix
@@ -112,9 +110,7 @@ class RubyAT23 < Formula
       rm_f bin/"gem#{program_suffix}"
 
       # Drop in the new version.
-      (rg_in/"rubygems").install Dir[buildpath/"vendor_gem/lib/rubygems/*"]
-      rg_in.install buildpath/"vendor_gem/lib/rubygems.rb"
-      rg_in.install buildpath/"vendor_gem/lib/ubygems.rb"
+      rg_in.install Dir[buildpath/"vendor_gem/lib/*"]
       bin.install buildpath/"vendor_gem/bin/gem" => "gem#{program_suffix}"
     end
   end
