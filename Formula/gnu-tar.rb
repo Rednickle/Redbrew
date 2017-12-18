@@ -9,6 +9,7 @@ class GnuTar < Formula
     sha256 "ad87e1488b6d1a2db804c348abf05143b6b7310402c7928f725305c295599708" => :high_sierra
     sha256 "5a04574acb1ff235b2509e70cb207e6379a8c83191986131bba52717c328fc1b" => :sierra
     sha256 "1a559b78e6f1a6594b18a9ba2aa2e9828af2736aacc4aec07911fe7638e80e68" => :el_capitan
+    sha256 "0a3faa9909699e720cce5322ce865792ac03c9602e350e413f2ac8ab3eca09a5" => :x86_64_linux
   end
 
   option "with-default-names", "Do not prepend 'g' to the binary"
