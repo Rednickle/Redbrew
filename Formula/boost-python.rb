@@ -10,6 +10,7 @@ class BoostPython < Formula
     sha256 "7eb61418c5c91034a7bc00cd5b56070a901afa4adfd3a7c0551e3809da4673a1" => :high_sierra
     sha256 "1821cfeabaeafe8ab6e003a8715fdff1c481afee0ebdef423082a321bc24d505" => :sierra
     sha256 "0d49ef79a0be83226cdb0fb2b010f6bcc867ce343fa980aee2ddb6356327688f" => :el_capitan
+    sha256 "da39a498341f75be1e232bde3955ead4911bcc40f7d308b1dc7e7ab14314f142" => :x86_64_linux
   end
 
   option "without-python", "Build without python 2 support"
