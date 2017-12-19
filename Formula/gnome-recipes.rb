@@ -3,12 +3,12 @@ class GnomeRecipes < Formula
   homepage "https://wiki.gnome.org/Apps/Recipes"
   url "https://download.gnome.org/sources/gnome-recipes/2.0/gnome-recipes-2.0.2.tar.xz"
   sha256 "1be9d2fcb7404a97aa029d2409880643f15071c37039247a6a4320e7478cd5fb"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "41b2f024e104d9377af8c27354d56e3c86b536cfaaca59296e353c70e4def785" => :high_sierra
-    sha256 "d6aabd15ddb92eb72418d19ce48f2f1bb2ff043b705fef15e7888e5fa3eae018" => :sierra
-    sha256 "968faff27e6d4bb1eedd050986088d2a43dc7f163b2aed7dae15749fb54b5513" => :el_capitan
+    sha256 "9250ea26b664e3ec8982762710969f15582b7e87e11e989584294a6147c07926" => :high_sierra
+    sha256 "e44081479d677544aa1c89cf1fcd2aef07f6afd6fa4eb81fe9a0a39677ae0e0c" => :sierra
+    sha256 "5271c2503df67137bce7a6eb04c581474e23015332ea0aed73870a849053d973" => :el_capitan
   end
 
   depends_on "meson" => :build

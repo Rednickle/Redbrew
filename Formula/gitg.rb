@@ -3,12 +3,12 @@ class Gitg < Formula
   homepage "https://wiki.gnome.org/Apps/Gitg"
   url "https://download.gnome.org/sources/gitg/3.26/gitg-3.26.0.tar.xz"
   sha256 "26730d437d6a30d6e341b9e8da99d2134dce4b96022c195609f45062f82b54d5"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "8909c4ad73ec2f6f634efee3d6f1dae5e830148d5aa17633e199e38098c8af7f" => :high_sierra
-    sha256 "275f14c7f572a14d23c038a9133b630ff4f763e959d513b6640f516b3eec9cb9" => :sierra
-    sha256 "23eb8c323c3946efd495aa0dace770027f26dac48d4e50800d039fd80c01f2c3" => :el_capitan
+    sha256 "e3b904a30f354615a05d0091707fa8104500281cc1671cd1cbd913b4387c79eb" => :high_sierra
+    sha256 "d8d7542f46d1f5e42c262ba08fe9f72b20383b27cc4f1154266a6613b371327d" => :sierra
+    sha256 "a1b1842e086ccf15f0a9da3f18b49f471908efb4ee6ed3979a317c8ced54a2bd" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

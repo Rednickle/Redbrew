@@ -3,12 +3,12 @@ class Gtkspell3 < Formula
   homepage "https://gtkspell.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/gtkspell/3.0.9/gtkspell3-3.0.9.tar.xz"
   sha256 "a4f4a4a2789f7499563e26d96b22d8085222ebe278da47d026b2de782b8b4d26"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "9134392a59cde0d07c22028d619419b935f5fdb6d2bc8d3d356ef181bd4826f6" => :high_sierra
-    sha256 "c982b60d1201cc576a094e1b05287cd3f0c5cb98a761e2c49581aa3a181a8eb1" => :sierra
-    sha256 "a4f2a36e8d77b7f82c03f9313e7ce62700d5656d187438d975b3ec498a1bc310" => :el_capitan
+    sha256 "99ab6b48f8bb322a1e51b21fc6a7eccfb3f6156b9dae4e9afdf3e17b6528bba0" => :high_sierra
+    sha256 "1c12cb8f34a5756bba53ce51a3fed9e599f3cfdb57fbe0a6e4426730dc0335a5" => :sierra
+    sha256 "54127ae6c02def6d85ee4ecc142c9dd10ef0d94f2774d8fdae6fa9a0736835b5" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -46,7 +46,7 @@ class Gtkspell3 < Formula
     flags = %W[
       -I#{atk.opt_include}/atk-1.0
       -I#{cairo.opt_include}/cairo
-      -I#{enchant.opt_include}/enchant
+      -I#{enchant.opt_include}/enchant-2
       -I#{fontconfig.opt_include}
       -I#{freetype.opt_include}/freetype2
       -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0
@@ -73,7 +73,7 @@ class Gtkspell3 < Formula
       -latk-1.0
       -lcairo
       -lcairo-gobject
-      -lenchant
+      -lenchant-2
       -lgdk-3
       -lgdk_pixbuf-2.0
       -lgio-2.0
