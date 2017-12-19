@@ -9,6 +9,7 @@ class Getmail < Formula
     sha256 "1d5cd5119d410de2641ba8c2c525ba5139ccc65b0670160aa4ebd3fcedd84c01" => :high_sierra
     sha256 "1d5cd5119d410de2641ba8c2c525ba5139ccc65b0670160aa4ebd3fcedd84c01" => :sierra
     sha256 "1d5cd5119d410de2641ba8c2c525ba5139ccc65b0670160aa4ebd3fcedd84c01" => :el_capitan
+    sha256 "8202e6c027dbf9812433bd926fcb3728457687f2c7ecb62a8afb94853bd9e028" => :x86_64_linux
   end
 
   def install
