@@ -12,6 +12,7 @@ class Cheat < Formula
     sha256 "17c9c8e02a78c0276549519e9594ebcf74d3fbed7d89781227e560e2506e5387" => :high_sierra
     sha256 "374a7773ba02b820b7e24c2ae37c06a69d6e11c506e65fe9c1bdc76d6fce02c5" => :sierra
     sha256 "03c6ddbad8d372487e30bccd793a19f80e1aaa45970943bf0300710fe119b2b0" => :el_capitan
+    sha256 "0e77cafba27f71143fc3f10cd9f156c7003cee593289c1c0cd2de65e3b64e608" => :x86_64_linux
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
