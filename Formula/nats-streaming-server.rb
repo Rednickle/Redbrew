@@ -10,6 +10,7 @@ class NatsStreamingServer < Formula
     sha256 "3fae57b99948ba21df72cdc73d1d3463a081c234c068b90d57e1338737dd5e2f" => :high_sierra
     sha256 "fe89a33e0529b5cc18586aadde08b1318dac86a18879754eb6ba6aa6806657f1" => :sierra
     sha256 "e8eb41ab04bca3531bca427aa1fe606e9c69c095a69dfaad2ca09b7d60863027" => :el_capitan
+    sha256 "b82b9b78fd76cc72d98487383283c790d0e4d598fd0aaf66972ff66af2d92408" => :x86_64_linux
   end
 
   depends_on "go" => :build
