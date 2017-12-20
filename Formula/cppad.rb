@@ -1,17 +1,17 @@
 class Cppad < Formula
   desc "Differentiation of C++ Algorithms"
   homepage "https://www.coin-or.org/CppAD"
-  url "https://www.coin-or.org/download/source/CppAD/cppad-20171128.epl.tgz"
-  version "20171128"
-  sha256 "36f9a4b6c16d720c20547c0a896c0b89fd5f05641dba34274257a1700f85d13b"
+  # Stable versions have numbers of the form 201x0000.y
+  url "https://github.com/coin-or/CppAD/archive/20170000.8.tar.gz"
+  sha256 "195ed02970b06e8b9546ffe198e662dabdaf56f262d11fbdf6fdc9cf77a3e011"
+  version_scheme 1
   head "https://github.com/coin-or/CppAD.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fc98f4e5c03cc3855f3a4f223fc2fd692602e006e6829c70a6cd1a1fac011016" => :high_sierra
-    sha256 "fc98f4e5c03cc3855f3a4f223fc2fd692602e006e6829c70a6cd1a1fac011016" => :sierra
-    sha256 "fc98f4e5c03cc3855f3a4f223fc2fd692602e006e6829c70a6cd1a1fac011016" => :el_capitan
-    sha256 "9034fb8d9ba5342819f0e6363c159d41182023efda124c04c9740f3d6e4553d9" => :x86_64_linux
+    sha256 "340b46441aaa2b6e42397a4bd544b48bf5bf27a7323d93d841ce80ead80ab1ee" => :high_sierra
+    sha256 "340b46441aaa2b6e42397a4bd544b48bf5bf27a7323d93d841ce80ead80ab1ee" => :sierra
+    sha256 "340b46441aaa2b6e42397a4bd544b48bf5bf27a7323d93d841ce80ead80ab1ee" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -38,7 +38,7 @@ class Cppad < Formula
       }
     EOS
 
-    system ENV.cxx, "#{pkgshare}/example/general/acos.cpp", "-I#{include}",
+    system ENV.cxx, "#{pkgshare}/example/acos.cpp", "-I#{include}",
                     "test.cpp", "-o", "test"
     system "./test"
   end

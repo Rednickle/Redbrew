@@ -1,16 +1,15 @@
 class Osm2pgrouting < Formula
   desc "Import OSM data into pgRouting database"
   homepage "http://pgrouting.org/docs/tools/osm2pgrouting.html"
-  url "https://github.com/pgRouting/osm2pgrouting/archive/v2.3.2.tar.gz"
-  sha256 "2abb865ebcd2827ffc92f5ea2a82d6ea3d02e654ab97671766da5ab4a7f67418"
-  revision 1
+  url "https://github.com/pgRouting/osm2pgrouting/archive/v2.3.3.tar.gz"
+  sha256 "ea58d3b2dd0164cf85dfa66044ce1ea2af3080bee2c16ad6f115aa84aa23ba0f"
   head "https://github.com/pgRouting/osm2pgrouting.git"
 
   bottle do
     cellar :any
-    sha256 "a36761125b93c168b28f7760b0d94fd2b04f0ee7e710836e52821997db87f9fb" => :high_sierra
-    sha256 "1681df19e5f5b68f7fd49ebc2681d80bfdfc4d7e622176132d22afe872e836a9" => :sierra
-    sha256 "07b02a0ee0a62a561abd6df1fa142491a283b90dfe5eb5f7bac43990aabb2af3" => :el_capitan
+    sha256 "e7f4b47ac2a06065a09a45ed1e279f8ea3fedb309eb2b712df1195dc643a5334" => :high_sierra
+    sha256 "b6ac0fe8660b60e731f689532a1428622ce0948344f13e08b98ccda6f2301178" => :sierra
+    sha256 "65d574dfc31b39cecf2c18561420d21779d976760acb2e501e1c74c3f0438eb2" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -25,12 +24,14 @@ class Osm2pgrouting < Formula
     inreplace "CMakeLists.txt" do |s|
       s.gsub! "RUNTIME DESTINATION \"/usr/bin\"",
               "RUNTIME DESTINATION \"#{bin}\""
-      s.gsub! "set (SHARE_DIR \"/usr/share/osm2pgrouting\")",
-              "set (SHARE_DIR \"#{pkgshare}\")"
+      s.gsub! "SET(SHARE_DIR \"/usr/share/osm2pgrouting\")",
+              "SET(SHARE_DIR \"#{pkgshare}\")"
     end
 
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "make", "install"
+    end
   end
 
   test do
