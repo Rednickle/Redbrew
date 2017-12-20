@@ -9,6 +9,7 @@ class Fio < Formula
     sha256 "bf8cb7cca976af1938f9b4d5a4674ebc425f4618ec512d82d2067caf0540230a" => :high_sierra
     sha256 "83aada5f73d20e62f4eb66c7da84881414fa9a8c96556ec6b0e8e52877180c99" => :sierra
     sha256 "ba3223b30e3a3ee63017510147aa32bdbeec78ead97622af4d39761150e8c11b" => :el_capitan
+    sha256 "15b6c957f877ba7f60d92d812d2118e2f47237e3a0155f13f11e8e5b1da07db3" => :x86_64_linux
   end
 
   def install
