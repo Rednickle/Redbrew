@@ -9,6 +9,7 @@ class Gspell < Formula
     sha256 "092dfca6b5aeb44bb488b12975a8c7cc37f6cb3f107318388b4a8ff96bd8d3f1" => :high_sierra
     sha256 "8581e1b6bc666edb54314308a54de6a1fd04c085db91da1ebb8a856028f1ce52" => :sierra
     sha256 "2ea9149b5d488cb33a57d377db2b70dcdab4e520ff7cef57cda4bf9e51fcc579" => :el_capitan
+    sha256 "e5176e7660313cc5a4c49da2fc4c3c20d1f42ed5ba2f4a520cd9a1127e48535a" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
