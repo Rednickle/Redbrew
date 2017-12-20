@@ -11,6 +11,7 @@ class Snappy < Formula
     sha256 "162c90af81dcc8378f642b0b9905c78271ea6a5837199fc671e8948749db41f7" => :high_sierra
     sha256 "39554f2f199def29cfce83c64e220635cac7d3481bf42fba20ba935c674d0dc4" => :sierra
     sha256 "90c4778393606a51788e68dcd7046831a71cc2c95698fe261780e649ac3ce26c" => :el_capitan
+    sha256 "13f34745cebe40a348c566bc4539840236be9ef8941ee7495c9d95bb7ca85984" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
