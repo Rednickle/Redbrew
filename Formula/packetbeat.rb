@@ -1,16 +1,16 @@
 class Packetbeat < Formula
   desc "Lightweight Shipper for Network Data"
   homepage "https://www.elastic.co/products/beats/packetbeat"
-  url "https://github.com/elastic/beats/archive/v6.1.0.tar.gz"
-  sha256 "1dc37aa296a96d3ced69d0b31815e08a1985aaf2f02113889465502bb02478ac"
+  url "https://github.com/elastic/beats/archive/v6.1.1.tar.gz"
+  sha256 "c69f0047644be919e42a1d8fa3383c894ca8e054d5b6f727f161ed4ce497ca84"
 
   head "https://github.com/elastic/beats.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4820141ee9c806054fc0ec05cc075f9ac737883a74c12d338111d2f2bdb8b382" => :high_sierra
-    sha256 "16f4580bf2e48ef38442200a1757df673a9086cbbc6db56457cb02993b8a47a3" => :sierra
-    sha256 "6108dcf3cd82d3bbc8360426ce87a7ad2615e2d6347d072bb3edc64ec94d20e4" => :el_capitan
+    sha256 "b986062fbc0bc7dc38c576a16791bb87ec93afd2fce98916aea38d3c73a9cc22" => :high_sierra
+    sha256 "a65e3cd7cba5bc7012dfbed7645d64dc5e53dbecb30caecf40f2c00a8de52948" => :sierra
+    sha256 "fa7fe4ddf8b97d1e5e2c763cd19264cd57652a3210d684c2e02cb0432a267e91" => :el_capitan
   end
 
   depends_on "go" => :build
