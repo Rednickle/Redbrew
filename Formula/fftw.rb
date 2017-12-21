@@ -9,6 +9,7 @@ class Fftw < Formula
     sha256 "7c6d0f9133c5b491fe5538edd7a073d730cda6a7ce097c206a9372054505f123" => :high_sierra
     sha256 "0682cdd73c692d6bb9e8ced37a94d1a39297546a110243ae9d6007870c46c52e" => :sierra
     sha256 "a4bd0dfab078a5c5cd98166947e6537e393964bfbe68c82a8912e42333bea8f3" => :el_capitan
+    sha256 "e2efcacbf4b56671284e97013421e4f3abffb975114ff7e09ef333cc680c25ff" => :x86_64_linux
   end
 
   option "with-mpi", "Enable MPI parallel transforms"
