@@ -8,6 +8,7 @@ class Dar < Formula
     sha256 "d9d0a90712f3fe179767ea5caf79a46f4b57702a09b8a55e030e99fab002c800" => :high_sierra
     sha256 "ece73e9dd56771993d6b8aedba32e0035b60866aec58ce85ae70197be1c5d43c" => :sierra
     sha256 "098d2cb0df8236d49a08a11ff0c3fa77ea8817baa2880ac8c473bb816318bf29" => :el_capitan
+    sha256 "78e9a64479a37be34dfaf722f80681f9c7839dd8107008d30f9b0662a13e240c" => :x86_64_linux
   end
 
   option "with-doxygen", "build libdar API documentation and html man page"
