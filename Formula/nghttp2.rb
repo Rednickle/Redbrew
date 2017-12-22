@@ -1,14 +1,13 @@
 class Nghttp2 < Formula
   desc "HTTP/2 C Library"
   homepage "https://nghttp2.org/"
-  url "https://github.com/nghttp2/nghttp2/releases/download/v1.28.0/nghttp2-1.28.0.tar.xz"
-  sha256 "0d6c3f00614deca3935e42a27f6ad0ea87c31d8c1baa3a9c52755955c599fd8d"
+  url "https://github.com/nghttp2/nghttp2/releases/download/v1.29.0/nghttp2-1.29.0.tar.xz"
+  sha256 "a7a1b18be57be6a53a7739988ea27d6ec9209e7b0e8372b8483cd911d7838739"
 
   bottle do
-    sha256 "7b9fc44d70d323e560b609821be745ecb4512ed53bf1b07d57b214da3402bb32" => :high_sierra
-    sha256 "c93636aa8a5dfe654d3b4c91d909c84301b638661cf79c30220239fc6ce70166" => :sierra
-    sha256 "a471905583d48880ac350f98a915d0309c6ef4df09560b3b9f9ecf11cc3d5521" => :el_capitan
-    sha256 "f9cb6fbde32d16e3a737181df3c2ce7ecb281d89e67843d04efbe2c0cfd253f0" => :x86_64_linux
+    sha256 "113580a4da9ead2037675ffb797d7650430f9db00ef7ef32176ed579a25a9355" => :high_sierra
+    sha256 "f48ac4ed9ecfd676eafe40ef8207116522643086499f338a6cea3f4013b36aed" => :sierra
+    sha256 "5ce979de1d8de1e385eafcc05fba27aa7d1b0496a76b9e672cfcc8a2f7d52090" => :el_capitan
   end
 
   head do
