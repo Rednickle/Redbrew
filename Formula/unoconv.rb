@@ -10,6 +10,7 @@ class Unoconv < Formula
     sha256 "cb6ddbfbd729b82ab62289c996f8150044ea66ea6ec1fa54c64736eccb1fa964" => :high_sierra
     sha256 "cb6ddbfbd729b82ab62289c996f8150044ea66ea6ec1fa54c64736eccb1fa964" => :sierra
     sha256 "cb6ddbfbd729b82ab62289c996f8150044ea66ea6ec1fa54c64736eccb1fa964" => :el_capitan
+    sha256 "c4da0c1a5218cb2ed9c2ce717572ae046634e03e2d818bac2b0f8c1c89f6be80" => :x86_64_linux
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
