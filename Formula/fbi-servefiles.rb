@@ -2,15 +2,14 @@ class FbiServefiles < Formula
   include Language::Python::Virtualenv
   desc "Serve local files to Nintendo 3DS via FBI remote installer"
   homepage "https://github.com/Steveice10/FBI"
-  url "https://github.com/Steveice10/FBI/archive/2.4.13.tar.gz"
-  sha256 "f03d96a32622fd3b9732ff734d9d65b50d4af445eed8e6eb77fd9641265eb42e"
+  url "https://github.com/Steveice10/FBI/archive/2.4.14.tar.gz"
+  sha256 "b8bfd0271eef0da50fe7dbfe3035a52492d1825cbeb831b739bbe1556ce46e0d"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0065f2be62f713c4200dabbf528fbc1d50d206efe7c6b03cfc1f73c1213723b1" => :high_sierra
-    sha256 "8f68dde6bf8594d3e9f47bf6e39dd4b427bcc733f3a383075bdc9934efe3e0e9" => :sierra
-    sha256 "fb14ed2b7103bc58d79da73cb7ab150da741bdbbf12dea007233327520d8b5b2" => :el_capitan
-    sha256 "9a8310deb92e9bb8945fa233bca11e38ab3264db602696e5f79d3e3802519708" => :x86_64_linux
+    sha256 "204141ebb001cb148f31964c173db1bc8821fad925084b0b30b7268e9a436ea9" => :high_sierra
+    sha256 "d3c95040616000b52a1d77b4ebaad28be4bdd5aa93a60ebf7ed6be3ca1229244" => :sierra
+    sha256 "d51364f0b41dc8fe567dbfca43231889f7ae3b7ecbac8303a10143a2f298b524" => :el_capitan
   end
 
   depends_on :python if MacOS.version <= :snow_leopard

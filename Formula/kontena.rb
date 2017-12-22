@@ -2,12 +2,11 @@ class Kontena < Formula
   desc "Command-line client for Kontena container orchestration platform"
   homepage "https://kontena.io/"
   head "https://github.com/kontena/kontena.git"
-  revision 1
 
   stable do
     url "https://github.com/kontena/kontena.git",
-        :tag => "v1.4.2",
-        :revision => "ead10ec4191a101769095b5fc7c3eeabaa05c621"
+        :tag => "v1.4.3",
+        :revision => "8e3842860578f9a8d8283d89d41a39fa4ed463d5"
 
     resource "addressable" do
       url "https://rubygems.org/gems/addressable-2.5.2.gem"
@@ -37,11 +36,6 @@ class Kontena < Formula
     resource "hitimes" do
       url "https://rubygems.org/gems/hitimes-1.2.6.gem"
       sha256 "5939da5baf4bed890b481d77dc37d481297d0f06f1d2569f4c5c9a2112144218"
-    end
-
-    resource "kontena-plugin-cloud" do
-      url "https://rubygems.org/gems/kontena-plugin-cloud-1.2.0.gem"
-      sha256 "792132467e5c44e168dd679a49b68186da454f2509b79f3be8f3f6d341237ec1"
     end
 
     resource "kontena-websocket-client" do
@@ -77,11 +71,6 @@ class Kontena < Formula
     resource "public_suffix" do
       url "https://rubygems.org/gems/public_suffix-3.0.1.gem"
       sha256 "67182699cb644e66b4c68d30b5f1dd42e3dfe6c0aa0d8fd36a1e71c97c6a7f57"
-    end
-
-    resource "rake" do
-      url "https://rubygems.org/gems/rake-10.5.0.gem"
-      sha256 "2b55a1ad44b5c945719d8a97c302a316af770b835187d12143e83069df5a8a49"
     end
 
     resource "retriable" do
@@ -162,10 +151,9 @@ class Kontena < Formula
 
   bottle do
     cellar :any
-    sha256 "a2aa389c7b1615d7c3cbeab2aceb7420c4117084c9cabab4f619ffbf7e926376" => :high_sierra
-    sha256 "9e618bf792135d62d21894eb781cf506545fc57f5ba9a863d60af67f91b84140" => :sierra
-    sha256 "5ab1353f88480f709dc936d5123168aa6a5b8ff09073ff9a036727d062f41f6c" => :el_capitan
-    sha256 "8e81123fe07aad8d6890912de99b0c0ae852d0fa6b6b2c2394e8e2b6c503e5ea" => :x86_64_linux
+    sha256 "345e64ef9ab258bffa6311a2e343415c3c4b86a2bf0734c6e1bd334d623bec81" => :high_sierra
+    sha256 "9b0a1cbd9c0761905d012febdabb003da7298befd0f44c9fc54b69947f579195" => :sierra
+    sha256 "13d79de4691941f77a4113bc44222113286a73a6c5b13242df9dd5d5bbd888bc" => :el_capitan
   end
 
   depends_on :ruby => "2.1"
