@@ -4,15 +4,14 @@ class GitlabRunner < Formula
   desc "The official GitLab CI runner written in Go"
   homepage "https://gitlab.com/gitlab-org/gitlab-runner"
   url "https://gitlab.com/gitlab-org/gitlab-runner.git",
-      :tag => "v10.2.0",
-      :revision => "0a75cdd19694787682d38143b3aaf11d641c3117"
+      :tag => "v10.3.0",
+      :revision => "5cf5e19ad20e4d9710855063ad1dc572e4faa2f8"
   head "https://gitlab.com/gitlab-org/gitlab-runner.git"
 
   bottle do
-    sha256 "8b75fa67c1a6ecd46c54a284542bcd13f1df90d5f9004f9e93db4adadd524cc8" => :high_sierra
-    sha256 "571cf540bf92dcbfa9b3f8888112a31afcbfaa3daaa96804a969b6a28ce564a8" => :sierra
-    sha256 "f9a1b2ec1f749204c43edfa635d4848cb7bcccf3bce9ceca99f0da51fdaeb4e2" => :el_capitan
-    sha256 "e3d2489cd324fc912ea402f981e164ae6332799c6571c23e64ebf8e633d747df" => :x86_64_linux
+    sha256 "446804484f78a31983402d4d9e3177a18abc724eaa36f00609e617077d9b6382" => :high_sierra
+    sha256 "cbf82c4f1e16758c33208fdd93bc2996b01aaba9e44e19e3d982ae5a49febdb4" => :sierra
+    sha256 "4566f9e6631580bc963b7f21199e19822d66214cd039af7f9020e9f158006baa" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -24,17 +23,17 @@ class GitlabRunner < Formula
   end
 
   resource "prebuilt-x86_64.tar.xz" do
-    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.2.0/docker/prebuilt-x86_64.tar.xz",
+    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.3.0/docker/prebuilt-x86_64.tar.xz",
         :using => :nounzip
-    version "10.2.0"
-    sha256 "e6cee7f8dfc400088ecf8be594705994b1b61e3fbb96e85a3d72473313fc3ea4"
+    version "10.3.0"
+    sha256 "5b46b9fc173378ef2cf7f58ffecd40f2cbc62b60b86ff49d2d91dace45ef1d5a"
   end
 
   resource "prebuilt-arm.tar.xz" do
-    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.2.0/docker/prebuilt-arm.tar.xz",
+    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.3.0/docker/prebuilt-arm.tar.xz",
         :using => :nounzip
-    version "10.2.0"
-    sha256 "d6ea9e81bd20c5cf785f534f9061d76ca9452323cea8d52739bfe8c99dd36ef7"
+    version "10.3.0"
+    sha256 "91cc4703e52c3b77c9df8c4820d45dfea2f78edde3815064d265a64b7e8d4c49"
   end
 
   def install
