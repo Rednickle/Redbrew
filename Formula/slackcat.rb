@@ -10,6 +10,7 @@ class Slackcat < Formula
     sha256 "81bf29fac1f47bfaa4064b9b03aae96c4ea179158b0baeb0868203c6b7144221" => :high_sierra
     sha256 "7a0331e03695488f07eba24c4ebef11b406face8dcdbfc632beb8c5eb3227395" => :sierra
     sha256 "bd75f396807917734adec3c541faebee3789841474fdd81c343c61c6a739d293" => :el_capitan
+    sha256 "46c54462f1a6e9e639566a8bde49998c85fe1a340200ab98bb779c1d2c2db239" => :x86_64_linux
   end
 
   depends_on "dep" => :build
