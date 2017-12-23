@@ -3,13 +3,13 @@ class Git < Formula
   homepage "https://git-scm.com"
   url "https://www.kernel.org/pub/software/scm/git/git-2.15.1.tar.xz"
   sha256 "999c90fd7d45066992cdb87dda35bdff6dfc1d01496118ea718dfb866da4045c"
+  revision 1
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
-    sha256 "c4d2afa7d86393bc10fc4759cc0dc0e05beb3162e84ccf50ca7814aeed2dc87a" => :high_sierra
-    sha256 "389d8fdc15de60a1ffbd168dfdef8414fcd07f0770f6f97978fcd9fda5d87663" => :sierra
-    sha256 "fedb678e955f60cd74376ca02d427a08daf28ebd2fa67c70bade7e29d64150ff" => :el_capitan
-    sha256 "5a10c0f82eb6ef1d58ef381fff7a6e71e9a5718e21fc5d53c8abf0ee46f5cb38" => :x86_64_linux
+    sha256 "bf92011a0d9c62dfdee9a8825f5dc5c9ae84d3fa6c1362008a426b960a5b192e" => :high_sierra
+    sha256 "a952b566a368e6fedf95b1c7a5dbe48f3c847f9d81a0137c63f531bb3be19664" => :sierra
+    sha256 "ec79f938b88ca03b1f9dd3cedfcf5d01959cdc69887ff562825c4a1b41dd5e78" => :el_capitan
   end
 
   option "with-blk-sha1", "Compile with the block-optimized SHA1 implementation"
@@ -125,12 +125,14 @@ class Git < Formula
 
     system "make", "install", *args
 
+    git_core = libexec/"git-core"
+
     # Install the macOS keychain credential helper
     cd "contrib/credential/osxkeychain" do
       system "make", "CC=#{ENV.cc}",
                      "CFLAGS=#{ENV.cflags}",
                      "LDFLAGS=#{ENV.ldflags}"
-      bin.install "git-credential-osxkeychain"
+      git_core.install "git-credential-osxkeychain"
       system "make", "clean"
     end if OS.mac?
 
@@ -142,7 +144,7 @@ class Git < Formula
     # Install the netrc credential helper
     cd "contrib/credential/netrc" do
       system "make", "test"
-      bin.install "git-credential-netrc"
+      git_core.install "git-credential-netrc"
     end
 
     # Install git-subtree
@@ -150,15 +152,15 @@ class Git < Formula
       system "make", "CC=#{ENV.cc}",
                      "CFLAGS=#{ENV.cflags}",
                      "LDFLAGS=#{ENV.ldflags}"
-      bin.install "git-subtree"
+      git_core.install "git-subtree"
     end
 
     if build.with? "persistent-https"
       cd "contrib/persistent-https" do
         system "make"
-        bin.install "git-remote-persistent-http",
-                    "git-remote-persistent-https",
-                    "git-remote-persistent-https--proxy"
+        git_core.install "git-remote-persistent-http",
+                         "git-remote-persistent-https",
+                         "git-remote-persistent-https--proxy"
       end
     end
 
