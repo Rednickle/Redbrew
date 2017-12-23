@@ -16,6 +16,7 @@ class Otto < Formula
     sha256 "cedbe7fba7fe0449ea89c2dc0e84c1dba28eeb3bcf1cac97b9f200b9b978353c" => :high_sierra
     sha256 "4e05e040fdf6ce6b2b310924aa9437ddf780f0fc26f5c6653ced361b2113014b" => :sierra
     sha256 "0b02f3444157d90e342f0e79db518076c862a43a34129371163a4112d8d94c13" => :el_capitan
+    sha256 "53c79027ba3703571ad93a62e4514d748aa9dbd9c4ff85976fbf6b75a68054f8" => :x86_64_linux
   end
 
   depends_on "go" => :build
