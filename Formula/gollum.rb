@@ -10,6 +10,7 @@ class Gollum < Formula
     sha256 "3c181df987bcf277691cfd548a855cff0c985adc50a7fec1642e40b6ca78caeb" => :high_sierra
     sha256 "84d60ef65f15a9464415a163daa0cf99156c741091af926676e2954357ea4c30" => :sierra
     sha256 "cd3860265a680566dd5922dc8c9af253162be979cb800dc92878ce2ee53f2af5" => :el_capitan
+    sha256 "5edd55236e88c11b06a610ff400d87577902c873b2878713c32e62b48b0f3377" => :x86_64_linux
   end
 
   depends_on "go" => :build
