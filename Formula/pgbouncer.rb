@@ -9,6 +9,7 @@ class Pgbouncer < Formula
     sha256 "c6c51632e0c13fcccac322fe8ee11217af80b3bfa02f737b0ad05528511ceeff" => :high_sierra
     sha256 "8831a6603870ca7e6e2833acaaced55ee1ae89065d0841454ddfc510433bf7fb" => :sierra
     sha256 "37b2e592b6d012a6b59f69bb7f55187465f0e91771d9cc2aa84b8d78f4c69fa2" => :el_capitan
+    sha256 "382297434ec73a7c6f0bd72122f067da0155479822fc1e7b7108ce3b38e420af" => :x86_64_linux
   end
 
   depends_on "asciidoc" => :build
