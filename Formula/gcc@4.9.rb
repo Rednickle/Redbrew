@@ -26,12 +26,10 @@ class GccAT49 < Formula
   sha256 "6c11d292cd01b294f9f84c9a59c230d80e9e4a47e5c6355f046bb36d4f358092"
 
   bottle do
-    cellar :any unless OS.mac?
-    sha256 "2f1986799871c617b028645427210d57ad82d9428402c9b090c462e85fe4fb28" => :high_sierra
-    sha256 "ad74e12473b9d5e20275a47028b63f94aedde641d035b8d101a1860e2bf19b76" => :sierra
-    sha256 "3283035aaaf32998cccdec8ada8ae5d32ef49fdab14461d0473d6862800ae16e" => :el_capitan
-    sha256 "dfd72720aef0ef7a2f924b9aa79a0ab5f6b1cd55e81ff592a79b52a59282c8eb" => :yosemite
-    sha256 "d9acda4b7a1b62adea7ea01f87a3fd912b6e9de162c9e0830c3eba99d5ceb01e" => :x86_64_linux # glibc 2.19
+    rebuild 1
+    sha256 "4937871b632dffecbf47ea0a0fc71ad2b01fd798f1504b5d9e43d47f88b73ab8" => :high_sierra
+    sha256 "fe92625f4620e178704734894da2b9d48b977604e0a8860254fbe95fe6d6fe29" => :sierra
+    sha256 "d61fd4552e4f2c130630b39a53d6e16f8dc9477ccfbcb21e378c42df5f47ae32" => :el_capitan
   end
 
   option "without-fortran", "Build without the gfortran compiler"
@@ -75,10 +73,10 @@ class GccAT49 < Formula
   end
 
   # Fix issues with macOS 10.13 headers and parallel build on APFS
-  if MacOS.version >= :high_sierra
+  if MacOS.version == :high_sierra
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/19d56dcb8c/gcc%404.9/high_sierra.patch"
-      sha256 "360ba78af8b13cda0503eef2c809b98404613a7cda9798e53c8b65a9b61b37b5"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/b7c7883d/gcc%404.9/high_sierra_2.patch"
+      sha256 "c7bcad4657292f6939b7322eb5e821c4a110c4f326fd5844890f0e9a85da8cae"
     end
   end
 
