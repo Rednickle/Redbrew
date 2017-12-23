@@ -12,14 +12,14 @@ class Otto < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "db119a1ecc59b9e6404c44a4fdf19231ce53244afe988f06e5b04bd221aee9d6" => :high_sierra
-    sha256 "497e2f6b604d944742e4e229a72ec2dcf2a40af4592b8918e8dbf9cc1d2c2428" => :sierra
-    sha256 "8f0b3a1d4cf24ece5e56141ac199a114fe466024f427f128307e07991bac04bd" => :el_capitan
-    sha256 "bdac5342a97bc91c5c21fe77318642c03a3171407d1c65dfeff9ae982683e081" => :yosemite
+    rebuild 2
+    sha256 "cedbe7fba7fe0449ea89c2dc0e84c1dba28eeb3bcf1cac97b9f200b9b978353c" => :high_sierra
+    sha256 "4e05e040fdf6ce6b2b310924aa9437ddf780f0fc26f5c6653ced361b2113014b" => :sierra
+    sha256 "0b02f3444157d90e342f0e79db518076c862a43a34129371163a4112d8d94c13" => :el_capitan
   end
 
   depends_on "go" => :build
+  depends_on "gox" => :build
 
   otto_deps = %w[
     github.com/apparentlymart/go-cidr a3ebdb999b831ecb6ab8a226e31b07b2b9061c47
@@ -46,11 +46,9 @@ class Otto < Formula
     github.com/kardianos/osext 29ae4ffbc9a6fe9fb2bc5029050ce6996ea1d3bc
     github.com/mattn/go-isatty 56b76bdf51f7708750eac80fa38b952bb9f32639
     github.com/mitchellh/cli cb6853d606ea4a12a15ac83cc43503df99fd28fb
-    github.com/mitchellh/iochan 87b45ffd0e9581375c491fef3d32130bb15c5bd7
     github.com/mitchellh/colorstring 8631ce90f28644f54aeedcb3e389a85174e067d1
     github.com/mitchellh/copystructure 6fc66267e9da7d155a9d3bd489e00dad02666dc6
     github.com/mitchellh/go-homedir d682a8f0cf139663a984ff12528da460ca963de9
-    github.com/mitchellh/gox 39862d88e853ecc97f45e91c1cdcb1b312c51eaa
     github.com/mitchellh/ioprogress 8163955264568045f462ae7e2d6d07b2001fc997
     github.com/mitchellh/mapstructure 281073eb9eb092240d33ef253c404f1cca550309
     github.com/mitchellh/panicwrap a1e50bc201f387747a45ffff020f1af2d8759e88
@@ -92,10 +90,6 @@ class Otto < Formula
     end
 
     cd gopath/"src/golang.org/x/tools/cmd/stringer" do
-      system "go", "install"
-    end
-
-    cd gopath/"src/github.com/mitchellh/gox" do
       system "go", "install"
     end
 
