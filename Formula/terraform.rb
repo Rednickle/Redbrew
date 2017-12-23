@@ -9,27 +9,16 @@ class Terraform < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "412fd535aeacf1f40c63a66242169ab67345b270fadd4531c1b68d02be4a679d" => :high_sierra
-    sha256 "adc43c1650331a8550994bfc020fa9850195741c3109e18127e4443ce7dcf481" => :sierra
-    sha256 "bc2df7a0a5d758916bb935b0f96a8edde868b88bbab5e8bbf6ce5d667ccd049c" => :el_capitan
-    sha256 "9824c7b13b70b512bb0d82d50ec9f8f872a009a4bf85baf739bf6591ffd6d872" => :x86_64_linux
+    rebuild 1
+    sha256 "3b2175be76f5e853173aef062d0c545aba02607791031e125216e4d73ff56b99" => :high_sierra
+    sha256 "3376150591e54118d59993ae12aebad45f8d863cf92d215fc6409e5dbd3aa6da" => :sierra
+    sha256 "e88bb1d1d686637d73d558aca4318a8138e51132738f5d500d1c026d7c1e5b5f" => :el_capitan
   end
 
   depends_on "go" => :build
+  depends_on "gox" => :build
 
   conflicts_with "tfenv", :because => "tfenv symlinks terraform binaries"
-
-  # gox is a build tool dependency
-  go_resource "github.com/mitchellh/gox" do
-    url "https://github.com/mitchellh/gox.git",
-        :revision => "c9740af9c6574448fd48eb30a71f964014c7a837"
-  end
-
-  # iochan is a build dependency of gox
-  go_resource "github.com/mitchellh/iochan" do
-    url "https://github.com/mitchellh/iochan.git",
-        :revision => "87b45ffd0e9581375c491fef3d32130bb15c5bd7"
-  end
 
   # stringer is a build tool dependency
   go_resource "golang.org/x/tools" do
@@ -45,9 +34,8 @@ class Terraform < Formula
     dir.install buildpath.children - [buildpath/".brew_home"]
     Language::Go.stage_deps resources, buildpath/"src"
 
-    %w[src/github.com/mitchellh/gox
-       src/golang.org/x/tools/cmd/stringer].each do |path|
-      cd(path) { system "go", "install" }
+    cd "src/golang.org/x/tools/cmd/stringer" do
+      system "go", "install"
     end
 
     cd dir do

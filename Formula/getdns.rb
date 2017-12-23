@@ -1,14 +1,14 @@
 class Getdns < Formula
   desc "Modern asynchronous DNS API"
   homepage "https://getdnsapi.net"
-  url "https://getdnsapi.net/releases/getdns-1-2-1/getdns-1.2.1.tar.gz"
-  sha256 "3ed37135b4aa447160fa68205b8552477b6829da48eb63943994c6193e1d891d"
+  url "https://getdnsapi.net/releases/getdns-1-3-0/getdns-1.3.0.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/getdns-1.3.0.tar.gz"
+  sha256 "920fa2e07c72fd0e5854db1820fa777108009fc5cb702f9aa5155ef58b12adb1"
 
   bottle do
-    sha256 "095aa79a5d4dd416502c843dd3ab004814cc17017f3c3199ce03f6cbad19d9b8" => :high_sierra
-    sha256 "ec8b8937dbe8b2e2c52c2d4bde4484294e93fefccc451214ef79205b46277929" => :sierra
-    sha256 "70291f3a9b33a0531ff3043036ee6fcbe54aa6ea648e1a2156e219954c60174e" => :el_capitan
-    sha256 "661b854153294229e1e7dc494074cbafc353571081f4c5d5581cf75ca91f06c5" => :x86_64_linux
+    sha256 "7ef98cccdd128c7439cf1eaa3f8b8895f20929294e75b4befe11a22f72053229" => :high_sierra
+    sha256 "201634e1c75bf23341a40a7257938a64a9e6e60f73f95c50c58ba6c0ea169260" => :sierra
+    sha256 "ccf408be4445a351135af532b40da0e36f2daaff574eb90e2aa74effaea7b144" => :el_capitan
   end
 
   head do
