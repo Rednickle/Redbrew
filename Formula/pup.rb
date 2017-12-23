@@ -11,6 +11,7 @@ class Pup < Formula
     sha256 "f470de75187b994ef9612c5404dc7622a356c8ee6af21f6b2549b5d7c5d88d32" => :high_sierra
     sha256 "4ba84cffa7cfd01bd252223055abdf5fd8b6cfc27474131cf313e688ea8eeecf" => :sierra
     sha256 "a1aa49640871c127c76f4aea6db65487db964a055e2aa4d86ee2d8b7f5dcb561" => :el_capitan
+    sha256 "cd3466638887295c61ccfb54a926672849f669baffbf8b20bf1bbefba346d065" => :x86_64_linux
   end
 
   depends_on "go" => :build
