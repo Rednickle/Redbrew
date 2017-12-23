@@ -13,6 +13,7 @@ class Texmath < Formula
     sha256 "95fba797e995f4f482099fd9adb087befc4dd7059935db64a7e08ec8bfc871ee" => :high_sierra
     sha256 "45a55a90a9231400b95620fe0f3ce87e58b39e98386eee50af8b6ab4caa096b5" => :sierra
     sha256 "4e14954d9b53163e89ded89a0cc7821a6c9a83f34fea84f26b1a0346c121a2a2" => :el_capitan
+    sha256 "41d8fa5e6ddcb1929c6340a6b1af607be6fbd1a59952b0f72a53e244bdae13c7" => :x86_64_linux
   end
 
   depends_on "ghc" => :build
