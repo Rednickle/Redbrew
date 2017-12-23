@@ -12,6 +12,7 @@ class Packer < Formula
     sha256 "ad66f0614e688501c990d96aab60f0ce5fc759c222aed1406412fd78386f0726" => :high_sierra
     sha256 "f670c965d52bf796d3973616bcb43c92f3f954c4578db451a9afe8f208ae9dab" => :sierra
     sha256 "3bb3d012dfbde0aeb53bab70519ea015084b1a99c611e9a6f4fb0b9fc8f4343f" => :el_capitan
+    sha256 "f478c60043219f1a049464884b01ad4fc38e763e406911baeb3ddbee58ed8581" => :x86_64_linux
   end
 
   depends_on "go" => :build
