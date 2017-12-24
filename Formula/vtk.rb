@@ -1,16 +1,14 @@
 class Vtk < Formula
   desc "Toolkit for 3D computer graphics, image processing, and visualization"
   homepage "https://www.vtk.org/"
-  url "https://www.vtk.org/files/release/8.0/VTK-8.0.1.tar.gz"
-  sha256 "49107352923dea6de05a7b4c3906aaf98ef39c91ad81c383136e768dcf304069"
-  revision 1
+  url "https://www.vtk.org/files/release/8.1/VTK-8.1.0.tar.gz"
+  sha256 "6e269f07b64fb13774f5925161fb4e1f379f4e6a0131c8408c555f6b58ef3cb7"
   head "https://github.com/Kitware/VTK.git"
 
   bottle do
-    sha256 "0a0f29977a603317e57d86fc613c7ad3ae4e2d5df4b22d50e9ad0b65736b7c85" => :high_sierra
-    sha256 "babcfed0fbd3eed2e1c3d427d1e0a37ae15a78cd54f93b54d031db6202cd3454" => :sierra
-    sha256 "3d7de16d0b920653591bafc3bd17fa738f6f0727972b77bf5c56878e898d80a4" => :el_capitan
-    sha256 "142fc825eff33ff3b2e86138fbf55b92b3d7e5948cab7b86f21fde9b75f82eff" => :x86_64_linux
+    sha256 "bd0c1cacabb157928251455e38dff513fb9ea68865ddef7c623e91cb20722713" => :high_sierra
+    sha256 "a4eb2f81607d7c9ab1643cbf8b07607cb2b3ac62033c875f3488c642103cdc06" => :sierra
+    sha256 "9e8ab70c3e26b72de63bda9bead81582876c2b2830ff1bf9f2808dc9c2960b7c" => :el_capitan
   end
 
   option "without-python", "Build without python2 support"
@@ -124,17 +122,20 @@ class Vtk < Formula
   end
 
   test do
+    vtk_include = Dir[opt_include/"vtk-*"].first
+    major, minor = vtk_include.match(/.*-(.*)$/)[1].split(".")
+
     (testpath/"version.cpp").write <<-EOS
       #include <vtkVersion.h>
       #include <assert.h>
       int main(int, char *[]) {
-        assert (vtkVersion::GetVTKMajorVersion()==8);
-        assert (vtkVersion::GetVTKMinorVersion()==0);
+        assert (vtkVersion::GetVTKMajorVersion()==#{major});
+        assert (vtkVersion::GetVTKMinorVersion()==#{minor});
         return EXIT_SUCCESS;
       }
     EOS
 
-    system ENV.cxx, "version.cpp", "-I#{opt_include}/vtk-8.0"
+    system ENV.cxx, "-std=c++11", "version.cpp", "-I#{vtk_include}"
     system "./a.out"
     system "#{bin}/vtkpython", "-c", "exit()"
   end
