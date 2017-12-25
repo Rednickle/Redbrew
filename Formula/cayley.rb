@@ -1,17 +1,15 @@
 class Cayley < Formula
   desc "Graph database inspired by Freebase and Knowledge Graph"
   homepage "https://github.com/cayleygraph/cayley"
-  url "https://github.com/cayleygraph/cayley/archive/v0.6.1.tar.gz"
-  sha256 "33cfa8ef35813cf833ae79ba8ac2fab7f4c63afaf6103a54d969265e283d3399"
+  url "https://github.com/cayleygraph/cayley/archive/v0.7.0.tar.gz"
+  sha256 "d78970997d2c23991c11d5a06e266d4421a9f175e8364dc6a094308489882314"
   head "https://github.com/google/cayley.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d5e1a5819797c35d96fc81844ffda26af2114f6340872e282946db0e480c78af" => :high_sierra
-    sha256 "742760d4a2fb4275a0d719df7a700e7ad4b826165a29dfb201ff09a8bfeba0fb" => :sierra
-    sha256 "4fd6749b962972990f870fc88556c48a21eb27dcc176149c0c8e0f2cf796c61e" => :el_capitan
-    sha256 "0094bc69ee5b69af082b1c73269df76956535b45fcd4984cc1bf0c90c69a3420" => :yosemite
-    sha256 "f68d5c21b8a575c495ad7982771713b75b2a2a0258ea5792c4226ee6712f2292" => :x86_64_linux # glibc 2.19
+    sha256 "192570b3e952d0697624b5315348892be330923bdc12b57dafc8b59ce8197983" => :high_sierra
+    sha256 "c558ffdc02dfae52b0dee74b9de1b3b81bf19bebd9459ad1ee529e4ffb4a6623" => :sierra
+    sha256 "14b1f7f81db724c6929e52d9dee0786943fbe23d48ef05f1b8cbd20ec62c3515" => :el_capitan
   end
 
   option "without-samples", "Don't install sample data"
@@ -31,8 +29,8 @@ class Cayley < Formula
       system "go", "build", "-o", bin/"cayley", "-ldflags",
              "-X main.Version=#{version}", ".../cmd/cayley"
 
-      inreplace "cayley.cfg.example", "/tmp/cayley_test", var/"cayley"
-      etc.install "cayley.cfg.example" => "cayley.conf"
+      inreplace "cayley_example.yml", "./cayley.db", var/"cayley/cayley.db"
+      etc.install "cayley_example.yml" => "cayley.yml"
 
       (pkgshare/"assets").install "docs", "static", "templates"
 
@@ -48,7 +46,7 @@ class Cayley < Formula
       (var/"cayley").mkpath
 
       # Initialize the database
-      system bin/"cayley", "init", "--config=#{etc}/cayley.conf"
+      system bin/"cayley", "init", "--config=#{etc}/cayley.yml"
     end
   end
 

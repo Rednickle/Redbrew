@@ -1,14 +1,14 @@
 class Spades < Formula
   desc "De novo genome sequence assembly"
   homepage "http://bioinf.spbau.ru/spades/"
-  url "http://cab.spbu.ru/files/release3.11.0/SPAdes-3.11.0.tar.gz"
-  sha256 "308aa3e6c5fb00221a311a8d32c5e8030990356ae03002351eac10abb66bad1f"
+  url "http://cab.spbu.ru/files/release3.11.1/SPAdes-3.11.1.tar.gz"
+  sha256 "3ab85d86bf7d595bd8adf11c971f5d258bbbd2574b7c1703b16d6639a725b474"
 
   bottle do
     cellar :any
-    sha256 "717c5721c4b7db0d460bbf6ad8ccaf2c31cad64944486b1665e99f56559747cb" => :high_sierra
-    sha256 "f4088116abe4ad83840e2849ffdb55ee6dc58469398bd90d23c703a143677595" => :sierra
-    sha256 "09de6dbd2351fa82ba7bc4126a402e4712168282159eff66ad73a57751cef1fc" => :el_capitan
+    sha256 "2d9219640eae5c89e530aee5142ede6ab3e0ba275a5f3159ec43c3705463595e" => :high_sierra
+    sha256 "5b0dd5da71f046f0be08c97e726f269ed2dbc45a5f7a9f0b46b60f2cadb6adc3" => :sierra
+    sha256 "fb825a55d4438fc332b19f5283aa0e04b6d782cdf845589d6037136fb01c6be7" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -17,11 +17,6 @@ class Spades < Formula
   needs :openmp
 
   def install
-    # Fix error: 'uint' does not name a type
-    # Reported upstream: https://github.com/ablab/spades/issues/29
-    # Will be fixed in the next release.
-    inreplace "src/projects/ionhammer/config_struct.hpp", "uint", "unsigned"
-
     mkdir "src/build" do
       system "cmake", "..", *std_cmake_args
       system "make", "install"
