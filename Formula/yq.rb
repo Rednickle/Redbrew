@@ -9,6 +9,7 @@ class Yq < Formula
     sha256 "9a77152a4f6af9543e0f021297492a80ad790cc33c28a102052cef21941b2755" => :high_sierra
     sha256 "c664274a8f439a63e0de3b74ba918df70412f8effc71d0ee5b998e9ebd88b716" => :sierra
     sha256 "66137bf0dbc35984d6492e3e29f5aa7f0c5d04889f1fa7880aad93067d3692b5" => :el_capitan
+    sha256 "c842090597ff29eb2f5039d6f2b50595f0828d38c452eb6468e1f4f95f98b552" => :x86_64_linux
   end
 
   depends_on "go" => :build
