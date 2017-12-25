@@ -6,10 +6,10 @@ class Python3 < Formula
   head "https://github.com/python/cpython", :using => :git
 
   bottle do
-    sha256 "bc859a9dca925d33b3b15168f5ac5ec79db05d5ab13eb61b347eacae4a8a8afb" => :high_sierra
-    sha256 "584ca8b5f4535137da2987630d4bbfc31c7a3fd3126bb321546ce1b64b62c957" => :sierra
-    sha256 "a0942c806fbeb956f93659912e94cc83c86dc2a4152bd22cba7da0e7e3e0367f" => :el_capitan
-    sha256 "d538d2143b4384fc28b3d17950115e7814af401f5514b87eed528ed643f9a00a" => :x86_64_linux
+    rebuild 1
+    sha256 "c222fb024b619c0bcb9e212017974753322f63629f660786800f5747e9530298" => :high_sierra
+    sha256 "51ac251ec7576525e635f9abd5aba7adf913d4fba85d7543978adf4f70898079" => :sierra
+    sha256 "741d232041e285dfcc861e51de1089af48b350fa2421ff63690926c761881c39" => :el_capitan
   end
 
   devel do
@@ -204,12 +204,17 @@ class Python3 < Formula
       inreplace Dir[lib_cellar/"**/_sysconfigdata_m_darwin_darwin.py",
                     lib_cellar/"config*/Makefile",
                     frameworks/"Python.framework/Versions/3*/lib/pkgconfig/python-3.?.pc"],
-                    prefix, opt_prefix
+                prefix, opt_prefix
 
       # Help third-party packages find the Python framework
       inreplace Dir[lib_cellar/"config*/Makefile"],
                 /^LINKFORSHARED=(.*)PYTHONFRAMEWORKDIR(.*)/,
                 "LINKFORSHARED=\\1PYTHONFRAMEWORKINSTALLDIR\\2"
+
+      # Fix for https://github.com/Homebrew/homebrew-core/issues/21212
+      inreplace Dir[lib_cellar/"**/_sysconfigdata_m_darwin_darwin.py"],
+                %r{('LINKFORSHARED': .*?)'(Python.framework/Versions/3.\d+/Python)'}m,
+                "\\1'#{opt_prefix}/Frameworks/\\2'"
 
       # A fix, because python and python3 both want to install Python.framework
       # and therefore we can't link both into HOMEBREW_PREFIX/Frameworks
