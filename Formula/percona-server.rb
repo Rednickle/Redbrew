@@ -1,16 +1,13 @@
 class PerconaServer < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
-  url "https://www.percona.com/downloads/Percona-Server-5.7/Percona-Server-5.7.18-16/source/tarball/percona-server-5.7.18-16.tar.gz"
-  sha256 "dc80833354675956fe90e01316fcd46b17cd23a8f17d9f30b9ef18e1a9bd2ae1"
+  url "https://www.percona.com/downloads/Percona-Server-5.7/Percona-Server-5.7.20-18/source/tarball/percona-server-5.7.20-18.tar.gz"
+  sha256 "ebbdf859d571562b9c9614c29355dd73adb9021b67108edd46b67063039a28af"
 
   bottle do
-    rebuild 1
-    sha256 "2097446d4eca29f7dc394ecf7901ec8f9b4718befad3fa6ea1b53087fe3e4828" => :high_sierra
-    sha256 "55aa5b068374099a81d9084336c8cf6700005f7372a2a8c7d822a25b4e92b486" => :sierra
-    sha256 "5e66b8808a6f611813fdb9e3b02e79855ff0445630853501647220beac5cb4ab" => :el_capitan
-    sha256 "988440a2b796abff37d0fbb69dd03a537e6be9ebce83da5adb4131794ea7f242" => :yosemite
-    sha256 "2a62c94718f8a56db95eba29c313f250e8ab163dcb71e48a9be3d3e9a983e082" => :x86_64_linux
+    sha256 "f80de9c935f3d87f5158acb86ab173dcbc15f6fc8c396f824cf34c363cdc402f" => :high_sierra
+    sha256 "3ec7066fd16f1a1ecec64decc3508019b5896ad1e0c8056f18998b6cab79464f" => :sierra
+    sha256 "2586679bbcda2392393f9cff8c741b5765aa84a1e284081c8cedc59ebb4ef49b" => :el_capitan
   end
 
   option "with-test", "Build with unit tests"
@@ -54,14 +51,6 @@ class PerconaServer < Formula
     satisfy { datadir == var/"mysql" }
   end
 
-  # Fix C++ build failure due to Xcode 9 being very strict
-  if DevelopmentTools.clang_build_version >= 900
-    patch do
-      url "https://github.com/percona/percona-server/pull/1925.patch?full_index=1"
-      sha256 "126ed7762ab94a4b2afdaa8a09d35d5e25dfd7cd5452cf51b4db90144e737e6e"
-    end
-  end
-
   def install
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
@@ -95,9 +84,13 @@ class PerconaServer < Formula
       -DWITHOUT_DIALOG=1
     ]
 
-    # TokuDB is broken on MacOsX
+    # TokuDB is broken on macOS
     # https://bugs.launchpad.net/percona-server/+bug/1531446
     args.concat %w[-DWITHOUT_TOKUDB=1]
+
+    # Percona MyRocks does not compile on macOS
+    # https://www.percona.com/doc/percona-server/LATEST/myrocks/install.html
+    args.concat %w[-DWITHOUT_ROCKSDB=1]
 
     # MySQL >5.7.x mandates Boost as a requirement to build & has a strict
     # version check in place to ensure it only builds against expected release.
