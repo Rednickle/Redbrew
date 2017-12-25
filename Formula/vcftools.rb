@@ -9,6 +9,7 @@ class Vcftools < Formula
     sha256 "8885f5eb915bd7bd7b270b421d23aa3b9b600f53e009ddb02ead70ec1a7d7488" => :high_sierra
     sha256 "39f16509c8bd0f394044ea8a9f59e10c7764c1289975f6c0de6b1a4e2bd630ae" => :sierra
     sha256 "d93943d5f24309df2165ea3dd507c4b00b75ef166d0b99a55e8244f98eb2bfbc" => :el_capitan
+    sha256 "9435e656a655e034fafcf1608ad6e6dfad9335594f350cc5b2f84c7302dcbb9f" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
