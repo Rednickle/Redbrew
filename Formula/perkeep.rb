@@ -12,6 +12,7 @@ class Perkeep < Formula
     sha256 "5a6d21ce1dd5ab518d3a44b8d8b6468470be7fe243a2baab41eb2abefabdd2d8" => :high_sierra
     sha256 "508687ae269e8a4b5c19345272809ff6e02a30b93859fe260ad47d17e23884a7" => :sierra
     sha256 "77a369395292c96ffa61ea1ad7581027d6f5febc6571ae0a188932a33ef1ac8c" => :el_capitan
+    sha256 "6fe447a0101d67ec2a6bdc584fb855e0b51528f852fabea40e35f53601b80356" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
