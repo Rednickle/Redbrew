@@ -19,6 +19,9 @@ class Spades < Formula
   needs :openmp
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j2" if ENV["CIRCLECI"]
+
     mkdir "src/build" do
       system "cmake", "..", *std_cmake_args
       system "make", "install"
