@@ -4,15 +4,15 @@ class Pypy < Formula
   head "https://bitbucket.org/pypy/pypy", :using => :hg
 
   stable do
-    url "https://bitbucket.org/pypy/pypy/downloads/pypy2-v5.9.0-src.tar.bz2"
-    sha256 "de4bf05df47f1349dbac97233d9277bbaf1ef3331663ea2557fd5da3dbcfd0a7"
+    url "https://bitbucket.org/pypy/pypy/downloads/pypy2-v5.10.0-src.tar.bz2"
+    sha256 "1209f2db718e6afda17528baa5138177a14a0938588a7d3e1b7c722c483079a8"
   end
 
   bottle do
     cellar :any
-    sha256 "83aeb36762512201370910834db8897edddb6965363b9cc524d06555ba4cb368" => :high_sierra
-    sha256 "2c82f1502a342ed4aa81b7ee005268df9446bc0cfae27097d7fb3a97b5fd487b" => :sierra
-    sha256 "7979bb0ae5adf5bca5795c5bba8d7347eeadf5e1ea6e5cb97826d9e1b172560c" => :el_capitan
+    sha256 "93b1e4a432b501724adbf57de1e7d03f10a4e807bc1cfcfd62ea4d8d26ff6ca6" => :high_sierra
+    sha256 "58cda203707dd2a49660df8dc7d45614ff3e2651493788fdedd82d08dc3e71da" => :sierra
+    sha256 "335bd2c150c7a53517a6d0b9d2c14842582efe55b443e56660712f97e5c0d4dc" => :el_capitan
   end
 
   option "without-bootstrap", "Translate Pypy with system Python instead of " \
@@ -65,7 +65,7 @@ class Pypy < Formula
 
     libexec.mkpath
     cd "pypy/tool/release" do
-      package_args = %w[--archive-name pypy --targetdir . --nostrip]
+      package_args = %w[--archive-name pypy --targetdir .]
       package_args << "--without-gdbm" if build.without? "gdbm"
       system python, "package.py", *package_args
       system "tar", "-C", libexec.to_s, "--strip-components", "1", "-xzf", "pypy.tar.bz2"

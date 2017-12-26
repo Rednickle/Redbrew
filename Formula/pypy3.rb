@@ -1,14 +1,14 @@
 class Pypy3 < Formula
   desc "Implementation of Python 3 in Python"
   homepage "https://pypy.org/"
-  url "https://bitbucket.org/pypy/pypy/downloads/pypy3-v5.9.0-src.tar.bz2"
-  sha256 "a014f47f50a1480f871a0b82705f904b38c93c4ca069850eb37653fedafb1b97"
+  url "https://bitbucket.org/pypy/pypy/downloads/pypy3-v5.10.0-src.tar.bz2"
+  sha256 "a6e4cffde71e3f08b6e1befa5c0352a9bcc5f4e9f5cbf395001e0763a1a0d9e3"
 
   bottle do
     cellar :any
-    sha256 "671882b5a430ba31723428282df42ab097ed2a744a4787d744e6339dd9dfbd51" => :high_sierra
-    sha256 "943180d5beea8603fe5af3eda3779bb65c9f32e2d12fdf7056495584c0e52cc2" => :sierra
-    sha256 "83a6bd36bda18be9197bdb5836be51dc7e39fa7a00e1a6d4ffae6aedae2fc731" => :el_capitan
+    sha256 "51107a1abab1e1109be812b479a940da1fa1ca5eadc619855ab7420bb66f8931" => :high_sierra
+    sha256 "79e3e7e3062437ac1cd141615fac5ce512dc971cbc7ed0b98e44c4ed1dbeecd2" => :sierra
+    sha256 "02111a3675e56720259ec8580f8436729e4fd9041df963a39137aeb2f0d1da65" => :el_capitan
   end
 
   option "without-bootstrap", "Translate Pypy with system Python instead of " \
@@ -104,7 +104,7 @@ class Pypy3 < Formula
 
     libexec.mkpath
     cd "pypy/tool/release" do
-      package_args = %w[--archive-name pypy3 --targetdir . --nostrip]
+      package_args = %w[--archive-name pypy3 --targetdir .]
       package_args << "--without-gdbm" if build.without? "gdbm"
       package_args << "--without-lzma" if build.without? "xz"
       system python, "package.py", *package_args
