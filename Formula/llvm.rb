@@ -79,9 +79,10 @@ class Llvm < Formula
 
   bottle do
     cellar :any
-    sha256 "0b312b24bce4cd6af7abf40d9969b7b3e67d63b0b9ac206ecb465e21ec4d8bc0" => :high_sierra
-    sha256 "d6fc94adff42c1e10378e0b70983d91a9c714778b9d08ca1e52e0f1ce400da8c" => :sierra
-    sha256 "5e70b2f6c99e6c74a27b61328578745e14e09f29dd79cabba9975a8b478ff69e" => :el_capitan
+    rebuild 1
+    sha256 "61c8f073f3fc25971ead1a106f4db95db08b4ba0cd1eb7df7c40f6a2ee74dfbb" => :high_sierra
+    sha256 "da1ffc015d980daaa72affabbadfa4b1b821989f50ea14f5fea7d799eee018e8" => :sierra
+    sha256 "54c1d217622fd298186bad4af680d2ac3aafc237948d581ad1ecb221bc293b38" => :el_capitan
   end
 
   pour_bottle? do
@@ -226,12 +227,6 @@ class Llvm < Formula
         pyinclude = "#{pyhome}/include/python2.7"
       end
       (buildpath/"tools/lldb").install resource("lldb")
-
-      if build.stable?
-        resource("lldb-fix-build").stage do
-          system "patch", "-p1", "-i", Pathname.pwd/"324f93b5e30.patch", "-d", buildpath/"tools/lldb"
-        end
-      end
 
       # Building lldb requires a code signing certificate.
       # The instructions provided by llvm creates this certificate in the
