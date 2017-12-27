@@ -4,12 +4,12 @@ class Mongodb < Formula
   desc "High-performance, schema-free, document-oriented database"
   homepage "https://www.mongodb.org/"
 
-  url "https://fastdl.mongodb.org/src/mongodb-src-r3.6.0.tar.gz"
-  sha256 "1573e6e172a6a1e559e1156b0f059f3639774a9f3db33790cb826c56e1398efd"
+  url "https://fastdl.mongodb.org/src/mongodb-src-r3.6.1.tar.gz"
+  sha256 "59c646453120778911cc0d300b7da17e21765270d4575118bd4aa43ea1bf1e75"
 
   bottle do
-    sha256 "2d6e7d8b0a77252b7d2e99f8d81f5153fb59aa68e3a8d2ce0ea06ec0a7f5cd6e" => :high_sierra
-    sha256 "ae8fa4aae209088217fb18fe46af18894180a2bde678899acf905f85c16ad787" => :sierra
+    sha256 "5c62829a16a9cf497cef7d0395aed7cf7140a608475732b4ccadab0e3dabcf91" => :high_sierra
+    sha256 "8a3a4607cb96d2f6cc85bc2874739e3b2cb768daf69c0d52bc0808c539fc1787" => :sierra
   end
 
   option "with-boost", "Compile using installed boost, not the version shipped with mongodb"
@@ -44,8 +44,8 @@ class Mongodb < Formula
 
   go_resource "github.com/mongodb/mongo-tools" do
     url "https://github.com/mongodb/mongo-tools.git",
-        :tag => "r3.6.0",
-        :revision => "12cce7433c480538ff26caa9c51cec3e04a07e90",
+        :tag => "r3.6.1",
+        :revision => "2b10d8492e1185039be4d5f2242a5b11ea102303",
         :shallow => false
   end
 
@@ -84,9 +84,6 @@ class Mongodb < Formula
       end
 
       args << "sasl" if build.with? "sasl"
-
-      # fix "stty: stdin isn't a terminal"
-      inreplace "build.sh", "stty sane", ""
 
       if OS.mac?
         system "./build.sh", *args

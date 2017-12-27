@@ -3,15 +3,14 @@ class Ecl < Formula
   homepage "https://common-lisp.net/project/ecl/"
   url "https://common-lisp.net/project/ecl/static/files/release/ecl-16.1.3.tgz"
   sha256 "76a585c616e8fa83a6b7209325a309da5bc0ca68e0658f396f49955638111254"
-  revision 1
+  revision 2
 
   head "https://gitlab.com/embeddable-common-lisp/ecl.git"
 
   bottle do
-    sha256 "cbc9e5cc823e969e9de13fcd93a9044d326964f64512055d1815d7adb85cec81" => :high_sierra
-    sha256 "bd2c5fc4ca15b1e71156a3183bf2cf49c326b994c8f9f81b0f94fd9eb0960005" => :sierra
-    sha256 "6f99f513efcf23a4b1e71b2c8e188e8f41fe976cccf2da855aa1285c35924131" => :el_capitan
-    sha256 "75ee54632fbb5d6b81787e483d847162194eeb8bbe60059fea87f8bdda9c8e8c" => :yosemite
+    sha256 "ae15644b1593091841bfcb305ba835be9502ac33c822bcc818c1405ff5490136" => :high_sierra
+    sha256 "39f47c078a1b3c2640c6daa0e8c2d3700a739a66397bcde76b2cad52941deea4" => :sierra
+    sha256 "db0466fd183bb63fd5dc764d5cefdfb0bf0fe2e667545c73a7aedce873ae1e99" => :el_capitan
   end
 
   depends_on "bdw-gc"
