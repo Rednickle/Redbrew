@@ -1,16 +1,15 @@
 class QpidProton < Formula
   desc "High-performance, lightweight AMQP 1.0 messaging library"
   homepage "https://qpid.apache.org/proton/"
-  url "https://www.apache.org/dyn/closer.lua?path=qpid/proton/0.18.1/qpid-proton-0.18.1.tar.gz"
-  sha256 "257fef5d6c6758f5461f3ed9bf8831c9f26b903dd6358d1f766caa59791fc831"
+  url "https://www.apache.org/dyn/closer.lua?path=qpid/proton/0.19.0/qpid-proton-0.19.0.tar.gz"
+  sha256 "33187252f9f31200cb97df5eb19bf0a1935370184094a4dd19231a6638606451"
   head "git://git.apache.org/qpid-proton.git"
 
   bottle do
     cellar :any
-    sha256 "daf4c3a3836be78f84d8bfba99e6b4132530bc6bb56a890fb39e5e5a87a656e9" => :high_sierra
-    sha256 "6275c32cb870cf632f100159a48bb55240534ed9bf39cc2ff04b26cb596de268" => :sierra
-    sha256 "b5af79dd305bd3473586e32fdbaf03b752d6d5dffd681c7d785a0a8dacc4c281" => :el_capitan
-    sha256 "0d0e7f3ef6dcd9a73897ea99a99e79e434f5aeee5773ec2270ac1ab8e74beb8f" => :x86_64_linux
+    sha256 "9979c6172efb6204940c8e5c3db56327e5f4bdbfdba813ccc22e58b63a76ad9c" => :high_sierra
+    sha256 "c2e974445169d038df19540141aa92eb843aca2ee50ec0114f25762830e7ef34" => :sierra
+    sha256 "d0f5100b839fd2e7f122194c091f27af206a664eadffa81234056cdd68494f0c" => :el_capitan
   end
 
   depends_on "cmake" => :build
