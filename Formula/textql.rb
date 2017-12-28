@@ -10,6 +10,7 @@ class Textql < Formula
     sha256 "38cbf8cacc0dd7e29831c8c7fe9f0437473c164bee549defb8744d6ca3e53fcb" => :high_sierra
     sha256 "f7bcfcacbd0b3076037e4715dabd1d925ef52ec66a3018d7a0124d091a7711c5" => :sierra
     sha256 "9950b83cf4d7bf59d3bf54711a845ddcf27f31dd004150acce3b8011ca2874a5" => :el_capitan
+    sha256 "ce423f3987a4a8175276fee09d94d3697878781a52bd9ca3285775f12bb191e0" => :x86_64_linux
   end
 
   depends_on "glide" => :build
