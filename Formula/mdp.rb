@@ -10,6 +10,7 @@ class Mdp < Formula
     sha256 "b6dda2a53ef5ef16249ced6daf96de3bab9fd742106fec8b7eeb23f954c70e5f" => :high_sierra
     sha256 "17c2e33bb7953fe8cbdfb1e8a70c9d5f0b3346023d9dd4670ad8df82fb5c7fcd" => :sierra
     sha256 "5c54089e38d0cb93bc24cc39fdb94148539955b6d682707dd263aef039cf15c8" => :el_capitan
+    sha256 "8ebbdb84966464ebf7ca301e68baef2e5b1493f7898b9c847d4e9d26a313c129" => :x86_64_linux
   end
 
   def install
