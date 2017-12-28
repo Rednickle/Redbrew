@@ -4,16 +4,15 @@ class Imagemagick < Formula
   # Please always keep the Homebrew mirror as the primary URL as the
   # ImageMagick site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://dl.bintray.com/homebrew/mirror/imagemagick-7.0.7-15.tar.xz"
-  mirror "https://www.imagemagick.org/download/ImageMagick-7.0.7-15.tar.xz"
-  sha256 "9809be6bab0c5258721a5c5bbe8bccf61357b506024f8514d94e9efcd575a69d"
+  url "https://dl.bintray.com/homebrew/mirror/imagemagick-7.0.7-17.tar.xz"
+  mirror "https://www.imagemagick.org/download/ImageMagick-7.0.7-17.tar.xz"
+  sha256 "13548d1670a488f48f89ef6e09395c213efd47978bef9cff564c4b1b3f5df84a"
   head "https://github.com/ImageMagick/ImageMagick.git"
 
   bottle do
-    sha256 "08e0fc6d2c5ad7e34cefbb1ba4d6752529f42cf214a681dc3a72ebb026d8aa60" => :high_sierra
-    sha256 "21177bd0f3b30e63828f36e8a6564060f4c69fe5f19fb6e7725fe0ee98e947c9" => :sierra
-    sha256 "79937c4fa37fe81bfa51a59d8114699e315d0095217c332b8c2229e6537f2d09" => :el_capitan
-    sha256 "0fc57a5876c26fb1a8e59e28e80cb820d8ee1fa54ebf61b3bb20795fa4487163" => :x86_64_linux
+    sha256 "f39601622d6ec00430c0998b5693df3627416efac635e5a0159f02af069aaf13" => :high_sierra
+    sha256 "495acfa7d075b85518a0991eaf88a62d632a43772a4704ee3c2ce23159605c82" => :sierra
+    sha256 "129173c5ecff27cbfc196310bc9fbf737bcdebd27fdbba5aacfd2b4e20ff9e1b" => :el_capitan
   end
 
   option "with-fftw", "Compile with FFTW support"
