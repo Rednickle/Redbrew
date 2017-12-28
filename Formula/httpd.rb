@@ -3,12 +3,12 @@ class Httpd < Formula
   homepage "https://httpd.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=httpd/httpd-2.4.29.tar.bz2"
   sha256 "777753a5a25568a2a27428b2214980564bc1c38c1abf9ccc7630b639991f7f00"
+  revision 1
 
   bottle do
-    sha256 "9607b2648d706175f8c8a7ee529bb6e57abdb7a60d47bcb4012e403721707d6d" => :high_sierra
-    sha256 "ca0fc3385ab31d3f44413e4b847785093b10e862b90dd3b61b9973f1cc6f3639" => :sierra
-    sha256 "5fa46264c518ec0c03b8f2b83f801220f704f5580a29002123554c9872fb9439" => :el_capitan
-    sha256 "1073d92d0a661350cc0b48ec1028696b6678f85a4042d3049dc28f86d6622ed7" => :x86_64_linux
+    sha256 "1e2a9985867f72db8af9f85753bd1fe700a1780a03ad60b88b2df55d75dc78d1" => :high_sierra
+    sha256 "72e76b6c6fec4f7726884b112cb87fa7ef24ec0ddb945e1b78c35d013b87253b" => :sierra
+    sha256 "6776215fd1c0e937a7464dcd9d3143cc22d917a5381dc28ea6ff6242eba3b2a6" => :el_capitan
   end
 
   depends_on "apr"
@@ -47,6 +47,7 @@ class Httpd < Formula
                           "--localstatedir=#{var}",
                           "--enable-mpms-shared=all",
                           "--enable-mods-shared=all",
+                          "--enable-cgi",
                           "--enable-pie",
                           "--enable-suexec",
                           "--with-suexec-bin=#{opt_bin}/suexec",
