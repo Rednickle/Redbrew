@@ -5,8 +5,8 @@ class Sslyze < Formula
   homepage "https://github.com/nabla-c0d3/sslyze"
 
   stable do
-    url "https://github.com/nabla-c0d3/sslyze/archive/1.3.0.tar.gz"
-    sha256 "fa78697f706c123ada3afa09c7210af4172fdba39580516390711f3548b9972d"
+    url "https://github.com/nabla-c0d3/sslyze/archive/1.3.2.tar.gz"
+    sha256 "b48dbdf0d46b9851cf81e9f3e16f8c2caf35e995012e22678da558fa056c39c8"
 
     resource "nassl" do
       url "https://github.com/nabla-c0d3/nassl/archive/1.0.2.tar.gz"
@@ -16,9 +16,9 @@ class Sslyze < Formula
 
   bottle do
     cellar :any
-    sha256 "94e5edbbb3e7a4d2101c9f805b26280d9cc66c2dad2b9996278be531d8fc0628" => :high_sierra
-    sha256 "7c7fa573a9629c3cab2f4efc4528ca3023d8deecd2dfd7886d9223f0ba36b1b8" => :sierra
-    sha256 "1505e9c6e76c1fae4e66ee0f2e794aa92c74ef0cbd6dbf4768daaf0695f0f28b" => :el_capitan
+    sha256 "8bc826d5cc7d2631164d56b081b24c5fdc62ca964710e5af6ac6671b9746c5d0" => :high_sierra
+    sha256 "6a0e9cecb44af603b894938bcdc3025932c93f51911feac27510033cad19963e" => :sierra
+    sha256 "d5aad8526148a23ebfb7a5236f04c9402ceb235bd79d2f3d807ce24b1f695f29" => :el_capitan
   end
 
   head do
