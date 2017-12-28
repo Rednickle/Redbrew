@@ -8,6 +8,7 @@ class StressNg < Formula
     cellar :any_skip_relocation
     sha256 "2c96e19eb4058c9d747491cf17c835535fd7b43576bbf193a3f9eff9c57dc4ee" => :high_sierra
     sha256 "c61f2abbeee7fcf2c3e41395b7a7af7c79788ab755659ed7fd673776f5256060" => :sierra
+    sha256 "1d0316ea1060018ebdfe51a33b969bf29238c7c6af08fc3be14f5a147a7362b6" => :x86_64_linux
   end
 
   depends_on :macos => :sierra
