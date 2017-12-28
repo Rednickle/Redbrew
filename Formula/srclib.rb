@@ -10,6 +10,7 @@ class Srclib < Formula
     sha256 "65d468b529f68033a4cb7083ceb6cf0203957b95d3c856369ef9c681880d1775" => :high_sierra
     sha256 "3450a96b7d4af2d1e227b1ae188c29862fdfe1d007a49c2d88045b519a2110dd" => :sierra
     sha256 "0546a39d6f96c51817faffc1b5cc28fc5654dbf61ab165ee686b6a8093b0b359" => :el_capitan
+    sha256 "54013517a994f54408fdc5a313014bccce2606519df36f712cfc60591eaf917e" => :x86_64_linux
   end
 
   depends_on "go" => :build
