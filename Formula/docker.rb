@@ -10,6 +10,7 @@ class Docker < Formula
     sha256 "7d8c927132050feefd249de923b86a4d2f9c2b110d480e7fba7f3b832176c948" => :high_sierra
     sha256 "9888fdec5b45a02297affb5d5b3adf165fc8253ec0426d0c23dda3da7f2552d7" => :sierra
     sha256 "84212dfd11d1062df59bcf72dbc966820e46601b7ebbb38ae42761e1f0689d5f" => :el_capitan
+    sha256 "9b54dcf777536630c8c7fdc2f72c34ff281df94817575d822ded5c5cbd59ab6e" => :x86_64_linux
   end
 
   option "with-experimental", "Enable experimental features"
