@@ -8,6 +8,7 @@ class Snapraid < Formula
     sha256 "a3cdc8a3975bf5f3073e21d089d5e3c067fb809ccf758724f25fc092bebf7b71" => :high_sierra
     sha256 "eba431c9a6d92f379e0063c3c40cf6a655fa2a29256da707f851569046e7d7c9" => :sierra
     sha256 "e6be5ae4ae3aa3bffbd4f57c4dab84602d3883673ce9f2b74189a0f39c82b4b2" => :el_capitan
+    sha256 "ee02e72defc19cb1681c9437e22f5a803d5acc1d4b3f289407c6ce01e9fe80f5" => :x86_64_linux
   end
 
   head do
