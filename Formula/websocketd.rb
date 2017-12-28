@@ -11,6 +11,7 @@ class Websocketd < Formula
     sha256 "69523ab9efd2f2b8f595b4ae4d282f6af64fbbe24fd3b16b7011210b8d1ea87b" => :high_sierra
     sha256 "38ebd8e10260501352e81966e3bba46bf00d38e00b408f763ef8042a418099e3" => :sierra
     sha256 "eec1080e0a40bf336ea48950c1c21e0ab50e038ee46874cb59bd6b16791309a3" => :el_capitan
+    sha256 "1fefe65ba6124580badf2fe931853c392c2c1e9eef9b5e4b25a8cc277f86e5b7" => :x86_64_linux
   end
 
   depends_on "go" => :build
