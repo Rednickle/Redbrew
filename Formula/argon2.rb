@@ -10,6 +10,7 @@ class Argon2 < Formula
     sha256 "139741b1c18f60d815ef22066fcfdd3803d688e01cf7f0c004ac5636e811e3ca" => :high_sierra
     sha256 "e48789086ce519c82973ba6b92f28aa2effd558cdf2740ecaf1a10318a3fc40a" => :sierra
     sha256 "cb15f70ccb45ddcfe5b267ab003ffcc07a47a5526b40da3b35135c21a64fb3d2" => :el_capitan
+    sha256 "c2bb97a8a342705acad25266d420426076be4f0d8ed94aa7d5b42d64a9fab8ec" => :x86_64_linux
   end
 
   def install
