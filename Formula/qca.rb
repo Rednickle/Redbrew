@@ -35,6 +35,7 @@ class Qca < Formula
     sha256 "7fca5c9a591a204813356e3314077a628cbbff1cb5e6669355a2e26cd92765aa" => :high_sierra
     sha256 "8dd6479be1f5cacb740915646bf9dd2fb8103df38e9f75ecfbb507ed3a0b201e" => :sierra
     sha256 "7790fd8de8b6ee98ca8d4f687894437137d774538c209a80a340f513a8fbc159" => :el_capitan
+    sha256 "89d8a72a4e408504d1897200b342b77475cff1e8f35982755d9227de28ed496c" => :x86_64_linux
   end
 
   option "with-api-docs", "Build API documentation"
