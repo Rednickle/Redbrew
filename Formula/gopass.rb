@@ -3,18 +3,18 @@ class Gopass < Formula
   homepage "https://www.justwatch.com/gopass"
   url "https://github.com/justwatchcom/gopass/releases/download/v1.6.6/gopass-1.6.6.tar.gz"
   sha256 "96be7ad9c1188d2880c3b9d676896b157d056621985a8784381b01429e660103"
+  revision 1
   head "https://github.com/justwatchcom/gopass.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dc1f4536345380bd9f51cc4e925e4cccd4aeb3e63675457c1d48fb54fd701fc5" => :high_sierra
-    sha256 "07deb3469e0c5b1a62cf39e0055bfa9ec2c03bad701d1e5d78984fbe1689fc39" => :sierra
-    sha256 "b7729cabc75f0b7cfc31417d496d2f21869cf09aeb216de3152227cfa3b1cbf6" => :el_capitan
-    sha256 "492159d17412f5084a00fd51233a64399e4a02d71b457b8138fe3483e96833b1" => :x86_64_linux
+    sha256 "1ee57df53c67adef2f266e9d4d3d08ea61135e6a42d049b22f440b518f3ee143" => :high_sierra
+    sha256 "3cb3806e707901b8b91fc92f64ef6b7c40ddee8806ed843777be91f2dc4df745" => :sierra
+    sha256 "7bd825344271ed78ca14cff6a111a1db53e306bae476ce9143ab1cc17e54f83c" => :el_capitan
   end
 
   depends_on "go" => :build
-  depends_on :gpg => :run
+  depends_on "gnupg"
 
   def install
     ENV["GOPATH"] = buildpath
