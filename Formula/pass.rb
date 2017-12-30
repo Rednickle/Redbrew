@@ -12,6 +12,7 @@ class Pass < Formula
     sha256 "cf0b79bd037b53d985c758b9b1e90c530e6ce4fd976e9ad14595806610f4f248" => :high_sierra
     sha256 "cf0b79bd037b53d985c758b9b1e90c530e6ce4fd976e9ad14595806610f4f248" => :sierra
     sha256 "cf0b79bd037b53d985c758b9b1e90c530e6ce4fd976e9ad14595806610f4f248" => :el_capitan
+    sha256 "554e5548a9e79f7c5c7ebf0de863699a468d307cfc9761f4fae93a971563dfd1" => :x86_64_linux
   end
 
   depends_on "qrencode"
