@@ -12,6 +12,7 @@ class SyncGateway < Formula
     sha256 "6a5b069076f54e606c30b2c01d4e3e66e136c10b101d94ce615c924964d358eb" => :high_sierra
     sha256 "cc2e8b1e7e5145681ff264d3d7fe53445ae01331420221a833e148dbe8126192" => :sierra
     sha256 "1f72bc0d2674b891e8107d3c6fc21a13d6d86e47ba5077eed63245735e31ac7e" => :el_capitan
+    sha256 "46e8cf0fc39eba48cc3ed7923aee8777314a9e0946ad0a6103617d8668d6de86" => :x86_64_linux
   end
 
   depends_on "go" => :build
