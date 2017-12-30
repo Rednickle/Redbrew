@@ -13,6 +13,7 @@ class Pius < Formula
     sha256 "3c04e58f291f4185c98d6cde4708c9b3f8c08563ba4d4555fcb32809b5c75916" => :high_sierra
     sha256 "2fdc3d5b4fce9b55ab0c3b468ffd70ecb2e0f656a80609fb3178848082f83b27" => :sierra
     sha256 "e0345dc516c520f5c2c14b1f06b7f147375ac91676991a47e523de0af4ce2e64" => :el_capitan
+    sha256 "56065aee951cd3f4ec3f3893c53a8b088ad1728311a854a1afd748d8b8b6bf8d" => :x86_64_linux
   end
 
   depends_on "gnupg"
