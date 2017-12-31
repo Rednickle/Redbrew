@@ -7,15 +7,15 @@ class AwsSdkCpp < Formula
   desc "AWS SDK for C++"
   homepage "https://github.com/aws/aws-sdk-cpp"
   # aws-sdk-cpp should only be updated every 10 releases on multiples of 10
-  url "https://github.com/aws/aws-sdk-cpp/archive/1.3.20.tar.gz"
-  sha256 "db37788c343e4a3d388929ed134e57577e94233d7badac4b77f711ed15dd50fb"
+  url "https://github.com/aws/aws-sdk-cpp/archive/1.3.30.tar.gz"
+  sha256 "7b5f9b6d4215069fb75d31db2c8ab06081ab27f59ee33d5bb428fec3e30723f1"
   head "https://github.com/aws/aws-sdk-cpp.git"
 
   bottle do
     cellar :any
-    sha256 "6eb537e843f4f9dc9b51ca635820a7f296d7203b9fec70bda4e2e48ef3fbf7c6" => :high_sierra
-    sha256 "5ce3589ca0f72af49eb3b87344d6e0f3786b28c1bfe2ae5afa335c099065d479" => :sierra
-    sha256 "91cb644e22e345e523216712c022dba98d670219dd825ba036ea0aa554a56c34" => :el_capitan
+    sha256 "925edc7a011ada1997546e53a05a4f3b7d61c5f501ac98ec0e09066a3e7e4409" => :high_sierra
+    sha256 "75ff1c867cc2c4fc1b90de8ab8c37afefbe1051154f48661a294378719922294" => :sierra
+    sha256 "3198abc6e0c732342b0f0213437f110c6e95e51db65299f36d106aecfd2d10be" => :el_capitan
   end
 
   option "with-static", "Build with static linking"

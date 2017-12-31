@@ -1,13 +1,13 @@
 class Gnumeric < Formula
   desc "GNOME Spreadsheet Application"
   homepage "https://projects.gnome.org/gnumeric/"
-  url "https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.37.tar.xz"
-  sha256 "40371b9587857deefb0d1df950c3e02228d3f9b56def2e3aa86736ee24292468"
+  url "https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.38.tar.xz"
+  sha256 "3435d7d93a47a32764b1ec2d03f7fbb348a97af52530815e49370803a1a69c65"
 
   bottle do
-    sha256 "c07f651bced40f89a8140c27ab517b543fe8f5211c60c951c4ec5ed397a73413" => :high_sierra
-    sha256 "1bbe44ea1336f8ba6dd78b006b848da046976a696298c62f4839d0b018e1125c" => :sierra
-    sha256 "e5240123da0a76481a979688d94c5f9723d4e0541c41038a4fae2b50c26813fb" => :el_capitan
+    sha256 "c89507ffd0616c7681050011aab23e19c66f521dd5d4a4aa024829e0af9fd530" => :high_sierra
+    sha256 "84ff16b3ab315e0fa2f62c2c4904e6d59bb3a05088b51c52324319bb7b5211b0" => :sierra
+    sha256 "816978dca6c307593b7f04463830ff6115d203b3a76821d1218330539aaa7e77" => :el_capitan
   end
 
   option "with-python-scripting", "Enable Python scripting."
@@ -33,15 +33,6 @@ class Gnumeric < Formula
   resource "py_libxml2" do
     url "http://xmlsoft.org/sources/libxml2-2.9.7.tar.gz"
     sha256 "f63c5e7d30362ed28b38bfa1ac6313f9a80230720b7fb6c80575eeab3ff5900c"
-  end
-
-  # Fix "no member named 'libintl_textdomain' in 'struct _GnmFunc'"
-  # Equivalent to the following two upstream commits from 25 Dec 2017:
-  # https://github.com/GNOME/gnumeric/commit/7017a7ee2
-  # https://github.com/GNOME/gnumeric/commit/64f1410b7
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/ee23995/gnumeric/textdomain.patch"
-    sha256 "68c4a71a25551bdbbdf4af83fd707fe581f55356f89c9ef21553775bebe3de43"
   end
 
   def install
