@@ -12,6 +12,7 @@ class Coffeescript < Formula
     sha256 "d278695c911dfe541966de5bdfd985b7d10d4aadaf197c2a093f29c344a9beca" => :high_sierra
     sha256 "0c078b2ce55e70b9e226fa159e5ee4f5be33180c1bca6d9ccbbefff80980846f" => :sierra
     sha256 "faa22f66588159fc284bfc78f1e4a627ed7a6b14f8069adc44b5a51af1333f06" => :el_capitan
+    sha256 "57b83abcaf9b7dc738f1ca35494daa8cea1f5e1305d79b4a50781fdca843b409" => :x86_64_linux
   end
 
   depends_on "node"
