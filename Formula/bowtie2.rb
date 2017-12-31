@@ -9,6 +9,7 @@ class Bowtie2 < Formula
     sha256 "954c729dfb76a753d31c2b40dafd543c617930572a903e06d57bdc171a74557b" => :high_sierra
     sha256 "483e1f18fed745ea4aa74aa7ad8d3e2c59aff63715d624b8526c2fb5d5137f23" => :sierra
     sha256 "51174c043be22d4fdd241d94aa718eae53b5d60a8aafc4d023658938e3c421bb" => :el_capitan
+    sha256 "f989a1c84a22e37eb864b5a8d5175ee68a9cc5e4ce776ca2eedd5a29fb59cdb7" => :x86_64_linux
   end
 
   depends_on "tbb"
