@@ -10,6 +10,7 @@ class Pex < Formula
     sha256 "ed1429f15df1e663735f27b1c7660e289953494b84a84bdd919a7eb077576a72" => :high_sierra
     sha256 "ed1429f15df1e663735f27b1c7660e289953494b84a84bdd919a7eb077576a72" => :sierra
     sha256 "ed1429f15df1e663735f27b1c7660e289953494b84a84bdd919a7eb077576a72" => :el_capitan
+    sha256 "0cbbe967cc7eaa7d8afa90225df6cec8a5a4c2505391ae20678bf69b7ecb872b" => :x86_64_linux
   end
 
   depends_on "postgresql"
