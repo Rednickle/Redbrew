@@ -11,6 +11,7 @@ class PgTop < Formula
     sha256 "32637c635d8da78d4910df2dabd474f4115c31cba57890ad053b3a43cb38a758" => :high_sierra
     sha256 "5f06ae8b8ef1c979143e19c0527c31c8d649d23e1e9612c63bc6c5ff05bf8276" => :sierra
     sha256 "6d0104d461d7187ad02e1085098f2dad4fa00c4f2db93b1b910a6a072517ca54" => :el_capitan
+    sha256 "34eb7a2bba5ff1956b47e5f8bf4309743eb7629bc32fb3ea75713075b5b6ed86" => :x86_64_linux
   end
 
   depends_on "postgresql"
