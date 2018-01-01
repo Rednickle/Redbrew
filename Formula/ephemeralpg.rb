@@ -11,6 +11,7 @@ class Ephemeralpg < Formula
     sha256 "16030c95a119e8cfbe281d0dc1184c2d973321bcbed042edc097b064a90805ef" => :high_sierra
     sha256 "60c8611009dc31b7e96892efdbff55292a54b2f8d0ca3ea907364beab4b2be6c" => :sierra
     sha256 "7cf339bceca0f80ace1936fb4229d793b0b566f06854fa62d860c12de1470f69" => :el_capitan
+    sha256 "7f1e0cafcf30010f32003a168f650924d826c91a66855da112795517fc76121e" => :x86_64_linux
   end
 
   depends_on "postgresql"
