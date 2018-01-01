@@ -6,10 +6,11 @@ class Kallisto < Formula
   revision 1
 
   bottle do
-    cellar :any
+    cellar :any_skip_relocation
     sha256 "7def510bff1b872bff522fc561ccf197d2810f1d8df8fa3bf1870225ec74bd6a" => :high_sierra
     sha256 "975be5f037dfc6a47b65ef79bc3c3a9a0583e7eaa36add776a034a7bdf7f3893" => :sierra
     sha256 "9174135661c12414338e2a5280ee31951f97e8d55bd30ba423099e9b872da42e" => :el_capitan
+    sha256 "79b406874ecf48abd2c2a864b2f4777b55ee2f6d5bff6ec82c9e80074b5b96a4" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
