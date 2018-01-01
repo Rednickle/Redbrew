@@ -10,6 +10,7 @@ class Libzdb < Formula
     sha256 "e0792a7e6229efcc7ecc0de43200894c24154d6e2ea449ff7e017dca4f4eaa3f" => :high_sierra
     sha256 "a32526308ecc7e240b5bf21e05eaebb6b69c3be97c13e192c6e4007835887988" => :sierra
     sha256 "05ef421466fafc46b51d9aa12716525da0a97cf66b1a1434af34662ec43ed9d8" => :el_capitan
+    sha256 "ba17e8d393dc0faa88c4c300b51c09ff8588bee3bd3a198ed60b8cd5a6bd702a" => :x86_64_linux
   end
 
   depends_on "openssl"
