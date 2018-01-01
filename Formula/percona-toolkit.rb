@@ -3,16 +3,17 @@ class PerconaToolkit < Formula
   homepage "https://www.percona.com/software/percona-toolkit/"
   url "https://www.percona.com/downloads/percona-toolkit/3.0.5/source/tarball/percona-toolkit-3.0.5.tar.gz"
   sha256 "6ca8dd50fcff8a6030026201a5224bd3446d66c2c2ce484dc5c4cfae359c955b"
+  revision 1
   head "lp:percona-toolkit", :using => :bzr
 
   bottle do
     cellar :any
-    sha256 "fa86aef13448ef63064c7cf23aeb9013227e802f1ff388ced9f4ee01eda8129c" => :high_sierra
-    sha256 "989daf0b635c34f685ecb4f5e47071c53c7737df60562fb664c166aac6bedd64" => :sierra
-    sha256 "e219a097fdf4fe3b1d304e464f32104b19eed881c74e6ddcbcb692056e715a24" => :el_capitan
+    sha256 "e267b79631c42b8245d476c7e2198ced18307b5cb7a4419f8e0f2296ed50923b" => :high_sierra
+    sha256 "9688d848141eb8de92ff5d6eeed2b941c277d6215d0184e95f8351deebdf76c0" => :sierra
+    sha256 "2ab342631cac807fb416e3be6f7edd89dd6042bcfa34779d9639569481077b36" => :el_capitan
   end
 
-  depends_on :mysql
+  depends_on "mysql"
   depends_on "openssl"
   depends_on "DBI::DBD" => :perl unless OS.mac?
 
