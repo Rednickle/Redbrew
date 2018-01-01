@@ -10,6 +10,7 @@ class Libpqxx < Formula
     sha256 "a8bcc04c02c83715e428a21f6a04007c55856a42946a657c387d34c70cc7639b" => :high_sierra
     sha256 "ec66894b8f4959662204c53532f5963bc64e3c89a8471e2bee43bf42220251ef" => :sierra
     sha256 "867e5ba4984a3be9480c11b5e0adb1687670162a9d5571d4050d46c6f66e9381" => :el_capitan
+    sha256 "fef093fb8c7edcc070b5fd17a4be681e83985883ab545056b9639b344ebb9777" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
