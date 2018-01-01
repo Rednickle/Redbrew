@@ -10,6 +10,7 @@ class Osm2pgsql < Formula
     sha256 "a1298aff6b0c3f9ebbf5a608443ab47b6281d019fef9bf3239b5541da1cb9825" => :high_sierra
     sha256 "bd76ecc1cab3c799ae8302571c10ece0d61260c021f1b445fa39713e0ed1111d" => :sierra
     sha256 "51e48dcedbb306acb8b8d662883b19d77a688a3f44d07f2167018f8daf384de4" => :el_capitan
+    sha256 "47b8f6cec9060557f892e4ed89504f92d15698060a5d71917e20f0f3fc367926" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
