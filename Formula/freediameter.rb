@@ -20,8 +20,8 @@ class Freediameter < Formula
 
   if build.with? "all-extensions"
     depends_on "swig" => :build
-    depends_on :postgresql
-    depends_on :mysql
+    depends_on "postgresql"
+    depends_on "mysql"
   end
 
   def install

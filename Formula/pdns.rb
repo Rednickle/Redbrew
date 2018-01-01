@@ -32,7 +32,7 @@ class Pdns < Formula
   depends_on "lua"
   depends_on "openssl"
   depends_on "sqlite"
-  depends_on :postgresql => :optional
+  depends_on "postgresql" => :optional
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
