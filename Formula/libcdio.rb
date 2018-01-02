@@ -10,6 +10,7 @@ class Libcdio < Formula
     sha256 "7a0da4716a8c2d0c15a474bb33df7bfaad1639b7bb80c3039b3d7e5af04c9c64" => :high_sierra
     sha256 "d20beb64a3895d5c5b749b371cc8dc23ba50813a07c22ee10691c8b80c6ffc5c" => :sierra
     sha256 "736e98f2264c013a19af40ca1db8695326fb96e5292d0f31accaed0fe74e50fe" => :el_capitan
+    sha256 "cb82ff01ce0ce40e45e8822594e2b726efc68ff48c5dccb1da1070aea7acd02c" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
