@@ -2,15 +2,17 @@ class Braid < Formula
   desc "Simple tool to help track vendor branches in a Git repository"
   homepage "https://cristibalan.github.io/braid/"
   url "https://github.com/cristibalan/braid.git",
-      :tag => "v1.0.21",
-      :revision => "8d953288babe6bf320a390113cbca0f314607272"
+      :tag => "v1.0.22",
+      :revision => "3339d2cce298bec80152223ef782f2ad45e881ec"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "07319212d43a5d37b0823b3a1e9a55bf722a49eacd1d93b73e04ec0965311f24" => :high_sierra
-    sha256 "f012bdbb9b0fdcc93ba7d985178e9ca1df05e96eebb873c98435c37ad7b27fae" => :sierra
-    sha256 "8fa89a95797a0e4f360c548716526e2bece4be8fcd394c109bfb3e82883cdb79" => :el_capitan
+    sha256 "713a6ff10de29a14ab22cf26f43ad77d2cda7deb3c3d10cad6a0cfcd3aa6f71a" => :high_sierra
+    sha256 "d0b798af1cad15297ad081022dac157fe38d5e8fe444b6b38ce6b8c05b6c8938" => :sierra
+    sha256 "0e3bece1844845d7eefb05837e3b673050de48085fb6c72603fe1300e3a10f11" => :el_capitan
   end
+
+  depends_on :ruby => "2.2"
 
   resource "arrayfields" do
     url "https://rubygems.org/gems/arrayfields-4.9.2.gem"
@@ -35,11 +37,6 @@ class Braid < Formula
   resource "map" do
     url "https://rubygems.org/gems/map-6.6.0.gem"
     sha256 "153a6f384515b14085805f5839d318f9d3c9dab676f341340fa4300150373cbc"
-  end
-
-  resource "open4" do
-    url "https://rubygems.org/gems/open4-1.3.4.gem"
-    sha256 "a1df037310624ecc1ea1d81264b11c83e96d0c3c1c6043108d37d396dcd0f4b1"
   end
 
   def install
