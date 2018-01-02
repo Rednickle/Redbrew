@@ -12,6 +12,7 @@ class Gron < Formula
     sha256 "69513942bdaf37db13e7c380bc5241ef7a1a7e778b186c4197e8fa8e177bd6fb" => :high_sierra
     sha256 "04dfab480e6fa4f718491d8b1c13929769260fb5330c62d5944a9b23c224005e" => :sierra
     sha256 "8b719a5634fc88a4fa10bea59524ba58209e0da61fcbcba99ce09830a0c2358a" => :el_capitan
+    sha256 "98aa8180119a28c44cd21e343b2fc1b9666b019433b98e7c4cfae115c74cc6d7" => :x86_64_linux
   end
 
   depends_on "go" => :build
