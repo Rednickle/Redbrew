@@ -23,7 +23,7 @@ class PostgresXc < Formula
   depends_on "openssl"
   depends_on "readline"
   depends_on "ossp-uuid" => :recommended
-  depends_on :python => :optional
+  depends_on "python" => :optional
   depends_on "krb5" unless OS.mac?
   depends_on "libxslt" unless OS.mac?
   depends_on "perl" unless OS.mac? || build.without?("perl")

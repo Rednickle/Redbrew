@@ -14,7 +14,7 @@ class Platformio < Formula
     sha256 "52cb4cfdbba4a60d5ae4249bfb01b350b2fcda550aa1b2a5f0a27e42fd5db319" => :x86_64_linux
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   resource "arrow" do
     url "https://files.pythonhosted.org/packages/90/48/7ecfce4f2830f59dfacbb2b5a31e3ff1112b731a413724be40f57faa4450/arrow-0.12.0.tar.gz"

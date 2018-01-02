@@ -15,7 +15,7 @@ class Supervisor < Formula
     sha256 "ec67dcdd077b30b239d3ed9eef49bacd9aaf9ebd229f91180886488763fd8fa3" => :x86_64_linux # glibc 2.19
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   resource "meld3" do
     url "https://files.pythonhosted.org/packages/45/a0/317c6422b26c12fe0161e936fc35f36552069ba8e6f7ecbd99bbffe32a5f/meld3-1.0.2.tar.gz"

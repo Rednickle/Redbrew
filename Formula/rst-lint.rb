@@ -14,7 +14,7 @@ class RstLint < Formula
     sha256 "1047963f8853fa3b640a43e1b1074d1680065d5f1a3cd27540e0912b34b20b86" => :x86_64_linux
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   resource "docutils" do
     url "https://files.pythonhosted.org/packages/84/f4/5771e41fdf52aabebbadecc9381d11dea0fa34e4759b4071244fa094804c/docutils-0.14.tar.gz"

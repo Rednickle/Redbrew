@@ -15,7 +15,7 @@ class Unbound < Formula
   depends_on "libevent"
   depends_on "expat" unless OS.mac?
 
-  depends_on :python => :optional
+  depends_on "python" => :optional
   depends_on "swig" if build.with?("python")
 
   def install

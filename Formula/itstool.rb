@@ -30,7 +30,7 @@ class Itstool < Formula
     depends_on "automake" => :build
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "libxml2"
 
   def install

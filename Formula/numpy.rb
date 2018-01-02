@@ -24,7 +24,7 @@ class Numpy < Formula
   option "without-python", "Build without python2 support"
 
   depends_on :fortran => :build
-  depends_on :python => :recommended if MacOS.version <= :snow_leopard || !OS.mac?
+  depends_on "python" => :recommended if MacOS.version <= :snow_leopard || !OS.mac?
   depends_on :python3 => :recommended
   depends_on "openblas" unless OS.mac?
 

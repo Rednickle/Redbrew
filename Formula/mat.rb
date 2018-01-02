@@ -12,7 +12,7 @@ class Mat < Formula
     sha256 "c487f51fca2a761d00ed04a2232c6778221c1df8010cdde92b34aff3fd334d94" => :x86_64_linux
   end
 
-  depends_on :python => :optional
+  depends_on "python" => :optional
   depends_on "coreutils"
   depends_on "poppler"
   depends_on "pygobject3"

@@ -15,7 +15,7 @@ class Statik < Formula
     sha256 "26e50e5f2a4456bfac41f428a1bef421be4758acc1e71f0e6ebc5e51261bfb1e" => :x86_64_linux
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   def install
     venv = virtualenv_create(libexec)

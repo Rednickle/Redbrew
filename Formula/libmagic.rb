@@ -13,7 +13,7 @@ class Libmagic < Formula
     sha256 "7987458d2e21bdd0de3e01379a8df1bd9b045681112ed2bc7a265ae236c017dc" => :x86_64_linux
   end
 
-  depends_on :python => :optional
+  depends_on "python" => :optional
 
   def install
     system "./configure", "--disable-dependency-tracking",
