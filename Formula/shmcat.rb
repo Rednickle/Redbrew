@@ -9,6 +9,7 @@ class Shmcat < Formula
     sha256 "ff73e6df8b663b4f382098ce75a9ec4634d4658c5378b3ad122de135e30d44ab" => :high_sierra
     sha256 "5ee7bcafe69d653421e29b56cf2e48a55874dc1e092e817a83cb446cda4acf01" => :sierra
     sha256 "1b6ddaf528253df2e2d5b93e97b6f4ade717ff8f3f6bcf829ed7cf9d9e682539" => :el_capitan
+    sha256 "ba5d4d130846537f603b399ea5896daf4125b0d19bd143a130c0b68a4006acee" => :x86_64_linux
   end
 
   option "with-ftok", "Build the ftok utility"
