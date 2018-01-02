@@ -9,6 +9,7 @@ class RancherCli < Formula
     sha256 "48c9fd990fce859d293d6df2e3451dc7311905188eb9b5d3e2f0df0db15a8c0b" => :high_sierra
     sha256 "cffcd671d17426028ca181e8dc4c13deef49784a2b165d50d9cd74097892e22d" => :sierra
     sha256 "75cc2c8ad771c28e07cd88a022b9a028053c348530bbd02408f6af43cd262d6f" => :el_capitan
+    sha256 "fad158f26eb5ffe028cdc2cbd74d1265b111d33379e21e806de34b8aad620d84" => :x86_64_linux
   end
 
   depends_on "go" => :build
