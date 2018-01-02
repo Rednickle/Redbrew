@@ -11,6 +11,7 @@ class Moreutils < Formula
     sha256 "82df31e79d7946b055bb7be4e0cedf745bd96448114514d58509559736fe85fc" => :high_sierra
     sha256 "6f32d96f7023379b6cf4637bd65cf3e4fc0eb0b721991a625f0d38ba5145bfff" => :sierra
     sha256 "9f2e15ade4e996988704728fa9d3b9263a1337b33847ba68afb8863a3293162d" => :el_capitan
+    sha256 "73ec98c92bde85c5a545c19ead98d681d03c9d3b05b50804b99c819a80d917df" => :x86_64_linux
   end
 
   option "without-parallel", "Build without the 'parallel' tool."
