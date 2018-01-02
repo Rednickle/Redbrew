@@ -8,6 +8,7 @@ class Povray < Formula
     sha256 "967e57f7b87255ad9af901d2842110d5f7ec4c9a1e1d7937b6e2c2fd82aec289" => :high_sierra
     sha256 "e252bae440fb28bb0270c67997be929004bba9bd4668fe7a62dfe60fbf5bc6ac" => :sierra
     sha256 "852761add98282424a87e5e314473d86205284d429873054a1b29e4fb3b40608" => :el_capitan
+    sha256 "494ce969d9a0de26f9a564c895154f326ab4b24e10cfda582a1ebd5bfef93229" => :x86_64_linux
   end
 
   depends_on :macos => :lion
