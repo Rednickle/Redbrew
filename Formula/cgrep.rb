@@ -5,16 +5,15 @@ class Cgrep < Formula
 
   desc "Context-aware grep for source code"
   homepage "https://github.com/awgn/cgrep"
-  url "https://github.com/awgn/cgrep/archive/v6.6.19.tar.gz"
-  sha256 "932237b12f1802c884d3eb11044e0f38f09e21f7bcebe56e05e7902b40e4ec55"
+  url "https://github.com/awgn/cgrep/archive/v6.6.22.tar.gz"
+  sha256 "aa5e016653eabee0fc47bf6a1cd46ec961b7c305a4f49b0feec66881cc8f2183"
   head "https://github.com/awgn/cgrep.git"
 
   bottle do
     cellar :any
-    sha256 "e248f71da6dfcdfc226e540cf9ed472f0f311f5d266f8c114a1a16b80727fba6" => :high_sierra
-    sha256 "b15a8e309b89b16f8728cd000b3849f558dc2b6164861f9157a0b720a7f5b578" => :sierra
-    sha256 "8583bba93e113aaa90f0ad04c1933bf1758abc10c6ef8a14abdea9e030dc5a23" => :el_capitan
-    sha256 "0bf24ea2daae086b97432943794b4e8e4ac33133799244660d7dba700156e97f" => :x86_64_linux
+    sha256 "cbca15828b0a4b9063da146468d63c3cc157184e031f921abe6f5679ab296e36" => :high_sierra
+    sha256 "e32a05aaa5f2faa5a512e545636cd6fce96db0ba1da99869e0392d1e4ae620c1" => :sierra
+    sha256 "be9f271ebac608476f316c47a14080cf5b10e026538651b5dbec53af49d60793" => :el_capitan
   end
 
   depends_on "ghc" => :build
@@ -26,18 +25,14 @@ class Cgrep < Formula
   end
 
   test do
-    input = <<~EOS
+    (testpath/"t.rb").write <<~EOS
       # puts test comment.
       puts "test literal."
     EOS
 
-    cmd = "#{bin}/cgrep --language-force=ruby --count --comment test"
-    assert_match ":1", pipe_output(cmd, input, 0)
-    cmd = "#{bin}/cgrep --language-force=ruby --count --literal test"
-    assert_match ":1", pipe_output(cmd, input, 0)
-    cmd = "#{bin}/cgrep --language-force=ruby --count --code puts"
-    assert_match ":1", pipe_output(cmd, input, 0)
-    cmd = "#{bin}/cgrep --language-force=ruby --count puts"
-    assert_match ":2", pipe_output(cmd, input, 0)
+    assert_match ":1", shell_output("#{bin}/cgrep --count --comment test t.rb")
+    assert_match ":1", shell_output("#{bin}/cgrep --count --literal test t.rb")
+    assert_match ":1", shell_output("#{bin}/cgrep --count --code puts t.rb")
+    assert_match ":2", shell_output("#{bin}/cgrep --count puts t.rb")
   end
 end
