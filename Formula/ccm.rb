@@ -13,7 +13,7 @@ class Ccm < Formula
     sha256 "3f7d6d3f9492f666507d52e1ad43efca07df2d6a8a2f2e1047e29c93a23cf8b9" => :x86_64_linux
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   resource "PyYAML" do
     url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"

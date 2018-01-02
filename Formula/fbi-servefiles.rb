@@ -13,7 +13,7 @@ class FbiServefiles < Formula
     sha256 "d03b1f47d204da9770fa2677b64725814e4fab10ec2e07582b7c0269753e09da" => :x86_64_linux
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   def install
     venv = virtualenv_create(libexec)
