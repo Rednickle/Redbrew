@@ -9,6 +9,7 @@ class GnupgAT20 < Formula
     sha256 "4854e648eb7af8d3dce917c05b82f8f3ff87a078aca95761dad7787efc09a798" => :high_sierra
     sha256 "d52b7e2fb7951d39f99f17b86ecc69e7e9b98e052ebf4daab67240ffea80eb97" => :sierra
     sha256 "d9bd7fce7e528c08a3a10d3440d81b09995434dbe11505dfa9555d947466ffaa" => :el_capitan
+    sha256 "6eb29b50cda0c9c954b37a0b13affb45572ccb2e50e26f83bf46f4c94876d97e" => :x86_64_linux
   end
 
   keg_only :versioned_formula
