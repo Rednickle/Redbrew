@@ -9,6 +9,7 @@ class GpgAgent < Formula
     sha256 "aad65c67de59226ab94dcd307f75dfd007cb4a8d3050863d23c9c39f72dd4b87" => :high_sierra
     sha256 "7767c0f021cfab5e062d18069bd7bbbfd82249e1a0d80b5bfbf4eee125c617d4" => :sierra
     sha256 "6f07d8e495b5eee2d0b13d0b1397c543ac710d5416fbb3571ec67a5937650bab" => :el_capitan
+    sha256 "ae8724b06d8d419c62402968ca9c5ea5377435b2d693508fe1e9251bad2f45b0" => :x86_64_linux
   end
 
   keg_only "GPG 2.1.x ships an internal gpg-agent which it must use"
