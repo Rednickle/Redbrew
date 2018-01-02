@@ -22,7 +22,8 @@ class Krb5 < Formula
         "--disable-debug",
         "--disable-dependency-tracking",
         "--disable-silent-rules",
-        "--prefix=#{prefix}"
+        "--prefix=#{prefix}",
+        "--without-system-verto"
       system "make"
       system "make", "install"
     end
