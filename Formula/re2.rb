@@ -1,17 +1,16 @@
 class Re2 < Formula
   desc "Alternative to backtracking PCRE-style regular expression engines"
   homepage "https://github.com/google/re2"
-  url "https://github.com/google/re2/archive/2017-12-01.tar.gz"
-  version "20171201"
-  sha256 "62797e7cd7cc959419710cd25b075b5f5b247da0e8214d47bf5af9b32128fb0d"
+  url "https://github.com/google/re2/archive/2018-01-01.tar.gz"
+  version "20180101"
+  sha256 "b99a940699cff9ffd633fbb0286792e4b3995816212c3dedae817f0ae24317c2"
   head "https://github.com/google/re2.git"
 
   bottle do
     cellar :any
-    sha256 "679ee7f3ddef4bb91c5f31d3a5d5d813d1811fdd76751fdba159cb56c47106df" => :high_sierra
-    sha256 "26d49ed98c230b7d907e46a7ed65a1d3a7a8ed9b2f5dbdd6db285957669ece8d" => :sierra
-    sha256 "20c7fb6f22e96b6c7472ff2fed194872d82c831d180b64466bb47a763170ebf7" => :el_capitan
-    sha256 "fc3651482ff248f6558f12f49ae008265c457b18f3554df5e141a99630dd1270" => :x86_64_linux
+    sha256 "2509709630617e1bbd2af7be7f0596ea7eb9195e953c172d2149ed96b301fabf" => :high_sierra
+    sha256 "c9658429a42fbe1581790c8d2c2619a9eabe3211344316589fb0187e99601e09" => :sierra
+    sha256 "33e23a2b0f14ad42032c0c17ee5093b231cb8fb8c7f4314ea89c8be393f24bc4" => :el_capitan
   end
 
   needs :cxx11
