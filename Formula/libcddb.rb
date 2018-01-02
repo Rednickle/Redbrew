@@ -10,6 +10,7 @@ class Libcddb < Formula
     sha256 "94d7f528e8a973b10e501b390e5bd1c7173b2b63cbcaec311975ab70fba5dc36" => :high_sierra
     sha256 "05158c1d03538f29cb8f4bd932925efaceba92eb87a748538deb25977b5f3238" => :sierra
     sha256 "bf7769869336f10b416971cef25252e3afd93a791c4d96ce5d4e134f449a8991" => :el_capitan
+    sha256 "1d6bf73f51738d39a85ccbcff650e8acfcc5ca30baa54f63bfa676455f0111c7" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
