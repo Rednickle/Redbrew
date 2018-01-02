@@ -10,6 +10,7 @@ class Gdbm < Formula
     sha256 "f7cbf71be7e38ab6268c3c403e03cf4af6a4e5a51f3086999b336bf5fb6820d0" => :high_sierra
     sha256 "d9a0a56daeedacb01d12e2ad8612e66bed5a4175658d3b1166062a61d744fe8d" => :sierra
     sha256 "713b714c182309d8d63ebeb3aae7cac6a7d6dfb35ea39a0c890cb639f789e337" => :el_capitan
+    sha256 "b2d6d73a4e2e8c3354e136efb8f00258f6506d24ddb978c5061932ee5811d0b0" => :x86_64_linux
   end
 
   if OS.mac?
