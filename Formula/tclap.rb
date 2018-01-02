@@ -9,6 +9,7 @@ class Tclap < Formula
     sha256 "8e85cfa71594680dc52d5ff18d93cf585fc5990c28316f0b60f42584ff3a2697" => :high_sierra
     sha256 "8e85cfa71594680dc52d5ff18d93cf585fc5990c28316f0b60f42584ff3a2697" => :sierra
     sha256 "8e85cfa71594680dc52d5ff18d93cf585fc5990c28316f0b60f42584ff3a2697" => :el_capitan
+    sha256 "07dcfd5a5be305cdf6b1d773dadd6b0ba1bf59b784964518fd03989262f6eb1e" => :x86_64_linux
   end
 
   def install
