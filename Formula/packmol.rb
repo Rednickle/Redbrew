@@ -9,6 +9,7 @@ class Packmol < Formula
     sha256 "a0356e819992dbe7b4a0d9c57c4e4f4dd49f61ad84111720549ccc00364b5706" => :high_sierra
     sha256 "0a3941940fd3e86eb17846daf14d9c0f5816f5cb7b1e4f1f94dc7e6e349d8fe4" => :sierra
     sha256 "c407ce4267f46650484760f66a205dc4d76521676ad08c6913cd34a4d5809f89" => :el_capitan
+    sha256 "5c49eefec119fdb9591e5bf4fa42c087242aedf63efc491fbf6298f5153633c6" => :x86_64_linux
   end
 
   depends_on "gcc"
