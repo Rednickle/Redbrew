@@ -11,6 +11,7 @@ class PreCommit < Formula
     sha256 "38f2bbdb24016edba5b8944eba6aed9456768731d973f4efe275e11b3f8e99af" => :high_sierra
     sha256 "d6a01e9c9f590674c1ba865a8a74a54abf32805b68c34c052b84e7c4bbcf0f42" => :sierra
     sha256 "c215f3a05d75470b7ef3e8bbd2f1f2bf1a69ff62132482900eb632d2d2f7ba4c" => :el_capitan
+    sha256 "5d591807181d70c3425cbfa8316e1021d5f42cd76aaa5654093acd591d090f64" => :x86_64_linux
   end
 
   depends_on "python3"
