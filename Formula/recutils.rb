@@ -11,6 +11,7 @@ class Recutils < Formula
     sha256 "577f81582b338d44b2b231ab7a353ceaa0b01cf899b9a5042924568d95b20ec5" => :high_sierra
     sha256 "13ded271da7be4d07cce7f454d5c6ad871151c08b319f5a1670bdefd882a62da" => :sierra
     sha256 "e11f1ef2e988f963ddf52088c8d50626c4179b4065b19e254315ae75486439c1" => :el_capitan
+    sha256 "931975f2b54f0446d4c08ad613d1eeba4bffc81d92e4ad7baa8aafef2e22c414" => :x86_64_linux
   end
 
   if MacOS.version >= :high_sierra
