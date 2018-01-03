@@ -5,25 +5,24 @@ class Ansible < Formula
   homepage "https://www.ansible.com/"
   url "https://releases.ansible.com/ansible/ansible-2.4.2.0.tar.gz"
   sha256 "315f1580b20bbc2c2f1104f8b5e548c6b4cac943b88711639c5e0d4dfc4d7658"
-  revision 1
+  revision 2
   head "https://github.com/ansible/ansible.git", :branch => "devel"
 
   bottle do
     cellar :any
-    sha256 "46df64427c738857044796801c44fa2e6d5a14ce74880eae1f2523096df79952" => :high_sierra
-    sha256 "fa03a18e1af0e5c0cb5e5869488b4ba6933c78d6a2a58f879443e53425455358" => :sierra
-    sha256 "c20d3f73b4e004c21861deb9654cf148e946ac0e526e7e888b85dde8640684e7" => :el_capitan
-    sha256 "9ad2cb32b49f305f8200c52d82e59b77e1c7cace3d00ea58f9e7972ba2235d46" => :x86_64_linux
+    sha256 "3e13049fb07456b61e3bf943bf0860b2ecd2f796203bf2f4355776ae3b80e58e" => :high_sierra
+    sha256 "1f78a48e3bbb5c55f8ab69c98e860caafeb728fb7b5a6a07748c442e68b0528d" => :sierra
+    sha256 "a219a73b6736e374196de8a589a2c3cd27ef975bc764f88a8319eb478abcb0d7" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
-  depends_on :python
   depends_on "libyaml"
-  depends_on "openssl@1.1"
+  depends_on "openssl"
   unless OS.mac?
     depends_on "libffi" # for cffi
     depends_on "libxslt" # for lxml
   end
+  depends_on "python"
 
   # Collect requirements from:
   #   ansible

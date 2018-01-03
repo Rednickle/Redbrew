@@ -20,7 +20,7 @@ class Pyqt < Formula
   depends_on "qt"
   depends_on "sip"
   depends_on :python => :recommended
-  depends_on :python3 => :recommended
+  depends_on "python3" => :recommended
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.

@@ -5,18 +5,18 @@ class MagicWormhole < Formula
   homepage "https://github.com/warner/magic-wormhole"
   url "https://files.pythonhosted.org/packages/6c/9f/6383d6eec761ce97d8a80693871dd87edfd2d3e3a0c9439e2836a67a0ff5/magic-wormhole-0.10.3.tar.gz"
   sha256 "48465d58f9c0d729dc586627cf280830e7ed59f9e7999946ae1d763c6b8db999"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "75f24e4670554f4d07a8b448cfaec88a6841df7fd534fb530f0b4b685fd07ed7" => :high_sierra
-    sha256 "a0fbf57f910a408c982dd7fa2c59e5544b16304c5a9ba7d9eb9b3cc40ab73409" => :sierra
-    sha256 "23086ef8102f30e8c7bbd7aa6af42767af213b8eee73e17519a54c90eb831e3e" => :el_capitan
+    sha256 "58d6dfba61841e15636c3f67969065cebdb3f7f7ba4f97013215193f25ca220b" => :high_sierra
+    sha256 "65ad6b80e5e41dd22c3eec327a45029872dcc26c1396206ab847cd60be66fcc7" => :sierra
+    sha256 "a851da66a74b3f8dc78c2f404b0007d60e4c6223a2c4b1aa0b82db7d5d8a01b6" => :el_capitan
   end
 
-  depends_on :python
   depends_on "libsodium"
-  depends_on "openssl@1.1"
+  depends_on "openssl"
+  depends_on "python"
   depends_on "libffi" unless OS.mac?
 
   resource "Automat" do

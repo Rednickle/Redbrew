@@ -5,17 +5,17 @@ class Molecule < Formula
   homepage "https://molecule.readthedocs.io"
   url "https://files.pythonhosted.org/packages/aa/0f/dc6393eed9588e477a23488fbd23efd40246fcc64815179db6c8c892f554/molecule-1.25.1.tar.gz"
   sha256 "aeafd3a6c5a0de707308006dcf727883c9daf4446d18d9e68eb97659c51ebbb0"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "7c151fc29a57ff977b9bc86cf5c980cfb8d81dfffb63fbd7021bbf0311fe7846" => :high_sierra
-    sha256 "e9875af13103fb544161ae42a1cd4c5979d69a104f21e9c86684f6ed2d50fc13" => :sierra
-    sha256 "5c2a2ba6751aa7b6e97399bdc95707dd4e621044dfbb99c2744463445f5db855" => :el_capitan
-    sha256 "6d55935b530d6afde43dada83f45b2d83fa53cb4a42e6833f76c35c41212a9a8" => :x86_64_linux
+    sha256 "74e74c84d5e75481b35ea99b6df5e2d617542bfbb0fdccedabb948bf2eb25014" => :high_sierra
+    sha256 "866a5b5f5c580cad321453cc3d67c3a530bc86853c7d902ac7b231e15b491788" => :sierra
+    sha256 "4fcc009cc1e462089fb78c702915e7fee337fdbd0fdf836f195c14b62e1dde20" => :el_capitan
   end
 
-  depends_on :python
-  depends_on "openssl@1.1"
+  depends_on "python"
+  depends_on "openssl"
   unless OS.mac?
     # pkg-config helps "setup.py" find libffi
     depends_on "pkg-config" => :build

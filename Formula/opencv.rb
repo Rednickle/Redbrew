@@ -20,7 +20,7 @@ class Opencv < Formula
   depends_on "libtiff"
   depends_on "openexr"
   depends_on :python
-  depends_on :python3
+  depends_on "python3"
   depends_on "numpy"
   depends_on "tbb"
   depends_on "openblas" unless OS.mac?

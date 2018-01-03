@@ -5,23 +5,23 @@ class AnsibleLint < Formula
   homepage "https://github.com/willthames/ansible-lint/"
   url "https://files.pythonhosted.org/packages/cd/d6/7e2abd17c523df9f8ae64694f12805c8f30934363f9eb6a68f9ffcbc2ff8/ansible-lint-3.4.20.tar.gz"
   sha256 "1e7f1d5d5ee91b817dedc0b612c2beb5ff44879d592ea17a2eaa6571aa9a2bff"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "157e27bb00a9de82c57149c615191b925bf8a1050bba848080aed86c341a4933" => :high_sierra
-    sha256 "6d1d8b5ee45bc4e4a2df419115c295b9d87cdf82d081464d039f4b769d206987" => :sierra
-    sha256 "af29aabe77bc15fd58fc761f39bd5cde79b3a6d989170688ce1de21e775c7bfd" => :el_capitan
-    sha256 "96d12c57c4a090652f7a02f067828757db1dc43e4511f7c5377abf2f312869de" => :x86_64_linux
+    sha256 "57c737fd79c6b116327f42a5126864748dd6af8f84dbbd7dba6498974596302b" => :high_sierra
+    sha256 "765598e649f319cd950aa64f4764f44ffed745c0d4b44ad72adb5667b41c3996" => :sierra
+    sha256 "496e90c9eed3a6d1c9fcef7b128036a829f081b7a4f615528c0cc2e9bbfc7bbb" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
-  depends_on :python
   depends_on "libyaml"
-  depends_on "openssl@1.1"
+  depends_on "openssl"
   unless OS.mac?
     depends_on "libffi" # for cffi
     depends_on "gmp" # for pycrypto
   end
+  depends_on "python"
 
   resource "ansible" do
     url "https://files.pythonhosted.org/packages/4f/65/ae3ad8589c38f9e04ebc8a824c2880eb4f9e603a1f62b5f5a3f938e524b0/ansible-2.4.2.0.tar.gz"
