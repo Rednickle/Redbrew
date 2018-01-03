@@ -9,6 +9,7 @@ class Libtomcrypt < Formula
     sha256 "d63f50b85f7049c447cb862c503fcdd1fc6f9548961634513aa155cca9f6ea82" => :high_sierra
     sha256 "e670af84b0cf4fcae425c7d09dc848c13737966a8209b19ae57606c8ce748aa0" => :sierra
     sha256 "35739dedeb6932b60b46c725b03d3609f933a0cac4b180d59a9c8f38e8272923" => :el_capitan
+    sha256 "4f13e866929d0fb5545c4c7edc7d5c01c49a16a9e995abebd38e308572e507f1" => :x86_64_linux
   end
 
   option "with-gmp", "enable gmp as MPI provider"
