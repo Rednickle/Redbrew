@@ -5,12 +5,13 @@ class Macvim < Formula
   url "https://github.com/macvim-dev/macvim/archive/snapshot-144.tar.gz"
   version "8.0-144"
   sha256 "23e1eaa00e9268eaa9a9061ea6018ad20f288bd6c03c1d8553a745d72527d33f"
+  revision 1
   head "https://github.com/macvim-dev/macvim.git"
 
   bottle do
-    sha256 "a278d37b4b9fbe05803cb534a9ffc8cdda9954ff0d35f6215a2c8e3b095c0c92" => :high_sierra
-    sha256 "6d1e7233af0728af33304f1026e74b1a658765e6daefe212d7e6767b6333731b" => :sierra
-    sha256 "fcdaa8a0c3d0f275472a21623df4eed00434d7b8dda8cd3e562c270d4cd72b92" => :el_capitan
+    sha256 "d04e88f5e59dfce848b30522bf08dab5194535ebc46d442a88005bf7ea6c9624" => :high_sierra
+    sha256 "7acd5230323f2b85991d682e066972ae9fab0e3fbca826d2216f237b1a148a33" => :sierra
+    sha256 "b4b11b6e2126ad498107239fd7486a3bb5c5fc06b0e0473a75c9e8083b2b9d6d" => :el_capitan
   end
 
   option "with-override-system-vim", "Override system vim"
@@ -27,10 +28,12 @@ class Macvim < Formula
     option "with-custom-python", "Build with a custom Python 2 instead of the Homebrew version."
   end
 
-  depends_on :python => :recommended
+  depends_on "python" => :recommended
   depends_on "python3" => :optional
 
   def install
+    ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
+
     # Avoid issues finding Ruby headers
     if MacOS.version == :sierra || MacOS.version == :yosemite
       ENV.delete("SDKROOT")
