@@ -3,30 +3,29 @@ class Dmd < Formula
   homepage "https://dlang.org/"
 
   stable do
-    url "https://github.com/dlang/dmd/archive/v2.077.1.tar.gz"
-    sha256 "3860e70c931c7022713f0f3699b6d27d2b118fc39e77231c5431f89ddb9594b3"
+    url "https://github.com/dlang/dmd/archive/v2.078.0.tar.gz"
+    sha256 "58a6afb41e6fe5b69399cb2354e0c7413e84f767128a8d9e003f0d6a9b167f45"
 
     resource "druntime" do
-      url "https://github.com/dlang/druntime/archive/v2.077.1.tar.gz"
-      sha256 "43481247c0d854334be2f3584920273141459f89c4d4240c3b188ba943708614"
+      url "https://github.com/dlang/druntime/archive/v2.078.0.tar.gz"
+      sha256 "02118259c8570709aefed1b2452d67cedffed3a4b1c1507071fb58269842914a"
     end
 
     resource "phobos" do
-      url "https://github.com/dlang/phobos/archive/v2.077.1.tar.gz"
-      sha256 "737a20371cc125e76c5dc0566a5f33db45ab67001ee2a4f8a8e12813fc0a8136"
+      url "https://github.com/dlang/phobos/archive/v2.078.0.tar.gz"
+      sha256 "da3b0d54827a461a398f90554a5d0a2f3077eaaaec2534b40861e34c33ec179a"
     end
 
     resource "tools" do
-      url "https://github.com/dlang/tools/archive/v2.077.1.tar.gz"
-      sha256 "07d7cfe05344354ab2c6c298d89915998acd2c209ca4165d1f3f9a9dc7191c31"
+      url "https://github.com/dlang/tools/archive/v2.078.0.tar.gz"
+      sha256 "5d3de1524bb1a024649a065e2567893c88cc4dba17ae9bd6f576e11bc91533ec"
     end
   end
 
   bottle do
-    sha256 "c72315803f907434aad293305fcb8da4166e59a71cc7c052d8e666be313c9204" => :high_sierra
-    sha256 "2337bb684190307760fef486fd137fb27993237a37ca7c246b2398323af6c563" => :sierra
-    sha256 "fb1043d5f1533affbd20b21373654fabb06de3d8a4c8e8616573b5282bd349b6" => :el_capitan
-    sha256 "327bc56b7cd56e9db93bd87591665882500ba6acdf7b1ae7ee23904b44b910f3" => :x86_64_linux
+    sha256 "373d098ca25d0e80f828d129516f57a9fca89db99e9315f4e99ce34c2f8e04de" => :high_sierra
+    sha256 "78cc3c58b3e4eb2f3fcccff2d74a7198cf3a9825d5ae22d566114c2f017001f0" => :sierra
+    sha256 "3f3644c3c07cdb167616a337fdb87958b3c4a8fb62070dcaab078bf75f5349e7" => :el_capitan
   end
 
   head do
@@ -52,20 +51,22 @@ class Dmd < Formula
 
     system "make", "SYSCONFDIR=#{etc}", "TARGET_CPU=X86", "AUTO_BOOTSTRAP=1", "RELEASE=1", *make_args
 
-    bin.install "src/dmd"
-    prefix.install "samples"
-    man.install Dir["docs/man/*"]
-
     make_args.unshift "DMD_DIR=#{buildpath}", "DRUNTIME_PATH=#{buildpath}/druntime", "PHOBOS_PATH=#{buildpath}/phobos"
+
     (buildpath/"druntime").install resource("druntime")
-    (buildpath/"phobos").install resource("phobos")
     system "make", "-C", "druntime", *make_args
+
+    (buildpath/"phobos").install resource("phobos")
     system "make", "-C", "phobos", "VERSION=#{buildpath}/VERSION", *make_args
 
     resource("tools").stage do
       inreplace "posix.mak", "install: $(TOOLS) $(CURL_TOOLS)", "install: $(TOOLS) $(ROOT)/dustmite"
       system "make", "install", *make_args
     end
+
+    bin.install "generated/osx/release/64/dmd"
+    pkgshare.install "samples"
+    man.install Dir["docs/man/*"]
 
     (include/"dlang/dmd").install Dir["druntime/import/*"]
     cp_r ["phobos/std", "phobos/etc"], include/"dlang/dmd"
@@ -100,7 +101,7 @@ class Dmd < Formula
   end
 
   test do
-    system bin/"dmd", prefix/"samples/hello.d"
+    system bin/"dmd", pkgshare/"samples/hello.d"
     system "./hello"
   end
 end
