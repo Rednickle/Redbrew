@@ -10,6 +10,7 @@ class Hh < Formula
     sha256 "90be269fa8ed7ed3538f91d34cccc5fe87e4ce3e328b64a6c74f558d5f2d0633" => :high_sierra
     sha256 "3a194279a8c4eda33d00398e6c3a2a854c9c15194449d1d0e813e57b17993cae" => :sierra
     sha256 "4bbad864545de6e4f2a8e914fc20495983c0bde0feb2e2da9353a8169cfaa3fa" => :el_capitan
+    sha256 "619102f8895f95bbf0d46d6d70aea1d9a410d34ed316a9b4a94d0be16c07cecc" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
