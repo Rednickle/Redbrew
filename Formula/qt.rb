@@ -6,19 +6,20 @@ class Qt < Formula
   url "https://download.qt.io/official_releases/qt/5.10/5.10.0/single/qt-everywhere-src-5.10.0.tar.xz"
   mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.10/5.10.0/single/qt-everywhere-src-5.10.0.tar.xz"
   sha256 "936d4cf5d577298f4f9fdb220e85b008ae321554a5fcd38072dc327a7296230e"
+  revision 1
   head "https://code.qt.io/qt/qt5.git", :branch => "5.10", :shallow => false
 
   bottle do
-    sha256 "332ab2f3eb7c13510f460c13d28a562db03297149a3615feb9e3d467fafde56c" => :high_sierra
-    sha256 "c93cf6ead1774cfa7a369c92c7d6a69154bc0dd5b48a0e7ddf3a78202c4a3dc5" => :sierra
-    sha256 "44425e23d8b9c2b8b2f50d850ca94dcd411cd89e20e057c8d6505c9056d06328" => :el_capitan
-    sha256 "9ffce15ee5aba89b5bf911b3dc80db70a43c0881f05300caa7d35d0043df1b28" => :x86_64_linux
+    sha256 "d63559b06141047f1d65a431db7aed630461db8d821ed8f925af2ba77ecb0ab4" => :high_sierra
+    sha256 "c3a892407ff379b940b28b6098719bd97a37bc706a0b25485e4d2bfed3f5264d" => :sierra
+    sha256 "ac70588d769dfd34c954f9ce9a8f9c3200b57eff84eadcbb96d918bc1bbc1d42" => :el_capitan
   end
 
   keg_only "Qt 5 has CMake issues when linked"
 
   option "with-docs", "Build documentation"
   option "with-examples", "Build examples"
+  option "without-proprietary-codecs", "Don't build with proprietary codecs (e.g. mp3)"
 
   # OS X 10.7 Lion is still supported in Qt 5.5, but is no longer a reference
   # configuration and thus untested in practice. Builds on OS X 10.7 have been
@@ -111,6 +112,7 @@ class Qt < Formula
     end
 
     args << "-plugin-sql-psql" if build.with? "postgresql"
+    args << "-proprietary-codecs" if build.with? "proprietary-codecs"
 
     system "./configure", *args
     system "make"
