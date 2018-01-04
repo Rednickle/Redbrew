@@ -5,16 +5,16 @@ class Pipenv < Formula
   homepage "https://docs.pipenv.org/"
   url "https://files.pythonhosted.org/packages/84/82/dbe98467658b024c7ac104c77045346074df03de158bedb7c0122380f417/pipenv-9.0.1.tar.gz"
   sha256 "e1fb0aa2571c9c5a1b403ac782e7da09719625ac51a1238b0e6c5d157c3c679a"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0c2b4ca3034c44b510d1bfcdf758491c39950f38d67101da766c9e43275976b9" => :high_sierra
-    sha256 "4f621fdfd318152c23d41fd2a27462b014b15a0622f889007eae1d877f5ed908" => :sierra
-    sha256 "132fb1b7ccb710f64a787ceacb3c7a927486ec6da2bc2ed533841fff12b9fa66" => :el_capitan
-    sha256 "eccad3a5570e1fdb5dac05bdc88d74cdb26894e1af875a4fa14a13c7f62d525d" => :x86_64_linux
+    sha256 "a3fec200a7f7b8ad99f8c09f8db72da2d6d93dbd499f1edb4e8962fb3bcdc7a6" => :high_sierra
+    sha256 "5a083e88797566a5ceb475bcfbf0023b638bd4895f7cb1e1b4873910b1fd29cc" => :sierra
+    sha256 "f30be9bba8116f564b55f026422ccfb1c71ebf69b458227c61597c0dad94d67b" => :el_capitan
   end
 
-  depends_on :python3
+  depends_on "python3"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/23/3f/8be01c50ed24a4bd6b8da799839066ce0288f66f5e11f0367323467f0cbc/certifi-2017.11.5.tar.gz"

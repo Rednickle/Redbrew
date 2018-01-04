@@ -3,18 +3,13 @@ class Python < Formula
   homepage "https://www.python.org/"
   url "https://www.python.org/ftp/python/2.7.14/Python-2.7.14.tar.xz"
   sha256 "71ffb26e09e78650e424929b2b457b9c912ac216576e6bd9e7d204ed03296a66"
+  revision 1
   head "https://github.com/python/cpython.git", :branch => "2.7"
 
   bottle do
-    sha256 "3659f6c46f76cf28a671b942ec765013ee83618d7dade8eeab91b60ba618bddd" => :high_sierra
-    sha256 "06edf884300cb7bef5b66c377c7736a1f8bff553288fc0b8b6709bcfc51bd23b" => :sierra
-    sha256 "ee90369b3812099c0f7eb60b1bfd4e365861a621830968745fb6b4db736c7acf" => :el_capitan
-    sha256 "ecfe4c224d8c185c0b88c38423a54314db1abff76ee42c2ebc48f0d52b3fea95" => :x86_64_linux
-  end
-
-  devel do
-    url "https://www.python.org/ftp/python/2.7.14/Python-2.7.14rc1.tar.xz"
-    sha256 "9d62a5d8b56a897f94ce43489ed971f5a211459727048d73c807f04f318a0fb7"
+    sha256 "adafea2f5c6f9d88f2c790cef0f1eec6435771f1ba7e9bc1221f57e41b3b32d7" => :high_sierra
+    sha256 "09b4d4519c073c52b857d7b974ba2973f8642ebd4afdb54cccbcf2a92195d4c4" => :sierra
+    sha256 "0341dd55560451668a5d12a4f19e15eeaf8f598178c60ff7adf9284e07324039" => :el_capitan
   end
 
   # Please don't add a wide/ucs4 option as it won't be accepted.
@@ -408,9 +403,8 @@ class Python < Formula
     # and it can occur that building sqlite silently fails if OSX's sqlite is used.
     system "#{bin}/python2", "-c", "import sqlite3"
     # Check if some other modules import. Then the linked libs are working.
-    if OS.mac? || build.with?("tcl-tk") && Tab.for_name("tcl-tk").with?("x11")
-      system "#{bin}/python2", "-c", "import Tkinter; root = Tkinter.Tk()"
-    end
+    system "#{bin}/python2", "-c", "import Tkinter; root = Tkinter.Tk()" if OS.mac?
+    system "#{bin}/python2", "-c", "import gdbm"
     system bin/"pip2", "list"
   end
 end
