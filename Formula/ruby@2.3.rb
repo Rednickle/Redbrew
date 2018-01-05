@@ -3,13 +3,12 @@ class RubyAT23 < Formula
   homepage "https://www.ruby-lang.org/"
   url "https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.6.tar.xz"
   sha256 "e0d969ac22d4a403c1204868bb9c0d068aa35045bb3934cf50b17b7f66059f56"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "53f04a6214f07e60b08b5a7b75ba6fb81d15b4ffdfc0b042c14866709207231d" => :high_sierra
-    sha256 "890510617b95f14d38009e3243b09ef57d423b2b1ba24a4e3a0464e7f3200726" => :sierra
-    sha256 "d9e95e8b0e9e508b1becefc1884a773c4df414840b721ffc8af403158939698a" => :el_capitan
-    sha256 "9c48cfe565d1ecf57130942fb2a9252c25a85c60ba49375d8cd6b9f69cbf1183" => :x86_64_linux
+    sha256 "69f685579f193bebdf1111600173ea7ff17c543193dd2fd2b38a9698d77c13de" => :high_sierra
+    sha256 "f95e1f8b7dfd394ffe20df7d980c191e7c389f10f6d206257988d21a4f735c86" => :sierra
+    sha256 "dc25e49e1a6bedf6d7b0df72fbbef68727dcb3c0591c00d728740cffbc163d64" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -31,8 +30,8 @@ class RubyAT23 < Formula
   # but a revision bump should not be forced every update
   # unless there are security fixes in that Rubygems release.
   resource "rubygems" do
-    url "https://rubygems.org/rubygems/rubygems-2.6.14.tgz"
-    sha256 "406a45d258707f52241843e9c7902bbdcf00e7edc3e88cdb79c46659b47851ec"
+    url "https://rubygems.org/rubygems/rubygems-2.7.4.tgz"
+    sha256 "bbe35ce6646e4168fcb1071d5f83b2d1154924f5150df0f5fca0f37d2583a182"
   end
 
   def program_suffix
@@ -45,6 +44,10 @@ class RubyAT23 < Formula
 
   def api_version
     "2.3.0"
+  end
+
+  def rubygems_bindir
+    HOMEBREW_PREFIX/"lib/ruby/gems/#{api_version}/bin"
   end
 
   def install
@@ -114,10 +117,24 @@ class RubyAT23 < Formula
       # Drop in the new version.
       rg_in.install Dir[buildpath/"vendor_gem/lib/*"]
       bin.install buildpath/"vendor_gem/bin/gem" => "gem#{program_suffix}"
+      (libexec/"gembin").install buildpath/"vendor_gem/bin/bundle" => "bundle#{program_suffix}"
+      (libexec/"gembin").install_symlink "bundle#{program_suffix}" => "bundler#{program_suffix}"
     end
   end
 
   def post_install
+    # Since Gem ships Bundle we want to provide that full/expected installation
+    # but to do so we need to handle the case where someone has previously
+    # installed bundle manually via `gem install`.
+    rm_f %W[
+      #{rubygems_bindir}/bundle
+      #{rubygems_bindir}/bundle#{program_suffix}
+      #{rubygems_bindir}/bundler
+      #{rubygems_bindir}/bundler#{program_suffix}
+    ]
+    rm_rf Dir[HOMEBREW_PREFIX/"lib/ruby/gems/#{api_version}/gems/bundler-*"]
+    rubygems_bindir.install_symlink Dir[libexec/"gembin/*"]
+
     # Customize rubygems to look/install in the global gem directory
     # instead of in the Cellar, making gems last across reinstalls
     config_file = lib/"ruby/#{api_version}/rubygems/defaults/operating_system.rb"
@@ -128,10 +145,6 @@ class RubyAT23 < Formula
     %w[sitearchdir vendorarchdir].each do |dir|
       mkdir_p `#{ruby} -rrbconfig -e 'print RbConfig::CONFIG["#{dir}"]'`
     end
-  end
-
-  def rubygems_bindir
-    "#{HOMEBREW_PREFIX}/lib/ruby/gems/#{api_version}/bin"
   end
 
   def rubygems_config; <<~EOS
@@ -212,5 +225,12 @@ class RubyAT23 < Formula
     assert_equal "hello\n", hello_text
     ENV["GEM_HOME"] = testpath
     system "#{bin}/gem#{program_suffix}", "install", "json"
+
+    (testpath/"Gemfile").write <<~EOS
+      source 'https://rubygems.org'
+      gem 'gemoji'
+    EOS
+    system rubygems_bindir/"bundle#{program_suffix}", "install", "--binstubs=#{testpath}/bin"
+    assert_predicate testpath/"bin/gemoji", :exist?, "gemoji is not installed in #{testpath}/bin"
   end
 end
