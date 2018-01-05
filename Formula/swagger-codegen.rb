@@ -1,20 +1,18 @@
 class SwaggerCodegen < Formula
-  desc "Generation of client and server from Swagger definition"
+  desc "Generation of API clients, server stubs, documentation from OpenAPI/Swagger definition"
   homepage "https://swagger.io/swagger-codegen/"
-  url "https://github.com/swagger-api/swagger-codegen/archive/v2.2.3.tar.gz"
-  sha256 "baed7f68add38f625cfa9baa3c5fb454de87cca4e790ccc3c449cf15681380c7"
+  url "https://github.com/swagger-api/swagger-codegen/archive/v2.3.0.tar.gz"
+  sha256 "e0f5637e68add2f7b5abbb69b020c6a6da6ea146d1ab1dc167791124d5b3b3a6"
   head "https://github.com/swagger-api/swagger-codegen.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "26df240a880ea990c83fe1e866b73c6f59584efa9066952a8953e7b6438c69d1" => :high_sierra
-    sha256 "704953dac764a141b07ba5cf72c4bc07d7a7ffe7fbb0dbfb25b785563266a232" => :sierra
-    sha256 "179c1b14bacfb4b80649475072d0db5e7bed928835fcd3f15465d2cba3bbb90e" => :el_capitan
-    sha256 "1fc02905cba6c5e8a02c6936db0dfbcc430b9ff10b1a3961a0cabe7e17ce4814" => :yosemite
-    sha256 "91dde3ad06c8d5b90f57a38b1409913bce03e6ada14738444e6c7bb1a30bdc9b" => :x86_64_linux # glibc 2.19
+    sha256 "b2ee371fe1c53feaa5dca074466d59983ece519e0638f94c9bb903151ee15a63" => :high_sierra
+    sha256 "437f56001856c312d90ef88addfa086b85e6757fad436897ef7901966e07c219" => :sierra
+    sha256 "e54452eeeb744aaf4fd0c37937d1ef674e20e0af1984581f636ccfeed1cdfb45" => :el_capitan
   end
 
-  depends_on :java => "1.7+"
+  depends_on :java => "1.8"
   depends_on "maven" => :build
 
   def install
