@@ -8,6 +8,7 @@ class Htop < Formula
   bottle do
     sha256 "012058c2b3b3d4061b51ea4782ab4ecbe7063e0256ff4275d5f2f6514617faf4" => :sierra
     sha256 "fbb902d02cb45215128fe96a81132f6eb02afc91de38c8cc21e4ad28171c9119" => :el_capitan
+    sha256 "d58c864e6048ca31a4c5ca5d76b675907a3f6ca9b35801f0f2220d30b19a5cb9" => :x86_64_linux
   end
 
   head do
