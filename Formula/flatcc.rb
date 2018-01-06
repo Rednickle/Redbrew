@@ -10,6 +10,7 @@ class Flatcc < Formula
     sha256 "5ffc369898100db5b06e87ba45cb7cc05e36458981a745968f9fd1f921690c19" => :high_sierra
     sha256 "5439dbc65397ed0ea20b336204ad1fc844e35b991b9e4fd5c30bbe31de42a9cb" => :sierra
     sha256 "dd0338691529ceb7b2937682593981d1012d7c5ae2debf3dd19ce647b9a17398" => :el_capitan
+    sha256 "f8088045cc9ff00bb7a84b09bf1aca621e069e1ad84b83d3c93dd89df0c8293c" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
