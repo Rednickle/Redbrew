@@ -8,6 +8,7 @@ class Mariadb < Formula
     sha256 "c03353edcdc591307a78cee85e045e716be7f36d833e89fdec3d974a8cf0abb9" => :high_sierra
     sha256 "ec4dcb42daa3bcaf4def1768f0385a343621e175908ac913e0e238b6584f4c91" => :sierra
     sha256 "a072ff975ddcae52760fc2ede46b4f8940cf53201dadc16dc58a2a44d02edee7" => :el_capitan
+    sha256 "113cc144c992c8a693f30fcf1f84035a401a8ac4460696e1595639cca4ce2e34" => :x86_64_linux
   end
 
   devel do
