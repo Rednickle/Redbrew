@@ -11,6 +11,7 @@ class Blastem < Formula
     sha256 "950fdcccc00508c7648fb2df90267bf5a9a2bf1844f00a14e320ec274c9c30bd" => :high_sierra
     sha256 "530e0fbfb551845ed326faa4942da3e4516b4fb77885f8a8cc7e99a40c2f179e" => :sierra
     sha256 "572a00653d2a1c8d51ba5ae77d1ad0bddbcc69e9f535c594f334d73176d09f5b" => :el_capitan
+    sha256 "b168fa7deaf8cfc9916fc24c1f864af71a9a6dd9cc2bdc6af2e98c5ca38bc636" => :x86_64_linux
   end
 
   depends_on "freetype" => :build
