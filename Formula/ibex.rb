@@ -19,6 +19,7 @@ class Ibex < Formula
   depends_on "bison" => :build
   depends_on "flex" => :build
   depends_on "pkg-config" => :build
+  depends_on "zlib" unless OS.mac?
 
   needs :cxx11
 
