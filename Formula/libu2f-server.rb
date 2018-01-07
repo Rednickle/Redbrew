@@ -9,6 +9,7 @@ class Libu2fServer < Formula
     sha256 "bd520ddb4ac4b6a55d657b3ad17511f72dafe7b5a1c40b2a92e291db2a1e0c7a" => :high_sierra
     sha256 "25226b190bc6af0d7e7ec008d9404b29366d15d742b798cac0ab8e395c506106" => :sierra
     sha256 "89817d12379495c19e917cd35e288c5c46a2bb5dfe8c16855ff5ce5635b60a80" => :el_capitan
+    sha256 "ab3efd0ed9045250492528d886a7cf80b0cbb921cab4a50739edfdcbeb3d4bf7" => :x86_64_linux
   end
 
   depends_on "check" => :build
