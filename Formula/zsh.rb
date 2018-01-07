@@ -4,13 +4,12 @@ class Zsh < Formula
   url "https://downloads.sourceforge.net/project/zsh/zsh/5.4.2/zsh-5.4.2.tar.gz"
   mirror "https://www.zsh.org/pub/zsh-5.4.2.tar.gz"
   sha256 "957bcdb2c57f64c02f673693ea5a7518ef24b6557aeb3a4ce222cefa6d74acc9"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "5bb5aecd8c5341fbb670489f1c1388ce02561bae2c5ba6d3e80f5d3911f81abf" => :high_sierra
-    sha256 "e12f51411a259c9392384f4bc552dac0980ce2004f4f7560d3dfabe6ad36a1eb" => :sierra
-    sha256 "28db7180a903334df90161bc33fd975ae289a13b6102ad1ef228d28dca04e58e" => :el_capitan
-    sha256 "7c3843b22577730c2283629aa3dd47da0308c00ede9ab6f8eeb2c95334fbc7a9" => :x86_64_linux
+    sha256 "809518bdbd045925feb18ec7593c633508959ddc681734740fa845ee0d7dbf7e" => :high_sierra
+    sha256 "8138eec1e5aae47e9874cb024a279bddc35d3b57b45c52bbe7742b66114b8ad1" => :sierra
+    sha256 "05d488a886b2aa688a6b22f43a2e2fcc056b306eff48e510d083fe3c72788e8a" => :el_capitan
   end
 
   head do

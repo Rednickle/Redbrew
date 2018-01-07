@@ -1,16 +1,15 @@
 class Gdbm < Formula
   desc "GNU database manager"
   homepage "https://www.gnu.org/software/gdbm/"
-  url "https://ftp.gnu.org/gnu/gdbm/gdbm-1.14.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gdbm/gdbm-1.14.tar.gz"
-  sha256 "ada1437a4165a707b3e9f37b5b74dbbe7c2f8bde633b8c2c7dbc8f84f39baa09"
+  url "https://ftp.gnu.org/gnu/gdbm/gdbm-1.14.1.tar.gz"
+  mirror "https://ftpmirror.gnu.org/gdbm/gdbm-1.14.1.tar.gz"
+  sha256 "cdceff00ffe014495bed3aed71c7910aa88bf29379f795abc0f46d4ee5f8bc5f"
 
   bottle do
     cellar :any
-    sha256 "f7cbf71be7e38ab6268c3c403e03cf4af6a4e5a51f3086999b336bf5fb6820d0" => :high_sierra
-    sha256 "d9a0a56daeedacb01d12e2ad8612e66bed5a4175658d3b1166062a61d744fe8d" => :sierra
-    sha256 "713b714c182309d8d63ebeb3aae7cac6a7d6dfb35ea39a0c890cb639f789e337" => :el_capitan
-    sha256 "b2d6d73a4e2e8c3354e136efb8f00258f6506d24ddb978c5061932ee5811d0b0" => :x86_64_linux
+    sha256 "359843d415b02908012c5619ebe67628ad3c7bcb666dca8f2ffe2399cb9bfec9" => :high_sierra
+    sha256 "12e80dc27af21a9faedb26aaaf5330ff104a35735f0e3c9d7be71f9f46f9168f" => :sierra
+    sha256 "cd5b482f99bd6dcf459be4421b5a94bb139bc8355e3329de3bedfbf6bf0d33a1" => :el_capitan
   end
 
   if OS.mac?
