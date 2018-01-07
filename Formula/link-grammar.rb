@@ -8,6 +8,7 @@ class LinkGrammar < Formula
     sha256 "4025f3704790f11ee4cb525d72f532d717f30123163fb6ef8eaff6b8da0b6937" => :high_sierra
     sha256 "a3de28993287d1c994061e0a4990046f5f41697f9e7ed1d2890bea5173497b97" => :sierra
     sha256 "cbf4f52da509512f865c10b75c4b358d906c356cd06f7edcddf5f65453c7715c" => :el_capitan
+    sha256 "4084b3b22a8f993a321828a1c001591fc0e8e37486d9346194629dfb23f9b03d" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
