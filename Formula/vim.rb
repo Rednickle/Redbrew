@@ -4,14 +4,13 @@ class Vim < Formula
   # vim should only be updated every 50 releases on multiples of 50
   url "https://github.com/vim/vim/archive/v8.0.1400.tar.gz"
   sha256 "9e9cdfc137858f2d52276b6df826875aafc9d65b3e46d5d7f8c68deb40da3dbb"
-  revision 3
+  revision 4
   head "https://github.com/vim/vim.git"
 
   bottle do
-    sha256 "192648bcc955e17fc41bc32c7d300970ba80eb62c3d6a252f5e072dfeae615e8" => :high_sierra
-    sha256 "c063ca6cb752703f6937beb891ceb0c2e179908f12d10d55b273975696d88ccd" => :sierra
-    sha256 "dd124ebb033c0e04afbdaed69cc4477000f951ec1815b82f698b5b0880a33397" => :el_capitan
-    sha256 "1d1657e59d21a675cd85f6866d9140afde3dc8a3b243e92b4a558f2a26801589" => :x86_64_linux
+    sha256 "f096d924d62ce16370d141a1f8f213effbb24ac77e39f003a8ecfc962768cbd5" => :high_sierra
+    sha256 "1bc275be61b7f614f995ce56a395a06c6711606fc5cfec2fd73ed88be02ed866" => :sierra
+    sha256 "0ba57a2003bbb51d7b5abbf6c7437193a00e6c7c0e252715487bc4caed7ac523" => :el_capitan
   end
 
   deprecated_option "override-system-vi" => "with-override-system-vi"
@@ -23,12 +22,6 @@ class Vim < Formula
   LANGUAGES_OPTIONAL = %w[lua python3 tcl].freeze
   LANGUAGES_DEFAULT  = %w[perl python ruby].freeze
 
-  if MacOS.version >= :mavericks
-    option "with-custom-python", "Build with a custom Python 2 instead of the Homebrew version."
-    option "with-custom-ruby", "Build with a custom Ruby instead of the Homebrew version."
-    option "with-custom-perl", "Build with a custom Perl instead of the Homebrew version."
-  end
-
   option "with-python3", "Build vim with python3 instead of python[2] support"
   LANGUAGES_OPTIONAL.each do |language|
     option "with-#{language}", "Build vim with #{language} support"
@@ -37,31 +30,27 @@ class Vim < Formula
     option "without-#{language}", "Build vim without #{language} support"
   end
 
+  depends_on "perl"
+  depends_on "ruby"
   depends_on "python" => :recommended
-  depends_on "python3" => :optional
-  depends_on :ruby => "1.8" # Can be compiled against 1.8.x or >= 1.9.3-p385.
-  depends_on :perl => "5.3"
+  depends_on "gettext" => :optional
   depends_on "lua" => :optional
   depends_on "luajit" => :optional
+  depends_on "python3" => :optional
   depends_on :x11 if build.with? "client-server"
-  depends_on "gettext" => :optional
   depends_on "ncurses" unless OS.mac?
 
   conflicts_with "ex-vi",
     :because => "vim and ex-vi both install bin/ex and bin/view"
 
   def install
+    ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
+
     # https://github.com/Homebrew/homebrew-core/pull/1046
     ENV.delete("SDKROOT")
 
     # vim doesn't require any Python package, unset PYTHONPATH.
     ENV.delete("PYTHONPATH")
-
-    if build.with?("python") && which("python").to_s == "/usr/bin/python" && !MacOS::CLT.installed?
-      # break -syslibpath jail
-      ln_s "/System/Library/Frameworks", buildpath
-      ENV.append "LDFLAGS", "-F#{buildpath}/Frameworks"
-    end
 
     opts = []
 
