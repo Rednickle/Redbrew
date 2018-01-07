@@ -9,6 +9,7 @@ class Exomizer < Formula
     sha256 "0cbcc0d2b3c2f10d98b8fe778723a1e2cfc68324b672df819f968080f71dce63" => :high_sierra
     sha256 "a5ab7a5a4c509713c1c2648bae73aa2ee9eced90197d0ab615247c10acfd0895" => :sierra
     sha256 "62e6ad8ec5fb1e980950be6d40e61640319a94d750a104e0d91f6e913b25ce5e" => :el_capitan
+    sha256 "e9aa76d0e38c3a5ea4f6dc311aa67d4dc2c4dc0bc9a56fc88f64c10280c3ece2" => :x86_64_linux
   end
 
   def install
