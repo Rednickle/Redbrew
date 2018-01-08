@@ -8,6 +8,7 @@ class Sword < Formula
     sha256 "0568345c99f0fbc799e7a5afb16322656ee790e5d8c63aa80e739cbe0c8e9711" => :high_sierra
     sha256 "e3522ab2b7c29cd8bdee6e8e7fafa464493375dd7018f5ff2f5a1f845a90b4e7" => :sierra
     sha256 "21cb37c91c8ad4b179bbdcaaac03789d4ee836f39f77f05fc6e667825766c2d9" => :el_capitan
+    sha256 "3ccba65432114e12ba2a0ee714c7aa83adc2d11967a9cf97743eb0f10cad36ef" => :x86_64_linux
   end
 
   option "with-clucene", "Use clucene for text searching capabilities"
