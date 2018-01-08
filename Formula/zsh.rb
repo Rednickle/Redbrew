@@ -4,13 +4,12 @@ class Zsh < Formula
   url "https://downloads.sourceforge.net/project/zsh/zsh/5.4.2/zsh-5.4.2.tar.gz"
   mirror "https://www.zsh.org/pub/zsh-5.4.2.tar.gz"
   sha256 "957bcdb2c57f64c02f673693ea5a7518ef24b6557aeb3a4ce222cefa6d74acc9"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 "809518bdbd045925feb18ec7593c633508959ddc681734740fa845ee0d7dbf7e" => :high_sierra
-    sha256 "8138eec1e5aae47e9874cb024a279bddc35d3b57b45c52bbe7742b66114b8ad1" => :sierra
-    sha256 "05d488a886b2aa688a6b22f43a2e2fcc056b306eff48e510d083fe3c72788e8a" => :el_capitan
-    sha256 "bc5db825d544e79894932af78ff4420fc434379812db8a44decad0564bb2b2b8" => :x86_64_linux
+    sha256 "9071f9ae246b1c2d577cf0e2115f38e3612994d456a1925918c9ea25218c202d" => :high_sierra
+    sha256 "daa5e14fd14dd3051ac99e29d3c8ec5954f99e613229c200c1898d8e682549af" => :sierra
+    sha256 "1dbc516e7193753876e2d1648cfb90c0d15fb3f0c6483a929fbcc4b129be0d46" => :el_capitan
   end
 
   head do
@@ -23,10 +22,12 @@ class Zsh < Formula
 
   deprecated_option "disable-etcdir" => "without-etcdir"
 
-  depends_on "gdbm"
-  depends_on "pcre"
-  depends_on "texinfo" unless OS.mac?
-  depends_on "ncurses" unless OS.mac?
+  depends_on "gdbm" => :optional
+  depends_on "pcre" => :optional
+  unless OS.mac?
+    depends_on "texinfo"
+    depends_on "ncurses"
+  end
 
   resource "htmldoc" do
     url "https://downloads.sourceforge.net/project/zsh/zsh-doc/5.4.2/zsh-5.4.2-doc.tar.xz"
@@ -47,11 +48,12 @@ class Zsh < Formula
       --enable-cap
       --enable-maildir-support
       --enable-multibyte
-      --enable-pcre
       --enable-zsh-secure-free
       --with-tcsetpgrp
     ]
 
+    args << "--disable-gdbm" if build.without? "gdbm"
+    args << "--enable-pcre" if build.with? "pcre"
     args << "--enable-unicode9" if build.with? "unicode9"
 
     if build.without? "etcdir"
