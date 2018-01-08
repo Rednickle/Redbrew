@@ -8,10 +8,10 @@ class Vim < Formula
   head "https://github.com/vim/vim.git"
 
   bottle do
-    sha256 "f096d924d62ce16370d141a1f8f213effbb24ac77e39f003a8ecfc962768cbd5" => :high_sierra
-    sha256 "1bc275be61b7f614f995ce56a395a06c6711606fc5cfec2fd73ed88be02ed866" => :sierra
-    sha256 "0ba57a2003bbb51d7b5abbf6c7437193a00e6c7c0e252715487bc4caed7ac523" => :el_capitan
-    sha256 "bc5bd5036140e8d431dbddf30e586b8130aac8cccd3873cff8ef0ae2201a8da7" => :x86_64_linux
+    rebuild 1
+    sha256 "712ce31e0dee833f70a064a1ff5ed30829b1ed8e7315494b69df310b7bf15362" => :high_sierra
+    sha256 "66c9c4c2ecb4159d872a084003428b0032a2b5359e76a290903f498f6cf3ada5" => :sierra
+    sha256 "9e080b566919cb370ec179e41fe21ba6adb0d5151dc0d41042992eacc0d7f83d" => :el_capitan
   end
 
   deprecated_option "override-system-vi" => "with-override-system-vi"
@@ -21,7 +21,7 @@ class Vim < Formula
   option "with-client-server", "Enable client/server mode"
 
   LANGUAGES_OPTIONAL = %w[lua python3 tcl].freeze
-  LANGUAGES_DEFAULT  = %w[perl python ruby].freeze
+  LANGUAGES_DEFAULT  = %w[python].freeze
 
   option "with-python3", "Build vim with python3 instead of python[2] support"
   LANGUAGES_OPTIONAL.each do |language|
@@ -53,7 +53,7 @@ class Vim < Formula
     # vim doesn't require any Python package, unset PYTHONPATH.
     ENV.delete("PYTHONPATH")
 
-    opts = []
+    opts = ["--enable-perlinterp", "--enable-rubyinterp"]
 
     (LANGUAGES_OPTIONAL + LANGUAGES_DEFAULT).each do |language|
       opts << "--enable-#{language}interp" if build.with? language
