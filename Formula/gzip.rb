@@ -10,6 +10,7 @@ class Gzip < Formula
     sha256 "789eed948749a668c0ed9d353b85b885f79058672d7479571950220b1edc5b0c" => :high_sierra
     sha256 "c3c1a97b0df6fdb1b3ca403b6768abf5a52c756bb4a9b29ae4c739b9bfdf2ca9" => :sierra
     sha256 "9171b2bf9290804403f96299e981b048d2dee273a0a9bbb352d1d8f30b920510" => :el_capitan
+    sha256 "15a63e51e2e0608ae1b2e10277a2d325082460013a860c91918e80ea4c2eae73" => :x86_64_linux
   end
 
   def install
