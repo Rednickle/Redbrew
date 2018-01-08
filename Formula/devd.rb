@@ -10,6 +10,7 @@ class Devd < Formula
     sha256 "9878d5e45b60321b29c33fd638465341ef05fcd4debec02c3fafe8c1d7d7c3f7" => :high_sierra
     sha256 "d2f4d38612065cc367a539aa19d8630c5e4650631eed767740313819d0556dbc" => :sierra
     sha256 "d6ff3c9d3cc56571cba4ba8a6131ce124877d73275f9e0f41514fec1bfa8bed0" => :el_capitan
+    sha256 "da58d7b094e6e7c6761c5186979b0ed0794ee50f4e5c5a77ef3c37569c0deb27" => :x86_64_linux
   end
 
   depends_on "go" => :build
