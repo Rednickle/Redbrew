@@ -10,6 +10,7 @@ class Vcdimager < Formula
     sha256 "a990e94922c3b6e779907c421cf9aafc10d2f5bce3196580d0274909a18f6cb7" => :high_sierra
     sha256 "e78e0d7842f71d68f5ef23ea13c64a04c012a523e0759b78a1395a21281c7b73" => :sierra
     sha256 "9094f54dbd4234a5fb6bd23ab39c2b4f87f7bebb5ccfb398942fb98df37813b0" => :el_capitan
+    sha256 "048c7ce9fa02bdbf9ba15b3b0f906dae71e7238a9e0d2f4b335634a9dcb43bec" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
