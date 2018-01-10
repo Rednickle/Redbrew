@@ -6,10 +6,10 @@ class Xmrig < Formula
 
   bottle do
     cellar :any
-    sha256 "5742b2cd0227c225a809addaed2e7d552fccbc99fd9f52381a341622e59a2842" => :high_sierra
-    sha256 "067a7f98841ff910160caaad61c0b4977e85221454ecc2d846a467eb130bbbf8" => :sierra
-    sha256 "3a274f5c98cd7fb6946e208bf2b4e1a5309ce43f92e937208e188324bef3a937" => :el_capitan
-    sha256 "33f52ecb7df2ff34cb43f258db51f288f9c10cbfc5f90e67d5775035d6b9c33c" => :x86_64_linux
+    rebuild 2
+    sha256 "ca9d1c680827920b25c737bcbda0f37fb3bc3bcde9c9ec988395ec19ecfcd1a4" => :high_sierra
+    sha256 "63f5948698bab51a9581a8d23217c94f296323d70ae73e5f8cba2a68f101629c" => :sierra
+    sha256 "7de0959cbd9a37daa3b1db7dac76c6dc174bb98a2a6a21c98e26e2d37fff3492" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -22,6 +22,7 @@ class Xmrig < Formula
       system "make"
       bin.install "xmrig"
     end
+    pkgshare.install "src/config.json"
   end
 
   test do
