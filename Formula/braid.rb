@@ -11,6 +11,7 @@ class Braid < Formula
     sha256 "e1461328846b46a5b9d838cf4df45ee7a81c28e0179fceb1f07d5bd22c4aed6a" => :high_sierra
     sha256 "40af75008526d06a3e8c68b1005a2eaac1f87181bf4121dd9c1b5c3b7ff0d3ea" => :sierra
     sha256 "f0f510eabce23bf2267c01531c50596ac523b61087c739170415335aa0dacbf1" => :el_capitan
+    sha256 "73fd5a70ea1b8f21c1df17c3fd65d541c642a293213dc7d963e6a1c6fde29c32" => :x86_64_linux
   end
 
   depends_on "ruby" if MacOS.version <= :sierra
