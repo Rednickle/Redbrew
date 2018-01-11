@@ -21,6 +21,7 @@ class HasteClient < Formula
     sha256 "e11fbbf6bab06ef1bda10174f263bf16fe7de2c3b8969b36bdaf178b171f8abf" => :high_sierra
     sha256 "85c7c24c6cb14d5cb948481aeac65928339dec7ff2ecc4220ccd5fb3bebfba79" => :sierra
     sha256 "2d6cee84eee9e2a0fc75a03ca6fbdb970dfa9ac6ecdeea6a4e32537ee1869fbf" => :el_capitan
+    sha256 "62c7c63b5209f5059f0bd5ccd9f09c1fc7b53c74e0b28d1daa5d948471008c81" => :x86_64_linux
   end
 
   depends_on "ruby" if MacOS.version <= :sierra
