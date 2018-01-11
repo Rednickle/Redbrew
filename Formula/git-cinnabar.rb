@@ -50,7 +50,7 @@ class GitCinnabar < Formula
     end
   end
 
-  depends_on :hg
+  depends_on "mercurial"
   depends_on "curl" unless OS.mac?
 
   conflicts_with "git-remote-hg", :because => "both install `git-remote-hg` binaries"

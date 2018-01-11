@@ -14,7 +14,7 @@ class KubernetesHelm < Formula
     sha256 "5d9831039185fe6a7f501f98378d7a7ee005995f0217005c3df5cb31879fad9a" => :x86_64_linux
   end
 
-  depends_on :hg => :build
+  depends_on "mercurial" => :build
   depends_on "go" => :build
   depends_on "glide" => :build
 
