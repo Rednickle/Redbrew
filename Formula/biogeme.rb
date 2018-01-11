@@ -9,6 +9,7 @@ class Biogeme < Formula
     sha256 "ad1acb781c111abdf62634521e86ffe85e7bec8c2738218ee50925e5502af40b" => :high_sierra
     sha256 "834ed929bffab2660b7a2fea398dfcea480b8f59ed2d5dac350e65269cf997f1" => :sierra
     sha256 "9f1ce4b715beb128766b714d52872c26e688c5b1960b17ce8ab480796946043e" => :el_capitan
+    sha256 "fb58aa00fef02af6bb902083d1453a1a38699572af3e007bac73bb7ef3d97fe9" => :x86_64_linux
   end
 
   depends_on "python3"
