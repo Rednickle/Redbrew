@@ -11,6 +11,7 @@ class Asciinema < Formula
     sha256 "c87255dfbc081c753105dc317b5b0469b91bdf8804895deb23bbebc82fe42836" => :high_sierra
     sha256 "c87255dfbc081c753105dc317b5b0469b91bdf8804895deb23bbebc82fe42836" => :sierra
     sha256 "c87255dfbc081c753105dc317b5b0469b91bdf8804895deb23bbebc82fe42836" => :el_capitan
+    sha256 "c98c67e8c4a0809b2af47e883d7bb93bb89996a534f0cb25989ddcb78467166c" => :x86_64_linux
   end
 
   depends_on "python3"
