@@ -3,18 +3,18 @@ class AzureCli < Formula
   homepage "https://docs.microsoft.com/cli/azure/overview"
   url "https://azurecliprod.blob.core.windows.net/releases/azure-cli-2.0.24.tar.gz"
   sha256 "8c0251b7c35bdc227d28a54ef397ff0f700fb4feb0e6ea06f5b7604b8bafead1"
+  revision 1
   head "https://github.com/Azure/azure-cli.git"
 
   bottle do
     cellar :any
-    sha256 "0bf7a8d935b7891ac0e919a27e46e0ad100a2623673ab52c3a855e890eefd60b" => :high_sierra
-    sha256 "016b14efb5b660a2a25a5f79cf7c92bbe493251288eba0110b7ed78dc9c3ffca" => :sierra
-    sha256 "0d0b17f2206ac1ff807c81ef5eb660a5731658f6b22e2b731e18dc88040009aa" => :el_capitan
-    sha256 "6a67aa882c6232e5122995602fbcd5966e1643f3dbc8ca2923b22af296629693" => :x86_64_linux
+    sha256 "141a4fd07399c9377478e15e2133b71148e651012691deb5db84f393e9f16206" => :high_sierra
+    sha256 "943ec0c43fc449ef5cde8932c9551ad1a24a6222935770800a1ac8d88b6dead4" => :sierra
+    sha256 "ec2437eb2d9ef9bf68897f52d7a14a9c5309819be78a5dda94a72d60f9db9ebb" => :el_capitan
   end
 
   depends_on "openssl"
-  depends_on :python3
+  depends_on "python3"
 
   unless OS.mac?
     # pkg-config helps setuptools find libffi
