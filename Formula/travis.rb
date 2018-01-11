@@ -9,6 +9,7 @@ class Travis < Formula
     sha256 "d25cfab9d040ecce4189e64702aa9d36ddf1511756b57169bc80d2108222d5ce" => :high_sierra
     sha256 "68f77abeb97763869ce3be363ae0686d193b430c991ea2c3e707abb08cb51085" => :sierra
     sha256 "d8c659ce5703747df3894c8823032a77c438d3641e94374aae51f0e707ecef49" => :el_capitan
+    sha256 "9be869323c7666ef8528043485b1c8881c21a5f63e4f120a41eeac54f5e2913b" => :x86_64_linux
   end
 
   depends_on "ruby" if MacOS.version <= :mountain_lion
