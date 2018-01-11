@@ -4,12 +4,12 @@ class Mongodb < Formula
   desc "High-performance, schema-free, document-oriented database"
   homepage "https://www.mongodb.org/"
 
-  url "https://fastdl.mongodb.org/src/mongodb-src-r3.6.1.tar.gz"
-  sha256 "59c646453120778911cc0d300b7da17e21765270d4575118bd4aa43ea1bf1e75"
+  url "https://fastdl.mongodb.org/src/mongodb-src-r3.6.2.tar.gz"
+  sha256 "018788bd31d6953e55cda0ad0771d23e6b78e024a8a6404a80a900c67215b0a7"
 
   bottle do
-    sha256 "5c62829a16a9cf497cef7d0395aed7cf7140a608475732b4ccadab0e3dabcf91" => :high_sierra
-    sha256 "8a3a4607cb96d2f6cc85bc2874739e3b2cb768daf69c0d52bc0808c539fc1787" => :sierra
+    sha256 "7722b1ffcff5c0739ee137f78099f7a7f08f5f4bab58900ffbbb3c3f175b6076" => :high_sierra
+    sha256 "dd170fed7b3029e66528b26c11e826c758893a16e2c1f3d4eb20e2b18f01baca" => :sierra
   end
 
   option "with-boost", "Compile using installed boost, not the version shipped with mongodb"
@@ -44,7 +44,7 @@ class Mongodb < Formula
 
   go_resource "github.com/mongodb/mongo-tools" do
     url "https://github.com/mongodb/mongo-tools.git",
-        :tag => "r3.6.1",
+        :tag => "r3.6.2",
         :revision => "2b10d8492e1185039be4d5f2242a5b11ea102303",
         :shallow => false
   end
