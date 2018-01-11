@@ -11,6 +11,7 @@ class Poco < Formula
     sha256 "5d9a1599bd02750d1249ffd799c84c83e32905e7bcd40b9b5cda41e08170156a" => :high_sierra
     sha256 "b1669c4b90ab15d760b48b9cbe8b66dc2a8c225caa43b7a5332aeeb121b0c510" => :sierra
     sha256 "3e15e7f5ac81655aa145c9423f079cedf36352a063c033233533ea86104db1bb" => :el_capitan
+    sha256 "1ce79082634100825ee10a5e5c9b12ab50df9d742ec15aca191eeee38402603e" => :x86_64_linux
   end
 
   option "with-static", "Build static libraries (instead of shared)"
