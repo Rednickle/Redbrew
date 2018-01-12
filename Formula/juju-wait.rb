@@ -12,6 +12,7 @@ class JujuWait < Formula
     sha256 "57dcd12a654c9e80c54a7f02e026a8fd5cb52d70362abb7ee18dae10e0510270" => :high_sierra
     sha256 "eaa602c6d8d83cbc91aedfa16156c10d58bd9b96e99b615822948f46cc4537c0" => :sierra
     sha256 "defc99cf41da754a5d9e27ff4e8c0d69ac222e99d5e7d4e1a7aca2f5bc48f629" => :el_capitan
+    sha256 "72bf39033a2feec2f860df367bc3c89c8fa15a27c6e4913bfd948850395e5b12" => :x86_64_linux
   end
 
   depends_on "python3"
