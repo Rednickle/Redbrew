@@ -11,6 +11,7 @@ class Fades < Formula
     sha256 "13eceff41cb2181ead4f0993f3726b3f2f5887dede5b7013167360af923dc3dc" => :high_sierra
     sha256 "13eceff41cb2181ead4f0993f3726b3f2f5887dede5b7013167360af923dc3dc" => :sierra
     sha256 "13eceff41cb2181ead4f0993f3726b3f2f5887dede5b7013167360af923dc3dc" => :el_capitan
+    sha256 "6848bd18c05e755d7e96dc10b2768692731d8f9a9ff12470fdcff9310c404675" => :x86_64_linux
   end
 
   depends_on "python3"
