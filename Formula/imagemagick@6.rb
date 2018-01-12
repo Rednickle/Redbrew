@@ -53,7 +53,6 @@ class ImagemagickAT6 < Formula
   depends_on "openjpeg" => :optional
   depends_on "fftw" => :optional
   depends_on "pango" => :optional
-  depends_on :perl => ["5.5", :optional]
 
   skip_clean :la
 
