@@ -3,17 +3,17 @@ class Snakemake < Formula
   homepage "https://bitbucket.org/snakemake/snakemake/wiki/Home"
   url "https://files.pythonhosted.org/packages/4c/01/195575763c0eb6f4ae44cd28ad2563b1e7f74231adc3e207b032afa78018/snakemake-4.4.0.tar.gz"
   sha256 "5b22093cf1e7022a2d285d06e4aec5a78b95e1c05bd5866dd6839f4f5454173c"
+  revision 1
   head "https://bitbucket.org/snakemake/snakemake.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1d9b1814c8623bcff6080361211cab13ff0f3acf120fd25525c77df644f32528" => :high_sierra
-    sha256 "4a73af20a72e5ea1389ecfc9224e67830d8c1883f0b9d9155430d0fbda4ce8af" => :sierra
-    sha256 "75f6a8b28d4507f91c3575d2872a150d0cc277c5eaa58c94e49529fd2bf91ad5" => :el_capitan
-    sha256 "e7ccc4e0fdbc8068b1492b86fe833b9fa4b412b4410ea687587879a3319ecdae" => :x86_64_linux
+    sha256 "7afab06e55fb6b835b1f044a395c066c210a0210490c111a27c93d39eee71160" => :high_sierra
+    sha256 "ca93335cda50000c78148ad9dbbb09c4fb36e05797c95cee74fea418aaa09db5" => :sierra
+    sha256 "4afa6a60bdf6d654d92e1d52e727f1a0b1b214648990a46c4eb34a5cbcd4956c" => :el_capitan
   end
 
-  depends_on :python3
+  depends_on "python3"
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/48/69/d87c60746b393309ca30761f8e2b49473d43450b150cb08f3c6df5c11be5/appdirs-1.4.3.tar.gz"

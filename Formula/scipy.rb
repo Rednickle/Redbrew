@@ -3,13 +3,13 @@ class Scipy < Formula
   homepage "https://www.scipy.org"
   url "https://github.com/scipy/scipy/releases/download/v1.0.0/scipy-1.0.0.tar.xz"
   sha256 "06b23f2a5db5418957facc86ead86b7752147c0461f3156f88a3da87f3dc6739"
+  revision 1
   head "https://github.com/scipy/scipy.git"
 
   bottle do
-    sha256 "76d5ce3d0a1c0e46de46b1234cd81151ef9269b78103d3aa6bed854e79bdbed3" => :high_sierra
-    sha256 "d9119791ada778a4e3556377b1a2f654a2698e9d174cf115849c97276712ab54" => :sierra
-    sha256 "73c7d386477a7be80d1e5f58470e9f51b6889e12f941e0d83d9c7edb5d5d281a" => :el_capitan
-    sha256 "42bff5cda050d22f002a662f40f3700dd87438c1788b7386612673a1cad2a25a" => :x86_64_linux
+    sha256 "200c04dbcf477b7468df6ad30335b0d06309fd272d6bbaa7b6867cec621286c4" => :high_sierra
+    sha256 "4ea44a1b240f9ae81aa332b07fa244e652faabeca8d193a7e977835396da46a8" => :sierra
+    sha256 "9b93c710f033f91c62f11f1bdf7f6b1c563c731bead361cc3f6b00ff2d06596f" => :el_capitan
   end
 
   option "without-python", "Build without python2 support"
@@ -18,7 +18,7 @@ class Scipy < Formula
   depends_on :fortran
   depends_on "numpy"
   depends_on "python" => :recommended if MacOS.version <= :snow_leopard || !OS.mac?
-  depends_on :python3 => :recommended
+  depends_on "python3" => :recommended
   depends_on "openblas" unless OS.mac?
 
   cxxstdlib_check :skip

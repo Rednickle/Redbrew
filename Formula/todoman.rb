@@ -5,17 +5,17 @@ class Todoman < Formula
   homepage "https://todoman.readthedocs.io/"
   url "https://github.com/pimutils/todoman/releases/download/v3.2.4/todoman-3.2.4.tar.gz"
   sha256 "05264d7702b31f3f3e1b73e679d0cc0af563a34385e15b376a924891d56cf370"
+  revision 1
   head "https://github.com/pimutils/todoman.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cd6061a3790836cd3dbe364267461cf2b9984989587148c6553d59e3cf10a88f" => :high_sierra
-    sha256 "d0f6294e4e4a7dbb43c221458d1a91ef77abe9fca2177a7fc0b3667871d5d106" => :sierra
-    sha256 "5e9bd936abe30ba8fae7d720dda8dfbcbdc71ebf967d761fc4e3f82e9bb0b29a" => :el_capitan
-    sha256 "4196b3838436954640c2a6dda9eb4732df268b1c93d7f9ed7af7b09e5f3037b4" => :x86_64_linux
+    sha256 "193f1b86b9c6702c75dce3567fbfe13a96ad8f8ab488b09e91e2a9374bce0199" => :high_sierra
+    sha256 "6ee23b50ef447265883579a78c74d53dab549af86a8aa90a93b99027b0b87155" => :sierra
+    sha256 "8bdd216e80d4abaac8c29cba41cd64d9df0c438eb51d53e7f078577bebf2ff2a" => :el_capitan
   end
 
-  depends_on :python3
+  depends_on "python3"
 
   resource "atomicwrites" do
     url "https://files.pythonhosted.org/packages/a1/e1/2d9bc76838e6e6667fde5814aa25d7feb93d6fa471bf6816daac2596e8b2/atomicwrites-1.1.5.tar.gz"
