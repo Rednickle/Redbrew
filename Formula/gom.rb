@@ -10,6 +10,7 @@ class Gom < Formula
     sha256 "6f7a96ec76e481f0e6af7954ee498d011f4cadb8e476be85f551104d9d8df0ca" => :high_sierra
     sha256 "882d4995285571d08bc7a1579edc1d4b5407c6b14b3e7bd7066f6a9fc16f2f82" => :sierra
     sha256 "fcc8ee964d6e9ba4df256f6375c0ff868cf6c67171cc5dfc2080662bc77cbbb0" => :el_capitan
+    sha256 "0e1e7a7bd8a13d29d893e5f34b6e20d0c8c8ee74399271978c9007310ef13c5b" => :x86_64_linux
   end
 
   depends_on "meson" => :build
