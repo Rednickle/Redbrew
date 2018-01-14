@@ -4,18 +4,17 @@ class Netcdf < Formula
   url "ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-4.5.0.tar.gz"
   mirror "https://www.gfd-dennou.org/library/netcdf/unidata-mirror/netcdf-4.5.0.tar.gz"
   sha256 "cbe70049cf1643c4ad7453f86510811436c9580cb7a1684ada2f32b95b00ca79"
-  revision 1 unless OS.mac?
+  revision OS.mac? ? 1 : 2
 
   bottle do
-    sha256 "6a9d39204ae9bfbacc985bc082e9d3e6bf522ee78668b4b7adb2ef70081ac381" => :high_sierra
-    sha256 "8264e77321eacb944f6b5ac04622cab6abcd0c6a6138a738fc0d16fec3beb66d" => :sierra
-    sha256 "b1063f36db3172903dcfdb2451e49b710d62bf80174b4e013c29e61a61080d3b" => :el_capitan
-    sha256 "94e1c49811d00b11bdc127ef62e25afd0110c6570f6498c6cbee8ac125731f7b" => :x86_64_linux
+    sha256 "4b1886b98b4cd88b7f711bd1efe6209b50fad76bb0e6c9bd4ac6650d82affaae" => :high_sierra
+    sha256 "6da69abe6efb7a172f464d217842a47eb1d9822fc04e648324af15c133bcb5f1" => :sierra
+    sha256 "5575096b430815802452f442e3beea0759b949a804a81182ce796307d955a438" => :el_capitan
   end
 
+  depends_on "gcc" # for gfortran
   depends_on "cmake" => :build
   depends_on "hdf5"
-  depends_on :fortran
   depends_on "curl" unless OS.mac?
 
   resource "cxx" do
@@ -117,10 +116,10 @@ class Netcdf < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-L#{lib}", "-I#{include}", "-lnetcdf", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-I#{include}", "-lnetcdf",
+                   "-o", "test"
     assert_equal `./test`, version.to_s
 
-    ENV.fortran
     (testpath/"test.f90").write <<~EOS
       program test
         use netcdf
@@ -140,7 +139,8 @@ class Netcdf < Formula
         end subroutine check
       end program test
       EOS
-    system ENV.fc, "test.f90", "-L#{lib}", "-I#{include}", "-lnetcdff", "-o", "testf"
+    system "gfortran", "test.f90", "-L#{lib}", "-I#{include}", "-lnetcdff",
+                       "-o", "testf"
     system "./testf"
   end
 end
