@@ -3,7 +3,7 @@ class Qrupdate < Formula
   homepage "https://sourceforge.net/projects/qrupdate/"
   url "https://downloads.sourceforge.net/qrupdate/qrupdate-1.1.2.tar.gz"
   sha256 "e2a1c711dc8ebc418e21195833814cb2f84b878b90a2774365f0166402308e08"
-  revision 6
+  revision 7
 
   bottle do
     cellar :any
@@ -14,25 +14,18 @@ class Qrupdate < Formula
     sha256 "a467d9a9d8b2f05b1bd3146ddafb4e3439cb1d9b50cd07ce0dd1acbd7dae3c05" => :x86_64_linux # glibc 2.19
   end
 
-  depends_on :fortran
-  depends_on "openblas" => (OS.mac? ? :optional : :recommended)
-  depends_on "veclibfort" if build.without?("openblas") && OS.mac?
+  depends_on "gcc" # for gfortran
+  depends_on "openblas" unless OS.mac?
+  depends_on "veclibfort" if OS.mac?
 
   def install
     # Parallel compilation not supported. Reported on 2017-07-21 at
     # https://sourceforge.net/p/qrupdate/discussion/905477/thread/d8f9c7e5/
     ENV.deparallelize
 
-    args = %W[FC=#{ENV.fc}]
-    if build.with? "openblas"
-      args << "BLAS=-L#{Formula["openblas"].opt_lib} -lopenblas"
-    elsif build.with? "veclibfort"
-      args << "BLAS=-L#{Formula["veclibfort"].opt_lib} -lvecLibFort"
-    else
-      args << "BLAS=-lblas -llapack"
-    end
-
-    system "make", "lib", "solib", *args
+    system "make", "lib", "solib",
+                   *("BLAS=-L#{Formula["veclibfort"].opt_lib} -lvecLibFort" if OS.mac?),
+                   *("BLAS=-L#{Formula["openblas"].opt_lib} -lopenblas" unless OS.mac?)
 
     # Confuses "make install" on case-insensitive filesystems
     rm "INSTALL"
@@ -47,16 +40,10 @@ class Qrupdate < Formula
   end
 
   test do
-    ENV.fortran
-    opts = %W[-L#{opt_lib} -lqrupdate]
-    if Tab.for_name("qrupdate").with? "openblas"
-      opts << "-L#{Formula["openblas"].opt_lib}" << "-lopenblas"
-    elsif OS.mac?
-      opts << "-L#{Formula["veclibfort"].opt_lib}" << "-lvecLibFort"
-    else
-      opts << "-lblas" << "-llapack"
-    end
-    system ENV.fc, "-o", "test", pkgshare/"tch1dn.f", pkgshare/"utils.f", *opts
+    system "gfortran", "-o", "test", pkgshare/"tch1dn.f", pkgshare/"utils.f",
+                       "-L#{lib}", "-lqrupdate",
+                       *("-lvecLibFort" if OS.mac?),
+                       *("-lopenblas" unless OS.mac?)
     assert_match "PASSED   4     FAILED   0", shell_output("./test")
   end
 end
