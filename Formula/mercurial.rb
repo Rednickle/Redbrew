@@ -5,16 +5,15 @@ class Mercurial < Formula
   homepage "https://mercurial-scm.org/"
   url "https://mercurial-scm.org/release/mercurial-4.4.2.tar.gz"
   sha256 "dc2f72caccd6b760226753d48c2f4e8889fe176a6b23ef50775caac55ce28b85"
+  revision 1
 
   bottle do
-    sha256 "493d5aaaf95ee796210a556696257d3db40ae582ccc1bbbd683137a5abf90b68" => :high_sierra
-    sha256 "6a7c132cb7fb156b3633af866960507a09d868ca4deb29980a0d6fa8ebc77650" => :sierra
-    sha256 "34d5c9a747545bfba87e1698287c43f47cf89c724cffee9c3a4e86dda9533024" => :el_capitan
-    sha256 "50ab3726f000190432c1d666e6ecb30365a02c7227923bce7e2c73232e32e45f" => :x86_64_linux
+    sha256 "aa8701f010da5025791330887f22f5e6b8a68312dc286bf935af535ef958989f" => :high_sierra
+    sha256 "dabea6811809e3ddc437249373aea7cb1839e02cd8bb7c1a1e7d9cac4890831b" => :sierra
+    sha256 "0312245445bb2f0a5cee0607fbbcce4ccc1040d9a087ff67918da2c145f8827e" => :el_capitan
   end
 
-  option "with-custom-python", "Install against the python in PATH instead of Homebrew's python"
-  depends_on :python
+  depends_on "python"
 
   def install
     system "make", "PREFIX=#{prefix}", "install-bin"

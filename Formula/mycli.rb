@@ -5,16 +5,16 @@ class Mycli < Formula
   homepage "https://mycli.net/"
   url "https://files.pythonhosted.org/packages/9f/0a/f421651d01b54f4d53c449558b2802cc0eaf1652d4d6fe0cd8c41ecade21/mycli-1.13.1.tar.gz"
   sha256 "d3f66b4decf199612ff1efa5268d9707e2fc38b163478adb43935a0937f7d664"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "eb61aa4038f992bd78a12dd0cf6f30bca48dcad4abc913012d1a2fcea4cd7225" => :high_sierra
-    sha256 "780831508bf0b3160f026591802df42e210cb39ff30db29df2318efadd84b3e3" => :sierra
-    sha256 "2de9df97cbac637e7ed293fbbb68c92689274122a402f014613b5d41dfed6237" => :el_capitan
-    sha256 "1b9832b9e5cf895dedee3df1dbbeb7a659b49ba3fb2fce83f4b70582e1b7f55c" => :x86_64_linux
+    sha256 "21e14e78c6550dcedd405ee8d88f533b1f61d9ff09bb3c4241cfe5c0d54a6781" => :high_sierra
+    sha256 "0479c86701ab90a502a0da69447391e7c665cd25e2fc41709c636922cfc1392e" => :sierra
+    sha256 "3796d47733c65f4b2b1a5deb2f8b9fe34b789bcf947157980b1969e21f9407c9" => :el_capitan
   end
 
-  depends_on :python
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "openssl"
   unless OS.mac?
     depends_on "pkg-config" => :build

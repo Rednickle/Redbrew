@@ -3,21 +3,19 @@ class IpythonAT5 < Formula
   homepage "https://ipython.org/"
   url "https://files.pythonhosted.org/packages/14/7c/bbc1e749e1739208324af3f05ac7256985e21fc5f24d3c8da20aae844ad0/ipython-5.5.0.tar.gz"
   sha256 "66469e894d1f09d14a1f23b971a410af131daa9ad2a19922082e02e0ddfd150f"
-  revision 1
+  revision 2
   head "https://github.com/ipython/ipython.git", :branch => "5.x"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "d654e6ad4dd4a60d2a04dcfdf70748f9d0c671c7de2f204620ea3a4fde90c064" => :high_sierra
-    sha256 "4ed9d94f909688f92e3d510c554b86d91a55ed68c371aa831979bb9ca86f0521" => :sierra
-    sha256 "2dfb4c4fa2fd2fc9b070deaf76f66a749511d645ba5113c9d35378b1c4268fde" => :el_capitan
-    sha256 "64e68af7d4c244536fe8421063b412b17a1d458b4eb553624ff3175be2dc085e" => :x86_64_linux
+    sha256 "62714a025a17e67d5750c6645067bc24e1eaad233f9503ff5cc0b6cac0f641ea" => :high_sierra
+    sha256 "be1908e1fafa233d20d1c2564cf0431b7d903e073b242849e97906af2f1cae6a" => :sierra
+    sha256 "e1d0f0b1a48a806a5e47bb643b29bf1cf4ed624f78707ab22911169aa5345786" => :el_capitan
   end
 
   keg_only :versioned_formula
 
-  depends_on :python
+  depends_on "python"
 
   resource "appnope" do
     url "https://files.pythonhosted.org/packages/26/34/0f3a5efac31f27fabce64645f8c609de9d925fe2915304d1a40f544cff0e/appnope-0.1.0.tar.gz"

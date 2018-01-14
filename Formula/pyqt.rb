@@ -3,13 +3,12 @@ class Pyqt < Formula
   homepage "https://www.riverbankcomputing.com/software/pyqt/download5"
   url "https://downloads.sourceforge.net/project/pyqt/PyQt5/PyQt-5.9.2/PyQt5_gpl-5.9.2.tar.gz"
   sha256 "c190dac598c97b0113ca5e7a37c71c623f02d1d713088addfacac4acfa4b8394"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "54bef599d86f1ab94f4d5bb934ee273d7b2d39fe4fefffe60227bf985186eaa8" => :high_sierra
-    sha256 "9b0504fc1c37cc0fb6d9786e532827e76dab80676c3c988355502a42669f68a4" => :sierra
-    sha256 "c910f2b11ada0c796f730e13e35812c60f6c4e68ed21338646575bb2c17a335c" => :el_capitan
-    sha256 "24334d7d27d87c96a37cdd2292bde08f26ff768890b938fdad649179dd57ab4f" => :x86_64_linux
+    sha256 "2521608ef678d142aa5506bcd302b744c9e274ee659030c25e84f9de02be3c41" => :high_sierra
+    sha256 "a96df7d6c3e70f1d2e58b22b975533db8db983e8afba04dc836c4310d4fa89e7" => :sierra
+    sha256 "ecb9f284b1f5f6bef7b268449e462ef5f6ce5853f3f3ea4f2cf7535ef3f3c8a4" => :el_capitan
   end
 
   option "with-debug", "Build with debug symbols"
@@ -19,7 +18,7 @@ class Pyqt < Formula
 
   depends_on "qt"
   depends_on "sip"
-  depends_on :python => :recommended
+  depends_on "python" => :recommended
   depends_on "python3" => :recommended
 
   def install
