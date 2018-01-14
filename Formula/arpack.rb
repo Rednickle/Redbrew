@@ -53,16 +53,11 @@ class Arpack < Formula
   end
 
   test do
-    ENV.fortran
-    opts = %W[-L#{opt_lib} -larpack]
-    if Tab.for_name("arpack").with? "openblas"
-      opts << "-L#{Formula["openblas"].opt_lib}" << "-lopenblas"
-    elsif OS.mac?
-      opts << "-L#{Formula["veclibfort"].opt_lib}" << "-lvecLibFort"
-    else
-      opts << "-lblas" << "-llapack"
-    end
-    system ENV.fc, "-o", "test", pkgshare/"dnsimp.f", pkgshare/"mmio.f", *opts
+    system "gfortran", "-o", "test", pkgshare/"dnsimp.f", pkgshare/"mmio.f",
+                       "-L#{lib}", "-larpack",
+                       *("-lvecLibFort" if OS.mac?),
+                       *("-lopenblas" unless OS.mac?)
+
     cp_r pkgshare/"testA.mtx", testpath
     assert_match "reached", shell_output("./test")
 

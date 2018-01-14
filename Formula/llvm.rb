@@ -204,6 +204,10 @@ class Llvm < Formula
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
 
+    if build.with? "python"
+      ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
+    end
+
     (buildpath/"tools/clang").install resource("clang")
     unless OS.mac?
       # Add glibc to the list of library directories so that we won't have to do -L<path-to-glibc>/lib
