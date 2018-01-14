@@ -11,6 +11,7 @@ class Opencoarrays < Formula
     sha256 "8cb6fdf809777301249117c34513cc7c805c1b510bbf96168b81b8a24f906854" => :high_sierra
     sha256 "33a10f9069f02fc0140288ca8879e84e31abc347275394db6a87735c9ad11613" => :sierra
     sha256 "598e4640c510c188880db3d829834cbde0c37df5fee679e32e8e1549e84a471e" => :el_capitan
+    sha256 "f92cf8bae2cf32f3cd91202dd84ac60174653bcbe2ff6c89185a4223b8a3d9e6" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
