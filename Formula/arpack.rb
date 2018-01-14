@@ -3,24 +3,25 @@ class Arpack < Formula
   homepage "https://github.com/opencollab/arpack-ng"
   url "https://github.com/opencollab/arpack-ng/archive/3.5.0.tar.gz"
   sha256 "50f7a3e3aec2e08e732a487919262238f8504c3ef927246ec3495617dde81239"
+  revision 1
   head "https://github.com/opencollab/arpack-ng.git"
 
   bottle do
-    sha256 "cdd1abaa2e059467e6cd5131e5d8d5a1bf10f4fb6424b5650e8daca88922d8d4" => :high_sierra
-    sha256 "96272ee3928cc30b8814aca520809b65fb94830d63ddaec928957ab0daaca330" => :sierra
-    sha256 "7311ad6d0936cd828e65fa7e27c189fa375c19538620c8252e06c813bb144435" => :el_capitan
-    sha256 "bd7aee67c923392a0038673e3f8c361a3bfec169b5ab03cb6cbb30f56c330d35" => :yosemite
-    sha256 "61be2a13d8c4636f33a9ac8f90f48e768ecc37901290b0373462ca753fcefeed" => :x86_64_linux # glibc 2.19
+    sha256 "79916ca5fe573b2a4394cfdef2ef29c7a7070728ea9d0001fc1b565d30de94e0" => :high_sierra
+    sha256 "cd4f84697d2e170fe14b9be297b1f95282b4f0c5631c2a89240e31a64b06c516" => :sierra
+    sha256 "a3fff906ab6a5da67d6e5b770818416d5c609efb217211e77b227895603f7ee3" => :el_capitan
   end
+
+  option "with-mpi", "Enable parallel support"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
-  depends_on :fortran
-  depends_on "openblas" => (OS.mac? ? :optional : :recommended)
+  depends_on "gcc" # for gfortran
   depends_on "veclibfort" if build.without?("openblas") && OS.mac?
-  depends_on :mpi => [:optional, :f77]
+  depends_on "open-mpi" if build.with? "mpi"
+  depends_on "openblas" unless OS.mac?
 
   def install
     args = %W[ --disable-dependency-tracking
@@ -33,7 +34,7 @@ class Arpack < Formula
       args << "--with-blas=-lblas -llapack"
     end
 
-    args << "F77=#{ENV["MPIF77"]}" << "--enable-mpi" if build.with? "mpi"
+    args << "F77=mpif77" << "--enable-mpi" if build.with? "mpi"
 
     system "./bootstrap"
     system "./configure", *args
