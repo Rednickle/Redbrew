@@ -14,16 +14,13 @@ class Superlu < Formula
     sha256 "131ef63225f3af5b08139a1a070f276d83682ccc46711a2c6944febe753d9115" => :x86_64_linux # glibc 2.19
   end
 
-  if OS.mac?
-    option "with-openmp", "Enable OpenMP multithreading"
-    depends_on "openblas" => :optional
-    depends_on "veclibfort" if build.without? "openblas"
-  else
-    option "without-openmp", "Disable OpenMP multithreading"
-    depends_on "openblas" => :recommended
-  end
+  option "with-openmp", "Enable OpenMP multithreading"
 
-  needs :openmp if build.with? "openmp"
+  depends_on "openblas" => (OS.mac? ? :optional : :recommended)
+  depends_on "gcc" if build.with? "openmp"
+  depends_on "veclibfort" if build.without?("openblas") && OS.mac?
+
+  fails_with :clang if build.with? "openmp"
 
   def install
     ENV.deparallelize
