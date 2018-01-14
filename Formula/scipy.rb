@@ -3,20 +3,19 @@ class Scipy < Formula
   homepage "https://www.scipy.org"
   url "https://github.com/scipy/scipy/releases/download/v1.0.0/scipy-1.0.0.tar.xz"
   sha256 "06b23f2a5db5418957facc86ead86b7752147c0461f3156f88a3da87f3dc6739"
-  revision 1
+  revision 2
   head "https://github.com/scipy/scipy.git"
 
   bottle do
-    sha256 "200c04dbcf477b7468df6ad30335b0d06309fd272d6bbaa7b6867cec621286c4" => :high_sierra
-    sha256 "4ea44a1b240f9ae81aa332b07fa244e652faabeca8d193a7e977835396da46a8" => :sierra
-    sha256 "9b93c710f033f91c62f11f1bdf7f6b1c563c731bead361cc3f6b00ff2d06596f" => :el_capitan
-    sha256 "3f947948d8de06231d40bb784186427f3e6133629be7ef38a3916c41c51eff59" => :x86_64_linux
+    sha256 "236b3f2e5b6a40ce9c4b2a1840e2f685e489fc3bdc08515c56a4c2ccefb12325" => :high_sierra
+    sha256 "33502bc4a92a8a3de4354e45ea1dca97a37f948e1222f219a0a95c952f67b877" => :sierra
+    sha256 "9779e2459949b7251b96e8d443c3ebc75fdcb528c196cf914ac8eb449f1baa44" => :el_capitan
   end
 
   option "without-python", "Build without python2 support"
 
   depends_on "swig" => :build
-  depends_on :fortran
+  depends_on "gcc" # for gfortran
   depends_on "numpy"
   depends_on "python" => :recommended if MacOS.version <= :snow_leopard || !OS.mac?
   depends_on "python3" => :recommended
