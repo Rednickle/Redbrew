@@ -11,6 +11,7 @@ class Mksh < Formula
     sha256 "4ec398134339f30d26fe53dc2b8d8cf415b196c7cb84327c43cdf506a77376df" => :high_sierra
     sha256 "79d49b6a5b52e1656443ef32c3a55566cc2ff7c1668e80f85011e9bee92d8567" => :sierra
     sha256 "7343ace15a9f87d07cf35a4074c093104c68666c8443d9bb120e58dd660ccf70" => :el_capitan
+    sha256 "1363418f58cfcf14dcc14cd2033b5e2a401d53260d8f0d01e364fc15a79e7922" => :x86_64_linux
   end
 
   def install
