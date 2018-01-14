@@ -11,6 +11,7 @@ class Gmsh < Formula
     sha256 "57cdad859b421b6cc48f6cf164570f67a1101c03c9b276ec18dce3b5c250e995" => :high_sierra
     sha256 "85e7c6527a94fa3b02d14cce788dc32f6a0b545fa17124f5e4c19288890d8fc6" => :sierra
     sha256 "d9d6657a71acd75de3833f50d46b454c757f6186f1fe44fdf090ac1604c84f70" => :el_capitan
+    sha256 "65ca2a7729d28519a2e4da347a2570484aadf70cfdee93d89a95e4782a1d99dd" => :x86_64_linux
   end
 
   option "with-opencascade", "Build with opencascade support"
