@@ -9,6 +9,7 @@ class Autogen < Formula
     sha256 "b344e8d6ff855acbb8029b43142cca48653d8b18a87a0e46f59c22fcd979b20a" => :high_sierra
     sha256 "5b4c2b7662beab2af5045d8919ababd3404ad6aab567cd5853426680d12be6c7" => :sierra
     sha256 "e2f6a0c2c34c16f50552c40cbe27bf73788cbb978bb572e7adcba0e7d2b94e5c" => :el_capitan
+    sha256 "e2773c5da01f8245d1de05a790adaf1f18fdaf64b67f59ce474abb4616bf19eb" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
