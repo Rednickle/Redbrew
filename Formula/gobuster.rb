@@ -3,16 +3,15 @@ require "language/go"
 class Gobuster < Formula
   desc "Directory/file & DNS busting tool written in Go"
   homepage "https://github.com/OJ/gobuster"
-  url "https://github.com/OJ/gobuster/archive/v1.4.tar.gz"
-  sha256 "e0469df94baf7f89c87e32d5fb4fa44cadaa30587ea843d2dbbe1792992ca143"
+  url "https://github.com/OJ/gobuster/archive/v1.4.1.tar.gz"
+  sha256 "d5b8032aac6c4e1975b8302a6192274610f601a659253861e71ec5bca1c4da38"
   head "https://github.com/OJ/gobuster.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d54c642298f5a16fd47490d38e21c062db5e282ca77e9ec987db9ad1c0029d77" => :high_sierra
-    sha256 "759d0c8dc62ab635a75bce015d842a81b922d4c2fa8f2bec2ece185f1cb5bceb" => :sierra
-    sha256 "51f3c537daf760e645bc65703c3bbbf7f74cc1395207867c0757a3edb8ca5bbf" => :el_capitan
-    sha256 "22baccb7719a8d95b55afb40987d596f721d5abbcbcc8d004169f111a2fa06a1" => :x86_64_linux
+    sha256 "622f6ae519106998035453cee81ff8cdb32ed7ad3f2716d696849dc997be1df6" => :high_sierra
+    sha256 "bbd186fd418fe6dd77dcd10b6de75d458743adc5e693982e6b6dee625b51aad1" => :sierra
+    sha256 "51de1f0b5a67b69fe083960945dd8e4951fcf25076e319332a47b379bc94aaf6" => :el_capitan
   end
 
   depends_on "go" => :build
