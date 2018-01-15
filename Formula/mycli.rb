@@ -11,6 +11,7 @@ class Mycli < Formula
     sha256 "0e595019db782a382f315a1c449334391b17630194193b45c61bfdd4e20efeb2" => :high_sierra
     sha256 "a1d590e59cd55c5539032bbb6e3682de3ac687c924418a57875fdac7cc7042c1" => :sierra
     sha256 "efb1798af243e65cc470d754439b5d82fde609081d5e77b40e0a29ea0d36b5d1" => :el_capitan
+    sha256 "620e535375e4574f4b6d8ee5223b36e2a3f7d73be8299c2e3b1b065a50e00efc" => :x86_64_linux
   end
 
   depends_on "python" if MacOS.version <= :snow_leopard
