@@ -10,6 +10,7 @@ class Backupninja < Formula
     sha256 "9018c721fb3774083fac0c4994afe6a0151bafaa5459242e37eec3c7c67a26dc" => :high_sierra
     sha256 "9018c721fb3774083fac0c4994afe6a0151bafaa5459242e37eec3c7c67a26dc" => :sierra
     sha256 "9018c721fb3774083fac0c4994afe6a0151bafaa5459242e37eec3c7c67a26dc" => :el_capitan
+    sha256 "c835309d1ba62a136474c85a75c619fe2356e497db25216aa4ae144f403f3000" => :x86_64_linux
   end
 
   depends_on "dialog"
