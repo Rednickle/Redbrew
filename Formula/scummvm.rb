@@ -9,6 +9,7 @@ class Scummvm < Formula
     sha256 "1de93783f408c2cfc634d8f13c8cb7db1e2544d021f15e0484e64a92af2ed3db" => :high_sierra
     sha256 "bd2da4d91eb4e0f8fcf69ad9383a89979c73e539f1b1a5df8d7d99dc01fb67c5" => :sierra
     sha256 "26dce34185c67fe8034effb99e248b9b68344063194ccb20c8c166b2f6c58dfb" => :el_capitan
+    sha256 "ec087c03ebf6b40c805c888c522249660c7b5a28fd52769ba83036aaebec6e39" => :x86_64_linux
   end
 
   depends_on "faad2"
