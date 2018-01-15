@@ -9,6 +9,7 @@ class Ttf2eot < Formula
     sha256 "7b44ec925ee2bbeeaba775befc77c0c22f2f690ecd94edb72e471c631da80f43" => :high_sierra
     sha256 "26f40d7a58de2ee396fc04dd47c41e9b65640570fa1ca8b71134dd88e6e88c06" => :sierra
     sha256 "5fc89e642b7d51c0c7965d9a952d1b697f94b4ec16d7711ff37387979ce47f5d" => :el_capitan
+    sha256 "8e4f7d96ed88ff6f073c3e990b99adee42fc12681e2fede952f06d4cc4088c14" => :x86_64_linux
   end
 
   def install
