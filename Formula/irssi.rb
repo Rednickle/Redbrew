@@ -8,6 +8,7 @@ class Irssi < Formula
     sha256 "6e0726a3a7b1518ec5aa3ef01586a0a94d6b85e83500f55aff56a407ff71634c" => :high_sierra
     sha256 "4ca64721a3d8a3d11fa32ec0a17a75159a65d2eb7e3ec36cf5cac2398609db2c" => :sierra
     sha256 "5813b30eb66687e618ff78e7270b71b1b6d22541034f12d0e5619c9b3d968578" => :el_capitan
+    sha256 "aa8120ff61d91fa0ebc29b58250a48e27a56db8730faf859af546f4d165a0402" => :x86_64_linux
   end
 
   head do
