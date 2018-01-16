@@ -9,6 +9,7 @@ class ShadowsocksLibev < Formula
     sha256 "a561f2db79b0e7277e68edadaf21da788be8a07e41dc9d0df3b669057339a2b2" => :high_sierra
     sha256 "6560332aa51d4e56db51d176423cd00e4e1d6a422c2e71ca102a3007669e485b" => :sierra
     sha256 "fa6f73d73c0ad1c7d29630e76aa3b302f77c918acc63b29d0e9ba9424b663ccf" => :el_capitan
+    sha256 "3a01d950616b6b845e06313a2115c91c7f7af82c520fd9055683facfe992ceac" => :x86_64_linux
   end
 
   depends_on "asciidoc" => :build
