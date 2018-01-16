@@ -10,6 +10,7 @@ class Overmind < Formula
     sha256 "b837992c446a33e99493c4cc1ef7c9479e75bc540f24e04e773c999ceb7d26e1" => :high_sierra
     sha256 "4954106239383d8f587060b177ddfb76b8d2d0008bcfd336a93bbe4963419595" => :sierra
     sha256 "09c011b9aa59be593a7fe27274f126ac7f5ad58f058a5dd54ef835ab7d596909" => :el_capitan
+    sha256 "c025c50fe9e6306f399f46394b080784acdec71621289bcf5c95457c5acd932f" => :x86_64_linux
   end
 
   depends_on "go" => :build
