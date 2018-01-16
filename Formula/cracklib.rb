@@ -8,6 +8,7 @@ class Cracklib < Formula
     sha256 "c7f22644746f0ea3abb20e772625b633ab8a73f0f773b57baa7d71a3620b367c" => :high_sierra
     sha256 "d7d9452c277c47b1a7ad681a08c48f1e7ee5db4c9745520d271eb7f3a6f32757" => :sierra
     sha256 "4e16e0eefb0560fab07c517fa54a6c79d77f989b725adff642c9c496c2879b25" => :el_capitan
+    sha256 "1889cc1a3d29f94061809a4740bb1128f5a7769eef98a8db4a1f35e7730de116" => :x86_64_linux
   end
 
   depends_on "gettext"
