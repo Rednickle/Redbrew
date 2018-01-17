@@ -11,6 +11,7 @@ class Bind < Formula
     sha256 "31b148bf30910bdfaf0fdb886991a3a02911130f1c4e401a6ca6b395fa470f62" => :high_sierra
     sha256 "68b50c1f0f24224c34d9e82ed49da0a2ec6a47e2c9458e4a5980dfd4b0789ecc" => :sierra
     sha256 "97bf661ffe6a19f2d4d1e45162baef7b29d3f741350f66713a81835c87d428de" => :el_capitan
+    sha256 "f5c87dd457b9e47f508d51d250d9649014537a8d071b2d57bb436190cbfd33b1" => :x86_64_linux
   end
 
   depends_on "openssl"
