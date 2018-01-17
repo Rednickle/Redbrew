@@ -6,22 +6,25 @@ class Libgetdata < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 "7f5ee3942fe5c4b11be5a93d875ff57af244c4b5339ab4adf5f9a5784dd3ee20" => :high_sierra
-    sha256 "c07420abe7db3df124e9203fbe88c0a39cca34edf7a6386449ac11c845b6210c" => :sierra
-    sha256 "a08f8f9d9102484dc988c729e94d7864f40c655355edc4a85efd2b91bb2a2738" => :el_capitan
+    rebuild 2
+    sha256 "13e9d36f7ee8156ad9b5ffaa646588084e9212238aafbab50849f60c6cad0ab9" => :high_sierra
+    sha256 "9a96ebcf2d456594b5205c2ff0918dc7bcfff29be358fd6e369131f941e02f75" => :sierra
+    sha256 "88055dcabc5ed8b6cc068e244f8174eb798fd778e67a27867b3a0b33b3453121" => :el_capitan
   end
 
-  option "with-fortran", "Build Fortran bindings"
-  option "with-xz", "Build with LZMA compression support"
+  option "with-gcc", "Build Fortran bindings"
   option "with-libzzip", "Build with zzip compression support"
+  option "with-perl", "Build against Homebrew's Perl rather than system default"
+  option "with-xz", "Build with LZMA compression support"
 
   deprecated_option "lzma" => "with-xz"
   deprecated_option "zzip" => "with-libzzip"
+  deprecated_option "with-fortran" => "with-gcc"
 
   depends_on "libtool" => :run
-  depends_on "gcc" if build.with?("fortran")
+  depends_on "gcc" => :optional
   depends_on "libzzip" => :optional
+  depends_on "perl" => :optional
   depends_on "xz" => :optional
 
   def install
@@ -31,14 +34,12 @@ class Libgetdata < Formula
       --prefix=#{prefix}
       --disable-php
       --disable-python
-      --with-perl-dir=#{lib}/perl5/site_perl
     ]
 
+    args << "--with-perl-dir=#{lib}/perl5/site_perl" if build.with? "perl"
     args << "--without-liblzma" if build.without? "xz"
     args << "--without-libzzip" if build.without? "libzzip"
-    if build.without? "fortran"
-      args << "--disable-fortran" << "--disable-fortran95"
-    end
+    args << "--disable-fortran" << "--disable-fortran95" if build.without? "gcc"
 
     system "./configure", *args
     system "make"
