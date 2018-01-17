@@ -8,6 +8,7 @@ class Gnutls < Formula
     sha256 "b8695efb702342ec890527c070337794c7dd3f9a2226d3a5f39eff02c76501f6" => :high_sierra
     sha256 "108306d125b36fd5dce4a7440cd1c74fd22e5c9997304d4b4123fcef02f6b5ff" => :sierra
     sha256 "7f3cc230e0ec1c26729130ea40aa3f9d3d6843cea2cac744eb39e65b819928f9" => :el_capitan
+    sha256 "ee7b8c408afb5c5107d6be1d104340531934e4b0857584d23fbb1366b47582ee" => :x86_64_linux
   end
 
   devel do
