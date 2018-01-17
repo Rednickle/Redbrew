@@ -10,6 +10,7 @@ class Libgetdata < Formula
     sha256 "13e9d36f7ee8156ad9b5ffaa646588084e9212238aafbab50849f60c6cad0ab9" => :high_sierra
     sha256 "9a96ebcf2d456594b5205c2ff0918dc7bcfff29be358fd6e369131f941e02f75" => :sierra
     sha256 "88055dcabc5ed8b6cc068e244f8174eb798fd778e67a27867b3a0b33b3453121" => :el_capitan
+    sha256 "58282cea595279e7caeb57a47ff320194e9724d9e127ab5400000bcdac22ad37" => :x86_64_linux
   end
 
   option "with-gcc", "Build Fortran bindings"
