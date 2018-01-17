@@ -11,6 +11,7 @@ class Metricbeat < Formula
     sha256 "7e2b21967fab90120256a96960be3b8635ded5030c03fe7ae2b45f8eec242896" => :high_sierra
     sha256 "03156298d3ed0e2259f39a4d79df5bcf4256e81fe8ed61f41f06e61f15689ff3" => :sierra
     sha256 "484d7d1937f6607ac168de94783e242596c132181c2ebe57b4477e1ef7fdf6cb" => :el_capitan
+    sha256 "a53f8c8c0f42c359ac6c7e67aca8f700464344453908b813e88eeada374a4410" => :x86_64_linux
   end
 
   depends_on "go" => :build
