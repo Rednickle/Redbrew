@@ -12,6 +12,7 @@ class Todoman < Formula
     sha256 "8bd06a5dbda08472b091527af9aabe66d4d6f0888ba28294392d1262041cad77" => :high_sierra
     sha256 "11f6fe4822bdcfd98401fe22a8adeaac06a620b0b6d43324fa31f1ebf8f58849" => :sierra
     sha256 "1a60142bb115b2d6c63c0a0a557d1db9471417390cdcf6b50a9ad68411b7b26c" => :el_capitan
+    sha256 "9c676b88808acf14d36ea75ce455cafcafc04a2bd85903b5805df434ceb9be5c" => :x86_64_linux
   end
 
   depends_on "python3"
