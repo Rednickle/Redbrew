@@ -10,6 +10,7 @@ class Ttyd < Formula
     sha256 "b6d3b9fd532e3b9c0542fc5566969812fbf43b65230beabf8b68d62cc00e8e6c" => :high_sierra
     sha256 "4a943020c1f60c595e67725f0deee077cff693e4228c628f2ff60ebd914d8d72" => :sierra
     sha256 "d230f778b8ee31b696f8c841ef5bbc39aff183fc8a11ff536cf6f979ffd5508c" => :el_capitan
+    sha256 "b500f1c2edabd806f4417061a3066b304e9fe02cdb276b03c7e0ef007952c669" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
