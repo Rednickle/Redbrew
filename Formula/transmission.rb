@@ -14,6 +14,7 @@ class Transmission < Formula
     sha256 "10c8ab080a30f20bf2a777d71cecf5efdddbbf5ff99f8d1547ec6d1af892083a" => :high_sierra
     sha256 "d92ff97c980b5b21f9a339add298a3c891ff899bd46c6875d5b082c99be5412b" => :sierra
     sha256 "c899c5ae9a3041422939940425c5382af3b0f2ab1acac4ffa3a5bd33fc45cbda" => :el_capitan
+    sha256 "a63072efd7243dde15ed440604a22e2f54c08cb223934c003e4fb0a777e1bcbe" => :x86_64_linux
   end
 
   option "with-nls", "Build with native language support"
