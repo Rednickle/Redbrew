@@ -21,5 +21,10 @@ Try `brew edit $FORMULA` and see how you fare.
 ## Documentation
 `brew help`, `man brew` or [Linuxbrew/brew's README](https://github.com/Linuxbrew/brew#linuxbrew).
 
+## Who Are You?
+Homebrew/homebrew-core's lead maintainer is [ilovezfs](https://github.com/ilovezfs).
+
+Homebrew/homebrew-core's other current maintainers are [Mike McQuaid](https://github.com/mikemcquaid), [FX Coudert](https://github.com/fxcoudert), [JCount](https://github.com/jcount), [Misty De Meo](https://github.com/mistydemeo) and [Tom Schoonjans](https://github.com/tschoonj).
+
 ## License
 Code is under the [BSD 2-clause "Simplified" License](https://github.com/Linuxbrew/homebrew-core/blob/master/LICENSE.txt).
