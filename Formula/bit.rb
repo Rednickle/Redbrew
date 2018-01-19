@@ -11,6 +11,7 @@ class Bit < Formula
     sha256 "652afa21bdbaa757c46caff46a92926364fcead1a41f4cf9cbb429f6f29e7948" => :high_sierra
     sha256 "e030581dbdb48278ef20342057f17ffdca6b1f5ae28cd962133e2b515b05c9a6" => :sierra
     sha256 "d3624aaad79f6052f3f8bca7339747a3bb16f66dcfa293bb0e178e8c3da65dc0" => :el_capitan
+    sha256 "322b03e29311a839e8e62bd7da3da7e20ab052a1c0d7de90f39e280d6415beb8" => :x86_64_linux
   end
 
   depends_on "node"
