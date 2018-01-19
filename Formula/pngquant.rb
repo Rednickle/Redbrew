@@ -10,6 +10,7 @@ class Pngquant < Formula
     sha256 "15fab42baf4df4cf6fb56554024eed3ec28fd94ebcedd7075acfb5fcc5ee5291" => :high_sierra
     sha256 "d5c88987657ada8f05f0632701d691fa518815ba5b084f9e31c77722700d4da7" => :sierra
     sha256 "5ee791b257c7ca2a3cd08f87adc5f674b24ab08a3384f7f8745f72f166e3fea3" => :el_capitan
+    sha256 "622f79405405f66b019545810e8a497667fcd05a464fa88803e98738f2fc8ede" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
