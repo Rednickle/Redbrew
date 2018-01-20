@@ -3,16 +3,15 @@ class Statik < Formula
 
   desc "Python-based, generic static web site generator aimed at developers"
   homepage "https://getstatik.com"
-  url "https://github.com/thanethomson/statik/archive/v0.20.0.tar.gz"
-  sha256 "997b6171838813774fdd47d454f10d3313a48d2bfef590fd048e18a082aeb793"
+  url "https://github.com/thanethomson/statik/archive/v0.21.0.tar.gz"
+  sha256 "f878f43763f5bed5bdfaf922a8fe88442b23f99d641e96f3a8523ae7ea6cd104"
   head "https://github.com/thanethomson/statik.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "819a49a469b00e66631d51743a295d59cf4e8567709f4e63dac8716c443a74e0" => :high_sierra
-    sha256 "9944cc71691db7897031db4e3ed26843d010512f7d99ce4697fbec1358264a7a" => :sierra
-    sha256 "91dbf0459165d29270ae656730ca6284e24bfb1776cccd2452949a2e931b7266" => :el_capitan
-    sha256 "d22f9df7174cefa133f515b80251f3ee99393b85829ccf9e077ef4681c0f27ee" => :x86_64_linux
+    sha256 "0636fe469fa18320fa13eebfc34a2e15562992458dcbd423a4e616a6ea545a6d" => :high_sierra
+    sha256 "2704eb27606b6a18e7bc5a4148140b9a5945af27d0b536f1aa39aa5ca09423af" => :sierra
+    sha256 "6afd4ce74504df69a4e80a11734c29389b4e8ca73bca2d4c43b68f197642fc63" => :el_capitan
   end
 
   depends_on "python" if MacOS.version <= :snow_leopard
