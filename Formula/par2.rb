@@ -9,6 +9,7 @@ class Par2 < Formula
     sha256 "569f6c3227a6e65de30991c3b921e321cb3b5e4e85e341042b2e3fcb00d2685e" => :high_sierra
     sha256 "85ca540e5daeb33c115c6cc37ae2bcb52b4db822679471ccf31598125f475d63" => :sierra
     sha256 "d6e135782c3e4279e2233cba53d5fc62dc6ea3b5c8f0d2c07c653cc66cac2bcd" => :el_capitan
+    sha256 "de9b671bcb28533ecc2aaa7c42f8e64e3024a41a8712fe3016a9cfa6cb09dbc7" => :x86_64_linux
   end
 
   def install
