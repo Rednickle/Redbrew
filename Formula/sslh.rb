@@ -10,6 +10,7 @@ class Sslh < Formula
     sha256 "eae60774c512bafa86dd54cd94e36db5dc4142076bf18c3b7fa5a8a7524951e5" => :high_sierra
     sha256 "d4b465ae8828aefdedd85dd963e09d0d08cb7bc80bd8f7fd839a4739209f5176" => :sierra
     sha256 "66d97d677f47c957c7139af895f10ae013d10bcf7a28eae998906bbc75e0c234" => :el_capitan
+    sha256 "f6384a7ed67ed4e818d71d2e350e62bc92e76ca6f4f745eb0cf8c1721accc4ae" => :x86_64_linux
   end
 
   depends_on "libconfig"
