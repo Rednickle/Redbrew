@@ -23,9 +23,7 @@ class Dmd < Formula
   end
 
   bottle do
-    sha256 "a5036c41c6312c2c076cc660ff9255439d6964a6365f01cb121fc3ad773e2164" => :high_sierra
-    sha256 "5e1c6f5f188f2d88d09f4dcc2b3aea526711c2f8c81e01a6cdcc8b1aacfdbcc6" => :sierra
-    sha256 "fc00159a9c8aaba18c0d096af577cc5d8b401bf0bcf54d02b67a1a459ef59848" => :el_capitan
+    sha256 "f14e9c1eb7e3bb3801eb90acc96646b1a82763096812c2ad429314be1bd49e79" => :x86_64_linux
   end
 
   head do
