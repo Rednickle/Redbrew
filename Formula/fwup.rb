@@ -9,6 +9,7 @@ class Fwup < Formula
     sha256 "65333ec43ee41271ef08b1718988d9f6d8f7cf828ce8b82bcb1032e9c7f9f780" => :high_sierra
     sha256 "ed8421e355a86f97aa1a4ec492aa13104e95385222bd61467ec7e0bef43fd4dd" => :sierra
     sha256 "5795d3b77a3e115423a4766cfea0845c3eb81265fa2b20d41439e9682d99f6e3" => :el_capitan
+    sha256 "a82490d2176f9e0a08590838c03c9868848747d07d4d76abb27cdd0b7a29e569" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
