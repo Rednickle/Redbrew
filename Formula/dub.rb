@@ -13,9 +13,7 @@ class Dub < Formula
   end
 
   bottle do
-    sha256 "1ca19d9eb7c871a9e53e3d09c2d2bad8da41b20e4cb6f91041d034300840a6b6" => :high_sierra
-    sha256 "d6df5aca7ffc58b4820dbd9c896d89aeeaa86624c348fc6af9b7018393c7b368" => :sierra
-    sha256 "7a80d992855844a0c7ee7366f0065a0aac0a89fdd453e113903a7126a0363f2e" => :el_capitan
+    sha256 "24df5fff78cc739476e0246a114e41e3a4d65dc357b065e73c6186b77501f47a" => :x86_64_linux
   end
 
   depends_on "pkg-config" => [:recommended, :run]
