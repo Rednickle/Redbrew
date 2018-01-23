@@ -9,6 +9,7 @@ class Nss < Formula
     sha256 "78743b2395b18d5224edd8436e4ca0414ba277885493cfc7d0cd64c09b6e82a6" => :high_sierra
     sha256 "2e3bb9ce22484d0f3f50198464ab8f67e305c0b11656c88a7bd16eab00367ffb" => :sierra
     sha256 "851fa4c8c061df509c8ee1129d80887cce8a954927030510ea86ffeac7f0f0a2" => :el_capitan
+    sha256 "04c5c68f70598b4c8f5382b93d3b6c72694f29eccc59c8782a224ad08cf314b8" => :x86_64_linux
   end
 
   keg_only <<~EOS
