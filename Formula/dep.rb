@@ -7,10 +7,10 @@ class Dep < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7627ee12c2bbf397c1be89d172bb1992f98900f4f073801b2b3b9cf16bf2fb55" => :high_sierra
-    sha256 "98355e1caa1fe5668d3e8f1630a84b9f307611eb59119b90f94bd4734b222ada" => :sierra
-    sha256 "cb51aeeb47448fd3f90582dacb4ab36cee116546f49038870eb611e82d47fb6d" => :el_capitan
-    sha256 "b9fbbde0a1a536092b69b3e2d50c1a3a96f5b37a6b05b24ebcd06c2fdc5f7eb2" => :x86_64_linux
+    rebuild 1
+    sha256 "3c11e644294f1202fcddab946d90a72c9eaecda93a1d5c75e18098cf3be7c5f5" => :high_sierra
+    sha256 "c1b936becc610d5960cd482afd85dc852a6d6f2fa0d32eba6b56d095960099eb" => :sierra
+    sha256 "2c4187fa38ae35361663b34e5411cf9c75a4d2265eeb2bd46e3c0da9d388f1d1" => :el_capitan
   end
 
   depends_on "go"
@@ -19,7 +19,8 @@ class Dep < Formula
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/golang/dep").install buildpath.children
     cd "src/github.com/golang/dep" do
-      system "go", "build", "-o", bin/"dep", ".../cmd/dep"
+      system "go", "build", "-o", bin/"dep", "-ldflags",
+             "-X main.version=#{version}", ".../cmd/dep"
       prefix.install_metafiles
     end
   end

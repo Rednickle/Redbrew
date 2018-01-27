@@ -1,6 +1,8 @@
 class Vis < Formula
   desc "Vim-like text editor"
   homepage "https://github.com/martanne/vis"
+  revision 1
+
   head "https://github.com/martanne/vis.git"
 
   stable do
@@ -14,10 +16,9 @@ class Vis < Formula
   end
 
   bottle do
-    sha256 "0be7b581e3cb539b4f9b7d1bf935f2693be3d4f0fcef7104a38c2a4c9ba3bb52" => :high_sierra
-    sha256 "7e0af91f28bf576b74790ba694401b78d086f383fa6cc7a9b1333170e0b8c08f" => :sierra
-    sha256 "2030656393b697680ffc8b794f0350916beaa8dff0475e5bd2d46a00d86c7692" => :el_capitan
-    sha256 "127598b527d4282f7df5e55d0185c9675acb99bbee042f2e808166347feed3c6" => :x86_64_linux
+    sha256 "272d302e46c3fea59c2f5826bb21469be06db57a527cbd99fd7b9528eb70a0bb" => :high_sierra
+    sha256 "d6ce0e36fff0e4e5537f5741908a120228b3f33f3e2e286711aaac5a7cefc49e" => :sierra
+    sha256 "f6671f8128ee92ba9ac8498c4eb5fc39ff170b9de6a4a27e13b7ff97eaef5f30" => :el_capitan
   end
 
   depends_on "libtermkey"
@@ -41,6 +42,8 @@ class Vis < Formula
     system "make", "install"
     (bin/"vise").write <<~EOS
       #!/bin/sh
+      LUA_PATH="#{ENV["LUA_PATH"]}"
+      LUA_CPATH="#{ENV["LUA_CPATH"]}"
       VIS_BASE=#{libexec}
       VIS_PATH=$VIS_BASE/share/vis $VIS_BASE/bin/vis $@
     EOS
