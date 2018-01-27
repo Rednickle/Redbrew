@@ -1,7 +1,7 @@
 class W3m < Formula
   desc "Pager/text based browser"
   homepage "https://w3m.sourceforge.io/"
-  revision 3
+  revision 4
   head "https://github.com/tats/w3m.git"
 
   stable do
@@ -11,19 +11,18 @@ class W3m < Formula
     # Upstream is effectively Debian https://github.com/tats/w3m at this point.
     # The patches fix a pile of CVEs
     patch do
-      url "https://mirrors.ocf.berkeley.edu/debian/pool/main/w/w3m/w3m_0.5.3-34.debian.tar.xz"
-      mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/w/w3m/w3m_0.5.3-34.debian.tar.xz"
-      sha256 "bed288bdc1ba4b8560724fd5dc77d7c95bcabd545ec330c42491cae3e3b09b7e"
+      url "https://mirrors.ocf.berkeley.edu/debian/pool/main/w/w3m/w3m_0.5.3-36.debian.tar.xz"
+      mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/w/w3m/w3m_0.5.3-36.debian.tar.xz"
+      sha256 "e7f41ac222c55830ce121e1c50e67ab04b292837b9bb1ece2eae2689c82147ec"
       apply "patches/010_upstream.patch",
             "patches/020_debian.patch"
     end
   end
 
   bottle do
-    sha256 "12da9937b9aa6b5c949dd4e3564a39794b113fdd85d4e0482b36c58e2d51c8bd" => :high_sierra
-    sha256 "20013204c45e71e6b130152648f284a75f9074bf12d6dde0a5e7f12417213fb5" => :sierra
-    sha256 "f393fb66f5b123ed6d1e9ffb9c6d586265d29e45ed43728cbd8dc3c72d7e7eb7" => :el_capitan
-    sha256 "a40358dbab9a00aeb91dc6fa7c06f0468e51f6f11fac88b8e81d8d0509f81479" => :x86_64_linux
+    sha256 "d22255d52e3655ee569eb9f10148c3c252348f0110aebdd9ad4674535a2abb96" => :high_sierra
+    sha256 "253aa174cda21e291fb62936c6df64de6fedfa42c4889b3cde961767d2230c64" => :sierra
+    sha256 "38bbff9a83da585bcceba8a70e69b5abf3dd84ab75b62da090e49f8e6cbad46a" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
