@@ -12,7 +12,7 @@ Second, read the [Troubleshooting Checklist](https://docs.brew.sh/Troubleshootin
 **If you don't read these it will take us far longer to help you with your problem.**
 
 ## More Documentation, Contributing, Security, Community, Donations and Sponsors
-See these sections in [Linuxbrew/brew's README](https://github.com/Linuxbrew/brew#homebrew).
+See these sections in [Linuxbrew/brew's README](https://github.com/Linuxbrew/brew#linuxbrew).
 
 ## Who Are You?
 
