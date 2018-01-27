@@ -1,15 +1,14 @@
 class Diamond < Formula
   desc "Accelerated BLAST compatible local sequence aligner"
   homepage "https://ab.inf.uni-tuebingen.de/software/diamond/"
-  url "https://github.com/bbuchfink/diamond/archive/v0.9.14.tar.gz"
-  sha256 "de870a7806ac0aa47b97c9b784dd7201e2c8e11a122003bde440d926211b911e"
+  url "https://github.com/bbuchfink/diamond/archive/v0.9.15.tar.gz"
+  sha256 "1247952606b8067d3cb5533faeee7f31d8c7c440c41095ed2daea1df1a053b31"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "928fed8fd55909345ce863e9b076f9ade4197bbf0d58afec49facd4195082d43" => :high_sierra
-    sha256 "64af66380baa524880869f502073b52824edf828ee80b46c7a9b1c76380bf782" => :sierra
-    sha256 "6da05e608379790e434c8887fe08edad3ae68be99f17bea0a02bd39015e316a6" => :el_capitan
-    sha256 "8610c4dcda46558c02efc11e62297fd7dbceba7cb7efddf74c2e3450ceed024a" => :x86_64_linux
+    sha256 "ca2ed44a93a98a31840ca221ee99cf4854b67b22d7e4a0ecd27572931d88d7ab" => :high_sierra
+    sha256 "4247b2903f04b7d351e0ac0d853de41f69e85d9efa198496be1467bc98433aef" => :sierra
+    sha256 "f7fcedf0f59340fbb6e877a22719e23d85d758d950652ec37b5a645283c17991" => :el_capitan
   end
 
   depends_on "cmake" => :build
