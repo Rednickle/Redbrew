@@ -11,6 +11,7 @@ class GitFtp < Formula
     sha256 "7ff70e524c733e26ce81bfd48a9ca3649d85185807b47c9326e1079ba7887a4b" => :high_sierra
     sha256 "72ffe2eda0be67c9417322b50e94272c451fdd338ca9518ad47f6b19afae7219" => :sierra
     sha256 "a3b41550ed4038f1e6f0ae13d2f2269395ef544a19adeadeec5506104d760474" => :el_capitan
+    sha256 "368d9586c690ef8d0b5921176ab09721ea39b7ba21dbd09fda30d15ff88b5ea4" => :x86_64_linux
   end
 
   depends_on "pandoc" => :build
