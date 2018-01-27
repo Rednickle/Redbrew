@@ -1,17 +1,15 @@
 class Dep < Formula
   desc "Go dependency management tool"
   homepage "https://github.com/golang/dep"
-  url "https://github.com/golang/dep/archive/v0.3.2.tar.gz"
-  sha256 "327124953d76293eaba6001e17bb8a31371313ab39eed1fa9eac01f8b5c1de21"
+  url "https://github.com/golang/dep/archive/v0.4.1.tar.gz"
+  sha256 "df9b050bf4dbb2a8cf04372097a68b04a6ae1986ed7c5086914ac86d74ea9d49"
   head "https://github.com/golang/dep.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "3c11e644294f1202fcddab946d90a72c9eaecda93a1d5c75e18098cf3be7c5f5" => :high_sierra
-    sha256 "c1b936becc610d5960cd482afd85dc852a6d6f2fa0d32eba6b56d095960099eb" => :sierra
-    sha256 "2c4187fa38ae35361663b34e5411cf9c75a4d2265eeb2bd46e3c0da9d388f1d1" => :el_capitan
-    sha256 "99979d2f1811c7212de57f0803b1f9eaf90cca73464f74e9aec391aeab04fe15" => :x86_64_linux
+    sha256 "6ab292e258ddccd5e8e48fbcc6750fd82a9e90b0335e46e9cdb2c709f513e27b" => :high_sierra
+    sha256 "d4bbf1b701893f5d58dfa98a491f2cf724e5c011a8fbdd1c4d296182f54bd549" => :sierra
+    sha256 "db62f2dcc22cd9f87c9bef938b44d349f53dfeaf90ad989ff4bb26524d1c32ca" => :el_capitan
   end
 
   depends_on "go"

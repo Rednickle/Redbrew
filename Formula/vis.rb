@@ -1,7 +1,7 @@
 class Vis < Formula
   desc "Vim-like text editor"
   homepage "https://github.com/martanne/vis"
-  revision 1
+  revision 2
 
   head "https://github.com/martanne/vis.git"
 
@@ -16,10 +16,9 @@ class Vis < Formula
   end
 
   bottle do
-    sha256 "272d302e46c3fea59c2f5826bb21469be06db57a527cbd99fd7b9528eb70a0bb" => :high_sierra
-    sha256 "d6ce0e36fff0e4e5537f5741908a120228b3f33f3e2e286711aaac5a7cefc49e" => :sierra
-    sha256 "f6671f8128ee92ba9ac8498c4eb5fc39ff170b9de6a4a27e13b7ff97eaef5f30" => :el_capitan
-    sha256 "2969a2f2cbe4abd285da529b26533127d71b20f62a63bad0a47e903444a9c2db" => :x86_64_linux
+    sha256 "3ae7e1e1213928f4c6fbac2e24c797ac69b0c711cc29011ceaf515a9ce9dd39c" => :high_sierra
+    sha256 "c8c60ae96962570361c5a7dbaf3aab5d3ea408d9560d1b007d2b11c42316d8d3" => :sierra
+    sha256 "9668e33187b9a55dfc67bcf39604d7bc9559fa1bd0e16fa7e33e1772b45f3afb" => :el_capitan
   end
 
   depends_on "libtermkey"
@@ -39,15 +38,14 @@ class Vis < Formula
       system "luarocks", "build", "lpeg", "--tree=#{luapath}"
     end
 
-    system "./configure", "--prefix=#{libexec}"
+    system "./configure", "--prefix=#{prefix}"
     system "make", "install"
-    (bin/"vise").write <<~EOS
-      #!/bin/sh
-      LUA_PATH="#{ENV["LUA_PATH"]}"
-      LUA_CPATH="#{ENV["LUA_CPATH"]}"
-      VIS_BASE=#{libexec}
-      VIS_PATH=$VIS_BASE/share/vis $VIS_BASE/bin/vis $@
-    EOS
+
+    env = { :LUA_PATH => ENV["LUA_PATH"], :LUA_CPATH => ENV["LUA_CPATH"] }
+    bin.env_script_all_files(libexec/"bin", env)
+    # Rename vis & the matching manpage to avoid clashing with the system.
+    mv bin/"vis", bin/"vise"
+    mv man1/"vis.1", man1/"vise.1"
   end
 
   def caveats; <<~EOS
