@@ -11,6 +11,7 @@ class Ecl < Formula
     sha256 "9afd54b532ae1f1ee3d62b32323007cc736def18f7dde363b19ee9cbf67364fa" => :high_sierra
     sha256 "c4a7bf602fd2ce4a265cee2944cc0aa57829f9b2d965c1c54da4a905ee8cdf41" => :sierra
     sha256 "2c27794e63438b4e4cb0aaaf8924d6586f2774c29f06b01429d569fec742e55d" => :el_capitan
+    sha256 "54f7fcf72de02cd28582816805d628bc973a880d4798357f1830943d1b5a8785" => :x86_64_linux
   end
 
   depends_on "bdw-gc"
