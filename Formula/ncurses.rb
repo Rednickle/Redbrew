@@ -9,6 +9,7 @@ class Ncurses < Formula
     sha256 "bc5a61af5553ac748657e276ffcd604fca3d74db0b10855b9e4163ae45f7cb72" => :high_sierra
     sha256 "8c1b3ae226520b5c14f61c52935eceb04717d8174382d137a169718f50f67910" => :sierra
     sha256 "5e3d98b211de89b9c750d627bdd66e42bf1fa77ad1528e4db8a4de33ed419c28" => :el_capitan
+    sha256 "5eb929e69e3a2b71c2161551825fd16146efc164ab7dbea25d2a5b73b51cd1cb" => :x86_64_linux
   end
 
   keg_only :provided_by_macos
