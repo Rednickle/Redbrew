@@ -14,6 +14,7 @@ class DhallJson < Formula
     sha256 "a7b9dbba7630e06988da57fe5c4ad9a2670b518b180bce2415aa86c5dd42ad51" => :high_sierra
     sha256 "58a0023ff311bc738ea7213fa8bb4a81215e61dcd28d215c204426dff9381ad6" => :sierra
     sha256 "9104547362cd3e4fc62fb2935e485c5a21138f5b200c1abe87d41fdb8938c08c" => :el_capitan
+    sha256 "9ac00567dd22d0cd65bae9ae0bfe5f48dd4e87ea74d0b6e3f0211490590865b5" => :x86_64_linux
   end
 
   depends_on "ghc" => :build
