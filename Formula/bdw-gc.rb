@@ -9,6 +9,7 @@ class BdwGc < Formula
     sha256 "9e4cca3ae473e36efa75c33f41de6be4fa354e37e5a1ff9e577015c4c9523c70" => :high_sierra
     sha256 "5f9c96e3ec026360cedad1488121bfd4bcd79dcb1476548ddcda77e7368b5641" => :sierra
     sha256 "32db63b2c9695a0707a7fad6fdd4b843f1803b92d5272eef4855a4b6c261dc6a" => :el_capitan
+    sha256 "8ce9e21700c66d9a3657954963ef66f9f0f2eec158fe2ae03a4521b40a574799" => :x86_64_linux
   end
 
   head do
