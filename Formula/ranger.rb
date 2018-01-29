@@ -1,20 +1,11 @@
 class Ranger < Formula
   desc "File browser"
   homepage "https://ranger.github.io"
-  url "http://ranger.nongnu.org/ranger-1.8.1.tar.gz"
-  sha256 "1433f9f9958b104c97d4b23ab77a2ac37d3f98b826437b941052a55c01c721b4"
-  revision 2 unless OS.mac?
-
+  url "https://ranger.github.io/ranger-1.9.0.tar.gz"
+  sha256 "64ba1eecee54dce0265c36eb87edaf4211a462dc0cb6c831113a232829fecfd9"
   head "https://github.com/ranger/ranger.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "ddfa5373f14c26414497b6135735e7ca872ac5da39cc995d07832cf26f3bdcc2" => :high_sierra
-    sha256 "53183d431e6bcf9cf49a462130fb5e0929a4bf557a2d109c354e3194bfd36cc0" => :sierra
-    sha256 "224dce8bf10cb4f29a182e00d8a684a388f5dc1544f427149ee85e050c07a833" => :el_capitan
-    sha256 "224dce8bf10cb4f29a182e00d8a684a388f5dc1544f427149ee85e050c07a833" => :yosemite
-    sha256 "845b179a5f92c160c4e77f11b0bc0f550bf9245c3189e488005f25cf8c93dd5d" => :x86_64_linux
-  end
+  bottle :unneeded
 
   depends_on "python" unless OS.mac?
 
