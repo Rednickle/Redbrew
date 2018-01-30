@@ -9,6 +9,7 @@ class Lame < Formula
     sha256 "9e65c67b83efa5a686aea0506dc44935cd2af2d4fe55fe38dc19610a0ccd80dd" => :high_sierra
     sha256 "c2d7bce53be2efb5d19d99ea00fbe69613885cce46009e8ab6099f8d5925c3ba" => :sierra
     sha256 "73c4d677b4e5357dc5baf30c96ac5f33cf7902e9c77869834b7cd9d17f3415bc" => :el_capitan
+    sha256 "293b74a7490a120e88ad55b4b663e8596636a98dbd6b7f54f1222f0a3246d9d3" => :x86_64_linux
   end
 
   depends_on "ncurses" unless OS.mac?
