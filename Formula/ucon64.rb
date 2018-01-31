@@ -9,6 +9,7 @@ class Ucon64 < Formula
     sha256 "3fc97894b8edaa28fa90a2cb494976be49fa7a28fb875797bd5f56ddc3b2fd69" => :high_sierra
     sha256 "6fe6e1cf1db14e4592eb3486c6629bff06813a42c34b9ae8e188a5ad02745344" => :sierra
     sha256 "015cfd4803ea86f02429fc9a1f5de59d72012c9d0e32a92c9f996922ef422084" => :el_capitan
+    sha256 "0be67cdf4744ed3839891eea9a4ef87e5677d466cd7ff457faec4180aa71189f" => :x86_64_linux
   end
 
   resource "super_bat_puncher_demo" do
