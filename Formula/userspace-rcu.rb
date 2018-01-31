@@ -9,6 +9,7 @@ class UserspaceRcu < Formula
     sha256 "9e3e9a7e4615f206faab5567f4eeab37dfa0aad7bdb9113803716df70abb9e0e" => :high_sierra
     sha256 "a9e38da39a4afa118c7eeb9cadbb0466caea3f77a8525473a6603297b0d32a9f" => :sierra
     sha256 "e44fe1d83cedac0ccf9e22a406e8efac399ac281fbc858dbc20d7b57fe564503" => :el_capitan
+    sha256 "19fb5168b502f234ac08a60a02cfcbf80a016c511afe7190ad019e015454ea5a" => :x86_64_linux
   end
 
   def install
