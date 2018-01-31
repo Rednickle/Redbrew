@@ -11,6 +11,7 @@ class Calc < Formula
   end
 
   depends_on "readline"
+  depends_on "bsdmainutils" => :build unless OS.mac? # for 'col'
 
   def install
     ENV.deparallelize
