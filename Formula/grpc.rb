@@ -9,6 +9,7 @@ class Grpc < Formula
     sha256 "e680af77c2bfe36ceb9f682b9eefb7b1deaa28dc8c88b2206f9a804208005e24" => :high_sierra
     sha256 "7c17b436165ed24192e6b198be2e3fbc676a73062a7543648ef120d51a9e2a4a" => :sierra
     sha256 "ea785c5344453f623f022b6a1384087377374058712d6988dc717473fb8312db" => :el_capitan
+    sha256 "8374642169170a437cf7b3effa9f460b5e9418e0f7fd66d6fe84d075b9f996d0" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
