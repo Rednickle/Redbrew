@@ -8,6 +8,7 @@ class Tig < Formula
     sha256 "9bbd56c8a58a4e531c6270935bd8e8709e5d7d772734bf261f98ce08f16a9f37" => :high_sierra
     sha256 "df8ceddb1c0995bb979cdfe5aebda733109c2de10de7a6c8457642a0b03cb556" => :sierra
     sha256 "32bf134ee42ac9f7ae5307110bffbd811579ef85917087a9755567574d23692a" => :el_capitan
+    sha256 "b4d38b0f8c78bbb6764d79b8fa6d9dcd36aeef1360492ad44c012e8d5e805cf4" => :x86_64_linux
   end
 
   head do
