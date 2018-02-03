@@ -11,6 +11,7 @@ class Tldr < Formula
     sha256 "00f5ce204fa62e51ed3be821abba9fdda36335b6cecf65231158c02b9713f357" => :high_sierra
     sha256 "06f9609695fb6b14bbd78f3246bb176b341aecda6ce70515723cee8e8e4ced69" => :sierra
     sha256 "209c571e3472128665194e73451199087236758a0a7cfa6e88ffd7aa444abbac" => :el_capitan
+    sha256 "386524306b8dbbe90c06ecadddbdbca20cbedb9e2b078b85826eeb8021005ee4" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
