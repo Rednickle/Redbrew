@@ -9,6 +9,7 @@ class YamlCpp < Formula
     sha256 "6d6b306fb32395ca6555eb493a95083f9d6b8dfb0ec98d246248132cef60236e" => :high_sierra
     sha256 "9fb76cf549256913c312ba9647614aa52d28e15cb759ed25706011cbdadd2fe0" => :sierra
     sha256 "7ef12efa1b564abc652243f146f7f9b5b8d51f8600917743ab8c8bacfcdbd053" => :el_capitan
+    sha256 "061460076cd520e1b1add129c4a0b2c18289abe74574f36852bbea2da003fa94" => :x86_64_linux
   end
 
   option "with-static-lib", "Build a static library"
