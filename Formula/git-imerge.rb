@@ -10,6 +10,7 @@ class GitImerge < Formula
     sha256 "76aee24eeb5e7615e4cfbd7aaf3aacac8d8729dfcee79d8542a84cbd9b663459" => :high_sierra
     sha256 "76aee24eeb5e7615e4cfbd7aaf3aacac8d8729dfcee79d8542a84cbd9b663459" => :sierra
     sha256 "76aee24eeb5e7615e4cfbd7aaf3aacac8d8729dfcee79d8542a84cbd9b663459" => :el_capitan
+    sha256 "b55716121b1650d60aa9fc4063a4397d09fcb6c74c724368d15cb31378069ae5" => :x86_64_linux
   end
 
   def install
