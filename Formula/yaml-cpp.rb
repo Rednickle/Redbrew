@@ -1,15 +1,14 @@
 class YamlCpp < Formula
   desc "C++ YAML parser and emitter for YAML 1.2 spec"
   homepage "https://github.com/jbeder/yaml-cpp"
-  url "https://github.com/jbeder/yaml-cpp/archive/yaml-cpp-0.6.0.tar.gz"
-  sha256 "e643119f1d629a77605f02096cc3ac211922d48e3db12249b06a3db810dd8756"
+  url "https://github.com/jbeder/yaml-cpp/archive/yaml-cpp-0.6.1.tar.gz"
+  sha256 "25ec37e6d82ab8c485926d69a5567741c7263515f8631e5dcb3fb4708e6b0d0d"
 
   bottle do
     cellar :any
-    sha256 "78e12dcdd830f2d8b0efcc03e788774ba2ee91e4399addb339db11c5d7a41220" => :high_sierra
-    sha256 "7c6bd9e166e104af6ef5b42058ca3f3e907b565aa035f4fd3a0f7a8dcd13429d" => :sierra
-    sha256 "2ece56723e6c90baa1474115ed40445aa72a71787ff78f721111f5791ab1567b" => :el_capitan
-    sha256 "2db2e4bd694e811d54d1fae6bc1ea5840af175a9698f6b83e6ca0b4da7c4c039" => :x86_64_linux
+    sha256 "6d6b306fb32395ca6555eb493a95083f9d6b8dfb0ec98d246248132cef60236e" => :high_sierra
+    sha256 "9fb76cf549256913c312ba9647614aa52d28e15cb759ed25706011cbdadd2fe0" => :sierra
+    sha256 "7ef12efa1b564abc652243f146f7f9b5b8d51f8600917743ab8c8bacfcdbd053" => :el_capitan
   end
 
   option "with-static-lib", "Build a static library"
