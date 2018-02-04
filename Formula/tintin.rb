@@ -3,16 +3,16 @@ class Tintin < Formula
   homepage "https://tintin.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/tintin/TinTin%2B%2B%20Source%20Code/2.01.4/tintin-2.01.4.tar.gz"
   sha256 "dd22afbff45a93ec399065bae385489131af7e1b6ae8abb28f80d6a03b82ebbc"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "8ad66191775045c0d6252bc4e2fa8c2d44e0290087e9a4d8627c125da19dd61c" => :high_sierra
-    sha256 "4940d4f93f2606e9cd14e044e57d557c6b5bba2f7853432a101e868e048e4801" => :sierra
-    sha256 "42985a4b7b44e3036348ce810aa6301adac1564bbb5caac55fb44e14e10a9e25" => :el_capitan
-    sha256 "b1f0e082cf1f0572353f39e8b0be067bbc6d151c8217779b243707700f874ac5" => :x86_64_linux
+    sha256 "552223fd7efc3d68a99a1d49135a6537091f0d893e67f08eaf876e2385a0460d" => :high_sierra
+    sha256 "58dbcc694fb3b80f10951d06f24fb4fd0e94eac1a3dc84017cd82e38610ff6a7" => :sierra
+    sha256 "bd1fe99b7c2a458acd81a5a567ba57c664c99f9f5f73adb8845bae7d7363a151" => :el_capitan
   end
 
+  depends_on "gnutls"
   depends_on "pcre"
 
   def install

@@ -20,7 +20,7 @@ class ImagemagickAT6 < Formula
   option "with-fftw", "Compile with FFTW support"
   option "with-hdri", "Compile with HDRI support"
   option "with-opencl", "Compile with OpenCL support"
-  option "with-gcc", "Compile with OpenMP support"
+  option "with-openmp", "Compile with OpenMP support"
   option "with-perl", "Compile with PerlMagick"
   option "without-magick-plus-plus", "disable build/install of Magick++"
   option "without-modules", "Disable support for dynamically loadable modules"
@@ -28,8 +28,8 @@ class ImagemagickAT6 < Formula
   option "with-zero-configuration", "Disables depending on XML configuration files"
 
   deprecated_option "enable-hdri" => "with-hdri"
+  deprecated_option "with-gcc" => "with-openmp"
   deprecated_option "with-jp2" => "with-openjpeg"
-  deprecated_option "with-openmp" => "with-gcc"
 
   depends_on "pkg-config" => :build
   depends_on "libtool" => :run
@@ -41,7 +41,6 @@ class ImagemagickAT6 < Formula
   depends_on "freetype" => :recommended
 
   depends_on "fontconfig" => :optional
-  depends_on "gcc" => :optional
   depends_on "little-cms" => :optional
   depends_on "little-cms2" => :optional
   depends_on "libwmf" => :optional
@@ -54,6 +53,11 @@ class ImagemagickAT6 < Formula
   depends_on "fftw" => :optional
   depends_on "pango" => :optional
   depends_on "perl" => :optional
+
+  if build.with? "openmp"
+    depends_on "gcc"
+    fails_with :clang
+  end
 
   skip_clean :la
 
