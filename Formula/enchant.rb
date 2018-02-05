@@ -8,6 +8,7 @@ class Enchant < Formula
     sha256 "7df6114c8fce8c93e1c7cd981ea9b5e7033eca9d5706341a8eef8fbc53f57602" => :high_sierra
     sha256 "5a3a649fb73ac04534056088294909e044c4665c99943020f668e1ca7ed99f3c" => :sierra
     sha256 "4240a9afdab529f1349963fd7d0e90725365fcd8fa27a937d5fc115abad50a65" => :el_capitan
+    sha256 "0a8affc0a51d1d4bfdcc1d5af4708fcf9009636b6830c85929c8e064248b7d69" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
