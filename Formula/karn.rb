@@ -12,7 +12,6 @@ class Karn < Formula
     sha256 "03533f5131e54f5c363cdb27a03a245770cfd952a0eb0d8b4ed6d3242a4194ac" => :x86_64_linux
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
@@ -20,7 +19,6 @@ class Karn < Formula
     (buildpath/"src/github.com/prydonius/karn").install buildpath.children
 
     cd "src/github.com/prydonius/karn" do
-      system "dep", "ensure"
       system "go", "build", "-o", bin/"karn", "./cmd/karn/karn.go"
       prefix.install_metafiles
     end
