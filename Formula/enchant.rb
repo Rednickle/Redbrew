@@ -1,14 +1,13 @@
 class Enchant < Formula
   desc "Spellchecker wrapping library"
   homepage "https://abiword.github.io/enchant/"
-  url "https://github.com/AbiWord/enchant/releases/download/v2.2.1/enchant-2.2.1.tar.gz"
-  sha256 "97f2e617b34c66a645b9cfebe33700456c31ca2f4677eb827b364c0d9a7f4e5e"
+  url "https://github.com/AbiWord/enchant/releases/download/v2.2.2/enchant-2.2.2.tar.gz"
+  sha256 "661e0bd6e82deceb97fc94bea8c6cdbcd8ff631cfa9b7a8196de2e2aca13f54b"
 
   bottle do
-    sha256 "25067da77a9493c1ab90b886f7663f5afbc7c204d0851f688bb02aa994a45d32" => :high_sierra
-    sha256 "98874c4c51f9dbdf6503229d4dbe4222a28a1cc8c198f73f8056649f2ffbbb6c" => :sierra
-    sha256 "ee787b33a70350864b55494d94321c5319c280f994fd3c7ae2cf8e4e2003edf1" => :el_capitan
-    sha256 "de893af298cb5bb22c4a5c274b95879ffaef0d1d6d93c3d76b99f7c2ca02af38" => :x86_64_linux
+    sha256 "bfd5c8794d5983d683474998cca0a661763063ebd9b6d4ff23a769c3cb422559" => :high_sierra
+    sha256 "92a11886e596d37f6510fa328fcfc7db8e7017a393f838cb7baf8eff29f948bf" => :sierra
+    sha256 "07a3df2729cbfaa080d5c38576a93efa8823ac0770c8131675b10fc1197ac01a" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
