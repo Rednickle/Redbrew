@@ -9,6 +9,7 @@ class Fribidi < Formula
     sha256 "a4cf0ea06a675c060d157264a85dcb0c378b3b6cb048d529a4c9295b62defae3" => :high_sierra
     sha256 "d94bcc9e376dc22b291bbb62824dcf1669dd14c0653ef49d98e6458be83e6a99" => :sierra
     sha256 "705fdec56849cae873d504d6925209cfc4c7802d10de0f48022845b6bec5e8ce" => :el_capitan
+    sha256 "3598b2b539cc4937e36f8a3d74099ff3a66ca65979a48d9fb89b8c4246d2a7be" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
