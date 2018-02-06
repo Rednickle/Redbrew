@@ -8,6 +8,7 @@ class Advancemame < Formula
     sha256 "cebd9f5bdee213f0994527f63a3c8ad6d78cb43e377bdd19978fa2d9e03acd15" => :high_sierra
     sha256 "3bf6b73863b14621de91fe5908921d322e28e4e26855eae7f5cf3ba15b360c07" => :sierra
     sha256 "e5f14218046ce7f164a270378743aefff119d0fc7c69987bfb78fc8d1105ea7b" => :el_capitan
+    sha256 "1ce058962e9139a010d08af0da8a89b847c26e3b912d74fb879c10a0b4f52324" => :x86_64_linux
   end
 
   depends_on "sdl"
