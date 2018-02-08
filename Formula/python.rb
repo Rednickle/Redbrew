@@ -3,14 +3,13 @@ class Python < Formula
   homepage "https://www.python.org/"
   url "https://www.python.org/ftp/python/2.7.14/Python-2.7.14.tar.xz"
   sha256 "71ffb26e09e78650e424929b2b457b9c912ac216576e6bd9e7d204ed03296a66"
-  revision OS.mac? ? 2 : 4
+  revision OS.mac? ? 3 : 5
   head "https://github.com/python/cpython.git", :branch => "2.7"
 
   bottle do
-    sha256 "783739edc153fa49d624f80baf543404e39aefcb137896f716fd39d0f8a40101" => :high_sierra
-    sha256 "ff784eab3e8072ae8a1e3b7b51e932f905a39a8d65cbf500f27a844cfa1e261a" => :sierra
-    sha256 "8853f6910125020b4cd92bc02a24df157981a78c727786e60516337beaf23c9d" => :el_capitan
-    sha256 "2e74ea7f76fb46da5eee27a0a81be2089687db98c601841fb3b29d1a02ee963f" => :x86_64_linux
+    sha256 "4e05897c538937126494a2e611e109e95e761a333dc1911e4ea77171f7cf2e4d" => :high_sierra
+    sha256 "0ac689593fa82905b69aacafc7bde61f88b54bdc36cacd4cfc2f315732eb60c4" => :sierra
+    sha256 "bd8cbaf020a476bfd53c75538244520b7713554feafeac3f0d454f8fb92c1293" => :el_capitan
   end
 
   # Please don't add a wide/ucs4 option as it won't be accepted.
@@ -117,6 +116,15 @@ class Python < Formula
       #{OS.mac? ? "--enable-framework=#{frameworks}" : "--enable-shared"}
       --without-ensurepip
     ]
+
+    # See upstream bug report from 22 Jan 2018 "Significant performance problems
+    # with Python 2.7 built with clang 3.x or 4.x"
+    # https://bugs.python.org/issue32616
+    # https://github.com/Homebrew/homebrew-core/issues/22743
+    if DevelopmentTools.clang_build_version >= 802 &&
+       DevelopmentTools.clang_build_version < 1000
+      args << "--without-computed-gotos"
+    end
 
     args << "--without-gcc" if ENV.compiler == :clang
     args << "--enable-unicode=ucs4" if build.with? "unicode-ucs4"

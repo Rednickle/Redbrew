@@ -4,13 +4,13 @@ class Vim < Formula
   # vim should only be updated every 50 releases on multiples of 50
   url "https://github.com/vim/vim/archive/v8.0.1450.tar.gz"
   sha256 "9d5294c592784213e6ac653cf228702ce59905b26e58cf4a01993d6264e1e774"
+  revision 1
   head "https://github.com/vim/vim.git"
 
   bottle do
-    sha256 "6b17422f226e7317970d60092a02b7ccd7468d2daaf377151ab959892efec94f" => :high_sierra
-    sha256 "d05b077d6566171701a42d478f685efdf6a2a6385fb0f08749edb20b5acfc737" => :sierra
-    sha256 "65e3f49626d3847f145706d3f3cf5dff68daadad131772bbdc17b12034a4d607" => :el_capitan
-    sha256 "642563d9da6ef8c6ea6e0e0beb7462af0806996585fe90af29e9f5db6fb665af" => :x86_64_linux
+    sha256 "998977e56581904d374871e0be2bae76e679cd312c657fd2a5466d96d458ac99" => :high_sierra
+    sha256 "3d60faa5bbb47be0b24fcb942efae5ad8acbc1eca5114f8cde014f5950d75434" => :sierra
+    sha256 "3da45a981727a9984bcb91293a6dbf2a6a3e8cfb26db6e8ac3e00aa9e323a21d" => :el_capitan
   end
 
   deprecated_option "override-system-vi" => "with-override-system-vi"
