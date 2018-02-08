@@ -13,6 +13,7 @@ class BandcampDl < Formula
     sha256 "743fbb2b0f09259dfa29a329a7b334624ad431e25219417ee5b25d2c562f100f" => :high_sierra
     sha256 "1614c268f44ad703e126af3d9b6ad08ba9a073e572428e769f5ea1eaba2b8a8d" => :sierra
     sha256 "3648e9009177fd1b0f5ff034b3ea029f6d0865c36517b3881203f00cdc87258c" => :el_capitan
+    sha256 "4484e139386e182c8e6279964987437ff0f1711783c095a90988c490d01b3d26" => :x86_64_linux
   end
 
   depends_on "python3"
