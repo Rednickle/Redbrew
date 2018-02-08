@@ -9,6 +9,7 @@ class Mrboom < Formula
     sha256 "9c607fc727dbbc6402f1b09ab04de2a23352f1a4a6e5ed18046fbbe0df28629c" => :high_sierra
     sha256 "a01e3a1b77a9da87a7d64cf97f03e963187199367848ec1f5feeef21e476ab5b" => :sierra
     sha256 "d7133bd954fd02f47f24aa516e9c9b442092d20a3600c7544bec02085fd3728e" => :el_capitan
+    sha256 "55523a27293f84669facb6f9fdd5536b23b3a9d4a31cf9f3b50d528bffe4965d" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
