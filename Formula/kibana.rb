@@ -7,7 +7,6 @@ class Kibana < Formula
       :tag => "v6.2.0",
       :revision => "9bfb11b2eee4ffdcfd984a75b99a3597de9098d4"
   head "https://github.com/elastic/kibana.git"
-  revision 1 unless OS.mac?
 
   bottle do
     sha256 "b23b2bfabac7bfec175f97d7ef88bd2896a4fc58332b74bdc59a7c7a26ca644d" => :high_sierra
