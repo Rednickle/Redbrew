@@ -4,18 +4,17 @@ class Consul < Formula
   desc "Tool for service discovery, monitoring and configuration"
   homepage "https://www.consul.io"
   url "https://github.com/hashicorp/consul.git",
-      :tag => "v1.0.4",
-      :revision => "95587edecaa48fa9ea9e865db02ae0bf8407918e"
+      :tag => "v1.0.5",
+      :revision => "09f90c9bfa963b895a1260cc8daffd65ac59b4bc"
 
   head "https://github.com/hashicorp/consul.git",
        :shallow => false
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f08f1faf62c7716a1be844a577dcb3b35d60a2be8c7d2993a720297a01af62e8" => :high_sierra
-    sha256 "28156ab076e7a41b87de1aacdc9c4987c603303b4d6c20549be24b2deceaeccd" => :sierra
-    sha256 "441e12c5b6db93fe8372fcf4a9fe3830016548a18baf4223682dfbb698e69a8f" => :el_capitan
-    sha256 "1d2257cbf37ff6f522fd01d17e4b7bccc47365c2907091adf7c5f06ab8a83501" => :x86_64_linux
+    sha256 "13a1f51b6ac80ee15a29d4eae30126ebd9ad26b11c6ebbc1cd4a883f13db8861" => :high_sierra
+    sha256 "5cc1a651b28de83bd344fe339bc375395f55e8091b7379401596023c81536f97" => :sierra
+    sha256 "d44ab7e0acba3c58b4c10e1e612c164bf2c3ac058b4bae38a2bbf558c9f1f670" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -32,9 +31,9 @@ class Consul < Formula
         :revision => "30f82fa23fd844bd5bb1e5f216db87fd77b5eb43"
   end
 
-  go_resource "github.com/jteeuwen/go-bindata" do
-    url "https://github.com/jteeuwen/go-bindata.git",
-        :revision => "a0ff2567cfb70903282db057e799fd826784d41d"
+  go_resource "github.com/hashicorp/go-bindata" do
+    url "https://github.com/hashicorp/go-bindata.git",
+        :revision => "bf7910af899725e4938903fb32048c7c0b15f12e"
   end
 
   go_resource "github.com/magiconair/vendorfmt" do
@@ -59,6 +58,8 @@ class Consul < Formula
     # Avoid running `go get`
     inreplace "GNUmakefile", "go get -u -v $(GOTOOLS)", ""
 
+    ENV["XC_OS"] = "darwin"
+    ENV["XC_ARCH"] = MacOS.prefer_64_bit? ? "amd64" : "386"
     ENV["GOPATH"] = buildpath
     contents = Dir["{*,.git,.gitignore}"]
     (buildpath/"src/github.com/hashicorp/consul").install contents
@@ -69,7 +70,7 @@ class Consul < Formula
     build_tools = [
       "github.com/axw/gocov/gocov",
       "github.com/elazarl/go-bindata-assetfs/go-bindata-assetfs",
-      "github.com/jteeuwen/go-bindata/go-bindata",
+      "github.com/hashicorp/go-bindata/go-bindata",
       "github.com/magiconair/vendorfmt/cmd/vendorfmt",
       "github.com/matm/gocov-html",
       "golang.org/x/tools/cmd/cover",
