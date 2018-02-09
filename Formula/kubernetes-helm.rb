@@ -2,16 +2,15 @@ class KubernetesHelm < Formula
   desc "The Kubernetes package manager"
   homepage "https://helm.sh/"
   url "https://github.com/kubernetes/helm.git",
-      :tag => "v2.8.0",
-      :revision => "14af25f1de6832228539259b821949d20069a222"
+      :tag => "v2.8.1",
+      :revision => "6af75a8fd72e2aa18a2b278cfe5c7a1c5feca7f2"
   head "https://github.com/kubernetes/helm.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "25b600d01706cd1137adf44fd75ce8f5d7be03b5145e10aee40d5a5c0fbb45a1" => :high_sierra
-    sha256 "6d5047109b475bb49df11b6725ee7e451a3315f72c3103df15f417ed032c43e4" => :sierra
-    sha256 "6fc269c67501605fb133f409da809da85a88460878e1140f87b77973c940b77d" => :el_capitan
-    sha256 "fd72348d43fa3e6d6e7afad25b716635e21ab129a172d3b1653faebc7f885cdc" => :x86_64_linux
+    sha256 "322d54bbc9a40a41677d17b37e532c21bcefecbbd1dcf0a93e96057c4fdf2d0d" => :high_sierra
+    sha256 "a2c53c407e7fffae08e8ef59ecdced3e0d4d8c28c6ce539623e0030c8950e07a" => :sierra
+    sha256 "f08f1301e92197fe6cf2a0f08583088a38e8daf85536bcef731d25dc2b6ba237" => :el_capitan
   end
 
   depends_on "mercurial" => :build
