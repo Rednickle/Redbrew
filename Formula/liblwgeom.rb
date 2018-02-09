@@ -9,6 +9,7 @@ class Liblwgeom < Formula
     sha256 "d844e20771f16f98b92a229a9726eb6a78d9e3e8cb48093749565ff9ed85d3fc" => :high_sierra
     sha256 "9e85d5e2290eaefac0f8651aba797ed61385f42cbaf7703de7ae21b02ca9d8bb" => :sierra
     sha256 "4f8d9ec067213ba75bec47f38921c5d2564b7d06633a684f7474c114af2c03fd" => :el_capitan
+    sha256 "2a7d682ee0b08199b46488d9cc4ea96b93dfd28f3e0d4f3b7595b03a032c92db" => :x86_64_linux
   end
 
   head do
