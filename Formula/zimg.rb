@@ -10,6 +10,7 @@ class Zimg < Formula
     sha256 "ca9c8e759ef76b65a44e03ccf978fec1ee435d5ec31ca8057a1b34a6231c8c68" => :high_sierra
     sha256 "24a6502b1ca5b15b991cc3df1f6f4dff7c1966da91560f6e03e03a61f0659787" => :sierra
     sha256 "79ced4a944ed9cd14df5f691b7cb4aba544b559123387d8983758914da5adfd4" => :el_capitan
+    sha256 "c8c4aa905693ee12629c55978b6b94d657b2776d0528fdfc4f11bef3be573ad1" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
