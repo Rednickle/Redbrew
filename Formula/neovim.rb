@@ -10,6 +10,7 @@ class Neovim < Formula
     sha256 "86b8181d2d6c96a6ecbac8414087456631cabdb27e6d36fee9f2e9c723fe99ad" => :high_sierra
     sha256 "c2e551578f36847121dd8cdcdfd3de9abf5836906658e166ab6e5d71ba805de5" => :sierra
     sha256 "4e193b9c000868ece51cd256fb9831423381969fbc53212f18484b5b2cba187a" => :el_capitan
+    sha256 "ceb6530b0ad231042eed5db84725fe3dd208601908ceb6c8b7b02af977402263" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
