@@ -10,6 +10,7 @@ class P7zip < Formula
     sha256 "fb52fc214eb4ecd032666997976a514212adcb3c33ca23f15547310d5dc14a6e" => :high_sierra
     sha256 "a2b914eebce9108f278e33b53ca798999eb81397c370bd1eaa7f63ddc5e51867" => :sierra
     sha256 "229fc3a0badd5325e69b93121c9d55e7860110093e57ef46af063daccb2af372" => :el_capitan
+    sha256 "9a1f6af0362f6dd90ad9fe02c9fe7c487a754c0f9b1bc79ccea1a7528faef36d" => :x86_64_linux
   end
 
   patch do
