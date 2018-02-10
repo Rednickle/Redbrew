@@ -12,6 +12,7 @@ class X264 < Formula
     sha256 "2e2cf99b9f06181e9d1bbd549e3426717d4fb93fc12fe2cd7f295b92f7b28a55" => :high_sierra
     sha256 "b656ff61da5b8ab33dc940bb4efa57bed89c3d40e79416aee8a960d8f7f2e4f1" => :sierra
     sha256 "3ac151bdd5cf62a55fb41c60761c548db721a7b6c1ebc6f4af5b4fc71b499e7f" => :el_capitan
+    sha256 "faa6d0747a76d5ada53597e38ebd4d0bbe4622351a4a3c10cffb80a44698f01d" => :x86_64_linux
   end
 
   option "with-10-bit", "Build a 10-bit x264 (default: 8-bit)"
