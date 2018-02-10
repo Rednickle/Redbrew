@@ -9,6 +9,7 @@ class Posh < Formula
     sha256 "548e5330c43d793d53a5367a20c8538659c2b01ec89e1e38adb77af84220f56d" => :high_sierra
     sha256 "b3c765a3f11f264415f1438db4c20e77c4202e8a894d67be5ab60ce2bbfb30a1" => :sierra
     sha256 "d8018f086dea30a4225641c56255dff05a45d5eea16707822c1e13364b44ecbc" => :el_capitan
+    sha256 "5fcdc2b21d26802e0cdfea11a95677b3742ba9c0f474d1f567d5007ec95be46d" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
