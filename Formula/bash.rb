@@ -12,7 +12,7 @@ class Bash < Formula
     mirror "https://gnu.cu.be/bash/bash-4.4.tar.gz"
     mirror "https://mirror.unicorncloud.org/gnu/bash/bash-4.4.tar.gz"
     sha256 "d86b3392c1202e8ff5a423b302e6284db7f8f435ea9f39b5b1b20fd3ac36dfcb"
-    version "4.4.18"
+    version "4.4.19"
 
     %w[
       001 3e28d91531752df9a8cb167ad07cc542abaf944de9353fe8c6a535c9f1f17f0f
@@ -33,6 +33,7 @@ class Bash < Formula
       016 501f91cc89fadced16c73aa8858796651473602c722bb29f86a8ba588d0ff1b1
       017 773f90b98768d4662a22470ea8eec5fdd8e3439f370f94638872aaf884bcd270
       018 5bc494b42f719a8b0d844b7bd9ad50ebaae560e97f67c833c9e7e9d53981a8cc
+      019 27170d6edfe8819835407fdc08b401d2e161b1400fe9d0c5317a51104c89c11e
     ].each_slice(2) do |p, checksum|
       patch :p0 do
         url "https://ftp.gnu.org/gnu/bash/bash-4.4-patches/bash44-#{p}"
@@ -47,10 +48,9 @@ class Bash < Formula
   end
 
   bottle do
-    sha256 "4e08c7b4c14a14f36ad31973000bbae32c3ed1142cbff163728d7ceeafb2ae2f" => :high_sierra
-    sha256 "5b0f264577b01c63809f1cb7adc9552bef33649b91079d727c64c15e7ee17867" => :sierra
-    sha256 "e3f7e5dc17fd1650e3800599faf932929370a7e6e8b30f2cbd2c5cb310ce8e40" => :el_capitan
-    sha256 "82c5c8bdaa45c4d11a15482892ef61217e5b1ee750dc4c53e8e0665a92cde3fc" => :x86_64_linux
+    sha256 "c190ef318789e8628cb643536e047510d3ab20fdc6e7265d5fa908ebd6af824c" => :high_sierra
+    sha256 "63df41e44e43446adac9ddc16e3a2765731b2824c10d19a97ffd968a28a46b5e" => :sierra
+    sha256 "42acd30227424e96d6ab286b8d10065540bde8c97e23b26ef99cac6d6c0eb11c" => :el_capitan
   end
 
   depends_on "readline"
