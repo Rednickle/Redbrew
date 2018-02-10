@@ -33,6 +33,7 @@ class Imlib2 < Formula
       --enable-amd64=no
     ]
     args << "--without-x" if build.without? "x11"
+    args << "--without-id3" if build.without? "libid3tag"
 
     system "./configure", *args
     system "make", "install"
