@@ -3,9 +3,8 @@ class Graphicsmagick < Formula
   homepage "http://www.graphicsmagick.org/"
   url "https://downloads.sourceforge.net/project/graphicsmagick/graphicsmagick/1.3.28/GraphicsMagick-1.3.28.tar.xz"
   sha256 "942a68a9a8a5af6f682b896fd4f0ad617d8b49907e474acfe59549956bcc994a"
-  revision 1
+  revision OS.mac? ? 1 : 2
   head "http://hg.code.sf.net/p/graphicsmagick/code", :using => :hg
-  revision 1 unless OS.mac?
 
   bottle do
     sha256 "ff12a82870629fe3f6e425aa1500ae4da142809745b5b755a42498504f73f1ee" => :high_sierra
