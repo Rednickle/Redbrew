@@ -3,13 +3,14 @@ class Ffmpeg < Formula
   homepage "https://ffmpeg.org/"
   url "https://ffmpeg.org/releases/ffmpeg-3.4.1.tar.bz2"
   sha256 "f3443e20154a590ab8a9eef7bc951e8731425efc75b44ff4bee31d8a7a574a2c"
+  revision 1
+
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
-    sha256 "f43c9bfbe55f3e97dea63db39cbfb18e53d34796ead8be52f0d9796121427214" => :high_sierra
-    sha256 "5069b7263c6cd80702c7d388ad846c8bbea575ee7e7469f1320def2e5da6bc47" => :sierra
-    sha256 "02239274124b1c5b883cfa4da0a1e4e175d14587dd72b181cc91c1f815cadaf5" => :el_capitan
-    sha256 "ee926c81c813664c04eba7e216ef3e096cf0528d582fd740adf6f3c992818c03" => :x86_64_linux
+    sha256 "b8efdd84da1ae5badc78cb942635b96db3f937816ffb78c9c602c1707f7cece4" => :high_sierra
+    sha256 "a927864c5578bff2569c49ad8e9ec8e78666cb53970f7b1bcf45d08f04e00212" => :sierra
+    sha256 "cd10b9586705e73f502dbc4e6fe9d241ec099cb17b164f8fdc619159bc94cd1a" => :el_capitan
   end
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
