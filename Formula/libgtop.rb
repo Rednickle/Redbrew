@@ -8,6 +8,7 @@ class Libgtop < Formula
     sha256 "93d65fe5d0e5727fa542adb6f21fbbdb0812d7cfe93345d693864bb017f90d35" => :high_sierra
     sha256 "351fcbb0c758d7435e58862c3ffeaef9c437e53dcf43a7ab4ca4dc260cb014e0" => :sierra
     sha256 "fc47a0ffb4dd010bf29bc8dd6e0d88a75a2ccb66b33e5a43869e20303e2e9fcb" => :el_capitan
+    sha256 "0f42444f59bda1499892ea39a895ed90e4c69b36e09cdada16f18635e7b97c8a" => :x86_64_linux
   end
 
   # Some build deps were added for the patch below,
