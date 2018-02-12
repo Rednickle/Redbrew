@@ -9,6 +9,7 @@ class Libxlsxwriter < Formula
     sha256 "86198925f436e9529990846ce8027ea7962747201a4d52722a6eee13e370c427" => :high_sierra
     sha256 "e30086361ba37be6417138e270b4de4d5df92fadcd6be9b40502391d548a3ee6" => :sierra
     sha256 "1d86b5ae35b830b6dbd69cb8289920dfd4dcfb8a498d4d0988e9daa569b3dcc2" => :el_capitan
+    sha256 "ac8333df404e2d878cc6043000983198efc6fe1257d9ffe9f797932e67c161c3" => :x86_64_linux
   end
 
   depends_on "zlib" unless OS.mac?
