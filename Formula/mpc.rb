@@ -8,6 +8,7 @@ class Mpc < Formula
     sha256 "baffb4e58d39af2f18d3def335cb231826e1a94fafa4f31367e7372dbbfe769f" => :high_sierra
     sha256 "400ac144b7f8ca93a2cf2489e0b25031a0086b95e283c6537b037acf008e80cf" => :sierra
     sha256 "0ed8bc8a4a93e8df393e23d19229719ff057ebd3a6e27ff42324451753c399d0" => :el_capitan
+    sha256 "755eb04c55d33c78a2f0efcc4c48ba9ff905a20c8a6e0a7cd084a114fd8a42e1" => :x86_64_linux
   end
 
   depends_on "meson" => :build
