@@ -9,6 +9,7 @@ class Surfraw < Formula
     sha256 "69920395cbde5fdc2492aa27fc765d4dafe910e26d9d3a05777888425310a0a9" => :high_sierra
     sha256 "69920395cbde5fdc2492aa27fc765d4dafe910e26d9d3a05777888425310a0a9" => :sierra
     sha256 "69920395cbde5fdc2492aa27fc765d4dafe910e26d9d3a05777888425310a0a9" => :el_capitan
+    sha256 "48b20736aae201046c9fdd3f0952ee5776be80c7eb0a7b68b3c75b837eca9285" => :x86_64_linux
   end
 
   head do
