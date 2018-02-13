@@ -3,8 +3,8 @@
 # Please always follow these steps:
 - [ ] Confirmed this is a problem with `brew install`ing one, specific formula and not every time you run `brew`? If it's a general `brew` problem please file this issue at https://github.com/Linuxbrew/brew/issues/new.
 - [ ] If you have a macOS system and can replicate the problem on macOS with Homebrew, please report the issue to [Homebrew/core](https://github.com/Homebrew/homebrew-core) and follow their issue template from your macOS system. If you are unsure, please report the issue to Linuxbrew.
-- [ ] Ran `brew update` and retried your prior step?
-- [ ] Ran `brew doctor`, fixed all issues and retried your prior step?
+- [ ] ran `brew update` and can still reproduce the problem?
+- [ ] ran `brew doctor`, fixed all issues and can still reproduce the problem?
 - [ ] Ran `brew gist-logs <formula>` (where `<formula>` is the name of the formula that failed) and included the output link?
 - [ ] If `brew gist-logs` didn't work: ran `brew config` and `brew doctor` and included their output with your issue?
 
