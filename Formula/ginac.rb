@@ -8,6 +8,7 @@ class Ginac < Formula
     sha256 "12fb4c423a2f2f8edbfb80e8418358d739c799d91b7972513de9fd030e589957" => :high_sierra
     sha256 "f6bd9aec1dd59e05c289d2db81f5c2d820447347a0e995684341f1c5fd5d32d4" => :sierra
     sha256 "02f150eca701df20c0e8629d8e5370ff93b82430dea360c188146fe7110e9e0f" => :el_capitan
+    sha256 "42ca27e39aa676c79577ceb484984b9d8ba41c5d09e2a6132a5095da8f3856f0" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
