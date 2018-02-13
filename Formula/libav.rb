@@ -1,17 +1,14 @@
 class Libav < Formula
   desc "Audio and video processing tools"
   homepage "https://libav.org/"
-  url "https://libav.org/releases/libav-12.2.tar.xz"
-  sha256 "7b5620261fb3e372bf3992736862f598967988502f7804c39c5246b62348c53b"
-  revision 1
-
+  url "https://libav.org/releases/libav-12.3.tar.xz"
+  sha256 "6893cdbd7bc4b62f5d8fd6593c8e0a62babb53e323fbc7124db3658d04ab443b"
   head "https://git.libav.org/libav.git"
 
   bottle do
-    sha256 "9d9ad869ec5e87392fa4b74afff5dbec5630dd2875c60acb3868dd5332d9a8e2" => :high_sierra
-    sha256 "1ced678eb31a14d31a5bb7b0f06433f1354f20cb98c2a399c904db79fdb1ed66" => :sierra
-    sha256 "7ca95c79fdbf0465a07437a8e2d736ed3f3e5f3e718f404ec0a7ac76af6d3627" => :el_capitan
-    sha256 "1f3204ba81a739a1708f35c4fe03f7e4d9221e822ab71c9efe3b79fff5578ba9" => :x86_64_linux
+    sha256 "84c3c2aa4f5cd7086021bb7c30215e872a1c4e3005df914b240696162ce3e8f6" => :high_sierra
+    sha256 "fc68fd70481e6071b567bc186df5d39b3156f0053f98ef0bdeda020497beb11d" => :sierra
+    sha256 "d91489215ba05ef1a9c93c3c18d6c13e20fdc901fad4e9d6c47922775be77ecb" => :el_capitan
   end
 
   option "without-faac", "Disable AAC encoder via faac"
