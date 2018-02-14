@@ -9,6 +9,7 @@ class Dashing < Formula
     sha256 "8977385e74741b7e014e971a320f58c360eede59f68894f1539040b5af474a25" => :high_sierra
     sha256 "09fb6574fe2cf30bb94197730b7e6d3117929607a571e42058a40a5e7b500e70" => :sierra
     sha256 "b37d425623bdbb32fe99d58c6d15cbc0753706aad3758aaf95ed229316e2a185" => :el_capitan
+    sha256 "f568ff02790d9738bf9801e44ea837b529e53909405d5d41baf67faf11c1516c" => :x86_64_linux
   end
 
   depends_on "glide" => :build
