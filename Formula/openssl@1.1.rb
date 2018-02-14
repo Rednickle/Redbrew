@@ -15,6 +15,11 @@ class OpensslAT11 < Formula
     sha256 "145566ab99d1926ecb02591ed1d397683f4f1733c0b7f512a7155f5a156ea25b" => :x86_64_linux
   end
 
+  devel do
+    url "https://www.openssl.org/source/openssl-1.1.1-pre1.tar.gz"
+    sha256 "dd291d0a81d77219d40b21b9caf4713daaf43416fe8d6eae0b96df39b8b17e6d"
+  end
+
   keg_only :versioned_formula
 
   option "without-test", "Skip build-time tests (not recommended)"
