@@ -3,15 +3,14 @@ class Ooniprobe < Formula
 
   desc "Network interference detection tool"
   homepage "https://ooni.torproject.org/"
-  url "https://pypi.python.org/packages/46/eb/e44d255dbd6b2bc8cc6de680ff8ce3c279c9b0694a6eec9059bdf4806dfc/ooniprobe-2.2.0.tar.gz"
-  sha256 "971f7630587b7ba771383f93c10973871e2c5e866a7fde98754a788679361ac3"
-  revision 1
+  url "https://pypi.python.org/packages/d8/c0/b4a2ae442dd95160a75251110313d1f9b22834a76ef9bd8f70603b4a867a/ooniprobe-2.3.0.tar.gz"
+  sha256 "b4c4a5665d37123b1a30f26ffb37b8c06bc722f7b829cf83f6c3300774b7acb6"
 
   bottle do
     cellar :any
-    sha256 "f1fa1f0b4a39c204ad1527319c749955b9bb5df9a59edf10a498a4d1ade33779" => :high_sierra
-    sha256 "54685d13817a7311a0ba12a41c0043c526d9c7c8574bb7de21524e75aae1a884" => :sierra
-    sha256 "cd0a799a4ace9a2e81b333e10911226721501037ac028266ab21c312ec0524cd" => :el_capitan
+    sha256 "63c467de1c93e89d6eb555587ccf5048fc7d48646a1359ae51549635d619fe27" => :high_sierra
+    sha256 "190aa6d0fc5824a8f34c364ba6c436c6a7c4a6485afd10b9aaf39885ee2e870c" => :sierra
+    sha256 "21c9bbeaf1f5ab28751714147db3257824535eda0068c701707c8ad02fe50372" => :el_capitan
   end
 
   depends_on "geoip"
