@@ -8,6 +8,7 @@ class Aqbanking < Formula
     sha256 "866075937aef08470752e57b1edeb825a979ff3ee4e64b00684efdb13023f4ad" => :high_sierra
     sha256 "20be1437e600089a4a030b45695923a0f6447874e074e6e899a36c5d4137203a" => :sierra
     sha256 "13849e82bb69537024e914d379fb3778f8faa1f3da9cf9677e6326ef95ddbd15" => :el_capitan
+    sha256 "1124a4ddf766e15dfe97d9625ebca87e42640291ddd421fa9dfa49ba827e2810" => :x86_64_linux
   end
 
   head do
