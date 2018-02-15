@@ -1,15 +1,14 @@
 class ConsoleBridge < Formula
   desc "Robot Operating System-independent package for logging"
   homepage "https://wiki.ros.org/console_bridge/"
-  url "https://github.com/ros/console_bridge/archive/0.3.2.tar.gz"
-  sha256 "fd12e48c672cb9c5d516d90429c4a7ad605859583fc23d98258c3fa7a12d89f4"
+  url "https://github.com/ros/console_bridge/archive/0.4.0.tar.gz"
+  sha256 "c78f87a05c1b2f299c0c8cc1aa9e0234c7e761aa521e4223ecf7aebd21874437"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "dc5ba07f8af3c710d8a86536801d0770fb1755c9b32706b26bfe52b46c65f264" => :high_sierra
-    sha256 "31b0c5dae6dff5f796c3752e636cdf2fbbd4bc16d47288c06809668fde424dd0" => :sierra
-    sha256 "bbc636adfa1c9a7322c9eb9646e228d85b0a9c3802d6c9d46f90f34be8cb268e" => :el_capitan
-    sha256 "aaa4c864510d4dc4783d70a3f6201ffe9bba728eb050a8d8c25d7fe807bdce88" => :x86_64_linux
+    cellar :any
+    sha256 "e58f4cb5a2e01bd7c014e7bc96b83046bce93bbf3f6664dc51820a49bfc2b012" => :high_sierra
+    sha256 "3dd9b0b3f0171241bf9dea73bd958788f240f51c394b3e7268b677e0df86e962" => :sierra
+    sha256 "adaf8ded297007d29b83556a470fdb24993d56df90defa75dab2a7a32a224c2a" => :el_capitan
   end
 
   depends_on "cmake" => :build

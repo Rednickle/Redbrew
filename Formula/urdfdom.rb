@@ -3,13 +3,13 @@ class Urdfdom < Formula
   homepage "https://wiki.ros.org/urdf/"
   url "https://github.com/ros/urdfdom/archive/1.0.0.tar.gz"
   sha256 "243ea925d434ebde0f9dee35ee5615ecc2c16151834713a01f85b97ac25991e1"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "a7ab2c2af35c514aeaf1f8430ae0b006c202168702bad2e097d41b0a457c677e" => :high_sierra
-    sha256 "918cea5cb5b12f5c402b30bffb202e7a647da346500879ae0a8b012185e26170" => :sierra
-    sha256 "df2053f208f884bd3c05be4ea4b74cfe8b38b2b48e9ecd16946185d92fbc7a24" => :el_capitan
-    sha256 "6b2580730ed3b010e0c4affcb2a65e4d24de01d04fa29be970ab6794377b800d" => :x86_64_linux
+    sha256 "ffe532a4d96689d515b46ac589afbb9e071a463250e65bbd9453d2db7e8e9eee" => :high_sierra
+    sha256 "8d4a25f145f4522f14b5085fdc7c3f6182237ee472a1b51e31e0093371f68acd" => :sierra
+    sha256 "03be42a92fe4a40b03ff648b45393ad6ca4db533286bdff32e3837862a326a1e" => :el_capitan
   end
 
   depends_on "cmake" => :build

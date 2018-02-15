@@ -1,8 +1,8 @@
 class Dub < Formula
   desc "Build tool for D projects"
   homepage "https://code.dlang.org/getting_started"
-  url "https://github.com/dlang/dub/archive/v1.7.1.tar.gz"
-  sha256 "baa8c533f59d83f74e89c06f5ec7e52daf3becb227c7177a9eeab7159ba86dbc"
+  url "https://github.com/dlang/dub/archive/v1.7.2.tar.gz"
+  sha256 "1801e2d8f0069ad68ef7c63ed44dc3923a8f7617fd3c9db5e5e748846b0d79cb"
   version_scheme 1
 
   head "https://github.com/dlang/dub.git"
@@ -13,12 +13,9 @@ class Dub < Formula
   end
 
   bottle do
-    sha256 "24df5fff78cc739476e0246a114e41e3a4d65dc357b065e73c6186b77501f47a" => :x86_64_linux
-  end
-
-  devel do
-    url "https://github.com/dlang/dub/archive/v1.7.2-beta.1.tar.gz"
-    sha256 "5f1f9a4f59bee5721b7e6f49a87c49732908743f0c0f30b31a746fca26b16489"
+    sha256 "64ce3069762775d82d1dcf93a76033f526aaccd798e7ad9c7a885fa129548d61" => :high_sierra
+    sha256 "8d54d328457b23195d2d5fbe3d829fdaecb8f3c918b2cc34e24a7d10fd334acb" => :sierra
+    sha256 "828a8534ea4978f508aeb63ad45c9154223f5914edbff39dd14c98c3cfd6e45f" => :el_capitan
   end
 
   depends_on "pkg-config" => [:recommended, :run]
