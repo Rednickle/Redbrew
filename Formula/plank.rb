@@ -1,13 +1,13 @@
 class Plank < Formula
   desc "Framework for generating immutable model objects"
   homepage "https://pinterest.github.io/plank/"
-  url "https://github.com/pinterest/plank/archive/v1.2.1.tar.gz"
-  sha256 "21d15335bdf2f229a886611f3d18138b4a41ccbf420809dc3be1da41d3868104"
+  url "https://github.com/pinterest/plank/archive/v1.3.tar.gz"
+  sha256 "307d8e3c8d696b8de03a0789ce0ef11b39f533988a97d8b2cea4f9c5fd31310b"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b11dd6d04d4560d28ede31d5ee3812c9fa8080539918d701957b800d9bd9d827" => :high_sierra
-    sha256 "a893af40dcfb3c2d524456aa294ab6dec0a64b47b5b0880982f805e9b5db7977" => :sierra
+    sha256 "0adac99e6dc8cc45a9d059c2438a0f6c703e2b3dedeafb79b28244864d91ecc4" => :high_sierra
+    sha256 "ee67fc2269b4f4920e6fcbd9311df017a4e2eb9dafe4940e1c1282d77999000b" => :sierra
   end
 
   depends_on :xcode => ["9.0", :build]
