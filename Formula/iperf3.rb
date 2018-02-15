@@ -9,6 +9,7 @@ class Iperf3 < Formula
     sha256 "4a360d9aa6f9b83b000f3d58bfdf15b144d3baeb17851c64cd6db90fbb93d53c" => :high_sierra
     sha256 "eb4e5addaa2338432eb3559ef7579c992bb344de9979cccf9c8c7cd21e39d32e" => :sierra
     sha256 "5caca9b1b6d4debb8034c772b5cf175980ec875599fc5e3a3076949000de92d8" => :el_capitan
+    sha256 "4629b9ec96126f721a06609a326dde3d4c808a300ed4b7b149fdee38bba80947" => :x86_64_linux
   end
 
   head do
