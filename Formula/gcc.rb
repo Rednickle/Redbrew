@@ -31,9 +31,10 @@ class Gcc < Formula
 
   bottle do
     cellar :any
-    sha256 "276420d0b1f1355189ee6701408dfbf351477b7d7166c1ffca313a4368bfb5d8" => :high_sierra
-    sha256 "a1f43d52abe183d270997256f32463281ae3d3c5d2a40f7348d6170a55555246" => :sierra
-    sha256 "f582beda3d37ceaa591bdf3070e357adb31967d8edee2f8075c15732740c7fe8" => :el_capitan
+    rebuild 1 if OS.mac?
+    sha256 "d09669e3679bb54448f00cda4bf520e631f7487f132ebfe6e0d2f6ecdcd5f6e0" => :high_sierra
+    sha256 "25cc9378b872c87e94d40b12eae550a5fcd0c4e8dfc86bd8e3e90a25bfbdf875" => :sierra
+    sha256 "69f32570d96ecc1a5365cbfe864f9cea68ae650854f1db1b11d8a6bcde1fd7bb" => :el_capitan
     sha256 "4c2282e0e6fea90ab2dc1540ad7f95319f8f41c0254f6dc7ae2d112c616c55d8" => :x86_64_linux
   end
 
@@ -80,6 +81,12 @@ class Gcc < Formula
   # Fix for libgccjit.so linkage on Darwin
   # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=64089
   patch :DATA if OS.mac?
+  # https://github.com/Homebrew/homebrew-core/issues/1872#issuecomment-225625332
+  # https://github.com/Homebrew/homebrew-core/issues/1872#issuecomment-225626490
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e9e0ee09389a54cc4c8fe1c24ebca3cd765ed0ba/gcc/6.1.0-jit.patch"
+    sha256 "863957f90a934ee8f89707980473769cff47ca0663c3906992da6afb242fb220"
+  end if OS.mac?
 
   # Fix parallel build on APFS filesystem
   # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=81797
@@ -185,7 +192,15 @@ class Gcc < Formula
       end
 
       system "../configure", *args
-      system "make", "bootstrap"
+
+      make_args = []
+      # Use -headerpad_max_install_names in the build,
+      # otherwise lto1 load commands cannot be edited on El Capitan
+      if MacOS.version == :el_capitan
+        make_args << "BOOT_LDFLAGS=-Wl,-headerpad_max_install_names"
+      end
+
+      system "make", *make_args
       system "make", "install"
 
       if build.with?("fortran") || build.with?("all-languages")
