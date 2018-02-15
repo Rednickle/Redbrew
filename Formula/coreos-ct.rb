@@ -1,14 +1,14 @@
 class CoreosCt < Formula
   desc "Convert a Container Linux Config into Ignition"
   homepage "https://coreos.com/os/docs/latest/configuration.html"
-  url "https://github.com/coreos/container-linux-config-transpiler/archive/v0.6.1.tar.gz"
-  sha256 "57cafa9db08caa6bed0290612bebf5d1a763a96fdb21f23de1681fd266b0c3c3"
+  url "https://github.com/coreos/container-linux-config-transpiler/archive/v0.7.0.tar.gz"
+  sha256 "8893181b937bc2319b10b0b52406f2ed156cad8081fe3ea2d44d7b72d811bfbe"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "54ec2fd538b38fc7a5a7c52c775626495db04d8a259ad8f40d842187d94976ff" => :high_sierra
-    sha256 "327e8e1962923dbbab4d05b8d112112ddb1f5586660cd2cc290d9a46c0a3f27d" => :sierra
-    sha256 "05902d5c2cdeb6b67c5a88f664f2aca4ff6763ddc339774a4abba3df15d4fe68" => :el_capitan
+    sha256 "a85155f35e946bdca5dc31ec98fc573a83111cbdabad115bb1d9f6df676f268d" => :high_sierra
+    sha256 "76cd05d1f910df40b692177b8367dd45f7f6e67b05430c99abf320bba18f3521" => :sierra
+    sha256 "aadeb730c66469ac823833658621eb89aafad14f481069e3a4af4c3f980d6452" => :el_capitan
   end
 
   depends_on "go" => :build
