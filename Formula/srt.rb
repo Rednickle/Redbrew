@@ -6,10 +6,11 @@ class Srt < Formula
   head "https://github.com/Haivision/srt.git"
 
   bottle do
-    cellar :any
+    cellar :any_skip_relocation
     sha256 "b7ca3f37963f4bbeeeadf3a5902122770928e096552c3655208de40ab250131e" => :high_sierra
     sha256 "9a5e297f60b445aee785f9d8ae40843d52c4314e6a68ff53b69d2f57efdedbae" => :sierra
     sha256 "0e3bbfd2185fa06624b9e62a3bfaf303b5ffe7ca6db61b636b83eedf120b6db5" => :el_capitan
+    sha256 "983649d7f6e7c47f85ce0e78f713710df8f0085a6109c41b282c5d0a1459c4c0" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
