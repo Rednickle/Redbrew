@@ -1,23 +1,34 @@
 class Kallisto < Formula
   desc "Quantify abundances of transcripts from RNA-Seq data"
   homepage "https://pachterlab.github.io/kallisto/"
-  url "https://github.com/pachterlab/kallisto/archive/v0.43.1.tar.gz"
-  sha256 "2164938c2c61c04e338c4c132cf749f56d39e6f0b4c517121bca1fbc218e430e"
-  revision 1
+  url "https://github.com/pachterlab/kallisto/archive/v0.44.0.tar.gz"
+  sha256 "35a81201a56f4557697e6fe693dc6b701bbbd0a7b2b6e1c6c845ef816d67ca29"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "7def510bff1b872bff522fc561ccf197d2810f1d8df8fa3bf1870225ec74bd6a" => :high_sierra
-    sha256 "975be5f037dfc6a47b65ef79bc3c3a9a0583e7eaa36add776a034a7bdf7f3893" => :sierra
-    sha256 "9174135661c12414338e2a5280ee31951f97e8d55bd30ba423099e9b872da42e" => :el_capitan
-    sha256 "79b406874ecf48abd2c2a864b2f4777b55ee2f6d5bff6ec82c9e80074b5b96a4" => :x86_64_linux
+    cellar :any
+    sha256 "e5c4fcf742ff84d42744ff61df47494326ec0a6aa603c0f7d2001a08159904fa" => :high_sierra
+    sha256 "661ff267798eac80579c4076d52ab9ee2438ec0bdb0c107f9cc9baeec4f95675" => :sierra
+    sha256 "0e4a7def1a19531b7147b1679ecc66fd60be35252cf07fbc733460e957de1a26" => :el_capitan
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "cmake" => :build
   depends_on "hdf5"
 
   def install
+    # Upstream issue 15 Feb 2018 "cmake does not run autoreconf for htslib"
+    # https://github.com/pachterlab/kallisto/issues/159
+    system "autoreconf", "-fiv", "ext/htslib"
+
     system "cmake", ".", *std_cmake_args
+
+    # Upstream issue 15 Feb 2018 "parallelized build failure"
+    # https://github.com/pachterlab/kallisto/issues/160
+    # Upstream issue 15 Feb 2018 "cannot use system htslib"
+    # https://github.com/pachterlab/kallisto/issues/161
+    system "make", "htslib"
+
     system "make", "install"
   end
 

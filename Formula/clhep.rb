@@ -1,15 +1,14 @@
 class Clhep < Formula
   desc "Class Library for High Energy Physics"
   homepage "https://proj-clhep.web.cern.ch/proj-clhep/"
-  url "https://proj-clhep.web.cern.ch/proj-clhep/DISTRIBUTION/tarFiles/clhep-2.4.0.1.tgz"
-  sha256 "4c7e2c6ac63e0237100e4ddcbfdc3d7e7dc6592f95bdbdcc0e43a6892b9fd6e0"
+  url "https://proj-clhep.web.cern.ch/proj-clhep/DISTRIBUTION/tarFiles/clhep-2.4.0.2.tgz"
+  sha256 "1e9891c5badb718c24933e7a5c6ee4d64fd4d5cf3a40c150ad18e864ec86b8a4"
 
   bottle do
     cellar :any
-    sha256 "754687becb24c2cdab142198a54c741cd09256f9ac412047c5c6949fea5283a5" => :high_sierra
-    sha256 "4c6fdba5cdee8966a39ea65a3fb7e3b0dcaa6207f2bd83dfadb2cc03a5b1040a" => :sierra
-    sha256 "3baf470337b3d13cb6fd96b8c17e516986211869f7f02ca9c3c4563c44ca6139" => :el_capitan
-    sha256 "14e1df1a41103dc6b153cf60314110c365236ad03d50633f2a0a5b659c8627dc" => :x86_64_linux
+    sha256 "bd973452bfa422f5aa776f9d55707ae0bbc5b40543563e6e031dff285ef99d59" => :high_sierra
+    sha256 "7652a1ff5a3f5300120b6968fbd081115cfb45014fc99ae522abc96d78a724f3" => :sierra
+    sha256 "56367a9f81d026208bfa8e9a476df8b102a69f6ab48d689c5ddeb53b1beab4eb" => :el_capitan
   end
 
   head do
@@ -22,16 +21,9 @@ class Clhep < Formula
   depends_on "cmake" => :build
 
   def install
-    # CLHEP is super fussy and doesn't allow source tree builds
-    dir = Dir.mktmpdir
-    cd dir do
-      args = std_cmake_args
-      if build.stable?
-        args << buildpath/"CLHEP"
-      else
-        args << buildpath
-      end
-      system "cmake", *args
+    mv (buildpath/"CLHEP").children, buildpath if build.stable?
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
       system "make", "install"
     end
   end
