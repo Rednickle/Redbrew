@@ -9,6 +9,7 @@ class Clhep < Formula
     sha256 "bd973452bfa422f5aa776f9d55707ae0bbc5b40543563e6e031dff285ef99d59" => :high_sierra
     sha256 "7652a1ff5a3f5300120b6968fbd081115cfb45014fc99ae522abc96d78a724f3" => :sierra
     sha256 "56367a9f81d026208bfa8e9a476df8b102a69f6ab48d689c5ddeb53b1beab4eb" => :el_capitan
+    sha256 "1e81230a55c786d32fdf2015e72cd973ec44b636735e8625e61fbb7baca12245" => :x86_64_linux
   end
 
   head do
