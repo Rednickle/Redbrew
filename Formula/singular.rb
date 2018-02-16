@@ -8,6 +8,7 @@ class Singular < Formula
     sha256 "c67c0b7d360c347230b0b6fb30f73721ea4630bc5b80a7a2212d74a418d79320" => :high_sierra
     sha256 "3744b2d21c4c3bca155a84678f8ba119bf362ffb721f05f735b88b45f26b639c" => :sierra
     sha256 "851f5dd71d837f2e89e83321e528c1082d2ca4d18ab00f0ebec91ca2947502cf" => :el_capitan
+    sha256 "c7c695f19722dbefc8f6dfd974ac98c4c9a10dcd8de622b0b1515039a50dfdfe" => :x86_64_linux
   end
 
   head do
