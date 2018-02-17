@@ -2,13 +2,13 @@ class RustupInit < Formula
   desc "The Rust toolchain installer"
   homepage "https://github.com/rust-lang-nursery/rustup.rs"
 
-  url "https://github.com/rust-lang-nursery/rustup.rs/archive/1.10.0.tar.gz"
-  sha256 "2abfca27caf83ed7b17e89a4ababd8d455c9d902ec6440f8a87f63bc124dbaf6"
+  url "https://github.com/rust-lang-nursery/rustup.rs/archive/1.11.0.tar.gz"
+  sha256 "000b873f239e8c5219ede3fd5836d6346ebea64ea928e2d754cdfc0f2071a874"
 
   bottle do
-    sha256 "3b559275c845bd6933ac017d845d3c6bed76bd6539374e1f24ac6fddef659d78" => :high_sierra
-    sha256 "6f87b44743e96122ffd8852e6a1650aed706b192356a8aa3162feee463dd09b9" => :sierra
-    sha256 "30db9d2ec44e9c9884820720f4f402f29ebd8c27dd09f4370484b908eec99d7a" => :el_capitan
+    sha256 "c426ae411e48c723c5c6fd6a1bd99a5187337139bd9e4d30cee2cad37d88d254" => :high_sierra
+    sha256 "ed86ccc7cb99ee87903b75d6238d388f00d7500cd9b18c806f795e35bc80b762" => :sierra
+    sha256 "bcffb2ac04a2c77bfec589a5c2d3d9f6125e41d22b56a11041dd823846ae9437" => :el_capitan
   end
 
   depends_on "rust" => :build

@@ -1,15 +1,14 @@
 class Xtensor < Formula
   desc "Multi-dimensional arrays with broadcasting and lazy computing"
   homepage "http://quantstack.net/xtensor"
-  url "https://github.com/QuantStack/xtensor/archive/0.15.1.tar.gz"
-  sha256 "2f4ac632f7aa8c8e9da99ebbfc949d9129b4d644f715ef16c27658bf4fddcdd3"
+  url "https://github.com/QuantStack/xtensor/archive/0.15.4.tar.gz"
+  sha256 "1383d34d79c4c579d577a502b145b458f74e1d76749d31a893beec5c6799098c"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b7f52cf829a5ad740fc80250d4a3b92ad783fc0949ddb1c919a86c5e540fa070" => :high_sierra
-    sha256 "b7f52cf829a5ad740fc80250d4a3b92ad783fc0949ddb1c919a86c5e540fa070" => :sierra
-    sha256 "b7f52cf829a5ad740fc80250d4a3b92ad783fc0949ddb1c919a86c5e540fa070" => :el_capitan
-    sha256 "08d802f2ba36171a3359dfc9f651d7d89b08ac422d0176866990cd3a58113827" => :x86_64_linux
+    sha256 "7b6e1c0609438526f38b941d787b2e447c4999a84a6fc0f1490c024c4c8a0441" => :high_sierra
+    sha256 "7b6e1c0609438526f38b941d787b2e447c4999a84a6fc0f1490c024c4c8a0441" => :sierra
+    sha256 "7b6e1c0609438526f38b941d787b2e447c4999a84a6fc0f1490c024c4c8a0441" => :el_capitan
   end
 
   needs :cxx14
