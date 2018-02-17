@@ -1,14 +1,13 @@
 class Gtkx3 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
-  url "https://download.gnome.org/sources/gtk+/3.22/gtk+-3.22.26.tar.xz"
-  sha256 "61eef0d320e541976e2dfe445729f12b5ade53050ee9de6184235cb60cd4b967"
+  url "https://download.gnome.org/sources/gtk+/3.22/gtk+-3.22.28.tar.xz"
+  sha256 "d299612b018cfed7b2c689168ab52b668023708e17c335eb592260d186f15e1f"
 
   bottle do
-    sha256 "2c3dc61e844ad559a517579285babab8ea01ca4e6346f4688360e89a0d27a15c" => :high_sierra
-    sha256 "b95e13c01b37aa3ed7ed41bc95a25a70525151e549c003e22d5d5a4f76890b77" => :sierra
-    sha256 "fc654db7a0c82221301c7334c540edda503087f866af5bdcc173a0e5576b7014" => :el_capitan
-    sha256 "cecb9e6d7f52e463e05efb0f3b5f88e86508d62569f24be0a52218a6e2f1bdab" => :x86_64_linux
+    sha256 "58867309a23a6bf9d2d73e1fdb16393b7f6670260a5e4318ac66ee603bc85a32" => :high_sierra
+    sha256 "9138b9852ee2d1a465d1c90981fd889f53dc6b6ee8f1edda1322b6b9ccdb83dd" => :sierra
+    sha256 "6833044f8a039c85eb220143bc1a1953ddcc36c2c4648ca91d991b36c7b454b3" => :el_capitan
   end
 
   option "with-quartz-relocation", "Build with quartz relocation support"
@@ -27,6 +26,10 @@ class Gtkx3 < Formula
     depends_on "at-spi2-atk"
     depends_on "cairo"
   end
+
+  # patch taken from https://gitlab.gnome.org/GNOME/gtk/issues/32
+  # should be removed in next update
+  patch :DATA
 
   def install
     args = %W[
@@ -122,3 +125,22 @@ class Gtkx3 < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/gdk/quartz/gdkquartz.h b/gdk/quartz/gdkquartz.h
+index be2cb3c..24555d4 100644
+--- a/gdk/quartz/gdkquartz.h
++++ b/gdk/quartz/gdkquartz.h
+@@ -60,8 +60,11 @@ typedef enum
+ GDK_AVAILABLE_IN_ALL
+ GdkOSXVersion gdk_quartz_osx_version (void);
+
++GDK_AVAILABLE_IN_ALL
+ GdkAtom   gdk_quartz_pasteboard_type_to_atom_libgtk_only        (NSString       *type);
++GDK_AVAILABLE_IN_ALL
+ NSString *gdk_quartz_target_to_pasteboard_type_libgtk_only      (const gchar    *target);
++GDK_AVAILABLE_IN_ALL
+ NSString *gdk_quartz_atom_to_pasteboard_type_libgtk_only        (GdkAtom         atom);
+
+ G_END_DECLS
+
