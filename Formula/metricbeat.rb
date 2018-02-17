@@ -1,17 +1,23 @@
 class Metricbeat < Formula
   desc "Collect metrics from your systems and services"
   homepage "https://www.elastic.co/products/beats/metricbeat"
-  url "https://github.com/elastic/beats/archive/v6.2.0.tar.gz"
-  sha256 "f4cf4dee93ae5803d7c07573e96f73ee421cf9f3154615c9c518137c1956feab"
+  url "https://github.com/elastic/beats/archive/v6.2.1.tar.gz"
+  sha256 "7fc935b65469acc728653c89ef7b8541db4c5dafdbb1459822f0c215d58d30e6"
 
   head "https://github.com/elastic/beats.git"
 
+  # Can be removed when support for compilation under go 1.9.4 is supported,
+  # potentially planned for the 6.2.3 release.
+  # Related upstream PRs:
+  # - https://github.com/elastic/beats/pull/6388
+  # - https://github.com/elastic/beats/pull/6326
+  patch :DATA
+
   bottle do
     cellar :any_skip_relocation
-    sha256 "45759c5a7981523ac15dd78f2a63b68ac1431fb2c2084463a55a23a1269c59db" => :high_sierra
-    sha256 "7d9ad800f09d924d61472df8bfc3b9b2e3296c951a5dff43f013fc98f0c19af9" => :sierra
-    sha256 "210c3c3fc18292566904fe2af1839270cbf3e72db419eb195c3ae338fbdfefbf" => :el_capitan
-    sha256 "c258b5b9f4b6925bc0840dccbc18518dc4adf5a9d5c6652e1fadf85a78fa55f3" => :x86_64_linux
+    sha256 "fbd5ec4f7139a533c6dc3fc95ac81524f19539d8bdda1c16c754a22b3e0f66d3" => :high_sierra
+    sha256 "7f93813ccc004153d33f6ca624b938781c04ec559055e36f1e0b6388eeb60b6e" => :sierra
+    sha256 "63e8d95e5ab6f6155c21ef1809f01fac66edcf598d6f708afeb2030c8dd73bf2" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -89,3 +95,18 @@ class Metricbeat < Formula
     end
   end
 end
+
+__END__
+diff --git a/vendor/github.com/shirou/gopsutil/disk/disk_darwin_cgo.go b/vendor/github.com/shirou/gopsutil/disk/disk_darwin_cgo.go
+index 2f5e22b64e..210779786b 100644
+--- a/vendor/github.com/shirou/gopsutil/disk/disk_darwin_cgo.go
++++ b/vendor/github.com/shirou/gopsutil/disk/disk_darwin_cgo.go
+@@ -5,7 +5,7 @@ package disk
+
+ /*
+ #cgo CFLAGS: -mmacosx-version-min=10.10 -DMACOSX_DEPLOYMENT_TARGET=10.10
+-#cgo LDFLAGS: -mmacosx-version-min=10.10 -lobjc -framework Foundation -framework IOKit
++#cgo LDFLAGS: -lobjc -framework Foundation -framework IOKit
+ #include <stdint.h>
+
+ // ### enough?

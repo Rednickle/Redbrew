@@ -60,9 +60,7 @@ class Gdb < Formula
     args << "--enable-targets=all" if build.with? "all-targets"
 
     if build.with? "python"
-      args << "--with-python=#{HOMEBREW_PREFIX}/bin/python2"
-    elsif OS.mac?
-      args << "--with-python=/usr"
+      args << "--with-python=#{Formula["python"].opt_libexec}/bin"
     else
       args << "--without-python"
     end

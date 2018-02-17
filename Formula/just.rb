@@ -1,14 +1,13 @@
 class Just < Formula
   desc "Handy way to save and run project-specific commands"
   homepage "https://github.com/casey/just"
-  url "https://github.com/casey/just/archive/v0.3.7.tar.gz"
-  sha256 "f69ad9cbd0867ba294dd25b3421a4b0b79f475d907f17a3bf8e9f20c7f7304f7"
+  url "https://github.com/casey/just/archive/v0.3.8.tar.gz"
+  sha256 "fe14f07c90249f7e9e652f2baba337670dbfe18b73fccddc82674ee01af98d4e"
 
   bottle do
-    sha256 "ebe9783bac54e3a83b6748c615675073a3c22539d573cf76bbb69e4c58ace88c" => :high_sierra
-    sha256 "44230a55bfc5eb141be484d18a7b7fe71686b4ee9c0b17349fec0c78cfc983d4" => :sierra
-    sha256 "72cf299d78a8bfea783133eb548a3bd74244395797907613e7b731a01a01ec88" => :el_capitan
-    sha256 "856ed750d62b28b277e1c50a67b0375090e11e3a9f241b50b6508b8787372369" => :x86_64_linux
+    sha256 "e860377d091e43e3f186033927269b63f8b60350707df836906aee35b022b17e" => :high_sierra
+    sha256 "592dc264989af2c10ee6819e1c1096e71a16999e105c00932ffdd2a79313c1f8" => :sierra
+    sha256 "ccd30aa9638bd34f8a0e9263e0c5ecd6ee7dca7da79f396cf7aaf1f19f33e155" => :el_capitan
   end
 
   depends_on "rust" => :build
