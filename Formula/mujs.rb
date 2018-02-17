@@ -21,7 +21,7 @@ class Mujs < Formula
   end
 
   test do
-    (testpath/"test.js").write <<-EOS
+    (testpath/"test.js").write <<~EOS
       print('hello, world'.split().reduce(function (sum, char) {
         return sum + char.charCodeAt(0);
       }, 0));

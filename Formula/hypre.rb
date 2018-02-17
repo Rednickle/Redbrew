@@ -65,7 +65,7 @@ class Hypre < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS
+    (testpath/"test.cpp").write <<~EOS
       #include "HYPRE_struct_ls.h"
       int main(int argc, char* argv[]) {
         HYPRE_StructGrid grid;

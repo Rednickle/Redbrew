@@ -23,7 +23,7 @@ class Jsonnet < Formula
   end
 
   test do
-    (testpath/"example.jsonnet").write <<-EOS
+    (testpath/"example.jsonnet").write <<~EOS
       {
         person1: {
           name: "Alice",
