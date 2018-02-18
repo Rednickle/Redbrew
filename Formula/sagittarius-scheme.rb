@@ -9,6 +9,7 @@ class SagittariusScheme < Formula
     sha256 "d23d2fab580ed0397c1ca1ba1a8c04984bbd9f106bd4a070c8ff20581f79221e" => :high_sierra
     sha256 "51725d8c867aa2e2b08e1788035293f9494563ddb4cdaced836a696991a3ae8b" => :sierra
     sha256 "adb7d7fde53cf6e332d40cb82dc1f93badb283971cc01e7fc826b1e1f612b035" => :el_capitan
+    sha256 "bca218a4f857addf926355e7d8c3f996bb3c4bdc663482e31989a7b1173686a9" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
