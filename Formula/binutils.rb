@@ -6,6 +6,7 @@ class Binutils < Formula
   sha256 "8c3850195d1c093d290a716e20ebcaa72eda32abf5e3d8611154b39cff79e9ea"
 
   bottle do
+    cellar :any # added manually
     sha256 "2eff47fc3b2074c2ad67a288ce07a38daa611dbaa39fc9c27f89f7fb74e80972" => :high_sierra
     sha256 "0d9b3fc064c9a442bf3373771f200e4c78a269541a41e5be981c069deca30ce4" => :sierra
     sha256 "525681da15ff697938626ffa15748b9b7ebb46f0b24c5e35c802173065dbc9d7" => :el_capitan
