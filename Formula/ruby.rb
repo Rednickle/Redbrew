@@ -9,6 +9,7 @@ class Ruby < Formula
     sha256 "67c1f368d8c6a14a2b6e08cb805092052dadd8646d782e49707813843534de5b" => :high_sierra
     sha256 "16a66925c221d27361a066dee4053c3664ba2826a336f9f4a3b0a0517bd2461f" => :sierra
     sha256 "61a75fa432382eb95500886328ab2129c23ed6cfc2df9469d7a7e3b09c73aa2d" => :el_capitan
+    sha256 "484c81f3e7e0e67cbb95d5c270bf502dd95d2ce1bf6f1faa3ef75b31acc59c34" => :x86_64_linux
   end
 
   head do
