@@ -1,16 +1,15 @@
 class Fabio < Formula
   desc "Zero-conf load balancing HTTP(S) router"
   homepage "https://github.com/fabiolb/fabio"
-  url "https://github.com/fabiolb/fabio/archive/v1.5.7.tar.gz"
-  sha256 "c33cf4f5e3bf7c9ce2ef634cccebed01d1f0c6e1f31759111db7d94f7a0ceadb"
+  url "https://github.com/fabiolb/fabio/archive/v1.5.8.tar.gz"
+  sha256 "3771bb92f5542d48b90b13407cc6c0c1aa9bed2c169daa34921a2aa75c4be22f"
   head "https://github.com/fabiolb/fabio.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b50192ccd58ef8e94a89efb735f27e05dcc9685c8772e3234f61493fd17cc70a" => :high_sierra
-    sha256 "c718b4c76f5501dbd50c80c160b6fae270c7399cd60ae9c27af79fa639a46000" => :sierra
-    sha256 "71f02d8477ebce604b0b70e505bc9ed959f24d90f0dc5f6f7aac3f35b1da8970" => :el_capitan
-    sha256 "e0d81ecd71046e65f9642544f9c8d829b1be46d8de77f1d5e411fcbfa5f2c05b" => :x86_64_linux
+    sha256 "e3992e6f1134682772d9b97348927ce1db4474da75945e2aec39a1ce0cc5ed79" => :high_sierra
+    sha256 "e6a469390fbad94d412e9ac1622c28d750aa190b2dec00c0137b061943dde2ad" => :sierra
+    sha256 "f660aaed1a2a7c164238feae3008555873c9b50baec9a9d0613a0c0f3a489a6a" => :el_capitan
   end
 
   depends_on "go" => :build
