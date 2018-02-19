@@ -3,13 +3,13 @@ class Global < Formula
   homepage "https://www.gnu.org/software/global/"
   url "https://ftp.gnu.org/gnu/global/global-6.6.2.tar.gz"
   mirror "https://ftpmirror.gnu.org/global/global-6.6.2.tar.gz"
-  sha256 "ca1dc15e9f320983e4d53ccb947ce58729952728273fdf415ab309ea2c0cd7fa"
+  sha256 "43c64711301c2caf40dc56d7b91dd03d2b882a31fa31812bf20de0c8fb2e717f"
+  revision 1
 
   bottle do
-    sha256 "c262bfe9dd7728df2d0ae22da2e646be5a12c666450507fabec6d0f70367b82c" => :high_sierra
-    sha256 "51099a25da310123b994edc5534bc11920bf2532b8fa27617917909096287277" => :sierra
-    sha256 "8c977135369bd180bcaf2f8b2d58b068e78003d775e7a2de39dc4b4d265527e7" => :el_capitan
-    sha256 "f9a68b42cefe2adf23f1e7ea8a34b621dfb3de921e05564a2a2c37fb619d0fa8" => :x86_64_linux
+    sha256 "edda8dcf4e58e9fde59fa4aa144581b73f61c1bf4ff2357c2bb8d5c4814eaf56" => :high_sierra
+    sha256 "e16018befb94709f6bbdca2e7c6b1e2314b6aa9bd0d0ff98070a63a0d0be6bf8" => :sierra
+    sha256 "b7369855f9cbc9f4443e4f0ff2e180fc3dcf9f16579165b189c848d04c75820c" => :el_capitan
   end
 
   head do
