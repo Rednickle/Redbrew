@@ -7,10 +7,10 @@ class Zip < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6e89078c79888ab6829b4e98544727e2e2b5d078f78b3f8994706c90f898240a" => :high_sierra
-    sha256 "ff9b6863a660158ce2b1eda37238c4cc262339efc16ee5ec4440171348a4f966" => :sierra
-    sha256 "f322da61ebb597af80807b12fff0141e6ba507dd146b188bd1d964813b1141b8" => :el_capitan
-    sha256 "ad24b4e9fc9c9026ea6013ecf6d8e65c7f162b8b2b5133030a6a6787efe23bf1" => :x86_64_linux
+    rebuild 1
+    sha256 "d218e0b7d82c7864a1ead12186b5bc09b43c2aa3749651008ac8dbcf32ec0d7c" => :high_sierra
+    sha256 "be282c3dfde4da608ab090910b3fe3cbec914d435122854f17acc0f718cc3a15" => :sierra
+    sha256 "54ea09b9be1a8c8a20b94e7cadff551ed243f5762a0d8da79f1aaedc4c9492a9" => :el_capitan
   end
 
   keg_only :provided_by_macos
@@ -36,12 +36,8 @@ class Zip < Formula
   end
 
   def install
-    system "make", "-f", "unix/Makefile",
-      "CC=#{ENV.cc}",
-      "generic",
-      "BINDIR=#{bin}",
-      "MANDIR=#{man1}",
-      "install"
+    system "make", "-f", "unix/Makefile", "CC=#{ENV.cc}", "generic"
+    system "make", "-f", "unix/Makefile", "BINDIR=#{bin}", "MANDIR=#{man1}", "install"
   end
 
   test do
@@ -52,6 +48,12 @@ class Zip < Formula
     system "#{bin}/zip", "test.zip", "test1", "test2", "test3"
     assert_predicate testpath/"test.zip", :exist?
     # zip -T needs unzip, disabled under Linux
-    assert_match "test of test.zip OK", shell_output("#{bin}/zip -T test.zip") if OS.mac?
+    return unless OS.mac?
+    assert_match "test of test.zip OK", shell_output("#{bin}/zip -T test.zip")
+
+    # test bzip2 support that should be automatically linked in using the bzip2 library in macOS
+    system "#{bin}/zip", "-Z", "bzip2", "test2.zip", "test1", "test2", "test3"
+    assert_predicate testpath/"test2.zip", :exist?
+    assert_match "test of test2.zip OK", shell_output("#{bin}/zip -T test2.zip")
   end
 end
