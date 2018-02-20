@@ -10,6 +10,7 @@ class Folly < Formula
     sha256 "175bdc5eaa0b3654770d5189dd4edce614f6b28f6ba1f90792ab234e3c0c2c27" => :high_sierra
     sha256 "6aab2b2105ddb61a932228dd9b825424e9380109dac27eee9a11f6a2a16fde66" => :sierra
     sha256 "e05d7a382bb560c6854a9d33008e97186b4d28b4c8afb5b7cadb8d8168c38cbb" => :el_capitan
+    sha256 "97e9b97ec7cf6034fee5308849c9d761376ab7877d855699b2881dbaf3bb3c54" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
