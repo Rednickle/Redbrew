@@ -9,6 +9,7 @@ class Rkhunter < Formula
     sha256 "35df7b4e420968fc71fc0fc0217716393c624594ff51245c80a969a5bb1569eb" => :high_sierra
     sha256 "8d00f31cf5150d841b22dd3c1cdda33dc8705075529f000d41678d05cb733e0f" => :sierra
     sha256 "1aca76cf8e890112cad63d353ca8369e301e0e990e5380bb5fc4236ded810147" => :el_capitan
+    sha256 "e49a856107315449b464b02b411394ce502352f68de8567772ce0624096b2760" => :x86_64_linux
   end
 
   def install
