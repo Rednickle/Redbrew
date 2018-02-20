@@ -11,6 +11,7 @@ class Dfmt < Formula
     sha256 "7b47d17d0366eb50efde5726ad0c111b55693aa11d0364d3614af076de83eea7" => :high_sierra
     sha256 "470617f0ce3a8579a28a702fd15037dd77146ffc00ff2c4c80d81bf2ad1a015f" => :sierra
     sha256 "feb7ba0a96a1e93b67ec451937f47fbf9e38bab4a337bfe2a716a9cdd0197369" => :el_capitan
+    sha256 "fc6e55ae9a6bc00c06ce56193911cb2836f5fa8765c15742182d6a0abe3eb462" => :x86_64_linux
   end
 
   depends_on "dmd" => :build
