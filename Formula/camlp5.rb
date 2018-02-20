@@ -1,16 +1,15 @@
 class Camlp5 < Formula
   desc "Preprocessor and pretty-printer for OCaml"
   homepage "https://camlp5.github.io/"
-  url "https://github.com/camlp5/camlp5/archive/rel703.tar.gz"
-  version "7.03"
-  sha256 "c13d0a957a8e70627e1900ca25243b5e8da042bbda9eaa9e7d06955c0e3df21a"
-  revision 2
+  url "https://github.com/camlp5/camlp5/archive/rel704.tar.gz"
+  version "7.04"
+  sha256 "4d28171121db1ea6f54d409cf959aa4d4359c13b957eb5a14e4fe37cc58243a8"
   head "https://gforge.inria.fr/anonscm/git/camlp5/camlp5.git"
 
   bottle do
-    sha256 "7e46185b3b6a84685e244c0d0d58c576891223da68b69aefca4fb482ba801318" => :high_sierra
-    sha256 "4dcbace80511a84ff99022673115e9f198636eaa02d7644f9568c7ea98696048" => :sierra
-    sha256 "95ff8cb79b9ba822d42c32deb1af2467d328d6599d184ec36a11ee41fe224335" => :el_capitan
+    sha256 "e3d1c8337409ff5bcf269bcafb092a2dce4289a741af8bab862de7eab535fda0" => :high_sierra
+    sha256 "77bc6f9cd2423d4b42829de20b940eac6894c7fe35d44e6689dbda08cecfc5a4" => :sierra
+    sha256 "ba622de195e13610286907beb9ec432b8f1b3bdf9767fac46a1c1c6d25b7dd68" => :el_capitan
   end
 
   deprecated_option "strict" => "with-strict"
@@ -19,10 +18,6 @@ class Camlp5 < Formula
   depends_on "ocaml"
 
   def install
-    # Upstream issue from 16 Feb 2018 "4.06.1 compatibility"
-    cp_r "ocaml_stuff/4.06.0", "ocaml_stuff/4.06.1"
-    cp "ocaml_src/lib/versdep/4.06.0.ml", "ocaml_src/lib/versdep/4.06.1.ml"
-
     args = ["--prefix", prefix, "--mandir", man]
     args << "--transitional" if build.without? "strict"
 
