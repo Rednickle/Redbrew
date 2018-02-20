@@ -1,16 +1,14 @@
 class Pybind11 < Formula
   desc "Seamless operability between C++11 and Python"
   homepage "https://github.com/pybind/pybind11"
-  url "https://github.com/pybind/pybind11/archive/v2.2.1.tar.gz"
-  sha256 "f8bd1509578b2a1e7407d52e6ee8afe64268909a1bbda620ca407318598927e7"
-  revision 1
+  url "https://github.com/pybind/pybind11/archive/v2.2.2.tar.gz"
+  sha256 "b639a2b2cbf1c467849660801c4665ffc1a4d0a9e153ae1996ed6f21c492064e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a4a12cb0db78c3493585e9aeb05bec685e59edbdf72bd730ae8d3ecf61dfe3c6" => :high_sierra
-    sha256 "a4a12cb0db78c3493585e9aeb05bec685e59edbdf72bd730ae8d3ecf61dfe3c6" => :sierra
-    sha256 "a4a12cb0db78c3493585e9aeb05bec685e59edbdf72bd730ae8d3ecf61dfe3c6" => :el_capitan
-    sha256 "9122b02513c9d913b7939b262b03342aad5e931581a665686706c4eda3399cf2" => :x86_64_linux
+    sha256 "3d6838a32ea3e4ec46bb6d61cd583d156104b9c78692dfb127e6e07230d9c135" => :high_sierra
+    sha256 "3d6838a32ea3e4ec46bb6d61cd583d156104b9c78692dfb127e6e07230d9c135" => :sierra
+    sha256 "3d6838a32ea3e4ec46bb6d61cd583d156104b9c78692dfb127e6e07230d9c135" => :el_capitan
   end
 
   depends_on "cmake" => :build

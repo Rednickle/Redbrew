@@ -2,23 +2,15 @@ class Dfmt < Formula
   desc "Formatter for D source code"
   homepage "https://github.com/dlang-community/dfmt"
   url "https://github.com/dlang-community/dfmt.git",
-      :tag => "v0.5.3",
-      :revision => "6e598c197df780c8cd3496c3a663f602a2bd1e58"
+      :tag => "v0.6.0",
+      :revision => "e9273c169ed1ce3bbd64535f0ddec5a6f370680f"
 
   head "https://github.com/dlang-community/dfmt.git", :shallow => false
 
   bottle do
-    sha256 "84f5df7c1349c5d386e58a9889c57f0c66e1ced4dedc3e4129b0334ea87990d8" => :high_sierra
-    sha256 "2a3fbc12a391de3c297f379d51f7daa400457c6fc03f715d9a347292adb352c4" => :sierra
-    sha256 "c1414f980bc31c286eac2144c61cc8f2ad8ef971f3076a323045e2dc0732c4c4" => :el_capitan
-    sha256 "f1bbe4852f6ad5a82c35609291bf9ae8073496a32c8aef9d7ff8f5c09b783392" => :x86_64_linux
-  end
-
-  devel do
-    url "https://github.com/dlang-community/dfmt.git",
-      :tag => "v0.6.0-alpha.1",
-      :revision => "02a735cb0c10d711c5f08fc26572f98bc5fdf0ff"
-    version "0.6.0-alpha.1"
+    sha256 "7b47d17d0366eb50efde5726ad0c111b55693aa11d0364d3614af076de83eea7" => :high_sierra
+    sha256 "470617f0ce3a8579a28a702fd15037dd77146ffc00ff2c4c80d81bf2ad1a015f" => :sierra
+    sha256 "feb7ba0a96a1e93b67ec451937f47fbf9e38bab4a337bfe2a716a9cdd0197369" => :el_capitan
   end
 
   depends_on "dmd" => :build
