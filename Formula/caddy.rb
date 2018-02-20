@@ -10,6 +10,7 @@ class Caddy < Formula
     sha256 "a1c3cc8ab3f01b4ef582803de7569b584bdabd80c647daba621c078a9ca7616f" => :high_sierra
     sha256 "3203662bac9ff41ac4a05f6cf5dcff50a5aa4705ad56895a9dc10d270808a272" => :sierra
     sha256 "a3a37703edb975d52325359377ac8e358519724daf884749496150084d9fc2c3" => :el_capitan
+    sha256 "b6b45d61afee67036f9241aa2969fd9613833d314ec43dbc8f1e7b3c0800a035" => :x86_64_linux
   end
 
   depends_on "go" => :build
