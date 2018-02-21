@@ -3,30 +3,29 @@ class Dmd < Formula
   homepage "https://dlang.org/"
 
   stable do
-    url "https://github.com/dlang/dmd/archive/v2.078.2.tar.gz"
-    sha256 "f59c25dadcd4597f487e734dac9c6526cabb9ad9f0af44d89422ac49709609c0"
+    url "https://github.com/dlang/dmd/archive/v2.078.3.tar.gz"
+    sha256 "c5aed2af99bf2d346cf5664151a2c7d06b4e95e4db6663ab6d7952f9a12afc88"
 
     resource "druntime" do
-      url "https://github.com/dlang/druntime/archive/v2.078.2.tar.gz"
-      sha256 "cdc19bd245dbe60eb4d114ae79c7237e4766739182c655ab24a9ac26fa2309a0"
+      url "https://github.com/dlang/druntime/archive/v2.078.3.tar.gz"
+      sha256 "7a6cef7a42f4f46031705d4c7546eb309718ae3e946a45f47de4624236420c83"
     end
 
     resource "phobos" do
-      url "https://github.com/dlang/phobos/archive/v2.078.2.tar.gz"
-      sha256 "b1c8dd990318ea0d13d7962306250ec40c47516651909ec76acd157b67270b38"
+      url "https://github.com/dlang/phobos/archive/v2.078.3.tar.gz"
+      sha256 "282b3f252d98ccede0a50e10c8c301e2ab2bf679648d3d02243625bce3314ceb"
     end
 
     resource "tools" do
-      url "https://github.com/dlang/tools/archive/v2.078.2.tar.gz"
-      sha256 "56fbb061546995b8103a1c31260c5178ff3474cf3a99beca3e6aa3112515d52c"
+      url "https://github.com/dlang/tools/archive/v2.078.3.tar.gz"
+      sha256 "fed25d35548a10959eaf8a26df1c2a11be51c6283e26a02a199b1725d276dcfa"
     end
   end
 
   bottle do
-    sha256 "89653ba1ad4be6588f9e818e5c79f496044edd94181ef9b1e0abff1402510470" => :high_sierra
-    sha256 "b9d15cdc2da3c0fb7c954a1be4f3ab435f8e133f31021b0eb510a047d24d3d2b" => :sierra
-    sha256 "a6a713ae25fbb55aac9326b8b344e446cc880c61a5ce9e36434f0757eec5a445" => :el_capitan
-    sha256 "49abd83dab293326a9f48f848140406e302953c9907100bf5067e3be66f9f2b7" => :x86_64_linux
+    sha256 "3e4f2f2407c37d616971d6fa53856f43557845670b5e258d34cee67d3a2898df" => :high_sierra
+    sha256 "667b441c4fd254982cb7cb97e29562dfdf997c5350ac22ba2ef33c6a98cce8e2" => :sierra
+    sha256 "48175fa13ebd0794ead40194c83cb30f9bc78db92dc1e6e2e00ff9207d1591ca" => :el_capitan
   end
 
   head do
