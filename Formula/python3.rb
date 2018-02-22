@@ -14,8 +14,8 @@ class Python3 < Formula
   end
 
   devel do
-    url "https://www.python.org/ftp/python/3.7.0/Python-3.7.0a3.tar.xz"
-    sha256 "3432d3ddf97483339badda961f7d0564595460fee166dd8f106dc4201e68446e"
+    url "https://www.python.org/ftp/python/3.7.0/Python-3.7.0b1.tar.xz"
+    sha256 "2bee6320443ab475ecc9ee8b36e96230787eb12cdb336e3079dceef23039b970"
   end
 
   option "with-tcl-tk", "Use Homebrew's Tk instead of macOS Tk (has optional Cocoa and threads support)" if OS.mac?
@@ -151,12 +151,16 @@ class Python3 < Formula
       ldflags << ENV.ldflags << " -L#{HOMEBREW_PREFIX}/lib"
     end
 
-    # We want our readline and openssl! This is just to outsmart the detection code,
+    # We want our readline! This is just to outsmart the detection code,
     # superenv makes cc always find includes/libs!
-    inreplace "setup.py" do |s|
-      s.gsub! "do_readline = self.compiler.find_library_file(lib_dirs, 'readline')",
-              "do_readline = '#{Formula["readline"].opt_lib}/libhistory.dylib'"
-      s.gsub! "/usr/local/ssl", Formula["openssl"].opt_prefix
+    inreplace "setup.py",
+      "do_readline = self.compiler.find_library_file(lib_dirs, 'readline')",
+      "do_readline = '#{Formula["readline"].opt_lib}/libhistory.dylib'"
+
+    if build.stable?
+      inreplace "setup.py", "/usr/local/ssl", Formula["openssl"].opt_prefix
+    else
+      args << "--with-openssl=#{Formula["openssl"].opt_prefix}"
     end
 
     if build.with? "sqlite"
