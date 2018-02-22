@@ -6,10 +6,10 @@ class NodeAT6 < Formula
   head "https://github.com/nodejs/node.git", :branch => "v6.x-staging"
 
   bottle do
-    sha256 "951b29b22d1d28fc6486c105fafe2b0b9a188114e8b2897ec242dc4f2a317e07" => :high_sierra
-    sha256 "cae5e0bf36652dedcc501f965d60a2666f76338fd238a5f3a7d34c08dbdaa78c" => :sierra
-    sha256 "8e4237628acd153b2d43a3bf3bfe5b696d1a01f75377935ae7e226330552fb46" => :el_capitan
-    sha256 "4344336a36cc52171d536bf9a0bbb6b96f595ee37c022e20764db1ccffdea7c3" => :x86_64_linux
+    rebuild 1
+    sha256 "79b2bdf0dad86efab66aa2258a808baee005605a3e6048e211f5523a6e028cf5" => :high_sierra
+    sha256 "a14dc30ba521d3e030ae1eb5469d55b075e6b9390d66152ea3771ace55700fe4" => :sierra
+    sha256 "e6de6b5903d5ce214b4b4f5462ab64a7687240e755470f893eeb0981d506f688" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -49,9 +49,8 @@ class NodeAT6 < Formula
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
 
-    # Never install the bundled "npm", always prefer our
-    # installation from tarball for better packaging control.
-    args = %W[--prefix=#{prefix} --without-npm]
+    args = ["--prefix=#{prefix}"]
+    args << "--without-npm" if build.without? "npm"
     args << "--debug" if build.with? "debug"
     args << "--shared-openssl" if build.with? "openssl"
 
@@ -84,37 +83,6 @@ class NodeAT6 < Formula
           bootstrap/"lib/utils/completion.sh" => "npm"
       end
     end
-  end
-
-  def post_install
-    return if build.without? "npm"
-
-    node_modules = HOMEBREW_PREFIX/"lib/node_modules"
-    node_modules.mkpath
-    # Kill npm but preserve all other modules across node updates/upgrades.
-    rm_rf node_modules/"npm"
-
-    cp_r libexec/"lib/node_modules/npm", node_modules
-    # This symlink doesn't hop into homebrew_prefix/bin automatically so
-    # we make our own. This is a small consequence of our
-    # bottle-npm-and-retain-a-private-copy-in-libexec setup
-    # All other installs **do** symlink to homebrew_prefix/bin correctly.
-    # We ln rather than cp this because doing so mimics npm's normal install.
-    ln_sf node_modules/"npm/bin/npm-cli.js", HOMEBREW_PREFIX/"bin/npm"
-    ln_sf node_modules/"npm/bin/npx-cli.js", HOMEBREW_PREFIX/"bin/npx"
-
-    # Let's do the manpage dance. It's just a jump to the left.
-    # And then a step to the right, with your hand on rm_f.
-    %w[man1 man5 man7].each do |man|
-      # Dirs must exist first: https://github.com/Homebrew/legacy-homebrew/issues/35969
-      mkdir_p HOMEBREW_PREFIX/"share/man/#{man}"
-      rm_f Dir[HOMEBREW_PREFIX/"share/man/#{man}/{npm.,npm-,npmrc.,package.json.,npx.}*"]
-      cp Dir[libexec/"lib/node_modules/npm/man/#{man}/{npm,package.json,npx}*"], HOMEBREW_PREFIX/"share/man/#{man}"
-    end
-
-    npm_root = node_modules/"npm"
-    npmrc = npm_root/"npmrc"
-    npmrc.atomic_write("prefix = #{HOMEBREW_PREFIX}\n")
   end
 
   def caveats
@@ -159,14 +127,11 @@ class NodeAT6 < Formula
       ENV.prepend_path "PATH", opt_bin
       ENV.delete "NVM_NODEJS_ORG_MIRROR"
       assert_equal which("node"), opt_bin/"node"
-      assert_predicate HOMEBREW_PREFIX/"bin/npm", :exist?, "npm must exist"
-      assert_predicate HOMEBREW_PREFIX/"bin/npm", :executable?, "npm must be executable"
+      assert_predicate bin/"npm", :exist?, "npm must exist"
+      assert_predicate bin/"npm", :executable?, "npm must be executable"
       npm_args = ["-ddd", "--cache=#{HOMEBREW_CACHE}/npm_cache", "--build-from-source"]
-      system "#{HOMEBREW_PREFIX}/bin/npm", *npm_args, "install", "npm@latest"
-      system "#{HOMEBREW_PREFIX}/bin/npm", *npm_args, "install", "bignum" unless head?
-      assert_predicate HOMEBREW_PREFIX/"bin/npx", :exist?, "npx must exist"
-      assert_predicate HOMEBREW_PREFIX/"bin/npx", :executable?, "npx must be executable"
-      assert_match "< hello >", shell_output("#{HOMEBREW_PREFIX}/bin/npx cowsay hello")
+      system "#{bin}/npm", *npm_args, "install", "npm@latest"
+      system "#{bin}/npm", *npm_args, "install", "bignum" unless head?
     end
   end
 end
