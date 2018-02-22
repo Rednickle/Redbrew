@@ -10,6 +10,7 @@ class Stella < Formula
     sha256 "20531655187c2cc8137714a7df420a701838192fb7cbd83d587300d1c8691471" => :high_sierra
     sha256 "2fb238f5b88ab0b154aa97ef9d2a25ca2176e1205702183b27711b928da04007" => :sierra
     sha256 "9be378753ee161c47391ce91aa9c3476df906062f6f5ad7dd57e2e8eb77d0921" => :el_capitan
+    sha256 "ff66a205c2e82f608662c676b149fbeab1146cc378dbc77fb8993a6a2d934e6c" => :x86_64_linux
   end
 
   needs :cxx14
