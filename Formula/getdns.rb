@@ -8,6 +8,7 @@ class Getdns < Formula
     sha256 "a27c4701c714832afe47e0b822871b931154ed197d0c35649939fe22f34c527d" => :high_sierra
     sha256 "5f56e67c57c5f73e704a5e9ee7139cafe7bf9328cbafb2f6d09037015db0f291" => :sierra
     sha256 "db2da2afe3808a917051bf4bfac5dc5d77869786120fef31eb2bc261aede2b07" => :el_capitan
+    sha256 "94a82b8927cb001468ba7d970cbf7178a94b36f3bb7834d446b12b90efe43ab3" => :x86_64_linux
   end
 
   head do
