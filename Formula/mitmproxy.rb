@@ -12,6 +12,7 @@ class Mitmproxy < Formula
     sha256 "97ff3572f3c4d7a73ea2ec5afe5c065bc88adcbe05459b70a53f9c0cb31493e2" => :high_sierra
     sha256 "1e248185b07d73192de32266bbc25dd2626373f9dea7d34ee7517406e53da6b9" => :sierra
     sha256 "5e277dce71156f5693bcf6d073ef1badf19a0b1f8dc49b12ffea476d58803df7" => :el_capitan
+    sha256 "19a3536c873fb5219b627cbe49161054365b38ff3c1eb7f1c18234d351a759ba" => :x86_64_linux
   end
 
   depends_on "openssl"
