@@ -14,6 +14,7 @@ class Cgrep < Formula
     sha256 "079e627cdc63604a51f0fbd6c1bd7b2b8c270279b950953ce6ee9734965182ac" => :high_sierra
     sha256 "8f46a454c1672923329028e36d1fab404325d70ad01eb4505b7506083c5c88d1" => :sierra
     sha256 "7d7731bddd392feb5b1c22289e0581daf9536cca79833c0c6a2a92d0633c5bcb" => :el_capitan
+    sha256 "a5a37f1a8a9688c879a8d492e79c7c036fb51aa6a45f5256fe2e2d2eebc6a2aa" => :x86_64_linux
   end
 
   depends_on "ghc" => :build
