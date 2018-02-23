@@ -8,6 +8,7 @@ class Graphene < Formula
     sha256 "667e06c896b4d8c06dbd21ab0baf01a5c30d0121f1527623450d7bb7c2a39c5a" => :high_sierra
     sha256 "b93078c0775ecdb3ee709293f5500c9632aa91344f0958cac0eb362115ba124a" => :sierra
     sha256 "1b906d842080dcb12b3807c4c9405e53275421f68f93c30bfa6081e7e1957b14" => :el_capitan
+    sha256 "b1d7762bbffe72650ab3c76d7f0f9c62178e7822136ef96670b501b7f49e142f" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
