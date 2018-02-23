@@ -3,14 +3,14 @@ class Fdroidserver < Formula
 
   desc "Create and manage Android app repositories for F-Droid"
   homepage "https://f-droid.org"
-  url "https://files.pythonhosted.org/packages/85/c1/0aa30a82716685610aed583decdbc991df95e5ee81d827855c45a99eb597/fdroidserver-1.0.0.tar.gz"
-  sha256 "e760524f392e6122d9b938f8811aad087b062fb00140967073574eabc15b1972"
+  url "https://files.pythonhosted.org/packages/df/29/163c75b97f8c83f2eb1f5d55978f630a0a99fda989ad857e78cba6eb64fe/fdroidserver-1.0.2.tar.gz"
+  sha256 "abb5a16f8e21b4683255a61707d2c31123ad3ab5b091c490aaa524c6b8dfa9a5"
 
   bottle do
     cellar :any
-    sha256 "f08f03af9f30d95729c1e98983135cd902155a84a971555156d7a214f71f24dd" => :high_sierra
-    sha256 "919cd07695be9e6781596a149159e02544c1350c9bf6e137a38c70a6ee22002b" => :sierra
-    sha256 "264c96ecc7a88bf9bdb420c80bb2e611c0f958078887f258114c464bf234f451" => :el_capitan
+    sha256 "6c380d7cba19d9401c062645bbc4bf41934594161f85a1de512e2bd5fc918e60" => :high_sierra
+    sha256 "03657f8b24611aea4fc10becd7c4d385cd019bb2672f8b2a1702c794a2409476" => :sierra
+    sha256 "f85cd0942a11cae609bc7e2e6e0ef2096868fced47d8af2ee537360bef485e20" => :el_capitan
   end
 
   depends_on "freetype"
