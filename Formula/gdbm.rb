@@ -29,12 +29,16 @@ class Gdbm < Formula
       --prefix=#{prefix}
     ]
 
+    args << "--enable-libgdbm-compat" if build.with? "libgdbm-compat"
+
     # GDBM uses some non-standard GNU extensions,
     # enabled with -D_GNU_SOURCE.  See:
     #   https://patchwork.ozlabs.org/patch/771300/
     #   https://stackoverflow.com/questions/5582211
     #   https://www.gnu.org/software/automake/manual/html_node/Flag-Variables-Ordering.html
-    args << "CPPFLAGS=-D_GNU_SOURCE --enable-libgdbm-compat" if build.with? "libgdbm-compat"
+    #
+    # Fix error: unknown type name 'blksize_t'
+    args << "CPPFLAGS=-D_GNU_SOURCE" unless OS.mac? || build.bottle?
 
     system "./configure", *args
     system "make", "install"
