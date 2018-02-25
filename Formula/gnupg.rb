@@ -8,6 +8,7 @@ class Gnupg < Formula
     sha256 "0a39a50f6c360bdc7f8134c64cf25cf69cca7ce1ba4e184f2d28849dfe44eb67" => :high_sierra
     sha256 "8c49055d7612b56f2923a1a926411eecd6d2b51881cce7120c922093414cf417" => :sierra
     sha256 "9eeca76a0a1bc6ef935dfccd751a7250cf5f8a42cfa35ce2e6628088e40e34d5" => :el_capitan
+    sha256 "348f938a5885a7ed1b472b7657f1a147a0d4df2c5555f1d56022a19632b5f294" => :x86_64_linux
   end
 
   option "with-gpgsplit", "Additionally install the gpgsplit utility"
