@@ -9,6 +9,7 @@ class Libcouchbase < Formula
     sha256 "158f36843d4b437c00f8b20a13a3b1bf93229554bcf39c8f21d1063055596d1b" => :high_sierra
     sha256 "cf07ba33ba9cadabe808c26f92351f7b290127d9bb6e672cd1d341a89ee53dce" => :sierra
     sha256 "ffa6538645d711587723feeace3154d45080dbd2e32cab282d9e8d57af2d4a1d" => :el_capitan
+    sha256 "62293dd662501f4e76d4b602775d0c1cf17fe231ead16de3d7f0c8163a1a40fb" => :x86_64_linux
   end
 
   option "with-libev", "Build libev plugin"
