@@ -8,6 +8,7 @@ class Sylpheed < Formula
     sha256 "f1fa12f441547b7bf7bdcc858e874e67213256bb82c63d0de068cb32dc515be7" => :high_sierra
     sha256 "eb3764603ef20c1de8be2ebe86cb1914577589faf2b1a09fe4a60e586fbd5ac1" => :sierra
     sha256 "b51cba6f8ce3bbceec1a030042f2d2c74219a9ad1ccd6dcce4b416a06950cda9" => :el_capitan
+    sha256 "4d1cdbaa0c2992085db382c1bac447b77706cb00ac43cab2afbb16209f033478" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
