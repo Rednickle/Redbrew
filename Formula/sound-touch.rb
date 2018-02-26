@@ -9,6 +9,7 @@ class SoundTouch < Formula
     sha256 "5d980f6d661a942650e8b7953e5a0710d0be708421cdf595b68f7da917cdc2be" => :high_sierra
     sha256 "4861ccccd41fc57f2d553973ece79462e4c85897426f36c258b8fd1756416da1" => :sierra
     sha256 "7572fff0564f78a49641ed7c5eb9ed062ff557d452d4515e07544a622eaa17e6" => :el_capitan
+    sha256 "bd90a4b93c64e6e2c28f996bea62ab65735e60addf2f751759e93775d0a051fc" => :x86_64_linux
   end
 
   option "with-integer-samples", "Build using integer samples? (default is float)"
