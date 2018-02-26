@@ -3,15 +3,14 @@ class Eralchemy < Formula
 
   desc "Simple entity relation (ER) diagrams generation"
   homepage "https://github.com/Alexis-benoist/eralchemy"
-  url "https://files.pythonhosted.org/packages/2c/58/31393197c1ab3fb8dd7b9c5ee3bd9afe160b8ffc6c870d9d51deca8a76ff/ERAlchemy-1.2.6.tar.gz"
-  sha256 "432584a7fd8df0b953f3f90948231382b28727c5364a0a9130c39284b663d9be"
+  url "https://files.pythonhosted.org/packages/de/6c/5a7d4104b51488f2f2f3e23856fec454d6e406d1c69c5754d036a2416f1b/ERAlchemy-1.2.7.tar.gz"
+  sha256 "bfca6a6625e8c28af1679614e0d347cfe299f2342191a408c933272b2a88f646"
 
   bottle do
     cellar :any
-    sha256 "267195526e99c8f47abe2ea9d51134e30cf1e3167e9d8d121ff820fa1f97e890" => :high_sierra
-    sha256 "683a2b5bd0ecde79890077f7522fb2f7d8f0cacb801cec1143c0eb3c48cee0d1" => :sierra
-    sha256 "83d53a6dc644e5e0429901ef04da13744b51c9417c978811246e274bfe5c7da2" => :el_capitan
-    sha256 "cf00cadc6819d35fd3fcd575a3ee5ca989a58f266c335799c50882f052ddad25" => :x86_64_linux
+    sha256 "1360aa00d8d12ddbd388d0aed318530b25cf45496b1f2f5fe3d95035a51d9efc" => :high_sierra
+    sha256 "614cc10e1dadcc036d75364963cf085e1723055a3ffb3cdf899a7a5ed8fd7125" => :sierra
+    sha256 "ac15ae44c578db190893e5a0ebbd2ef6812d40d0871e5b9286ee5b93714d8c6d" => :el_capitan
   end
 
   depends_on "python" if MacOS.version <= :snow_leopard

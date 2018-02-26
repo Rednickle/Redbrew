@@ -12,6 +12,12 @@ class Ruby < Formula
     sha256 "15cde6eedd6af3572c36fb6cd25df154bd9a68d48fae7deaa9c0b999c5267e23" => :x86_64_linux
   end
 
+  devel do
+    url "https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.0-preview1.tar.xz"
+    version "2.6.0-preview1"
+    sha256 "1d99139116e4e245ce543edb137b2a8873c26e9f0bde88d8cee6789617cc8d0e"
+  end
+
   head do
     url "https://svn.ruby-lang.org/repos/ruby/trunk/"
     depends_on "autoconf" => :build
