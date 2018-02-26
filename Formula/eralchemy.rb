@@ -11,6 +11,7 @@ class Eralchemy < Formula
     sha256 "267195526e99c8f47abe2ea9d51134e30cf1e3167e9d8d121ff820fa1f97e890" => :high_sierra
     sha256 "683a2b5bd0ecde79890077f7522fb2f7d8f0cacb801cec1143c0eb3c48cee0d1" => :sierra
     sha256 "83d53a6dc644e5e0429901ef04da13744b51c9417c978811246e274bfe5c7da2" => :el_capitan
+    sha256 "cf00cadc6819d35fd3fcd575a3ee5ca989a58f266c335799c50882f052ddad25" => :x86_64_linux
   end
 
   depends_on "python" if MacOS.version <= :snow_leopard
