@@ -8,6 +8,7 @@ class Librsync < Formula
     sha256 "493b63f3dbda84ef940589a68dfd841ff26d704c472c02e717476de142ab4f1f" => :high_sierra
     sha256 "70369dce43e726a4b9561087cf5b2e8617c095dd240d9d4136318bbb9dab8802" => :sierra
     sha256 "490c2360a7e502ef4cbe1899c93618e72d298d61f5cc2496f8d8c59725fb15d9" => :el_capitan
+    sha256 "adeee7454907e0c6572487d53c054c4a167df80d39893e0d08ae274cd39ebd81" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
