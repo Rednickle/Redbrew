@@ -10,6 +10,7 @@ class Certigo < Formula
     sha256 "1a5e22415f9897fb8a8d39d48c96fe78183c1470b94bc089f52646c748130a2f" => :high_sierra
     sha256 "f203d190704e21bee47733d556a14a7437c5003ddc0eba668a893a6fd6f78521" => :sierra
     sha256 "9c76c9053f3bdaa1f0801a8ad5cb8a5e8486ad7f44fa66ada30829cd41865244" => :el_capitan
+    sha256 "88f6143b18f3eac830832d4456e89eee444c17d4657fafc4ae74b2d7e0077789" => :x86_64_linux
   end
 
   depends_on "go" => :build
