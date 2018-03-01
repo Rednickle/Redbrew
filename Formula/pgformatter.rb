@@ -9,6 +9,7 @@ class Pgformatter < Formula
     sha256 "c1f0fcb81b94ec4aa97a90a7110e793be409a9b44aea402989b5fbc61a133ce1" => :high_sierra
     sha256 "c1f0fcb81b94ec4aa97a90a7110e793be409a9b44aea402989b5fbc61a133ce1" => :sierra
     sha256 "c1f0fcb81b94ec4aa97a90a7110e793be409a9b44aea402989b5fbc61a133ce1" => :el_capitan
+    sha256 "c109d0af194f1a15587c196d1563e16879dd88ea8136ccd6c845ad75a4fc4114" => :x86_64_linux
   end
 
   def install
