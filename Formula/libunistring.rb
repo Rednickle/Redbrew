@@ -10,6 +10,7 @@ class Libunistring < Formula
     sha256 "6c072527173fa59aa703e5d4ccd4fe7b350de7e0f6091423f7a3973e0bfbc201" => :high_sierra
     sha256 "57ddedc5c2277d3cc8ac3f7ec223363ed5ebec048b1b66fd9f29ceaa6ddfa0c8" => :sierra
     sha256 "93138d92e44116c1acd8ad64edcb30e8407a2e1723c4cb6061426fdbf5beafff" => :el_capitan
+    sha256 "63c7a5a610c227d6c3c39d5099cd1cb7e702598857a177c9716f193b3a649523" => :x86_64_linux
   end
 
   def install
