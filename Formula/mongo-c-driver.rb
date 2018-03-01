@@ -9,6 +9,7 @@ class MongoCDriver < Formula
     sha256 "08e7f1879028d6838407216d0e3c96b691dde3c1874c46e0bda4704d48c17d4a" => :high_sierra
     sha256 "09ee2c21baa37e87a1d025e2cbe3ce3b296d792bfeb08c17f4c8986b87ef7165" => :sierra
     sha256 "e6f9afa61700f4eaa29e6d8d819ccd288b43e0c7c45d00212b3bff5fc6a13720" => :el_capitan
+    sha256 "71c4ce2706d79e73bf855e445623ef7c8929e4d2b88285ff5bc0be377d7ebd8f" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
