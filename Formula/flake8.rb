@@ -16,7 +16,7 @@ class Flake8 < Formula
     sha256 "4db92f7dcc7728d6d68aef5fda40a8baa8c4eb7230558bc381745d938d745a2d" => :x86_64_linux
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   def install
     venv = virtualenv_create(libexec)

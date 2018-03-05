@@ -12,7 +12,7 @@ class Doitlive < Formula
     sha256 "2d382ebc05ef4a104184ed4d7d592a96ace4220f4251ae4be5b4c769c74e1e04" => :x86_64_linux
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   def install
     ENV.prepend_create_path "PYTHONPATH", libexec+"lib/python2.7/site-packages"

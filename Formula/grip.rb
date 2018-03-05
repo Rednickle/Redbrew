@@ -12,7 +12,7 @@ class Grip < Formula
     sha256 "c1d0c41ab52838a25cd882c3c9f080dced4b9a6403c89e18d44f8130cd0c8f44" => :x86_64_linux
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/20/d0/3f7a84b0c5b89e94abbd073a5f00c7176089f526edb056686751d5064cbd/certifi-2017.7.27.1.tar.gz"

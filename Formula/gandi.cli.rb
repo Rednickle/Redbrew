@@ -14,7 +14,7 @@ class GandiCli < Formula
     sha256 "448ceaeb90f03b9e279a39e57cdb1da57317a793bb519dd8e179d5f5f777ccb0" => :x86_64_linux
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/23/3f/8be01c50ed24a4bd6b8da799839066ce0288f66f5e11f0367323467f0cbc/certifi-2017.11.5.tar.gz"

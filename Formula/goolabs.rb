@@ -12,7 +12,7 @@ class Goolabs < Formula
     sha256 "89fb30080f1a46abb146a38ac1dda7138902c3d5638bbf3571da13e1b1089bf7" => :x86_64_linux
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/23/3f/8be01c50ed24a4bd6b8da799839066ce0288f66f5e11f0367323467f0cbc/certifi-2017.11.5.tar.gz"
