@@ -6,6 +6,7 @@ class Vdirsyncer < Formula
   url "https://github.com/pimutils/vdirsyncer.git",
       :tag => "0.16.4",
       :revision => "c63e55d0201fbfed23287216e7f8e19ff34d5ac3"
+  revision 1
   head "https://github.com/pimutils/vdirsyncer.git"
 
   bottle do
@@ -16,7 +17,7 @@ class Vdirsyncer < Formula
     sha256 "821f54df991bb75c1fe1bef322b07017401dc4deb9957f8d4745ffe405815cdb" => :x86_64_linux
   end
 
-  depends_on "python3"
+  depends_on "python"
 
   def install
     venv = virtualenv_create(libexec, "python3")

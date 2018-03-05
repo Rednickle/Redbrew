@@ -12,14 +12,18 @@ class Pygobject3 < Formula
     sha256 "12807f272ae1c927bfbc5460b23c4c6d852dddc0e10e559a32e77dde37d421b2" => :x86_64_linux
   end
 
-  option "without-python", "Build without python2 support"
+  option "without-python@2", "Build without python2 support"
+
+  deprecated_option "with-python3" => "with-python"
+  deprecated_option "without-python" => "without-python@2"
 
   depends_on "pkg-config" => :build
   depends_on "libffi" => :optional
   depends_on "glib"
-  depends_on "python3" => :optional
-  depends_on "py2cairo" if build.with? "python"
-  depends_on "py3cairo" if build.with? "python3"
+  depends_on "python@2" if MacOS.version <= :snow_leopard
+  depends_on "python" => :optional
+  depends_on "py2cairo" if build.with? "python@2"
+  depends_on "py3cairo" if build.with? "python"
   depends_on "gobject-introspection"
 
   def install
