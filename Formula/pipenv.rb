@@ -5,6 +5,7 @@ class Pipenv < Formula
   homepage "https://docs.pipenv.org/"
   url "https://files.pythonhosted.org/packages/5f/ca/7eda0888c2859f8fec09290b851ef86b42e7f0371639bcead78cb81c6e10/pipenv-10.1.2.tar.gz"
   sha256 "ce6dbb305fb1f262dba0dcb50c06591e4d146f7bfe079cc9f0ce3f89c7516ae9"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -14,7 +15,7 @@ class Pipenv < Formula
     sha256 "6443bf07e7eb71a8f79590eed9d7c0787e49f058d541e364a96115956d2bd9bd" => :x86_64_linux
   end
 
-  depends_on "python3"
+  depends_on "python"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/15/d4/2f888fc463d516ff7bf2379a4e9a552fef7f22a94147655d9b1097108248/certifi-2018.1.18.tar.gz"

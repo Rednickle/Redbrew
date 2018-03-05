@@ -3,6 +3,7 @@ class Numpy < Formula
   homepage "http://www.numpy.org"
   url "https://files.pythonhosted.org/packages/a3/99/74aa456fc740a7e8f733af4e8302d8e61e123367ec660cd89c53a3cd4d70/numpy-1.14.1.zip"
   sha256 "fa0944650d5d3fb95869eaacd8eedbd2d83610c85e271bd9d3495ffa9bc4dc9c"
+  revision 1
 
   bottle do
     sha256 "de90026ffd68a4f65681e7f8dafd7a3f305de16abc05f9dcd83390fa63d71242" => :high_sierra
@@ -20,11 +21,11 @@ class Numpy < Formula
     end
   end
 
-  option "without-python", "Build without python2 support"
+  option "without-python@2", "Build without python2 support"
 
   depends_on "gcc" => :build # for gfortran
-  depends_on "python" => :recommended if MacOS.version <= :snow_leopard || !OS.mac?
-  depends_on "python3" => :recommended
+  depends_on "python@2" => :recommended if MacOS.version <= :snow_leopard || !OS.mac?
+  depends_on "python" => :recommended
   depends_on "openblas" unless OS.mac?
 
   resource "nose" do
@@ -67,7 +68,7 @@ class Numpy < Formula
   end
 
   def caveats
-    if build.with?("python") && !Formula["python"].installed?
+    if build.with?("python@2") && !Formula["python@2"].installed?
       homebrew_site_packages = Language::Python.homebrew_site_packages
       user_site_packages = Language::Python.user_site_packages "python"
       <<~EOS
