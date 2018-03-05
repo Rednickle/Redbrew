@@ -251,6 +251,9 @@ class Python < Formula
   def post_install
     ENV.delete "PYTHONPATH"
 
+    site_packages = HOMEBREW_PREFIX/"lib/python#{xy}/site-packages"
+    site_packages_cellar = prefix/"Frameworks/Python.framework/Versions/#{xy}/lib/python#{xy}/site-packages"
+
     # Fix up the site-packages so that user-installed Python software survives
     # minor updates, such as going from 3.3.2 to 3.3.3:
 
@@ -322,7 +325,7 @@ class Python < Formula
 
   def xy
     if OS.mac? && prefix.exist?
-      (prefix/"Frameworks/Python.framework/Versions").children.first.basename.to_s
+      (prefix/"Frameworks/Python.framework/Versions").children.sort.first.basename.to_s
     else
       version.to_s.slice(/(3\.\d)/) || "3.6"
     end
@@ -367,11 +370,6 @@ class Python < Formula
   end
 
   def caveats
-    if OS.mac? && prefix.exist?
-      xy = (prefix/"Frameworks/Python.framework/Versions").children.first.basename.to_s
-    else
-      xy = version.to_s.slice(/(3\.\d)/) || "3.6"
-    end
     text = <<~EOS
       Pip, setuptools, and wheel have been installed. To update them
         pip3 install --upgrade pip setuptools wheel
