@@ -1,14 +1,13 @@
 class PostgresqlAT96 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v9.6.7/postgresql-9.6.7.tar.bz2"
-  sha256 "2ebe3df3c1d1eab78023bdc3ffa55a154aa84300416b075ef996598d78a624c6"
+  url "https://ftp.postgresql.org/pub/source/v9.6.8/postgresql-9.6.8.tar.bz2"
+  sha256 "eafdb3b912e9ec34bdd28b651d00226a6253ba65036cb9a41cad2d9e82e3eb70"
 
   bottle do
-    sha256 "777b0a968acd31a6dbf8fccd3e232adc1a17fe6e9e417834dee711ff3ff91fe6" => :high_sierra
-    sha256 "26b3ce62e4f734e4c3f0505588afc076a656c0424c5a76a34341b621e4ab0932" => :sierra
-    sha256 "c854a88e184259cee5c8d3cfd76f3ab189623e52aa1775cd0c44a22ba02df482" => :el_capitan
-    sha256 "6926bf3be6041a99218e9cf41484b5b15eafa335ca7fb01aace31c38dc5ba08c" => :x86_64_linux
+    sha256 "65a15219e94cb7d5d37e9897a5089201bf37ae764d58483d25637cc766d7ec27" => :high_sierra
+    sha256 "25610e42e781365da3baf3f1bcdea23cdadf0c662fcc0170aa63a48840ac8022" => :sierra
+    sha256 "0aa048011d36027d078c5d1efd720518439fdf05b5356ac4ec4f8cacd6598d99" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -16,18 +15,19 @@ class PostgresqlAT96 < Formula
   option "without-perl", "Build without Perl support"
   option "without-tcl", "Build without Tcl support"
   option "with-dtrace", "Build with DTrace support"
-  option "with-python", "Enable PL/Python2"
-  option "with-python3", "Enable PL/Python3 (incompatible with --with-python)"
+  option "with-python", "Enable PL/Python3 (incompatible with --with-python@2)"
+  option "with-python@2", "Enable PL/Python2"
 
   deprecated_option "no-perl" => "without-perl"
   deprecated_option "no-tcl" => "without-tcl"
   deprecated_option "enable-dtrace" => "with-dtrace"
+  deprecated_option "with-python3" => "with-python"
 
   depends_on "openssl"
   depends_on "readline"
 
   depends_on "python" => :optional
-  depends_on "python3" => :optional
+  depends_on "python@2" => :optional
 
   unless OS.mac?
     depends_on "libxslt"
@@ -70,11 +70,11 @@ class PostgresqlAT96 < Formula
     args << "--with-perl" if build.with? "perl"
 
     which_python = nil
-    if build.with?("python") && build.with?("python3")
-      odie "Cannot provide both --with-python and --with-python3"
-    elsif build.with?("python") || build.with?("python3")
+    if build.with?("python") && build.with?("python@2")
+      odie "Cannot provide both --with-python and --with-python@2"
+    elsif build.with?("python") || build.with?("python@2")
       args << "--with-python"
-      which_python = which(build.with?("python") ? "python" : "python3")
+      which_python = which(build.with?("python") ? "python3" : "python2.7")
     end
     ENV["PYTHON"] = which_python
 

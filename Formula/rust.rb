@@ -3,8 +3,8 @@ class Rust < Formula
   homepage "https://www.rust-lang.org/"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.24.0-src.tar.gz"
-    sha256 "bb8276f6044e877e447f29f566e4bbf820fa51fea2f912d59b73233ffd95639f"
+    url "https://static.rust-lang.org/dist/rustc-1.24.1-src.tar.gz"
+    sha256 "3ea53d45e8d2e9a41afb3340cf54b9745f845b552d802d607707cf04450761ef"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
@@ -19,11 +19,9 @@ class Rust < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 "63523dc7db03a21de1fafbe242a22a144967b241efd50e2ea23d41fed88d0a31" => :high_sierra
-    sha256 "4c926f3cc88ce210ee85cde6d5c2c4b6251b6b84097fb48d488335ab43708a65" => :sierra
-    sha256 "480221c3dd7477de2f97dfa43a26d5a4069fd5e32c3cf5a1dfc0d710d341e102" => :el_capitan
-    sha256 "3705537e74934acefac7a63bc821d86ba09d9f4681bc2d9c596fb9905c95a95c" => :x86_64_linux
+    sha256 "47eb6c2033982c0e69c4f26b7e3064452bb6c39dc20dc25b4b63a7b0eca64856" => :high_sierra
+    sha256 "fb7409f7ae34f136199a19dfe93e9a69c8fa67f3e1f7e35ca0e436a20acdb0a1" => :sierra
+    sha256 "f098dfc90d7630bb6909ce919d71b655543cf39fca194b684b1dabeac0cb8f52" => :el_capitan
   end
 
   head do
