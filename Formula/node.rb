@@ -21,10 +21,10 @@ class Node < Formula
   deprecated_option "enable-debug" => "with-debug"
 
   if OS.mac?
-    depends_on "python" => :build if MacOS.version <= :snow_leopard
+    depends_on "python@2" => :build if MacOS.version <= :snow_leopard
   else
     # Needed at runtime (for the tests on Linux for example)
-    depends_on "python"
+    depends_on "python@2"
   end
   depends_on "pkg-config" => :build
   depends_on "icu4c" => :recommended

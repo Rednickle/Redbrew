@@ -34,7 +34,7 @@ class Ghc < Formula
   deprecated_option "with-tests" => "with-test"
 
   depends_on :macos => :lion if OS.mac?
-  depends_on "python3" => :build if build.bottle? || build.with?("test")
+  depends_on "python" => :build if build.bottle? || build.with?("test")
   depends_on "sphinx-doc" => :build if build.with? "docs"
   depends_on "m4" => :build unless OS.mac?
   depends_on "ncurses" unless OS.mac?

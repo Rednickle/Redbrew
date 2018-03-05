@@ -15,7 +15,7 @@ class Aap < Formula
     sha256 "4e422aa695195352e1541c7d5384822733350a2e8a585ba68ca8e96d9b9faaab" => :x86_64_linux # glibc 2.19
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   def install
     # Aap is designed to install using itself

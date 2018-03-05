@@ -14,7 +14,7 @@ class Archivemail < Formula
     sha256 "9ddae4305a6ad3ebaf0c5410e3dda1d12fb33241eaa86e7f49a8eac2a9cd6214" => :x86_64_linux # glibc 2.19
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   def install
     ENV.prepend_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
