@@ -12,7 +12,7 @@ class NanopbGenerator < Formula
     sha256 "b8c235e9125f2d9a64f71f4449d2d0fa94282c6dea62f1bcea9e6247cf1a43e5" => :x86_64_linux
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
   depends_on "protobuf"
 
   resource "protobuf-python" do

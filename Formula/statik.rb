@@ -15,7 +15,7 @@ class Statik < Formula
     sha256 "c89187e4b4977e5f32b71fe296b742c9fbfac8854ba10abb382a9cf13bd442a8" => :x86_64_linux
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   conflicts_with "go-statik", :because => "both install `statik` binaries"
 

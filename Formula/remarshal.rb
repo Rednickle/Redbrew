@@ -16,7 +16,7 @@ class Remarshal < Formula
     sha256 "0065ce17116ac0c5f0e49be542550baf94efd52b3c288ef2f9a801b150e93fe9" => :x86_64_linux # glibc 2.19
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   resource "PyYAML" do
     url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"

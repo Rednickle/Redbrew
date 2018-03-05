@@ -19,7 +19,7 @@ class Vte < Formula
   depends_on "gtk+"
   depends_on "pygobject"
   depends_on "pygtk"
-  depends_on "python" if MacOS.version <= :snow_leopard || !OS.mac?
+  depends_on "python@2" if MacOS.version <= :snow_leopard || !OS.mac?
 
   def install
     # Needed by intltool (xml::parser)

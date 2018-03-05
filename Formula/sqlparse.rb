@@ -14,7 +14,7 @@ class Sqlparse < Formula
     sha256 "751c7f91872aa85068a5a6711ab49ea12f2304f085a4e8446ac150262baa2265" => :x86_64_linux
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   def install
     virtualenv_install_with_resources

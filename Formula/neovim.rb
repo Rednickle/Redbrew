@@ -24,7 +24,7 @@ class Neovim < Formula
   depends_on "luajit"
   depends_on "msgpack"
   depends_on "unibilium"
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
   unless OS.mac?
     depends_on "unzip" => :build
     depends_on "gperf"

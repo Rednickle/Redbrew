@@ -12,7 +12,7 @@ class Pyvim < Formula
     sha256 "8b96138cdc6a8354c5535d6b994e5ffd8f708f79089d36b5c54513e0807c6bc2" => :x86_64_linux
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   resource "docopt" do
     url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"

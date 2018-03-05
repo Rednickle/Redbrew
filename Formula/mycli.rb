@@ -14,7 +14,7 @@ class Mycli < Formula
     sha256 "620e535375e4574f4b6d8ee5223b36e2a3f7d73be8299c2e3b1b065a50e00efc" => :x86_64_linux
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
   depends_on "openssl"
   unless OS.mac?
     depends_on "pkg-config" => :build

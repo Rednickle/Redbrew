@@ -13,7 +13,7 @@ class WakatimeCli < Formula
     sha256 "98bdad3c1eb8683f66838c74871c8e76c3b191717fcf22afbf5783414846d48a" => :x86_64_linux # glibc 2.19
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   def install
     ENV["PYTHONPATH"] = libexec/"lib/python2.7/site-packages"

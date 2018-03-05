@@ -15,7 +15,7 @@ class TrashCli < Formula
     sha256 "0a63fa2a54f841b56387d7b731f7b321af7a2a8249e91f3c153bb89497f97386" => :x86_64_linux
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   conflicts_with "trash", :because => "both install a `trash` binary"
 

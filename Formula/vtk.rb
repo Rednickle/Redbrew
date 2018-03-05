@@ -12,7 +12,9 @@ class Vtk < Formula
     sha256 "9346559fd470f82608d223639b57c5f4d8b699ddf3c4a24c50a55095d5c908eb" => :x86_64_linux
   end
 
-  option "without-python", "Build without python2 support"
+  option "without-python@2", "Build without python2 support"
+
+  deprecated_option "without-python" => "without-python@2"
 
   depends_on "cmake" => :build
   depends_on "boost"
@@ -22,8 +24,8 @@ class Vtk < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "netcdf"
-  depends_on "python" => :recommended if MacOS.version <= :snow_leopard
-  depends_on "python3" => :optional
+  depends_on "python@2" => :recommended if MacOS.version <= :snow_leopard
+  depends_on "python" => :optional
   depends_on "qt" => :optional
   depends_on "pyqt" if build.with? "qt"
 
@@ -71,12 +73,12 @@ class Vtk < Formula
     end
 
     mkdir "build" do
-      if build.with?("python3") && build.with?("python")
+      if build.with?("python") && build.with?("python@2")
         # VTK Does not support building both python 2 and 3 versions
         odie "VTK: Does not support building both python 2 and 3 wrappers"
-      elsif build.with?("python") || build.with?("python3")
-        python_executable = `which python`.strip if build.with? "python"
-        python_executable = `which python3`.strip if build.with? "python3"
+      elsif build.with?("python") || build.with?("python@2")
+        python_executable = `which python3`.strip if build.with? "python"
+        python_executable = `which python2.7`.strip if build.with? "python@2"
 
         python_prefix = `#{python_executable} -c 'import sys;print(sys.prefix)'`.chomp
         python_include = `#{python_executable} -c 'from distutils import sysconfig;print(sysconfig.get_python_inc(True))'`.chomp

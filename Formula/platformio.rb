@@ -14,7 +14,7 @@ class Platformio < Formula
     sha256 "4524506177faea78f00f024e3f51f6ebfdf1803f8fe7efe595c15930dd131057" => :x86_64_linux
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   resource "bottle" do
     url "https://files.pythonhosted.org/packages/bd/99/04dc59ced52a8261ee0f965a8968717a255ea84a36013e527944dbf3468c/bottle-0.12.13.tar.gz"

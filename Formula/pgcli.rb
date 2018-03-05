@@ -12,7 +12,7 @@ class Pgcli < Formula
     sha256 "357fb14a48abf25c96b14d3403989567d6d3c0e9e8d10212019430009a6382c3" => :x86_64_linux
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
   depends_on "libpq"
   depends_on "openssl"
 

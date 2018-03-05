@@ -21,7 +21,7 @@ class Watchman < Formula
     satisfy { OS.mac? || HOMEBREW_PREFIX.to_s == default_prefix }
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build

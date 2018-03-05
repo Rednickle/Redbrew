@@ -15,7 +15,7 @@ class Tbb < Formula
   # requires malloc features first introduced in Lion
   # https://github.com/Homebrew/homebrew/issues/32274
   depends_on :macos => :lion if OS.mac?
-  depends_on "python" if MacOS.version <= :snow_leopard || !OS.mac?
+  depends_on "python@2" if MacOS.version <= :snow_leopard || !OS.mac?
   depends_on "swig" => :build
 
   def install
