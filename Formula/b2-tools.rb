@@ -14,7 +14,7 @@ class B2Tools < Formula
     sha256 "b8de0b2e2025f7bc5766e1b6e2c67e76d8ccf9263c8b742c79f765daad61644f" => :x86_64_linux
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   conflicts_with "boost-build", :because => "both install `b2` binaries"
 

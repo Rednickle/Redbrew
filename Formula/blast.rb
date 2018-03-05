@@ -14,7 +14,7 @@ class Blast < Formula
   end
 
   depends_on "lmdb"
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
   depends_on "cpio" => :build unless OS.mac?
 
   def install

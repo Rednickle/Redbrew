@@ -16,7 +16,7 @@ class Cxxtest < Formula
     sha256 "6ae4f59bfb97934f5de0477c1d6b9da286ab6ad444b7db6af8051272fb204799" => :x86_64_linux # glibc 2.19
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   def install
     ENV["PYTHONPATH"] = lib+"python2.7/site-packages"
