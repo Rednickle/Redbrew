@@ -1,16 +1,14 @@
 class Nim < Formula
   desc "Statically typed, imperative programming language"
   homepage "https://nim-lang.org/"
-  url "https://nim-lang.org/download/nim-0.17.2.tar.xz"
-  sha256 "aaff1b5023fc4a5708f1d7d9fd8e2a29f1a7f58bf496532ff1e9d7e7c7ec82bd"
+  url "https://nim-lang.org/download/nim-0.18.0.tar.xz"
+  sha256 "2ebe164eb4638a7a65aa02da7bdc4d7559026105655fdf3f620b9525406a46c1"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f976e6aecf9c6211eab818ab86b3f7ee42d9ff2c02cd272017ba12657fd9353b" => :high_sierra
-    sha256 "2bc6629eb88e0c023f62e486ef45cfb31756e6c5fae5726e1cc243f6bb091f22" => :sierra
-    sha256 "b18b6e44b530db76c429f6be3ef367dc993cf1f78956f006d1dcf7cd5c465cfb" => :el_capitan
-    sha256 "99e962cbea6146efceba1e7eed10bea6e1ce84d8715571f57078e7e736e67751" => :yosemite
-    sha256 "74d40ccfcf68500a610522cef5e6a0552723120c8fa6f83c4ba3daa32a02fb68" => :x86_64_linux
+    sha256 "249cd3f7f4cf8647528e4938bff0ea54bbb266bfd2b908ab9e2f7825a776e70f" => :high_sierra
+    sha256 "0144771b6b89b7a03403c7924fa7d770f836cbd2dee0edc5a0687b0ada6adb1b" => :sierra
+    sha256 "f89bf02352fd3580fef36b7e7626cc0e99ccabed9513b5b2dba62b906bc5a93e" => :el_capitan
   end
 
   head do
