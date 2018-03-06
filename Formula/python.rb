@@ -249,6 +249,13 @@ class Python < Formula
   end
 
   def post_install
+    # Avoid conflicts during migration from python3
+    rm_f %W[
+      #{HOMEBREW_PREFIX}/bin/easy_install
+      #{HOMEBREW_PREFIX}/bin/pip
+      #{HOMEBREW_PREFIX}/bin/wheel
+    ]
+
     ENV.delete "PYTHONPATH"
 
     site_packages = HOMEBREW_PREFIX/"lib/python#{xy}/site-packages"
