@@ -3,13 +3,13 @@ class Urh < Formula
   homepage "https://github.com/jopohl/urh"
   url "https://files.pythonhosted.org/packages/76/14/f5a44ea32d473f9432c05087b5cab4c77882a18da48c2d258474d0fe7c63/urh-2.0.0.tar.gz"
   sha256 "b52b6d85a2f5af1fc87603365d6572dd1b68f396b281f7059fe32415f8ea03dd"
-  revision 1
+  revision 2
   head "https://github.com/jopohl/urh.git"
 
   bottle do
-    sha256 "4b1303ebeb52a41ecd5be207c6c5e4b7503a6e258b183f7aade4868d982eb512" => :high_sierra
-    sha256 "fa218f58d4bb5edbd3026a4e91b3bd78a13ecbd28dfdea39122e8f2936256093" => :sierra
-    sha256 "a756a0056942a794393ef414c468950ff3e1c51abfc1d37fe6452258a086ea9a" => :el_capitan
+    sha256 "a74135ac416c46a23ec7e1734ebbb9ef21420e4b0a78dc82fec96710a4ca058c" => :high_sierra
+    sha256 "ef6181af8760e1a4216e1e36bc17222459f9cfe60dee1c3a4ef4a6e6a07b13af" => :sierra
+    sha256 "67e8c523afb36c18abf688c3de5c3ee2d2c9a81cfd0c5fcf2993a466c86ab1b0" => :el_capitan
   end
 
   option "with-hackrf", "Build with libhackrf support"
@@ -18,6 +18,7 @@ class Urh < Formula
 
   depends_on "python"
   depends_on "pyqt"
+  depends_on "zeromq"
 
   depends_on "hackrf" => :optional
 

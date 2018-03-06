@@ -381,6 +381,11 @@ class Python < Formula
         #{HOMEBREW_PREFIX/"lib/python#{xy}/site-packages"}
 
       See: https://docs.brew.sh/Homebrew-and-Python
+
+      Unversioned symlinks python, python-config, pip etc. pointing to python3,
+      python3-config, pip3 etc., respectively, have been installed.
+
+      If you need Homebrew's Python 2, `brew install python@2`.
     EOS
 
     # Tk warning only for 10.6

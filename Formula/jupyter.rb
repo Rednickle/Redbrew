@@ -3,13 +3,13 @@ class Jupyter < Formula
   homepage "https://jupyter.org/"
   url "https://files.pythonhosted.org/packages/c9/a9/371d0b8fe37dd231cf4b2cff0a9f0f25e98f3a73c3771742444be27f2944/jupyter-1.0.0.tar.gz"
   sha256 "d9dc4b3318f310e34c82951ea5d6683f67bed7def4b259fafbfe4f1beb1d8e5f"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "4c3c12eccecd71fc6931256d78aee1b843da269b2cf5c40629671ff34843ccd5" => :high_sierra
-    sha256 "a4e9f134cd0483febbd813624d08eaa8a3d1d1c652e1fbf476b3564f065d3c0d" => :sierra
-    sha256 "5097b54e03d756c5a0e72e5daf3dee9d68e1fffc27ac9aee8390710540cc7c29" => :el_capitan
+    sha256 "950f7e3399bc3668916b5634e2067d106e5206c0b452db13e89b9dcae781fc23" => :high_sierra
+    sha256 "8b868ac865e4005b3b7c7f7912fed224c4f25613a83b6194b40113a333e92ad6" => :sierra
+    sha256 "1708125f0ae94cec7d5f5dff0e8353209933eb594b3733b80fe6f0b37f6fd55b" => :el_capitan
   end
 
   option "with-qtconsole", "Install with Qtconsole"
@@ -19,6 +19,7 @@ class Jupyter < Formula
 
   depends_on "ipython@5"
   depends_on "python@2"
+  depends_on "zeromq"
   depends_on "pandoc" if build.with?("nbconvert") || build.with?("notebook")
   depends_on "pyqt" if build.with? "qtconsole"
 
