@@ -1,16 +1,15 @@
 class LeanCli < Formula
   desc "Command-line tool to develop and manage LeanCloud apps"
   homepage "https://github.com/leancloud/lean-cli"
-  url "https://github.com/leancloud/lean-cli/archive/v0.18.0.tar.gz"
-  sha256 "96584706cac3eb2ff04d16d8b3dbbb61c236ac22ef6c6366970583c5a1b7c963"
+  url "https://github.com/leancloud/lean-cli/archive/v0.18.1.tar.gz"
+  sha256 "804ab587dc9257db0379cc12043edec4ddced96f16967088e6d218afa7d46ff6"
   head "https://github.com/leancloud/lean-cli.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e870f64217b3193ef5c6d9296a6ebc8f3d77b9f1b3b25a76e0acfd55a484ac03" => :high_sierra
-    sha256 "c641783cded9deb3e48fd11246778300ad9121ec13aed425a1a1d6bf152a5af3" => :sierra
-    sha256 "1f566ff288b68c627f1330a54c98f78c28b753c8a7f0a772f24b24bca157f6eb" => :el_capitan
-    sha256 "e65fc6250646dfe8b0a014c37a8373b61f0e0149ca30a92f3d75b6e889c450cf" => :x86_64_linux
+    sha256 "fc484826251b7865ad9c5c88def4bcfcbc9f6d76a7dcce31e85ebfc5d8d746e8" => :high_sierra
+    sha256 "cbdcfa911da57ee09dd596731dce9f098ace21d73747a9936f7aa5b0fa356265" => :sierra
+    sha256 "7b9b9bfe63cb49be63b3a5184a1277cbdd341e288e39dbfd3b23f59390d70131" => :el_capitan
   end
 
   depends_on "go" => :build
