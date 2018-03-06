@@ -8,6 +8,7 @@ class GlibOpenssl < Formula
     sha256 "7e79387127349d9976e104c0580b0efaf836865e15ede603232ecd5b80f3edb8" => :high_sierra
     sha256 "2c6f6a96f2643fdfdc772c460ca7e9ec08783bf02f89a6312a02624dbba1a82a" => :sierra
     sha256 "5f808a52d9c9fcebeb8143701c0e4dae92260f7c1233795069972b80718ac841" => :el_capitan
+    sha256 "0a990288911b834763db877d6c0c56e07b9e5bd103bdfe1a991f48b93fd9fed9" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
