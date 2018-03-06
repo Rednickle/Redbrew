@@ -3,7 +3,7 @@ class Geos < Formula
   homepage "https://trac.osgeo.org/geos"
   url "https://download.osgeo.org/geos/geos-3.6.2.tar.bz2"
   sha256 "045a13df84d605a866602f6020fc6cbf8bf4c42fb50de237a08926e1d7d7652a"
-  revision 1 unless OS.mac?
+  revision 2 unless OS.mac?
 
   bottle do
     cellar :any
@@ -11,14 +11,10 @@ class Geos < Formula
     sha256 "a435dcf855256300793f56c3d0af6597f39958bde52adc29d07736f897b40c1b" => :sierra
     sha256 "8fa4f17ee4b0f8c52bdb155f4264043f12245858e413975cfea4355d569db207" => :el_capitan
     sha256 "5966c5ecea54189c67a3ffb5856176f4bb070ca72b3c3628ad7b76fb67e35de8" => :yosemite
-    sha256 "44cbe59f4b1b92f4c3beae5fab480328783a87cb5ff16040e1e51cd93f39cc08" => :x86_64_linux
   end
 
-  option "without-python", "Do not build the Python extension"
-  option "with-ruby", "Build the ruby extension"
-
-  depends_on "swig" => :build if build.with?("python") || build.with?("ruby")
-  depends_on "python" unless OS.mac?
+  depends_on "swig" => :build
+  depends_on "python@2" if MacOS.version <= :snow_leopard || !OS.mac?
 
   def install
     # https://trac.osgeo.org/geos/ticket/771
@@ -27,17 +23,9 @@ class Geos < Formula
       s.gsub! /PYTHON_LDFLAGS=.*/, 'PYTHON_LDFLAGS="-Wl,-undefined,dynamic_lookup"'
     end
 
-    args = [
-      "--disable-dependency-tracking",
-      "--prefix=#{prefix}",
-    ]
-
-    args << "--enable-python" if build.with?("python")
-    args << "--enable-ruby" if build.with?("ruby")
-
-    ENV["PYTHON"] = Formula["python"].bin/"python2" if build.with?("python")
-
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}",
+                          "--enable-python"
     system "make", "install"
   end
 
