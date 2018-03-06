@@ -9,6 +9,7 @@ class Krakend < Formula
     sha256 "46266f87fcd75d4f1dfe0431870bdce0844ae7def872a9b449bee0848e07f0a6" => :high_sierra
     sha256 "9a74e674f7d3edfc301795dc48bccacc3a0e7501fe5a58a28ffc193ac958ad4a" => :sierra
     sha256 "7123d3c85d89919d78bd083a3e53ede9b08fad1083a802d4fbbdc1bc472ed403" => :el_capitan
+    sha256 "e54c0e0d8a6849f18c379178c5e814071cc49959d508b0ba3ffa8117d125172a" => :x86_64_linux
   end
 
   depends_on "dep" => :build
