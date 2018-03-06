@@ -18,12 +18,13 @@ class PostgresXc < Formula
 
   deprecated_option "no-perl" => "without-perl"
   deprecated_option "enable-dtrace" => "with-dtrace"
+  deprecated_option "with-python" => "with-python@2"
 
   depends_on :arch => :x86_64
   depends_on "openssl"
   depends_on "readline"
   depends_on "ossp-uuid" => :recommended
-  depends_on "python" => :optional
+  depends_on "python@2" => :optional
   depends_on "krb5" unless OS.mac?
   depends_on "libxslt" unless OS.mac?
   depends_on "perl" unless OS.mac? || build.without?("perl")
@@ -63,7 +64,7 @@ class PostgresXc < Formula
     ]
 
     args << "--with-ossp-uuid" if build.with? "ossp-uuid"
-    args << "--with-python" if build.with? "python"
+    args << "--with-python" if build.with? "python@2"
     args << "--with-perl" if build.with? "perl"
     args << "--enable-dtrace" if build.with? "dtrace"
     args << "ARCHFLAGS='-arch x86_64'"
@@ -75,7 +76,7 @@ class PostgresXc < Formula
       ENV.append "LIBS", `uuid-config --libs`.strip
     end
 
-    check_python_arch if build.with? "python"
+    check_python_arch if build.with? "python@2"
 
     system "./configure", *args
 

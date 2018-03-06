@@ -12,8 +12,9 @@ class Gdb < Formula
     sha256 "42713fc4de4210beb06f195829292b72ca261471d266e35d317bbf27d18f7355" => :x86_64_linux
   end
 
-  deprecated_option "with-brewed-python" => "with-python"
+  deprecated_option "with-brewed-python" => "with-python@2"
   deprecated_option "with-guile" => "with-guile@2.0"
+  deprecated_option "with-python" => "with-python@2"
 
   if OS.mac?
     option "with-python", "Use the Homebrew version of Python; by default system Python is used"
@@ -24,7 +25,7 @@ class Gdb < Formula
   option "with-all-targets", "Build with support for all targets"
 
   depends_on "pkg-config" => :build
-  depends_on "python" => OS.mac? ? :optional : :recommended
+  depends_on "python@2" => OS.mac? ? :optional : :recommended
   depends_on "guile@2.0" => :optional
   unless OS.mac?
     depends_on "texinfo" => :build
@@ -59,7 +60,7 @@ class Gdb < Formula
     args << "--with-guile" if build.with? "guile@2.0"
     args << "--enable-targets=all" if build.with? "all-targets"
 
-    if build.with? "python"
+    if build.with? "python@2"
       args << "--with-python=#{Formula["python"].opt_libexec}/bin"
     else
       args << "--without-python"

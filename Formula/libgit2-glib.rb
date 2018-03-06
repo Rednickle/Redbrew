@@ -21,13 +21,15 @@ class Libgit2Glib < Formula
     depends_on "gtk-doc" => :build
   end
 
+  deprecated_option "with-python" => "with-python@2"
+
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "libgit2"
   depends_on "gobject-introspection"
   depends_on "glib"
   depends_on "vala" => :optional
-  depends_on "python" => :optional
+  depends_on "python@2" => :optional
 
   def install
     args = %W[
@@ -36,7 +38,7 @@ class Libgit2Glib < Formula
       --disable-dependency-tracking
     ]
 
-    args << "--enable-python=no" if build.without? "python"
+    args << "--enable-python=no" if build.without? "python@2"
     args << "--enable-vala=no" if build.without? "vala"
 
     system "./autogen.sh", *args if build.head?

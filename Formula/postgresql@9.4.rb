@@ -21,9 +21,11 @@ class PostgresqlAT94 < Formula
   end
   option "with-dtrace", "Build with DTrace support"
 
+  deprecated_option "with-python" => "with-python@2"
+
   depends_on "openssl"
   depends_on "readline"
-  depends_on "python" => :optional
+  depends_on "python@2" => :optional
 
   unless OS.mac?
     depends_on "libxslt"
@@ -65,7 +67,7 @@ class PostgresqlAT94 < Formula
     ] if OS.mac?
 
     args << "--with-perl" if build.with? "perl"
-    args << "--with-python" if build.with? "python"
+    args << "--with-python" if build.with? "python@2"
 
     # The CLT is required to build tcl support on 10.7 and 10.8 because tclConfig.sh is not part of the SDK
     if build.with?("tcl") && (MacOS.version >= :mavericks || MacOS::CLT.installed?)

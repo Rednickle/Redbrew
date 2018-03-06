@@ -11,12 +11,14 @@ class Unbound < Formula
     sha256 "8a15385a1ad682b3e90cff696ea2c3327e3bb4b7c19d304479768ad6b7be7e0b" => :x86_64_linux
   end
 
+  deprecated_option "with-python" => "with-python@2"
+
   depends_on "openssl"
   depends_on "libevent"
   depends_on "expat" unless OS.mac?
 
-  depends_on "python" => :optional
-  depends_on "swig" if build.with?("python")
+  depends_on "python@2" => :optional
+  depends_on "swig" if build.with?("python@2")
 
   def install
     args = %W[
@@ -26,7 +28,7 @@ class Unbound < Formula
       --with-ssl=#{Formula["openssl"].opt_prefix}
     ]
 
-    if build.with? "python"
+    if build.with? "python@2"
       ENV.prepend "LDFLAGS", `python-config --ldflags`.chomp
       ENV.prepend "PYTHON_VERSION", "2.7"
 
