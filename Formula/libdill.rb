@@ -1,15 +1,14 @@
 class Libdill < Formula
   desc "Structured concurrency in C"
   homepage "http://libdill.org/"
-  url "https://github.com/sustrik/libdill/archive/2.4.tar.gz"
-  sha256 "ebef0b53db2312702beb11b2493cbbfb320859a60a44d0bb6aab0132ea83ba73"
+  url "https://github.com/sustrik/libdill/archive/2.5.tar.gz"
+  sha256 "896c82f47597ca1643f776c0141c4e352582d8739d1628caa2e406a1070c92f4"
 
   bottle do
     cellar :any
-    sha256 "b573af4d120876e43cb3d9e822487658bca0bbcbaec2b4b7061e8e4f7b74068e" => :high_sierra
-    sha256 "c289a65ded1c77bfa31f624dc6a06de059a8fcda4fc7b2bca9401794bdbf0fa8" => :sierra
-    sha256 "3f441463cc4aa3699f4f06df389b21703607894678e46b2f79ef235e50147530" => :el_capitan
-    sha256 "f0fbe9e486bd21ff09606ac00e818b2ea1c1bc737f3d2e1dcb0feec3c62afb99" => :x86_64_linux
+    sha256 "77247a23127acb45413421c1fc1d33f665b6b32726531b88fe693ae25c892676" => :high_sierra
+    sha256 "d788bd1d1dbe796827d7a68102f699306c914cecf294789356b0c1e9f1a827bb" => :sierra
+    sha256 "0bec0f3866b0f6dbd43eba1230b64af72276331b9356698cf748b62a7ca13cb4" => :el_capitan
   end
 
   depends_on "autoconf" => :build
