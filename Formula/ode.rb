@@ -11,6 +11,7 @@ class Ode < Formula
     sha256 "d392aba8c14119ee6072c2677835e928d9a9cca95d4b3c0ef0b82aedf1bc0147" => :high_sierra
     sha256 "34670979e3b841475cbbef0038203bae036baa753a6c03af179a0aff7b27d168" => :sierra
     sha256 "4f2986f5867bd16da6836dc9a580f1ca2a01f4d7177fd3308b4fcea41443ac7e" => :el_capitan
+    sha256 "9308edfbb62275157c40b45d8c9bdda292412273afbec9b862906e75f8b267fd" => :x86_64_linux
   end
 
   option "with-double-precision", "Compile ODE with double precision"
