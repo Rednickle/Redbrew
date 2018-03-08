@@ -3,13 +3,13 @@ class Liblwgeom < Formula
   homepage "https://postgis.net/"
   url "https://download.osgeo.org/postgis/source/postgis-2.4.3.tar.gz"
   sha256 "ea5374c5db6b645ba5628ddcb08f71d3b3d90a464d366b4e1d20d5a268bde4b9"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "d844e20771f16f98b92a229a9726eb6a78d9e3e8cb48093749565ff9ed85d3fc" => :high_sierra
-    sha256 "9e85d5e2290eaefac0f8651aba797ed61385f42cbaf7703de7ae21b02ca9d8bb" => :sierra
-    sha256 "4f8d9ec067213ba75bec47f38921c5d2564b7d06633a684f7474c114af2c03fd" => :el_capitan
-    sha256 "2a7d682ee0b08199b46488d9cc4ea96b93dfd28f3e0d4f3b7595b03a032c92db" => :x86_64_linux
+    sha256 "27deb705d45152887db0b7d4b49ac4cf20b08b419589b86c54827d43f26e767f" => :high_sierra
+    sha256 "d295d62000aa81ca61b26b265dbb9ee43104346401c266a2b1566d157646fea4" => :sierra
+    sha256 "73371ed890f29ec626a4fac6b73b037d6c9a06e5f79c38a1e7e7343d8cf64d9f" => :el_capitan
   end
 
   head do
