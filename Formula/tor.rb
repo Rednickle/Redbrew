@@ -9,6 +9,7 @@ class Tor < Formula
     sha256 "c9170852c7734a4703d60984d9394e5877a8d0346cad0e124565ede5fef154a4" => :high_sierra
     sha256 "29dc187af55647e455cfb5e7a62bc4da1316f7f1c753c387089d6a17a8940c40" => :sierra
     sha256 "6ccb7fbb44b052d4f6e5b3c27008d46a7772cc6a70266578b067e065ba9d59e3" => :el_capitan
+    sha256 "cb1cde9cbc87837cc88d8517214df8ea3173a1f3ac63a573a77d406e952aed19" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
