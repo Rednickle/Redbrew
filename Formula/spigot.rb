@@ -1,17 +1,16 @@
 class Spigot < Formula
   desc "Command-line streaming exact real calculator"
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/spigot/"
-  url "https://www.chiark.greenend.org.uk/~sgtatham/spigot/spigot-20180202.924e036.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/spigot-20180202.924e036.tar.gz"
-  version "20180202.924e036"
-  sha256 "b3e33499c63b1387d52e42d418a241d031f1e4b30f10a13a5daf0eab1b673166"
+  url "https://www.chiark.greenend.org.uk/~sgtatham/spigot/spigot-20180306.fe8a7a4.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/spigot-20180306.fe8a7a4.tar.gz"
+  version "20180306.fe8a7a4"
+  sha256 "1af680cfaf7205ca8564d2256ef0adb469dfe018132fb20b8690542c6933a520"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c2f2a4d7390a357716fbadbfac3565c08503c1031fdaf075d2893b20e72e75a2" => :high_sierra
-    sha256 "1b24b26e3990f00dc6e18fe89f9bc1d7fed78613f944fc964c513e3d9cacbe9b" => :sierra
-    sha256 "638feed49ddb64ce46b3c7dc12c483e9d03511259f6087c61d20bf256c7d781d" => :el_capitan
-    sha256 "7cdd98502a672c78a272b3f9fe913d6a230f1f333cd88bedfde65e04b0103b9c" => :x86_64_linux
+    sha256 "184adf52f464ab7c2db0a19cf9491effd6294ac8af193f0dc081bc07e52dd7c7" => :high_sierra
+    sha256 "eb70f4d7f90656c061fefb6c2a13c60b9a0ef7ea8474f48514920440f92286ae" => :sierra
+    sha256 "2a4b44ecfe3b0b40b130744a7dd953e2bbea57a3c9ea4a061b7e1003ac28e4c6" => :el_capitan
   end
 
   depends_on "gmp" unless OS.mac?

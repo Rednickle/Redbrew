@@ -3,13 +3,13 @@ class NodeAT6 < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v6.13.0/node-v6.13.0.tar.xz"
   sha256 "b7166fe2c6b29fbaa5a81c6953dc6764a91966ac00d746581fad66ddb1bb4d04"
+  revision 1
   head "https://github.com/nodejs/node.git", :branch => "v6.x-staging"
 
   bottle do
-    rebuild 2
-    sha256 "0b37f5dd42ed7736580473140f4ae767d33f349c6d64f8a83d01f5ce388b2a2d" => :high_sierra
-    sha256 "70ac01d90ed6b3997c74793e45bd24ee4d7cfcf27a2305b1b26841e02f260f4c" => :sierra
-    sha256 "233c27e2a389b8b410cce0616ac059bed418975a174cbff0917fb54550953654" => :el_capitan
+    sha256 "22d6e23fa60e70d00c1f22a1695da8fbb70ad6dd163bb197455ebd83f731d290" => :high_sierra
+    sha256 "846426667d49d443317323e1ca2b3b951306851d5fd6bf318af25fe2def05465" => :sierra
+    sha256 "3e7e57f1d1e9e73b54c7962f2726cb80a3e778e7a9d9763e05bed1d34dcfd792" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -34,7 +34,6 @@ class NodeAT6 < Formula
 
   resource "icu4c" do
     url "https://ssl.icu-project.org/files/icu4c/58.2/icu4c-58_2-src.tgz"
-    mirror "https://fossies.org/linux/misc/icu4c-58_2-src.tgz"
     version "58.2"
     sha256 "2b0a4410153a9b20de0e20c7d8b66049a72aef244b53683d0d7521371683da0c"
   end
@@ -55,6 +54,15 @@ class NodeAT6 < Formula
 
     system "./configure", *args
     system "make", "install"
+  end
+
+  def post_install
+    return if build.without? "npm"
+
+    (lib/"node_modules/npm/npmrc").atomic_write <<~EOS
+      prefix = #{HOMEBREW_PREFIX}
+      python = /usr/bin/python
+    EOS
   end
 
   def caveats

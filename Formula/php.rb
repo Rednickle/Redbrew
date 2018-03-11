@@ -3,13 +3,17 @@ class Php < Formula
   homepage "https://php.net/"
   url "https://php.net/get/php-7.2.3.tar.xz/from/this/mirror"
   sha256 "b3a94f1b562f413c0b96f54bc309706d83b29ac65d9b172bc7ed9fb40a5e651f"
+  revision 1
 
   bottle do
-    sha256 "39be15089755343b860c293f9c0c54d93f15185059ef5b6d539270355b41978d" => :high_sierra
-    sha256 "0bd906b8e2f7a52476e3cdfedf8db7d74cf27b1aad05db2793035ac918fd723a" => :sierra
-    sha256 "50b051315cb30e71020675f47559a4f6f75edc45b3150c7d82ad4778d5e1132b" => :el_capitan
+    sha256 "b9400900204d5f4a6e5a44e81bbe30cd2b3ba92304d0465b6f13c7a9da2a67fd" => :high_sierra
+    sha256 "c1d225af3d4f907e17e260b85a7a72d27378ff0c7c8b1b5a6a9c28cbac30bf44" => :sierra
+    sha256 "c1dab72ee58556bd8c6426b61d06770397aa4c291752a0eaf96e9b77c5604b4d" => :el_capitan
   end
 
+  depends_on "apr" => :build
+  depends_on "apr-util" => :build
+  depends_on "httpd" => :build
   depends_on "pkg-config" => :build
   depends_on "argon2"
   depends_on "aspell"
@@ -19,7 +23,6 @@ class Php < Formula
   depends_on "gettext"
   depends_on "glib"
   depends_on "gmp"
-  depends_on "httpd"
   depends_on "icu4c"
   depends_on "imap-uw"
   depends_on "jpeg"
@@ -348,28 +351,35 @@ class Php < Formula
         </FilesMatch>
       EOS
 
-      pid = fork do
-        exec Formula["httpd"].opt_bin/"httpd", "-X", "-f", "#{testpath}/httpd.conf"
+      # TODO: ensure this passes before fiddling with httpd-related stuff in
+      # future. This guard can be removed and turned into a :test dependency
+      # after https://github.com/Homebrew/brew/pull/3875 is merged.
+      if Formula["httpd"].installed?
+        pid = fork do
+          exec Formula["httpd"].opt_bin/"httpd", "-X", "-f", "#{testpath}/httpd.conf"
+        end
+        sleep 3
+
+        assert_match expected_output, shell_output("curl -s 127.0.0.1:#{port}")
+
+        Process.kill("TERM", pid)
+        Process.wait(pid)
+
+        fpm_pid = fork do
+          exec sbin/"php-fpm", "-y", "fpm.conf"
+        end
+        pid = fork do
+          exec Formula["httpd"].opt_bin/"httpd", "-X", "-f", "#{testpath}/httpd-fpm.conf"
+        end
+        sleep 3
+
+        assert_match expected_output, shell_output("curl -s 127.0.0.1:#{port}")
       end
-      sleep 3
-
-      assert_match expected_output, shell_output("curl -s 127.0.0.1:#{port}")
-
-      Process.kill("TERM", pid)
-      Process.wait(pid)
-
-      fpm_pid = fork do
-        exec sbin/"php-fpm", "-y", "fpm.conf"
-      end
-      pid = fork do
-        exec Formula["httpd"].opt_bin/"httpd", "-X", "-f", "#{testpath}/httpd-fpm.conf"
-      end
-      sleep 3
-
-      assert_match expected_output, shell_output("curl -s 127.0.0.1:#{port}")
     ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
+      if pid
+        Process.kill("TERM", pid)
+        Process.wait(pid)
+      end
       if fpm_pid
         Process.kill("TERM", fpm_pid)
         Process.wait(fpm_pid)
