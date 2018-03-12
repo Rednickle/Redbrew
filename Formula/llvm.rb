@@ -82,6 +82,7 @@ class Llvm < Formula
     sha256 "6e8c461f99e8b2725bb9c34d7fc548490f1e74f162f75f3670e0bd759dcbd473" => :high_sierra
     sha256 "3603e0a48860d079c9cdf32c6f65f87758bbfca4ab9aa6e2eb8b4d47a7751688" => :sierra
     sha256 "2ce6aed36aab360b9ec09c094727c76c6620bcf201802f5d5d59035c7e6c80f2" => :el_capitan
+    sha256 "5cc62c725b3922f737969ff511e9753e09a3424fc7cdcd2f048e0027aef336e4" => :x86_64_linux
   end
 
   pour_bottle? do
