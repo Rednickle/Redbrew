@@ -9,6 +9,7 @@ class FetchCrl < Formula
     sha256 "d267b22108f0174da30e56d8d1346b9d581c0ab98a48885c1c5e668368c47598" => :high_sierra
     sha256 "d267b22108f0174da30e56d8d1346b9d581c0ab98a48885c1c5e668368c47598" => :sierra
     sha256 "d267b22108f0174da30e56d8d1346b9d581c0ab98a48885c1c5e668368c47598" => :el_capitan
+    sha256 "a9bd46256288c5834e2defd45dd80fa851cfe0d8d330942eb4bbb6b4e9f96d9f" => :x86_64_linux
   end
 
   def install
