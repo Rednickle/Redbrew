@@ -16,134 +16,114 @@ class CodesignRequirement < Requirement
   end
 end
 
-class Llvm < Formula
+class LlvmAT5 < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
 
   stable do
-    url "https://releases.llvm.org/6.0.0/llvm-6.0.0.src.tar.xz"
-    sha256 "1ff53c915b4e761ef400b803f07261ade637b0c269d99569f18040f3dcee4408"
+    url "https://releases.llvm.org/5.0.1/llvm-5.0.1.src.tar.xz"
+    sha256 "5fa7489fc0225b11821cab0362f5813a05f2bcf2533e8a4ea9c9c860168807b0"
 
     resource "clang" do
-      url "https://releases.llvm.org/6.0.0/cfe-6.0.0.src.tar.xz"
-      sha256 "e07d6dd8d9ef196cfc8e8bb131cbd6a2ed0b1caf1715f9d05b0f0eeaddb6df32"
+      url "https://releases.llvm.org/5.0.1/cfe-5.0.1.src.tar.xz"
+      sha256 "135f6c9b0cd2da1aff2250e065946258eb699777888df39ca5a5b4fe5e23d0ff"
     end
 
     resource "clang-extra-tools" do
-      url "https://releases.llvm.org/6.0.0/clang-tools-extra-6.0.0.src.tar.xz"
-      sha256 "053b424a4cd34c9335d8918734dd802a8da612d13a26bbb88fcdf524b2d989d2"
+      url "https://releases.llvm.org/5.0.1/clang-tools-extra-5.0.1.src.tar.xz"
+      sha256 "9aada1f9d673226846c3399d13fab6bba4bfd38bcfe8def5ee7b0ec24f8cd225"
     end
 
     resource "compiler-rt" do
-      url "https://releases.llvm.org/6.0.0/compiler-rt-6.0.0.src.tar.xz"
-      sha256 "d0cc1342cf57e9a8d52f5498da47a3b28d24ac0d39cbc92308781b3ee0cea79a"
+      url "https://releases.llvm.org/5.0.1/compiler-rt-5.0.1.src.tar.xz"
+      sha256 "4edd1417f457a9b3f0eb88082530490edf3cf6a7335cdce8ecbc5d3e16a895da"
     end
 
     # Only required to build & run Compiler-RT tests on macOS, optional otherwise.
     # https://clang.llvm.org/get_started.html
     resource "libcxx" do
-      url "https://releases.llvm.org/6.0.0/libcxx-6.0.0.src.tar.xz"
-      sha256 "70931a87bde9d358af6cb7869e7535ec6b015f7e6df64def6d2ecdd954040dd9"
-    end
-
-    resource "libcxxabi" do
-      url "https://llvm.org/releases/5.0.1/libcxxabi-5.0.1.src.tar.xz"
-      sha256 "5a25152cb7f21e3c223ad36a1022faeb8a5ac27c9e75936a5ae2d3ac48f6e854"
+      url "https://releases.llvm.org/5.0.1/libcxx-5.0.1.src.tar.xz"
+      sha256 "fa8f99dd2bde109daa3276d529851a3bce5718d46ce1c5d0806f46caa3e57c00"
     end
 
     resource "libunwind" do
-      url "https://releases.llvm.org/6.0.0/libunwind-6.0.0.src.tar.xz"
-      sha256 "256c4ed971191bde42208386c8d39e5143fa4afd098e03bd2c140c878c63f1d6"
+      url "https://releases.llvm.org/5.0.1/libunwind-5.0.1.src.tar.xz"
+      sha256 "6bbfbf6679435b858bd74bdf080386d084a76dfbf233fb6e47b2c28e0872d0fe"
     end
 
     resource "lld" do
-      url "https://releases.llvm.org/6.0.0/lld-6.0.0.src.tar.xz"
-      sha256 "6b8c4a833cf30230c0213d78dbac01af21387b298225de90ab56032ca79c0e0b"
+      url "https://releases.llvm.org/5.0.1/lld-5.0.1.src.tar.xz"
+      sha256 "d5b36c0005824f07ab093616bdff247f3da817cae2c51371e1d1473af717d895"
     end
 
     resource "lldb" do
-      url "https://releases.llvm.org/6.0.0/lldb-6.0.0.src.tar.xz"
-      sha256 "46f54c1d7adcd047d87c0179f7b6fa751614f339f4f87e60abceaa45f414d454"
+      url "https://releases.llvm.org/5.0.1/lldb-5.0.1.src.tar.xz"
+      sha256 "b7c1c9e67975ca219089a3a6a9c77c2d102cead2dc38264f2524aa3326da376a"
+
+      # Fixes "error: no type named 'pid_t' in the global namespace"
+      # https://github.com/Homebrew/homebrew-core/issues/17839
+      # Already fixed in upstream trunk
+      patch do
+        url "https://github.com/llvm-mirror/lldb/commit/324f93b5e30.patch?full_index=1"
+        sha256 "f23fc92c2d61bf6c8bc6865994a75264fafba6ae435e4d2f4cc8327004523fb1"
+      end
     end
 
     resource "openmp" do
-      url "https://releases.llvm.org/6.0.0/openmp-6.0.0.src.tar.xz"
-      sha256 "7c0e050d5f7da3b057579fb3ea79ed7dc657c765011b402eb5bbe5663a7c38fc"
+      url "https://releases.llvm.org/5.0.1/openmp-5.0.1.src.tar.xz"
+      sha256 "adb635cdd2f9f828351b1e13d892480c657fb12500e69c70e007bddf0fca2653"
     end
 
     resource "polly" do
-      url "https://releases.llvm.org/6.0.0/polly-6.0.0.src.tar.xz"
-      sha256 "47e493a799dca35bc68ca2ceaeed27c5ca09b12241f87f7220b5f5882194f59c"
+      url "https://releases.llvm.org/5.0.1/polly-5.0.1.src.tar.xz"
+      sha256 "9dd52b17c07054aa8998fc6667d41ae921430ef63fa20ae130037136fdacf36e"
     end
-  end
-
-  bottle do
-    cellar :any
-    rebuild 1
-    sha256 "61c8f073f3fc25971ead1a106f4db95db08b4ba0cd1eb7df7c40f6a2ee74dfbb" => :high_sierra
-    sha256 "da1ffc015d980daaa72affabbadfa4b1b821989f50ea14f5fea7d799eee018e8" => :sierra
-    sha256 "54c1d217622fd298186bad4af680d2ac3aafc237948d581ad1ecb221bc293b38" => :el_capitan
-    sha256 "073bde8adf408a907df22fc49e5302664ba3d054fddcc030245c047bf33f862f" => :x86_64_linux
-  end
-
-  pour_bottle? do
-    default_prefix = BottleSpecification::DEFAULT_PREFIX
-    reason "The bottle needs to be installed into #{default_prefix}."
-    satisfy { OS.mac? || HOMEBREW_PREFIX.to_s == default_prefix }
   end
 
   head do
-    url "https://llvm.org/git/llvm.git"
+    url "https://llvm.org/git/llvm.git", :branch => "release_50"
 
     resource "clang" do
-      url "https://llvm.org/git/clang.git"
+      url "https://llvm.org/git/clang.git", :branch => "release_50"
     end
 
     resource "clang-extra-tools" do
-      url "https://llvm.org/git/clang-tools-extra.git"
+      url "https://llvm.org/git/clang-tools-extra.git", :branch => "release_50"
     end
 
     resource "compiler-rt" do
-      url "https://llvm.org/git/compiler-rt.git"
+      url "https://llvm.org/git/compiler-rt.git", :branch => "release_50"
     end
 
     resource "libcxx" do
-      url "https://llvm.org/git/libcxx.git"
-    end
-
-    resource "libcxxabi" do
-      url "http://llvm.org/git/libcxxabi.git"
+      url "https://llvm.org/git/libcxx.git", :branch => "release_50"
     end
 
     resource "libunwind" do
-      url "https://llvm.org/git/libunwind.git"
+      url "https://llvm.org/git/libunwind.git", :branch => "release_50"
     end
 
     resource "lld" do
-      url "https://llvm.org/git/lld.git"
+      url "https://llvm.org/git/lld.git", :branch => "release_50"
     end
 
     resource "lldb" do
-      url "https://llvm.org/git/lldb.git"
+      url "https://llvm.org/git/lldb.git", :branch => "release_50"
     end
 
     resource "openmp" do
-      url "https://llvm.org/git/openmp.git"
+      url "https://llvm.org/git/openmp.git", :branch => "release_50"
     end
 
     resource "polly" do
-      url "https://llvm.org/git/polly.git"
+      url "https://llvm.org/git/polly.git", :branch => "release_50"
     end
   end
 
-  keg_only :provided_by_macos
+  keg_only :versioned_formula
 
   option "without-compiler-rt", "Do not build Clang runtime support libraries for code sanitizers, builtins, and profiling"
-  if OS.mac?
-    option "without-libcxx", "Do not build libc++ standard library"
-  else
-    option "with-libcxx", "Build libc++ standard library"
-  end
+  option "without-libcxx", "Do not build libc++ standard library"
   option "with-toolchain", "Build with Toolchain to facilitate overriding system compiler"
   option "with-lldb", "Build LLDB debugger"
   option "with-python@2", "Build bindings against Homebrew's Python 2"
@@ -164,18 +144,6 @@ class Llvm < Formula
     depends_on "pkg-config" => :build
   end
 
-  unless OS.mac?
-    depends_on "gcc" # <atomic> is provided by gcc
-    depends_on "glibc" => (GlibcRequirement.system_version.to_f >= 2.19) ? :optional : :recommended
-    depends_on "binutils" # needed for gold and strip
-    depends_on "libedit" # llvm requires <histedit.h>
-    depends_on "ncurses"
-    depends_on "libxml2"
-    depends_on "python" if build.with?("python") || build.with?("lldb")
-    depends_on "zlib"
-    needs :cxx11
-  end
-
   if MacOS.version <= :snow_leopard
     depends_on "python@2"
   else
@@ -184,8 +152,8 @@ class Llvm < Formula
   depends_on "cmake" => :build
 
   if build.with? "lldb"
-    depends_on "swig" if MacOS.version >= :lion || !OS.mac?
-    depends_on CodesignRequirement if OS.mac?
+    depends_on "swig" if MacOS.version >= :lion
+    depends_on CodesignRequirement
   end
 
   # According to the official llvm readme, GCC 4.7+ is required
@@ -200,9 +168,6 @@ class Llvm < Formula
   end
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j2 -l2.0" if ENV["CIRCLECI"]
-
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
 
@@ -211,16 +176,9 @@ class Llvm < Formula
     end
 
     (buildpath/"tools/clang").install resource("clang")
-    unless OS.mac?
-      # Add glibc to the list of library directories so that we won't have to do -L<path-to-glibc>/lib
-      inreplace buildpath/"tools/clang/lib/Driver/ToolChains/Linux.cpp",
-        "// Add the multilib suffixed paths where they are available.",
-        "addPathIfExists(D, \"#{HOMEBREW_PREFIX}/opt/glibc/lib\", Paths);\n\n  // Add the multilib suffixed paths where they are available."
-    end
     (buildpath/"tools/clang/tools/extra").install resource("clang-extra-tools")
     (buildpath/"projects/openmp").install resource("openmp")
     (buildpath/"projects/libcxx").install resource("libcxx") if build_libcxx?
-    (buildpath/"projects/libcxxabi").install resource("libcxxabi") if build_libcxx? && !OS.mac?
     (buildpath/"projects/libunwind").install resource("libunwind")
     (buildpath/"tools/lld").install resource("lld")
     (buildpath/"tools/polly").install resource("polly")
@@ -229,8 +187,7 @@ class Llvm < Formula
       if build.with? "python@2"
         pyhome = `python-config --prefix`.chomp
         ENV["PYTHONHOME"] = pyhome
-        dylib = OS.mac? ? "dylib" : "so"
-        pylib = "#{pyhome}/lib/libpython2.7.#{dylib}"
+        pylib = "#{pyhome}/lib/libpython2.7.dylib"
         pyinclude = "#{pyhome}/include/python2.7"
       end
       (buildpath/"tools/lldb").install resource("lldb")
@@ -241,11 +198,9 @@ class Llvm < Formula
       # the search path in a superenv build. The following three lines add
       # the login keychain to ~/Library/Preferences/com.apple.security.plist,
       # which adds it to the superenv keychain search path.
-      if OS.mac?
-        mkdir_p "#{ENV["HOME"]}/Library/Preferences"
-        username = ENV["USER"]
-        system "security", "list-keychains", "-d", "user", "-s", "/Users/#{username}/Library/Keychains/login.keychain"
-      end
+      mkdir_p "#{ENV["HOME"]}/Library/Preferences"
+      username = ENV["USER"]
+      system "security", "list-keychains", "-d", "user", "-s", "/Users/#{username}/Library/Keychains/login.keychain"
     end
 
     if build.with? "compiler-rt"
@@ -281,7 +236,6 @@ class Llvm < Formula
     end
 
     args << "-DLLVM_ENABLE_LIBCXX=ON" if build_libcxx?
-    args << "-DLLVM_ENABLE_LIBCXXABI=ON" if build_libcxx? && !OS.mac?
 
     if build.with?("lldb") && build.with?("python@2")
       args << "-DLLDB_RELOCATABLE_PYTHON=ON"
@@ -289,23 +243,10 @@ class Llvm < Formula
       args << "-DPYTHON_INCLUDE_DIR=#{pyinclude}"
     end
 
-    # Enable llvm gold plugin for LTO
-    args << "-DLLVM_BINUTILS_INCDIR=#{Formula["binutils"].opt_include}" if OS.linux?
-
     if build.with? "libffi"
       args << "-DLLVM_ENABLE_FFI=ON"
       args << "-DFFI_INCLUDE_DIR=#{Formula["libffi"].opt_lib}/libffi-#{Formula["libffi"].version}/include"
       args << "-DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}"
-    end
-
-    # Help just-built clang++ find <atomic> (and, possibly, other header files). Needed for compiler-rt
-    unless OS.mac?
-      gccpref = Formula["gcc"].opt_prefix.to_s
-      args << "-DGCC_INSTALL_PREFIX=#{gccpref}"
-      args << "-DCMAKE_C_COMPILER=#{gccpref}/bin/gcc"
-      args << "-DCMAKE_CXX_COMPILER=#{gccpref}/bin/g++"
-      args << "-DCMAKE_CXX_LINK_FLAGS=-L#{gccpref}/lib64 -Wl,-rpath,#{gccpref}/lib64"
-      args << "-DCLANG_DEFAULT_CXX_STDLIB=#{build.with?("libcxx")?"libc++":"libstdc++"}"
     end
 
     mktemp do
@@ -324,7 +265,7 @@ class Llvm < Formula
       end
       system "make"
       system "make", "install"
-      system "make", "install-xcode-toolchain" if build.with?("toolchain") && OS.mac?
+      system "make", "install-xcode-toolchain" if build.with? "toolchain"
     end
 
     (share/"clang/tools").install Dir["tools/clang/tools/scan-{build,view}"]
@@ -336,19 +277,6 @@ class Llvm < Formula
     # install llvm python bindings
     (lib/"python2.7/site-packages").install buildpath/"bindings/python/llvm"
     (lib/"python2.7/site-packages").install buildpath/"tools/clang/bindings/python/clang"
-
-    # Remove conflicting libraries.
-    # libgomp.so conflicts with gcc.
-    # libunwind.so conflcits with libunwind.
-    rm [lib/"libgomp.so", lib/"libunwind.so"] if OS.linux?
-
-    # Strip executables/libraries/object files to reduce their size
-    unless OS.mac?
-      system("strip", "--strip-unneeded", "--preserve-dates", *(Dir[bin/"**/*", lib/"**/*"]).select do |f|
-        f = Pathname.new(f)
-        f.file? && (f.elf? || f.extname == ".a")
-      end)
-    end
   end
 
   def caveats
@@ -379,7 +307,7 @@ class Llvm < Formula
 
     system "#{bin}/clang", "-L#{lib}", "-fopenmp", "-nobuiltininc",
                            "-I#{lib}/clang/#{version}/include",
-                           "omptest.c", "-o", "omptest", *ENV["LDFLAGS"].split
+                           "omptest.c", "-o", "omptest"
     testresult = shell_output("./omptest")
 
     sorted_testresult = testresult.split("\n").sort.join("\n")
@@ -412,7 +340,7 @@ class Llvm < Formula
     EOS
 
     # Testing Command Line Tools
-    if OS.mac? && MacOS::CLT.installed?
+    if MacOS::CLT.installed?
       libclangclt = Dir["/Library/Developer/CommandLineTools/usr/lib/clang/#{MacOS::CLT.version.to_i}*"].last { |f| File.directory? f }
 
       system "#{bin}/clang++", "-v", "-nostdinc",
