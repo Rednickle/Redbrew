@@ -5,13 +5,13 @@ class Fdroidserver < Formula
   homepage "https://f-droid.org"
   url "https://files.pythonhosted.org/packages/df/29/163c75b97f8c83f2eb1f5d55978f630a0a99fda989ad857e78cba6eb64fe/fdroidserver-1.0.2.tar.gz"
   sha256 "abb5a16f8e21b4683255a61707d2c31123ad3ab5b091c490aaa524c6b8dfa9a5"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
-    sha256 "85072b173b5ef673cd5328e5a3123610775fdf89b30eae17cbf0fd7191dd502e" => :high_sierra
-    sha256 "64d6ad5f282ebb21bb8f80195038c8eb64a34ff9ab57519a2898ff5c8e347763" => :sierra
-    sha256 "18612caa4b2eb232f67a7f56c67fc9b05435fb09941532cce7eaba60a55624e0" => :el_capitan
+    sha256 "d65bdddb303cf421e5b7616e3468a3b9b5a66e2f86cc021cd2c07d34986bda73" => :high_sierra
+    sha256 "28f1d995e5495039100f7a3314a9a062c1ee1729abd5732880e4f2e26a2d2ec6" => :sierra
+    sha256 "6191d717b14db28320d73c59cabab77acba0dea46fb036ef7ee025446836b8a3" => :el_capitan
   end
 
   depends_on "freetype"

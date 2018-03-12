@@ -5,13 +5,13 @@ class Snapcraft < Formula
   homepage "https://snapcraft.io/"
   url "https://files.pythonhosted.org/packages/f0/47/453ef9822fd35e4037e4364182e0c5ff57760fde64da0179d8275f83fb0e/snapcraft-2.39.tar.gz"
   sha256 "a1befdd554e27f0b57105fd7e45f8ea1c8a21fe4728d2b60058bee394df93ab9"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "18934515790964a4896ee70ce32bc2db441f5db5c1c390d4a7b342da359815c2" => :high_sierra
-    sha256 "d6ea5e673d2d09629f1f83a11894f1eb591fe17f6c665c941abcb0a80dae8048" => :sierra
-    sha256 "d79dd8a763635f762c253ed404ad72f0b6161fc114acfca40efbca451978b312" => :el_capitan
+    sha256 "da2562ec3d08deb72de5b7e1702a56a78bc087526dabc1c84096156663e030de" => :high_sierra
+    sha256 "4aa847498eb113cf31baa48e63cbfc4ca6bda912386c947089213665416ba705" => :sierra
+    sha256 "a6e57f573dbcae92a946cdb0fa4d490b62454d41af519b650e0d4412956838b1" => :el_capitan
   end
 
   depends_on "libmagic"

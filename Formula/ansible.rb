@@ -5,14 +5,14 @@ class Ansible < Formula
   homepage "https://www.ansible.com/"
   url "https://releases.ansible.com/ansible/ansible-2.4.3.0.tar.gz"
   sha256 "0e98b3a56928d03979d5f8e7ae5d8e326939111b298729b03f00b3ad8f998a3d"
-  revision 2
+  revision 3
   head "https://github.com/ansible/ansible.git", :branch => "devel"
 
   bottle do
     cellar :any
-    sha256 "e7b0a65e046275fe08992a93c6fae5642dd80f8161762d45311514d0b0899f02" => :high_sierra
-    sha256 "c71d3a197bd5766e1aaecb97df6e189689d281e7f45070dfc85a2cbcb27031b9" => :sierra
-    sha256 "f75f928c91bae94202c7a5dc5074f176866771b77255a14824c53bf1519f3d44" => :el_capitan
+    sha256 "09029110f916f82849dde187b26fc57997396c26f6713a1ae2b033bdf3861e46" => :high_sierra
+    sha256 "aa916e2853a1f515d7a4e008c7c2e6831e2e5ca7f87d3f2f7843669e7c7260cb" => :sierra
+    sha256 "a14d9e4fab410d98170e864fc296a680c3ba43579ec74e98eed89c64d5632e4c" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

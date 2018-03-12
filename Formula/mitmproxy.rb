@@ -5,14 +5,14 @@ class Mitmproxy < Formula
   homepage "https://mitmproxy.org"
   url "https://github.com/mitmproxy/mitmproxy/archive/v3.0.3.tar.gz"
   sha256 "e1e33275f4b581d7bc54ea0a014dd105d824f2b1da6068889f652fda8610bb5c"
-  revision 1
+  revision 2
   head "https://github.com/mitmproxy/mitmproxy.git"
 
   bottle do
     cellar :any
-    sha256 "d3c3e2f5af56b06a98dc50c974357b5b16a8de76d53c5e1ed02f9acee9c38108" => :high_sierra
-    sha256 "d48c99b82df22ce50a85683f24eab1f9801e1cf389080cde02c27e98e61a22b4" => :sierra
-    sha256 "ce1efc217a4b303e9cdf59a9c3372ac15562ba0f17690aa1eb6a1741cb6d55fe" => :el_capitan
+    sha256 "581307cb1bf408d0092482a325891e956e633e93663375f16b89f3f4ce3618e9" => :high_sierra
+    sha256 "f4580e55af692e5855f8973daf3e1a1cf5cc60591048607dfe2212e924339f7b" => :sierra
+    sha256 "4f4fa3726e8accbbad75939ba1894b807b558f4e0b1aa19a1c964c3ac8da0539" => :el_capitan
   end
 
   depends_on "openssl"

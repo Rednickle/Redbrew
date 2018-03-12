@@ -5,14 +5,14 @@ class Shyaml < Formula
   homepage "https://github.com/0k/shyaml"
   url "https://files.pythonhosted.org/packages/f7/ec/4143e8ba92d1d3654535f17bc4354f72d3a3e7d6984926d9a7ce1dec46ed/shyaml-0.5.0.tar.gz"
   sha256 "b3711011d37aae4e07b68b31e989aa3715548d5b0759898eda2ba437b9ae3c36"
-  revision 2
+  revision 3
   head "https://github.com/0k/shyaml.git"
 
   bottle do
     cellar :any
-    sha256 "044879e607e3e85efbf673b5c3f16c6ad1ff804feeb06747beb7bbd7e26a05c9" => :high_sierra
-    sha256 "428df655dd49f75ad8cb5bc607918567d2e665d69a0a615cc14c1889c7187424" => :sierra
-    sha256 "0af1bd71bfda30abca1d8247afb45bcb7ae2a5fcc87a085258d209c44c8d27f5" => :el_capitan
+    sha256 "26cccc39de54519c6d5b506116004381a6e25b28be340f79cfb48483ef938e49" => :high_sierra
+    sha256 "f050e1186aa6354b3479b62680f7c0496b55c9da75cfe188ff4c095331bcc64c" => :sierra
+    sha256 "6a76d82e213292df97ae5303a52dd3a28294bc7ed43f1842e0bd18e5ef320399" => :el_capitan
   end
 
   depends_on "python"

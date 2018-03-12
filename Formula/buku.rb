@@ -5,13 +5,13 @@ class Buku < Formula
   homepage "https://github.com/jarun/Buku"
   url "https://github.com/jarun/Buku/archive/v3.6.tar.gz"
   sha256 "6126dbf820a18af69b0bd24eb86a04a71d4904ba84dc174b98c1050fae8f9fad"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "624dbfc373d4f8ace55cf994150250881c4942625a7396d66d1898d7b4fd3ebd" => :high_sierra
-    sha256 "3061ea6ab5c5f528ffc51456913a394efb5a615db1c11254bd9a7fa16466e3bd" => :sierra
-    sha256 "538140dc8e84dfef605c23228885e81e8b18540be73ff8a51063ded39cce2d6e" => :el_capitan
+    sha256 "12898dffa03cdf40598487730383cf028baf966f5cf2fab3a05abe8b9c809e5e" => :high_sierra
+    sha256 "9b2e12d5e6c247ba301167bdd2729741ac3ba46fddf934137e2594bb3ec61363" => :sierra
+    sha256 "4b5a72a9a291062ad823b7bd330097d15a36fdfd461a0acef9ba0a55d201e106" => :el_capitan
   end
 
   depends_on "openssl"

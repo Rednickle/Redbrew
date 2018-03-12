@@ -5,13 +5,13 @@ class Molecule < Formula
   homepage "https://molecule.readthedocs.io"
   url "https://files.pythonhosted.org/packages/aa/0f/dc6393eed9588e477a23488fbd23efd40246fcc64815179db6c8c892f554/molecule-1.25.1.tar.gz"
   sha256 "aeafd3a6c5a0de707308006dcf727883c9daf4446d18d9e68eb97659c51ebbb0"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "fa4420b5968436c95a46ba61e8de172d0f294c6fff9d21f53f1e2eb1bb4e8177" => :high_sierra
-    sha256 "31092abc7f8b465e3afc52e0a192719c9f475df5cb80087682748121786a6d63" => :sierra
-    sha256 "ec2309a7386b078a7fb95e1eae2f07d9eb7753c134b4e8e5a9a522c06e41b563" => :el_capitan
+    sha256 "0f1161a2923864cbf310eb621d2c45a58881816efdeb0fcc8d0b61382d2027cc" => :high_sierra
+    sha256 "62d26f320c2305f7f3cd968dc88a457ee1e1ad1105cbad56142b775d37a25970" => :sierra
+    sha256 "162908de7b790f51095e8399129ad985a9ecfbe99b25a4c8ed633bf104d4fbd5" => :el_capitan
   end
 
   depends_on "openssl"
