@@ -3,8 +3,8 @@ class Python < Formula
   homepage "https://www.python.org/"
   url "https://www.python.org/ftp/python/3.6.4/Python-3.6.4.tar.xz"
   sha256 "159b932bf56aeaa76fd66e7420522d8c8853d486b8567c459b84fe2ed13bcaba"
-  revision OS.mac? ? 3 : 4
-  head "https://github.com/python/cpython", :using => :git
+  revision OS.mac? ? 4 : 5
+  head "https://github.com/python/cpython.git"
 
   bottle do
     sha256 "638bc10452b2eba31092fba018bdc2584361cbf553693506301964ffa8ea4425" => :high_sierra
@@ -19,20 +19,16 @@ class Python < Formula
   end
 
   option "with-tcl-tk", "Use Homebrew's Tk instead of macOS Tk (has optional Cocoa and threads support)" if OS.mac?
-  option "with-quicktest", "Run `make quicktest` after the build"
-  option "with-sphinx-doc", "Build HTML documentation"
-
-  deprecated_option "quicktest" => "with-quicktest"
   deprecated_option "with-brewed-tk" => "with-tcl-tk"
 
   depends_on "pkg-config" => :build
-  depends_on "readline" => :recommended
-  depends_on "sqlite" => :recommended
-  depends_on "gdbm" => :recommended
+  depends_on "sphinx-doc" => :build
+  depends_on "gdbm"
   depends_on "openssl"
-  depends_on "xz" => :recommended # for the lzma module added in 3.3
+  depends_on "readline"
+  depends_on "sqlite"
+  depends_on "xz"
   depends_on "tcl-tk" => :optional
-  depends_on "sphinx-doc" => [:build, :optional]
   unless OS.mac?
     depends_on "linuxbrew/xorg/xorg" if build.with? "tcl-tk"
     depends_on "bzip2"
@@ -46,8 +42,8 @@ class Python < Formula
   skip_clean "bin/easy_install3", "bin/easy_install-3.4", "bin/easy_install-3.5", "bin/easy_install-3.6"
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/a4/c8/9a7a47f683d54d83f648d37c3e180317f80dc126a304c45dc6663246233a/setuptools-36.5.0.zip"
-    sha256 "ce2007c1cea3359870b80657d634253a0765b0c7dc5a988d77ba803fc86f2c64"
+    url "https://files.pythonhosted.org/packages/e0/02/2b14188e06ddf61e5b462e216b15d893e8472fca28b1b0c5d9272ad7e87c/setuptools-38.5.2.zip"
+    sha256 "8246123e984cadf687163bdcd1bb58eb325e2891b066e1f0224728a41c8d9064"
   end
 
   resource "pip" do
@@ -109,12 +105,12 @@ class Python < Formula
       --datarootdir=#{share}
       --datadir=#{share}
       #{OS.mac? ? "--enable-framework=#{frameworks}" : "--enable-shared"}
+      --enable-loadable-sqlite-extensions
       --without-ensurepip
     ]
     args << "--with-dtrace" unless OS.linux?
 
     args << "--without-gcc" if ENV.compiler == :clang
-    args << "--enable-loadable-sqlite-extensions" if build.with?("sqlite")
 
     # Required for the _ctypes module
     # see https://github.com/Linuxbrew/homebrew-core/pull/1007#issuecomment-252421573
@@ -163,12 +159,10 @@ class Python < Formula
       args << "--with-openssl=#{Formula["openssl"].opt_prefix}"
     end
 
-    if build.with? "sqlite"
-      inreplace "setup.py" do |s|
-        s.gsub! "sqlite_setup_debug = False", "sqlite_setup_debug = True"
-        s.gsub! "for d_ in inc_dirs + sqlite_inc_paths:",
-                "for d_ in ['#{Formula["sqlite"].opt_include}']:"
-      end
+    inreplace "setup.py" do |s|
+      s.gsub! "sqlite_setup_debug = False", "sqlite_setup_debug = True"
+      s.gsub! "for d_ in inc_dirs + sqlite_inc_paths:",
+              "for d_ in ['#{Formula["sqlite"].opt_include}']:"
     end
 
     # Allow python modules to use ctypes.find_library to find homebrew's stuff
@@ -190,11 +184,7 @@ class Python < Formula
     args << "CPPFLAGS=#{cppflags.join(" ")}" unless cppflags.empty?
 
     system "./configure", *args
-
     system "make"
-    if build.with?("quicktest")
-      system "make", "quicktest", "TESTPYTHONOPTS=-s", "TESTOPTS=-j#{ENV.make_jobs} -w"
-    end
 
     ENV.deparallelize do
       # Tell Python not to install into /Applications (default for framework builds)
@@ -242,22 +232,23 @@ class Python < Formula
       (libexec/r).install resource(r)
     end
 
-    if build.with? "sphinx-doc"
-      cd "Doc" do
-        system "make", "html"
-        doc.install Dir["build/html/*"]
-      end
+    cd "Doc" do
+      system "make", "html"
+      doc.install Dir["build/html/*"]
+    end if OS.mac?
+
+    # Install unversioned symlinks in libexec/bin.
+    {
+      "idle" => "idle3",
+      "pydoc" => "pydoc3",
+      "python" => "python3",
+      "python-config" => "python3-config",
+    }.each do |unversioned_name, versioned_name|
+      (libexec/"bin").install_symlink (bin/versioned_name).realpath => unversioned_name
     end
   end
 
   def post_install
-    # Avoid conflicts during migration from python3
-    rm_f %W[
-      #{HOMEBREW_PREFIX}/bin/easy_install
-      #{HOMEBREW_PREFIX}/bin/pip
-      #{HOMEBREW_PREFIX}/bin/wheel
-    ]
-
     ENV.delete "PYTHONPATH"
 
     # Fix up the site-packages so that user-installed Python software survives
@@ -295,19 +286,25 @@ class Python < Formula
     rm_rf [bin/"pip", bin/"easy_install"]
     mv bin/"wheel", bin/"wheel3"
 
+    # Install unversioned symlinks in libexec/bin.
+    {
+      "easy_install" => "easy_install-#{xy}",
+      "pip" => "pip3",
+      "wheel" => "wheel3",
+    }.each do |unversioned_name, versioned_name|
+      (libexec/"bin").install_symlink (bin/versioned_name).realpath => unversioned_name
+    end
+
     # post_install happens after link
     %W[pip3 pip#{xy} easy_install-#{xy} wheel3].each do |e|
       (HOMEBREW_PREFIX/"bin").install_symlink bin/e
     end
 
     # Help distutils find brewed stuff when building extensions
-    include_dirs = [HOMEBREW_PREFIX/"include", Formula["openssl"].opt_include]
-    library_dirs = [HOMEBREW_PREFIX/"lib", Formula["openssl"].opt_lib]
-
-    if build.with? "sqlite"
-      include_dirs << Formula["sqlite"].opt_include
-      library_dirs << Formula["sqlite"].opt_lib
-    end
+    include_dirs = [HOMEBREW_PREFIX/"include", Formula["openssl"].opt_include,
+                    Formula["sqlite"].opt_include]
+    library_dirs = [HOMEBREW_PREFIX/"lib", Formula["openssl"].opt_lib,
+                    Formula["sqlite"].opt_lib]
 
     if build.with? "tcl-tk"
       include_dirs << Formula["tcl-tk"].opt_include
@@ -377,16 +374,15 @@ class Python < Formula
 
   def caveats
     text = <<~EOS
+      Python has been installed as
+        #{HOMEBREW_PREFIX}/bin/python3
+
       Unversioned symlinks `python`, `python-config`, `pip` etc. pointing to
       `python3`, `python3-config`, `pip3` etc., respectively, have been installed into
-        #{HOMEBREW_PREFIX}/bin
+        #{opt_libexec}/bin
 
       If you need Homebrew's Python 2.7 run
         brew install python@2
-
-      If you wish to have python@2's python and python2 executables in your PATH then
-      add the following to #{shell_profile}:
-        export PATH="#{HOMEBREW_PREFIX}/opt/python@2/libexec/bin:#{HOMEBREW_PREFIX}/opt/python@2/bin:$PATH"
 
       Pip, setuptools, and wheel have been installed. To update them run
         pip3 install --upgrade pip setuptools wheel
@@ -411,13 +407,14 @@ class Python < Formula
   end
 
   test do
+    xy = (prefix/"Frameworks/Python.framework/Versions").children.sort.first.basename.to_s
     # Check if sqlite is ok, because we build with --enable-loadable-sqlite-extensions
     # and it can occur that building sqlite silently fails if OSX's sqlite is used.
     system "#{bin}/python#{xy}", "-c", "import sqlite3"
     # Check if some other modules import. Then the linked libs are working.
     system "#{bin}/python#{xy}", "-c", "import tkinter; root = tkinter.Tk()" if OS.mac?
     system "#{bin}/python#{xy}", "-c", "import _gdbm"
-    system bin/"pip3", "list"
+    system bin/"pip3", "list", "--format=columns"
   end
 end
 
