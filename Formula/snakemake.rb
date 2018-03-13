@@ -1,16 +1,15 @@
 class Snakemake < Formula
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/56/26/9d93502155e0719d921fdccc8d99e1607cdf10f742a9fc6ce1819cd52aff/snakemake-4.7.0.tar.gz"
-  sha256 "a1c3245f47489219d212980f649ce435bc29b39638dade379e85f65a11c7e082"
-  revision 2
+  url "https://files.pythonhosted.org/packages/c9/a0/52b11ad23ea0d6ebd4e79c937c8f464e5a26ddc77b217b4b686fd81f5047/snakemake-4.8.0.tar.gz"
+  sha256 "778b7edfc29fb45356e0ab1059ad3d3255baf074996a274f25a5e34f11580aee"
   head "https://bitbucket.org/snakemake/snakemake.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f73b9f6185fa34289db7081bcead201a49dee7623d03fdde7fe219c61b4c1ab8" => :high_sierra
-    sha256 "ccb841b30d6da65e3f61f46dd1dc11bee572e8e5ae746ca32b8fe5908c67ea82" => :sierra
-    sha256 "ccd3904155e9619fb7d63448aeeee6f1db3a6675600b238c8e73091e5d5ca7b2" => :el_capitan
+    sha256 "8029643099c871a5a9bc3f705fc6401823b197254ce782ac786cf77fcc9a0ac5" => :high_sierra
+    sha256 "e530b25b3138caa52e3191463555cf46c6daf3013ed233665a1479bb311d0818" => :sierra
+    sha256 "da8ff375d0a76b454fea294959ec5ec07e31fe6fdcb87b97879b0197232db056" => :el_capitan
   end
 
   depends_on "python"
