@@ -12,6 +12,13 @@ class Par2 < Formula
     sha256 "de9b671bcb28533ecc2aaa7c42f8e64e3024a41a8712fe3016a9cfa6cb09dbc7" => :x86_64_linux
   end
 
+  option "with-openmp", "Build with OpenMP multithreading support"
+
+  if build.with? "openmp"
+    depends_on "gcc"
+    fails_with :clang
+  end
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"

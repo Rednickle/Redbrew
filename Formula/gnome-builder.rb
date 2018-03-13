@@ -3,12 +3,12 @@ class GnomeBuilder < Formula
   homepage "https://wiki.gnome.org/Apps/Builder"
   url "https://download.gnome.org/sources/gnome-builder/3.24/gnome-builder-3.24.2.tar.xz"
   sha256 "84843a9f4af2e1ee1ebfac44441a2affa2d409df9066e7d11bf1d232ae0c535a"
-  revision 5
+  revision 6
 
   bottle do
-    sha256 "11cd6ef17936e5cb9f7acc11d2ba8d1b441722b2cb871389001a51e87d0ee084" => :high_sierra
-    sha256 "2aa5d57a1f79f0f834545a848b36dd3294a673b7e68a47a42983e68e1ded7663" => :sierra
-    sha256 "f711d35258d5dd969bd3dbc4213a91f86a4a21eed1b6ecb5dc19128ab0d51e44" => :el_capitan
+    sha256 "99a92dbc14dcbbe6451f0b004c975acffd55d47a4f90c0a7cea81c40c8a08666" => :high_sierra
+    sha256 "bfaeaef536370644d2e810f77b5ca6a27b5ef706787ee66e570dcff4ffc7eeaf" => :sierra
+    sha256 "bd17c12b9baeeffe37967c4932e0b0e12db5fca2a51652614101acf6e9561691" => :el_capitan
   end
 
   deprecated_option "with-python3" => "with-python"
