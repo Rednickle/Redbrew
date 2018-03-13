@@ -1,6 +1,7 @@
 class Rust < Formula
   desc "Safe, concurrent, practical language"
   homepage "https://www.rust-lang.org/"
+  revision 1 unless OS.mac?
 
   stable do
     url "https://static.rust-lang.org/dist/rustc-1.24.1-src.tar.gz"
@@ -22,6 +23,7 @@ class Rust < Formula
     sha256 "47eb6c2033982c0e69c4f26b7e3064452bb6c39dc20dc25b4b63a7b0eca64856" => :high_sierra
     sha256 "fb7409f7ae34f136199a19dfe93e9a69c8fa67f3e1f7e35ca0e436a20acdb0a1" => :sierra
     sha256 "f098dfc90d7630bb6909ce919d71b655543cf39fca194b684b1dabeac0cb8f52" => :el_capitan
+    sha256 "b4c725ae9794f764b6492a3f132e51919b5aea0af1d83e4fdd138677cb864811" => :x86_64_linux
   end
 
   head do
@@ -44,7 +46,7 @@ class Rust < Formula
   unless OS.mac?
     depends_on "binutils"
     depends_on "curl"
-    depends_on "python"
+    depends_on "python@2"
     depends_on "zlib"
   end
 
