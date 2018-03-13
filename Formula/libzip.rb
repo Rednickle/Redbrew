@@ -1,14 +1,13 @@
 class Libzip < Formula
   desc "C library for reading, creating, and modifying zip archives"
-  homepage "https://www.nih.at/libzip/"
-  url "https://www.nih.at/libzip/libzip-1.4.0.tar.xz"
-  sha256 "e508aba025f5f94b267d5120fc33761bcd98440ebe49dbfe2ed3df3afeacc7b1"
+  homepage "https://libzip.org/"
+  url "https://libzip.org/download/libzip-1.5.0.tar.xz"
+  sha256 "5ddb9b41d31b2f99ad4d512003c610ae2db70e222833aba6f9332d5b48a153d9"
 
   bottle do
-    sha256 "87ec1783c506af77d1d22f7a9a7d2d707f1a3f42588c70bafc09ea5be2e04bfa" => :high_sierra
-    sha256 "e25e79fabdb933b91d1f831b8682f739514d076c4680e54bab2bfe2cb7c9c576" => :sierra
-    sha256 "95ddeac17446e46071b862a9c2e83620039bf71ecb61cf39e857106fddbb53f4" => :el_capitan
-    sha256 "a0116d2e2cacd94337e62992e8a391bc28a44e1be954945d61b92bbbd019163b" => :x86_64_linux
+    sha256 "f0d016f7ca888b27d0880ca2f7786a37a00ced32e245a8e42cc3c16110d40fc7" => :high_sierra
+    sha256 "7eaa32231483a97b9702cbd5a8d7df262bfb2a05a6754602bcff61eb23ac4c98" => :sierra
+    sha256 "db917258649b9a889d1f1f60b712a3a80e16e4785620ae08d2115562425cffdd" => :el_capitan
   end
 
   depends_on "cmake" => :build
