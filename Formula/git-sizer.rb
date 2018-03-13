@@ -1,14 +1,14 @@
 class GitSizer < Formula
   desc "Compute various size metrics for a Git repository"
   homepage "https://github.com/github/git-sizer"
-  url "https://github.com/github/git-sizer/archive/v1.0.0.tar.gz"
-  sha256 "8ef6b2adb646ccb72f5ccfebd19a57371b119da1aac02ef06f1a46af6f7447a0"
+  url "https://github.com/github/git-sizer/archive/v1.1.0.tar.gz"
+  sha256 "de3de0b45c5460b1da53717812ef051e45efa14c60ed4def7f27c007c752ebb0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5077977cefe0eda0b379b5aa1afebaeec394ee7b0925460f6d0062fbf35db6a7" => :high_sierra
-    sha256 "c9cc6a31b7a683cb7e84492a88bb7ef9a983cca2201263eefb6b3bffe8cfbcc2" => :sierra
-    sha256 "4071c7761174477eb9147f95450c9f8d027f8ce344aa227b33419466905056f4" => :el_capitan
+    sha256 "9bd56de9da0a79e699d5eca39b88308b2c2719523e21a2247babd656c0076891" => :high_sierra
+    sha256 "8e784e89563871b3a2ec539b1ed7e9c1fdd399c3e215fc91e63b807325ef3349" => :sierra
+    sha256 "3163bbe41948a1f232b48bc2df412a00b91e15a45d6d70842929110a4e3b8395" => :el_capitan
   end
 
   depends_on "go" => :build

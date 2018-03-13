@@ -1,17 +1,15 @@
 class Automake < Formula
   desc "Tool for generating GNU Standards-compliant Makefiles"
   homepage "https://www.gnu.org/software/automake/"
-  url "https://ftp.gnu.org/gnu/automake/automake-1.16.tar.xz"
-  mirror "https://ftpmirror.gnu.org/automake/automake-1.16.tar.xz"
-  sha256 "f98f2d97b11851cbe7c2d4b4eaef498ae9d17a3c2ef1401609b7b4ca66655b8a"
-  revision 1 unless OS.mac?
+  url "https://ftp.gnu.org/gnu/automake/automake-1.16.1.tar.xz"
+  mirror "https://ftpmirror.gnu.org/automake/automake-1.16.1.tar.xz"
+  sha256 "5d05bb38a23fd3312b10aea93840feec685bdf4a41146e78882848165d3ae921"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8135f20535b5b225c082106b005d85aa280010b1c1eeedb56d456b6e3478359a" => :high_sierra
-    sha256 "8135f20535b5b225c082106b005d85aa280010b1c1eeedb56d456b6e3478359a" => :sierra
-    sha256 "8accb0115d48ed86969fb4591bd911dded858fba5346f76715e9cd7233ce21ba" => :el_capitan
-    sha256 "49ced3cef2e2032d3fe74e7900a970788e05da9006fe3f8cd4ae0053db1132ae" => :x86_64_linux
+    sha256 "f9d2f7f913917ce686bf8dab00fe5c5f2c971038ed91b2a6ec8cd6be9efd9b31" => :high_sierra
+    sha256 "f9d2f7f913917ce686bf8dab00fe5c5f2c971038ed91b2a6ec8cd6be9efd9b31" => :sierra
+    sha256 "397f56ce7582b559171de62dfa772fc1a90d99bb1f03ae2f20e6824a243f7ae7" => :el_capitan
   end
 
   # Linux bug fix: https://github.com/Linuxbrew/homebrew-core/issues/6275

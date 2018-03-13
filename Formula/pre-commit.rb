@@ -3,15 +3,14 @@ class PreCommit < Formula
 
   desc "Framework for managing multi-language pre-commit hooks"
   homepage "https://pre-commit.com/"
-  url "https://github.com/pre-commit/pre-commit/archive/v1.7.0.tar.gz"
-  sha256 "e56ac13e933730dd18ecb2c9b4e8a4d6df5e95a6ff021d2cc70014daea3b7340"
-  revision 1
+  url "https://github.com/pre-commit/pre-commit/archive/v1.8.0.tar.gz"
+  sha256 "02a723530be38df0e6f34f2999b253127cac038b44b88080c686ac1920e90cb8"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0d9931421baee580fa401851ff9510f5051085863d9b93a43de336b2f904a11d" => :high_sierra
-    sha256 "1c5b5a8bb4d5c56ec2d90abc14c2b12073777faff84cd5b08327d98e6039a0df" => :sierra
-    sha256 "17c25eb8c30add7fad39068f79a7341c5cdaab36edc7ad6ad6621b5da7a77c6c" => :el_capitan
+    sha256 "e8b4b4404d5e8c79f6033c25b62e3e56b159f1d9a88f466e03751b77891afd8b" => :high_sierra
+    sha256 "33ca601352518e2a21cf99573482f67cd31befa9b9c041dc463df53a2500aa8c" => :sierra
+    sha256 "761add4809e3d5d95d9ae839155e262f96453677fa2931124ee6759c1d6744f0" => :el_capitan
   end
 
   depends_on "python"
