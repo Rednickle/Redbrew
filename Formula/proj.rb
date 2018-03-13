@@ -3,12 +3,12 @@ class Proj < Formula
   homepage "http://proj4.org/"
   url "https://download.osgeo.org/proj/proj-5.0.0.tar.gz"
   sha256 "b30df08d736e69744cb255828721abb545b494d6032c13a96520f3219a444cd2"
+  revision 1
 
   bottle do
-    sha256 "e8593ac943fbf2911a66b300c0c3f55ec7bfb9fe1ac636ff59ac50de85d04daa" => :high_sierra
-    sha256 "13e815d8283d20e2f7a5ab1a2f3fb6a465ef67112f7dce89f4278a417469f973" => :sierra
-    sha256 "6f9e7306f404158d257bb791ff7cfc05c9b0ad98f7652adcb9e59259f94dafb9" => :el_capitan
-    sha256 "39c7c543247a6d6e1af1ed7dcd0e10326444b14ab7b64b8ed23cd0240b93de23" => :x86_64_linux
+    sha256 "a37b9d73873c3a72fe4097724f093568b8d7b71c9b2075283fef4318f809df24" => :high_sierra
+    sha256 "4dfe23e5d9f160efdbbdc99429574276deebbfc9e303987a6a9b70239ac5c60a" => :sierra
+    sha256 "6ad68353870e17425622554183939725545b7f2923b485b9664559a9d4b66f82" => :el_capitan
   end
 
   head do
@@ -22,8 +22,8 @@ class Proj < Formula
 
   # The datum grid files are required to support datum shifting
   resource "datumgrid" do
-    url "https://download.osgeo.org/proj/proj-datumgrid-1.5.zip"
-    sha256 "723c4017d95d7a8abdf3bda4e18d3c15d79b00f9326d453da5fdf13f96c287db"
+    url "https://download.osgeo.org/proj/proj-datumgrid-1.7.zip"
+    sha256 "ffcad4453fac3b4a13ca678ef343e688496e18019f35709ef03c5f200e9fb85a"
   end
 
   # Vertical datum files
@@ -60,11 +60,6 @@ class Proj < Formula
   resource "vertconw" do
     url "https://download.osgeo.org/proj/vdatum/vertcon/vertconw.gtx"
     sha256 "de648c0f6e8b5ebfc4b2d82f056c7b993ca3c37373a7f6b7844fe9bd4871821b"
-  end
-
-  resource "egm96_15" do
-    url "https://download.osgeo.org/proj/vdatum/egm96_15/egm96_15.gtx"
-    sha256 "c02a6eb70a7a78efebe5adf3ade626eb75390e170bb8b3f36136a2c28f5326a0"
   end
 
   resource "egm08_25" do
