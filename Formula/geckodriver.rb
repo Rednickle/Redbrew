@@ -1,26 +1,14 @@
 class Geckodriver < Formula
   desc "WebDriver <-> Marionette proxy"
   homepage "https://github.com/mozilla/geckodriver"
+  url "https://github.com/mozilla/geckodriver/archive/v0.20.0.tar.gz"
+  sha256 "0bfd25ca4ee396fbb1d9685decb9c68890b9e8997d1e7c35f1da40f7a232aaf2"
   head "https://hg.mozilla.org/mozilla-central/", :using => :hg
 
-  stable do
-    url "https://github.com/mozilla/geckodriver/archive/v0.19.1.tar.gz"
-    sha256 "f590ddfef42995a23e781b52befdbc2ac342bf829008e98d212f2e1e15d9f713"
-
-    # Remove for > 0.19.1
-    # Fixes E0277 when building slog with Rust > 1.23
-    # Fixed upstream in https://hg.mozilla.org/mozilla-central/rev/cbd3741a4bb0 on 2018-02-15.
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/e89f1ad/geckodriver/bug-1435830.patch"
-      sha256 "578cdb22803c2f6ee00e8e0b1ca6fcde622c743572aad7038dda0d63cbce4500"
-    end
-  end
-
   bottle do
-    rebuild 1
-    sha256 "579bc00a6c39dac983705426453104099af036f6f0651e50a49cb25e4a52a60c" => :high_sierra
-    sha256 "c7523715a1f1610051bafd47861976da1ccbc4a2203e0df263c52426d3bebe00" => :sierra
-    sha256 "9688a792640220274fdf61b87cc4bb1135c2a4d35c2f627b6bd859f5674152ac" => :el_capitan
+    sha256 "3167ec1406f1af96d6529a3dc91bfde96172ab0e81572bcfccaf69dde1a58c9f" => :high_sierra
+    sha256 "7425f0cbc1f491e783fe06f17e85ae5bce6f5284d38fc71c1187667cf3617ef9" => :sierra
+    sha256 "bcd8440509b93ca9788a6c25f8e5a2f118582e37e91af8936275d657ecd75eb8" => :el_capitan
   end
 
   depends_on "rust" => :build
