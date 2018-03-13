@@ -3,11 +3,12 @@ class LibbitcoinServer < Formula
   homepage "https://github.com/libbitcoin/libbitcoin-server"
   url "https://github.com/libbitcoin/libbitcoin-server/archive/v3.5.0.tar.gz"
   sha256 "37ef8d572fb7400565655501ffdea5d07a1de10f3d9fa823d33e2bf68ef8c3ce"
+  revision 1
 
   bottle do
-    sha256 "b6c66446d989f0985423f5e70292c132fa1e067448a2e29fca547efdd9035dd8" => :high_sierra
-    sha256 "44140603b51b0d9438b5dd120baf7ff5a593078128585224c1e39954a255caea" => :sierra
-    sha256 "fa76c183e2c4068ba16068dd9f1b286d1803909d4d707035fd5ce5aae4958e33" => :el_capitan
+    sha256 "923f0184b88f4f65294dca620a89802a2c6d7019069b23a3635095f67e724c83" => :high_sierra
+    sha256 "d15d06f49c17dae4e06eae578178646816cf3b34a2f96c85f43628d11676bf90" => :sierra
+    sha256 "da9449bb2e23980a881b443136b497f77abde1bace26415678bccd75cbce735b" => :el_capitan
   end
 
   depends_on "autoconf" => :build
@@ -24,8 +25,6 @@ class LibbitcoinServer < Formula
 
   def install
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["libbitcoin"].opt_libexec/"lib/pkgconfig"
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libbitcoin-blockchain"].opt_libexec/"lib/pkgconfig"
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libbitcoin-node"].opt_libexec/"lib/pkgconfig"
     ENV.prepend_create_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
 
     resource("libbitcoin-protocol").stage do
