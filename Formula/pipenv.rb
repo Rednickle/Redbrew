@@ -3,15 +3,14 @@ class Pipenv < Formula
 
   desc "Python dependency management tool"
   homepage "https://docs.pipenv.org/"
-  url "https://files.pythonhosted.org/packages/37/27/07e0e6f40920e8c7d54424930013530d49a5cb9fdc39fa0f50b531e85ef2/pipenv-11.3.1.tar.gz"
-  sha256 "32a24367b6315f976583c5e9670b31afd0889d1ac5a1338bbbc691a79792a8ad"
+  url "https://files.pythonhosted.org/packages/53/e8/05ff3b1851daf2710e94447c08595b6f9bb137cc088374eeda0cfdf552dd/pipenv-11.3.3.tar.gz"
+  sha256 "6c3e8a6ee0a2dc8f36139184ade4268447590537aae4ee1c74ff996bddaa4649"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1aa554dbfac76ff9e4d8e9ba63212ca8e742d8aa5f11f84850e35e8d1c752768" => :high_sierra
-    sha256 "6ddec1c905847086dcc8f8f37a400605e26d00984ff0d1982c2456d25ae57bb3" => :sierra
-    sha256 "bfd2bdf062858e44583f9e339abe94a1b602eded293cd1dedfa76c156458bfe4" => :el_capitan
-    sha256 "91e48d68897f6fe77f2ab8e2a255569664bf1041cd97d9947466ea4162995772" => :x86_64_linux
+    sha256 "a51490bec174a046432fa3af0722956f9fa0e6f3f0af3fcfcd5e00a25ce98cbb" => :high_sierra
+    sha256 "2ea70191b28c96b6666444e9faa669e0c66fc4eac7fae4d68be70890cad409c2" => :sierra
+    sha256 "d76be7cff38175f55b58d2b6d2a531bc0c00c963da363e2e53525da52c2ed3ba" => :el_capitan
   end
 
   depends_on "python"
