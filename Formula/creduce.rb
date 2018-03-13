@@ -1,7 +1,7 @@
 class Creduce < Formula
   desc "Reduce a C/C++ program while keeping a property of interest"
   homepage "https://embed.cs.utah.edu/creduce/"
-  revision 2
+  revision 3
   head "https://github.com/csmith-project/creduce.git"
 
   stable do
@@ -19,14 +19,14 @@ class Creduce < Formula
 
   bottle do
     cellar :any
-    sha256 "b869d3283c9f0cd1c84e07dad451a5fe7375816a43ea36c0eb1d45b3288f3419" => :high_sierra
-    sha256 "fb3948df94350cfd4fb00bff141641a35187abb2529246619137810a2606afb6" => :sierra
-    sha256 "7b2bb9028a3fbcb118d7826c2d0e3db2445dc2676cf65f6f5e0938b43b9cb546" => :el_capitan
+    sha256 "fbf09e354c9e1da58a93153eade303df094affe643e52422abb3795971723c79" => :high_sierra
+    sha256 "f2e4746773e42becc90d3068eaf9aee64701a51dab6349ea44947a88c128b0ee" => :sierra
+    sha256 "667d3b67033eb93718a83f63eede85f1d48965e2cb729d4ddb33f655c485c936" => :el_capitan
   end
 
   depends_on "astyle"
   depends_on "delta"
-  depends_on "llvm"
+  depends_on "llvm@5"
 
   depends_on :macos => :mavericks
 
@@ -76,7 +76,7 @@ class Creduce < Formula
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 
     # Avoid ending up with llvm's Cellar path hard coded.
-    ENV["CLANG_FORMAT"] = Formula["llvm"].opt_bin/"clang-format"
+    ENV["CLANG_FORMAT"] = Formula["llvm@5"].opt_bin/"clang-format"
 
     resources.each do |r|
       r.stage do
@@ -88,7 +88,7 @@ class Creduce < Formula
 
     system "./configure", "--prefix=#{prefix}",
                           "--disable-dependency-tracking",
-                          "--with-llvm=#{Formula["llvm"].opt_prefix}",
+                          "--with-llvm=#{Formula["llvm@5"].opt_prefix}",
                           "--bindir=#{libexec}"
     system "make"
     system "make", "install"

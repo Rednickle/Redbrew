@@ -3,16 +3,15 @@ class Augustus < Formula
   homepage "http://bioinf.uni-greifswald.de/augustus/"
   url "http://bioinf.uni-greifswald.de/augustus/binaries/augustus-3.3.tar.gz"
   sha256 "b5eb811a4c33a2cc3bbd16355e19d530eeac6d1ac923e59f48d7a79f396234ee"
-  revision 1 unless OS.mac?
+  revision OS.mac? ? 1 : 2
 
   bottle do
-    cellar :any
-    sha256 "628ec61d36ac8c0cfa088bf0aaf8facb59888d8df407027d6099385a97da9a5a" => :high_sierra
-    sha256 "8e6f909d5feb3a6890935646d31b70d99f7faf9315c0613c4362af3d19912c1f" => :sierra
-    sha256 "57d0cdab04164c968240245b95159b21e464d7988dd4063d758dbfbb93e1b25a" => :el_capitan
-    sha256 "f421982ad90c1d4507834102f0fb8183273c5b0e751392af0e2031460f391753" => :x86_64_linux
+    sha256 "6ffeac4edd4805321ea0957959f85da8cc1f5978cdc8a98903a78c407d5d183e" => :high_sierra
+    sha256 "b87f6e5824186aaa1a02cc6665dde1328a4255aed653de85edd3e4bd40f65c60" => :sierra
+    sha256 "19a761ef4afa0cd5e9699b59b11eaac2e7e1d3dbfa14e2c8ced1b27eb57c2c1e" => :el_capitan
   end
 
+  depends_on "bamtools"
   depends_on "boost"
   unless OS.mac?
     depends_on "bamtools"
@@ -20,21 +19,19 @@ class Augustus < Formula
   end
 
   def install
-    unless OS.mac?
-      # Fix error: api/BamReader.h: No such file or directory
-      inreplace "auxprogs/bam2hints/Makefile",
-        "INCLUDES = /usr/include/bamtools",
-        "INCLUDES = #{Formula["bamtools"].include/"bamtools"}"
-      inreplace "auxprogs/filterBam/src/Makefile",
-        "BAMTOOLS = /usr/include/bamtools",
-        "BAMTOOLS= #{Formula["bamtools"].include/"bamtools"}"
-    end
+    # Fix error: api/BamReader.h: No such file or directory
+    inreplace "auxprogs/bam2hints/Makefile",
+      "INCLUDES = /usr/include/bamtools",
+      "INCLUDES = #{Formula["bamtools"].include/"bamtools"}"
+    inreplace "auxprogs/filterBam/src/Makefile",
+      "BAMTOOLS = /usr/include/bamtools",
+      "BAMTOOLS= #{Formula["bamtools"].include/"bamtools"}"
 
     # Prevent symlinking into /usr/local/bin/
     inreplace "Makefile", %r{ln -sf.*/usr/local/bin/}, "#ln -sf"
 
     # Compile executables for macOS. Tarball ships with executables for Linux.
-    system "make", "clean" unless OS.mac?
+    system "make", "clean"
     system "make"
 
     system "make", "install", "INSTALLDIR=#{prefix}"
