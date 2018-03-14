@@ -1,31 +1,29 @@
-class Gtksourceview3 < Formula
+class GtksourceviewAT4 < Formula
   desc "Text view with syntax, undo/redo, and text marks"
   homepage "https://projects.gnome.org/gtksourceview/"
-  url "https://download.gnome.org/sources/gtksourceview/3.24/gtksourceview-3.24.7.tar.xz"
-  sha256 "a5c20d3a6347533689358f3ea52486409f6dd41d5a69c65eab7570cfaffee8e6"
+  url "https://download.gnome.org/sources/gtksourceview/4.0/gtksourceview-4.0.0.tar.xz"
+  sha256 "6e5c7a28a7fa456a89f289f0659c57100cc09fe692db6abfcc23f7ade5d5b32a"
 
   bottle do
-    sha256 "866cee6f5be835ccc810d1c85b3c599f14625b132dbb6068dc4a616e796a6a3e" => :high_sierra
-    sha256 "c5fbdf437cef1194e4f332987e18d8236d3fcd5cf10f394029d960f5959d434b" => :sierra
-    sha256 "d94413162463ee800fc12e83f26a9843e7f001b93a6ae0bec8b2e6137c01b73e" => :el_capitan
+    sha256 "fe95c7508b0fbd9ff7af99709ee022d6cc8b0de456c923b77a9cc5436a0d98a3" => :high_sierra
+    sha256 "d5038b1aee6f8104b3f566d6af1bbb06cb6201f532b2b1df2364835fec119a9b" => :sierra
+    sha256 "40880b1821a43ec79dad4af509248b36c57e446420f193204935d2415fd38c0f" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
-  depends_on "vala" => :build
   depends_on "intltool" => :build
+  depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "gtk+3"
 
   def install
     system "./configure", "--disable-dependency-tracking",
-                          "--enable-vala=yes",
                           "--prefix=#{prefix}"
     system "make", "install"
   end
 
   test do
     (testpath/"test.c").write <<~EOS
-      #include <gtksourceview/gtksourceview.h>
+      #include <gtksourceview/gtksource.h>
 
       int main(int argc, char *argv[]) {
         gchar *text = gtk_source_utils_unescape_search_text("hello world");
@@ -56,7 +54,7 @@ class Gtksourceview3 < Formula
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
       -I#{gtkx3.opt_include}/gtk-3.0
-      -I#{include}/gtksourceview-3.0
+      -I#{include}/gtksourceview-4
       -I#{libepoxy.opt_include}
       -I#{libpng.opt_include}/libpng16
       -I#{pango.opt_include}/pango-1.0
@@ -79,11 +77,11 @@ class Gtksourceview3 < Formula
       -lglib-2.0
       -lgobject-2.0
       -lgtk-3
-      -lgtksourceview-3.0
+      -lgtksourceview-4.0
+      -lintl
       -lpango-1.0
       -lpangocairo-1.0
     ]
-    flags << "-lintl" if OS.mac?
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
