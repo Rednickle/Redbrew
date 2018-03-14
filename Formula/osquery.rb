@@ -4,11 +4,12 @@ class Osquery < Formula
   # pull from git tag to get submodules
   url "https://github.com/facebook/osquery/archive/3.1.0.tar.gz"
   sha256 "dd8ddbb30d9f965fd999b2a3dc70a36944bd97adb198059995f3b42f211be75b"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "3ea2fa9fb604f473c6ba853750cc3a041456093f86853693088d707f594c4be5" => :high_sierra
-    sha256 "a6c107f4e2ae53ccd6412924ff34639d8289aca5c2c0ed2cfb76f953c544cb64" => :sierra
+    sha256 "28825364050b8624176f2bbe60934857f47a2f126aeb5de48654f00dad5549cb" => :high_sierra
+    sha256 "3bd24b57391a2be71fdf65a0c348ab96654775325c7708058440c1a03c84bb93" => :sierra
   end
 
   fails_with :gcc => "6"
