@@ -3,13 +3,12 @@ class MingwW64 < Formula
   homepage "https://mingw-w64.org/"
   url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v5.0.3.tar.bz2"
   sha256 "2a601db99ef579b9be69c775218ad956a24a09d7dabc9ff6c5bd60da9ccc9cb4"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 "263eedfa805ef8e53ae365f303ddacdeecba759630bc60fd6fa6fa1fba583293" => :high_sierra
-    sha256 "56c84c7ad3d5a2a2858eeb79f33eada75488107c352252f5533f5e805d175d74" => :sierra
-    sha256 "91f92b16c39d0afebef40845c5b6aea9d4ad95165afef8024c2e1cd768d43ad0" => :el_capitan
-    sha256 "1dc70f6cb921c9536afc518d1b3dcc3db99f298dfeab0d678f76e8688f694031" => :x86_64_linux
+    sha256 "0bdb116192aedd32a95832eca99885cbd4ce27fd1d9ee4343348083f0135c7f3" => :high_sierra
+    sha256 "0a1fa5d5f05bb2b288660c157d1dc6bd366d22973b9d718046f675e223790216" => :sierra
+    sha256 "077d13bc5b6576ff1976ff4320382449f248224888d6e13d49871ce49c945a18" => :el_capitan
   end
 
   depends_on "gmp"
