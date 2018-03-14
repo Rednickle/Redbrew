@@ -11,6 +11,7 @@ class Platformio < Formula
     sha256 "056b880e462f184e7330261f05a0d704538fbf512130a4b4e23039058a9df346" => :high_sierra
     sha256 "d26ae6396a0ce8658f8399c27bf5ac4604d0116eeb8224192e6275931599b34e" => :sierra
     sha256 "cf1950a5e3e404e2cba66e5deff5a2f115878f9654f6685253426886101dd208" => :el_capitan
+    sha256 "73f8d563facd24d28cc6b50758bdaf5cf358cb46b92f1e9b6d941451802d0c3e" => :x86_64_linux
   end
 
   depends_on "python@2" if MacOS.version <= :snow_leopard
