@@ -10,6 +10,7 @@ class AutoconfArchive < Formula
     sha256 "10e2660afcbb3d970cd7cac44ad0ebf84f521ab89fd9de25091e752aa0aa9959" => :high_sierra
     sha256 "10e2660afcbb3d970cd7cac44ad0ebf84f521ab89fd9de25091e752aa0aa9959" => :sierra
     sha256 "10e2660afcbb3d970cd7cac44ad0ebf84f521ab89fd9de25091e752aa0aa9959" => :el_capitan
+    sha256 "2c3e2eabcc28168fea974eb5501a9d880b2d4ff2680a3fa4d58aa7c149894099" => :x86_64_linux
   end
 
   # autoconf-archive is useless without autoconf
