@@ -1,16 +1,15 @@
 class Curl < Formula
   desc "Get a file from an HTTP, HTTPS or FTP server"
   homepage "https://curl.haxx.se/"
-  url "https://curl.haxx.se/download/curl-7.58.0.tar.bz2"
-  mirror "http://curl.askapache.com/download/curl-7.58.0.tar.bz2"
-  sha256 "1cb081f97807c01e3ed747b6e1c9fee7a01cb10048f1cd0b5f56cfe0209de731"
+  url "https://curl.haxx.se/download/curl-7.59.0.tar.bz2"
+  mirror "http://curl.askapache.com/download/curl-7.59.0.tar.bz2"
+  sha256 "b5920ffd6a8c95585fb95070e0ced38322790cb335c39d0dab852d12e157b5a0"
 
   bottle do
     cellar :any
-    sha256 "715031cce2686a4855a62db8ca9cf9dc0d755514c44cfd72f9e64cbdabe1f86c" => :high_sierra
-    sha256 "ac45f84489d00522fb2ef362917da780434422b598133a3e64c84f0f28b12790" => :sierra
-    sha256 "2b4490f5d3839e29b3898d50745419e372e770d1fcaff3680f15d4cffc4c8653" => :el_capitan
-    sha256 "76062fbf764b19a23b4a3bf4084fadbf43f886c99684211854a94f9849e0ade5" => :x86_64_linux
+    sha256 "c16e7fdef8713270d2b0dc1ddaaafcd14101f58a412e0922edc3fedfa20121c4" => :high_sierra
+    sha256 "36bd62e7b1ec2f4af90c4e808ce7503e7e783f4480076309faadfd9363528fb1" => :sierra
+    sha256 "a143b0d967f76643af51dfe0f67c4c869dfa0fdc3e7902ced5fa8eed9c48501d" => :el_capitan
   end
 
   pour_bottle? do
