@@ -9,6 +9,7 @@ class Akamai < Formula
     sha256 "21733a07ff718017ed945fca44db55cec46c51537a023b2b4738223020f8e71a" => :high_sierra
     sha256 "649f6ae9c1f1c1e1a894d3134340562afb000c5a88b3342442656186ddd25166" => :sierra
     sha256 "b1d85c495f0a98b12b459be5fc6f94ea9ae8109cf9f62b179bb6c0a53e5d19f3" => :el_capitan
+    sha256 "d8bd1949b2a00c6b95ad44c58fcfbf2d88f49c604b41842dda3175fed15d68f7" => :x86_64_linux
   end
 
   depends_on "go" => :build
