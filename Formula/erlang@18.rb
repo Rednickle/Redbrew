@@ -1,16 +1,15 @@
 class ErlangAT18 < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
-  url "https://github.com/erlang/otp/archive/OTP-18.3.4.7.tar.gz"
-  sha256 "6b81891b646370bb44a0121e5ec89f9c45210b17c8c98a10b4581e3721ab686a"
+  url "https://github.com/erlang/otp/archive/OTP-18.3.4.8.tar.gz"
+  sha256 "26df069142401924dc10d37f994a5de5ed971824880c5e5cce041b1e82c9250d"
   head "https://github.com/erlang/otp.git", :branch => "maint-18"
 
   bottle do
     cellar :any
-    sha256 "82b98c0b7179ca82d30cd35c4f2e6c7cd4f34096d27f954ed688beeb249944df" => :high_sierra
-    sha256 "51422ba2069aed05ec06f35a7228f931ded4b9fc656f5eb80e1cf5f903e8a502" => :sierra
-    sha256 "150f59e18740c46f5579824cd434bc979977de27ab81d1e0ef5c7e001510612e" => :el_capitan
-    sha256 "904aab9f46636ee86b62464ba3016aa2fb35060de32e6bd3a6bee20031feb17b" => :x86_64_linux
+    sha256 "4101f0327fd835a0a7eedb6859938722c3e53b3dc2af9223ba97f0e6925558a7" => :high_sierra
+    sha256 "63837832b0ed0ea86643af3b578bf953de31b3ab8795b865d1fe759592c7f51a" => :sierra
+    sha256 "87021fd8083f62e8ac07f6292fca8bb610fe85f509621aee85f260a359341aea" => :el_capitan
   end
 
   keg_only :versioned_formula
