@@ -7,6 +7,7 @@ class Mednafen < Formula
   bottle do
     sha256 "87031d37ab517f9c55a0fe65c3ffe8584bbc4a88b856a3e4ffc4d1a0efe8785f" => :high_sierra
     sha256 "cd49bc3d5ef6c4d5346c530e99886169224e757fb19e10105e799369685f1ea9" => :sierra
+    sha256 "cfe923f996d72eb25102b9b76b7c85a1e7525caa44e6ca785a465ccbbd19b83c" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
