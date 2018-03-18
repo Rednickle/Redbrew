@@ -10,6 +10,7 @@ class Sfk < Formula
     sha256 "e03be10cd7374af2925ef43f34077207592ebd17fe0154599c900e276ba4bab9" => :high_sierra
     sha256 "e3071bbcfe4df4082ce6419b942c90caee261aff208089adf4ab847b55dcd144" => :sierra
     sha256 "2fdec7f1e4314c883deced2f12d4a84ebc7a6cf9e1454f41cda243bad948f9d9" => :el_capitan
+    sha256 "3cad92955df5e4242bc7cfbcddbe3eb7f7862a5447f95843564363dd3879d31d" => :x86_64_linux
   end
 
   def install
