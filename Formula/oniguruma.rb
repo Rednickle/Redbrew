@@ -1,15 +1,14 @@
 class Oniguruma < Formula
   desc "Regular expressions library"
   homepage "https://github.com/kkos/oniguruma/"
-  url "https://github.com/kkos/oniguruma/releases/download/v6.7.1/onig-6.7.1.tar.gz"
-  sha256 "81ffafde8f34e6e692c57ec654bf9716ae9b35828ffcb787399259fc0d5564b4"
+  url "https://github.com/kkos/oniguruma/releases/download/v6.8.0/onig-6.8.0.tar.gz"
+  sha256 "c9cd7b50f96460a8f5823f5916f57038c24cfb0d8e3bb86b8bb8b990daa4755c"
 
   bottle do
     cellar :any
-    sha256 "ffec194130c7a2938a41c86ebaccc63f81439447bc3e46814e5f1daf3add7ad4" => :high_sierra
-    sha256 "322159ae599babc31b4d5d4af0b2697d5e888e116e0da3998b0d9caf1a9d3942" => :sierra
-    sha256 "ce043684f028f8899386abc13b746d0e86de1340bacf145bd25469e104a3d376" => :el_capitan
-    sha256 "9e121c833aa59c862ccec2af8cfa82a7dd0442f0c8d034fbf3ac802cd8300157" => :x86_64_linux
+    sha256 "6d78e3d91c76bdb1c9012dc62b296de123fd93d15d65787477451df4c852dd08" => :high_sierra
+    sha256 "5027a5481ca681b9ee68b39ef658cfef2c5d67887b75ebe232c1fa8bb1d38d2a" => :sierra
+    sha256 "c75abb9e9f12c390f32cfb99a6248c5201e0ba28dfab94fce1f2c7da7adbd926" => :el_capitan
   end
 
   def install

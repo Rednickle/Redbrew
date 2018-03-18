@@ -6,9 +6,10 @@ class Libbi < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1b4018941c8d18e493888f3b0257a72cbe836466f426f6a9e511aecea3a1884d" => :high_sierra
-    sha256 "95a74d6249455f69effc9beb0334d968c533313e469ec35080a8ba48a380b1a1" => :sierra
-    sha256 "2c4af2f1301df8e0217b4d9b77bbc8a528b2fa2958f9b4de3310b9a07feca0ec" => :el_capitan
+    rebuild 1
+    sha256 "778198ae3d37b2e925e9ec22393b77f3f640899fe34d362ca90b62fd9f503556" => :high_sierra
+    sha256 "d8afb7f1a16f26538d2ce4dbbd82e1dce9c89006ac2dcaa8bee9f46ded5a477d" => :sierra
+    sha256 "2e6d7d7d0cc173a560a3e76dc95739a60f44520a70da67ed264c1eeb19735ebc" => :el_capitan
   end
 
   depends_on "automake" => :run
@@ -18,8 +19,8 @@ class Libbi < Formula
   depends_on "qrupdate"
 
   resource "Test::Simple" do
-    url "https://www.cpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302120.tar.gz"
-    sha256 "c82360092d4dacd6e3248b613fa00053072fe9cf55d022f1e0f427f51d04346c"
+    url "https://www.cpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302133.tar.gz"
+    sha256 "02bc2b4ec299886efcc29148308c9afb64e0f2c2acdeaa2dee33c3adfe6f96e2"
   end
 
   resource "Getopt::ArgvFile" do
