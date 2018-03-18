@@ -7,24 +7,40 @@ class Heartbeat < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "220c7fa1e172dad27b913b65285db8fe53061257e884d6ed2d0317f9046568b5" => :high_sierra
-    sha256 "246a5901d57da11498eb4050a16561a43076f4281afd47152313d8bded121ca8" => :sierra
-    sha256 "0bd80f4f1566ac323353a5b5a13fdf14ed8a735fbdbcfd4a0b08d11c5b782148" => :el_capitan
-    sha256 "055684bd725e3414ff415fdb2dcb9ac716b6b72543e0d2115bf74feb9ea9ed2a" => :x86_64_linux
+    rebuild 1
+    sha256 "250085b26692c350b703e6c9f24880e66e17aae6ffa9fc8e5b55a4554d41b1a1" => :high_sierra
+    sha256 "376978e37246f9a51814b62a58ab0b21e4b2238b867701e5cdcde856af54a05d" => :sierra
+    sha256 "33c0cb3361e3a531b68addf8a72d5db937c9399f55c559e7a984669297b799ed" => :el_capitan
   end
 
   depends_on "go" => :build
+
+  resource "virtualenv" do
+    url "https://files.pythonhosted.org/packages/d4/0c/9840c08189e030873387a73b90ada981885010dd9aea134d6de30cd24cb8/virtualenv-15.1.0.tar.gz"
+    sha256 "02f8102c2436bb03b3ee6dede1919d1dac8a427541652e5ec95171ec8adbc93a"
+  end
 
   def install
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/elastic/beats").install buildpath.children
 
+    ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python2.7/site-packages"
+
+    resource("virtualenv").stage do
+      system "python", *Language::Python.setup_install_args(buildpath/"vendor")
+    end
+
+    ENV.prepend_path "PATH", buildpath/"vendor/bin"
+
     cd "src/github.com/elastic/beats/heartbeat" do
       system "make"
+      # prevent downloading binary wheels during python setup
+      system "make", "PIP_INSTALL_COMMANDS=--no-binary :all", "python-env"
+      system "make", "DEV_OS=darwin", "update"
       (libexec/"bin").install "heartbeat"
       libexec.install "_meta/kibana"
 
-      (etc/"heartbeat").install Dir["heartbeat*.{json,yml}"]
+      (etc/"heartbeat").install Dir["heartbeat*.{json,yml}", "fields.yml"]
       prefix.install_metafiles
     end
 

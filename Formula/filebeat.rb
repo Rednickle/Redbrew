@@ -7,30 +7,44 @@ class Filebeat < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "452dfc74f6fb8bc0db672a9f0aeac875f133f74428460ff5e90c83e9b784bd74" => :high_sierra
-    sha256 "18f6a3dcee99bb27938b0ceff3ede0f1a11cbcb0c123fdb229142caf983b18ea" => :sierra
-    sha256 "efa963c66bfd69ee503b9f0011b5e733a93b7fcac7e1971ac18ee4fdd3b33894" => :el_capitan
-    sha256 "96c257ef6d518523db184a7d61be2c6aea5e675328db7fe46712137f974b0856" => :x86_64_linux
+    rebuild 1
+    sha256 "b78055cc78f660c1208e3c2ad44b21dc7d6500d94a068799192fc89366a7588b" => :high_sierra
+    sha256 "c1a44921e9208a7ce2ae6a0503cb0faa8f6c381d304d65556764b8618b14cc84" => :sierra
+    sha256 "241699b2dce85ae7aff63b0dd04bdcd5ad1b99d7d9ec55d3270ec04e451f25de" => :el_capitan
   end
 
   depends_on "go" => :build
   depends_on "rsync" => :build unless OS.mac?
 
+  resource "virtualenv" do
+    url "https://files.pythonhosted.org/packages/d4/0c/9840c08189e030873387a73b90ada981885010dd9aea134d6de30cd24cb8/virtualenv-15.1.0.tar.gz"
+    sha256 "02f8102c2436bb03b3ee6dede1919d1dac8a427541652e5ec95171ec8adbc93a"
+  end
+
   def install
-    gopath = buildpath/"gopath"
-    (gopath/"src/github.com/elastic/beats").install Dir["{*,.git,.gitignore}"]
+    ENV["GOPATH"] = buildpath
+    (buildpath/"src/github.com/elastic/beats").install Dir["{*,.git,.gitignore}"]
 
-    ENV["GOPATH"] = gopath
+    ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python2.7/site-packages"
 
-    cd gopath/"src/github.com/elastic/beats/filebeat" do
+    resource("virtualenv").stage do
+      system "python", *Language::Python.setup_install_args(buildpath/"vendor")
+    end
+
+    ENV.prepend_path "PATH", buildpath/"vendor/bin"
+
+    cd "src/github.com/elastic/beats/filebeat" do
       system "make"
+      # prevent downloading binary wheels during python setup
+      system "make", "PIP_INSTALL_COMMANDS=--no-binary :all", "python-env"
+      system "make", "DEV_OS=darwin", "update"
       system "make", "modules"
       libexec.install "filebeat"
       (prefix/"module").install Dir["_meta/module.generated/*"]
-      (etc/"filebeat").install Dir["filebeat.*"]
+      (etc/"filebeat").install Dir["filebeat.*", "fields.yml"]
     end
 
-    prefix.install_metafiles gopath/"src/github.com/elastic/beats"
+    prefix.install_metafiles buildpath/"src/github.com/elastic/beats"
 
     (bin/"filebeat").write <<~EOS
       #!/bin/sh

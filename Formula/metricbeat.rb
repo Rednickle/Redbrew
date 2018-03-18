@@ -15,25 +15,41 @@ class Metricbeat < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c04e96878a0a0170f5e3d95a67cca6d5c298fdda435483edcb7b756782989406" => :high_sierra
-    sha256 "9d1236c5afefd8d12d698cca1b0dcd9850c057377bbc3f27ce82b8b6437f79ab" => :sierra
-    sha256 "0b038131e12c6ad912b3ea4e808fa573830e570b4967c6dfaf591fb889ca4be4" => :el_capitan
-    sha256 "229fe5fabe529fcfd69233fb562daea41d22fbfba72d9a8fab93e5e42ca4036a" => :x86_64_linux
+    rebuild 1
+    sha256 "7dd43fdd6e6bdd13b134d24281519315643ca13e7333d24dc2415aa8125629c4" => :high_sierra
+    sha256 "c3a83f240cce7be839f6a6e2d34263e8200664044040e2d2c59450ddf6a49c92" => :sierra
+    sha256 "750632d6c2de12cb500ebf98c1b30134f903e704012a1c73769f46d26f16e35b" => :el_capitan
   end
 
   depends_on "go" => :build
+
+  resource "virtualenv" do
+    url "https://files.pythonhosted.org/packages/d4/0c/9840c08189e030873387a73b90ada981885010dd9aea134d6de30cd24cb8/virtualenv-15.1.0.tar.gz"
+    sha256 "02f8102c2436bb03b3ee6dede1919d1dac8a427541652e5ec95171ec8adbc93a"
+  end
 
   def install
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/elastic/beats").install buildpath.children
 
+    ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python2.7/site-packages"
+
+    resource("virtualenv").stage do
+      system "python", *Language::Python.setup_install_args(buildpath/"vendor")
+    end
+
+    ENV.prepend_path "PATH", buildpath/"vendor/bin"
+
     cd "src/github.com/elastic/beats/metricbeat" do
       system "make"
+      # prevent downloading binary wheels during python setup
+      system "make", "PIP_INSTALL_COMMANDS=--no-binary :all", "python-env"
+      system "make", "DEV_OS=darwin", "update"
       system "make", "kibana"
       (libexec/"bin").install "metricbeat"
       libexec.install "_meta/kibana"
 
-      (etc/"metricbeat").install Dir["metricbeat*.yml"]
+      (etc/"metricbeat").install Dir["metricbeat*.yml", "fields.yml"]
       prefix.install_metafiles
     end
 
