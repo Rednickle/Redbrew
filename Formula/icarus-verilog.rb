@@ -1,15 +1,13 @@
 class IcarusVerilog < Formula
   desc "Verilog simulation and synthesis tool"
   homepage "http://iverilog.icarus.com/"
-  url "ftp://icarus.com/pub/eda/verilog/v10/verilog-10.1.1.tar.gz"
-  sha256 "fdaa75dfe7c58cbc471fc12710ee49b3f32fd6cc055d9181b5190cbcbbd6cada"
+  url "ftp://icarus.com/pub/eda/verilog/v10/verilog-10.2.tar.gz"
+  sha256 "96dedbddb12d375edb45a144a926a3ba1e3e138d6598b18e7d79f2ae6de9e500"
 
   bottle do
-    sha256 "496c7af8c0d99efd7b0c0a8c5876eb9dae4cc55026793e0a55510225e73a1d71" => :high_sierra
-    sha256 "407f39365da527c4bfe390ea77756f8e1711bc5f97bb62c39c43a70ec1ea0409" => :sierra
-    sha256 "765e2758490a45edc6b4145e2e22eb0e82c6cb43b877bcf439a2da13f9f55bcb" => :el_capitan
-    sha256 "80af17509dd602b4f9e5c6c05add05b5a84337b20e231a05889c96776386ccdb" => :yosemite
-    sha256 "7d7c2dcd88f2e6b2307fcafa733307439be48e266b734306b5ee7f60eb650d41" => :x86_64_linux # glibc 2.19
+    sha256 "81e937d3d6a5f7b22271e79b73618e96db1e52ee491eaf3506671cfb5891c129" => :high_sierra
+    sha256 "fcfa2c2480d6f113dde2ac3d97a4c8ece20881df36edc5f5c59bb9f4bb8139ea" => :sierra
+    sha256 "b517bb8d1a5a6cfda00e32f403950e32b88c8792b1e74e9011c5036a0e44bba6" => :el_capitan
   end
 
   head do

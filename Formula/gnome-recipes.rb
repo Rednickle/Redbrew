@@ -3,12 +3,12 @@ class GnomeRecipes < Formula
   homepage "https://wiki.gnome.org/Apps/Recipes"
   url "https://download.gnome.org/sources/gnome-recipes/2.0/gnome-recipes-2.0.2.tar.xz"
   sha256 "1be9d2fcb7404a97aa029d2409880643f15071c37039247a6a4320e7478cd5fb"
-  revision 4
+  revision 5
 
   bottle do
-    sha256 "25705ef284a230f166ba6218863cc0b4a6919c09c05692d5b9fe3dd997e7adf6" => :high_sierra
-    sha256 "fabfee9cd18cac626c9ec07fdce3542d90db05c841d18cb87791e7605fb76cb2" => :sierra
-    sha256 "037aebdff19019edb447458a2dbfccbde0507b59aaf9d86856c47ad9b2891d2a" => :el_capitan
+    sha256 "f4241c53b93179c83b389c30c6fd00626f272f14088c5c7b09927ed5f3e9e01b" => :high_sierra
+    sha256 "ccae37c7680f641e2431218f87697837550363d8b86328af322e4aa36a12630f" => :sierra
+    sha256 "c9fef4e7cd2612a66f8ddae7b4d15b598d5eb4129844e04084016b12ef0d3baf" => :el_capitan
   end
 
   depends_on "meson" => :build
@@ -23,15 +23,15 @@ class GnomeRecipes < Formula
   depends_on "gspell"
   depends_on "libsoup"
   depends_on "gnu-tar"
+  depends_on "libxml2"
 
   # dependencies for goa
-  depends_on "intltool" => :build
   depends_on "json-glib"
   depends_on "librest"
 
   resource "goa" do
-    url "https://download.gnome.org/sources/gnome-online-accounts/3.26/gnome-online-accounts-3.26.1.tar.xz"
-    sha256 "603c110405cb89a01497a69967f10e3f3f36add3dc175b062ec4c5ed4485621b"
+    url "https://download.gnome.org/sources/gnome-online-accounts/3.28/gnome-online-accounts-3.28.0.tar.xz"
+    sha256 "87bc4ef307604f1ce4f09f6e5c9996ef8d37ca5e0a3bf76f6b27d71844adb40c"
   end
 
   def install
