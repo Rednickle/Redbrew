@@ -1,19 +1,17 @@
 class GlibNetworking < Formula
   desc "Network related modules for glib"
   homepage "https://launchpad.net/glib-networking"
-  url "https://download.gnome.org/sources/glib-networking/2.54/glib-networking-2.54.1.tar.xz"
-  sha256 "eaa787b653015a0de31c928e9a17eb57b4ce23c8cf6f277afaec0d685335012f"
+  url "https://download.gnome.org/sources/glib-networking/2.56/glib-networking-2.56.0.tar.xz"
+  sha256 "47fd10bcae2e5039dc5f685e3ea384f48e64a6bee26d755718f534a978477c93"
 
   bottle do
-    sha256 "656488bcc70e2347d705dfc32ef38952088c8d7a2279766e139c19485c5d87aa" => :high_sierra
-    sha256 "7afca55538868826fd196e670de31a16740efb44490f1633c57d49ac1ac3c7c3" => :sierra
-    sha256 "4ef4b72f13a2f5c83e63c7594b2a643ca93f5f141b90554a70bc7f8532af5070" => :el_capitan
-    sha256 "f00a1596f0916efbbca07fcd7cd27531dc14a8d2c6c372f2d41fc35ae070a28d" => :x86_64_linux
+    sha256 "2652423ef861ab0edc112c8e54d035affe8dac683620bebcb04d2f5de98e106f" => :high_sierra
+    sha256 "3c80e128d2afebcd63a07b98aed1b3cbc8e83b805536117dc32b589dc9eb7a95" => :sierra
+    sha256 "ce352511f58a0d1a10d0a65f1f01feda8be6703050b322c6e6cd86b62ca2f0ea" => :el_capitan
   end
 
+  depends_on "meson" => :build
   depends_on "pkg-config" => :build
-  depends_on "intltool" => :build
-  depends_on "gettext"
   depends_on "glib"
   depends_on "gnutls"
   depends_on "gsettings-desktop-schemas"
@@ -21,21 +19,34 @@ class GlibNetworking < Formula
 
   link_overwrite "lib/gio/modules"
 
+  # see https://bugzilla.gnome.org/show_bug.cgi?id=794292
+  # merged in upstream, remove when update is released
+  patch :DATA
+
   def install
     # Install files to `lib` instead of `HOMEBREW_PREFIX/lib`.
-    inreplace "configure", "$($PKG_CONFIG --variable giomoduledir gio-2.0)", lib/"gio/modules"
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--with-ca-certificates=#{etc}/openssl/cert.pem",
-                          # Remove when p11-kit >= 0.20.7 builds on OSX
-                          # see https://github.com/Homebrew/homebrew/issues/36323
-                          # and https://bugs.freedesktop.org/show_bug.cgi?id=91602
-                          "--without-pkcs11"
-    system "make", "install"
+    inreplace "meson.build", "gio_dep.get_pkgconfig_variable('giomoduledir')", "'#{lib}/gio/modules'"
 
-    # Delete the cache, will regenerate it in post_install
-    rm lib/"gio/modules/giomodule.cache"
+    # stop meson_post_install.py from doing what needs to be done in the post_install step
+    ENV["DESTDIR"] = ""
+    mkdir "build" do
+      system "meson", "--prefix=#{prefix}",
+                      # Remove when p11-kit >= 0.20.7 builds on OSX
+                      # see https://github.com/Homebrew/homebrew/issues/36323
+                      # and https://bugs.freedesktop.org/show_bug.cgi?id=91602
+                      "-Dpkcs11_support=false",
+                      "-Dlibproxy_support=false",
+                      "-Dca_certificates_path=#{etc}/openssl/cert.pem",
+                      ".."
+      system "ninja"
+      system "ninja", "install"
+    end
+
+    # rename .dylib to .so, which is what glib expects
+    # see https://github.com/mesonbuild/meson/issues/3053
+    Dir.glob(lib/"gio/modules/*.dylib").each do |f|
+      mv f, "#{File.dirname(f)}/#{File.basename(f, ".dylib")}.so"
+    end
   end
 
   def post_install
@@ -69,3 +80,40 @@ class GlibNetworking < Formula
     system "./gtls-test"
   end
 end
+
+__END__
+diff --git a/meson.build b/meson.build
+index f923e53..a295d2d 100644
+--- a/meson.build
++++ b/meson.build
+@@ -112,9 +112,9 @@ if enable_libproxy_support or enable_gnome_proxy_support
+   subdir('proxy/tests')
+ endif
+
+-if enable_pkcs11_support
+-  tls_inc = include_directories('tls')
++tls_inc = include_directories('tls')
+
++if enable_pkcs11_support
+   subdir('tls/pkcs11')
+ endif
+
+diff --git a/tls/tests/meson.build b/tls/tests/meson.build
+index 7e1ae13..fbefb15 100644
+--- a/tls/tests/meson.build
++++ b/tls/tests/meson.build
+@@ -1,4 +1,4 @@
+-incs = [top_inc]
++incs = [top_inc, tls_inc]
+
+ deps = [
+   gio_dep,
+@@ -25,8 +25,6 @@ test_programs = [
+ ]
+
+ if enable_pkcs11_support
+-  incs += tls_inc
+-
+   pkcs11_deps = deps + [
+     libgiopkcs11_dep,
+     pkcs11_dep
