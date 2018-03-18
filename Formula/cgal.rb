@@ -10,6 +10,7 @@ class Cgal < Formula
     sha256 "920a76fb9d6819cea0d8ca6c1e73539fceac1bba745b64748d881654052d504f" => :high_sierra
     sha256 "979289bb481185a4eff6e23f611135e621de187066a4bb04ca41ac3782d5d81d" => :sierra
     sha256 "fbc33a19d551d6996919117223f3343610e3b24cb9a88dbe6e1e2c5eec584554" => :el_capitan
+    sha256 "909d363f4febf4466c6117579ce378d1d858bfab64304734619bd8935d9d9838" => :x86_64_linux
   end
 
   devel do
