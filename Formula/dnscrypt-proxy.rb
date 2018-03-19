@@ -1,15 +1,15 @@
 class DnscryptProxy < Formula
   desc "Secure communications between a client and a DNS resolver"
   homepage "https://github.com/jedisct1/dnscrypt-proxy"
-  url "https://github.com/jedisct1/dnscrypt-proxy/archive/2.0.5.tar.gz"
-  sha256 "5cee67756cb8e2357a05c43a47f89c24bb76a8677f6ffce0613e951cb45b6863"
+  url "https://github.com/jedisct1/dnscrypt-proxy/archive/2.0.6.tar.gz"
+  sha256 "72de69d39253ea16f32552b2dd88add1bca2f3a118acaddeb9d1246d104d4e0d"
   head "https://github.com/jedisct1/dnscrypt-proxy.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8cfd9c2ca81970ce1603e7ba400a379c274f34a1eefb1d85c6aac0d752ccf0a9" => :high_sierra
-    sha256 "84e42490ed403f72da818bdcdf43f9079c4c4302309b59286ce9438415f76bf0" => :sierra
-    sha256 "fa8411fa34fae582013c563e4a39c57e6454cf2d02ed74e00f64319e18f2411d" => :el_capitan
+    sha256 "05c1546ebb903a74efcd617899d145c6116d9d5b642eb0e216efb70857bcfa13" => :high_sierra
+    sha256 "c481fc38a1fd5872972c0493247cf360bf0a12d3da2dc4f57b62210e4042632b" => :sierra
+    sha256 "9c5d326f9f716dbe72889c979ef31415d1327c1f339af629aa012ba9439e54a8" => :el_capitan
   end
 
   depends_on "go" => :build
