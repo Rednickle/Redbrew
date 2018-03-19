@@ -6,14 +6,14 @@ class Awscli < Formula
   # awscli should only be updated every 10 releases on multiples of 10
   url "https://github.com/aws/aws-cli/archive/1.14.50.tar.gz"
   sha256 "d5705a1c04ce2b9fb6ca6faea3865f5519696b1449064a061eaf5ac35a590ba7"
-  revision 1
+  revision 2
   head "https://github.com/aws/aws-cli.git", :branch => "develop"
 
   bottle do
-    cellar :any
-    sha256 "1a940697cbe58df8181dcb04a3f4b1b068512a8b778141d69bc8dce8d7cf411c" => :high_sierra
-    sha256 "e58f138b4c8e69f2713b356b05e435f4d486935b486290c933cf29895486fed2" => :sierra
-    sha256 "27369ac6cb1d01ad4b0668603f0b8d141bed74851540313701731b7536baab02" => :el_capitan
+    cellar :any_skip_relocation
+    sha256 "aa32f8856b2e2bfe28bf7a7ebccfc999910b2d14e38c4e3b2e32244459b0a1b9" => :high_sierra
+    sha256 "eb7800c530ee85a6cd9a8eea119121e10104562502d887a931e0e6380690f15e" => :sierra
+    sha256 "dc32300892c0b736beb56a44f7ba8b954cb68c8e81f4df9240fed168be18e4cf" => :el_capitan
   end
 
   # Some AWS APIs require TLS1.2, which system Python doesn't have before High

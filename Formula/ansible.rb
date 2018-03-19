@@ -5,14 +5,14 @@ class Ansible < Formula
   homepage "https://www.ansible.com/"
   url "https://releases.ansible.com/ansible/ansible-2.4.3.0.tar.gz"
   sha256 "0e98b3a56928d03979d5f8e7ae5d8e326939111b298729b03f00b3ad8f998a3d"
-  revision 3
+  revision 4
   head "https://github.com/ansible/ansible.git", :branch => "devel"
 
   bottle do
     cellar :any
-    sha256 "09029110f916f82849dde187b26fc57997396c26f6713a1ae2b033bdf3861e46" => :high_sierra
-    sha256 "aa916e2853a1f515d7a4e008c7c2e6831e2e5ca7f87d3f2f7843669e7c7260cb" => :sierra
-    sha256 "a14d9e4fab410d98170e864fc296a680c3ba43579ec74e98eed89c64d5632e4c" => :el_capitan
+    sha256 "5fae468a5d1527586fa05d0a71f61e67b63c117c6f1d2542f6cb791356b08bbe" => :high_sierra
+    sha256 "0e4c94446aa3e857e962c90f38ef3d73f9a6d29a53187cefe324ead2f188ccb0" => :sierra
+    sha256 "0286e61d6ea89dd8ed9f47486d16c1ecea341d51940c37319e4507faa6f4d836" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -249,6 +249,11 @@ class Ansible < Formula
   resource "jsonpatch" do
     url "https://files.pythonhosted.org/packages/6d/30/5141596cb0346aa4d0dd7508bc5dfc246f11b31928e8179df3eb2cf0b111/jsonpatch-1.21.tar.gz"
     sha256 "11f5ffdf543a83047a2f54ac28f8caad7f34724cb1ea26b27547fd974f1a2153"
+
+    # Remove for jsonpatch > 1.21
+    # Upstream commit from 16 Jan 2018 "Drop support for EOL Python 3.3"
+    # See https://github.com/stefankoegl/python-json-patch/commit/71bdeed8
+    patch :DATA
   end
 
   resource "jsonpointer" do
@@ -566,3 +571,24 @@ class Ansible < Formula
     system libexec/"bin/python", "-c", script
   end
 end
+
+__END__
+diff --git a/setup.py b/setup.py
+index 0776c41..471c433 100644
+--- a/setup.py
++++ b/setup.py
+@@ -58,7 +58,6 @@
+     'Programming Language :: Python :: 2',
+     'Programming Language :: Python :: 2.7',
+     'Programming Language :: Python :: 3',
+-    'Programming Language :: Python :: 3.3',
+     'Programming Language :: Python :: 3.4',
+     'Programming Language :: Python :: 3.5',
+     'Programming Language :: Python :: 3.6',
+@@ -81,5 +80,6 @@
+       package_data={'': ['requirements.txt']},
+       scripts=['bin/jsondiff', 'bin/jsonpatch'],
+       classifiers=CLASSIFIERS,
++      python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*',
+       **OPTIONS
+ )
