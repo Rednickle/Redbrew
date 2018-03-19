@@ -9,6 +9,7 @@ class Feedgnuplot < Formula
     sha256 "33db12a4bdcc89874062b1c591cedb3e44c61013eae0363ce2d5f1d1e68d7d04" => :high_sierra
     sha256 "6aa7778687e758c348d8e71351d0147d2b46df0668e699d1b197dccd927a28d7" => :sierra
     sha256 "835b905b32f65cfd4fe3a82e7ddce7d77536edc949a146bbdff79fce2cf69cce" => :el_capitan
+    sha256 "7164e5b28b83c773fe163968ff4ecfbc3e2cdb573213f7e6a411d4685c2acecb" => :x86_64_linux
   end
 
   depends_on "gnuplot"
