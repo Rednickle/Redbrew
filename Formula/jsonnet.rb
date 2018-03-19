@@ -9,6 +9,7 @@ class Jsonnet < Formula
     sha256 "b332f6e4ea839f7e62b083202641fb73e850cb850d7f42b42430ef76692cb6fd" => :high_sierra
     sha256 "0827b6713626eab7f3bdccd2092d42c93fa532b52a4fd611d3a54c37f1f39205" => :sierra
     sha256 "7996bc4f204b8e7fc7cc0b3759cf78f2ad8b5f59a4c9f71c733ee61228d28a33" => :el_capitan
+    sha256 "fee7b98ed2c29be74bf99419bf53fe6820db2fcab449eebac262699952a72f49" => :x86_64_linux
   end
 
   needs :cxx11
