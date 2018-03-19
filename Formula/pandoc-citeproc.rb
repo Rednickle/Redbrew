@@ -5,15 +5,14 @@ class PandocCiteproc < Formula
 
   desc "Library and executable for using citeproc with pandoc"
   homepage "https://github.com/jgm/pandoc-citeproc"
-  url "https://hackage.haskell.org/package/pandoc-citeproc-0.14.1.5/pandoc-citeproc-0.14.1.5.tar.gz"
-  sha256 "29e2afcdaaa23e5ac30e7f895bb45d36e0af79d4cfe769deb36c6f25fabfe2ca"
+  url "https://hackage.haskell.org/package/pandoc-citeproc-0.14.2/pandoc-citeproc-0.14.2.tar.gz"
+  sha256 "853f77d54935a61cf4571618d5c333ffa9e42be4e2cccb9dbccdaf13f7f2e3b7"
   head "https://github.com/jgm/pandoc-citeproc.git"
 
   bottle do
-    sha256 "0d708ce22009e1562d55bb47edd0bcf4605d6840e9468dc7ff775899ec3ca7f6" => :high_sierra
-    sha256 "fb8a8bd02cc81f752c5c1f4e92de7aea7ab12d0491cf957adaed1c99f9952d94" => :sierra
-    sha256 "22e94ac80d6e00fadccddd8110b90c2a47450d1452866677582d38b2aaf9eefb" => :el_capitan
-    sha256 "dd9e4c37e10238bbe26e7f145c7ad60888bfe3d44c512264682c045287d1a678" => :x86_64_linux
+    sha256 "62f470fb1a29cf38e2393508dd8bf53ae62f3721ba575fc11903817ebd8b2eac" => :high_sierra
+    sha256 "d9c043861168eb2a12de5a9dc1d2bea092b0dfdfe67b40ddf8d19e0210175f54" => :sierra
+    sha256 "9c09aa0b61d858b8a531f85b1e529db844edee90c9058fdad40eb6d6ee85dda5" => :el_capitan
   end
 
   depends_on "cabal-install" => :build
@@ -24,7 +23,11 @@ class PandocCiteproc < Formula
   def install
     args = []
     args << "--constraint=cryptonite -support_aesni" if MacOS.version <= :lion
-    install_cabal_package *args
+
+    # Remove pandoc-types constraint for pandoc > 2.1.2
+    # Upstream issue from 13 Mar 2018 "Pandoc 2.1.2 failed building with GHC 8.2.2"
+    # See https://github.com/jgm/pandoc/issues/4448
+    install_cabal_package "--constraint", "pandoc-types < 1.17.4", *args
   end
 
   test do
