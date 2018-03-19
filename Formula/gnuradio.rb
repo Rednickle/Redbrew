@@ -3,13 +3,13 @@ class Gnuradio < Formula
   homepage "https://gnuradio.org/"
   url "https://gnuradio.org/releases/gnuradio/gnuradio-3.7.11.tar.gz"
   sha256 "87d9ba3183858efdbb237add3f9de40f7d65f25e16904a9bc8d764a7287252d4"
-  revision 2
+  revision 3
   head "https://github.com/gnuradio/gnuradio.git"
 
   bottle do
-    sha256 "46fcdfb51964dc0be0beb9d6b8c8ea1924e6fa0a4ea4cb2585515b79286291bf" => :high_sierra
-    sha256 "f2319987e23edf257db3314ffca8b84bad81363cfc84212a8fb25c59bb57ad23" => :sierra
-    sha256 "cdefae05c257ce4ed0a9bb0e8594d8cf20c0e825c3704394ef87e7cbf841a7ae" => :el_capitan
+    sha256 "ffc99690ce3cc34d2a072351a6650c6ec3216f6bb91a27d9c95f0cd56fb242d6" => :high_sierra
+    sha256 "23502002ce6da05a78aa254c5034c3dfb182dfe1cc70c9a0f40afab03663cfb6" => :sierra
+    sha256 "b83941d5f6486c6f931e667979dc6dc893483cfea54789a7ee764137e0ce8fba" => :el_capitan
   end
 
   option "without-python@2", "Build without python support"

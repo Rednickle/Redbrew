@@ -1,23 +1,14 @@
 class Weechat < Formula
   desc "Extensible IRC client"
   homepage "https://www.weechat.org"
+  url "https://weechat.org/files/src/weechat-2.1.tar.xz"
+  sha256 "cda0f81ff8243fd25cca76c8e490e2fdb5b8fbb2554d7aa87cb3b0beda16ed38"
   head "https://github.com/weechat/weechat.git"
 
-  stable do
-    url "https://weechat.org/files/src/weechat-2.0.1.tar.xz"
-    sha256 "6943582eabbd8a6fb6dca860a86f896492cae5fceacaa396dbc9eeaa722305d1"
-
-    # Recognise Ruby 2.5.x as valid.
-    patch do
-      url "https://github.com/weechat/weechat/commit/cb98f528.patch?full_index=1"
-      sha256 "e9700e24606447edfbd5de15b4d9dc822454a38ed85f678b15f84b4db2323066"
-    end
-  end
-
   bottle do
-    sha256 "86f9c7062cd5f4ca6625b175144ec37b55f462a9463a3f9852d74f56b404302b" => :high_sierra
-    sha256 "1655ae54d7be8e9617c7d65d7ccc3f25e3ea1cd93d301b3ccb2d4fd056029db7" => :sierra
-    sha256 "e8070f500a5f922b3f862ea67104ee9e8c7dd0f929caf408700c664ef07bfb7a" => :el_capitan
+    sha256 "7aa5f3fe12d6d3480110a5f6da0b5db854be8b867a0a07c94e7f350b62f9d18b" => :high_sierra
+    sha256 "75a32256d8605e51838172c82ce845f94740da23a0cfff440026e152c61f9cc3" => :sierra
+    sha256 "28381b3e219908e19860b10d5dd680f8e25efb3145da6164df51d6d9070a6739" => :el_capitan
   end
 
   option "with-perl", "Build the perl module"
