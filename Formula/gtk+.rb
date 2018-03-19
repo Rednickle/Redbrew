@@ -23,8 +23,6 @@ class Gtkx < Formula
     depends_on "gtk-doc" => :build
   end
 
-  option "with-quartz-relocation", "Build with quartz relocation support"
-
   depends_on "pkg-config" => :build
   depends_on "gdk-pixbuf"
   depends_on "jasper" => :optional
@@ -53,8 +51,6 @@ class Gtkx < Formula
             "--enable-introspection=yes",
             "--with-gdktarget=#{OS.mac? ? "quartz" : "x11"}",
             "--disable-visibility"]
-
-    args << "--enable-quartz-relocation" if build.with?("quartz-relocation")
 
     # temporarily disable cups until linuxbrew/homebrew-core#495 is merged
     args << "--disable-cups" unless OS.mac?

@@ -1,16 +1,15 @@
 class Zim < Formula
   desc "Graphical text editor used to maintain a collection of wiki pages"
   homepage "http://zim-wiki.org/"
-  url "https://github.com/jaap-karssenberg/zim-desktop-wiki/archive/0.67.tar.gz"
-  sha256 "6817a4eb7be2326870810e4f4bc57c88128b2087752a8bd54953c95357b919fa"
-  revision 1
+  url "https://github.com/jaap-karssenberg/zim-desktop-wiki/archive/0.68.tar.gz"
+  sha256 "b0bb060d1daf697eb67b76367ce4252202830297792093fd60527b3662ed934b"
   head "https://github.com/jaap-karssenberg/zim-desktop-wiki.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "93116eabd82af0d03c3e5306b431f2473c8490b8d48ddcae2546e61ead8cbe54" => :high_sierra
-    sha256 "93116eabd82af0d03c3e5306b431f2473c8490b8d48ddcae2546e61ead8cbe54" => :sierra
-    sha256 "93116eabd82af0d03c3e5306b431f2473c8490b8d48ddcae2546e61ead8cbe54" => :el_capitan
+    sha256 "55bf8ee68a7174000e0e75064771ce48f21948cf53b9e63e273bdbb9fed60de3" => :high_sierra
+    sha256 "55bf8ee68a7174000e0e75064771ce48f21948cf53b9e63e273bdbb9fed60de3" => :sierra
+    sha256 "55bf8ee68a7174000e0e75064771ce48f21948cf53b9e63e273bdbb9fed60de3" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

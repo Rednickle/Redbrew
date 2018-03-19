@@ -10,8 +10,6 @@ class Gtkx3 < Formula
     sha256 "5ab8f3d5e6d1b83272cfd5db9bd637cb9e92060068a7ebb5ede87491233e902b" => :el_capitan
   end
 
-  option "with-quartz-relocation", "Build with quartz relocation support"
-
   depends_on "pkg-config" => :build
   depends_on "gdk-pixbuf"
   depends_on "atk"
@@ -36,15 +34,11 @@ class Gtkx3 < Formula
       --disable-schemas-compile
     ]
 
-    if OS.mac?
-      args << "--enable-quartz-backend" << "--disable-x11-backend"
-    else
+    unless OS.mac?
       args << "--disable-quartz-backend" << "--enable-x11-backend"
       # We do not have a cups formula
       args << "--disable-cups"
     end
-
-    args << "--enable-quartz-relocation" if build.with?("quartz-relocation")
 
     system "./configure", *args
     # necessary to avoid gtk-update-icon-cache not being found during make install
