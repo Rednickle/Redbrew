@@ -10,6 +10,7 @@ class Libfixposix < Formula
     sha256 "eaf5641bda4184e3092f7f2b0c9e61afa120df85df837377ead98de643a7e21e" => :high_sierra
     sha256 "024855892877fd868e04eb8b0d2ef71485ffc48b2f441f88ceb61bcc57a56aea" => :sierra
     sha256 "89a3b36ff587c3eeaa7ba51471ba3d0bc294bdeb66abccd0a3ce446cf6f57e1b" => :el_capitan
+    sha256 "113836f08b22930e58fa1565f0a2e512dbee6bb1db52faa13636e3d5d570ee08" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
