@@ -18,7 +18,7 @@ class Unixodbc < Formula
 
   conflicts_with "virtuoso", :because => "Both install `isql` binaries."
 
-  depends_on "libtool" => :run unless OS.mac?
+  depends_on "libtool" unless OS.mac?
 
   def install
     system "./configure", "--disable-debug",
