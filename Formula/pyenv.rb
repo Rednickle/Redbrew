@@ -14,10 +14,10 @@ class Pyenv < Formula
     sha256 "c45d619701afd64735ef16976102e2df49587f2ed88aa2e007ce8a1016fb2726" => :x86_64_linux
   end
 
-  depends_on "autoconf" => [:recommended, :run]
-  depends_on "pkg-config" => [:recommended, :run]
+  depends_on "autoconf" => :recommended
+  depends_on "pkg-config" => :recommended
   depends_on "openssl" => :recommended
-  depends_on "readline" => [:recommended, :run]
+  depends_on "readline" => :recommended
 
   def install
     inreplace "libexec/pyenv", "/usr/local", HOMEBREW_PREFIX

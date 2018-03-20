@@ -15,7 +15,7 @@ class Swiftlint < Formula
   # Fixes the error: make: xcodebuild: Command not found
   depends_on :macos
 
-  depends_on :xcode => ["8.0", :run]
+  depends_on :xcode => "8.0"
   depends_on :xcode => ["9.0", :build]
 
   def install

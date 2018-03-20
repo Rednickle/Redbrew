@@ -12,7 +12,7 @@ class Unixodbc < Formula
     sha256 "e13d56f9ab04252095cd8232b0eef1c102bcd79594aea77e6b56232d99a83377" => :x86_64_linux
   end
 
-  depends_on "libtool" => :run
+  depends_on "libtool"
 
   keg_only "shadows system iODBC header files" if MacOS.version < :mavericks
 
