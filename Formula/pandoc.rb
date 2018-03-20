@@ -5,15 +5,14 @@ class Pandoc < Formula
 
   desc "Swiss-army knife of markup format conversion"
   homepage "https://pandoc.org/"
-  url "https://hackage.haskell.org/package/pandoc-2.1.2/pandoc-2.1.2.tar.gz"
-  sha256 "dc0b26eff61c6eed2e00927fa2c6b966ca758dea1596f3049cc70ae8b650eb65"
+  url "https://hackage.haskell.org/package/pandoc-2.1.3/pandoc-2.1.3.tar.gz"
+  sha256 "4e0e9a891293f71a0d1309bbc5736e27601761888d9785ee19d8a4649b047008"
   head "https://github.com/jgm/pandoc.git"
 
   bottle do
-    rebuild 1
-    sha256 "741e5f9aef81e96439a1fcdef9641496c1d61d9f0aa9d080466eeb8d5e6a8ea2" => :high_sierra
-    sha256 "4eadff30e83ee9b400b401de2704bb568c4281b32b9b239dea76e9f1235567c9" => :sierra
-    sha256 "49b3d66d076464a8de0b2f85c7fbda155a5224c1a6fe11c9af14c74f6744edab" => :el_capitan
+    sha256 "3ecb5b28f384bd99a5d6d36bc26b385f2253fc78ae4ae3ba51c1dba45602563f" => :high_sierra
+    sha256 "24b9663a1262cecacae23c409b08147f4eb846915271a37f4d4ad9ecc102c6d7" => :sierra
+    sha256 "06fe015a2c8c43a667e4e796135241eaa2984a012044d2934cac30465b95887b" => :el_capitan
   end
 
   depends_on "cabal-install" => :build
@@ -27,11 +26,7 @@ class Pandoc < Formula
     cabal_sandbox do
       args = []
       args << "--constraint=cryptonite -support_aesni" if MacOS.version <= :lion
-
-      # Remove pandoc-types constraint for pandoc > 2.1.2
-      # Upstream issue from 13 Mar 2018 "Pandoc 2.1.2 failed building with GHC 8.2.2"
-      # See https://github.com/jgm/pandoc/issues/4448
-      install_cabal_package "--constraint", "pandoc-types < 1.17.4", *args
+      install_cabal_package *args
     end
     (bash_completion/"pandoc").write `#{bin}/pandoc --bash-completion`
   end
