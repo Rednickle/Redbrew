@@ -34,7 +34,7 @@ class Global < Formula
   depends_on "ctags" => :optional
   unless OS.mac?
     depends_on "python" if build.with? "pygments"
-    depends_on "libtool" => :run
+    depends_on "libtool"
     depends_on "ncurses"
   end
 
