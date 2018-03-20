@@ -9,6 +9,7 @@ class Ffe < Formula
     sha256 "42240b29cbf5a1f54881c37d1062d8466f763dcefdef56690830012a585c1c5c" => :high_sierra
     sha256 "a023c41a3bbef25ab1eb38b2e7ff202f93b580242df0b883b39e30e82e966d92" => :sierra
     sha256 "192298bb0e1b0594b64831a943cf4d0e490d17d633b2ea4d3b225fa119705e6a" => :el_capitan
+    sha256 "e232fbfe166bc012e4a0c51b5b3e1b5f86992d1a11ab68a91158628bef7a7d5a" => :x86_64_linux
   end
 
   def install
