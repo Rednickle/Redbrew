@@ -1,29 +1,13 @@
 class GstPluginsBad < Formula
   desc "GStreamer plugins less supported, not fully tested"
   homepage "https://gstreamer.freedesktop.org/"
-  revision 1
-
-  stable do
-    url "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.12.4.tar.xz"
-    sha256 "0c7857be16686d5c1ba6e34bd338664d3d4599d32714a8eca5c8a41a101e2d08"
-
-    # This patch allows video player applications to update the video frame
-    # rectangle used for rendering on widgets.
-    # Date: Tue, 26 Dec 2017 13:23:11 +0000
-    # Subject: [PATCH] gl: cocoa: Implement set_render_rectangle
-    # Commited in gst-plugins-base which is the new location of the GstGL library.
-    # Please remove this patch for the first 1.14 release.
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/5f5b837/gst-plugins-bad/0001-gl-cocoa-Implement-set_render_rectangle.patch"
-      sha256 "afa4d6948f70426173b82f49daca2ebb5fb350b1cd7c969e7a0d3f94fe794b08"
-    end
-  end
+  url "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.14.0.tar.xz"
+  sha256 "ed5e2badb6f2858f60017b93334d91fe58a0e3f85ed2f37f2e931416fafb4f9f"
 
   bottle do
-    sha256 "bcdea83de3821af70a5ba97e08f83c615bf21ceabadf5c5a6f0ec512085039c3" => :high_sierra
-    sha256 "58dffc38df2d23652ed04e14ea29b1478c9005d74718358447579f8b7433186d" => :sierra
-    sha256 "8b8e5a67171f0d741f8a8ebe55c8f3a1df725bfdd4a18cbfd43baada1901633a" => :el_capitan
-    sha256 "766ead7297a285385a1b2550a2e1eea1250ed81be403f5945b632a9bd73a311e" => :x86_64_linux
+    sha256 "4d3e96e439b612f8b460d7c024ecb484f2cabdf8bdbde19ace1e3be1b8d84675" => :high_sierra
+    sha256 "63c38d53f056a7e9966e626b9dee1ececf64f2046671512d56e434a39c86f2f3" => :sierra
+    sha256 "5f6602e7ae7ca65613e65ec4176b3c322fac1eef269490b15808d80c018837fc" => :el_capitan
   end
 
   head do
