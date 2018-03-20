@@ -3,15 +3,15 @@ class TwinePypi < Formula
 
   desc "Utilities for interacting with PyPI"
   homepage "https://github.com/pypa/twine"
-  url "https://github.com/pypa/twine/archive/1.10.0.tar.gz"
-  sha256 "74e7640394f1795713883752c83bfa9f5353f64c67e15db7092de051b38cfa37"
+  url "https://github.com/pypa/twine/archive/1.11.0.tar.gz"
+  sha256 "fdff00d235b964a9679fc0c127228eb83fb82b59552efb130cd878ace39f3473"
   head "https://github.com/pypa/twine.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7d846901757cfdb196cca20aaa3c6f180bffc1217ecc5436dd5cb669b6d05f45" => :high_sierra
-    sha256 "454f59ab26baf787628ea9e947a5ab7ef8fe6623076e69cb4bf92f8ef303c857" => :sierra
-    sha256 "8c53e4c82cc8e10348bfd9959144e6d59fc5a5080a958ccdcd0f0d7becd93bbd" => :el_capitan
+    sha256 "33e7f275476265efae9cdf0be219eacaf24b75d361c5cb3f746ed74a6cefbfd9" => :high_sierra
+    sha256 "771fc2f1705f7eabee1886d90f8afad98a671c88756e5e69dbb23c5abd4f91dd" => :sierra
+    sha256 "7faeb5be32232e9adaee4f55a50e3f965451ec4b58e18bd472b9c6ffa4669dfe" => :el_capitan
   end
 
   depends_on "python@2" if MacOS.version <= :snow_leopard
@@ -32,8 +32,8 @@ class TwinePypi < Formula
   end
 
   resource "pkginfo" do
-    url "https://files.pythonhosted.org/packages/58/54/57f7c5638fecdf232a5b6b767da467b0ff31467d7f86a7364c252acf2321/pkginfo-1.4.1.tar.gz"
-    sha256 "bb1a6aeabfc898f5df124e7e00303a5b3ec9a489535f346bfbddb081af93f89e"
+    url "https://files.pythonhosted.org/packages/39/c9/111ececbeed8e69cd1b6bec79a32a0b0f6074038a4244e58e285ad278248/pkginfo-1.4.2.tar.gz"
+    sha256 "5878d542a4b3f237e359926384f1dde4e099c9f5525d236b1840cf704fa8d474"
   end
 
   resource "requests" do
@@ -47,8 +47,8 @@ class TwinePypi < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/48/18/7a36d86aded6533ebd66148872f07e489647be6a431a5bf94be2a9dbd232/tqdm-4.19.6.tar.gz"
-    sha256 "5ec0d4442358e55cdb4a0471d04c6c831518fd8837f259db5537d90feab380df"
+    url "https://files.pythonhosted.org/packages/a6/74/cb6927443849ec849ad7cdcdc8e38f04d81fce41783150c0d5215ec504a8/tqdm-4.19.8.tar.gz"
+    sha256 "2aea9f81fdf127048667e0ba22f5fc10ebc879fb838dc52dcf055242037ec1f7"
   end
 
   resource "urllib3" do

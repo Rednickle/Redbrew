@@ -3,15 +3,15 @@ class Certbot < Formula
 
   desc "Tool to obtain certs from Let's Encrypt and autoenable HTTPS"
   homepage "https://certbot.eff.org/"
-  url "https://github.com/certbot/certbot/archive/v0.22.0.tar.gz"
-  sha256 "ecd878cf866756731ffefd4109fa7f2cd5afffd18e27185d99cf66fedd2fd911"
+  url "https://github.com/certbot/certbot/archive/v0.22.2.tar.gz"
+  sha256 "f57a98bef4ba5ec280d056b6f75733d3c13887863f05e9d1e06b8030fdae8023"
   head "https://github.com/certbot/certbot.git"
 
   bottle do
     cellar :any
-    sha256 "57b765ae9ab8943b98e9ee32595192fcb17020c5bbbd2121a5f7eb4f1a7b3fd5" => :high_sierra
-    sha256 "4197b2b1dcd3644e7652103d95c4055aee6bb1f65f2d72f09d18b9323477112a" => :sierra
-    sha256 "6da8381293fe9c2aa2fd8248756311b8b99cf037a952f924b00ef04cc17bf285" => :el_capitan
+    sha256 "4df7ec08782728264d9d1e27fdfe59a3c74e7c71373ff34a37f759251e0536c0" => :high_sierra
+    sha256 "43a358d502133f4b3dad57bbc40e82356b65311db6f496b3238a8cd4cc581fa8" => :sierra
+    sha256 "e1a06f9cf392f5c3147376a96ff2309180652ad51274bacd7dc8dc5587e4bee9" => :el_capitan
   end
 
   depends_on "augeas"
@@ -54,8 +54,8 @@ class Certbot < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/78/c5/7188f15a92413096c93053d5304718e1f6ba88b818357d05d19250ebff85/cryptography-2.1.4.tar.gz"
-    sha256 "e4d967371c5b6b2e67855066471d844c5d52d210c36c28d49a8507b96e2c5291"
+    url "https://files.pythonhosted.org/packages/b1/b8/f42fd854ed5b6f29a1b9c3778993753ff6ef138e4d892fdd61355d40508d/cryptography-2.2.tar.gz"
+    sha256 "f5a0279e362c37e2150a32fe35ec20226e9237b6c9927fce8d53ef8e49e64f48"
   end
 
   resource "future" do
