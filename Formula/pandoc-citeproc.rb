@@ -10,10 +10,10 @@ class PandocCiteproc < Formula
   head "https://github.com/jgm/pandoc-citeproc.git"
 
   bottle do
-    sha256 "62f470fb1a29cf38e2393508dd8bf53ae62f3721ba575fc11903817ebd8b2eac" => :high_sierra
-    sha256 "d9c043861168eb2a12de5a9dc1d2bea092b0dfdfe67b40ddf8d19e0210175f54" => :sierra
-    sha256 "9c09aa0b61d858b8a531f85b1e529db844edee90c9058fdad40eb6d6ee85dda5" => :el_capitan
-    sha256 "c2ac24736ee8f24aeaa64013ddac97fe0a612e855fe4089c6c4105fc7dc6ae51" => :x86_64_linux
+    rebuild 1
+    sha256 "0baecf261e6701b1ab7831f9bc0e7b0d2fc6cb238f944e418a738907db9983cf" => :high_sierra
+    sha256 "fad1437315d030c29abdb2e31a704750e20bc40230ded72666d368ec023732bd" => :sierra
+    sha256 "bbbac3aa232da8858a3c8699199120bb284ba675bd95d394a7726f4d58ddf8ca" => :el_capitan
   end
 
   depends_on "cabal-install" => :build
@@ -24,11 +24,7 @@ class PandocCiteproc < Formula
   def install
     args = []
     args << "--constraint=cryptonite -support_aesni" if MacOS.version <= :lion
-
-    # Remove pandoc-types constraint for pandoc > 2.1.2
-    # Upstream issue from 13 Mar 2018 "Pandoc 2.1.2 failed building with GHC 8.2.2"
-    # See https://github.com/jgm/pandoc/issues/4448
-    install_cabal_package "--constraint", "pandoc-types < 1.17.4", *args
+    install_cabal_package *args
   end
 
   test do
