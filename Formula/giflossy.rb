@@ -10,6 +10,7 @@ class Giflossy < Formula
     sha256 "b81704f64e9bdac63646b92be361303215e24088f662a24c257a01de7fb4f734" => :high_sierra
     sha256 "1b720c57508a15ac50a2f6340532115049a455098e2db1e98ea621e175dfd04a" => :sierra
     sha256 "a770a479a8fcd961ceef0274fc8aa75f70fa7b1f4bb8cb34736c0d6902340e1c" => :el_capitan
+    sha256 "3ea7beb1ba8f3c9629ab0b7958d57c493e1b3fcf91b58c4d1caeda60f0d13335" => :x86_64_linux
   end
 
   option "with-x11", "Install gifview"
