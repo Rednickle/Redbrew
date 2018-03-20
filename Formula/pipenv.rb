@@ -3,15 +3,14 @@ class Pipenv < Formula
 
   desc "Python dependency management tool"
   homepage "https://docs.pipenv.org/"
-  url "https://files.pythonhosted.org/packages/b0/de/81e0de0f9d0fb91d3347dada50d7d25eef9c1d170143aa8172c74310b440/pipenv-11.8.0.tar.gz"
-  sha256 "94b3604874bbd40b2c2a3b769214c3a92681feeff3493c7d416e2d3ce38068bd"
+  url "https://files.pythonhosted.org/packages/23/1e/1a966f5214a205cf8275d2a074f69593a100a7f4c4c04c3f6c4eb5c43508/pipenv-11.8.3.tar.gz"
+  sha256 "847330bb3289628416b8f605ca4b7d2bbbe675283fc493f3b51e9cef347ba82e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fd5982d141258dac04868cf18954b82cdb1784560c7298354c08b05544ec8236" => :high_sierra
-    sha256 "6a5b5cca69affc9dadf11c3b3408b405a9fdaab8a61e61c6ae930fe3feede467" => :sierra
-    sha256 "6ff84252f1156a292a15c2087059da3ef4ec5f5f2dfc0acbdacf3128eb496cb6" => :el_capitan
-    sha256 "96046664e804cb785072a4d52d066585c55e984cf6857d48d20029fdaff1b7b0" => :x86_64_linux
+    sha256 "31b61c25517131c226131037f4fdfd6272fdbf442baed78b162f6e6f11ff8f3c" => :high_sierra
+    sha256 "5adef085f98ff3aca00d2c06f1baeae30e3a2a31420e85618ae256a9409a503d" => :sierra
+    sha256 "ae7dee4348e948e538e7acae5a55302ad4ed2323c8a587bcfcccec07a20a4e21" => :el_capitan
   end
 
   depends_on "python"
@@ -48,6 +47,9 @@ class Pipenv < Formula
       :PATH => "#{libexec}/tools:$PATH",
     }
     (bin/"pipenv").write_env_script(libexec/"bin/pipenv", env)
+
+    output = Utils.popen_read("#{libexec}/bin/pipenv --completion")
+    (bash_completion/"pipenv").write output
   end
 
   # Avoid relative paths
@@ -67,8 +69,10 @@ class Pipenv < Formula
     ENV["LC_ALL"] = "en_US.UTF-8"
     assert_match "Commands", shell_output("#{bin}/pipenv")
     system "#{bin}/pipenv", "install", "requests"
+    system "#{bin}/pipenv", "install", "boto3"
     assert_predicate testpath/"Pipfile", :exist?
     assert_predicate testpath/"Pipfile.lock", :exist?
     assert_match "requests", (testpath/"Pipfile").read
+    assert_match "boto3", (testpath/"Pipfile").read
   end
 end

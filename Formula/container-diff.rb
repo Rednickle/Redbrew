@@ -1,15 +1,14 @@
 class ContainerDiff < Formula
   desc "Diff your Docker containers"
   homepage "https://github.com/GoogleCloudPlatform/container-diff"
-  url "https://github.com/GoogleCloudPlatform/container-diff/archive/v0.7.0.tar.gz"
-  sha256 "1665f96685f4a976689e95f9303c3b546d90977a61e7cd16e031753a6b68afbe"
+  url "https://github.com/GoogleCloudPlatform/container-diff/archive/v0.8.0.tar.gz"
+  sha256 "e6a9bf2c30babd16bc7efe5803d9a2cbdd733206d4b1bc71fe7a442872848623"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c5479aa521704785c182b2bdb3958a2f0d32c8cbfc4de2780047d1036f2da296" => :high_sierra
-    sha256 "fe5425a9c250f622b84c14154c4c6f839cf1abd46b3d42826363e2147fe5f523" => :sierra
-    sha256 "eb5d282662e35501bbb48de19f592f111927a2e5d1f2f0474096e758156bd6d1" => :el_capitan
-    sha256 "282fa94f8b77a4ea148155a539a32fde7eb067d47603d6118548a8e6d2520aac" => :x86_64_linux
+    sha256 "e809e868ab051d530d310d9a550124dc1dbc429d6bf2a9e7306922720504c73e" => :high_sierra
+    sha256 "e8f9e5795ac47eec3f8ea0ad4613d6955ab377d74fd14402b7079ea45ebe45a7" => :sierra
+    sha256 "17be75856c9de704f3ef866c8d71ca07ee03ed2f2e71efa21821e20fc078feac" => :el_capitan
   end
 
   depends_on "go" => :build

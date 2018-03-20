@@ -3,15 +3,14 @@ class AwsElasticbeanstalk < Formula
 
   desc "Client for Amazon Elastic Beanstalk web service"
   homepage "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3.html"
-  url "https://files.pythonhosted.org/packages/df/ea/d1cce327cce82c169b66300c3ef19060dc9ab95d167aa93ae3f417e4be95/awsebcli-3.12.2.tar.gz"
-  sha256 "505e613678c0d1c477d7d8051f0db16082f7b6c2eb230c2ece6560ef06e94fa7"
+  url "https://files.pythonhosted.org/packages/45/fd/f0f7ff9cba9a2ab803881d7d910ea06985834eee5ce28a09329b6c1a51e3/awsebcli-3.12.4.tar.gz"
+  sha256 "86ca33bad0d20f4fcd3d967ede405d040080849675cd26491ef42df17d7f0d89"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "94784e977cbfff057946e6fc640e7a76249076c3fbba64e75daf44c20a4ce64e" => :high_sierra
-    sha256 "ac6d7f063534c09c1bfd3f4b73b7d68346f0563ddf6f2bca64ce34db43ee9f47" => :sierra
-    sha256 "f0a8c4147575b4d8e1c8d814c84e6e65bfc172d3b34964d66f6d50facb5b9853" => :el_capitan
-    sha256 "d595f8ce2bf99e9a714b9470c8e9a3043d64f96d8dcfb90280c5935c9eddd19e" => :x86_64_linux
+    sha256 "5ddd2b5dfdbd0deb70b8aa72a0d7cdd8feeb995fc488325d1e1ed8ce9e11dc8d" => :high_sierra
+    sha256 "5045f0a827caa3cfcc180fb1d5d8ec94369302d5261329c0bfb735944a0de433" => :sierra
+    sha256 "837485e3a9b20bb2877e6dabbcb4fc611c15273dc4428b7b057a720126b3fa9c" => :el_capitan
   end
 
   depends_on "python@2" if MacOS.version <= :snow_leopard
