@@ -20,7 +20,7 @@ class Cryptol < Formula
 
   depends_on "ghc" => :build
   depends_on "cabal-install" => :build
-  depends_on "z3" => :run
+  depends_on "z3"
   depends_on "ncurses" unless OS.mac?
 
   def install

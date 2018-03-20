@@ -14,7 +14,7 @@ class Cfssl < Formula
   end
 
   depends_on "go" => :build
-  depends_on "libtool" => :run
+  depends_on "libtool"
 
   def install
     ENV["GOPATH"] = buildpath

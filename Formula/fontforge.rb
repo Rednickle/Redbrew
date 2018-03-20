@@ -19,7 +19,7 @@ class Fontforge < Formula
   deprecated_option "with-gif" => "with-giflib"
 
   depends_on "pkg-config" => :build
-  depends_on "libtool" => :run
+  depends_on "libtool"
   depends_on "gettext"
   depends_on "pango"
   depends_on "cairo"
