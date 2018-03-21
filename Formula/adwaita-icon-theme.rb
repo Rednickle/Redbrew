@@ -3,12 +3,13 @@ class AdwaitaIconTheme < Formula
   homepage "https://developer.gnome.org"
   url "https://download.gnome.org/sources/adwaita-icon-theme/3.28/adwaita-icon-theme-3.28.0.tar.xz"
   sha256 "7aae8c1dffd6772fd1a21a3d365a0ea28b7c3988bdbbeafbf8742cda68242150"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4186b2c7d5246953762508887af4929a44d7a66c6144c5ba8d6810600e4b8568" => :high_sierra
-    sha256 "4186b2c7d5246953762508887af4929a44d7a66c6144c5ba8d6810600e4b8568" => :sierra
-    sha256 "4186b2c7d5246953762508887af4929a44d7a66c6144c5ba8d6810600e4b8568" => :el_capitan
+    sha256 "eee6a8e9b781d135bf5b71eb28d5a7e791a11b9a1ba3c0bec5fc273c06ea0b94" => :high_sierra
+    sha256 "eee6a8e9b781d135bf5b71eb28d5a7e791a11b9a1ba3c0bec5fc273c06ea0b94" => :sierra
+    sha256 "eee6a8e9b781d135bf5b71eb28d5a7e791a11b9a1ba3c0bec5fc273c06ea0b94" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

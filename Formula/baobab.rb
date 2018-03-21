@@ -3,12 +3,13 @@ class Baobab < Formula
   homepage "https://wiki.gnome.org/Apps/Baobab"
   url "https://download.gnome.org/sources/baobab/3.28/baobab-3.28.0.tar.xz"
   sha256 "530bb269e19d1f9f562fab90377eda8ce3c3efd521e4d569f7c40e56fa3e5d63"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "941b9ab6b3cf479355a678115d0a2e8e771e76815341402dc457439715e76a09" => :high_sierra
-    sha256 "1526e3b5330de4afad90337aa055968a5771c1d4888d8709b4b96a8757688dfa" => :sierra
-    sha256 "ca01848bb1e6f29393816c6fe44380d685dbeae673ff7896897172ecb027519c" => :el_capitan
+    sha256 "df91083504c615b21a90f0d1a8ec164f711fa336c5884feec211ac46678aee32" => :high_sierra
+    sha256 "1e5b3391a333627116594477b5fe8a8bc8348312f84a518a757f53b1d12a89cb" => :sierra
+    sha256 "6b271f297efc4b0e0c27537b2334f3aff80e8a3ac4486c5abfe48737ab4f2251" => :el_capitan
   end
 
   depends_on "meson" => :build
