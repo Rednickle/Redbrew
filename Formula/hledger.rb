@@ -16,8 +16,8 @@ class Hledger < Formula
     sha256 "9e7558b362ebd4e874d65135572bae840199dbca7bccb24b2bdbf40d42874fb9" => :x86_64_linux
   end
 
-  depends_on "ghc" => :build
   depends_on "cabal-install" => :build
+  depends_on "ghc@8.2" => :build
 
   def install
     install_cabal_package :using => ["happy"]

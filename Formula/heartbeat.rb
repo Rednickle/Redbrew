@@ -1,16 +1,15 @@
 class Heartbeat < Formula
   desc "Lightweight Shipper for Uptime Monitoring"
   homepage "https://www.elastic.co/products/beats/heartbeat"
-  url "https://github.com/elastic/beats/archive/v6.2.2.tar.gz"
-  sha256 "0866c3e26fcbd55f191e746b3bf925b450badd13fb72ea9f712481559932c878"
+  url "https://github.com/elastic/beats/archive/v6.2.3.tar.gz"
+  sha256 "4ab58a55e61bd3ad31a597e5b02602b52d306d8ee1e4d4d8ff7662e2b554130e"
   head "https://github.com/elastic/beats.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "250085b26692c350b703e6c9f24880e66e17aae6ffa9fc8e5b55a4554d41b1a1" => :high_sierra
-    sha256 "376978e37246f9a51814b62a58ab0b21e4b2238b867701e5cdcde856af54a05d" => :sierra
-    sha256 "33c0cb3361e3a531b68addf8a72d5db937c9399f55c559e7a984669297b799ed" => :el_capitan
+    sha256 "76c5316ff95fe31029b43ae3e1026c32550c2de51d88487f90a4499d8c2497d2" => :high_sierra
+    sha256 "a15cfcdbb07cd1b5ef8b283a4693dc7e78aa8b09fa4d821694f190de04ae9ac8" => :sierra
+    sha256 "4d482f8eae7c15a84bacbf46c8a65e92ece6290bff41aaba15dd2fb8ba60a092" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -37,20 +36,21 @@ class Heartbeat < Formula
       # prevent downloading binary wheels during python setup
       system "make", "PIP_INSTALL_COMMANDS=--no-binary :all", "python-env"
       system "make", "DEV_OS=darwin", "update"
-      (libexec/"bin").install "heartbeat"
-      libexec.install "_meta/kibana"
 
-      (etc/"heartbeat").install Dir["heartbeat*.{json,yml}", "fields.yml"]
-      prefix.install_metafiles
+      (etc/"heartbeat").install Dir["heartbeat.*", "fields.yml"]
+      (libexec/"bin").install "heartbeat"
+      prefix.install "_meta/kibana"
     end
+
+    prefix.install_metafiles buildpath/"src/github.com/elastic/beats"
 
     (bin/"heartbeat").write <<~EOS
       #!/bin/sh
-        exec #{libexec}/bin/heartbeat \
-        -path.config #{etc}/heartbeat \
-        -path.home #{libexec} \
-        -path.logs #{var}/log/heartbeat \
-        -path.data #{var}/lib/heartbeat \
+      exec #{libexec}/bin/heartbeat \
+        --path.config #{etc}/heartbeat \
+        --path.data #{var}/lib/heartbeat \
+        --path.home #{prefix} \
+        --path.logs #{var}/log/heartbeat \
         "$@"
     EOS
   end

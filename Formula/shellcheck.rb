@@ -17,8 +17,8 @@ class Shellcheck < Formula
     sha256 "63d97d20715ac34ae29b7bbf32e70fef9a419e938bae2203ef6f5ff2d17d0d18" => :x86_64_linux
   end
 
-  depends_on "ghc" => :build
   depends_on "cabal-install" => :build
+  depends_on "ghc@8.2" => :build
   depends_on "pandoc" => :build
 
   def install

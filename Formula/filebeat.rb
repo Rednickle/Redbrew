@@ -1,16 +1,15 @@
 class Filebeat < Formula
   desc "File harvester to ship log files to Elasticsearch or Logstash"
   homepage "https://www.elastic.co/products/beats/filebeat"
-  url "https://github.com/elastic/beats/archive/v6.2.2.tar.gz"
-  sha256 "0866c3e26fcbd55f191e746b3bf925b450badd13fb72ea9f712481559932c878"
+  url "https://github.com/elastic/beats/archive/v6.2.3.tar.gz"
+  sha256 "4ab58a55e61bd3ad31a597e5b02602b52d306d8ee1e4d4d8ff7662e2b554130e"
   head "https://github.com/elastic/beats.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "b78055cc78f660c1208e3c2ad44b21dc7d6500d94a068799192fc89366a7588b" => :high_sierra
-    sha256 "c1a44921e9208a7ce2ae6a0503cb0faa8f6c381d304d65556764b8618b14cc84" => :sierra
-    sha256 "241699b2dce85ae7aff63b0dd04bdcd5ad1b99d7d9ec55d3270ec04e451f25de" => :el_capitan
+    sha256 "a88f922d472232e9e0fbdc69c1b83456addb984bc58694dfcd977c5e2d422224" => :high_sierra
+    sha256 "d442d43bc195cf00200746bc53e04c45d7cf85107b8abb48289aaa7c3afcf54e" => :sierra
+    sha256 "c4df39ac1d5ce0bc16845146418581854af467b0fabee160659f634f8df3e482" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -39,16 +38,23 @@ class Filebeat < Formula
       system "make", "PIP_INSTALL_COMMANDS=--no-binary :all", "python-env"
       system "make", "DEV_OS=darwin", "update"
       system "make", "modules"
-      libexec.install "filebeat"
-      (prefix/"module").install Dir["_meta/module.generated/*"]
-      (etc/"filebeat").install Dir["filebeat.*", "fields.yml"]
+
+      (etc/"filebeat").install Dir["filebeat.*", "fields.yml", "modules.d"]
+      (etc/"filebeat"/"module").install Dir["_meta/module.generated/*"]
+      (libexec/"bin").install "filebeat"
+      prefix.install "_meta/kibana"
     end
 
     prefix.install_metafiles buildpath/"src/github.com/elastic/beats"
 
     (bin/"filebeat").write <<~EOS
       #!/bin/sh
-      exec #{libexec}/filebeat -path.config #{etc}/filebeat -path.home #{prefix} -path.logs #{var}/log/filebeat -path.data #{var}/filebeat $@
+      exec #{libexec}/bin/filebeat \
+        --path.config #{etc}/filebeat \
+        --path.data #{var}/lib/filebeat \
+        --path.home #{prefix} \
+        --path.logs #{var}/log/filebeat \
+        "$@"
     EOS
   end
 

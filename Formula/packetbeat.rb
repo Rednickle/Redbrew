@@ -1,16 +1,15 @@
 class Packetbeat < Formula
   desc "Lightweight Shipper for Network Data"
   homepage "https://www.elastic.co/products/beats/packetbeat"
-  url "https://github.com/elastic/beats/archive/v6.2.2.tar.gz"
-  sha256 "0866c3e26fcbd55f191e746b3bf925b450badd13fb72ea9f712481559932c878"
+  url "https://github.com/elastic/beats/archive/v6.2.3.tar.gz"
+  sha256 "4ab58a55e61bd3ad31a597e5b02602b52d306d8ee1e4d4d8ff7662e2b554130e"
   head "https://github.com/elastic/beats.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "2a60410dca6c72ba57f1fcde9ffe594e51b161943b44852ae11ba9a73289f795" => :high_sierra
-    sha256 "b36a8de77842e00913b620b50923bbe130c2e95504c47b1460ba620a0f359e86" => :sierra
-    sha256 "3a300bb0b024288570190dc69ef3e396ae76c303528bb4f1e9dd99879af75631" => :el_capitan
+    sha256 "042c0dd68f2df117e1b14eda1de365479cbdf6bb9da0e6424200bfdad424cbef" => :high_sierra
+    sha256 "87cda8e0f05a15b85ec01006a23b3f32a366780f7782acd5096dfd63e072f2ab" => :sierra
+    sha256 "7eabad62f6f4c348663a4a13ec184e59a45a2e5e54c83c342044ff6ead244a49" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -37,23 +36,23 @@ class Packetbeat < Formula
       # prevent downloading binary wheels during python setup
       system "make", "PIP_INSTALL_COMMANDS=--no-binary :all", "python-env"
       system "make", "DEV_OS=darwin", "update"
-      system "make", "update"
-      (libexec/"bin").install "packetbeat"
-      libexec.install "_meta/kibana"
 
       inreplace "packetbeat.yml", "packetbeat.interfaces.device: any", "packetbeat.interfaces.device: en0"
 
-      (etc/"packetbeat").install Dir["packetbeat*.yml", "fields.yml"]
-      prefix.install_metafiles
+      (etc/"packetbeat").install Dir["packetbeat.*", "fields.yml"]
+      (libexec/"bin").install "packetbeat"
+      prefix.install "_meta/kibana"
     end
+
+    prefix.install_metafiles buildpath/"src/github.com/elastic/beats"
 
     (bin/"packetbeat").write <<~EOS
       #!/bin/sh
       exec #{libexec}/bin/packetbeat \
-        -path.config #{etc}/packetbeat \
-        -path.home #{prefix} \
-        -path.logs #{var}/log/packetbeat \
-        -path.data #{var}/lib/packetbeat \
+        --path.config #{etc}/packetbeat \
+        --path.data #{var}/lib/packetbeat \
+        --path.home #{prefix} \
+        --path.logs #{var}/log/packetbeat \
         "$@"
     EOS
   end

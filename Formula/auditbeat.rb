@@ -1,16 +1,15 @@
 class Auditbeat < Formula
   desc "Lightweight Shipper for Audit Data"
   homepage "https://www.elastic.co/products/beats/auditbeat"
-  url "https://github.com/elastic/beats/archive/v6.2.2.tar.gz"
-  sha256 "0866c3e26fcbd55f191e746b3bf925b450badd13fb72ea9f712481559932c878"
+  url "https://github.com/elastic/beats/archive/v6.2.3.tar.gz"
+  sha256 "4ab58a55e61bd3ad31a597e5b02602b52d306d8ee1e4d4d8ff7662e2b554130e"
   head "https://github.com/elastic/beats.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "0f8cc0318b2a3ed92186aacd0983a7ad798dde49e023e4b9183c8cfcab3f4bc1" => :high_sierra
-    sha256 "1c1b25d013e44a86f84f4715a0f51b1c96ed92f68c3183a7ede62abf0defa3af" => :sierra
-    sha256 "d4d78782427d7485eb18f3deabd72d676ac307e55745f1a209331d44636546b3" => :el_capitan
+    sha256 "9c9a5ec157b3a71482d3143f50dfe8d9a5ec0d00b9586dcba72635ddac784dbc" => :high_sierra
+    sha256 "5688b7503a2f5be0325e102cf25fb7bcf88401566cb96248fe0cbc15bd8feebe" => :sierra
+    sha256 "e765794dbb54f7a091702c5dad1bb046d3575645d2adb426104f191ead0c1fea" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -44,20 +43,21 @@ class Auditbeat < Formula
       # prevent downloading binary wheels during python setup
       system "make", "PIP_INSTALL_COMMANDS=--no-binary :all", "python-env"
       system "make", "DEV_OS=darwin", "update"
-      (libexec/"bin").install "auditbeat"
-      libexec.install "_meta/kibana"
 
-      (etc/"auditbeat").install Dir["auditbeat*.yml", "fields.yml"]
-      prefix.install_metafiles
+      (etc/"auditbeat").install Dir["auditbeat.*", "fields.yml"]
+      (libexec/"bin").install "auditbeat"
+      prefix.install "_meta/kibana"
     end
+
+    prefix.install_metafiles buildpath/"src/github.com/elastic/beats"
 
     (bin/"auditbeat").write <<~EOS
       #!/bin/sh
-        exec #{libexec}/bin/auditbeat \
-        -path.config #{etc}/auditbeat \
-        -path.data #{var}/lib/auditbeat \
-        -path.home #{libexec} \
-        -path.logs #{var}/log/auditbeat \
+      exec #{libexec}/bin/auditbeat \
+        --path.config #{etc}/auditbeat \
+        --path.data #{var}/lib/auditbeat \
+        --path.home #{prefix} \
+        --path.logs #{var}/log/auditbeat \
         "$@"
     EOS
   end

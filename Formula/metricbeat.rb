@@ -1,8 +1,8 @@
 class Metricbeat < Formula
   desc "Collect metrics from your systems and services"
   homepage "https://www.elastic.co/products/beats/metricbeat"
-  url "https://github.com/elastic/beats/archive/v6.2.2.tar.gz"
-  sha256 "0866c3e26fcbd55f191e746b3bf925b450badd13fb72ea9f712481559932c878"
+  url "https://github.com/elastic/beats/archive/v6.2.3.tar.gz"
+  sha256 "4ab58a55e61bd3ad31a597e5b02602b52d306d8ee1e4d4d8ff7662e2b554130e"
 
   head "https://github.com/elastic/beats.git"
 
@@ -15,10 +15,9 @@ class Metricbeat < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "7dd43fdd6e6bdd13b134d24281519315643ca13e7333d24dc2415aa8125629c4" => :high_sierra
-    sha256 "c3a83f240cce7be839f6a6e2d34263e8200664044040e2d2c59450ddf6a49c92" => :sierra
-    sha256 "750632d6c2de12cb500ebf98c1b30134f903e704012a1c73769f46d26f16e35b" => :el_capitan
+    sha256 "15e66dea9b402894a072b4095f0654501eb860c29d1c2c80f3930b8a46dcaba5" => :high_sierra
+    sha256 "d578b893239bc7315fbd73872207240f02c8ffe585f4d4a8c5155346128275aa" => :sierra
+    sha256 "1d03d2d51ef01382deabd9f1dc0969b3f43a0884a38182c4b73c65c04304100a" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -45,21 +44,21 @@ class Metricbeat < Formula
       # prevent downloading binary wheels during python setup
       system "make", "PIP_INSTALL_COMMANDS=--no-binary :all", "python-env"
       system "make", "DEV_OS=darwin", "update"
-      system "make", "kibana"
-      (libexec/"bin").install "metricbeat"
-      libexec.install "_meta/kibana"
 
-      (etc/"metricbeat").install Dir["metricbeat*.yml", "fields.yml"]
-      prefix.install_metafiles
+      (etc/"metricbeat").install Dir["metricbeat.*", "fields.yml", "modules.d"]
+      (libexec/"bin").install "metricbeat"
+      prefix.install "_meta/kibana"
     end
+
+    prefix.install_metafiles buildpath/"src/github.com/elastic/beats"
 
     (bin/"metricbeat").write <<~EOS
       #!/bin/sh
-      exec "#{libexec}/bin/metricbeat" \
-        --path.config "#{etc}/metricbeat" \
-        --path.home="#{prefix}" \
-        --path.logs="#{var}/log/metricbeat" \
-        --path.data="#{var}/lib/metricbeat" \
+      exec #{libexec}/bin/metricbeat \
+        --path.config #{etc}/metricbeat \
+        --path.data #{var}/lib/metricbeat \
+        --path.home #{prefix} \
+        --path.logs #{var}/log/metricbeat \
         "$@"
     EOS
   end
