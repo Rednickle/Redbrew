@@ -3,17 +3,17 @@ class Graphene < Formula
   homepage "https://ebassi.github.io/graphene/"
   url "https://download.gnome.org/sources/graphene/1.6/graphene-1.6.2.tar.xz"
   sha256 "8f7d1984c06aefe3b47a668c12ad9f3db0bcb2d09c55e6267b82a90f6b10d961"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "4ed91e3d415e97cbb88432448e67199b74738705b5a859a6db1577cb1eab1441" => :high_sierra
-    sha256 "08f58d77c34cdef2b11f4195e17d929438678a8ee1c98d8243cb3386c5d5c5f5" => :sierra
-    sha256 "fb90bbbabde61e65bd5ef9afd48348bc855ffd418252b715b2e84b4d0a2de3ff" => :el_capitan
+    sha256 "376d06cf0f650494fafa2bcc8f781fec0d25a13a268b99512f7f1db597d814a0" => :high_sierra
+    sha256 "9e9932539d448d94b967425a4675aa85e93cba6c831baec94f23e8be20039c3f" => :sierra
+    sha256 "8815a5bc85dfbc5d05b1ae521c9db2f3a2b1b740ef415c0ab74be8b2a64be167" => :el_capitan
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on "gobject-introspection"
   depends_on "python"
 
   def install

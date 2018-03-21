@@ -3,14 +3,15 @@ class Latexila < Formula
   homepage "https://wiki.gnome.org/Apps/LaTeXila"
   url "https://download.gnome.org/sources/latexila/3.26/latexila-3.26.1.tar.xz"
   sha256 "658eba0db71864eb6d4873516d97e05be3e63085ff55513c8f10145ffb657151"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 "cfab924aa0b289377a482373ca1bc06eeb003b4ef094279fb3b00f92f4667518" => :high_sierra
-    sha256 "5545269911cbd084bec41fe90a4e8028de540c5df2f53672bd53d616579e505c" => :sierra
-    sha256 "854ee2b3469f3f61b6359221f76301771200cc24339fa5dfc881aecb62f822e4" => :el_capitan
+    sha256 "692f383ca261bea02b2853ee77ae398a8efcbb666b25ae758d087f7d1b96263d" => :high_sierra
+    sha256 "b95d43825b9d4844db8bfc709c61fa447b56c36e7fa5c8b225890044433d1375" => :sierra
+    sha256 "bae5d366a89baaaff691c8bd178092b2b953f6fcd6ea7689aae154fcb15ede60" => :el_capitan
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "itstool" => :build
@@ -19,7 +20,6 @@ class Latexila < Formula
   depends_on "gspell"
   depends_on "tepl"
   depends_on "libgee"
-  depends_on "gobject-introspection"
   depends_on "adwaita-icon-theme"
   depends_on "gnome-themes-standard" => :optional
   depends_on "libxml2"

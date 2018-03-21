@@ -3,20 +3,20 @@ class Libgweather < Formula
   homepage "https://wiki.gnome.org/Projects/LibGWeather"
   url "https://download.gnome.org/sources/libgweather/3.26/libgweather-3.26.1.tar.xz"
   sha256 "fca78470b345bce948e0333cab0a7c52c32562fc4a75de37061248a64e8fc4b8"
+  revision 1
 
   bottle do
-    sha256 "07ccd0c7376e8b3df7f535d8a2a38bfa4912442957c787099d87cb7fbbc3140e" => :high_sierra
-    sha256 "f70cfbb5fe2c7c26d74af33487f6a259069449e3d65f1e52c37fbcb4f3af1763" => :sierra
-    sha256 "136de1236c9cec9d180e90bfcdc07778e07609737c48417eb50e0d8a6a36a130" => :el_capitan
-    sha256 "7be7a103cd55c4ba5d2676c7cd894d8c4553077e3b5107710ed3fb4fcb7faecb" => :x86_64_linux
+    sha256 "63a3844e3327adfa4e90f82d99edfd3e71525721b63ff66f860daff922b70dc8" => :high_sierra
+    sha256 "b668b78d4d5a3f08cc37ff976e4827437bb1b818e1cb1b02838113e65c23bdab" => :sierra
+    sha256 "18ac489c3cf647ef26a0219741908435ed3665ffb0172cca36fb74a50afa6d0d" => :el_capitan
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "gtk+3"
   depends_on "geocode-glib"
   depends_on "libsoup"
-  depends_on "gobject-introspection"
   depends_on "vala" => :optional
   depends_on "glibc" unless OS.mac? # for zoneinfo
 

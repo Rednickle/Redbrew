@@ -3,14 +3,15 @@ class Gxml < Formula
   homepage "https://wiki.gnome.org/GXml"
   url "https://download.gnome.org/sources/gxml/0.16/gxml-0.16.3.tar.xz"
   sha256 "520d4d779b1d31591762b2a98f84072531b9e17ac401df9668493e189eafc6ba"
+  revision 1
 
   bottle do
-    sha256 "faf9da56560023721c8f04fb1871281ae556b8017b42847be5265f38b462484e" => :high_sierra
-    sha256 "da0481c932a3aa2fbff97ad185c4191376f2b509bf8a3f948ec6feb752f7229a" => :sierra
-    sha256 "d863844b85f0c0b67f40074108a690242989237dd3c98f16d34813c88e3b0958" => :el_capitan
-    sha256 "3b8ff222160e9dc65f2ebf492898b807b3850554f7f9a7ee7733c341a72c7232" => :x86_64_linux
+    sha256 "0908c2bd5015de8acbab29ea0c42d9d274705b830424fb7c31f4c1a6088b5c1e" => :high_sierra
+    sha256 "d85960c0109b86ac07a51aea852b5d19bafb75bc55dd360b140ac27aa4de4721" => :sierra
+    sha256 "078acc418ec19bdfb68c826279ac31dd143a4992d580dcacd9d6c5a33c9e0bd1" => :el_capitan
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "gtk-doc" => :build
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
@@ -18,7 +19,6 @@ class Gxml < Formula
   depends_on "libxml2"
   depends_on "glib"
   depends_on "libgee"
-  depends_on "gobject-introspection"
 
   def install
     # Needed by intltool (xml::parser)

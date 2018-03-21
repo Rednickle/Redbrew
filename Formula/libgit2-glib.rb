@@ -3,12 +3,12 @@ class Libgit2Glib < Formula
   homepage "https://github.com/GNOME/libgit2-glib"
   url "https://download.gnome.org/sources/libgit2-glib/0.26/libgit2-glib-0.26.2.tar.xz"
   sha256 "2ad6f20db2e38bbfdb6cb452704fe8a911036b86de82dc75bb0f3b20db40ce9c"
+  revision 1
 
   bottle do
-    sha256 "41e72a9af021ede5b2d2a6388d87d1a3cf91828257512291b443622973b4fdda" => :high_sierra
-    sha256 "20c1bd5ed07328d63aedc9c15c974d3ce970f8a67cfd2fb1d3e5c1471a1d0259" => :sierra
-    sha256 "d50c3cfe95b48a7542d79606f1673c9f03cab6653098da2bb9ac4a809546db32" => :el_capitan
-    sha256 "d151d5a1b25f559d40cc212d4fd2e875e14e8b5d9adf0fcff1eb61e328eee6bf" => :x86_64_linux
+    sha256 "3f54034bdc3f924e2755c7b70237bcca02d4360d40dd078f515636f5d76ad37a" => :high_sierra
+    sha256 "24e9475134d69efaa3b4da3e993040af6c31ac790167d779c3b8700009f021c6" => :sierra
+    sha256 "7d29be8d0f0c8275a0d5d7a2cbb7bb68375f4476b2a1776f6e05f0902db10f04" => :el_capitan
   end
 
   head do
@@ -23,10 +23,10 @@ class Libgit2Glib < Formula
 
   deprecated_option "with-python" => "with-python@2"
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "libgit2"
-  depends_on "gobject-introspection"
   depends_on "glib"
   depends_on "vala" => :optional
   depends_on "python@2" => :optional

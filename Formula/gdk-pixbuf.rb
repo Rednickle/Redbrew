@@ -3,23 +3,23 @@ class GdkPixbuf < Formula
   homepage "https://gtk.org"
   url "https://download.gnome.org/sources/gdk-pixbuf/2.36/gdk-pixbuf-2.36.11.tar.xz"
   sha256 "ae62ab87250413156ed72ef756347b10208c00e76b222d82d9ed361ed9dde2f3"
+  revision 1
 
   bottle do
-    sha256 "bd9e4d72a827f75ea2a1cd9463be0cf123ba1cda8f2e4d0a3ef0b1a1c46945f6" => :high_sierra
-    sha256 "a6280e13fe29c5c06548e4c8d0ed80755b50432778b6f668495327a289693cf3" => :sierra
-    sha256 "70aa88fda9b08b1cbd7fdd3c21d378ce1a95c1c936d5eba9dbe9efcd75254f04" => :el_capitan
-    sha256 "6801ba8c53a0384e7cee403056b9855c56a8c6d27df9280e5a3ae6bb0dd829d0" => :x86_64_linux
+    sha256 "9ab66c2e096eae435f0a7554db333715de935c347ebc4560dcb0c595f4bd28d5" => :high_sierra
+    sha256 "d39abb17ec8e53cb2db8fe63e62905be87b0dda875da0f84c6ca63ef5c08863c" => :sierra
+    sha256 "93079b1df5573210380ab0cbae77fc9b50bb9a4ec2d5a51c4b493d64f15df481" => :el_capitan
   end
 
   option "without-modules", "Disable dynamic module loading"
   option "with-included-loaders=", "Build the specified loaders into gdk-pixbuf"
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "jpeg"
   depends_on "libtiff"
   depends_on "libpng"
-  depends_on "gobject-introspection" => :recommended
   depends_on "jasper" => :optional
   depends_on "shared-mime-info" unless OS.mac?
 
@@ -48,16 +48,11 @@ class GdkPixbuf < Formula
       --disable-Bsymbolic
       --enable-static
       --without-gdiplus
+      --enable-introspection=yes
     ]
 
     args << "--with-libjasper" if build.with?("jasper")
     args << "--disable-modules" if build.without?("modules")
-
-    if build.with? "gobject-introspection"
-      args << "--enable-introspection=yes"
-    else
-      args << "--enable-introspection=no"
-    end
 
     included_loaders = ARGV.value("with-included-loaders")
     args << "--with-included-loaders=#{included_loaders}" if included_loaders

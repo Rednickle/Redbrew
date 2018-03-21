@@ -3,20 +3,21 @@ class Vte3 < Formula
   homepage "https://developer.gnome.org/vte/"
   url "https://download.gnome.org/sources/vte/0.52/vte-0.52.0.tar.xz"
   sha256 "d5ae72dddd57af493afa10ca2a290f284e588021b0bd8aaaa63dbb75de7c0567"
+  revision 1
 
   bottle do
-    sha256 "e36ff88ba45c7675746fb916d3b74f595c2170365ba967ec967a3a71a6578163" => :high_sierra
-    sha256 "8025a59cddadd943d0a13b346973c27b7ee61fda363398ac9f14cf6869feef45" => :sierra
-    sha256 "61cd6f380a42f41bf069c5426d57e7cd28c1b63627311d36640dd544f7bc13da" => :el_capitan
+    sha256 "8a2679460619e2b283ea9fb89608058db95c054d6a330b29ff6c39a6f65f99f7" => :high_sierra
+    sha256 "3f36d30cb93aeba0f08f75c3743a94fe2e364a845c683edc9b49d74c70171b09" => :sierra
+    sha256 "1e6247b55765c6028b1b12c30813e18b97111bcbb510eece1a5f6ef92c3ff44f" => :el_capitan
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "gettext"
   depends_on "gtk+3"
   depends_on "gnutls"
   depends_on "vala"
-  depends_on "gobject-introspection"
   depends_on "pcre2"
 
   def install

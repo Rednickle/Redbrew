@@ -3,22 +3,20 @@ class Gcab < Formula
   homepage "https://wiki.gnome.org/msitools"
   url "https://download.gnome.org/sources/gcab/0.7/gcab-0.7.tar.xz"
   sha256 "a16e5ef88f1c547c6c8c05962f684ec127e078d302549f3dfd2291e167d4adef"
+  revision 1
 
   bottle do
-    sha256 "1a793542ed68d1848834163ca43e99ddf88fbdfb0d01a50e775bb271c808594e" => :high_sierra
-    sha256 "cddbf83de6e61f82e0b12937f7c928990f2e9ea53d2cef2d55a302290b4c1fef" => :sierra
-    sha256 "7403bfd6a817af92bf1c89c90826e748c909e2ec559f18d708ac48306c5b7431" => :el_capitan
-    sha256 "3200cfd9434dc548094116bf426979978c51cbad8316fd299620ce86baa5acb3" => :yosemite
-    sha256 "1c063054e17f3194d214d5d1a8d01a12932ec8214cca7143956760039db22f2f" => :mavericks
-    sha256 "256a6e6371f6f6dd5cf4122df566d615b6dc2a979f365f7890cbf6e68bf041dd" => :x86_64_linux # glibc 2.19
+    sha256 "98f56ce0d3a6aa3e463ff3db4648b35bb50cc28a3ca6c851674def6277ef431a" => :high_sierra
+    sha256 "7301b501634551391a4c7070a84bb61586261c76291e4e190cb42ef4091be18e" => :sierra
+    sha256 "b85cf8a03bd289713ebe25c269fef51819de959d56a30c8885ab7c185a55e7f5" => :el_capitan
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
   depends_on "gettext"
   depends_on "glib"
-  depends_on "gobject-introspection"
 
   # work around ld not understanding --version-script argument
   # upstream bug: https://bugzilla.gnome.org/show_bug.cgi?id=708257

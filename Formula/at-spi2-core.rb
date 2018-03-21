@@ -3,20 +3,20 @@ class AtSpi2Core < Formula
   homepage "http://a11y.org"
   url "https://download.gnome.org/sources/at-spi2-core/2.26/at-spi2-core-2.26.2.tar.xz"
   sha256 "c80e0cdf5e3d713400315b63c7deffa561032a6c37289211d8afcfaa267c2615"
+  revision 1
 
   bottle do
-    sha256 "ebefdfdcdf6a11d4e46aebcb3c327f682188d4b4d2ebe3f43ed143e7dcb0126c" => :high_sierra
-    sha256 "3e6cd54451efeaff9b94313b461fcd75d82c2e6270625192b7680cdb57f67e4f" => :sierra
-    sha256 "a655a6d84bc3d00a4cd4be87393e77e51ca65216c23b036732b6bca1bcfe5b54" => :el_capitan
-    sha256 "a23f2ac5dac70c95117e4521e99aac5232ac410e5bd5ab5170519643525f02b6" => :x86_64_linux
+    sha256 "1562647b757604dc562e0ab1a5bf981fdab39c5c73c9075fae2c41e6655307e8" => :high_sierra
+    sha256 "cc5e6d51e17edad2be3c57634637b22bb987db17a0d7d9e00392ed612449459f" => :sierra
+    sha256 "9dcb96ac4adb8e3b3897ab1bc3f16a65984bf3c6f4c41566838233a0337fbf3b" => :el_capitan
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "gettext"
   depends_on "glib"
   depends_on "dbus"
-  depends_on "gobject-introspection"
 
   def install
     system "./configure", "--disable-dependency-tracking",
