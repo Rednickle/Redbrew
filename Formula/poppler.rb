@@ -1,16 +1,14 @@
 class Poppler < Formula
   desc "PDF rendering library (based on the xpdf-3.0 code base)"
   homepage "https://poppler.freedesktop.org/"
-  url "https://poppler.freedesktop.org/poppler-0.62.0.tar.xz"
-  sha256 "5b9a73dfd4d6f61d165ada1e4f0abd2d420494bf9d0b1c15d0db3f7b83a729c6"
-  revision 1 unless OS.mac?
+  url "https://poppler.freedesktop.org/poppler-0.63.0.tar.xz"
+  sha256 "27cc8addafc791e1a26ce6acc2b490926ea73a4f89196dd8a7742cff7cf8a111"
   head "https://anongit.freedesktop.org/git/poppler/poppler.git"
 
   bottle do
-    sha256 "e7ef8133d2a55b7b9d060e1bb39e85daa421805315b78cdaac2eb74e6ee7e50b" => :high_sierra
-    sha256 "67553e08dc541aa5db51e480b768a289095cf236279fe46defb4061783967bf8" => :sierra
-    sha256 "3797b24ecd422d96b7418c942c26937dd14af4e4e0b135c15cb1164a109ab5af" => :el_capitan
-    sha256 "0c847d129ac44127049d96eebbba7286571683e878142bfaf254faf109bcb5ba" => :x86_64_linux
+    sha256 "053bc301300a60d19ed2e111da35c69195a19b1c14f5c9224b463d423c20b102" => :high_sierra
+    sha256 "11993d0bc5ec221e76db8f61ff20c068d22377da5d3c49e75d3bfb26e134fd83" => :sierra
+    sha256 "cc6e15a73240b243e015a0171e6d4beb4e1cae44900eb0eb8f4c9fc856a243b3" => :el_capitan
   end
 
   option "with-qt", "Build Qt5 backend"
@@ -73,6 +71,12 @@ class Poppler < Formula
 
     system "cmake", ".", *args
     system "make", "install"
+    system "make", "clean"
+    system "cmake", ".", "-DBUILD_SHARED_LIBS=OFF", *args
+    system "make"
+    lib.install "libpoppler.a"
+    lib.install "cpp/libpoppler-cpp.a"
+    lib.install "glib/libpoppler-glib.a"
     resource("font-data").stage do
       system "make", "install", "prefix=#{prefix}"
     end

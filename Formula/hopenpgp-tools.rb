@@ -5,18 +5,18 @@ class HopenpgpTools < Formula
 
   desc "Command-line tools for OpenPGP-related operations"
   homepage "https://hackage.haskell.org/package/hopenpgp-tools"
-  url "https://hackage.haskell.org/package/hopenpgp-tools/hopenpgp-tools-0.19.5.tar.gz"
-  sha256 "e0630a90c0565923b4244eb1df5ba034bcc8a7d092854d197cf47c783bd566f9"
+  url "https://hackage.haskell.org/package/hopenpgp-tools/hopenpgp-tools-0.20.1.tar.gz"
+  sha256 "62f01950dd0601a720d0c4046b779f299260693a117ef376315247f06fa42dda"
   head "https://anonscm.debian.org/git/users/clint/hopenpgp-tools.git"
 
   bottle do
-    sha256 "4a6735e79e482ba28deaf8b579029761bfd332e5bc3656dd3391eb8c546f96d3" => :high_sierra
-    sha256 "1ee1f29b5af38aaff4ffc5288bb7a23d78be4bf560d7f6456b915c8218ad6b2a" => :sierra
-    sha256 "2fd337bf48fce294194500b584ffcb62fdf564661bb176a2508588a2adbba965" => :el_capitan
-    sha256 "24814137ee65dfa0d87364a4d76d4b3b490b3e53c5b81d2c7b08db75d691265d" => :x86_64_linux
+    cellar :any
+    sha256 "9279dd18f73815ebf36a2fb730b10e394795892969a9282a49779c223828859c" => :high_sierra
+    sha256 "86228ad6e121d664e761c4458a5436c714b7bac53e1cafc23f7d084030570751" => :sierra
+    sha256 "dae07e2177b17e9a015f080c1f98463534e25d7b8ac6ed83b80949a6747c48ae" => :el_capitan
   end
 
-  depends_on "ghc@8.0" => :build
+  depends_on "ghc@8.2" => :build
   depends_on "cabal-install" => :build
   depends_on "pkg-config" => :build
   depends_on "nettle"
@@ -27,14 +27,9 @@ class HopenpgpTools < Formula
   end
 
   def install
-    # Reported 7 Oct 2017 to clint AT debian DOT org
-    # RE: happy, see https://github.com/simonmar/happy/issues/94
-    # RE: graphviz, see https://github.com/haskell-infra/hackage-trustees/issues/114
-    (buildpath/"cabal.config").write <<~EOS
-      constraints: happy<1.19.6, graphviz >= 2999.17.0.0
-    EOS
-
-    install_cabal_package :using => ["alex", "happy"]
+    # Reported 7 Oct 2017 "Old versions of graphviz have no constraint on fgl"
+    # See https://github.com/haskell-infra/hackage-trustees/issues/114
+    install_cabal_package "--constraint", "graphviz >= 2999.17.0.0", :using => ["alex", "happy"]
   end
 
   test do
