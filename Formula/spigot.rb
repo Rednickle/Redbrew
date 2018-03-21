@@ -1,14 +1,16 @@
 class Spigot < Formula
   desc "Command-line streaming exact real calculator"
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/spigot/"
-  url "https://www.chiark.greenend.org.uk/~sgtatham/spigot/spigot-20180319.17c4cea.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/spigot-20180319.tar.gz"
-  version "20180319"
-  sha256 "f4d025c21790dc8dd07f14ffb0729b797f6cac67937cc0fb0f177f9827aaf484"
+  url "https://www.chiark.greenend.org.uk/~sgtatham/spigot/spigot-20180321.716c828.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/spigot-20180321.tar.gz"
+  version "20180321"
+  sha256 "fb0b7200ac6f8541b686bccecc6311942bed60ffc638cff3e96613c7c7d4346b"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "214c07f8953cd05b3847cd5b3a3e720cb6df7841025e4025a050a5cfc4a19545" => :x86_64_linux
+    sha256 "7db0b8cf1c023c33977d2f0b3a1a7bfc7aa8e56e0d6db91f228b6d264a20f12f" => :high_sierra
+    sha256 "6e7183d292159ac738e2fa6e678fc07879d9650ed601c7cecc21e8c2e89c8ba2" => :sierra
+    sha256 "7fda0379690a75e870f8c8f3605223d6fe3cba8cfeccc0206a5d6210d4e12de9" => :el_capitan
   end
 
   depends_on "gmp" unless OS.mac?

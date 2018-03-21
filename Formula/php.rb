@@ -3,12 +3,12 @@ class Php < Formula
   homepage "https://php.net/"
   url "https://php.net/get/php-7.2.3.tar.xz/from/this/mirror"
   sha256 "b3a94f1b562f413c0b96f54bc309706d83b29ac65d9b172bc7ed9fb40a5e651f"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 "c3faa0bc9eb091c4921143d209a2d826c4b9ed3ee7bda9107c96bd23256e6c4d" => :high_sierra
-    sha256 "f34074e5a3dc55f0a3c34b12e35d715ad0aea7177bdf33df38d52f468fde08ce" => :sierra
-    sha256 "f3b26b9c26fe5cc4e5547954ab83f73d0c6d3317b83d3b46e62317b132181a0d" => :el_capitan
+    sha256 "9a0892e47050fbcd30a3ea63a69fb4605b8ac92ac094769dc69eeb140255fa7b" => :high_sierra
+    sha256 "62efbffd072a01000b34a939aa98f4a8cd05e7ac228243350c26f0a6e2b52d09" => :sierra
+    sha256 "3cf0228f710d51013a04e47b7af7e78916e55d719b2245bb4746ab8475aee3e1" => :el_capitan
   end
 
   depends_on "httpd" => [:build, :test]
@@ -24,7 +24,6 @@ class Php < Formula
   depends_on "glib"
   depends_on "gmp"
   depends_on "icu4c"
-  depends_on "imap-uw"
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libpq"
@@ -110,8 +109,6 @@ class Php < Formula
       --with-gettext=#{Formula["gettext"].opt_prefix}
       --with-gmp=#{Formula["gmp"].opt_prefix}
       --with-icu-dir=#{Formula["icu4c"].opt_prefix}
-      --with-imap=#{Formula["imap-uw"].opt_prefix}
-      --with-imap-ssl=#{Formula["openssl"].opt_prefix}
       --with-jpeg-dir=#{Formula["jpeg"].opt_prefix}
       --with-kerberos
       --with-layout=GNU
