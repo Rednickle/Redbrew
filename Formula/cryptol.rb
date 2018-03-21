@@ -18,7 +18,7 @@ class Cryptol < Formula
     sha256 "0d11cef18ca7c6edec0ab58f9f4f5ce9000bc5d94f394cfee9bc67a1f77fa5d1" => :x86_64_linux
   end
 
-  depends_on "ghc" => :build
+  depends_on "ghc@8.2" => :build
   depends_on "cabal-install" => :build
   depends_on "z3"
   depends_on "ncurses" unless OS.mac?
