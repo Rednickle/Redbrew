@@ -3,15 +3,15 @@ require "language/go"
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v0.11.4.tar.gz"
-  sha256 "64bd59212e0fed24cacbc9c9b5cbfb0bb5e035e9f19e75d308f8738b662f08bc"
+  url "https://github.com/hashicorp/terraform/archive/v0.11.5.tar.gz"
+  sha256 "f442792d5a6a071505d437e4ccfb20daa36c18ea1981c2cceb51668e610c45de"
   head "https://github.com/hashicorp/terraform.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a218b3bf86125735cd7e3e0f11ac257efc63e8762f06283674f9ec15caa2e6b0" => :high_sierra
-    sha256 "8d42d2a99ca5b5e2fa1190ecbaceec13bd359891227a9f8563e8bea283ccaa18" => :sierra
-    sha256 "a6473ea9e7d3a648767327e5f184c9f096734c9347b8e81e61f276368be10818" => :el_capitan
+    sha256 "e5faceb840f6ba52b12fce2404f90217c476e9ac37b5ad6d670dc79c5bd6c0e0" => :high_sierra
+    sha256 "41669a83e120ab20b044ee3df1c133a5b94df9ef20d329dda618457f9032284d" => :sierra
+    sha256 "f4a93335cd2bb5079ae3410b14e47f08e1f215f2345f0dd6e8b991f4985017b1" => :el_capitan
   end
 
   depends_on "go" => :build

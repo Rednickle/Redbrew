@@ -1,7 +1,7 @@
 class Terminator < Formula
   desc "Multiple terminals in one window"
   homepage "https://gnometerminator.blogspot.com/p/introduction.html"
-  revision 1
+  revision 2
   head "lp:terminator", :using => :bzr
 
   stable do
@@ -16,9 +16,9 @@ class Terminator < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b2e67f305f175629b8a4673adbfee6da0db29d3d994d68363a458af47f8bd04e" => :high_sierra
-    sha256 "b2e67f305f175629b8a4673adbfee6da0db29d3d994d68363a458af47f8bd04e" => :sierra
-    sha256 "b2e67f305f175629b8a4673adbfee6da0db29d3d994d68363a458af47f8bd04e" => :el_capitan
+    sha256 "00e85432871cb5e7df4bcbe8e835cf9ad619f772de9018c41ed781bef4fa6643" => :high_sierra
+    sha256 "00e85432871cb5e7df4bcbe8e835cf9ad619f772de9018c41ed781bef4fa6643" => :sierra
+    sha256 "00e85432871cb5e7df4bcbe8e835cf9ad619f772de9018c41ed781bef4fa6643" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

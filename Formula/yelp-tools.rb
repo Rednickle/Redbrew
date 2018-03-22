@@ -3,12 +3,13 @@ class YelpTools < Formula
   homepage "https://github.com/GNOME/yelp-tools"
   url "https://download.gnome.org/sources/yelp-tools/3.28/yelp-tools-3.28.0.tar.xz"
   sha256 "82dbfeea2359dfef8ee92c7580c7f03768d12f9bf67d839f03a5e9b0686dc1ac"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9be349bcaf8cef4ebfb969bde267d81dd8ff5e8f2ddf89b202b163357bea7866" => :high_sierra
-    sha256 "9be349bcaf8cef4ebfb969bde267d81dd8ff5e8f2ddf89b202b163357bea7866" => :sierra
-    sha256 "9be349bcaf8cef4ebfb969bde267d81dd8ff5e8f2ddf89b202b163357bea7866" => :el_capitan
+    sha256 "628fc21556d7cade65245e204db567ba929307a91637391a583698d3c281b129" => :high_sierra
+    sha256 "628fc21556d7cade65245e204db567ba929307a91637391a583698d3c281b129" => :sierra
+    sha256 "628fc21556d7cade65245e204db567ba929307a91637391a583698d3c281b129" => :el_capitan
   end
 
   depends_on "gettext" => :build
