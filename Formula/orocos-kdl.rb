@@ -9,6 +9,7 @@ class OrocosKdl < Formula
     sha256 "32e9cd3e10a20c046a45122557dda364352619c59acffca07f8c858cdcff9765" => :high_sierra
     sha256 "2696ca8480d6be3de18a141630388ef5fe5486096c02f99726b6d07cc91ff958" => :sierra
     sha256 "87d3407e88f69187f10119d109321c8ece7c04154262475665f462923f69ffe9" => :el_capitan
+    sha256 "64f15475c1ea44fb029eb035f5f95224015f5564f69d97101fd26e0665ed5f82" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
