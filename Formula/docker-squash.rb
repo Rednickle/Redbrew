@@ -6,9 +6,10 @@ class DockerSquash < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6efcced412dd3b8cd77ac3f22a025324d9db1490e21650c80dec1ae173c7fc5f" => :high_sierra
-    sha256 "6efcced412dd3b8cd77ac3f22a025324d9db1490e21650c80dec1ae173c7fc5f" => :sierra
-    sha256 "af38522bfcdf5259a5394090d1d208b33f6755519c15d07f7654360b69ed04b2" => :el_capitan
+    rebuild 1
+    sha256 "ada8e2727f4add1d47a5036a14cda33e7e40f1209b5a9b01a842fd43a680c9d8" => :high_sierra
+    sha256 "ada8e2727f4add1d47a5036a14cda33e7e40f1209b5a9b01a842fd43a680c9d8" => :sierra
+    sha256 "dac6b0bf9dcb79b72542cb4a2ab889cca334fbdb645c7f24b96112bc61b391c7" => :el_capitan
   end
 
   depends_on "python@2" if MacOS.version <= :snow_leopard
@@ -16,8 +17,8 @@ class DockerSquash < Formula
   depends_on "docker-machine" => :recommended
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/11/b6/abcb525026a4be042b486df43905d6893fb04f05aac21c32c638e939e447/pip-9.0.1.tar.gz"
-    sha256 "09f243e1a7b461f654c26a725fa373211bb7ff17a9300058b205c61658ca940d"
+    url "https://files.pythonhosted.org/packages/c4/44/e6b8056b6c8f2bfd1445cc9990f478930d8e3459e9dbf5b8e2d2922d64d3/pip-9.0.3.tar.gz"
+    sha256 "7bf48f9a693be1d58f49f7af7e0ae9fe29fd671cde8a55e6edca3581c4ef5796"
   end
 
   resource "setuptools" do

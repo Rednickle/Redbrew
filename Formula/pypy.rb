@@ -11,9 +11,10 @@ class Pypy < Formula
 
   bottle do
     cellar :any
-    sha256 "afb3d4ba718ea37af6fdff404bf27f87437cceb963afac6d38b1b9c59b7c2ead" => :high_sierra
-    sha256 "624137c95059bcad5b68ddd9d266b85b298d1348ba1ac62ea3dba32034b1e2b2" => :sierra
-    sha256 "5aec5e3da199c01067fae60e67c9363b7e4d9e7d242850a4b2b74ad5cad8788a" => :el_capitan
+    rebuild 1
+    sha256 "40d581a2b3e662160b7b3bd5b2131c2e116f2df791e535832916a8fad7b26bfa" => :high_sierra
+    sha256 "f8908de47b79985e94b07914bb253d8d5351a899e1a6f3226dc5e395f7eb3603" => :sierra
+    sha256 "7e6e949fc271a9a788d85a639c077e07408a2bcebed25b4a128e5ccf82acf0f3" => :el_capitan
   end
 
   option "without-bootstrap", "Translate Pypy with system Python instead of " \
@@ -38,8 +39,8 @@ class Pypy < Formula
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/11/b6/abcb525026a4be042b486df43905d6893fb04f05aac21c32c638e939e447/pip-9.0.1.tar.gz"
-    sha256 "09f243e1a7b461f654c26a725fa373211bb7ff17a9300058b205c61658ca940d"
+    url "https://files.pythonhosted.org/packages/c4/44/e6b8056b6c8f2bfd1445cc9990f478930d8e3459e9dbf5b8e2d2922d64d3/pip-9.0.3.tar.gz"
+    sha256 "7bf48f9a693be1d58f49f7af7e0ae9fe29fd671cde8a55e6edca3581c4ef5796"
   end
 
   # https://bugs.launchpad.net/ubuntu/+source/gcc-4.2/+bug/187391

@@ -7,10 +7,10 @@ class PythonAT2 < Formula
   head "https://github.com/python/cpython.git", :branch => "2.7"
 
   bottle do
-    sha256 "9c4494aca243cde1ecbd8cf9a76f4de2c1dffd978387aa0603d52dfa9582046a" => :high_sierra
-    sha256 "e7219db78fa40475ed549c469bf99505f841293cd63ec399394a4edc3836c177" => :sierra
-    sha256 "9fc99df8057e11032de3fd280880d3583aa13c6ca00c0dab1d3fceda20a63cfd" => :el_capitan
-    sha256 "57c29dd4d67a10be0ccbcf6b931f9e5fca1b95e8aa52ddfcc5de6e49ac923a6b" => :x86_64_linux
+    rebuild 1
+    sha256 "02d0b530c0fee00c7564a24ae9c0bde6c3b9028eb2a1b88e1b09a69481cb7ae5" => :high_sierra
+    sha256 "8ad21131c5fbc3843d5f9aa754ea5c352de0433c69f693f56e465ac3f7b96424" => :sierra
+    sha256 "99865efdb594d21e65bc74674267a73081fe1087043263b1f12675c046414d62" => :el_capitan
   end
 
   # Please don't add a wide/ucs4 option as it won't be accepted.
@@ -39,8 +39,8 @@ class PythonAT2 < Formula
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/11/b6/abcb525026a4be042b486df43905d6893fb04f05aac21c32c638e939e447/pip-9.0.1.tar.gz"
-    sha256 "09f243e1a7b461f654c26a725fa373211bb7ff17a9300058b205c61658ca940d"
+    url "https://files.pythonhosted.org/packages/c4/44/e6b8056b6c8f2bfd1445cc9990f478930d8e3459e9dbf5b8e2d2922d64d3/pip-9.0.3.tar.gz"
+    sha256 "7bf48f9a693be1d58f49f7af7e0ae9fe29fd671cde8a55e6edca3581c4ef5796"
   end
 
   resource "wheel" do
