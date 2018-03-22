@@ -11,6 +11,7 @@ class PythonAT2 < Formula
     sha256 "02d0b530c0fee00c7564a24ae9c0bde6c3b9028eb2a1b88e1b09a69481cb7ae5" => :high_sierra
     sha256 "8ad21131c5fbc3843d5f9aa754ea5c352de0433c69f693f56e465ac3f7b96424" => :sierra
     sha256 "99865efdb594d21e65bc74674267a73081fe1087043263b1f12675c046414d62" => :el_capitan
+    sha256 "9d14d6ba5e52914a8ea0422688e30ba1ed070459dc9fdade449c983d7dd99889" => :x86_64_linux
   end
 
   # Please don't add a wide/ucs4 option as it won't be accepted.
