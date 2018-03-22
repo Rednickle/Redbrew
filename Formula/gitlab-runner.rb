@@ -2,17 +2,15 @@ class GitlabRunner < Formula
   desc "The official GitLab CI runner written in Go"
   homepage "https://gitlab.com/gitlab-org/gitlab-runner"
   url "https://gitlab.com/gitlab-org/gitlab-runner.git",
-      :tag => "v10.5.0",
-      :revision => "80b03db9893ab1668ac601909c1a1bf29d476035"
+      :tag => "v10.6.0",
+      :revision => "a3543a275e3f9555da06041c501429d1f4aeef2d"
   head "https://gitlab.com/gitlab-org/gitlab-runner.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "879073031b87d7c1af68cfa4381d1bb3e76d783f4d675b65f690ab9bc346b234" => :high_sierra
-    sha256 "17abdf661e167271f8cc8bd355add7cf27eb98e4c2b8a879f6a33e66ae417bf8" => :sierra
-    sha256 "a27fdf1040486b383b910b6153295b39f9354c696e9b6de941ef5308f406948e" => :el_capitan
-    sha256 "1d66ffdd4470dfecd28809b930dc55f4f7b969e68e84d4a791e905619f2cfe60" => :x86_64_linux
+    sha256 "73a3c6d13a7bee928ad371703db38d634c48935fc93ac11077c73cb52ff1b971" => :high_sierra
+    sha256 "7626e6def25dd731875d853fc2a152d32b7b01018c4222e8e9bd971e98454b3c" => :sierra
+    sha256 "3b3eb32196f063a5c4c3b696d6b1d40f1236e6199a722bda7e5d165e7f87b2d9" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -20,17 +18,17 @@ class GitlabRunner < Formula
   depends_on "docker" => :recommended
 
   resource "prebuilt-x86_64.tar.xz" do
-    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.5.0/docker/prebuilt-x86_64.tar.xz",
+    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.6.0/docker/prebuilt-x86_64.tar.xz",
         :using => :nounzip
-    version "10.5.0"
-    sha256 "60176c98a89202d195d31aca19c8977b4b1be23d0ee5f100f6efa554429c8efb"
+    version "10.6.0"
+    sha256 "6646621a4c0e81d3a00a85ed1017dc2933d0c79b2dd3c017dcbd666a5f279645"
   end
 
   resource "prebuilt-arm.tar.xz" do
-    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.5.0/docker/prebuilt-arm.tar.xz",
+    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.6.0/docker/prebuilt-arm.tar.xz",
         :using => :nounzip
-    version "10.5.0"
-    sha256 "947beebf1508cac3b22a2c06e1275a0cfb404dc023cbbb0534229df0fcfee164"
+    version "10.6.0"
+    sha256 "492bf09f38af1003c613910b4edd37c5082369ac671be077e009f955d9dbf371"
   end
 
   def install

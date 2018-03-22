@@ -3,23 +3,23 @@ class GstPython < Formula
   homepage "https://gstreamer.freedesktop.org/modules/gst-python.html"
   url "https://gstreamer.freedesktop.org/src/gst-python/gst-python-1.14.0.tar.xz"
   sha256 "e0b98111150aa3fcdeb6e228cd770995fbdaa8586fc02ec9b3273d4ae83399e6"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "a196fc470d57c55e80a68c5e76c8dc99479c173f9766b83b9df6ea02aa4a5e05" => :high_sierra
-    sha256 "fdf9bf9f7c97eafd5182e5c46f90013527a80a5b5a54139d93188748b582f377" => :sierra
-    sha256 "3a561a608a5d284cb4403ef50c494779127cd474a7fe9aaad147cea9b83e7d7e" => :el_capitan
+    sha256 "9544d0be8252c0199884f7a327710bf891369ffe5ab153493f92623bcad5a870" => :high_sierra
+    sha256 "b0adaefeaadac19768117c34698d7ce676296820505cfdee83d4d0cc02e4ce10" => :sierra
+    sha256 "97edb68319984a8383a4c68ae617aa275f9bc3268c321742c13eb62eac163f88" => :el_capitan
   end
 
-  option "with-python", "Build with python 3 support"
-  option "without-python@2", "Build without python 2 support"
+  option "without-python", "Build without python 3 support"
+  option "with-python@2", "Build with python 2 support"
 
   depends_on "gst-plugins-base"
-  depends_on "python@2" => :recommended if MacOS.version <= :snow_leopard
-  depends_on "python" => :optional
+  depends_on "python@2" => :optional if MacOS.version <= :snow_leopard
+  depends_on "python" => :recommended
 
-  depends_on "pygobject3" if build.with? "python@2"
-  depends_on "pygobject3" => "with-python" if build.with? "python"
+  depends_on "pygobject3" if build.with? "python"
+  depends_on "pygobject3" => "with-python@2" if build.with? "python@2"
 
   link_overwrite "lib/python2.7/site-packages/gi/overrides"
 
@@ -28,7 +28,7 @@ class GstPython < Formula
       # Upstream does not support having both Python2 and Python3 versions
       # of the plugin installed because apparently you can load only one
       # per process, so GStreamer does not know which to load.
-      odie "You must pass both --with-python and --without-python@2 for python 3 support"
+      odie "You must pass both --without-python and --with-python@2 for python 2 support"
     end
 
     Language::Python.each_python(build) do |python, version|

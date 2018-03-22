@@ -3,13 +3,13 @@ class Mat < Formula
   homepage "https://mat.boum.org/"
   url "https://mat.boum.org/files/mat-0.6.1.tar.xz"
   sha256 "0782e7db554ad1dddefd71c9c81e36a05464d73ab54ee2a474ea6ac90e8e51b9"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cfe2fe011ff1a29f1cdc813228d0298a5466f23512d355591ac3158b01dbd28a" => :high_sierra
-    sha256 "19739de30a7987e8006242228a864827e298362b314b874c0d9b344de8ed9ac0" => :sierra
-    sha256 "98f9e4259c8a83bfe279937fae9e84af170741db0c153798a76ebc4a7902754c" => :el_capitan
+    sha256 "b944eae68110eba71a0324548b3f153266d040e5f5144c87d8a1f11189b68bdc" => :high_sierra
+    sha256 "79ca171addde571ff859bcb533842f0b81d71229ca2c94ea06977063a72edf7d" => :sierra
+    sha256 "be9d42344640bddc264ccefc4d11e569187aa109b99e052d0d068cc8046bb2f8" => :el_capitan
   end
 
   deprecated_option "with-python" => "with-python@2"
@@ -17,7 +17,8 @@ class Mat < Formula
   depends_on "python@2" => :optional
   depends_on "coreutils"
   depends_on "poppler"
-  depends_on "pygobject3"
+  depends_on "py2cairo"
+  depends_on "pygobject3" => "with-python@2"
   depends_on "exiftool" => :optional
   depends_on "gettext" => :build
   depends_on "intltool" => :build

@@ -1,16 +1,14 @@
 class Openrct2 < Formula
   desc "Open source re-implementation of RollerCoaster Tycoon 2"
-  homepage "https://openrct2.website"
-  url "https://github.com/OpenRCT2/OpenRCT2/archive/v0.1.1.tar.gz"
-  sha256 "5d7a6c7f3c770e7de506958f86789c438c543c27d312fd096322cde4e89f50ad"
-  revision 1
+  homepage "https://openrct2.io/"
+  url "https://github.com/OpenRCT2/OpenRCT2/archive/v0.1.2.tar.gz"
+  sha256 "358fc0ceff848734b399dc63c1d7a0c096a54a793afe4522d6f0dd00ba9328c7"
   head "https://github.com/OpenRCT2/OpenRCT2.git", :branch => "develop"
 
   bottle do
     cellar :any
-    sha256 "b334e1d1e0b847c7739538f6f24431cd3cd9bdecaabff753a233c3c5453b4bb0" => :high_sierra
-    sha256 "1d43828de7df01c6ae811fd9934ad64e924c864c7603d289dc3beeb4ba87cd91" => :sierra
-    sha256 "723d04c2e90c75ecd49b53e90e7eb28fec4ba3d0a6d0cba8988f7b08f9e8d0b7" => :el_capitan
+    sha256 "a2a31260b0c6fb1d780945f9a8517fc7bc0a832e7aadb5aeda5ff5f4517071b3" => :high_sierra
+    sha256 "3f50413762987b388ba37939734339369875e746079bbbc840a2d640c65dde39" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -18,6 +16,7 @@ class Openrct2 < Formula
   depends_on "jansson"
   depends_on "libpng"
   depends_on "libzip"
+  depends_on :macos => :sierra # undefined symbol ___cpu_model on El Capitan
   depends_on "openssl"
   depends_on "sdl2"
   depends_on "sdl2_ttf"

@@ -3,19 +3,19 @@ class Xdot < Formula
   homepage "https://github.com/jrfonseca/xdot.py"
   url "https://files.pythonhosted.org/packages/75/d3/89151e5c24f59ac5577368651f9d2a5db3cdd870e8f96896e505cb876187/xdot-0.9.tar.gz"
   sha256 "a33701664ecfefe7c7313a120a587e87334f3a566409bc451538fcde5edd6907"
-  revision 1
+  revision 2
   head "https://github.com/jrfonseca/xdot.py.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b0111265a36ac730ad040db3632056cefcdf93138b7e555e837cc333a4b44da3" => :high_sierra
-    sha256 "b0111265a36ac730ad040db3632056cefcdf93138b7e555e837cc333a4b44da3" => :sierra
-    sha256 "b0111265a36ac730ad040db3632056cefcdf93138b7e555e837cc333a4b44da3" => :el_capitan
+    sha256 "dd7519b26d47bda34d522508e965d460f4b1ef3d115a5ae45a2b043d0040bbf9" => :high_sierra
+    sha256 "dd7519b26d47bda34d522508e965d460f4b1ef3d115a5ae45a2b043d0040bbf9" => :sierra
+    sha256 "dd7519b26d47bda34d522508e965d460f4b1ef3d115a5ae45a2b043d0040bbf9" => :el_capitan
   end
 
   depends_on "gtk+3"
   depends_on "py3cairo"
-  depends_on "pygobject3" => "with-python"
+  depends_on "pygobject3"
   depends_on "python"
 
   resource "graphviz" do

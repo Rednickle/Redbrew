@@ -3,13 +3,13 @@ class Gom < Formula
   homepage "https://wiki.gnome.org/Projects/Gom"
   url "https://download.gnome.org/sources/gom/0.3/gom-0.3.3.tar.xz"
   sha256 "ac57e34b5fe273ed306efaeabb346712c264e341502913044a782cdf8c1036d8"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
-    sha256 "a3f9f89c5648aa2edc032ceba59d353ac78598e4c82bb2d4bb557bc67d79f4e6" => :high_sierra
-    sha256 "c4a10eb5ceb7c295994b401eafc490cd3fe6948de6e4f4490b98f1a1d335e254" => :sierra
-    sha256 "80f838e797f8336eb5e5dc3319e5a090622311163c03c5c5b394b6b371beef19" => :el_capitan
+    sha256 "4af3ad57e78007aa38bbbf602df75c93e49699bff203f6b2c7085885ed5ece4f" => :high_sierra
+    sha256 "29436d1d80204799c37940197aab65182dadbfe1be66431c9a5f72404528eaa1" => :sierra
+    sha256 "536b1b030e14db2cc7540e0505a251b9227b79c6dd2449a0d6a980e81487da53" => :el_capitan
   end
 
   depends_on "gobject-introspection" => :build
@@ -19,7 +19,7 @@ class Gom < Formula
   depends_on "gettext"
   depends_on "glib"
   depends_on "py3cairo"
-  depends_on "pygobject3" => "with-python"
+  depends_on "pygobject3"
   depends_on "python"
   depends_on "sqlite"
 
