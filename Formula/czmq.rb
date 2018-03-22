@@ -1,15 +1,25 @@
 class Czmq < Formula
   desc "High-level C binding for ZeroMQ"
   homepage "http://czmq.zeromq.org/"
-  url "https://github.com/zeromq/czmq/releases/download/v4.1.0/czmq-4.1.0.tar.gz"
-  sha256 "3befa35b4886b5298e8329b4f0aa5bb9bde0e7439bd3c5c53295cb988371fc11"
+  revision 1
+
+  stable do
+    url "https://github.com/zeromq/czmq/releases/download/v4.1.0/czmq-4.1.0.tar.gz"
+    sha256 "3befa35b4886b5298e8329b4f0aa5bb9bde0e7439bd3c5c53295cb988371fc11"
+
+    # ZeroMQ 4.2.4 compatibility
+    # 7 Mar 2018 "Problem: atexit called after zmq static object destruction"
+    patch do
+      url "https://github.com/zeromq/czmq/commit/7debf8ff8.patch?full_index=1"
+      sha256 "b797072908bcdfb2e11bbabe0351c9392b4946ae99d439d34bd922a77d7896c9"
+    end
+  end
 
   bottle do
     cellar :any
-    sha256 "d94e31bd03d2e1b39c9709c26640f06702048b033603824dbc80de808527c4f9" => :high_sierra
-    sha256 "152459a284258269a621c46feb6d731acb71b5fb09e9454358e20e4de2511f40" => :sierra
-    sha256 "2f7ed27869f798dadf5fefdc0d7534ecec02a7ab6516f62acd4708566b886b7f" => :el_capitan
-    sha256 "1da15e9e650c1f5846d66cd6a3ced6afc3b2e065447862fa1c2df9206dde7280" => :x86_64_linux
+    sha256 "1530e0574a63f6d6a4a5526ed15bb7fc18fac8950cfed2e1b6c46b4990b62d78" => :high_sierra
+    sha256 "47513eabd5e660fc4dcaf7c37e06d5e0ce0ac78075a2c02e76b62c4253a39a5b" => :sierra
+    sha256 "01dc807c195351b97b5c007dda0b0c3fc27f549eec97ce08de9a9aba8fb83763" => :el_capitan
   end
 
   head do

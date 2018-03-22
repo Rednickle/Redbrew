@@ -1,15 +1,14 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v9.8.0/node-v9.8.0.tar.xz"
-  sha256 "0706bb49e4fa5fa64c6c51941becb4b3854a6c0335425d7312bc086c37b41eac"
+  url "https://nodejs.org/dist/v9.9.0/node-v9.9.0.tar.xz"
+  sha256 "ab8a721b8db1193754885e891ebde9a982c82fd9207df04a2aebafbb9fb27042"
   head "https://github.com/nodejs/node.git"
 
   bottle do
-    sha256 "30bb35f2f6a6d7cde6194164549b87e63deb1fffa2e750d57a510cb5262db58f" => :high_sierra
-    sha256 "2baa6fa3c25d4d5c756be9be985f14e12eb954d4812aca4794be256e4f23d3c3" => :sierra
-    sha256 "8e8fe430186e531e8753669ebd11dbf4da6cea7ca38fbcb3cc46fcffd4a3d9b0" => :el_capitan
-    sha256 "a6945cf8fa3e46c463e90bb7249ed1610de62529f7a5c6475167437a04674684" => :x86_64_linux
+    sha256 "f855f86a3b43ffa192934ecceec8963f3f885d64d2ead9a443def7cf891743b9" => :high_sierra
+    sha256 "29b07ae1d1a7a150664aef82204dd6b982bf41e3f915e1eb900119370f5f4d6a" => :sierra
+    sha256 "558013be48323f467e8d5f575a21a8d4ae92db0369188bfc054aa4bcc543018f" => :el_capitan
   end
 
   option "with-debug", "Build with debugger hooks"
@@ -109,12 +108,7 @@ class Node < Formula
       cp Dir[libexec/"lib/node_modules/npm/man/#{man}/{npm,package.json,npx}*"], HOMEBREW_PREFIX/"share/man/#{man}"
     end
 
-    npmrc = <<~EOS
-      prefix = #{HOMEBREW_PREFIX}
-      python = /usr/bin/python
-    EOS
-    (node_modules/"npm/npmrc").atomic_write npmrc
-    (libexec/"lib/node_modules/npm/npmrc").atomic_write npmrc
+    (node_modules/"npm/npmrc").atomic_write("prefix = #{HOMEBREW_PREFIX}\n")
   end
 
   def caveats
