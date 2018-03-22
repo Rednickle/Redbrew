@@ -10,6 +10,7 @@ class DockerSquash < Formula
     sha256 "ada8e2727f4add1d47a5036a14cda33e7e40f1209b5a9b01a842fd43a680c9d8" => :high_sierra
     sha256 "ada8e2727f4add1d47a5036a14cda33e7e40f1209b5a9b01a842fd43a680c9d8" => :sierra
     sha256 "dac6b0bf9dcb79b72542cb4a2ab889cca334fbdb645c7f24b96112bc61b391c7" => :el_capitan
+    sha256 "f576190d005656a71a503b8f28443205fa2f1d9a18f515802de4c328dcd40e97" => :x86_64_linux
   end
 
   depends_on "python@2" if MacOS.version <= :snow_leopard
