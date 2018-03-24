@@ -9,6 +9,7 @@ class Xtensor < Formula
     sha256 "907d53c2becacff2d3cb5e8b8488ec0552254a005d4d6538ccd1592b08a6c6b4" => :high_sierra
     sha256 "907d53c2becacff2d3cb5e8b8488ec0552254a005d4d6538ccd1592b08a6c6b4" => :sierra
     sha256 "907d53c2becacff2d3cb5e8b8488ec0552254a005d4d6538ccd1592b08a6c6b4" => :el_capitan
+    sha256 "52ad3413194faac6207ee119cd2b622bdbe2bf2b9b52a59f7ed31d5565a34476" => :x86_64_linux
   end
 
   needs :cxx14
