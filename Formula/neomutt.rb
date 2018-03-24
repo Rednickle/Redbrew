@@ -1,15 +1,14 @@
 class Neomutt < Formula
   desc "E-mail reader with support for Notmuch, NNTP and much more"
   homepage "https://www.neomutt.org/"
-  url "https://github.com/neomutt/neomutt/archive/neomutt-20180223.tar.gz"
-  sha256 "10ba010017cf7db6bb5ac3e2116d6defad56d34be0dceea9d70a66d8510927bb"
-  revision 1
+  url "https://github.com/neomutt/neomutt/archive/neomutt-20180323.tar.gz"
+  sha256 "4c498424cd6ded946c940f38df7cd01604a23059f258f05d979b2580eafc678b"
   head "https://github.com/neomutt/neomutt.git"
 
   bottle do
-    sha256 "33f583331446ba0ef8182f9012582ea78cf8744f892b6503f2fbafdfba93a1b1" => :high_sierra
-    sha256 "d6217664b0b41cd8203006f18586997465c6cfc829978fd63c830e7dda3ace52" => :sierra
-    sha256 "c32e278abf1a8a69cb5e0c5976bb140db3dd941cd1c40ccbc6adac9987ba84e8" => :el_capitan
+    sha256 "ae2354a645f5602da74cee42e385815ed58730d95138a73ff25200e77d8fdbd5" => :high_sierra
+    sha256 "30c9faf7758144c6689ce52e18f14002746889635164f423cb05885b370d637b" => :sierra
+    sha256 "92f82210f31bc4667f65bd370750f9ec725535c382084a09771b10b87958ab9d" => :el_capitan
   end
 
   depends_on "docbook-xsl" => :build

@@ -3,14 +3,13 @@ class Lua < Formula
   homepage "https://www.lua.org/"
   url "https://www.lua.org/ftp/lua-5.3.4.tar.gz"
   sha256 "f681aa518233bc407e23acf0f5887c884f17436f000d453b2491a9f11a52400c"
-  revision OS.mac? ? 2 : 3
+  revision OS.mac? ? 3 : 4
 
   bottle do
     cellar :any
-    sha256 "6312fdaa1a4ce5bbabc19352a5db6777715568f8840d6b28f74b5caac99b555c" => :high_sierra
-    sha256 "ff0a15af61df2a80d41740586df41ebe93cb2c0a1c91f28cf291ae051764e0c7" => :sierra
-    sha256 "5d6e7dc0b597bd81493e02e77e35ef13efbc29823d2dd0bd8fbeb30166f1365b" => :el_capitan
-    sha256 "7ae67f4e751b3e3ab1912f0b474011f8282ff3f5b41e2056bd327ab4a5b023a8" => :x86_64_linux
+    sha256 "3a282a0460101a4080e8523e79b876595f04ac836ea10cc872f7c071c70d022b" => :high_sierra
+    sha256 "0f4a3b7504bfc083449a982e0a00e8d9c241a19c194ffd0c1a85f325592f192b" => :sierra
+    sha256 "e630ffbc4c8d2e7013c144d1138ed5410235b9fe10ea805aeb80922b9795417c" => :el_capitan
   end
 
   option "without-luarocks", "Don't build with Luarocks support embedded"
@@ -33,11 +32,9 @@ class Lua < Formula
   # ***Update me with each version bump!***
   patch :DATA if OS.mac?
 
-  # Don't use the https://luarocks.org/releases/luarocks-x.y.z.tar.gz URL
-  # directly as it redirects to the HTTP version of the below URL.
   resource "luarocks" do
-    url "https://luarocks.github.io/luarocks/releases/luarocks-2.4.3.tar.gz"
-    sha256 "4d414d32fed5bb121c72d3ff1280b7f2dc9027a9bc012e41dfbffd5b519b362e"
+    url "https://luarocks.org/releases/luarocks-2.4.4.tar.gz"
+    sha256 "3938df33de33752ff2c526e604410af3dceb4b7ff06a770bc4a240de80a1f934"
   end
 
   def install
@@ -93,10 +90,10 @@ class Lua < Formula
 
         # This block ensures luarock exec scripts don't break across updates.
         inreplace libexec/"share/lua/5.3/luarocks/site_config.lua" do |s|
-          s.gsub! libexec.to_s, opt_libexec
-          s.gsub! include.to_s, "#{HOMEBREW_PREFIX}/include"
-          s.gsub! lib.to_s, "#{HOMEBREW_PREFIX}/lib"
-          s.gsub! bin.to_s, "#{HOMEBREW_PREFIX}/bin"
+          s.gsub! libexec, opt_libexec
+          s.gsub! include, HOMEBREW_PREFIX/"include"
+          s.gsub! lib, HOMEBREW_PREFIX/"lib"
+          s.gsub! bin, HOMEBREW_PREFIX/"bin"
         end
       end
     end
