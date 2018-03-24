@@ -9,6 +9,7 @@ class Libdvdcss < Formula
     sha256 "4029db91ed7536435bd29db6b67f55509be13e70b6170337edec72daad8992c4" => :high_sierra
     sha256 "907d51957c4674ddeb27b458dcf5f1f4b382219bda893fc8908147acc1c2b1ea" => :sierra
     sha256 "0aaed21ecd3c8d3b4a9997300a599de5a541689ab200a6ffce52167b2ce5b664" => :el_capitan
+    sha256 "b6842616d5b1372ac4f0a22a70c37d1c740af0cc73886c0b96e93131f80977b8" => :x86_64_linux
   end
 
   head do
