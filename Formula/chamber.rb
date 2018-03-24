@@ -1,16 +1,15 @@
 class Chamber < Formula
   desc "CLI for managing secrets through AWS SSM Parameter Store"
   homepage "https://github.com/segmentio/chamber"
-  url "https://github.com/segmentio/chamber/archive/v1.17.0.tar.gz"
-  sha256 "ad9204125829cb63c867547c9e1ec18ebdbbdabc9794d8e80fac7c8ba141666a"
+  url "https://github.com/segmentio/chamber/archive/v2.0.0.tar.gz"
+  sha256 "93d9005905417c7eae0a7173aabb5c9c705a1024aff392c4d8f61fba9e71b039"
   head "https://github.com/segmentio/chamber.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "21c3003833cea999424b092168aaed189d333b1ea58e069376f73f6d682964f8" => :high_sierra
-    sha256 "b546c8f522dce5cef87cc81bef6753d90353aad1aa2e3d7fbc488ebe091b61f5" => :sierra
-    sha256 "dd5fbd17d724eec79b37082ea659525c64fa412533d3a83d53eb019d338d1a4e" => :el_capitan
-    sha256 "9913ac154c875b7047e6ae3768d0a3c32604868931dde8ce30bb7f6cb6b2cb2a" => :x86_64_linux
+    sha256 "8251becd25aaaddf8742d2e0253210ae5443f6bfff0a295d87c177819f9247a2" => :high_sierra
+    sha256 "1b456146dabcbcbc05cfcef6621c737e071591a1d506239300b4a47bbc872adf" => :sierra
+    sha256 "838ae965d593e089e44333ac289d60607d8b54ea6c68ae2c3db3e407e4b02c85" => :el_capitan
   end
 
   depends_on "go" => :build
