@@ -38,4 +38,8 @@ class Lnav < Formula
                           "--with-readline=#{Formula["readline"].opt_prefix}"
     system "make", "install"
   end
+
+  test do
+    system "#{bin}/lnav", "-V"
+  end
 end

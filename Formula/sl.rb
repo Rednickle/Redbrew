@@ -27,4 +27,8 @@ class Sl < Formula
     bin.install "sl"
     man1.install "sl.1"
   end
+
+  test do
+    system "#{bin}/sl", "-c"
+  end
 end
