@@ -3,12 +3,12 @@ class Vips < Formula
   homepage "https://github.com/jcupitt/libvips"
   url "https://github.com/jcupitt/libvips/releases/download/v8.6.3/vips-8.6.3.tar.gz"
   sha256 "f85adbb9f5f0f66b34a40fd2d2e60d52f6e992831f54af706db446f582e10992"
-  revision 1
+  revision 3
 
   bottle do
-    sha256 "6c2b0a986cea55fac585c32c56d67100fbc5e173cca2bb800289a10d1cc3c249" => :high_sierra
-    sha256 "a8d798888662a6f4f1676ba3a0a4859c6c1c2f56bdc709a9cebd6c0e3d6676c1" => :sierra
-    sha256 "fc2646439d6b7d67275a793d16dfc92767e5b38986557689aba218ea8878fe8d" => :el_capitan
+    sha256 "3071841fce806097f079ec2e21680bfa344fca884b849be6df293043d91a002e" => :high_sierra
+    sha256 "486078437ada13c6c1630d93e936757da062a619c05ac8b92aff930d132a8d9b" => :sierra
+    sha256 "51d8d142d28690d3d97b965cb323fefc0f6a82ab572a1668ea3ea84fb5507059" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -27,16 +27,18 @@ class Vips < Formula
   depends_on "orc"
   depends_on "pango"
   depends_on "pygobject3"
+  depends_on "webp"
   depends_on "fftw" => :recommended
+  depends_on "graphicsmagick" => :recommended
   depends_on "poppler" => :recommended
-  depends_on "graphicsmagick" => :optional
   depends_on "imagemagick" => :optional
-  depends_on "jpeg-turbo" => :optional
-  depends_on "mozjpeg" => :optional
   depends_on "openexr" => :optional
   depends_on "openslide" => :optional
-  depends_on "webp" => :optional
   depends_on "curl" unless OS.mac?
+
+  if build.with?("graphicsmagick") && build.with?("imagemagick")
+    odie "vips: --with-imagemagick requires --without-graphicsmagick"
+  end
 
   def install
     args = %W[
@@ -48,20 +50,9 @@ class Vips < Formula
 
     if build.with? "graphicsmagick"
       args << "--with-magick" << "--with-magickpackage=GraphicsMagick"
+    elsif build.with? "imagemagick"
+      args << "--with-magick"
     end
-
-    # Let the formula find optional jpeg libraries before the main
-    # jpeg formula.
-    if build.with? "jpeg-turbo"
-      ENV.prepend_path "PKG_CONFIG_PATH",
-                       Formula["jpeg-turbo"].opt_lib/"pkgconfig"
-    end
-    if build.with? "mozjpeg"
-      ENV.prepend_path "PKG_CONFIG_PATH",
-                       Formula["mozjpeg"].opt_lib/"pkgconfig"
-    end
-
-    args << "--without-libwebp" if build.without? "webp"
 
     system "./configure", *args
     system "make", "install"
