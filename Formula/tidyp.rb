@@ -35,4 +35,8 @@ class Tidyp < Formula
       man1.install gzip("tidyp.1")
     end
   end
+
+  test do
+    system "#{bin}/tidyp", "--version"
+  end
 end

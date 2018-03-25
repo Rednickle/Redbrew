@@ -16,4 +16,8 @@ class Pdfcrack < Formula
     system "make", "all"
     bin.install "pdfcrack"
   end
+
+  test do
+    system "#{bin}/pdfcrack", "--version"
+  end
 end

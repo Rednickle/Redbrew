@@ -20,4 +20,8 @@ class Gpp < Formula
     system "make", "check"
     system "make", "install"
   end
+
+  test do
+    system "#{bin}/gpp", "--version"
+  end
 end

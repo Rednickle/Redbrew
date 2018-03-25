@@ -16,4 +16,8 @@ class GitNumber < Formula
     system "make", "test"
     system "make", "prefix=#{prefix}", "install"
   end
+
+  test do
+    system "#{bin}/git-number", "-v"
+  end
 end

@@ -35,6 +35,10 @@ class Nload < Formula
     # Unset LDFLAGS, "-s" causes the linker to crash
     system "make", "install", "LDFLAGS="
   end
+
+  test do
+    system "#{bin}/nload", "--help"
+  end
 end
 
 

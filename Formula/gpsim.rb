@@ -28,4 +28,8 @@ class Gpsim < Formula
     system "make", "all"
     system "make", "install"
   end
+
+  test do
+    system "#{bin}/gpsim", "--version"
+  end
 end
