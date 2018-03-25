@@ -1,15 +1,14 @@
 class Treefrog < Formula
   desc "High-speed C++ MVC Framework for Web Application"
   homepage "http://www.treefrogframework.org/"
-  url "https://github.com/treefrogframework/treefrog-framework/archive/v1.20.0.tar.gz"
-  sha256 "72d22e3051cea9c42ad163c9f2a706d0b47640648c594ec7c4beebb0899ee57b"
+  url "https://github.com/treefrogframework/treefrog-framework/archive/v1.21.0.tar.gz"
+  sha256 "85fb8bb4271fc482959f9d0f46eb28b6abe8453d378341a99774a43d1f7c87c9"
   head "https://github.com/treefrogframework/treefrog-framework.git"
 
   bottle do
-    sha256 "f1a48752ac8103cc489909e828e33acc71757b27dd15ec507caff708037f96c4" => :high_sierra
-    sha256 "6c8b7fa1940f50371cae7e0f2851423babf889a2644b775d39e94b9c10108bac" => :sierra
-    sha256 "cb407f8bc9eaf7b6bbb1a28e8305f32819216bb2bf4c4836ed942b0d33a6d0e3" => :el_capitan
-    sha256 "6168ec79f6a93c34c2d40247557a8fda23c30a9b8698c0143afd685e4f79d610" => :x86_64_linux
+    sha256 "6c1398ebc178176888a02a3ce244455e88c17433c3d9dc1eb0067e7772bb2fc4" => :high_sierra
+    sha256 "397a1b29e4360479db8ea6ba139e10f1df54eb60064b16e8b3230764b2ee6cc1" => :sierra
+    sha256 "124b9f9e2fbde088ee8d4462efb38142bde569603ff1b1b656d9f601a1f941b0" => :el_capitan
   end
 
   deprecated_option "with-qt5" => "with-qt"

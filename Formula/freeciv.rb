@@ -1,14 +1,13 @@
 class Freeciv < Formula
   desc "Free and Open Source empire-building strategy game"
   homepage "https://freeciv.wikia.com/"
-  url "https://downloads.sourceforge.net/project/freeciv/Freeciv%202.5/2.5.10/freeciv-2.5.10.tar.bz2"
-  sha256 "c8a14156562dce2f0a7b96390c2d5a35314f1124c448782a6a47b0c51cfcb302"
-  revision 1
+  url "https://downloads.sourceforge.net/project/freeciv/Freeciv%202.5/2.5.11/freeciv-2.5.11.tar.bz2"
+  sha256 "4c9c526952fe977cb4b302b8ccf75798fd066c6dde670f72f677fe4964259aad"
 
   bottle do
-    sha256 "ada1f9cf3845f51ddf211073d748ad8cf3abeabbf84b0ed2a60b9c6f42a76724" => :high_sierra
-    sha256 "17f27e2d364282ecee0b7f6702db1dd90832d6c366e5c82dbfe6d84ce010a45f" => :sierra
-    sha256 "e7273f6d8b1ea05dd17ffbc1daf7d0a6480f664861b55226a9ebcf4a8bddc3f8" => :el_capitan
+    sha256 "ede585a0c8932e511c9744cebcc81337cefcb697d850fb5ad5ecdc7615b0d1bb" => :high_sierra
+    sha256 "7fc228dbaacabe0f92705048cd853d591e8dfee9cd8c3cf9b33ccf9f20812ce1" => :sierra
+    sha256 "0f4c382e7b64f0a080d5d0c9ad2655919ef064675d3a58a783dea26adb7f14bd" => :el_capitan
   end
 
   head do
