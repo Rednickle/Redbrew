@@ -1,27 +1,24 @@
 class Htop < Formula
   desc "Improved top (interactive process viewer)"
   homepage "https://hisham.hm/htop/"
-  revision 2
 
   stable do
-    url "https://hisham.hm/htop/releases/2.0.2/htop-2.0.2.tar.gz"
-    sha256 "179be9dccb80cee0c5e1a1f58c8f72ce7b2328ede30fb71dcdf336539be2f487"
+    url "https://hisham.hm/htop/releases/2.1.0/htop-2.1.0.tar.gz"
+    sha256 "3260be990d26e25b6b49fc9d96dbc935ad46e61083c0b7f6df413e513bf80748"
 
-    # Running htop can lead to system freezes on macOS 10.13
-    # https://github.com/hishamhm/htop/issues/682
-    if MacOS.version >= :high_sierra
-      patch do
-        url "https://github.com/hishamhm/htop/commit/b2771218.patch?full_index=1"
-        sha256 "3369f8aed21706d809db062f25fd46bf9c0677712a624697bc5415aa45d5d104"
-      end
+    # Remove for > 2.1.0
+    # Upstream commit from 25 Mar 2018 "Keep scanning threads for versions
+    # before High Sierra 13.0.0 and after 13.3.0."
+    patch do
+      url "https://github.com/hishamhm/htop/commit/52e2884f.patch?full_index=1"
+      sha256 "5daeb1a532cf8e4524a4f3093792a687d77b50c3f78c713b410ebb2bc9ae79b2"
     end
   end
 
   bottle do
-    sha256 "4e65d1d92ef616935ee5b6e498e05ad92e733ced3a41a408c2b30ce7a6b5a1ed" => :high_sierra
-    sha256 "4e9fe44dc41ca415f3465b8445d06df7ed319ca50522758dc44298daff9d9de5" => :sierra
-    sha256 "adf2b63b4fa6d96efc9cfb7c5726d14f5b70a6f38c8e7cea38e0befd26c6ca7f" => :el_capitan
-    sha256 "fa213231cbace1bbde83b1ff2c2c97b121a2ae726a81b18bdc60b2b618b5780c" => :x86_64_linux
+    sha256 "2b821083315e53a46381552d574d078e02494692e8da6068f36e450f6800dd44" => :high_sierra
+    sha256 "e75326fdc0d4f968713eb59b028c5dc24c725e546f51391bf38152bbf69e7405" => :sierra
+    sha256 "c8adbacd3abd497f92511b6e406aaa27d8ab6f19dbce79c297ef226787655fef" => :el_capitan
   end
 
   head do
@@ -30,7 +27,6 @@ class Htop < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
-    depends_on "pkg-config" => :build
   end
 
   if OS.mac?
@@ -40,6 +36,7 @@ class Htop < Formula
     depends_on "ncurses"
   end
 
+  depends_on "pkg-config" => :build
   depends_on "ncurses" => :optional
 
   def install
