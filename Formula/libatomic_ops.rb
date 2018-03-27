@@ -9,6 +9,7 @@ class LibatomicOps < Formula
     sha256 "ce3c9fd22f329bcc0161de61061c3ef4058664a58993cead3b0dc9eebcd73ff7" => :high_sierra
     sha256 "72210cf477e6eaa39232383ca9912fef5d025a7cc91c40db16bdb85533124736" => :sierra
     sha256 "2e1070711abeefa9ea329fbae5881c1caba725d5d0f9c3b4d21845593bdd3a72" => :el_capitan
+    sha256 "08716a2405b9843b9c03e48ac7d705de2317343f9dae51743b06e5f01216c842" => :x86_64_linux
   end
 
   def install
