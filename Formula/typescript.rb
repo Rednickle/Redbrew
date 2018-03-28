@@ -3,16 +3,15 @@ require "language/node"
 class Typescript < Formula
   desc "Language for application scale JavaScript development"
   homepage "http://typescriptlang.org/"
-  url "https://registry.npmjs.org/typescript/-/typescript-2.7.2.tgz"
-  sha256 "7bfe92c97068cc0eabe1f33a4f2394ac0ac57d28b91e659a2d325b341d2ed270"
+  url "https://registry.npmjs.org/typescript/-/typescript-2.8.1.tgz"
+  sha256 "9b32bd684e935101f00bea2e290879b2a0600c12d068751b8f9c92daddb42224"
   head "https://github.com/Microsoft/TypeScript.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "76eb95420ebd295628bc99ca4ee2967f16312968736f743d6805a6d2fe686e31" => :high_sierra
-    sha256 "f193f456021339608405596c4780d86fbf3bf34b57d8cbb0aa3841f580c1dcaf" => :sierra
-    sha256 "b2d249562e39ea6533d46fd19c285cb4cf8f2b0c5bb656a613841567ed7e6d82" => :el_capitan
-    sha256 "73c7065ef2f6c4da5cc11e1745041bbf49616ef1119b0dcae6a0d6cc7a74cf4f" => :x86_64_linux
+    sha256 "51b3e25831bf1600abab95385de061602ecf35f1e56c3aa678fc6284e2e10b03" => :high_sierra
+    sha256 "01b073eac38c49300c4cfebcd9575e04e60a6e94139fbee4fadf6179cde31b63" => :sierra
+    sha256 "be1b1ab92e9a7a37382736b3b9bd7e1955af7ebd04080fbe82896eb43895cdf0" => :el_capitan
   end
 
   depends_on "node"
