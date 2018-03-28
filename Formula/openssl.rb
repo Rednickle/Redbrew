@@ -15,6 +15,7 @@ class Openssl < Formula
     sha256 "67a795f419adcc7f2cc9c204538f2606ed9cf11f2e9587dea9c4f8189a592dee" => :high_sierra
     sha256 "06ae39a0167691a104a490b5518600f314f72944a18dc1fbdae8405d000b585b" => :sierra
     sha256 "3470a25f36a68d96b00dffcd1452d3d5d171ab3656e126f6e2cf233e2705423d" => :el_capitan
+    sha256 "d6d2abf594a1639e3bdd235a3e325d83711b8e79bb129ce8adf381ee5d00ea5f" => :x86_64_linux
   end
 
   keg_only :provided_by_macos,
