@@ -1,14 +1,13 @@
 class Dartsim < Formula
   desc "Dynamic Animation and Robotics Toolkit"
   homepage "https://dartsim.github.io/"
-  url "https://github.com/dartsim/dart/archive/v6.3.0.tar.gz"
-  sha256 "aa92634c1c97d99966cf16c4a0845792941358c063409fa00c28b4039c961c25"
-  revision 3
+  url "https://github.com/dartsim/dart/archive/v6.4.0.tar.gz"
+  sha256 "7a9e6e081d1cb910a7c9c996d76dd48ddca15b798c6d9a3cc7664534e5d28a84"
 
   bottle do
-    sha256 "1d42c8518e5ca9b1e3385dda95714e4c0dc1d4cee75eeae1c2a690a071080faf" => :high_sierra
-    sha256 "fb766a0cee1b88a16b80f2b67358b4b2d0725f7b91aa3f3c5602f4286369a4d0" => :sierra
-    sha256 "89a67a8591a588303491191c793ec61bc9aabea1ffe79a8ed0eca0a34cef7b91" => :el_capitan
+    sha256 "1dae19e0ce324f008231e77072a5341d5a56bdd4c697358681320b8d9f440206" => :high_sierra
+    sha256 "7ac3fdbebd53601acb3c3d13ea3e5c6c55e77c8957700bf3834eab414cfc21d2" => :sierra
+    sha256 "392a649584943cea24e14984dec90208fd0ba8532b3f800981b8eae7b887831c" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -24,7 +23,6 @@ class Dartsim < Formula
   depends_on "nlopt"
   depends_on "ode"
   depends_on "open-scene-graph"
-  depends_on "tinyxml"
   depends_on "tinyxml2"
   depends_on "urdfdom"
 
@@ -47,7 +45,7 @@ class Dartsim < Formula
     EOS
     system ENV.cxx, "test.cpp", "-I#{Formula["eigen"].include}/eigen3",
                     "-I#{include}", "-L#{lib}", "-ldart",
-                    "-lassimp", "-std=c++11", "-o", "test"
+                    "-lassimp", "-lboost_system", "-std=c++11", "-o", "test"
     system "./test"
   end
 end
