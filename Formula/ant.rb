@@ -1,15 +1,15 @@
 class Ant < Formula
   desc "Java build tool"
   homepage "https://ant.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=ant/binaries/apache-ant-1.10.2-bin.tar.xz"
-  sha256 "361c8ad2ed8341416e323e7c28af10a8297170a80fdffba294a5c2031527bb6c"
+  url "https://www.apache.org/dyn/closer.cgi?path=ant/binaries/apache-ant-1.10.3-bin.tar.xz"
+  sha256 "0b0e09cc25df68b35a750b32d3167f5ed539cf29151636e9f9c260e0c9538ca6"
   head "https://git-wip-us.apache.org/repos/asf/ant.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c2c0bc113e74a41df722ad1b04898892dc0f1746b6a3d00e12058f106d920e09" => :high_sierra
-    sha256 "c2c0bc113e74a41df722ad1b04898892dc0f1746b6a3d00e12058f106d920e09" => :sierra
-    sha256 "c2c0bc113e74a41df722ad1b04898892dc0f1746b6a3d00e12058f106d920e09" => :el_capitan
+    sha256 "7fa99046291828733ec8059c716f31074ddb4cb4ecd20216e1594bb28b801364" => :high_sierra
+    sha256 "7fa99046291828733ec8059c716f31074ddb4cb4ecd20216e1594bb28b801364" => :sierra
+    sha256 "7fa99046291828733ec8059c716f31074ddb4cb4ecd20216e1594bb28b801364" => :el_capitan
   end
 
   keg_only :provided_by_macos if MacOS.version < :mavericks
