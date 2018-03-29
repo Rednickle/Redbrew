@@ -3,13 +3,13 @@ class Node < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v9.10.0/node-v9.10.0.tar.xz"
   sha256 "945a35a2599dfc0a306cdb3aae1c70034d6c28b03ab85daf8f2166fdaaade63a"
+  revision 1
   head "https://github.com/nodejs/node.git"
 
   bottle do
-    sha256 "7ee759cf7d17b1538876c030a01ecd2ef640ea5117ab8023b449afa5da1aecab" => :high_sierra
-    sha256 "a484fd25430e7c8c775d5e3247e99a3f292e5d3ae95df12e2736cefff5f9c447" => :sierra
-    sha256 "4d2aba30360cc61a09931cbe8c3049c3adb2010b615ba67f6b26d7fb46a024e9" => :el_capitan
-    sha256 "55425d1fe42739c74a04e996eb281f54efb9755912355a31733bad16c05010f1" => :x86_64_linux
+    sha256 "46e27cdc41da39ae64ae30c9f737f546e41e7033c8a62bdac8497e66ca9d0b93" => :high_sierra
+    sha256 "df95eda5320fa8a3b956afd932d57cd212a3d167da0c58c681df3625dad9f8c3" => :sierra
+    sha256 "50c2edc3778341156c6e1f2e68df1b06369534746a8392bd999b9a678d0fcfca" => :el_capitan
   end
 
   option "with-debug", "Build with debugger hooks"

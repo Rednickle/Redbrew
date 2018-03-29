@@ -3,13 +3,12 @@ class Php < Formula
   homepage "https://php.net/"
   url "https://php.net/get/php-7.2.3.tar.xz/from/this/mirror"
   sha256 "b3a94f1b562f413c0b96f54bc309706d83b29ac65d9b172bc7ed9fb40a5e651f"
-  revision 3
+  revision 4
 
   bottle do
-    rebuild 1
-    sha256 "a5c17b81f3cc58b8efdc55b040b838d3af0234594317f69e3e8485d89513cfc3" => :high_sierra
-    sha256 "0cf5c891fa0cbdb5cac6f70305c6157aa7278b931fa88a0ac4c7eaf9f6cd0416" => :sierra
-    sha256 "0646c74c7efb6b178734d3a07d84e3f46e76450494925501a83ea25f89c7320d" => :el_capitan
+    sha256 "f8c936527940c68a19e5b87e88b28a7e2ee6f392f67fb4c517cd45f2bb2c27c1" => :high_sierra
+    sha256 "208473ae88637f4086b32dfc268a75ed8a9fc03fe1d62ff8d22220b559e6d3b5" => :sierra
+    sha256 "8dc66c5c31a33f715982171db85e22c1de62e06b9c274aa046b8798c0725ccf9" => :el_capitan
   end
 
   depends_on "httpd" => [:build, :test]
@@ -67,6 +66,9 @@ class Php < Formula
 
     # Required due to icu4c dependency
     ENV.cxx11
+
+    # icu4c 61.1 compatability
+    ENV.append "CPPFLAGS", "-DU_USING_ICU_NAMESPACE=1"
 
     config_path = etc/"php/#{php_version}"
     # Prevent homebrew from harcoding path to sed shim in phpize script

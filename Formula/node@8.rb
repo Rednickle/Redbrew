@@ -3,12 +3,13 @@ class NodeAT8 < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v8.11.0/node-v8.11.0.tar.xz"
   sha256 "1ad354cf4ac96a904007b907fc1fe7fa2fd3692036da0c2fb1790f7a0204ab3f"
+  revision 1
   head "https://github.com/nodejs/node.git", :branch => "v8.x-staging"
 
   bottle do
-    sha256 "4fb15af89339d7beb6d4e430718b95866a9d00241d50eff306ffa9d98940640d" => :high_sierra
-    sha256 "7fff6b5b2d7a8191a2c894597f87ed7fc2146cf4b9d612e1089c010b002b08e0" => :sierra
-    sha256 "34c5c7afec9cd3829190fc64a398db8481efd4ec85a2155bdf4332a6b245e3c0" => :el_capitan
+    sha256 "a70b66f16ece19506eddd289c59aa9ff2ec6e75be6cf599b26fec7af976debcb" => :high_sierra
+    sha256 "8272b0c03811a30d1f844a5b6eb07138dc4d095d7f92295b9d26359746a1584d" => :sierra
+    sha256 "1dd50798ffaccfa9fe3c60508894348b2c271798ad16728419c697ae43214588" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -33,6 +34,9 @@ class NodeAT8 < Formula
   end
 
   def install
+    # icu4c 61.1 compatability
+    ENV.append "CPPFLAGS", "-DU_USING_ICU_NAMESPACE=1"
+
     args = ["--prefix=#{prefix}"]
     args << "--without-npm" if build.without? "npm"
     args << "--debug" if build.with? "debug"
