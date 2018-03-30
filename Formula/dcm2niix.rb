@@ -10,6 +10,7 @@ class Dcm2niix < Formula
     sha256 "322c0945d61f2203d62b15a94155c7a34bf8925a578d0050fe19f934d68fbdcb" => :high_sierra
     sha256 "b2291464e381862c25d189e616fc53fc23c35fec509fb19a72bc5bc4c9bc9c96" => :sierra
     sha256 "214ba6a0a5728c2387da5a0b06b8820cf6b33ad31eac81982dfbac58efb4760b" => :el_capitan
+    sha256 "3eebb379842994881b757a55720aea54b6aff682acaaf920e6d1f55a492b801a" => :x86_64_linux
   end
 
   option "with-batch"
