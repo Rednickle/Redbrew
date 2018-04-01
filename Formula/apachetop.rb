@@ -34,6 +34,11 @@ class Apachetop < Formula
                           "--with-logfile=/var/log/apache2/access_log"
     system "make", "install"
   end
+
+  test do
+    output = shell_output("#{bin}/apachetop -h 2>&1", 1)
+    assert_match "ApacheTop v#{version}", output
+  end
 end
 
 __END__

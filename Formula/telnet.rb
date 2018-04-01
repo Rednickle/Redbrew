@@ -4,8 +4,6 @@ class Telnet < Formula
   url "https://opensource.apple.com/tarballs/remote_cmds/remote_cmds-54.50.1.tar.gz"
   sha256 "156ddec946c81af1cbbad5cc6e601135245f7300d134a239cda45ff5efd75930"
 
-  conflicts_with "inetutils", :because => "both install 'telnet' binaries"
-
   bottle do
     cellar :any_skip_relocation
     rebuild 1
@@ -18,6 +16,8 @@ class Telnet < Formula
 
   depends_on :macos
   depends_on :xcode => :build
+
+  conflicts_with "inetutils", :because => "both install 'telnet' binaries"
 
   resource "libtelnet" do
     url "https://opensource.apple.com/tarballs/libtelnet/libtelnet-13.tar.gz"
