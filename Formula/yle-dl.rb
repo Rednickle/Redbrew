@@ -14,13 +14,7 @@ class YleDl < Formula
   end
 
   depends_on "rtmpdump"
-  depends_on "python@2" if MacOS.version <= :snow_leopard
-  depends_on "homebrew/php/php70-mcrypt" => :optional
-  depends_on "homebrew/php/php56-mcrypt" => :optional
-  depends_on "homebrew/php/php55-mcrypt" => :optional
-  depends_on "homebrew/php/php54-mcrypt" => :optional
-  depends_on "homebrew/php/php53-mcrypt" => :optional
-  depends_on "gmp" # for pycrypto
+  depends_on "python@2" if MacOS.version <= :snow_leopard || !OS.mac?
   depends_on "libxslt" unless OS.mac? # To be able to build the lxml resource
 
   resource "AdobeHDS.php" do
@@ -103,17 +97,6 @@ class YleDl < Formula
 
     bin.install Dir["#{libexec}/bin/*"]
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
-  end
-
-  def caveats; <<~EOS
-    yle-dl requires the mcrypt PHP module which you can either install manually or install
-    mcrypt from the PHP homebrew tap. You can also install yle-dl with one of optional dependencies
-    which to automatically tap the php tap and download mcrypt module for you.
-
-      brew info yle-dl
-
-    for further info.
-    EOS
   end
 
   test do
