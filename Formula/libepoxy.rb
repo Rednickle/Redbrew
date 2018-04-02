@@ -3,6 +3,7 @@ class Libepoxy < Formula
   homepage "https://github.com/anholt/libepoxy"
   url "https://download.gnome.org/sources/libepoxy/1.5/libepoxy-1.5.0.tar.xz"
   sha256 "4c94995398a6ebf691600dda2e9685a0cac261414175c2adf4645cdfab42a5d5"
+  revision 1
 
   bottle do
     cellar :any
@@ -12,7 +13,7 @@ class Libepoxy < Formula
     sha256 "cebcb818aaec2b82bc409e8fd2c61f058e53c73dd6584aae50df8049c9309458" => :x86_64_linux
   end
 
-  depends_on "meson" => :build
+  depends_on "meson-internal" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "python@2" => :build if MacOS.version <= :snow_leopard
@@ -22,10 +23,11 @@ class Libepoxy < Formula
   patch :DATA
 
   def install
+    ENV.refurbish_args
+
     mkdir "build" do
       system "meson", "--prefix=#{prefix}", *("--libdir=#{lib}" unless OS.mac?), ".."
       system "ninja"
-      system "ninja", "test"
       system "ninja", "install"
     end
   end
@@ -70,10 +72,22 @@ end
 
 __END__
 diff --git a/src/meson.build b/src/meson.build
-index 3401075..23cd173 100644
+index 3401075..031900f 100644
 --- a/src/meson.build
 +++ b/src/meson.build
-@@ -93,7 +93,7 @@ epoxy_has_wgl = build_wgl ? '1' : '0'
+@@ -57,11 +57,6 @@ if host_system == 'linux'
+   endforeach
+ endif
+
+-# Maintain compatibility with autotools; see: https://github.com/anholt/libepoxy/issues/108
+-if host_system == 'darwin'
+-  common_ldflags += [ '-compatibility_version 1', '-current_version 1.0', ]
+-endif
+-
+ epoxy_deps = [ dl_dep, ]
+ if host_system == 'windows'
+   epoxy_deps += [ opengl32_dep, gdi32_dep ]
+@@ -93,7 +88,7 @@ epoxy_has_wgl = build_wgl ? '1' : '0'
  # not needed when building Epoxy; we do want to add them to the generated
  # pkg-config file, for consumers of Epoxy
  gl_reqs = []
@@ -82,3 +96,4 @@ index 3401075..23cd173 100644
    gl_reqs += 'gl'
  endif
  if build_egl and egl_dep.found()
+
