@@ -2,14 +2,14 @@ class Kubeless < Formula
   desc "Kubernetes Native Serverless Framework"
   homepage "https://github.com/kubeless/kubeless"
   url "https://github.com/kubeless/kubeless.git",
-      :tag => "v0.4.0",
-      :revision => "4f4f531f6a1b685bf3842b26cfff5ca7eee533cc"
+      :tag => "v0.5.0",
+      :revision => "a954695ecb48394a510a3501b4b5b565e959b0ed"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "121bc585de3fc20277f9ed7ca084be1204cc5f6c2d64ffe0cd0ff2d4e280e279" => :high_sierra
-    sha256 "100648f5201422b1ce7d6005384e338e03d7899ea4ad273f8fe5c4fe4d51f512" => :sierra
-    sha256 "a6042ea97e4729fd0171c81adf343d5d819832dae1c3cce2a759d1516443b30d" => :el_capitan
+    sha256 "1430b72c0446a5b882c5f5bac5ec308e8cb0e1bc61152a6e5f69c07122b0ec3b" => :high_sierra
+    sha256 "af971109da488edf33b59b0c6eebdf7b558120cbd7fe3e63e648a623e72b25bc" => :sierra
+    sha256 "e983496b579d3680541b593b87a6c744f8b926bb166ac8c43bcd15abf338da32" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -61,6 +61,12 @@ class Kubeless < Formula
             "apiVersion": "kubeless.io/v1beta1",
             "kind": "Function",
             "metadata": { "name": "get-python", "namespace": "default" }
+            }'
+        elsif request_path == "/apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/functions.kubeless.io"
+          response = '{
+            "apiVersion": "apiextensions.k8s.io/v1beta1",
+            "kind": "CustomResourceDefinition",
+            "metadata": { "name": "functions.kubeless.io" }
             }'
         else
           response = "OK"
