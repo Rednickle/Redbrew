@@ -1,13 +1,13 @@
 class Amber < Formula
   desc "CLI client for generating and scaffolding Amber web applications"
   homepage "https://www.amberframework.org/"
-  url "https://github.com/amberframework/amber/archive/v0.7.0.tar.gz"
-  sha256 "ce6f08f68f237750f67220f38fc5fb4abf5058becd784eea6f8e34adef6d78bb"
+  url "https://github.com/amberframework/amber/archive/v0.7.2.tar.gz"
+  sha256 "8f4d11255b82e5d3ab332602783129dd2754aaadca7280d479f337f05590384f"
 
   bottle do
-    sha256 "7223a569a24fcc5c002081d97beb50213ce9ebeded3e163957d83eee52503207" => :high_sierra
-    sha256 "ff76632172ba5be0ebea612103a90c735df39549d1933d91fe1826a63f8af22f" => :sierra
-    sha256 "dc69480565df43e6df8b88f43fa94269efbe02b05fd38240ab2c3cb4fc5e0475" => :el_capitan
+    sha256 "47ffc9f948b296d3a652ae0ee8045e8f240d74a7aa20753ba9d69a7829fe5824" => :high_sierra
+    sha256 "d2383650c2276ade18838c8938a09d5aec2a9d2d131727c2e8cb7877bf9dad1c" => :sierra
+    sha256 "ab08c931d53f5018f104b0601d97726c13fe7986c52a767fa07d1c06fce1937b" => :el_capitan
   end
 
   depends_on "crystal-lang"
