@@ -1,15 +1,13 @@
 class Proj < Formula
   desc "Cartographic Projections Library"
   homepage "http://proj4.org/"
-  url "https://download.osgeo.org/proj/proj-5.0.0.tar.gz"
-  sha256 "b30df08d736e69744cb255828721abb545b494d6032c13a96520f3219a444cd2"
-  revision 1
+  url "https://download.osgeo.org/proj/proj-5.0.1.tar.gz"
+  sha256 "a792f78897482ed2c4e2af4e8a1a02e294c64e32b591a635c5294cb9d49fdc8c"
 
   bottle do
-    sha256 "a37b9d73873c3a72fe4097724f093568b8d7b71c9b2075283fef4318f809df24" => :high_sierra
-    sha256 "4dfe23e5d9f160efdbbdc99429574276deebbfc9e303987a6a9b70239ac5c60a" => :sierra
-    sha256 "6ad68353870e17425622554183939725545b7f2923b485b9664559a9d4b66f82" => :el_capitan
-    sha256 "0cbfa2756bc8c36759acbc4bc3de8900345369d9399ec0fcb97798f5538215a4" => :x86_64_linux
+    sha256 "dea27845b0290164d9fe626209006db318fa14c3d98c108b1821240519c9154c" => :high_sierra
+    sha256 "5efa456e11f2f427ec6a686ea4d60a786b8ee0e5d0a304d034ba9c18004c7bed" => :sierra
+    sha256 "1bdf8af9436c5b982f0d8e53a70fecd8f3d26a2c582dd58ac458e2985bede4dd" => :el_capitan
   end
 
   head do
