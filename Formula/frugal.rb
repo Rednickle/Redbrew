@@ -9,6 +9,7 @@ class Frugal < Formula
     sha256 "0b0bececd988cbaefd71487ded98c87c8b7ea63a34ed9546a2e7c93db257b691" => :high_sierra
     sha256 "5e9a62c331b37308c7608f4aeeedcf5edfba2ebe25057a1aee3990208404f146" => :sierra
     sha256 "50ddce0dc0d076dd31940336b8c465b3036e8e14da79484721e9d8d5f62ccfd2" => :el_capitan
+    sha256 "fcfa48b41080c2f85829b6231a2d6189648f69752a9984d82cb8a6bce40269d2" => :x86_64_linux
   end
 
   depends_on "go" => :build
