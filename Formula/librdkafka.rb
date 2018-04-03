@@ -4,7 +4,6 @@ class Librdkafka < Formula
   url "https://github.com/edenhill/librdkafka/archive/v0.11.4.tar.gz"
   sha256 "9d8f1eb7b0e29e9ab1168347c939cb7ae5dff00a39cef99e7ef033fd8f92737c"
   head "https://github.com/edenhill/librdkafka.git"
-  revision 1 unless OS.mac?
 
   bottle do
     cellar :any
