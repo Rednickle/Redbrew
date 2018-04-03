@@ -4,7 +4,6 @@ class Lmdb < Formula
   url "https://github.com/LMDB/lmdb/archive/LMDB_0.9.22.tar.gz"
   sha256 "f3927859882eb608868c8c31586bb7eb84562a40a6bf5cc3e13b6b564641ea28"
   version_scheme 1
-  revision 1 if OS.linux?
   head "https://github.com/LMDB/lmdb.git", :branch => "mdb.master"
 
   bottle do
