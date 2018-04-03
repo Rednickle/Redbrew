@@ -12,6 +12,7 @@ class Ipython < Formula
     sha256 "6ec7877c72089c93c50299ad5aa54328de69faecefc17579371e5ae3013318fc" => :high_sierra
     sha256 "a6349a9dba7df2a28ce2133ae0d0d994b3dd2e0a9f891d24101f837ef45d70ce" => :sierra
     sha256 "45163b6f66c04f3b2ec03fd154666ca736df9f6aef6897e2bbdf5a06a55ccf1d" => :el_capitan
+    sha256 "da6b4b82f2ad1654897f77f9a19b5638561099af6884c7b70844a3045a95aeb5" => :x86_64_linux
   end
 
   depends_on "python"
