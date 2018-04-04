@@ -8,6 +8,7 @@ class Bcftools < Formula
     sha256 "a351142dcda713f6fe24dcb5d685eff732b70c93be4db5bd972c4558f0805a5f" => :high_sierra
     sha256 "6ee6f7174793a748c252796b83e7d356c5328ca9570aab3242528abe7132dd8b" => :sierra
     sha256 "b7cc2a872c25a84b3a8f1fdb8243239c5a9914009fbfaf06ab677554de56194c" => :el_capitan
+    sha256 "1ddf606f48f74d864044d135579cbad6af0d69a107e0b82ac18dda99bd037fc5" => :x86_64_linux
   end
 
   depends_on "gsl"
