@@ -1,15 +1,14 @@
 class Samtools < Formula
   desc "Tools for manipulating next-generation sequencing data"
   homepage "https://www.htslib.org/"
-  url "https://github.com/samtools/samtools/releases/download/1.7/samtools-1.7.tar.bz2"
-  sha256 "e7b09673176aa32937abd80f95f432809e722f141b5342186dfef6a53df64ca1"
+  url "https://github.com/samtools/samtools/releases/download/1.8/samtools-1.8.tar.bz2"
+  sha256 "c942bc1d9b85fd1b05ea79c5afd2805d489cd36b2c2d8517462682a4d779be16"
 
   bottle do
     cellar :any
-    sha256 "368dbaf769be26a7c383ee6ab33b9368d70d15b144701489fa33a3475ca5301e" => :high_sierra
-    sha256 "9be1d5c1a480482885a880c3004906d51b7cb1a89dac25c239513a8b04acfbba" => :sierra
-    sha256 "931f8245341783d7d96789c8cc5b3eea6c8071d1ce82644486884cece294e54e" => :el_capitan
-    sha256 "eb1340430ede2a625b2410d1c4683d321f403c9efa997af332fe9656b4611a92" => :x86_64_linux
+    sha256 "4683ff94610e9bb6e58a26c0d71410fe3570e5225410acda302dbfe00ea7e274" => :high_sierra
+    sha256 "46d52a403e444fae04968e36331ca11b922289603d0a0c6a133f1544c17e13b3" => :sierra
+    sha256 "50730568acf901ed0635ce71503aa225eb17e87b07b8f55ddb60ff2b43cae54e" => :el_capitan
   end
 
   depends_on "htslib"

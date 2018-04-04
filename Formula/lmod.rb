@@ -1,14 +1,14 @@
 class Lmod < Formula
   desc "Lua-based environment modules system to modify PATH variable"
   homepage "https://www.tacc.utexas.edu/research-development/tacc-projects/lmod"
-  url "https://github.com/TACC/Lmod/archive/7.7.25.tar.gz"
-  sha256 "25e963445a0e0ca65c543aebe288f9516c153320430b18ff1b734347cf309480"
+  url "https://github.com/TACC/Lmod/archive/7.7.26.tar.gz"
+  sha256 "9a79b4359e63fc545d004de5d069aa82703658f99829b7d4c093fd0f80d190db"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b1cc6eb5701c0f2fa28ba51763c17b39020aa2c1008319f26230cbe566c1d653" => :high_sierra
-    sha256 "31724da87ddd9cf95abbdafd8531dba61c4b34814fad382ed90ec71f0495b379" => :sierra
-    sha256 "07ef421f31b04c80368bb88e58f1e66c1225cd64fc051da192e03d22f25804ee" => :el_capitan
+    sha256 "b43731171eb50dff7d0090a1974cb5e79882c1603b6e420c356079832248967d" => :high_sierra
+    sha256 "c57b57dea55861856534696286ecc49b627014fea0e759120abf76c729a710db" => :sierra
+    sha256 "95a74cfc7e53ca12ad854de72e695a26760fd1cf14b45d84e3fe1064a162cf5b" => :el_capitan
   end
 
   depends_on "lua"
@@ -37,15 +37,12 @@ class Lmod < Formula
     end
 
     system "./configure", "--with-siteControlPrefix=yes", "--prefix=#{prefix}"
-
-    # https://github.com/TACC/Lmod/issues/361
-    ENV.deparallelize
     system "make", "install"
   end
 
   def caveats
     <<~EOS
-      To use LMod, you should add the init script to the shell you are using.
+      To use Lmod, you should add the init script to the shell you are using.
 
       For example, the bash setup script is here: #{opt_prefix}/init/profile
       and you can source it in your bash setup or link to it.

@@ -1,14 +1,13 @@
 class Unbound < Formula
   desc "Validating, recursive, caching DNS resolver"
   homepage "https://www.unbound.net"
-  url "https://www.unbound.net/downloads/unbound-1.6.8.tar.gz"
-  sha256 "e3b428e33f56a45417107448418865fe08d58e0e7fea199b855515f60884dd49"
+  url "https://www.unbound.net/downloads/unbound-1.7.0.tar.gz"
+  sha256 "94dd9071fb13d8ccd122a3ac67c4524a3324d0e771fc7a8a7c49af8abfb926a2"
 
   bottle do
-    sha256 "14bb3f5ce9567f835522a4cf278e843602def948c9c139c0dbe660dad666b6e9" => :high_sierra
-    sha256 "aa344f2853ef983890eed1eecd53c06e0c41e491253f8480bc944c62edc7ccc4" => :sierra
-    sha256 "8854838cff0d79d0b855b95c588588dc95b5eb1bda3a1db019717d832eebf35b" => :el_capitan
-    sha256 "8a15385a1ad682b3e90cff696ea2c3327e3bb4b7c19d304479768ad6b7be7e0b" => :x86_64_linux
+    sha256 "8c7e2cd18ce125440cfc6545de5fb437c4e4a386786211c9b0956406b00169e7" => :high_sierra
+    sha256 "9cfd4dc5892ae2a762b5413b2fe61ff18c59aea036a56a6616699e5b992e234b" => :sierra
+    sha256 "701dbf2f8fbccfee9a8f843814639eb65d8fbcc57a8802a96964077a95f059b8" => :el_capitan
   end
 
   deprecated_option "with-python" => "with-python@2"
@@ -19,6 +18,13 @@ class Unbound < Formula
 
   depends_on "python@2" => :optional
   depends_on "swig" if build.with?("python@2")
+
+  # https://www.nlnetlabs.nl/bugs-script/show_bug.cgi?id=4043
+  # Remove for unbound >1.7.0
+  patch :p0 do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/2081bc5e/unbound/unbound-1.7.0-fix-v6-make-test.diff"
+    sha256 "acae8f6aa8f5d1044dab9a9bf8782263786c853bb38e1b59a9f18d866e01a1f4"
+  end
 
   def install
     args = %W[
