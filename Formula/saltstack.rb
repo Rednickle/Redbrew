@@ -5,14 +5,14 @@ class Saltstack < Formula
   homepage "http://www.saltstack.org"
   url "https://files.pythonhosted.org/packages/38/a6/7b46edaad848fee40a0201be23f2fd1ce498f6269eda8fea66c86c1776d0/salt-2017.7.4.tar.gz"
   sha256 "1d573095776ba052eec7d7cae1472f4b1d4c15f16e1d79c2dc48db3129dbae97"
+  revision 1
   head "https://github.com/saltstack/salt.git", :branch => "develop", :shallow => false
 
   bottle do
     cellar :any
-    sha256 "c06e2353a1e98103b8324c8704963773ca7a97c652dfcd832574f87fe1e49221" => :high_sierra
-    sha256 "b0e282633aa6e71d18a1fb2a197ac7b063b031b3da5edcf67d4d198e1d55ea72" => :sierra
-    sha256 "b4252ff715be54102c3dcc122c0880d677e279751d26728a9bc0b089d8674142" => :el_capitan
-    sha256 "1b4c17ff71283853d0f6b3f9ecf99402b155baa68f4eaf5ea3588eb56a42b3e3" => :x86_64_linux
+    sha256 "ac4a9a43ae8e4c5742abf2adfd44316fd441b8202294e299f94f69a0ef02a8e9" => :high_sierra
+    sha256 "8b793187234ff61744a558371045025fd8af0d587c29a64ca20e177242a47d2a" => :sierra
+    sha256 "df7b238941cd4559b125817d79f0b92c8bdcc7e54e440df3f75279fe085f0a30" => :el_capitan
   end
 
   depends_on "swig" => :build
@@ -98,8 +98,8 @@ class Saltstack < Formula
   end
 
   resource "pygit2" do
-    url "https://files.pythonhosted.org/packages/29/78/c2d5c7b0394e99cf20c683927871e676ff796d69d8c2c322e0edabb6e9c6/pygit2-0.26.3.tar.gz"
-    sha256 "29baa530d6fcbf7cca6a75cf9c78fb88613ca81afb39c62fe492f226f6b61800"
+    url "https://files.pythonhosted.org/packages/3b/0d/c11844421c7c3b9cb84c5503185bbb5ba780144fd64f5adde572bcdcdd8a/pygit2-0.27.0.tar.gz"
+    sha256 "6febce4aea72f12ed5a1e7529b91119f21d93cb2ccb3f834eea26af76cc9a4cb"
   end
 
   resource "pyzmq" do

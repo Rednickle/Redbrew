@@ -3,12 +3,13 @@ class Libgit2Glib < Formula
   homepage "https://github.com/GNOME/libgit2-glib"
   url "https://download.gnome.org/sources/libgit2-glib/0.26/libgit2-glib-0.26.4.tar.xz"
   sha256 "97610e42427a0c86ac46b89d5020fb8decb39af47b9dc49f8d078310b4c21e5a"
+  revision 1
   head "https://github.com/GNOME/libgit2-glib.git"
 
   bottle do
-    sha256 "2e125fec26f3e5ea1b8db35940253f0f1a27e995885351cb2ab3e8a790b2e75c" => :high_sierra
-    sha256 "b751e4b7517e0744633ce489a4cfc19d170b315361f5a089264e385126f2d8ea" => :sierra
-    sha256 "ca9e00d2c139d09f9a4ea9b0cd5e45a54804cb22ccf1d8828c871917e71ce91e" => :el_capitan
+    sha256 "20e1cf8538d46014cf5533510d52c2bb4e98cbfbf6e7a56817fc2e072466200c" => :high_sierra
+    sha256 "fc9f0fa31794d7f4c0b67fd68ff0378de0c1f5668b1bc093937ee0c94a7808a8" => :sierra
+    sha256 "de784ae7a8154369d33eb13cd6fdca5979e2144cc1561ab4a3c85118b0cbbb20" => :el_capitan
   end
 
   depends_on "gobject-introspection" => :build
@@ -27,6 +28,13 @@ class Libgit2Glib < Formula
     inreplace "libgit2-glib/meson.build",
               "libgit2_glib_link_args = [ '-Wl,-Bsymbolic-functions' ]",
               "libgit2_glib_link_args = []"
+
+    # Upstream issue from 2 Apr 2018 "libgit2 0.27.0 FTB: ggit-config.c:298:41:
+    # error: too few arguments to function call"
+    # See https://bugzilla.gnome.org/show_bug.cgi?id=794890
+    inreplace "libgit2-glib/ggit-config.c",
+              /(\(git_config_level_t\)level,)(\n\s+)(force\);)/,
+              "\\1\\2NULL,\\2\\3"
 
     mkdir "build" do
       system "meson", "--prefix=#{prefix}",
