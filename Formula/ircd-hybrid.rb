@@ -8,6 +8,7 @@ class IrcdHybrid < Formula
     sha256 "a3c6846e6cdad9e8615f01d1539b857a4a02aa87b475f0b7e576c29716f9b4e2" => :high_sierra
     sha256 "1be9a361ecfcadda2db262d7af21b3a4518fa2dbb1400fc9b6bfd21e3b080949" => :sierra
     sha256 "cb2919d989ee6ae1fa2ed37b4cdc24ff32d10512d436ec29d47218b75ab3f3a3" => :el_capitan
+    sha256 "3b0d4691fbe4535f09d875882e15c63dff6398304f96e4b1c7d0532fa61fc34c" => :x86_64_linux
   end
 
   # ircd-hybrid needs the .la files
