@@ -1,14 +1,13 @@
 class IrcdHybrid < Formula
   desc "High-performance secure IRC server"
   homepage "http://www.ircd-hybrid.org/"
-  url "https://downloads.sourceforge.net/project/ircd-hybrid/ircd-hybrid/ircd-hybrid-8.2.23/ircd-hybrid-8.2.23.tgz"
-  sha256 "3a70bfbad56a6f58ec653b7fd3992c1ab75e4e7727a85ec1a9f73927196660b7"
+  url "https://downloads.sourceforge.net/project/ircd-hybrid/ircd-hybrid/ircd-hybrid-8.2.24/ircd-hybrid-8.2.24.tgz"
+  sha256 "eaa42d8bf10c0e619e3bda96f35d31bb20715305a85a1386cfbc6b8761fed50e"
 
   bottle do
-    sha256 "9113d2a3fae2abbd0ed3f2c34d71d276a96f34de01703099dac22cfd9cac3d42" => :high_sierra
-    sha256 "0af883166ec878a5e57b6a0200812e777fffa39ee95341f065ecde4d8aca0d61" => :sierra
-    sha256 "5369177134d238aae8a496e10e086bc9f58b1b06f4a4e12b9399bab6df38118d" => :el_capitan
-    sha256 "ebceb492bc8244acc819338c05bd36fa29ed7f6ddc842222bc13a8093fdbfdf3" => :x86_64_linux
+    sha256 "a3c6846e6cdad9e8615f01d1539b857a4a02aa87b475f0b7e576c29716f9b4e2" => :high_sierra
+    sha256 "1be9a361ecfcadda2db262d7af21b3a4518fa2dbb1400fc9b6bfd21e3b080949" => :sierra
+    sha256 "cb2919d989ee6ae1fa2ed37b4cdc24ff32d10512d436ec29d47218b75ab3f3a3" => :el_capitan
   end
 
   # ircd-hybrid needs the .la files
