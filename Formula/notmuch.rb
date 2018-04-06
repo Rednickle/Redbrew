@@ -7,9 +7,10 @@ class Notmuch < Formula
 
   bottle do
     cellar :any
-    sha256 "761b36b62e0e0990e4e088ca165a663c0fc4689e46ead4f054d68764b9e8dbe1" => :high_sierra
-    sha256 "4d06aca8e291ceeef2847d11d84fceccc769538b912fe626c9c1bc0827514886" => :sierra
-    sha256 "c2f773b85a7f06cd693cd2aa1947b240e8b769d802c22151fc62fe0ec1aa8ccb" => :el_capitan
+    rebuild 1
+    sha256 "1a319af5dd3a42454ccc1bc77a08beb6e1479efc444e741b34346aafdd677297" => :high_sierra
+    sha256 "11155f61ad9941f98e0703a0f51a9b48bfeb567369cf0b4a0c0236f4331a934c" => :sierra
+    sha256 "920c47a612a5a400c54b14eee7d86aa3c4c4c04eb1da8291cc04de221ea92d1e" => :el_capitan
   end
 
   option "without-python@2", "Build without python2 support"
@@ -17,8 +18,10 @@ class Notmuch < Formula
   deprecated_option "with-python3" => "with-python"
   deprecated_option "without-python" => "without-python@2"
 
-  depends_on "pkg-config" => :build
+  depends_on "doxygen" => :build
   depends_on "libgpg-error" => :build
+  depends_on "pkg-config" => :build
+  depends_on "sphinx-doc" => :build
   depends_on "glib"
   depends_on "gmime"
   depends_on "talloc"
@@ -36,7 +39,12 @@ class Notmuch < Formula
   patch :DATA
 
   def install
-    args = %W[--prefix=#{prefix}]
+    # configure runs `python -m sphinx.writers.manpage` to detect if
+    # `sphinx-build` will work
+    ENV.prepend_path "PYTHONPATH", Formula["sphinx-doc"].opt_libexec/"vendor/lib/python2.7/site-packages"
+    ENV.prepend_path "PYTHONPATH", Formula["sphinx-doc"].opt_libexec/"lib/python2.7/site-packages"
+
+    args = %W[--prefix=#{prefix} --mandir=#{man}]
 
     if build.with? "emacs"
       ENV.deparallelize # Emacs and parallel builds aren't friends

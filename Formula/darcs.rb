@@ -5,19 +5,18 @@ class Darcs < Formula
 
   desc "Distributed version control system that tracks changes, via Haskell"
   homepage "http://darcs.net/"
-  url "https://hackage.haskell.org/package/darcs-2.12.5/darcs-2.12.5.tar.gz"
-  sha256 "355b04c85c27bca43c8c380212988d9c1e9a984b0b593ceb2884de4295063553"
+  url "https://hackage.haskell.org/package/darcs-2.14.0/darcs-2.14.0.tar.gz"
+  sha256 "19fa0882a1485f03ab0552d6f01d538c2b286c4a38a1fe502e9cf2a78f782803"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ed165766c4f5ae94fe7e5744155bd7e9e71bdf80e54f0998af2a96c4312e4c3f" => :high_sierra
-    sha256 "92a148502ee81e0be44a12531fa8b45331742cb28f28e83fb351b23c93a7a7b3" => :sierra
-    sha256 "e11d1841f356e3f0ce47fc26951a81a23098d709fc726cbc786fa5451a002f14" => :el_capitan
-    sha256 "1c0522297c9eb1c858888fa28434305d149e474329890137ff9827a3424cef82" => :yosemite
+    sha256 "a18baed73cb1b77ef9cbaf499ff313d9b9b347a04d17b82fa6c7bce83ff27957" => :high_sierra
+    sha256 "ab1aafc30e70ffcfd7a397ffea6b5b668aed5ed1572eaba135ee1106a560201c" => :sierra
+    sha256 "b7145e37e8e32034065ea7a4031810417ff6387e665ca3a6ea89638e7994b43f" => :el_capitan
   end
 
-  depends_on "ghc@8.0" => :build
   depends_on "cabal-install" => :build
+  depends_on "ghc@8.2" => :build
   depends_on "gmp"
 
   def install
