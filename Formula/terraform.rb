@@ -3,16 +3,15 @@ require "language/go"
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v0.11.5.tar.gz"
-  sha256 "f442792d5a6a071505d437e4ccfb20daa36c18ea1981c2cceb51668e610c45de"
+  url "https://github.com/hashicorp/terraform/archive/v0.11.6.tar.gz"
+  sha256 "a1177c045beadaef5b5e55189f560911795e551bdb0353e763bbf18c61ccfb0d"
   head "https://github.com/hashicorp/terraform.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e5faceb840f6ba52b12fce2404f90217c476e9ac37b5ad6d670dc79c5bd6c0e0" => :high_sierra
-    sha256 "41669a83e120ab20b044ee3df1c133a5b94df9ef20d329dda618457f9032284d" => :sierra
-    sha256 "f4a93335cd2bb5079ae3410b14e47f08e1f215f2345f0dd6e8b991f4985017b1" => :el_capitan
-    sha256 "d38f82824c1085ef70860934ab36948e690704268d09231699b71b18aca8b7b1" => :x86_64_linux
+    sha256 "5c2d32e91e2df76b10986da53eb62e0eee97e253522796be99ccdd366042117d" => :high_sierra
+    sha256 "24ca453d247297d7c07bfcc46387d817e5e5b177a6b4ee1e89dbcfc26d7e4233" => :sierra
+    sha256 "1c1d6a0a47e34a28fdc4a57a144228f4e74a0c9286bef0cf3d854ffe6b71e1a5" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -23,7 +22,7 @@ class Terraform < Formula
   # stringer is a build tool dependency
   go_resource "golang.org/x/tools" do
     url "https://go.googlesource.com/tools.git",
-        :branch => "release-branch.go1.9"
+        :branch => "release-branch.go1.10"
   end
 
   def install
@@ -48,7 +47,7 @@ class Terraform < Formula
       ENV["XC_ARCH"] = arch
       system "make", "test", "bin"
 
-      bin.install "pkg/#{OS::NAME}_#{arch}/terraform"
+      bin.install "pkg/darwin_#{arch}/terraform"
       zsh_completion.install "contrib/zsh-completion/_terraform"
       prefix.install_metafiles
     end
