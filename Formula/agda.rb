@@ -5,7 +5,7 @@ class Agda < Formula
 
   desc "Dependently typed functional programming language"
   homepage "http://wiki.portal.chalmers.se/agda/"
-  revision 2
+  revision 3
 
   stable do
     url "https://hackage.haskell.org/package/Agda-2.5.3/Agda-2.5.3.tar.gz"
@@ -13,14 +13,14 @@ class Agda < Formula
 
     resource "stdlib" do
       url "https://github.com/agda/agda-stdlib.git",
-          :revision => "477ba28360133b1f5c45ce1b4e6b4efd467af331"
+          :revision => "c06437e4ebb5365d502fb0a79775e5c591ab8ae5" # v0.15
     end
   end
 
   bottle do
-    sha256 "980ba8990c9ab843e27a2576ee118dccd9b4eec025e4012c1b3fc66cdc24893d" => :high_sierra
-    sha256 "812e52e62901399abaef8f3ec2b74e161c16ecdc1b7a624136bde73c77814eb0" => :sierra
-    sha256 "c7d1d59c26f301e822186788a60c6187a24dc182446c83aa4918ef325f4adf2f" => :el_capitan
+    sha256 "6506de625f9f04509c0e36b2b5659764c511d96a6c321f3f49d5034f09630ba4" => :high_sierra
+    sha256 "6f901334a92e1f22593bb9bf058f981b71359153bb922017364626e7d7f0ce5a" => :sierra
+    sha256 "dfb13015d80bee654406a639a907f004c422aa87c102fc6db2cddf48c460615f" => :el_capitan
   end
 
   head do
