@@ -10,6 +10,7 @@ class Tinyxml2 < Formula
     sha256 "2ab6bb019753ec963c3809c7a309752641a4610a324a232e019d38ef1a98d0cc" => :high_sierra
     sha256 "b7a71975137d0e8e5cf427ff671657c1abda3aeff595b47bb64aa134c0f1bf78" => :sierra
     sha256 "64c3d24dbee1c26d102936bd65dc4fe6235f4146b9f8cdfc303849787d95e66b" => :el_capitan
+    sha256 "4479b7424119bd2f16dfdc8e44130b67e63e3965ed5fe498e14fec1934728631" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
