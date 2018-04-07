@@ -10,6 +10,7 @@ class C14Cli < Formula
     sha256 "4001f6779bdc27b3e3587e3a0502e65d94f78a6f108efd714b96c2d865bb592d" => :high_sierra
     sha256 "a146090fbcacb6982155419c4f8e38d9ccb8fa6283c5d2611ccf30ea1960ed84" => :sierra
     sha256 "399d93ad762d178607ca3da8d766cc4716ac33968c058a849f080d68dea634d7" => :el_capitan
+    sha256 "4175289250394dfac978b2636552e7d7b7fdf0a6932b44f7d5190ee39ea7bd45" => :x86_64_linux
   end
 
   depends_on "go" => :build
