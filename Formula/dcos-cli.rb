@@ -3,15 +3,15 @@ class DcosCli < Formula
 
   desc "Cross-platform command-line utility to manage DC/OS clusters"
   homepage "https://dcos.io/docs/latest/cli/"
-  url "https://github.com/dcos/dcos-cli/archive/0.6.0.tar.gz"
-  sha256 "26ceaf7ad8d49eab28c72edbea0ca48ca29c400503028fd1ad726cc217628cea"
+  url "https://github.com/dcos/dcos-cli/archive/0.6.1.tar.gz"
+  sha256 "9b683eac5a6610b10426a179454ca32d2b115a31c0cd9f424b5ffde11c2e8237"
   head "https://github.com/dcos/dcos-cli.git"
 
   bottle do
     cellar :any
-    sha256 "85d43db9e24fb7aa146750cdcd60c71132e3ebeb8bdde72313550b7468f28053" => :high_sierra
-    sha256 "b765783d3b3aea37ca535c72a77c85ea3890d45f37b4097e9c8eaed86f07e6b1" => :sierra
-    sha256 "13361701d1414a8101fdcfc8bf1060f7e452d3320e448891732cf54913951363" => :el_capitan
+    sha256 "232b1fe81a25d1a64c2697e88ba222956a42f2e186f0894c26e3a5fc3c267f93" => :high_sierra
+    sha256 "7b25b44ed18463eed083d65aecb3e838a573420c1f71636f4e64cb66e37618aa" => :sierra
+    sha256 "bc78fbcecf84394d830bc38d96820a1190e202471692c42e37c1430a69d2923d" => :el_capitan
   end
 
   depends_on "openssl"
@@ -103,8 +103,8 @@ class DcosCli < Formula
   end
 
   resource "sseclient" do
-    url "https://files.pythonhosted.org/packages/01/b2/58df4fcd9fa6c70ed4c19a09841227378d78388687cd461926de3cb4743d/sseclient-0.0.14.tar.gz"
-    sha256 "fb07aeb662033cc5924d66455cb4aa77e9660eec340eaeb801ddeefa032fbda8"
+    url "https://files.pythonhosted.org/packages/e3/fd/29f3bb9beaabf36fe61ff08463e9a2c49c54b9cfee20eceafd5c922e790a/sseclient-0.0.19.tar.gz"
+    sha256 "7a2ea3f4c8525ae9a677bc8193df5db88e23bcaafcc34938a1ee665975703a9f"
   end
 
   resource "toml" do
@@ -118,8 +118,8 @@ class DcosCli < Formula
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/d4/0c/9840c08189e030873387a73b90ada981885010dd9aea134d6de30cd24cb8/virtualenv-15.1.0.tar.gz"
-    sha256 "02f8102c2436bb03b3ee6dede1919d1dac8a427541652e5ec95171ec8adbc93a"
+    url "https://files.pythonhosted.org/packages/b1/72/2d70c5a1de409ceb3a27ff2ec007ecdd5cc52239e7c74990e32af57affe9/virtualenv-15.2.0.tar.gz"
+    sha256 "1d7e241b431e7afce47e77f8843a276f652699d1fa4f93b9d8ce0076fd7b0b54"
   end
 
   def install
