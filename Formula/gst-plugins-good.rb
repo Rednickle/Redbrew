@@ -1,19 +1,26 @@
 class GstPluginsGood < Formula
   desc "GStreamer plugins (well-supported, under the LGPL)"
   homepage "https://gstreamer.freedesktop.org/"
-  revision 1
+  revision 2
 
   stable do
     url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.14.0.tar.xz"
     sha256 "6afa35747d528d3ab4ed8f5eac13f7235d7d28100d6a24dd78f81ec7c0d04688"
 
+    if MacOS.version == :high_sierra
+      # Fix for illegal instruction error in osxvideosink https://bugzilla.gnome.org/show_bug.cgi?id=786047
+      patch do
+        url "https://bug786047.bugzilla-attachments.gnome.org/attachment.cgi?id=357262"
+        sha256 "1268a98ae3463ee61e5be3ea186701e75fb84fc9a0c9d280c2fc07faa2732201"
+      end
+    end
     depends_on "check" => :optional
   end
 
   bottle do
-    sha256 "3a9bc33c4a0f7d23585dea6b7e67adcefcec05c440be92eef494d7c2f1ac890b" => :high_sierra
-    sha256 "9ab6358afa249788a36181990b99427205e83f199de467c289c1f880435b2cff" => :sierra
-    sha256 "b00857d3214548634eb918ba560caa3094394b9983ffc07845409f82d05c3e40" => :el_capitan
+    sha256 "999b68468918483a764a23bb92d4069bb017751276100ec7f6886844d2388334" => :high_sierra
+    sha256 "b44a2a8ebec5d6a1957b05e76f8f287bca69ec4cebe3f7a701a6ad3646fe6857" => :sierra
+    sha256 "19874be2a3749c2b4f4f9c6c31c3b04062117894644a6f333c31e96111e2705a" => :el_capitan
   end
 
   head do
