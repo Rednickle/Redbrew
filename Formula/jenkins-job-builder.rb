@@ -1,15 +1,14 @@
 class JenkinsJobBuilder < Formula
   desc "Configure Jenkins jobs with YAML files stored in Git"
   homepage "https://docs.openstack.org/infra/system-config/jjb.html"
-  url "https://files.pythonhosted.org/packages/34/03/67ac3eecd07d3bc3dd98d34a4be7a6c23f17ca6b792dbd58829048eadffe/jenkins-job-builder-2.0.4.tar.gz"
-  sha256 "53ad315f292230e3f36e2ff876a1c92b2059b6af9e8625d20655eed1c5b49960"
+  url "https://files.pythonhosted.org/packages/90/a6/dd9f719cababf5de1369d2cc2bd4775a7cbd4d3b0d377ffa50678ad94907/jenkins-job-builder-2.0.5.tar.gz"
+  sha256 "ddb163fdd252b60fe9fc38c6e417433d32a646d6f3e5b9ab38d060eb419878e8"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e1bdd9223594522b835508d6b9d6b0bff99a990849a45871dff462cc8d5ac0ba" => :high_sierra
-    sha256 "58c2e329ac0140d6a7ae8b71362b3b5905ed6b04abe3851b2dda033ed66ad2bf" => :sierra
-    sha256 "1cebf1b46f186671cb5de438c844a5ac4bd1e098a4d262c2d6935a2413286809" => :el_capitan
-    sha256 "9b2e70bb6d081dcc1c2fc33828bf8dab19613d8983f640ce8ed40a760547c00d" => :x86_64_linux
+    sha256 "3cb6ec620432da20dff244bba2f042e058b98521b399332e11c9132b64dd8a23" => :high_sierra
+    sha256 "2f171ce8e6adad8318d8db795ff2647791b1eb7201947d79f9c79c49f69d1ee4" => :sierra
+    sha256 "d970b78322f261b738c0a3152a53bc8b34d7babbae18cab48d28189f331af143" => :el_capitan
   end
 
   depends_on "python@2" if MacOS.version <= :snow_leopard
