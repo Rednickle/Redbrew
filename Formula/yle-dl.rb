@@ -14,7 +14,7 @@ class YleDl < Formula
   end
 
   depends_on "rtmpdump"
-  depends_on "python@2" if MacOS.version <= :snow_leopard || !OS.mac?
+  depends_on "python@2"
   depends_on "libxslt" unless OS.mac? # To be able to build the lxml resource
 
   resource "AdobeHDS.php" do

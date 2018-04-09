@@ -15,7 +15,7 @@ class TranslateToolkit < Formula
     sha256 "f31d7322174a078be598e32d5ce8b66d7fbccf2ff51871b21a7ec86c475221bb" => :x86_64_linux
   end
 
-  depends_on "python@2" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
 
   resource "argparse" do
     url "https://files.pythonhosted.org/packages/18/dd/e617cfc3f6210ae183374cd9f6a26b20514bbb5a792af97949c5aacddf0f/argparse-1.4.0.tar.gz"

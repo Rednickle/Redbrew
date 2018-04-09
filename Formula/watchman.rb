@@ -14,14 +14,7 @@ class Watchman < Formula
   end
 
   depends_on :macos => :yosemite # older versions don't support fstatat(2)
-  # Bottle hard-codes statedir. See https://github.com/Linuxbrew/homebrew-core/issues/956
-  pour_bottle? do
-    default_prefix = BottleSpecification::DEFAULT_PREFIX
-    reason "The bottle needs to be installed into #{default_prefix}."
-    satisfy { OS.mac? || HOMEBREW_PREFIX.to_s == default_prefix }
-  end
-
-  depends_on "python@2" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
