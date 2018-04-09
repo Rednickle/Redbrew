@@ -1,16 +1,15 @@
 class Offlineimap < Formula
   desc "Synchronizes emails between two repositories"
   homepage "https://www.offlineimap.org/"
-  url "https://github.com/OfflineIMAP/offlineimap/archive/v7.1.5.tar.gz"
-  sha256 "8e28e786a00768e8a97d9f049406744829212cffb69903ffbb15faa1479d43e1"
-  revision OS.mac? ? 1 : 2
+  url "https://github.com/OfflineIMAP/offlineimap/archive/v7.2.0.tar.gz"
+  sha256 "b6c8c6dbd67ec7cd6228a40866b5d6143f707d78faf9603d9328c9bc43fdf7c4"
   head "https://github.com/OfflineIMAP/offlineimap.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c615f6e362d917f70b3a5c2bddd48cef93c0ff9c1de1195634dc44f8f1aaa20e" => :high_sierra
-    sha256 "c615f6e362d917f70b3a5c2bddd48cef93c0ff9c1de1195634dc44f8f1aaa20e" => :sierra
-    sha256 "c615f6e362d917f70b3a5c2bddd48cef93c0ff9c1de1195634dc44f8f1aaa20e" => :el_capitan
+    sha256 "7a4dc02c2ed9af5249bc3d063f5e10b7e0784a8660bd598664f8f77959ef58c7" => :high_sierra
+    sha256 "7a4dc02c2ed9af5249bc3d063f5e10b7e0784a8660bd598664f8f77959ef58c7" => :sierra
+    sha256 "7a4dc02c2ed9af5249bc3d063f5e10b7e0784a8660bd598664f8f77959ef58c7" => :el_capitan
   end
 
   depends_on "asciidoc" => :build
@@ -29,9 +28,6 @@ class Offlineimap < Formula
     system "make", "docs"
     man1.install "docs/offlineimap.1"
     man7.install "docs/offlineimapui.7"
-
-    inreplace ["offlineimap/bundled_imaplib2.py", "bin/offlineimap"],
-              %r{^#!/usr/bin/env python$}, "#!/usr/bin/python"
 
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
     resource("six").stage do
