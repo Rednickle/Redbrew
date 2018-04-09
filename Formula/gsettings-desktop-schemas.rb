@@ -18,7 +18,7 @@ class GsettingsDesktopSchemas < Formula
   depends_on "glib"
   depends_on "gettext"
   depends_on "libffi"
-  depends_on "python@2" if MacOS.version <= :mavericks || !OS.mac?
+  depends_on "python@2"
   depends_on "expat" unless OS.mac?
 
   def install

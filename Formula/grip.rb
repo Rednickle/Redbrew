@@ -12,7 +12,7 @@ class Grip < Formula
     sha256 "e58742f3bcf028003375c6700c929aba3f072aa6388cf72b4ea0110d59ee0758" => :x86_64_linux
   end
 
-  depends_on "python@2" if MacOS.version <= :sierra
+  depends_on "python@2"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/15/d4/2f888fc463d516ff7bf2379a4e9a552fef7f22a94147655d9b1097108248/certifi-2018.1.18.tar.gz"
