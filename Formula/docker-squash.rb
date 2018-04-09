@@ -13,7 +13,7 @@ class DockerSquash < Formula
     sha256 "f576190d005656a71a503b8f28443205fa2f1d9a18f515802de4c328dcd40e97" => :x86_64_linux
   end
 
-  depends_on "python@2" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
   depends_on "docker" => :recommended
   depends_on "docker-machine" => :recommended
 
