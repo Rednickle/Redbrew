@@ -16,7 +16,7 @@ class Offlineimap < Formula
   depends_on "asciidoc" => :build
   depends_on "docbook-xsl" => :build
   depends_on "sphinx-doc" => :build
-  depends_on "python@2" if MacOS.version <= :snow_leopard || !OS.mac?
+  depends_on "python@2"
   depends_on "libxslt" => :build unless OS.mac? # for xsltproc
 
   resource "six" do

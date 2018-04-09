@@ -14,7 +14,7 @@ class Mkdocs < Formula
     sha256 "45c3327e9bede273e8ac98e8569009622485f33b1e0a4cd816e3fcc79370dd4f" => :x86_64_linux
   end
 
-  depends_on "python@2" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
 
   resource "backports_abc" do
     url "https://files.pythonhosted.org/packages/68/3c/1317a9113c377d1e33711ca8de1e80afbaf4a3c950dd0edfaf61f9bfe6d8/backports_abc-0.5.tar.gz"
