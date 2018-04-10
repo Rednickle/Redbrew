@@ -3,14 +3,14 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://github.com/jbarlow83/OCRmyPDF"
-  url "https://files.pythonhosted.org/packages/0d/bf/ca74b86513a85410ff6e8a28406628f6c5b0e3267502c9d0a81c950909a6/ocrmypdf-6.1.2.tar.gz"
-  sha256 "fcca334ca204b9e4faf846b4f8abe38537eac5bb74fed659793c84c131bfc573"
+  url "https://files.pythonhosted.org/packages/8c/6b/fbd6d134ffa0acd14ba0323d8e4acd739c27f6b1296c5983dfbe86fe821c/ocrmypdf-6.1.3.tar.gz"
+  sha256 "9320a3913df54d94fce8db4b1ece32e557e313dc0f1a423ab4c533f49771e6c5"
 
   bottle do
     cellar :any
-    sha256 "b21ae76e2a0ab933e54c7d72b6c7a9135ec99f121e18142ae69645b6bf26e296" => :high_sierra
-    sha256 "7498ee80247bc1ed367f87d78a3355fbfbc3e599875b51748f5f656a0b514f69" => :sierra
-    sha256 "442aa29d023565b8c7e13720ef881e3f5a4499ef4471189b8979d2f9a36e54c5" => :el_capitan
+    sha256 "cfc21e4a711c8452819d200df9f410621e736a014e27f5c46ecdc65a382985d0" => :high_sierra
+    sha256 "52b8c5eb221370fb9093cea25ea269e1b04a2e1c8eb1cb485d8e2c63bbcad9d8" => :sierra
+    sha256 "09818f6a01810706bd08f2e5d3eb1b48eed588ee5bca17f5b65c07be554e3b2e" => :el_capitan
   end
 
   depends_on "mupdf-tools" => :build # PyMuPDF statically links to libmupdf.a
