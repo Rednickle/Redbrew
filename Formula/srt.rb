@@ -10,6 +10,7 @@ class Srt < Formula
     sha256 "d9dcee275c311bbf3a042b3dece0d6e49f2280748fbb8202c859c5140a344982" => :high_sierra
     sha256 "2dacbc47b25ece470530896e24817161d7b5bfe069dc304fedb7d8dd374ca811" => :sierra
     sha256 "fc80f8ad53aba6ffe5daf0de2827e3adb44066d97fa1e705c906bd305c427134" => :el_capitan
+    sha256 "6410bca60b576579b5544b64afa7d82352af2e27a313cf91c6b8d8f6ae0787aa" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
