@@ -16,7 +16,10 @@ class Offlineimap < Formula
   depends_on "docbook-xsl" => :build
   depends_on "sphinx-doc" => :build
   depends_on "python@2"
-  depends_on "libxslt" => :build unless OS.mac? # for xsltproc
+  unless OS.mac?
+    depends_on "libxml2" => :build # for xmllint
+    depends_on "libxslt" => :build # for xsltproc
+  end
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
