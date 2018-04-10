@@ -3,16 +3,17 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://github.com/jbarlow83/OCRmyPDF"
-  url "https://files.pythonhosted.org/packages/cc/b0/6d037507a945c5941188ce5fac17dcd0f68fde729664279aec5a2e84bc21/ocrmypdf-5.7.0.tar.gz"
-  sha256 "4f239823b266d6268eb54f62d439943ee2be70d9989c32855e69e9a610136ff8"
+  url "https://files.pythonhosted.org/packages/0d/bf/ca74b86513a85410ff6e8a28406628f6c5b0e3267502c9d0a81c950909a6/ocrmypdf-6.1.2.tar.gz"
+  sha256 "fcca334ca204b9e4faf846b4f8abe38537eac5bb74fed659793c84c131bfc573"
 
   bottle do
     cellar :any
-    sha256 "6f35cbcf59160ba521ab73fdaa1cfcc7b1542c49cd2f33663b592c41ed55113e" => :high_sierra
-    sha256 "582b31292a2312ac23e43c07946adb86b0bec04dee88436881d93c3cec09ecaf" => :sierra
-    sha256 "3097060b7107b0873d3c56b435e5dd2ec82829c054d7b2b15374ecf6400689c1" => :el_capitan
+    sha256 "b21ae76e2a0ab933e54c7d72b6c7a9135ec99f121e18142ae69645b6bf26e296" => :high_sierra
+    sha256 "7498ee80247bc1ed367f87d78a3355fbfbc3e599875b51748f5f656a0b514f69" => :sierra
+    sha256 "442aa29d023565b8c7e13720ef881e3f5a4499ef4471189b8979d2f9a36e54c5" => :el_capitan
   end
 
+  depends_on "mupdf-tools" => :build # PyMuPDF statically links to libmupdf.a
   depends_on "pkg-config" => :build
   depends_on "freetype"
   depends_on "ghostscript"
@@ -28,6 +29,11 @@ class Ocrmypdf < Formula
     sha256 "e90f17980e6ab0f3c2f3730e56d1fe9bcba1891eeea58966e89d352492cc74f4"
   end
 
+  resource "defusedxml" do
+    url "https://files.pythonhosted.org/packages/74/ba/4ba4e89e21b5a2e267d80736ea674609a0a33cc4435a6d748ef04f1f9374/defusedxml-0.5.0.tar.gz"
+    sha256 "24d7f2f94f7f3cb6061acb215685e5125fbcdc40a857eff9de22518820b0a4f4"
+  end
+
   resource "img2pdf" do
     url "https://files.pythonhosted.org/packages/7e/a2/4f06081f674920be757d894b4bab874e6a3b5227e730cb7618430b366e69/img2pdf-0.2.4.tar.gz"
     sha256 "140b70fa3a3bfb54e92947818cee01483a4f1492b5d1d02b0f649257f5ffc9ae"
@@ -41,6 +47,11 @@ class Ocrmypdf < Formula
   resource "pycparser" do
     url "https://files.pythonhosted.org/packages/8c/2d/aad7f16146f4197a11f8e91fb81df177adcc2073d36a17b1491fd09df6ed/pycparser-2.18.tar.gz"
     sha256 "99a8ca03e29851d96616ad0404b4aad7d9ee16f25c9f9708a11faf2810f7b226"
+  end
+
+  resource "PyMuPDF" do
+    url "https://files.pythonhosted.org/packages/04/d4/aa5b79592c59fcf9f1837fa92d7d3b171f98abc8cf144b359e4b3a22eae1/PyMuPDF-1.12.5.tar.gz"
+    sha256 "8eece1ce5922b310264dd235c4b457dfd2c3e4c5893130165d5f5168561050f2"
   end
 
   resource "PyPDF2" do

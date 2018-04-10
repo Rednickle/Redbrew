@@ -6,10 +6,10 @@ class Freetds < Formula
   sha256 "d99c1d48c46e239e67abc4aec11aaf8ebd22699d990b6097266ce41db1161892"
 
   bottle do
-    sha256 "88df72ea076302d64ebeee43597531672225108bf43cf892c8a64eb9bbf4a2cf" => :high_sierra
-    sha256 "bfa4617502126d992d901e6188a28b825b623debb0b52e1c15160de674c773b2" => :sierra
-    sha256 "c8fbaabc75f465382cdd6a2757d414ec9a3dbe75eea41832c825f66a0b242419" => :el_capitan
-    sha256 "cabbd7b6b5ef7904144fa30b4644d01b36cf996ce9aa71701aa2103ac4bdf6ea" => :x86_64_linux
+    rebuild 1
+    sha256 "10bb41ea84f333c27b8ff2362d16f1bb0c1815e63fd13d5e340ca90766da0ab9" => :high_sierra
+    sha256 "2693e07cbbeec210d9b2b7880063c06c3c2727d11dfac8401713896a4ef6e326" => :sierra
+    sha256 "a52cb740caf9238241a6b9589eea3dc84bdfce7902471919a7a8a615a8e31bc4" => :el_capitan
   end
 
   head do
@@ -46,6 +46,7 @@ class Freetds < Formula
       --prefix=#{prefix}
       --with-tdsver=7.3
       --mandir=#{man}
+      --sysconfdir=#{etc}
     ]
 
     if build.with? "openssl"
