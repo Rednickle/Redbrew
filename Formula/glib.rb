@@ -1,14 +1,13 @@
 class Glib < Formula
   desc "Core application library for C"
   homepage "https://developer.gnome.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.56/glib-2.56.0.tar.xz"
-  sha256 "ecef6e17e97b8d9150d0e8a4b3edee1ac37331213b8a2a87a083deea408a0fc7"
+  url "https://download.gnome.org/sources/glib/2.56/glib-2.56.1.tar.xz"
+  sha256 "40ef3f44f2c651c7a31aedee44259809b6f03d3d20be44545cd7d177221c0b8d"
 
   bottle do
-    sha256 "ee188301bc3d9475980a751427eee07fe8a6badb837be8164b18aa747a547b61" => :high_sierra
-    sha256 "87e534316b8e79fd85b6f4912859825f1236508e9639c9aa18f8c45a59ae7d4f" => :sierra
-    sha256 "0de8df1c692760b24fe51d1ebe92231eee151a18aaf0d5a533da960da2953815" => :el_capitan
-    sha256 "4190f8215b22b7ee99d6091636f8fed1b51199972e3434dc1780144078d12970" => :x86_64_linux
+    sha256 "ecf8e80be0bfd37f484125c3b433edadbb842fd112335ca1f14c4034fcf040d8" => :high_sierra
+    sha256 "f121604cc5d37e8c6391043018307b0c2ab28fbc903bfc513c77a52a6bdcc8cc" => :sierra
+    sha256 "ddefe1801b23dcbfd19c06fa8c85f20bf618e2129ff1db55e4fe252a55acfdca" => :el_capitan
   end
 
   option "with-test", "Build a debug build and run tests. NOTE: Not all tests succeed yet"
