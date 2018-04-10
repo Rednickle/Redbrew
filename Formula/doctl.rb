@@ -10,6 +10,7 @@ class Doctl < Formula
     sha256 "e6c8a1363871602fd03f687061c3832431b0c34573fc28532b6a94ab3bc5061b" => :high_sierra
     sha256 "64a0c9ec87233d7cc9ea8f62d2e1b5affbaa5dc3cf016eae42e57579019c058e" => :sierra
     sha256 "cd850c8e9e8302dcd68d6dae577ead99fe4c693e0f6f4fab11e83deb93345746" => :el_capitan
+    sha256 "7017bec1910dd8c4704d899e5599b24f2edf3d36d3b6a6be645ad2c950ee4417" => :x86_64_linux
   end
 
   depends_on "go" => :build
