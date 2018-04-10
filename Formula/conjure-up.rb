@@ -3,15 +3,14 @@ class ConjureUp < Formula
 
   desc "Big software deployments so easy it's almost magical"
   homepage "https://conjure-up.io/"
-  url "https://github.com/conjure-up/conjure-up/archive/2.5.5.tar.gz"
-  sha256 "7a16b91c46c1f86eb7bc96597cbdb371ea94d062ff554c71615267cba54f3433"
-  revision 2
+  url "https://github.com/conjure-up/conjure-up/archive/2.5.6.tar.gz"
+  sha256 "78b866c9a7f3c04e3a83247ce90503edbc593840f960ed69b57d99d1b017b190"
 
   bottle do
     cellar :any
-    sha256 "f0e829cb15d18f2504337808f9279228e04eca291aa39e6a8c2bbcdb615dd814" => :high_sierra
-    sha256 "987ffe6527beb4b044a5037652410cba7789d8fd4b8b516b610ec462d4b832e6" => :sierra
-    sha256 "0c9596dcb4f3fbbfd058b9d783076403a96c0fa33e562083b506dd9df66db3c1" => :el_capitan
+    sha256 "7a18f4464a63138957a05614beb529f15584518265f442ffc08fed46f82a6adb" => :high_sierra
+    sha256 "7bb8eb679406e63f9ac02cfb79a3686a2acdbea9bcb4025589eecbb40d63b1ce" => :sierra
+    sha256 "ef4b2b224c6404c1ee2c8a0d553e904436891ffd37f3b8e478e609cb7b38c93f" => :el_capitan
   end
 
   depends_on "libyaml"
@@ -40,8 +39,8 @@ class ConjureUp < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/10/f7/3b302ff34045f25065091d40e074479d6893882faef135c96f181a57ed06/cffi-1.11.4.tar.gz"
-    sha256 "df9083a992b17a28cd4251a3f5c879e0198bb26c9e808c4647e0a18739f1d11d"
+    url "https://files.pythonhosted.org/packages/e7/a7/4cd50e57cc6f436f1cc3a7e8fa700ff9b8b4d471620629074913e3735fb2/cffi-1.11.5.tar.gz"
+    sha256 "e90f17980e6ab0f3c2f3730e56d1fe9bcba1891eeea58966e89d352492cc74f4"
   end
 
   resource "chardet" do
@@ -90,8 +89,8 @@ class ConjureUp < Formula
   end
 
   resource "macaroonbakery" do
-    url "https://files.pythonhosted.org/packages/c9/90/eb5af47027f17dd3f5e533817089740cec853b343766e988987eff9a0156/macaroonbakery-1.1.2.tar.gz"
-    sha256 "d7645b98d5842db08412f8eeeaa3259260524ff5205332cfc3cf8df4b946bdfd"
+    url "https://files.pythonhosted.org/packages/38/27/a3d58ded98c6fb926a01ec45c55095ade186a0a366663dd033e0a296d17a/macaroonbakery-1.1.3.tar.gz"
+    sha256 "6b5a009dd6f5605f97feaeb8e9807767f8a5de54455c2c6aaa0e918faca04a13"
   end
 
   resource "MarkupSafe" do
@@ -100,8 +99,8 @@ class ConjureUp < Formula
   end
 
   resource "oauthlib" do
-    url "https://files.pythonhosted.org/packages/a5/8a/212e9b47fb54be109f3ff0684165bb38c51117f34e175c379fce5c7df754/oauthlib-2.0.6.tar.gz"
-    sha256 "ce57b501e906ff4f614e71c36a3ab9eacbb96d35c24d1970d2539bbc3ec70ce1"
+    url "https://files.pythonhosted.org/packages/47/b9/66278631430fe688b2e6c84df16619f1d1e27c9c6ebca28371f7c6fbb346/oauthlib-2.0.7.tar.gz"
+    sha256 "909665297635fa11fe9914c146d875f2ed41c8c2d78e21a529dd71c0ba756508"
   end
 
   resource "PrettyTable" do
@@ -115,8 +114,8 @@ class ConjureUp < Formula
   end
 
   resource "protobuf" do
-    url "https://files.pythonhosted.org/packages/14/03/ff5279abda7b46e9538bfb1411d42831b7e65c460d73831ed2445649bc02/protobuf-3.5.1.tar.gz"
-    sha256 "95b78959572de7d7fafa3acb718ed71f482932ddddddbd29ba8319c10639d863"
+    url "https://files.pythonhosted.org/packages/73/73/4f133a31d67b27431fe4b9cc5e2f74d0644bce0327a743093f3cc27864ce/protobuf-3.5.2.post1.tar.gz"
+    sha256 "3b60685732bd0cbdc802dfcb6071efbcf5d927ce3127c13c33ea1a8efae3aa76"
   end
 
   resource "psutil" do
@@ -150,8 +149,8 @@ class ConjureUp < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/60/88/d3152c234da4b2a1f7a989f89609ea488225eaea015bc16fbde2b3fdfefa/pytz-2017.3.zip"
-    sha256 "fae4cffc040921b8a2d60c6cf0b5d662c1190fe54d718271db4eb17d44a185b7"
+    url "https://files.pythonhosted.org/packages/1b/50/4cdc62fc0753595fc16c8f722a89740f487c6e5670c644eb8983946777be/pytz-2018.3.tar.gz"
+    sha256 "410bcd1d6409026fbaa65d9ed33bf6dd8b1e94a499e32168acfc7b332e4095c0"
   end
 
   resource "pyvmomi" do
