@@ -3,17 +3,15 @@ class Saltstack < Formula
 
   desc "Dynamic infrastructure communication bus"
   homepage "http://www.saltstack.org"
-  url "https://files.pythonhosted.org/packages/38/a6/7b46edaad848fee40a0201be23f2fd1ce498f6269eda8fea66c86c1776d0/salt-2017.7.4.tar.gz"
-  sha256 "1d573095776ba052eec7d7cae1472f4b1d4c15f16e1d79c2dc48db3129dbae97"
-  revision 1
+  url "https://files.pythonhosted.org/packages/11/52/29a7b924e495f22764603aa095ab41b2c4a952a4b57ad5689dd863e575ff/salt-2018.3.0.tar.gz"
+  sha256 "a0a45d22fdf6961542a419b7e09568a3118e2b019ffe7bab9dee5aeb55b56b31"
   head "https://github.com/saltstack/salt.git", :branch => "develop", :shallow => false
 
   bottle do
     cellar :any
-    sha256 "ac4a9a43ae8e4c5742abf2adfd44316fd441b8202294e299f94f69a0ef02a8e9" => :high_sierra
-    sha256 "8b793187234ff61744a558371045025fd8af0d587c29a64ca20e177242a47d2a" => :sierra
-    sha256 "df7b238941cd4559b125817d79f0b92c8bdcc7e54e440df3f75279fe085f0a30" => :el_capitan
-    sha256 "18a3b53fa13cfae5f9d1e5f9f3fcf703822042ccd780d36b560b646f293b827f" => :x86_64_linux
+    sha256 "5ac25cd67791a8613a605d47729a946f455edafc1c855696cf5bbf735c011ac4" => :high_sierra
+    sha256 "773bbb93ab3277520782d9734f3e1f55da6f6d578977522667ce1aa8ee0c994a" => :sierra
+    sha256 "00b60a61a7af6eb2b9e4cd2aab748fe65ad8103e61f84682fac542246a6ee043" => :el_capitan
   end
 
   depends_on "swig" => :build
@@ -39,8 +37,8 @@ class Saltstack < Formula
   end
 
   resource "M2Crypto" do
-    url "https://files.pythonhosted.org/packages/4e/bd/690f9b8aa87b82b0905c6e928da4cb0ce3ac65b1fc43c8efd3f8104e345e/M2Crypto-0.28.2.tar.gz"
-    sha256 "f4dfa7a77f983444e64f7b81f946bdfc1b05bc92b1aeca0775be8742aa939c3f"
+    url "https://files.pythonhosted.org/packages/18/6f/bc49d68bae9171b2897d8de073369984a5f085111526ace6301fc3c1567f/M2Crypto-0.29.0.tar.gz"
+    sha256 "a0fea2c5ab913e42864d1ccbaee5878c23886368b606e923609fda4ce37d26c0"
   end
 
   resource "MarkupSafe" do
@@ -64,8 +62,8 @@ class Saltstack < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/10/f7/3b302ff34045f25065091d40e074479d6893882faef135c96f181a57ed06/cffi-1.11.4.tar.gz"
-    sha256 "df9083a992b17a28cd4251a3f5c879e0198bb26c9e808c4647e0a18739f1d11d"
+    url "https://files.pythonhosted.org/packages/e7/a7/4cd50e57cc6f436f1cc3a7e8fa700ff9b8b4d471620629074913e3735fb2/cffi-1.11.5.tar.gz"
+    sha256 "e90f17980e6ab0f3c2f3730e56d1fe9bcba1891eeea58966e89d352492cc74f4"
   end
 
   resource "chardet" do
@@ -84,8 +82,8 @@ class Saltstack < Formula
   end
 
   resource "msgpack-python" do
-    url "https://files.pythonhosted.org/packages/7c/ce/8ed474ab7ce0ef9c67d18e816e921cade83fecd59cd2cd52d825cec8166e/msgpack-python-0.5.5.tar.gz"
-    sha256 "7f5d6e59228b65c47cfdae76a4aea71f6902525f18256862cda69888a686b5f9"
+    url "https://files.pythonhosted.org/packages/8a/20/6eca772d1a5830336f84aca1d8198e5a3f4715cd1c7fc36d3cc7f7185091/msgpack-python-0.5.6.tar.gz"
+    sha256 "378cc8a6d3545b532dfd149da715abae4fda2a3adb6d74e525d0d5e51f46909b"
   end
 
   resource "pycparser" do

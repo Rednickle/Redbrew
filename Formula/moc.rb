@@ -1,15 +1,15 @@
 class Moc < Formula
   desc "Terminal-based music player"
-  homepage "https://moc.daper.net"
+  homepage "https://moc.daper.net/"
   url "http://ftp.daper.net/pub/soft/moc/stable/moc-2.5.2.tar.bz2"
   sha256 "f3a68115602a4788b7cfa9bbe9397a9d5e24c68cb61a57695d1c2c3ecf49db08"
   revision 2
 
   bottle do
-    sha256 "44bdffa1f83c2ce249d9d402fa3956b12f49ae63b702b849f01b93bd1c3fe433" => :high_sierra
-    sha256 "85dd651a6ceffd30d05c41570b2c81c0eeb7211f3f8f63afc4580272c619df72" => :sierra
-    sha256 "87493722fdef24873f9a2f9900a1cf5a4758c7b76f5c648668bd8ce1932076a3" => :el_capitan
-    sha256 "3c0fd4a7935b9164b9108af4c43e9320cb96a62b48855ab5d983f91006b2e3be" => :x86_64_linux
+    rebuild 1
+    sha256 "fbabdaaaea2215a4b20636cf32f0fcf1723dbbfe3c522448c1d9bd4057ee8a7e" => :high_sierra
+    sha256 "785c68d5b1657c4bd9cd5a28bf0a1707cad2e7c3b822e1571871cb42464f4844" => :sierra
+    sha256 "09e0d32b7feaf0fc50e1cfe52a0692c5e514ea3f22463becd47b94a001cb8bcd" => :el_capitan
   end
 
   devel do
@@ -39,27 +39,12 @@ class Moc < Formula
     depends_on "popt"
   end
 
-  option "with-ncurses", "Build with wide character support."
-
   depends_on "pkg-config" => :build
-  depends_on "libtool"
   depends_on "berkeley-db"
+  depends_on "ffmpeg"
   depends_on "jack"
-  depends_on "ffmpeg" => :recommended
-  depends_on "mad" => :optional
-  depends_on "flac" => :optional
-  depends_on "speex" => :optional
-  depends_on "musepack" => :optional
-  depends_on "libsndfile" => :optional
-  depends_on "wavpack" => :optional
-  depends_on "faad2" => :optional
-  depends_on "timidity" => :optional
-  if OS.mac?
-    depends_on "libmagic" => :optional
-  else
-    depends_on "libmagic"
-  end
-  depends_on "ncurses" => :optional
+  depends_on "libtool"
+  depends_on "ncurses"
 
   def install
     # Remove build.devel? when 2.6-alpha4 comes out

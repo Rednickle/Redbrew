@@ -1,15 +1,14 @@
 class PerconaServerMongodb < Formula
   desc "Drop-in MongoDB replacement"
   homepage "https://www.percona.com"
-  url "https://www.percona.com/downloads/percona-server-mongodb-3.4/percona-server-mongodb-3.4.9-2.9/source/tarball/percona-server-mongodb-3.4.9-2.9.tar.gz"
-  version "3.4.9-2.9"
-  sha256 "489675e6568dfcdc842d12872e552f0cd1ea5b2db2b6fe5d6548216c494778ba"
+  url "https://www.percona.com/downloads/percona-server-mongodb-3.4/percona-server-mongodb-3.4.13-2.11/source/tarball/percona-server-mongodb-3.4.13-2.11.tar.gz"
+  version "3.4.13-2.11"
+  sha256 "fab82121f6e9cce1058d15ef3650813038cc4e1b768a1c0cd6bdf3bec40e8f45"
 
   bottle do
-    rebuild 1
-    sha256 "396da20f15f3e074496e159c49fb12ef0a412a891eafec0cd15edd7e2d54d5fb" => :high_sierra
-    sha256 "08266faa60f1b18830d269250c94f36cd808fc3915935159803366199ed8c97c" => :sierra
-    sha256 "7cf6b6ffd202ab5dfe1054b2128b5795706d67340b6acaa8311e23d0af8c8bd5" => :el_capitan
+    sha256 "b7c49e1664e9cb20380884e6338f75d7f3dd6766df1d82eed210b51ff66644a2" => :high_sierra
+    sha256 "4e517c014c1ccdd85b2791a72a5320a47fdc6bdfae7a8a2f4bba8056ba4f0990" => :sierra
+    sha256 "82c944d1b91d8dddbfa7586976295a97db947f1de151c832ef486fcdeac8c8ea" => :el_capitan
   end
 
   option "with-boost", "Compile using installed boost, not the version shipped with this formula"
