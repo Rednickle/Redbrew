@@ -1,15 +1,14 @@
 class Qscintilla2 < Formula
   desc "Port to Qt of the Scintilla editing component"
   homepage "https://www.riverbankcomputing.com/software/qscintilla/intro"
-  url "https://dl.bintray.com/homebrew/mirror/qscintilla2-2.10.3.tar.gz"
-  mirror "https://downloads.sourceforge.net/project/pyqt/QScintilla2/QScintilla-2.10.3/QScintilla_gpl-2.10.3.tar.gz"
-  sha256 "d2657a68e7699d37209ff97db965de7c67884d99b33066d0ba457e6f39b581e7"
+  url "https://downloads.sourceforge.net/project/pyqt/QScintilla2/QScintilla-2.10.4/QScintilla_gpl-2.10.4.tar.gz"
+  sha256 "0353e694a67081e2ecdd7c80e1a848cf79a36dbba78b2afa36009482149b022d"
 
   bottle do
     cellar :any
-    sha256 "b8bebd4e23df01914dc3acf908cd919eca071900a7f5e8d5e98ccfa32f3ca5db" => :high_sierra
-    sha256 "d6f9f44899525e5b8b4bdbe37df4973d2f4889d9183e0a7fde0f161a2650ab6b" => :sierra
-    sha256 "b4e7f9645bbf4c91987a492bf7a05bf1b25094827b4a59bcc304e4bc4aee6676" => :el_capitan
+    sha256 "f3f2041b0d4bce40ed3b8aa4c4c1c2a35049a1e6ae71da8993d342f2bba6f7db" => :high_sierra
+    sha256 "b51157c34ec918bcf72241488f22636a41ed90fa0e17e6011d0ecbfb99ec259c" => :sierra
+    sha256 "36d054618b723681b9085a50db0458817632e129fa3d304bd8cd094387773dd7" => :el_capitan
   end
 
   option "with-plugin", "Build the Qt Designer plugin"
