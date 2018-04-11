@@ -2,15 +2,14 @@ class Docker < Formula
   desc "Pack, ship and run any application as a lightweight container"
   homepage "https://www.docker.com/"
   url "https://github.com/docker/docker-ce.git",
-      :tag => "v18.03.0-ce",
-      :revision => "0520e243029d1361649afb0706a1c5d9a1c012b8"
+      :tag => "v18.04.0-ce",
+      :revision => "3d479c0af67cb9ea43a9cfc1bf2ef097e06a3470"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0f8003a13c798733cff67a1916b4b65ca39bad352c6da2bc0d254fe1901b7f13" => :high_sierra
-    sha256 "c96f294123ba2f24d4d1bd10ee3b62d769bcbef63563596e3e1e6a1536529314" => :sierra
-    sha256 "3bd73cccba25130c79315c6aa6565711bde65aa841cbab72eb6c2f605e907f1f" => :el_capitan
-    sha256 "c6b22cad2d32bac6117fae356871d37d7103dd0084fedf7735bce0abbecd37ec" => :x86_64_linux
+    sha256 "cbadfb1426927ab3643a03aaa36c9d2f9557532d1242c66a49196d56b4347110" => :high_sierra
+    sha256 "3a891a58beaf58cfd426c8b28de28d40641f7c99d24f3122d423be238a6da4ac" => :sierra
+    sha256 "1f854142829a3d1f60871e50d49145e0b90b80832bc64cb000e2f2f5a488988d" => :el_capitan
   end
 
   option "with-experimental", "Enable experimental features"
