@@ -1,15 +1,14 @@
 class Svgcleaner < Formula
   desc "Cleans your SVG files by removing unnecessary data"
   homepage "https://github.com/RazrFalcon/svgcleaner"
-  url "https://github.com/RazrFalcon/svgcleaner/archive/v0.9.4.tar.gz"
-  sha256 "35a180e79fecde99a736ef1cce2225362bcfedd431d58a8b0b84d7f35e9a70c7"
+  url "https://github.com/RazrFalcon/svgcleaner/archive/v0.9.5.tar.gz"
+  sha256 "dcf8dbc8939699e2e82141cb86688b6cd09da8cae5e18232ef14085c2366290c"
   head "https://github.com/RazrFalcon/svgcleaner.git"
 
   bottle do
-    sha256 "81305592400f38413a55a9440da21dedb2e22b0ded7b8373f9e0d5d395e8f609" => :high_sierra
-    sha256 "0506b4160a81a8569be2509b5bea3849ee49f69c2c31bc377c6aeeafc7d438d9" => :sierra
-    sha256 "8691e45c864d3ae5a7b313561be03686952b0b1b2b4527f7dfd68f101e3478ac" => :el_capitan
-    sha256 "8de926405ac5f27bcc18cec113cfbec86281463eec87c9f13746f18ec1878950" => :x86_64_linux
+    sha256 "bc7ce28fda3125d1b53d38225cf86b1a72fbfc5bdc6964014ce8a8af96cc9add" => :high_sierra
+    sha256 "141b68daa2335f0ca15ed707e07b239727340942c82943d9619e0b27a072701e" => :sierra
+    sha256 "4a8e60702be1d8cc7be187f8de0ead26b234d7018c567adbc4bc358b90c1aba0" => :el_capitan
   end
 
   depends_on "rust" => :build
