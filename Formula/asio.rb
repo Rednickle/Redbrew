@@ -1,23 +1,15 @@
 class Asio < Formula
   desc "Cross-platform C++ Library for asynchronous programming"
   homepage "https://think-async.com/Asio"
-  url "https://downloads.sourceforge.net/project/asio/asio/1.10.8%20%28Stable%29/asio-1.10.8.tar.bz2"
-  sha256 "26deedaebbed062141786db8cfce54e77f06588374d08cccf11c02de1da1ed49"
-  revision 1
+  url "https://downloads.sourceforge.net/project/asio/asio/1.12.0%20%28Stable%29/asio-1.12.0.tar.bz2"
+  sha256 "2c350b9ad7e266ab47935200a09194cbdf6f7ce2e3cabeddae6c68360d39d3ad"
   head "https://github.com/chriskohlhoff/asio.git"
 
   bottle do
     cellar :any
-    sha256 "0deacd2f2b9c09d7ee62cff4d55a35d1479c07d9a6da6778005c87b5508f0b7c" => :high_sierra
-    sha256 "d4cb235f7e5f96448fc62695b97bd122ecdb736ba8690acd1dea58d6e839fe96" => :sierra
-    sha256 "0bf76623d1395bb82adead05534efce7dbfb57ebc369ce50d5c8c54cb5ced22a" => :el_capitan
-    sha256 "03448870924ff06ec9ae67c1db2bc656bc73fac49d25ea24be925d945e602378" => :yosemite
-    sha256 "553fe8e75b8f1aa6e36d57b9e0f33764bc9b5d10792624804501919de11e2a57" => :x86_64_linux # glibc 2.19
-  end
-
-  devel do
-    url "https://downloads.sourceforge.net/project/asio/asio/1.11.0%20%28Development%29/asio-1.11.0.tar.bz2"
-    sha256 "4f7e13260eea67412202638ec111cb5014f44bdebe96103279c60236874daa50"
+    sha256 "da6bcc10e894ac74f79546334dac00c3563bc9ce625425d813d14a925b5fe384" => :high_sierra
+    sha256 "7efba40b78206a1895b39589db2ba9377d96a183f807304e27bec9d6008979ba" => :sierra
+    sha256 "a8947a5dbf1ad0e68f1a0a87e38f07d1fef98c12498b93b157dc51ab30b60112" => :el_capitan
   end
 
   option "with-boost-coroutine", "Use Boost.Coroutine to implement stackful coroutines"
