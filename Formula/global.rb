@@ -31,6 +31,7 @@ class Global < Formula
 
   deprecated_option "with-exuberant-ctags" => "with-ctags"
 
+  depends_on "python@2"
   depends_on "ctags" => :optional
   unless OS.mac?
     depends_on "python" if build.with? "pygments"
