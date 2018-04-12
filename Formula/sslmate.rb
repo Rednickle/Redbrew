@@ -6,9 +6,10 @@ class Sslmate < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c2cacac22c95bb5ea161e0a3e1e0ead170d58a12de8f9f2706463cf033fba664" => :high_sierra
-    sha256 "c2cacac22c95bb5ea161e0a3e1e0ead170d58a12de8f9f2706463cf033fba664" => :sierra
-    sha256 "c2cacac22c95bb5ea161e0a3e1e0ead170d58a12de8f9f2706463cf033fba664" => :el_capitan
+    rebuild 1
+    sha256 "5b829450ad24c38b9b4ee19e853422387345710473df25f689ef10e388f1dee0" => :high_sierra
+    sha256 "5b829450ad24c38b9b4ee19e853422387345710473df25f689ef10e388f1dee0" => :sierra
+    sha256 "5b829450ad24c38b9b4ee19e853422387345710473df25f689ef10e388f1dee0" => :el_capitan
   end
 
   option "without-route53", "Disable support for Route 53 DNS approval"
@@ -80,6 +81,12 @@ class Sslmate < Formula
     end
     env[:PYTHONPATH] = ENV["PYTHONPATH"] if build.with? "route53"
     bin.env_script_all_files(libexec + "bin", env)
+
+    # Fix failure when Homebrew perl is selected at runtime
+    unless MacOS.version <= :snow_leopard
+      inreplace libexec/"bin/sslmate",
+        "#!/usr/bin/env perl", "#!/usr/bin/perl"
+    end
   end
 
   test do

@@ -1,16 +1,14 @@
 class CoreosCt < Formula
   desc "Convert a Container Linux Config into Ignition"
   homepage "https://coreos.com/os/docs/latest/configuration.html"
-  url "https://github.com/coreos/container-linux-config-transpiler/archive/v0.7.0.tar.gz"
-  sha256 "8893181b937bc2319b10b0b52406f2ed156cad8081fe3ea2d44d7b72d811bfbe"
+  url "https://github.com/coreos/container-linux-config-transpiler/archive/v0.8.0.tar.gz"
+  sha256 "aaadace032628dfd2a298684168961920a5c8ebc6b98fd1b5f3683000fd35dcb"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "8e8e71e71be2250d7266afb8c81a1d635664993bd910b6f9cf3d8914af984489" => :high_sierra
-    sha256 "210cdedc779768dcd304c2c1cd4817ed00c9702c334bfdff8771ee2a3d862226" => :sierra
-    sha256 "e1bfc71d17ab1e545aaf8e6ca6565012ecd51b7851a5bdf2f9f0f3b538dde2af" => :el_capitan
-    sha256 "56653e49c074e725cca2b846437f1791e43937faed434566a83179a0b51b3d96" => :x86_64_linux
+    sha256 "b8b2f678aca517399804f76bc6a276f821328f46936e1db11eac1c60f58317b2" => :high_sierra
+    sha256 "00c96cccd0cf7d829bb9094d6cbe015a964784ff86d2a3ed8fad5dbe074ac8ee" => :sierra
+    sha256 "c2d25c2e3f43961720dc16e4bf501f05914e7a6bf3b8061073f567a2a7652acc" => :el_capitan
   end
 
   depends_on "go" => :build

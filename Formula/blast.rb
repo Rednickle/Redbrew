@@ -17,6 +17,8 @@ class Blast < Formula
   depends_on "python@2"
   depends_on "cpio" => :build unless OS.mac?
 
+  conflicts_with "proj", :because => "both install a `libproj.a` library"
+
   def install
     # Reduce memory usage for CircleCI.
     ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
