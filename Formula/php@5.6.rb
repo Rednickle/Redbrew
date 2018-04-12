@@ -3,11 +3,12 @@ class PhpAT56 < Formula
   homepage "https://secure.php.net/"
   url "https://php.net/get/php-5.6.35.tar.xz/from/this/mirror"
   sha256 "9985cb64cb8224c289effff5b34f670d14f838175f76daea0507d643eec650d2"
+  revision 1
 
   bottle do
-    sha256 "df5e8f314eed3b68f47cf4ba34e0dc5c8fa8250868bb8f6e1a87e920aff19087" => :high_sierra
-    sha256 "e5dc4f5d615c96734c5ae0fe262c0ece94c5d3f88793e51c0226427eb1a82144" => :sierra
-    sha256 "e1fa7d5fb36745afda191136b1707b817b95bdb85dc875621d6632121cd4074c" => :el_capitan
+    sha256 "f88d7b5964aa5ebc0c1a970ba61854c3ddc3a86e723c96e2e5ffe691ea928102" => :high_sierra
+    sha256 "b2fd7898cda6e6aa673e87cc3d91f194efaca778bb7415fab2d7a2952e1e99b4" => :sierra
+    sha256 "d9328c21d27e3be48fc72020c09502258a04c0e146ee35ab17ba64c9fef45c99" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -75,7 +76,7 @@ class PhpAT56 < Formula
     ENV.append "CPPFLAGS", "-DU_USING_ICU_NAMESPACE=1"
 
     config_path = etc/"php/#{php_version}"
-    # Prevent system pear config from inhibitting pear install
+    # Prevent system pear config from inhibiting pear install
     (config_path/"pear.conf").delete if (config_path/"pear.conf").exist?
 
     # Prevent homebrew from harcoding path to sed shim in phpize script
@@ -87,6 +88,7 @@ class PhpAT56 < Formula
       --sysconfdir=#{config_path}
       --with-config-file-path=#{config_path}
       --with-config-file-scan-dir=#{config_path}/conf.d
+      --with-pear=#{pkgshare}/pear
       --enable-bcmath
       --enable-calendar
       --enable-dba
@@ -198,7 +200,7 @@ class PhpAT56 < Formula
   end
 
   def post_install
-    pear_prefix = share/"pear"
+    pear_prefix = pkgshare/"pear"
     pear_files = %W[
       #{pear_prefix}/.depdblock
       #{pear_prefix}/.filemap
@@ -224,7 +226,8 @@ class PhpAT56 < Formula
     php_ext_dir = opt_prefix/"lib/php"/php_basename
 
     # fix pear config to install outside cellar
-    pear_path = HOMEBREW_PREFIX/"share/pear"
+    pear_path = HOMEBREW_PREFIX/"share/pear@#{php_version}"
+    cp_r pkgshare/"pear/.", pear_path
     {
       "php_ini" => etc/"php/#{php_version}/php.ini",
       "php_dir" => pear_path,
@@ -241,6 +244,8 @@ class PhpAT56 < Formula
       value.mkpath if key =~ /(?<!bin|man)_dir$/
       system bin/"pear", "config-set", key, value, "system"
     end
+
+    system bin/"pear", "update-channels"
 
     %w[
       opcache
