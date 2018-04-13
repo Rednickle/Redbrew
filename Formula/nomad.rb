@@ -10,6 +10,7 @@ class Nomad < Formula
     sha256 "48ca9b07c7c5e20fa35341c1780a9bcc90edc1073386c5fda31926ebbce6141a" => :high_sierra
     sha256 "dbe43b0a518a19d2c05f4464888b2dac566257d59a1cdf2ad672b102a0f5ae99" => :sierra
     sha256 "72a96db3006ed22e86cc9ce707dda4ec8c0ecd480522258b52b88e6f93b54d2a" => :el_capitan
+    sha256 "65b52445b5a834acf73c6942bcff5cc4370cae9bb5e4374e4f1b2b6a0887fcac" => :x86_64_linux
   end
 
   option "with-dynamic", "Build dynamic binary with CGO_ENABLED=1"
