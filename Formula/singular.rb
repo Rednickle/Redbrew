@@ -3,13 +3,12 @@ class Singular < Formula
   homepage "https://www.singular.uni-kl.de/"
   url "http://www.mathematik.uni-kl.de/ftp/pub/Math/Singular/SOURCES/4-1-1/singular-4.1.1.tar.gz"
   sha256 "3792c5707b60c1748298bf47e2277de20303d60563b797372cc0e1eff4bbc583"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "438fa81c0155d1d1d6b5cb8060ef5128d181f16753835045030ee94d7ce534f9" => :high_sierra
-    sha256 "6b866dcaa9291369addb608c321fee804e78d7764d01266ac4f3b7029e0899f5" => :sierra
-    sha256 "d7f7e24b98fe23310e2c4ec85c32350fb545930a8259a76e312857c4ab3a5403" => :el_capitan
-    sha256 "65e5c6ab69e5be45ffb2bc31b6f5ef5c78d1f0ba7e463252170abb62e59693d5" => :x86_64_linux
+    sha256 "cbad21630b787e410d0adb653aa6c56c2ac865cfeb695bb8ac2d23f2c82142ad" => :high_sierra
+    sha256 "d54eb14a6ab61dabecc598e0c3a280c2914dc042167a926336ce562d3a322bfd" => :sierra
+    sha256 "add5cde2dbaaf9497d16c0c4fb47e299aec3dd46390225d053f1ae31641bc528" => :el_capitan
   end
 
   head do
@@ -29,7 +28,8 @@ class Singular < Formula
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "CXXFLAGS=-std=c++11"
     system "make", "install"
   end
 
