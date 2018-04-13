@@ -15,6 +15,7 @@ class Docutils < Formula
     sha256 "aaa9d38dce4d7fef184552c873bf67f118f059c699d7ea33b1153776d3727d79" => :x86_64_linux # glibc 2.19
   end
 
+  depends_on "python@2"
   depends_on "zlib" unless OS.mac?
 
   def install
