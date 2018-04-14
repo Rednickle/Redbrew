@@ -6,9 +6,7 @@ class Docker2aci < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "786e30d746607eea372c8eaa2705f850320dd74e28385fd3b75946e6e8c8e52d" => :high_sierra
-    sha256 "6cfeb751ff7db4e703938e2bfc4e28d4ec9a30e59261e75aa5adf690d0f33061" => :sierra
-    sha256 "b1a61fc4d329ef1e3ad97ea701e2c0be392f29e8d4a8bd2f1934bf7bac620121" => :el_capitan
+    sha256 "cd729e36e463154b10f4198024ca0760669ebf198f12dc2d3b73162684ae2ddd" => :x86_64_linux
   end
 
   depends_on "go" => :build
