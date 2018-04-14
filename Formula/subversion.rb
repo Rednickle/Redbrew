@@ -1,15 +1,14 @@
 class Subversion < Formula
   desc "Version control system designed to be a better CVS"
   homepage "https://subversion.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.9.7.tar.bz2"
-  mirror "https://archive.apache.org/dist/subversion/subversion-1.9.7.tar.bz2"
-  sha256 "c3b118333ce12e501d509e66bb0a47bcc34d053990acab45559431ac3e491623"
-  revision OS.mac? ? 3 : 4
+  url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.10.0.tar.bz2"
+  mirror "https://archive.apache.org/dist/subversion/subversion-1.10.0.tar.bz2"
+  sha256 "2cf23f3abb837dea0585a6b0ebd70e80e01f95bddef7c1aa097c18e3eaa6b584"
 
   bottle do
-    sha256 "7482d281e4e0ff5b10377a576f3e97ed867795645291308d35adf51747ff2162" => :high_sierra
-    sha256 "a181531a3a3ad04d429b7aead29fec814c6e042482ea35abc581cc9e4571a25a" => :sierra
-    sha256 "6cb9acb883f5d7045324846bab0d51315da6fbb462b9ef664e0c9d0c9b58ef8d" => :el_capitan
+    sha256 "c9c3361ed8052f85250510f499af601d7134dd84b27db5fd8499f588925f4b23" => :high_sierra
+    sha256 "433b0e2945afcbd51c70bcec6a8c9e268b3e98b797c0dc0bb3a20bada02f84de" => :sierra
+    sha256 "00ee7ed7b816f8f158bf3bc69a30c0764ae9bd4c7ce92b9cb08b7365c92b8982" => :el_capitan
   end
 
   deprecated_option "java" => "with-java"
@@ -27,7 +26,9 @@ class Subversion < Formula
   depends_on "apr"
 
   # Always build against Homebrew versions instead of system versions for consistency.
+  depends_on "lz4"
   depends_on "sqlite"
+  depends_on "utf8proc"
   depends_on "perl" => :recommended
   depends_on "python" => OS.mac? ? :optional : :recommended
 
@@ -223,19 +224,6 @@ class Subversion < Formula
 end
 
 __END__
-diff --git a/configure b/configure
-index 445251b..6ff4332 100755
---- a/configure
-+++ b/configure
-@@ -26153,6 +26153,8 @@ fi
- SWIG_CPPFLAGS="$CPPFLAGS"
- 
-   SWIG_CPPFLAGS=`echo "$SWIG_CPPFLAGS" | $SED -e 's/-no-cpp-precomp //'`
-+  SWIG_CPPFLAGS=`echo "$SWIG_CPPFLAGS" | $SED -e 's/-F\/[^ ]* //'`
-+  SWIG_CPPFLAGS=`echo "$SWIG_CPPFLAGS" | $SED -e 's/-isystem\/[^ ]* //'`
- 
- 
-   SWIG_CPPFLAGS=`echo "$SWIG_CPPFLAGS" | $SED -e 's/-Wdate-time //'`
 diff --git a/subversion/bindings/swig/perl/native/Makefile.PL.in b/subversion/bindings/swig/perl/native/Makefile.PL.in
 index a60430b..bd9b017 100644
 --- a/subversion/bindings/swig/perl/native/Makefile.PL.in
