@@ -1,17 +1,17 @@
 class Futhark < Formula
   desc "Data-parallel functional programming language"
   homepage "https://futhark-lang.org/"
-  url "https://github.com/diku-dk/futhark/archive/v0.4.0.tar.gz"
-  sha256 "238ead153c3e1656237994b3036de074265d85dba7fda1786efd9bb22789d04b"
+  url "https://github.com/diku-dk/futhark/archive/0.4.1.tar.gz"
+  sha256 "6702dd5b6a8366736f055d349a29ee4377c0828cd76f01cb9ee87e96f20e6c28"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d96eed912720a404cb42c5fb6af5a75683c258e85d19b377e393859e6002fe07" => :high_sierra
-    sha256 "7672b05d9cb4c4c8be180ff570ead0d4a843d45951abd1424d3c03884957e471" => :sierra
-    sha256 "a297d156ae380db6ab1ad3caa0cc0dca4b09bcf942d5541000e190e04da46cda" => :el_capitan
+    sha256 "3a9665e9e97e6b78b4b873025eabaf80c1d3875fa72464cea7c3b650b7279ebf" => :high_sierra
+    sha256 "53d7d06292d2d0e3ae71fcc898d75e7113a43cca87209e658c77f2ccd9b79be1" => :sierra
+    sha256 "10711908562115e2a1e04dc60019940faaeeb93602242a8456a3f1c426301e85" => :el_capitan
   end
 
-  depends_on "ghc@8.2" => :build
+  depends_on "ghc" => :build
   depends_on "haskell-stack" => :build
   depends_on "sphinx-doc" => :build
 
