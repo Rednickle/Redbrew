@@ -2,16 +2,15 @@ class Mypy < Formula
   desc "Experimental optional static type checker for Python"
   homepage "http://www.mypy-lang.org/"
   url "https://github.com/python/mypy.git",
-      :tag => "v0.580",
-      :revision => "f38596dc3f078ac6705c08632a3043d8e3c9c1d5"
+      :tag => "v0.590",
+      :revision => "7519e89ae8054ea3f22c4d13f16aaf9ae8f10f0a"
   head "https://github.com/python/mypy.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9b69cb0b45fcf7e21f31af35984f6b68cea1a0fb0a83093d3b8ad60edc6d1923" => :high_sierra
-    sha256 "9f9d3d159393bfc690cc524507ca6f058609569d2e25e70740fdce3aff8aff9c" => :sierra
-    sha256 "db2544a558fd5ac6afb0483439f3faeff8240810911d4e0df71b526299708fd6" => :el_capitan
-    sha256 "c9e22111fff64b50a3e2e6a58e562a3d7cfff604ded88c7b009932fe3bca301b" => :x86_64_linux
+    sha256 "d4929b99a6dcdb0383554a7714687da33b0876522f5d0f942ad11a8f5d15d874" => :high_sierra
+    sha256 "26beb73bedfa44ab211b55ab02c4a97a04fd78f4b6b3bc6a6c60694103ebe470" => :sierra
+    sha256 "a3b0e6bdc994be9692972ed91175cea4ff9e6bed04a828cc3179d7b0047b613d" => :el_capitan
   end
 
   option "without-sphinx-doc", "Don't build documentation"
@@ -22,13 +21,13 @@ class Mypy < Formula
   depends_on "sphinx-doc" => [:build, :recommended]
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/e2/e1/600326635f97fee89bf8426fef14c5c29f4849c79f68fd79f433d8c1bd96/psutil-5.4.3.tar.gz"
-    sha256 "e2467e9312c2fa191687b89ff4bc2ad8843be4af6fb4dc95a7cc5f7d7a327b18"
+    url "https://files.pythonhosted.org/packages/14/a2/8ac7dda36eac03950ec2668ab1b466314403031c83a95c5efc81d2acf163/psutil-5.4.5.tar.gz"
+    sha256 "ebe293be36bb24b95cdefc5131635496e88b17fabbcf1e4bc9b5c01f5e489cfe"
   end
 
   resource "sphinx_rtd_theme" do
-    url "https://files.pythonhosted.org/packages/8b/e5/b1933472424b30affb0a8cea8f0ef052a31ada96e5d1823911d7f4bfdf8e/sphinx_rtd_theme-0.2.4.tar.gz"
-    sha256 "2df74b8ff6fae6965c527e97cca6c6c944886aae474b490e17f92adfbe843417"
+    url "https://files.pythonhosted.org/packages/36/02/f402fc35ab83ae757a70c43c6d078726e555064a2f461037582fac935649/sphinx_rtd_theme-0.3.0.tar.gz"
+    sha256 "665135dfbdf8f1d218442458a18cf266444354b8c98eed93d1543f7e701cfdba"
   end
 
   resource "typed-ast" do
