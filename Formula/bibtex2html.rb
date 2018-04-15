@@ -9,6 +9,7 @@ class Bibtex2html < Formula
     sha256 "145c0eb8c54ea55a3fc9cbfc3cb034791890dc68d1ed267e315fee17300c718a" => :high_sierra
     sha256 "2ac5800e2e29a1471d5ea6ccf3dff76201559f2e2e6471e536e25ec162cd79c3" => :sierra
     sha256 "ba8aa5695eed41c522c20396b8509add1c0a45abead9e32a079e6c4a22507602" => :el_capitan
+    sha256 "7e6ccc485cef501d26a02d4920708137bbeff2df17a281e2f6165eb63f93f26a" => :x86_64_linux
   end
 
   depends_on "ocaml"
