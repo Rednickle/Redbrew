@@ -1,16 +1,14 @@
 class NanopbGenerator < Formula
   desc "C library for encoding and decoding Protocol Buffer messages"
   homepage "https://jpa.kapsi.fi/nanopb/docs/index.html"
-  url "https://jpa.kapsi.fi/nanopb/download/nanopb-0.3.9.tar.gz"
-  sha256 "f6fe05441150bf158c2adfec29fa8206785bbb6c3dcd4a3ddbafcf8f9ad9f251"
-  revision 1
+  url "https://jpa.kapsi.fi/nanopb/download/nanopb-0.3.9.1.tar.gz"
+  sha256 "e677290fdb419a3d437b824ef9eac02b8d1672fb30d60dd1f3113eae405b1f5b"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "162e82a5d987e11b4b451d6d23a5d1e4e193ba2a802ab8eeed2395910519598c" => :high_sierra
-    sha256 "162e82a5d987e11b4b451d6d23a5d1e4e193ba2a802ab8eeed2395910519598c" => :sierra
-    sha256 "162e82a5d987e11b4b451d6d23a5d1e4e193ba2a802ab8eeed2395910519598c" => :el_capitan
-    sha256 "c3f2c944335a0cd4f976460d1064490e359679a6663ba86dccec86ec968232ba" => :x86_64_linux
+    sha256 "298fbe96efa71f53a4bfb7ae92d0e1cf31b8d9749611300ecc02dcefe20be9d8" => :high_sierra
+    sha256 "298fbe96efa71f53a4bfb7ae92d0e1cf31b8d9749611300ecc02dcefe20be9d8" => :sierra
+    sha256 "298fbe96efa71f53a4bfb7ae92d0e1cf31b8d9749611300ecc02dcefe20be9d8" => :el_capitan
   end
 
   depends_on "python@2"
