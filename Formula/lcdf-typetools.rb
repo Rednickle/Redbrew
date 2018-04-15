@@ -8,6 +8,7 @@ class LcdfTypetools < Formula
     sha256 "bc3f49aef8137633d403aaa90ed1f97e9e0e07ec969b424649fd3a2d8408dd9c" => :high_sierra
     sha256 "9875de167b838b6ef49eb83400f1b9c306c0374394a33f46cec6e7cceb0ed066" => :sierra
     sha256 "761612b6522dffab0ea197e1ff27422bc8d34ffaf080518d148249bf7731e3ed" => :el_capitan
+    sha256 "f7a95d76120b54ac63d07cf3c886cc0d379ebc75545e40e1e0c1de7ff87d1573" => :x86_64_linux
   end
 
   conflicts_with "open-mpi", :because => "both install same set of binaries."
