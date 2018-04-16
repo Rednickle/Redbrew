@@ -10,6 +10,7 @@ class Sparse < Formula
     sha256 "e1f7b2d8585f7c30f1c3c342d034768e14fac1b6043d5d7ba41a7b12d75c3efa" => :high_sierra
     sha256 "af4f28e9df8833877fc218dee27092218b57de0414706a64a6fc44946e7de692" => :sierra
     sha256 "e393e5c09338e5db469150cd90d7d24f67840be81e36a09ac430f4ffe0254df0" => :el_capitan
+    sha256 "eccfdb1fed859573858bb9532cca233cfc76c9113fd0174719ba7fd1f123ab12" => :x86_64_linux
   end
 
   def install
