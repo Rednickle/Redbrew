@@ -8,6 +8,7 @@ class PerlAT518 < Formula
     sha256 "bdfac28ec4bf1ea1859b23564e0e4fd80ffe5ec5f7b54efc21cf8f1c47b396b8" => :high_sierra
     sha256 "a73a2bbb48200827c3cca867b2145808735e5f250af55a01580fffd875da983e" => :sierra
     sha256 "a4400e07a3930625832082f113abbd9069f818dc22c1bac17b23e99edaff66ff" => :el_capitan
+    sha256 "c3b0508c338b17ea5d7a811d5ba7789a18e98a02823bdf71a54d7da0fef44bed" => :x86_64_linux
   end
 
   keg_only :versioned_formula
