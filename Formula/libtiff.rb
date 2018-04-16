@@ -4,14 +4,13 @@ class Libtiff < Formula
   url "https://download.osgeo.org/libtiff/tiff-4.0.9.tar.gz"
   mirror "https://fossies.org/linux/misc/tiff-4.0.9.tar.gz"
   sha256 "6e7bdeec2c310734e734d19aae3a71ebe37a4d842e0e23dbb1b8921c0026cfcd"
-  revision OS.mac? ? 2 : 3
+  revision OS.mac? ? 3 : 4
 
   bottle do
     cellar :any
-    sha256 "b25a0893acdffc8fcbb1f9d0a2f1ef04c62f15168689fc64842cd7a36884d179" => :high_sierra
-    sha256 "4fbaa643a091abe7e6744ff8b04dcd94d35b559874dcdc9d733b10c41666c78a" => :sierra
-    sha256 "fdfeb67c92d2cb64628ba15c3ded9d840b90b5627e06e0864536fd66ea9d15f3" => :el_capitan
-    sha256 "360c6576264327954f7ccbba2aec365e057437553cb1f3ce750a248ca105d27e" => :x86_64_linux
+    sha256 "2338c777aad152907291b35f40f2767771038a4812d2460e045b9ef4a7f3b565" => :high_sierra
+    sha256 "793f26ad5b2120fed7cdd00e1cd8f5b4d7e5f6363b7bc1aa9ef909cc05474579" => :sierra
+    sha256 "d0f870c1226d0bbf13de283c770d73127bbcf34028d58805a35174fde6e89845" => :el_capitan
   end
 
   option "with-xz", "Include support for LZMA compression"
@@ -23,12 +22,16 @@ class Libtiff < Formula
   # All of these have been reported upstream & should
   # be fixed in the next release, but please check.
   patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.9-4.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/t/tiff/tiff_4.0.9-4.debian.tar.xz"
-    sha256 "f078da1da538109c1e5403dc1f44d23c91f5a5d6ddc5ffc41ff60de006cb2b2e"
+    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.9-5.debian.tar.xz"
+    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/t/tiff/tiff_4.0.9-5.debian.tar.xz"
+    sha256 "5c98180b77457fc5452f3b4fed85862172dbfdb342d7a98e88363e439a669c96"
     apply "patches/CVE-2017-9935.patch",
           "patches/CVE-2017-18013.patch",
-          "patches/CVE-2018-5784.patch"
+          "patches/CVE-2018-5784.patch",
+          "patches/CVE-2017-11613_part1.patch",
+          "patches/CVE-2017-11613_part2.patch",
+          "patches/CVE-2018-7456.patch",
+          "patches/CVE-2017-17095.patch"
   end
 
   def install
