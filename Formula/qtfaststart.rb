@@ -9,6 +9,7 @@ class Qtfaststart < Formula
     sha256 "4534f204dcc950ad18c3a141119fcd8d9a9623645092ae3f003b08dd94851dcf" => :high_sierra
     sha256 "a11b3b623a2682567830cb05810ed4445037f5b43a52f2378a10291aad70a2c6" => :sierra
     sha256 "00ed1702b08f3fe7d0660aab963f15baab6a5bac8db02048fe5d0b4d80b4abe0" => :el_capitan
+    sha256 "d688747087c789bd6d868809fbf9232ab44eb1a491e340e5b2939f0f3f91f424" => :x86_64_linux
   end
 
   resource "mov" do
