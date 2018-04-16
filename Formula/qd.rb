@@ -9,6 +9,7 @@ class Qd < Formula
     sha256 "43f6d1436bdc32bd004306741adeb192f5d6d2ae9e8b71426b9503b0e8ad3fe8" => :high_sierra
     sha256 "7c51a39a1e50a8f64f35b42f7155be032bb9ab2fad4d319894ed17b6d9d00cce" => :sierra
     sha256 "13d95068f7a9ff0ec7bb4837dd82b0bf09ce8816dd2fb09ef6acc91ad6cb1f6a" => :el_capitan
+    sha256 "3061cd8697ed08b739916c77958ce3f783b493e37ada596b7ca1dbdeda30e4a1" => :x86_64_linux
   end
 
   depends_on "gcc" # for gfortran
