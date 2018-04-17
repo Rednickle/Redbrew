@@ -13,8 +13,6 @@ class Automake < Formula
     sha256 "5acde6454a0a0e9e54148cb87b576c2d3a756280a2025aa0809b29998afd4425" => :x86_64_linux
   end
 
-  keg_only :provided_until_xcode43
-
   depends_on "autoconf"
 
   def install
