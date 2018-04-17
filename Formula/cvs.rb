@@ -22,8 +22,6 @@ class Cvs < Formula
     sha256 "32dcf27cf028e270e826ba9850bde2f403f77c2c16a4b534d59cf68c0446e1fb" => :el_capitan
   end
 
-  keg_only :provided_until_xcode5
-
   unless OS.mac?
     depends_on VimRequirement unless ENV["CI"]
     depends_on "vim" unless which "vim"
@@ -33,17 +31,17 @@ class Cvs < Formula
     url "https://opensource.apple.com/tarballs/cvs/cvs-45.tar.gz"
     sha256 "4d200dcf0c9d5044d85d850948c88a07de83aeded5e14fa1df332737d72dc9ce"
     apply *["patches/PR5178707.diff",
-          "patches/ea.diff",
-          "patches/endian.diff",
-          "patches/fixtest-client-20.diff",
-          "patches/fixtest-recase.diff",
-          "patches/i18n.diff",
-          "patches/initgroups.diff",
-          ("patches/nopic.diff" if OS.mac?),
-          "patches/remove-libcrypto.diff",
-          "patches/remove-info.diff",
-          "patches/tag.diff",
-          "patches/zlib.diff"].compact
+            "patches/ea.diff",
+            "patches/endian.diff",
+            "patches/fixtest-client-20.diff",
+            "patches/fixtest-recase.diff",
+            "patches/i18n.diff",
+            "patches/initgroups.diff",
+            ("patches/nopic.diff" if OS.mac?),
+            "patches/remove-libcrypto.diff",
+            "patches/remove-info.diff",
+            "patches/tag.diff",
+            "patches/zlib.diff"].compact
   end
 
   # Fixes error: 'Illegal instruction: 4'; '%n used in a non-immutable format string' on 10.13
