@@ -14,8 +14,6 @@ class Gperf < Formula
     sha256 "901587d856ef1e6c4d58ce9259eb9a3f85bfa29635b6a3d0fa3c68ad8e8a2b1c" => :x86_64_linux # glibc 2.19
   end
 
-  keg_only :provided_until_xcode43
-
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"

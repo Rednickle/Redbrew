@@ -20,8 +20,6 @@ class Libtool < Formula
     sha256 "1efb2596f487af0e666e0a3d236ee8ac83db17d9e8e94066802e000f75b4b045" => :x86_64_linux # glibc 2.19
   end
 
-  keg_only :provided_until_xcode43
-
   depends_on "m4" => :build unless OS.mac?
 
   option "with-default-names", "Do not prepend 'g' to the binary"

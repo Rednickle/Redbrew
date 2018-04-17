@@ -29,8 +29,6 @@ class Fontconfig < Formula
     depends_on "libtool" => :build
   end
 
-  keg_only :provided_pre_mountain_lion
-
   option "without-docs", "Skip building the fontconfig docs"
 
   depends_on "pkg-config" => :build

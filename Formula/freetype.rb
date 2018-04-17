@@ -14,8 +14,6 @@ class Freetype < Formula
     sha256 "70750059de275320553498e06aa7b539fe1b913394242240c46ba18e6459f785" => :x86_64_linux
   end
 
-  keg_only :provided_pre_mountain_lion
-
   depends_on "libpng"
   unless OS.mac?
     depends_on "bzip2"
