@@ -1,16 +1,15 @@
 class Gollum < Formula
   desc "n:m message multiplexer written in Go"
   homepage "https://github.com/trivago/gollum"
-  url "https://github.com/trivago/gollum/archive/v0.5.1.tar.gz"
-  sha256 "9c12feccfbe695ef9c95b1c5436916eece38221ba7c9456f5a18799ede2cec0d"
+  url "https://github.com/trivago/gollum/archive/v0.5.2.tar.gz"
+  sha256 "c9ab52adc6a62b81b7da8a591be7a7db71bf7122a236ff97cd456cd5fbc0ba83"
   head "https://github.com/trivago/gollum.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f537437001d9d8639213232a3c4b63a88c8e32802c550eb0b0b652f2666f0c87" => :high_sierra
-    sha256 "ce6bcd11eccdedad73116ef2c4fb4bfb23c85ff8c1af266cebe2ac5c37b8b9be" => :sierra
-    sha256 "a10d81de20b663f86482e971d1545aaab4b5fa614110a2e8b3c8a4ab94d555ff" => :el_capitan
-    sha256 "5b94d79e2c3fde9f34856ebb4015fff1fcd4878562181b38c77f6a04af2c6290" => :x86_64_linux
+    sha256 "21fe6b3a0126e7b827a8cae7d74a92bb2ae202bd91139eb8dd230acae4a353dd" => :high_sierra
+    sha256 "a06fec35f228c609b6fb019f926c143d4ac058bc9877353199ba2a4f3141926b" => :sierra
+    sha256 "a095c21061f6182bc7f6fefc8538e67e7a10ee535b51e3960c5a29da2de345bf" => :el_capitan
   end
 
   depends_on "go" => :build

@@ -2,16 +2,16 @@ class Cockatrice < Formula
   desc "Cross-platform virtual tabletop for multiplayer card games"
   homepage "https://cockatrice.github.io/"
   url "https://github.com/Cockatrice/Cockatrice.git",
-      :tag => "2018-03-02-Release-2.5.0",
-      :revision => "5859fa2f20b7bf51249fe5f336ecfd36ef22f324"
-  version "2.5.0"
+      :tag => "2018-04-16-Release-2.5.1",
+      :revision => "1fbdea0f35c25313e7cf481b98552c92cc70a6ec"
+  version "2.5.1"
   version_scheme 1
   head "https://github.com/Cockatrice/Cockatrice.git"
 
   bottle do
-    sha256 "a4d55a9b8500a209f45fb6f5dc51575b563f0a371247f9b07771cdbfbb9f5105" => :high_sierra
-    sha256 "0375aa07963f3475b613207ea7615f08c296439bf3f832b7c9ce1e0e54996981" => :sierra
-    sha256 "29369f9c3fcb3f8c16e738041236b9d7bcbf88a2c28859193a51a605f8833f30" => :el_capitan
+    sha256 "c42f80f3269a7226b40e52cf3af6be44b3952882c2d0c235b536120552c9d550" => :high_sierra
+    sha256 "67373a44512d250598df6cbe3f29c121c54519ea55233635f0d7991eee522f7c" => :sierra
+    sha256 "6caa34c3b0aed2e8451637eea27bc0f819924bec2d07bb22b7919730246d1b05" => :el_capitan
   end
 
   depends_on :macos => :el_capitan
