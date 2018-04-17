@@ -1,16 +1,26 @@
 class Upscaledb < Formula
   desc "Database for embedded devices"
   homepage "https://upscaledb.com/"
-  url "http://files.upscaledb.com/dl/upscaledb-2.2.0.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/upscaledb-2.2.0.tar.gz"
-  sha256 "7d0d1ace47847a0f95a9138637fcaaf78b897ef682053e405e2c0865ecfd253e"
-  revision 7
+  revision 8
+
+  stable do
+    url "http://files.upscaledb.com/dl/upscaledb-2.2.0.tar.gz"
+    mirror "https://dl.bintray.com/homebrew/mirror/upscaledb-2.2.0.tar.gz"
+    sha256 "7d0d1ace47847a0f95a9138637fcaaf78b897ef682053e405e2c0865ecfd253e"
+
+    # Remove for > 2.2.2
+    # Upstream commit from 12 Feb 2018 "Fix compilation with Boost 1.66 (#110)"
+    patch do
+      url "https://github.com/cruppstahl/upscaledb/commit/01156f9a8.patch?full_index=1"
+      sha256 "e65b9f2b624b7cdad00c3c1444721cadd615688556d8f0bb389d15f5f5f4f430"
+    end
+  end
 
   bottle do
     cellar :any
-    sha256 "26d334d0ad7a36582834575895ee1dd04aeb9db13db52442cb60a2188807c268" => :high_sierra
-    sha256 "4d438ae443c577725d03b7dfceb1d6d078bc2037d4fa28799e662ed997326fbe" => :sierra
-    sha256 "0db006a03d8fc4e4952484d56fb4d59afffe4b7b225669effcb407f5cb12a6c4" => :el_capitan
+    sha256 "5d2c04e98328b0dc12fce4f78f78d5cd378ce4ea7b1b026800a65333747f6136" => :high_sierra
+    sha256 "68ca2b096e3a9a6753eb524f0b60176f1477a835ae3bb85a35c35a3d84f5ec14" => :sierra
+    sha256 "46377ee2dbc85908cc65a3087c07fd0d750a1e940b514716fc536f00b983efea" => :el_capitan
   end
 
   head do

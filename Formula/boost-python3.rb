@@ -1,15 +1,14 @@
 class BoostPython3 < Formula
   desc "C++ library for C++/Python3 interoperability"
   homepage "https://www.boost.org/"
-  url "https://dl.bintray.com/boostorg/release/1.66.0/source/boost_1_66_0.tar.bz2"
-  sha256 "5721818253e6a0989583192f96782c4a98eb6204965316df9f5ad75819225ca9"
-  revision 1
+  url "https://dl.bintray.com/boostorg/release/1.67.0/source/boost_1_67_0.tar.bz2"
+  sha256 "2684c972994ee57fc5632e03bf044746f6eb45d4920c343937a465fd67a5adba"
   head "https://github.com/boostorg/boost.git"
 
   bottle do
-    sha256 "b5af7b8114b1c86e4a47ab5fb58a50ff4f26e57e43e4b80e334eb26d894580f0" => :high_sierra
-    sha256 "f7817593f0ca621a42420b4f8ea7d2b66bb8c017f30772efce59120df71548b6" => :sierra
-    sha256 "44e03e78576ab81583d82ec0fd2623053a9c12c5fd45e8cd159b19d38583b77d" => :el_capitan
+    sha256 "9e6f8d24dea9f09ce5e9a4a13b5af850c60053c459787377449e0f9733cdb274" => :high_sierra
+    sha256 "5491c58d54ad60d3242d64b620c92b988b0801e1d1945006d823d6559186bb3a" => :sierra
+    sha256 "76c42589ff0991ab5e7a335e567adedb84c1f4a9d22c86b1e52f95c922e5649b" => :el_capitan
   end
 
   depends_on "boost"
@@ -90,7 +89,7 @@ class BoostPython3 < Formula
     pyincludes = Utils.popen_read("python3-config --includes").chomp.split(" ")
     pylib = Utils.popen_read("python3-config --ldflags").chomp.split(" ")
 
-    system ENV.cxx, "-shared", "hello.cpp", "-L#{lib}", "-lboost_python3", "-o",
+    system ENV.cxx, "-shared", "hello.cpp", "-L#{lib}", "-lboost_python36", "-o",
            "hello.so", *pyincludes, *pylib
 
     output = <<~EOS

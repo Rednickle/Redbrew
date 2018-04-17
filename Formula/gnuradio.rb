@@ -3,13 +3,13 @@ class Gnuradio < Formula
   homepage "https://gnuradio.org/"
   url "https://gnuradio.org/releases/gnuradio/gnuradio-3.7.11.tar.gz"
   sha256 "87d9ba3183858efdbb237add3f9de40f7d65f25e16904a9bc8d764a7287252d4"
-  revision 3
+  revision 4
   head "https://github.com/gnuradio/gnuradio.git"
 
   bottle do
-    sha256 "ffc99690ce3cc34d2a072351a6650c6ec3216f6bb91a27d9c95f0cd56fb242d6" => :high_sierra
-    sha256 "23502002ce6da05a78aa254c5034c3dfb182dfe1cc70c9a0f40afab03663cfb6" => :sierra
-    sha256 "b83941d5f6486c6f931e667979dc6dc893483cfea54789a7ee764137e0ce8fba" => :el_capitan
+    sha256 "b7659bc81db490f2f12aac8c08a8687f3b44d4e4c40adb284c32780066f42f3a" => :high_sierra
+    sha256 "bb9aa035ea9c23b78830f829741ede4a5592036588fb870b8b42760b38bbfb1c" => :sierra
+    sha256 "0d8f3e33186012db38826db7560616c43b18cee8cfbf469d2edb36499e94481d" => :el_capitan
   end
 
   option "without-python@2", "Build without python support"
@@ -39,6 +39,12 @@ class Gnuradio < Formula
   depends_on "portaudio" => :recommended
   depends_on "pygtk" => :optional
   depends_on "wxpython" => :optional
+
+  # Upstream PR from 17 Apr 2018 "Boost 1.67.0 compatibility"
+  patch do
+    url "https://github.com/gnuradio/gnuradio/pull/1733.patch?full_index=1"
+    sha256 "f02a04fb179a9b525b5e4ba8171ce5737c16d64f06f0e318ce092c6b4e19025f"
+  end
 
   # cheetah starts here
   resource "Markdown" do

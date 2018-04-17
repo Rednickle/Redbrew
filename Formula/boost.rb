@@ -1,16 +1,15 @@
 class Boost < Formula
   desc "Collection of portable C++ source libraries"
   homepage "https://www.boost.org/"
-  url "https://dl.bintray.com/boostorg/release/1.66.0/source/boost_1_66_0.tar.bz2"
-  sha256 "5721818253e6a0989583192f96782c4a98eb6204965316df9f5ad75819225ca9"
+  url "https://dl.bintray.com/boostorg/release/1.67.0/source/boost_1_67_0.tar.bz2"
+  sha256 "2684c972994ee57fc5632e03bf044746f6eb45d4920c343937a465fd67a5adba"
   head "https://github.com/boostorg/boost.git"
 
   bottle do
     cellar :any
-    sha256 "78cb090c515e20aa7307c6619a055ffd8858cc6a3bd756958edbf34f463e4bc1" => :high_sierra
-    sha256 "51e3b67625b8def53f5e5183a5ef98071e17b0b760dfc6baa65877d4528141ca" => :sierra
-    sha256 "6352d4f65d7595c1eff62c6ce07588944122fa3305a77813fdbc16747b7dddce" => :el_capitan
-    sha256 "a684b2b3478ac6987f31adcb187c469adcff31cf2c37b66a1742fa0d644ac3d2" => :x86_64_linux
+    sha256 "3d44a7402cb17d919a555f4d34deda8f0ea14e681892c761be4c719c48b339a5" => :high_sierra
+    sha256 "de2a0c3faa675427e641cf3dd7af2278e7e1db3f6f4c508d61627866c4abef0e" => :sierra
+    sha256 "1d38618d30d6872cf52f8f12fbc545f435f8994dbf8ad9cdff706dfc0c0f564a" => :el_capitan
   end
 
   option "with-icu4c", "Build regexp engine with icu support"
