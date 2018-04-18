@@ -1,15 +1,14 @@
 class Kedge < Formula
   desc "Deployment tool for Kubernetes artifacts"
   homepage "http://kedgeproject.org/"
-  url "https://github.com/kedgeproject/kedge/archive/v0.11.0.tar.gz"
-  sha256 "023f16b5c19d385408041d1b1fd5f307f4fc6d56bb68722f74baa5fa12fb40ce"
+  url "https://github.com/kedgeproject/kedge/archive/v0.12.0.tar.gz"
+  sha256 "3c01880ba9233fe5b0715527ba32f0c59b25b73284de8cfb49914666a158487b"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9ee6dcd1f7b3dfd28e2e3c84d708ea42af0758042950450e961e1389eb57bc02" => :high_sierra
-    sha256 "49330bed015b0d9ec9ade0a9708906273851c9fe5c297b31a7497b575350333c" => :sierra
-    sha256 "9e19bd2ee220a44ea866ddcb929e25c81f78282589d44a0ee38192f1d6d3d8f5" => :el_capitan
-    sha256 "35c26ebec01935e7fce3b36d9f1fed3d74c242cc389e187a714a97eb188cc4af" => :x86_64_linux
+    sha256 "ff1bf61801e5c5e17ba83abe714c4d30914a458291cdc0fc4654ee952a919c4c" => :high_sierra
+    sha256 "39f193757913fc743191091a86b5d162b4cb4af618975db1ecd649dce7a08941" => :sierra
+    sha256 "1ff9804be018e8bf5bd0668ce1e1a647ab04005b4ea34fb22f49c50c215b4e13" => :el_capitan
   end
 
   depends_on "go" => :build
