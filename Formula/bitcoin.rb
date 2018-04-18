@@ -7,9 +7,7 @@ class Bitcoin < Formula
 
   bottle do
     cellar :any
-    sha256 "0df28afa3424cd564072c92d92047e49f82136c02509b2979e645dd3559a7922" => :high_sierra
-    sha256 "de00614e3315fb047faa56140735c153d967b98150fba07a4b9bbd25a05739b2" => :sierra
-    sha256 "c1d5a0641573188ea59a06ed75498e4b779c5067662d07c853c1223dd085e3c1" => :el_capitan
+    sha256 "bb289643030658910e8feebf403d70b93b2a81c3229db2382fed30930506b468" => :x86_64_linux
   end
 
   head do
