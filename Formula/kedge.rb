@@ -9,6 +9,7 @@ class Kedge < Formula
     sha256 "ff1bf61801e5c5e17ba83abe714c4d30914a458291cdc0fc4654ee952a919c4c" => :high_sierra
     sha256 "39f193757913fc743191091a86b5d162b4cb4af618975db1ecd649dce7a08941" => :sierra
     sha256 "1ff9804be018e8bf5bd0668ce1e1a647ab04005b4ea34fb22f49c50c215b4e13" => :el_capitan
+    sha256 "387689996cf16d3ffee16df613912a61846e2377816b8ae655f4f1aa7680f802" => :x86_64_linux
   end
 
   depends_on "go" => :build
