@@ -9,6 +9,7 @@ class WlaDx < Formula
     sha256 "227175578a34d7e37a67c7a1d54f578880b9d433168f2863e8550ea0e8b4dfd5" => :high_sierra
     sha256 "831b9f5f6b67d9f51ee41d6b9b582506c93a5a677631ca8c996401bffb58961a" => :sierra
     sha256 "f9f5a3c5e03f4145b30f09b42d8d247aae1f13b86dceee53efeb9f2b16ec0b00" => :el_capitan
+    sha256 "293a95cc9ea9ff78c63e7b8d4a465cd7320a029fa6e1875f37950d067b57f2e4" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
