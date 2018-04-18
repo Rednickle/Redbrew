@@ -19,6 +19,11 @@ class Dub < Formula
     sha256 "21c2f60df9a1dcc712b40acb90d7009e96cdf83084b4b73603095025c4ced261" => :x86_64_linux
   end
 
+  devel do
+    url "https://github.com/dlang/dub/archive/v1.9.0-beta.1.tar.gz"
+    sha256 "505729f13eb14845d0faf4665ae69f93430c49c03f4d67541a32052b98794c71"
+  end
+
   depends_on "pkg-config" => :recommended
   depends_on "dmd" => :build
   depends_on "curl" unless OS.mac?
