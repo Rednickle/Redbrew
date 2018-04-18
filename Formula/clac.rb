@@ -9,6 +9,7 @@ class Clac < Formula
     sha256 "b6e5fd38ba066369ed384eb016cbc0a56411ec46f22b0e7399f21009a16b8720" => :high_sierra
     sha256 "7e1fa4bcd0c7aed8586f7036e3d1fce149a5d4b321f496163ea5aaedbad60596" => :sierra
     sha256 "21200708adb21d70fde9197daa3a73c9029b420a992878761e9054ec5389c6af" => :el_capitan
+    sha256 "d2f7dba3256165ca6ced86cdd9f55dc83d83c1fdc3dfc34242ae2ddd287cafb0" => :x86_64_linux
   end
 
   def install
