@@ -11,6 +11,7 @@ class Pcre2 < Formula
     sha256 "be84360b53e44a8653017212119b9467f7e2b843f3bf378c4c7023b0bda78144" => :high_sierra
     sha256 "f372836d1dfc6ed0fb0e7d1344a0c9cbd5a77968722be997bc1defce659781ac" => :sierra
     sha256 "764e01a0580da89ce906e1ad1441841455b9dab11339d1add2108c3e9b6382a2" => :el_capitan
+    sha256 "e7ecb5f4b3275febe85997745421815f288ca3704d7e509ae1d4bf53c1c81093" => :x86_64_linux
   end
 
   unless OS.mac?
