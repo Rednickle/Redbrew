@@ -1,15 +1,15 @@
 class Auditbeat < Formula
   desc "Lightweight Shipper for Audit Data"
   homepage "https://www.elastic.co/products/beats/auditbeat"
-  url "https://github.com/elastic/beats/archive/v6.2.3.tar.gz"
-  sha256 "4ab58a55e61bd3ad31a597e5b02602b52d306d8ee1e4d4d8ff7662e2b554130e"
+  url "https://github.com/elastic/beats/archive/v6.2.4.tar.gz"
+  sha256 "87d863cf55863329ca80e76c3d813af2960492f4834d4fea919f1d4b49aaf699"
   head "https://github.com/elastic/beats.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9c9a5ec157b3a71482d3143f50dfe8d9a5ec0d00b9586dcba72635ddac784dbc" => :high_sierra
-    sha256 "5688b7503a2f5be0325e102cf25fb7bcf88401566cb96248fe0cbc15bd8feebe" => :sierra
-    sha256 "e765794dbb54f7a091702c5dad1bb046d3575645d2adb426104f191ead0c1fea" => :el_capitan
+    sha256 "ebd8f45921dbdd3089084bca6b48f3c91553007a2d42eb222e0b9cf15b1b6873" => :high_sierra
+    sha256 "26a317fa93b70509f8885b63981cf3dd7332b825f975f6ceb151b49baf26fe7f" => :sierra
+    sha256 "3d639a62737631ec77a87d4f9853f9d653982c39f05dad964cf94de04f9444b2" => :el_capitan
   end
 
   depends_on "go" => :build

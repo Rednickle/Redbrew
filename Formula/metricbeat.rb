@@ -1,23 +1,16 @@
 class Metricbeat < Formula
   desc "Collect metrics from your systems and services"
   homepage "https://www.elastic.co/products/beats/metricbeat"
-  url "https://github.com/elastic/beats/archive/v6.2.3.tar.gz"
-  sha256 "4ab58a55e61bd3ad31a597e5b02602b52d306d8ee1e4d4d8ff7662e2b554130e"
+  url "https://github.com/elastic/beats/archive/v6.2.4.tar.gz"
+  sha256 "87d863cf55863329ca80e76c3d813af2960492f4834d4fea919f1d4b49aaf699"
 
   head "https://github.com/elastic/beats.git"
 
-  # Can be removed when support for compilation under go 1.9.4 is supported,
-  # potentially planned for the 6.2.3 release.
-  # Related upstream PRs:
-  # - https://github.com/elastic/beats/pull/6388
-  # - https://github.com/elastic/beats/pull/6326
-  patch :DATA
-
   bottle do
     cellar :any_skip_relocation
-    sha256 "15e66dea9b402894a072b4095f0654501eb860c29d1c2c80f3930b8a46dcaba5" => :high_sierra
-    sha256 "d578b893239bc7315fbd73872207240f02c8ffe585f4d4a8c5155346128275aa" => :sierra
-    sha256 "1d03d2d51ef01382deabd9f1dc0969b3f43a0884a38182c4b73c65c04304100a" => :el_capitan
+    sha256 "5b8962f3d4f0a6844d029063b8df98e61a29b7ae5b0e41692222c3bdaa2b8aa9" => :high_sierra
+    sha256 "8d569b6b800ea8681496651812b2431dd478a28028e2059a5ed8b3a1833ac8aa" => :sierra
+    sha256 "f8c5c12f3fdf6dff8abaf1cb7077f8c71a26e8bafc9561f5a08f3d2e6fbbbe2d" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -112,18 +105,3 @@ class Metricbeat < Formula
     end
   end
 end
-
-__END__
-diff --git a/vendor/github.com/shirou/gopsutil/disk/disk_darwin_cgo.go b/vendor/github.com/shirou/gopsutil/disk/disk_darwin_cgo.go
-index 2f5e22b64e..210779786b 100644
---- a/vendor/github.com/shirou/gopsutil/disk/disk_darwin_cgo.go
-+++ b/vendor/github.com/shirou/gopsutil/disk/disk_darwin_cgo.go
-@@ -5,7 +5,7 @@ package disk
-
- /*
- #cgo CFLAGS: -mmacosx-version-min=10.10 -DMACOSX_DEPLOYMENT_TARGET=10.10
--#cgo LDFLAGS: -mmacosx-version-min=10.10 -lobjc -framework Foundation -framework IOKit
-+#cgo LDFLAGS: -lobjc -framework Foundation -framework IOKit
- #include <stdint.h>
-
- // ### enough?
