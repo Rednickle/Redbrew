@@ -10,6 +10,7 @@ class Gpgme < Formula
     sha256 "c1861b16662ef573f7b03eb805a72ec6273190e145bf4bf7a8d1ad00d073af63" => :high_sierra
     sha256 "06ed9f78cf26c74a86bcc893a253d44d196095c97bac8e242cbd2f10dca7966c" => :sierra
     sha256 "fc47b92bce0b95574c97f0edfe3c8852507189cf734cd15f35c9d1ec1f0fca84" => :el_capitan
+    sha256 "302788d244bcfd3c343ba7623d2c798fdaa4a1124aa0013cbcc28d3d0388df6e" => :x86_64_linux
   end
 
   depends_on "swig" => :build
