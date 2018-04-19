@@ -1,16 +1,15 @@
 class Gpgme < Formula
   desc "Library access to GnuPG"
   homepage "https://www.gnupg.org/related_software/gpgme/"
-  url "https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.10.0.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gpgme/gpgme-1.10.0.tar.bz2"
-  sha256 "1a8fed1197c3b99c35f403066bb344a26224d292afc048cfdfc4ccd5690a0693"
+  url "https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.11.0.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gpgme/gpgme-1.11.0.tar.bz2"
+  sha256 "5b03adbafadab74474ded30b74c882de28d3c5c3b9ee3016ef24023d4c35d492"
 
   bottle do
     cellar :any
-    sha256 "f38978f086b4ad16d4bab4fd0363bd504ab3e8c192b38db4c6c7f61e6dc2c189" => :high_sierra
-    sha256 "4658241075bdcabda50ba1092270a465c6f17add7c22e394988080db3d162cf1" => :sierra
-    sha256 "760d8e2277b699e4e4a04c2753ea6bc0e45e0a2617c67f02318de69a8a2d060f" => :el_capitan
-    sha256 "95ad1ccce3f3d82093e18c6d76a7617924d68317bf7280d3fe4f3db8cec5f874" => :x86_64_linux
+    sha256 "c1861b16662ef573f7b03eb805a72ec6273190e145bf4bf7a8d1ad00d073af63" => :high_sierra
+    sha256 "06ed9f78cf26c74a86bcc893a253d44d196095c97bac8e242cbd2f10dca7966c" => :sierra
+    sha256 "fc47b92bce0b95574c97f0edfe3c8852507189cf734cd15f35c9d1ec1f0fca84" => :el_capitan
   end
 
   depends_on "swig" => :build
