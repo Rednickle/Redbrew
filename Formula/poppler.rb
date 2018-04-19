@@ -1,15 +1,14 @@
 class Poppler < Formula
   desc "PDF rendering library (based on the xpdf-3.0 code base)"
   homepage "https://poppler.freedesktop.org/"
-  url "https://poppler.freedesktop.org/poppler-0.63.0.tar.xz"
-  sha256 "27cc8addafc791e1a26ce6acc2b490926ea73a4f89196dd8a7742cff7cf8a111"
-  revision 1
+  url "https://poppler.freedesktop.org/poppler-0.64.0.tar.xz"
+  sha256 "b21df92ca99f78067785cf2dc8e06deb04726b62389c0ee1f5d8b103c77f64b1"
   head "https://anongit.freedesktop.org/git/poppler/poppler.git"
 
   bottle do
-    sha256 "18c7d69aa30cacef9374448e1aa540ef18ab89ea9bcebd880985e143f2146c9c" => :high_sierra
-    sha256 "a209bacaaaf60559ad709c6224a981e2c1d4f3ca4a5ed92928fc1dd8c11b6a7b" => :sierra
-    sha256 "ddbd43d9a40bd55a465f2f6c522abe9366b5ae9e4d22012cc9a3abaf101ab197" => :el_capitan
+    sha256 "fae8e28f893316a98df04746bd437233c5a8cd63df27ffee5fb82f79bd139d77" => :high_sierra
+    sha256 "14430fd4f774cd862215b91c9e9a4801a064c943638a576038c139fd617495d9" => :sierra
+    sha256 "b24d5a380d95dc37576bb7929906d54704cc58270f66100cd783cfe0b695ae00" => :el_capitan
   end
 
   option "with-qt", "Build Qt5 backend"
@@ -48,6 +47,15 @@ class Poppler < Formula
   needs :cxx11 if build.with?("qt") || MacOS.version < :mavericks
 
   def install
+    # Remove for > 0.64.0
+    # Fix "error: implicit instantiation of undefined template 'std::__1::array<double, 257>'"
+    # Upstream issue from 18 Apr 2018 "0.64.0 build with qt5 fails"
+    # See https://bugs.freedesktop.org/show_bug.cgi?id=106118
+    if build.with? "qt"
+      inreplace "qt5/src/ArthurOutputDev.cc", /#include <QPicture>/,
+                                              "\\0\n#include <array>"
+    end
+
     ENV.cxx11 if build.with?("qt") || MacOS.version < :mavericks
 
     args = std_cmake_args + %w[
