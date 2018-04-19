@@ -8,6 +8,7 @@ class Mysql < Formula
     sha256 "55b0311fdd9b9d6e369f3b7ea0c7c82692073502215ac7a00055a2189d5478a2" => :high_sierra
     sha256 "8e01836f50bf3f907e2357384442e8c938615c5fe2ba35f9e255aa08ff6bca0d" => :sierra
     sha256 "1a190fa7803e5706c690b8281f61e861a5db68781ee2193c17119d4dd1d0cb1d" => :el_capitan
+    sha256 "83793229b2d5d1dbd52fdd596257e839b77ab542699cb30fd2e4ac305ddea257" => :x86_64_linux
   end
 
   devel do
