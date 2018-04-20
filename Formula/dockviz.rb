@@ -13,6 +13,7 @@ class Dockviz < Formula
     sha256 "01e4173f4c4fb2a240fcfba6b3a584c16bdbf41da9406494b4a1a4e757c32e41" => :high_sierra
     sha256 "f7b9d5787315ee4cd82011beae7bd7a06d322001f014de09a7a78dfd6be734e6" => :sierra
     sha256 "fed1f250e52f6eb8620de68109d7a7ee8c998b6eaf636f8850c393f040127ca9" => :el_capitan
+    sha256 "9ff25633606b5d563eec47883370a2503d77438f20cac1ee10a98438673381df" => :x86_64_linux
   end
 
   depends_on "go" => :build
