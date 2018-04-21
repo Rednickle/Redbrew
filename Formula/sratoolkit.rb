@@ -3,14 +3,14 @@ class Sratoolkit < Formula
   homepage "https://github.com/ncbi/sra-tools"
   url "https://github.com/ncbi/sra-tools/archive/2.9.0.tar.gz"
   sha256 "fbdbbf69cf95afca311b9759e14a991dafcb95549ffd5e2e21fb0ecc99fa06aa"
+  revision 1
   head "https://github.com/ncbi/sra-tools.git"
 
   bottle do
     cellar :any
-    sha256 "c7f266cafb38da2d4a97f7dd55495bffaee1b4de10dabfff0cd2169feb294c92" => :high_sierra
-    sha256 "77c82b91cc83271178381d0787d7f0242cb56c44119c9e07426c25dea7a2e689" => :sierra
-    sha256 "3ce0a6f82a5b18b891adac99f1fedf1a941e54356989d8e076bbe7df17b62dc0" => :el_capitan
-    sha256 "3736e161698197ac5d051427af429e21b57c639adcce3c897a868f77b7b5e07a" => :x86_64_linux
+    sha256 "5c01bb2db010a955faf5de51776ffc2395b5ce4cec4ae32518fa203bbd583bde" => :high_sierra
+    sha256 "cbd0df5b275d65eeb808f7a1b59abd319e987f942a7bdfd3257265d92d0c5d20" => :sierra
+    sha256 "57617e63596d67514492656707e48863c2e475784f9f184ccbbdacc085e49316" => :el_capitan
   end
 
   depends_on "hdf5"
@@ -22,8 +22,9 @@ class Sratoolkit < Formula
   end
 
   resource "ncbi-vdb" do
-    url "https://github.com/ncbi/ncbi-vdb/archive/2.9.0.tar.gz"
-    sha256 "40fdd0a34592f76bdad174d3c2b57b3efcd1e2240512a383bd6e6263b33a6146"
+    url "https://github.com/ncbi/ncbi-vdb/archive/2.9.0-1.tar.gz"
+    version "2.9.0-1"
+    sha256 "b4099e2fc3349eaf487219fbe798b22124949c89ffa1e7e6fbaa73a5178c8aff"
   end
 
   def install

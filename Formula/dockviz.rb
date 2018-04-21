@@ -1,47 +1,29 @@
-require "language/go"
-
 class Dockviz < Formula
   desc "Visualizing docker data"
   homepage "https://github.com/justone/dockviz"
   url "https://github.com/justone/dockviz.git",
-    :tag => "v0.6.1",
-    :revision => "b4f269312f7e80419ecca555bf20066d71ee5827"
+    :tag => "v0.6.3",
+    :revision => "15f77275c4f7e459eb7d9f824b5908c165cd0ba4"
   head "https://github.com/justone/dockviz.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "01e4173f4c4fb2a240fcfba6b3a584c16bdbf41da9406494b4a1a4e757c32e41" => :high_sierra
-    sha256 "f7b9d5787315ee4cd82011beae7bd7a06d322001f014de09a7a78dfd6be734e6" => :sierra
-    sha256 "fed1f250e52f6eb8620de68109d7a7ee8c998b6eaf636f8850c393f040127ca9" => :el_capitan
-    sha256 "9ff25633606b5d563eec47883370a2503d77438f20cac1ee10a98438673381df" => :x86_64_linux
+    sha256 "7334e941bcf3841a724103ecc7bd1cf028dc5e41bd9e80283c6f34637515cd02" => :high_sierra
+    sha256 "8fbcc273dbbf14a33f44cb9d56d350440168c7943d6c29ba489c2db7cc8f293b" => :sierra
+    sha256 "0df5881e825be40043790f3759fa2f3976d75c3c8273e69c4bfbd4cc039744b3" => :el_capitan
   end
 
   depends_on "go" => :build
-
-  go_resource "github.com/docker/docker" do
-    url "https://github.com/docker/docker.git",
-        :revision => "8bb5a28eed5eba5651c6e48eb401c03be938b4c1"
-  end
-
-  go_resource "github.com/docker/go-units" do
-    url "https://github.com/docker/go-units.git",
-        :revision => "47565b4f722fb6ceae66b95f853feed578a4a51c"
-  end
-
-  go_resource "github.com/fsouza/go-dockerclient" do
-    url "https://github.com/fsouza/go-dockerclient.git",
-        :revision => "eb4b27262d9a41d4004d101c32e0598782a39415"
-  end
-
-  go_resource "github.com/jessevdk/go-flags" do
-    url "https://github.com/jessevdk/go-flags.git",
-        :revision => "1c38ed7ad0cc3d9e66649ac398c30e45f395c4eb"
-  end
+  depends_on "govendor" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    Language::Go.stage_deps resources, buildpath/"src"
-    system "go", "build", "-o", bin/"dockviz"
+    (buildpath/"src/github.com/justone/dockviz").install buildpath.children
+    cd "src/github.com/justone/dockviz" do
+      system "govendor", "sync"
+      system "go", "build", "-o", bin/"dockviz"
+      prefix.install_metafiles
+    end
   end
 
   test do
