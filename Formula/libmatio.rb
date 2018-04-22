@@ -3,13 +3,13 @@ class Libmatio < Formula
   homepage "https://matio.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/matio/matio/1.5.12/matio-1.5.12.tar.gz"
   sha256 "8695e380e465056afa5b5e20128935afe7d50e03830f9f7778a72e1e1894d8a9"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "43b0e6cfd7de1e3b7d2d8417a362c1959f95f591083c1324e1b4321a4dfbb87c" => :high_sierra
-    sha256 "955dc30b86226f916b5634d2d1778df5ac2fedb7518f31d2bcf33dbda9807260" => :sierra
-    sha256 "5b75630b6704777e1c66fc34c75b16fd887f8f59375fa1b53242279261f865d2" => :el_capitan
-    sha256 "130d1c4e7450d9fd093c7465573376e6e28ed07b14e0a35e2d2c03c071fb6876" => :x86_64_linux
+    sha256 "bed9878c176c12564d49675f8d19eef60169a7b572f3582c79265b672f40b248" => :high_sierra
+    sha256 "eda178bb23fbcd2bccf768b8734251b3c9682a5a9c3b138a6bae8c84a81af9bf" => :sierra
+    sha256 "3970377b4a94623cb5b8cc635558c557a8570027524624adc8dd30756d756316" => :el_capitan
   end
 
   depends_on "hdf5"

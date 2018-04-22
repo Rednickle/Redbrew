@@ -4,9 +4,12 @@ class Netcdf < Formula
   url "https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-4.6.1.tar.gz"
   mirror "https://www.gfd-dennou.org/library/netcdf/unidata-mirror/netcdf-4.6.1.tar.gz"
   sha256 "89c7957458740b763ae828c345240b8a1d29c2c1fed0f065f99b73181b0b2642"
+  revision 1
 
   bottle do
-    sha256 "97af83a980df00f0986240eb5958c7097a6a00ded5e852e0cbb0b3b0d80b1e5c" => :x86_64_linux
+    sha256 "8df16777db8bf5fd6e14e956610b7bdc0811d2d0dc93243523fa60b5fff96262" => :high_sierra
+    sha256 "a43e87f22c5901ea933ea86d4dac40141d9c1d2102e6ddaab090fb3a9c1c6c53" => :sierra
+    sha256 "be56d8cfe99b96799cb684f421e2becc03e72a6754fc840723c78d0fb1bd774f" => :el_capitan
   end
 
   depends_on "gcc" # for gfortran

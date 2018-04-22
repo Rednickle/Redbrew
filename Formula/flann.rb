@@ -3,15 +3,13 @@ class Flann < Formula
   homepage "https://www.cs.ubc.ca/research/flann/"
   url "https://github.com/mariusmuja/flann/archive/1.9.1.tar.gz"
   sha256 "b23b5f4e71139faa3bcb39e6bbcc76967fbaf308c4ee9d4f5bfbeceaa76cc5d3"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
-    sha256 "3faade159c9d3b6348083b61e63d473ce3fc85fc043473a9c957272d211e80c1" => :high_sierra
-    sha256 "96ed9c1fa35e36a2981ccdb973ed7411b1794470d4237ed8a5ce5dbaa93040f8" => :sierra
-    sha256 "37edd98d6f63cc3ebcf76ee08fb282bb5397f8d65a639e332052faee329b874c" => :el_capitan
-    sha256 "551141c983b58fead9f9cf15b5c2b2e6c591af56acb7bfb2b64bc3760218c755" => :yosemite
-    sha256 "8d8aab39b18401195d3bb31129f8500bd108d3560123e251b61677b86283f9a8" => :x86_64_linux # glibc 2.19
+    sha256 "5f8c131f79f06edb6340b707ba999c20b2dc9b77bb2f47436dbddffb38e0dc31" => :high_sierra
+    sha256 "ae8fc018e89e774c317af7fe27ec7e3b193cfc45c1252ddd796c38817d63fe2a" => :sierra
+    sha256 "1b5f2d3f1e1cb483473871b6df9aba70900110e6888d45480d829a27f4600428" => :el_capitan
   end
 
   deprecated_option "with-python" => "with-python@2"

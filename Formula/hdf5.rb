@@ -1,18 +1,13 @@
 class Hdf5 < Formula
   desc "File format designed to store large amounts of data"
   homepage "https://www.hdfgroup.org/HDF5"
-  url "https://www.hdfgroup.org/package/source-bzip2/?wpdmdl=4300"
-  mirror "https://dl.bintray.com/homebrew/mirror/hdf5-1.10.1"
-  version "1.10.1"
-  sha256 "9c5ce1e33d2463fb1a42dd04daacbc22104e57676e2204e3d66b1ef54b88ebf2"
-  revision 2
+  url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.2/src/hdf5-1.10.2.tar.bz2"
+  sha256 "1cad5b7bfdf128dfc53cd16fba48f6e7ae4e93c75c371d9ec8dfc4df0c1fcb71"
 
   bottle do
-    rebuild 1
-    sha256 "ce60d6ad246ecf8baae4e007a359da7c1cae8c3e199a2f9422f601fb0dc50e03" => :high_sierra
-    sha256 "13fb989ccd1ce01a88be9159d15afd1898e7d358e7f338fec8542cef1204903c" => :sierra
-    sha256 "fffbe4774667aa473e7ab6b004dea0247b98fab63ae7581b70ea129b6092c369" => :el_capitan
-    sha256 "35a90344db60847ef20e0feacfbae3ba1e4f45595638177148378cf0c0ba49b4" => :x86_64_linux
+    sha256 "fca357b8fa9ea5e17532857d8ded87bd4a0a43cf327334eec2e4b24e78d07c11" => :high_sierra
+    sha256 "b5486518f09c34c102a149f107c07f3df64bad9190bf51e5d8281a8498426722" => :sierra
+    sha256 "f32565fe894c769fbe5a58360f69b714dbe94b2a4fead9aff2d271107c995f21" => :el_capitan
   end
 
   option "with-mpi", "Enable parallel support"

@@ -3,13 +3,13 @@ class Armadillo < Formula
   homepage "https://arma.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/arma/armadillo-8.400.0.tar.xz"
   sha256 "5cb6bc2f457a9d6a0758cfb15c418d48289909daccd79d0e428452029285dd9b"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "b13a2137e0c2710da670b0b98bb474a0fd179d2a40d9052a34d04e4ac914f9ce" => :high_sierra
-    sha256 "f7203ff4d62b266f55f5e7d7fda1b0a1e8d961b8ac992636304a2c88b90e7239" => :sierra
-    sha256 "ea2732442d9a46cb14e73c530155868d353fd9b2c8e01da75bcfcf7b121884b7" => :el_capitan
-    sha256 "ea41b598e9ff978f871d956288605f9a39e3013e2f4a678bacc0bb576f9256aa" => :x86_64_linux
+    sha256 "1a245a0636afa09fe42d3c6dee8d23e464c1d676db2dcd66ba84927042bb2c41" => :high_sierra
+    sha256 "9a5675da1137bc47e5f474c12b1db3bb6fdffe219bbd60564f1de65736eb74a7" => :sierra
+    sha256 "ea25a40719d83d405af97593ddbf7073aa4ccd9a191c1ef0357444273a3430f5" => :el_capitan
   end
 
   depends_on "cmake" => :build
