@@ -1,32 +1,30 @@
 class Cayley < Formula
   desc "Graph database inspired by Freebase and Knowledge Graph"
   homepage "https://github.com/cayleygraph/cayley"
-  url "https://github.com/cayleygraph/cayley/archive/v0.7.2.tar.gz"
-  sha256 "12be10ef129fef84392f2056a56a9f29ac8e1ecfb8facf1d5b5cff17a81e8e97"
+  url "https://github.com/cayleygraph/cayley/archive/v0.7.3.tar.gz"
+  sha256 "2cd993b9f7d452574da3eb74c28b23de797646bf79c8e3b3954a4591b2ce5656"
   head "https://github.com/google/cayley.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "da3ebc16ae88c74fe4d4fcf1e4721e009f93eb3f237f846585120936a251bd41" => :high_sierra
-    sha256 "f66d9137ad0bed1614ef52b3bf654fd9ccb55dd4479d45f9622d88f3ec1e34b5" => :sierra
-    sha256 "2404473b2973f8d47fb40a0eac16998d1e27b1036901261f47f07a7cbccdc713" => :el_capitan
-    sha256 "faf7eb15616cd6eb37eb55a6d27ccbcde019cb8e70517389de7add42834f1377" => :x86_64_linux
+    sha256 "13bf69c405651363c7a1c0fd281ca377eab0cde20c3114e00e05a407b3fffcd2" => :high_sierra
+    sha256 "fdde7a5914e9cdeac1e47d63ccf3c2f40c4eeb64d97ec4c3b01dfd377e73d5ad" => :sierra
+    sha256 "61c99517f32bc2fa4ab1f8190efc9874d0984e764092609da332df797bec2aca" => :el_capitan
   end
 
   option "without-samples", "Don't install sample data"
 
   depends_on "bazaar" => :build
-  depends_on "mercurial" => :build
-  depends_on "glide" => :build
+  depends_on "dep" => :build
   depends_on "go" => :build
+  depends_on "mercurial" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
 
     (buildpath/"src/github.com/cayleygraph/cayley").install buildpath.children
     cd "src/github.com/cayleygraph/cayley" do
-      system "glide", "install"
+      system "dep", "ensure"
       system "go", "build", "-o", bin/"cayley", "-ldflags",
              "-X main.Version=#{version}", ".../cmd/cayley"
 

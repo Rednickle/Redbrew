@@ -2,13 +2,15 @@ class Dscanner < Formula
   desc "Analyses e.g. the style and syntax of D code"
   homepage "https://github.com/dlang-community/Dscanner"
   url "https://github.com/dlang-community/Dscanner.git",
-      :tag => "v0.5.1",
-      :revision => "6ca59c71a2d0d7355eb43bdbb2ace60e43208718"
+      :tag => "v0.5.2",
+      :revision => "dae286504c15b997529d3e07f37fcd177519f61f"
 
   head "https://github.com/dlang-community/Dscanner.git"
 
   bottle do
-    sha256 "5c5ac9206432eb10c4ad22600fc58955a20d1f67e9e734690bb22315013bf6ee" => :x86_64_linux
+    sha256 "70ae44dc40453d02d7864f58e6c5c4dc6303903d4d4928ff772539faf59185eb" => :high_sierra
+    sha256 "a59f11ed0d0372fc64340128a0bcc3a4791db2ce50d2ceeca77d230328f549c3" => :sierra
+    sha256 "d31aa7752dab773ab160f13c72125732a9cace50b86c8d389bc5a04d7c335fea" => :el_capitan
   end
 
   depends_on "dmd" => :build
