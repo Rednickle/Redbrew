@@ -1,15 +1,14 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-3.4.2.tar.bz2"
-  sha256 "eb0370bf223809b9ebb359fed5318f826ac038ce77933b3afd55ab1a0a21785a"
+  url "https://ffmpeg.org/releases/ffmpeg-4.0.tar.xz"
+  sha256 "ed945daf40b124e77a685893cc025d086f638bc703183460aff49508edb3a43f"
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
-    sha256 "9df7c5868b825944edc80822e818028b4123ee8cdf85ef60eb11fed235b23c79" => :high_sierra
-    sha256 "18b50630056fbe4a3d12515f32728242349b43bd7b956f3401190861b2ccd402" => :sierra
-    sha256 "e507900d3ec72618b365588223f57428654334119d34d6d61ca58210bb7c4907" => :el_capitan
-    sha256 "93f93550c322981f29b52af634ffeca945065c537b385203674369db7f90864b" => :x86_64_linux
+    sha256 "81e41ed56f44fdceec52d14a2815abd0ec14415c0ce2ca8136df6d4b6d02a818" => :high_sierra
+    sha256 "f0d43e35dd75d0c8069e2ebbd0710667793c00f5f9fef3094f651c3c22fd4fd3" => :sierra
+    sha256 "1f642ce937d45b32737d7983790ff2f97133efa31c4e3d13268ca6e475c925cc" => :el_capitan
   end
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
@@ -107,7 +106,6 @@ class Ffmpeg < Formula
       --host-ldflags=#{ENV.ldflags}
     ]
 
-    args << "--disable-jack" if build.stable?
     args << "--enable-gpl" if build.with? "gpl"
     args << "--disable-indev=qtkit" if build.without? "qtkit"
     args << "--disable-securetransport" if build.without? "securetransport"

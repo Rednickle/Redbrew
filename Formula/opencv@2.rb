@@ -3,12 +3,12 @@ class OpencvAT2 < Formula
   homepage "https://opencv.org/"
   url "https://github.com/opencv/opencv/archive/2.4.13.6.tar.gz"
   sha256 "6ecbeea11f68356b748e35f758f4406067d3a2f6339e4582c63373fa6c3f5a72"
+  revision 1
 
   bottle do
-    sha256 "0b6f327f3f5ddd5365d62b44163c9d6957cf912cd04b3e6a8ea6e2d874b30fa2" => :high_sierra
-    sha256 "f43fb606dc912ed80603c06e9bf082c233b994ab05990f5bdeb568ed84cc2884" => :sierra
-    sha256 "5fe75e59452df9c0c0d1deb58d3bf0c6ec75aa1c2e6f67bd90005a3efb4cd531" => :el_capitan
-    sha256 "5e0ec86a5d8d875122e9b3f0acc1a2416542c6f307f2aacc5b4910588b062cc7" => :x86_64_linux
+    sha256 "a78614f4dd7a5b692a91cb224ed3263f2d9cb9d16c8998f5343c1269f6670c97" => :high_sierra
+    sha256 "132eb349e2c75e7d87b92a92c2cb78071efc22a93bc2b9f232644a8ef8cd2f4b" => :sierra
+    sha256 "e428596522c93fe86203b3ff4bbb7a07f45e13a0cc850e26f6282dba2d27e3ab" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -27,6 +27,14 @@ class OpencvAT2 < Formula
   depends_on "openexr"
   depends_on "python@2" => :recommended
   depends_on "numpy" if build.with? "python@2"
+
+  # Remove for > 2.4.13.6
+  # Backport of https://github.com/opencv/opencv/pull/10011
+  # Upstream PR from 21 Apr 2018 "Fix build with FFmpeg 4.0"
+  patch do
+    url "https://github.com/opencv/opencv/commit/99091a62463.patch?full_index=1"
+    sha256 "7e33c5c009aea0798cd9bd3edb0f7a2122a9f3b2a962977e53a0fccd55e1db40"
+  end
 
   def install
     dylib = OS.mac? ? "dylib" : "so"
