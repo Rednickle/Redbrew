@@ -21,24 +21,32 @@ class Radare2 < Formula
   homepage "https://radare.org"
 
   stable do
-    url "https://radare.mikelloc.com/get/2.4.0/radare2-2.4.0.tar.gz"
-    sha256 "673ad9f29bded4f4a2bf5dda1a509baa0c85a52ddc209147e724230899eea1f0"
+    url "https://radare.mikelloc.com/get/2.5.0/radare2-2.5.0.tar.gz"
+    sha256 "6713f8895fdb7855f7c28a36b14b8e17b383f0664d74122b8a0e2a8c8b5a049e"
 
     resource "bindings" do
-      url "https://github.com/radare/radare2-bindings/archive/2.4.1.tar.gz"
-      sha256 "a8fc95c401c2deb595920af3ee370740a8f0720efdaf775cf86a6f25b1dea49c"
+      url "https://radare.mikelloc.com/get/2.5.0/radare2-bindings-2.5.0.tar.gz"
+      sha256 "f01e1530504a9d52a2ad21edbebb9b68c560b026e35fff406124947b1ea9d483"
     end
 
     resource "extras" do
-      url "https://radare.mikelloc.com/get/2.4.0/radare2-extras-2.4.0.tar.gz"
-      sha256 "aec67861ef1f678030b51b182c2613b1947ef2d0ce15ff854837b418055ae1d0"
+      url "https://radare.mikelloc.com/get/2.5.0/radare2-extras-2.5.0.tar.gz"
+      sha256 "dc7ec28cbbf0a5d3afd246f9a9d7341c4df8cf77c2719119e9294ba95ea2aad8"
+
+      # Remove for > 2.5.0
+      # Fix "ld: library not found for -lr_reg"
+      # Upstream commit from 11 Apr 2018 "x86_udis.mk: also pass LDFLAGS"
+      patch do
+        url "https://github.com/radare/radare2-extras/commit/8cce5eb.patch?full_index=1"
+        sha256 "b02e7019ab963e5ec975997436a900b512c7cebf8652d2d7ecfa4772842a5215"
+      end
     end
   end
 
   bottle do
-    sha256 "709aaeec51c7353513b4c36cc7ecc6f6b2dedc0699d9624a8aeeefd375628fa9" => :high_sierra
-    sha256 "94c59eae264417039adbd4c0b0d532cd16561d525d6554a73b1eef807e1b6ba0" => :sierra
-    sha256 "4d1c3880ac23043098dfc812443f00b02f426781f262317a36b1bde0e417f835" => :el_capitan
+    sha256 "7368e7f17fc5f6e497e1c3a5cebdd163906f656322a4dd3afc853db062428873" => :high_sierra
+    sha256 "c4d0dd76391d45a7b6a035b585856565d6bc2097273409b299e2b80b76a84173" => :sierra
+    sha256 "2aee3583d955dfa17cd1495650016a2c5f42d20ca9a6a27a1fea47b8b19ac955" => :el_capitan
   end
 
   head do
