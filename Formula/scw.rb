@@ -10,6 +10,7 @@ class Scw < Formula
     sha256 "4f490ae99ca9b4b8d31e9a66d9e294067975248676f0a3efdcae4a89a954ce83" => :high_sierra
     sha256 "830cb132cdabe18304e76affd1a886070c5a32a83774fa5f02d935efa5699f54" => :sierra
     sha256 "d6f00db542d76b7db785e25a4b3fe6d2d6810fee9dea44f186d7c610fdb39ef6" => :el_capitan
+    sha256 "47390f20af9da01216d60a7f80dad5a26bb872aaf1b51de798c14f41d3704b23" => :x86_64_linux
   end
 
   depends_on "go" => :build
