@@ -3,14 +3,14 @@ class Grafana < Formula
   homepage "https://grafana.com"
   url "https://github.com/grafana/grafana/archive/v5.0.4.tar.gz"
   sha256 "a25032755ed8a825efbe1ba641de59b002495dcec0a3c92b9606aa3eb35c6439"
+  revision 1
   head "https://github.com/grafana/grafana.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bcf396e04eae62fd6a8dd71f3afa722a39d18a37e2d6c320edd8cb01ddcff826" => :high_sierra
-    sha256 "3602463dd5d34a7b18c654d1bbee001a52f85d725e5da79e2917193b5e29e530" => :sierra
-    sha256 "0406bcab3dac6da556567187454f42a686a48d7699050d91755a38cc2c8c36cb" => :el_capitan
-    sha256 "a9b21f0ae523857f56f4481d71f007c5cf72eab8423fe311fbf8bdf6a436429a" => :x86_64_linux
+    sha256 "8b3046946a8b40f2714f197432ec945a38464ce6786aa06376b1d3f165c0a228" => :high_sierra
+    sha256 "46fa4dbdfa1983d5514c991ac5075f8b159e74f56bd2b3e590748f419107e7f5" => :sierra
+    sha256 "5fa0399b0855c8cae3fa81a43e24b2e6a3598c62d76075b6d35dfcaec8846836" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -46,7 +46,7 @@ class Grafana < Formula
       cp("conf/sample.ini", "conf/grafana.ini.example")
       etc.install "conf/sample.ini" => "grafana/grafana.ini"
       etc.install "conf/grafana.ini.example" => "grafana/grafana.ini.example"
-      pkgshare.install "conf", "vendor", "public"
+      pkgshare.install "conf", "public", "tools", "vendor"
       prefix.install_metafiles
     end
   end

@@ -18,6 +18,7 @@ class Imagemagick < Formula
 
   option "with-fftw", "Compile with FFTW support"
   option "with-hdri", "Compile with HDRI support"
+  option "with-libde265", "Compile with HEIF support"
   option "with-opencl", "Compile with OpenCL support"
   option "with-openmp", "Compile with OpenMP support"
   option "with-perl", "Compile with PerlMagick"
@@ -43,6 +44,7 @@ class Imagemagick < Formula
   depends_on "fontconfig" => :optional
   depends_on "little-cms" => :optional
   depends_on "little-cms2" => :optional
+  depends_on "libde265" => :optional
   depends_on "libwmf" => :optional
   depends_on "librsvg" => :optional
   depends_on "liblqr" => :optional
