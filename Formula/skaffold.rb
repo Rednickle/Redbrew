@@ -1,23 +1,22 @@
 class Skaffold < Formula
   desc "Easy and Repeatable Kubernetes Development"
-  homepage "https://github.com/GoogleCloudPlatform/skaffold"
-  url "https://github.com/GoogleCloudPlatform/skaffold.git",
-      :tag => "v0.4.0",
-      :revision => "8a99affded87a0f81e3ee90bd9f24f01aec5038d"
+  homepage "https://github.com/GoogleContainerTools/skaffold"
+  url "https://github.com/GoogleContainerTools/skaffold.git",
+      :tag => "v0.5.0",
+      :revision => "a9b7884039ae50fbada04e5bdcaf9e43ddf0a3e4"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b8d0abcecad2587bf275e57cfdfefd4994f705cff071922ed5603b408cfe87bc" => :high_sierra
-    sha256 "8dbee6f3e56c196f41c40d3dc00c3c6fe000ea97a027d0d65ddd076949ccd579" => :sierra
-    sha256 "f7713b36fef03ccacdd692ef57d36b4f28ab2a3d9c66f521aec820b70d8ae8e8" => :el_capitan
-    sha256 "ba6bebc9f24d52bc69fe9a0cdc2dcc43f5320a2307f26b70ae38ae50f23f6b55" => :x86_64_linux
+    sha256 "076e488c0a121978a65b2bb0a12152296d41de9a931c4c73d804d51ccf974c82" => :high_sierra
+    sha256 "b0f7fd7a1193b2d48e296f8b76154919e1c5b486f41902e05902dd5722c13f4c" => :sierra
+    sha256 "0c7b565298d4c346f3c2d92e3f716e488fceb009f2559572f6379fbb08379006" => :el_capitan
   end
 
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/GoogleCloudPlatform/skaffold"
+    dir = buildpath/"src/github.com/GoogleContainerTools/skaffold"
     dir.install buildpath.children - [buildpath/".brew_home"]
     cd dir do
       system "make"
