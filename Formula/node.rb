@@ -1,15 +1,14 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v9.11.1/node-v9.11.1.tar.xz"
-  sha256 "23dc3d133924f5c7453c479d5eceb3b6af932415cb67d99798c313573d9b9d4c"
+  url "https://nodejs.org/dist/v10.0.0/node-v10.0.0.tar.xz"
+  sha256 "e239109020755db8a58e6bcb8b9375439e31cf3bbe92d0670a320a47a4e8ab50"
   head "https://github.com/nodejs/node.git"
 
   bottle do
-    sha256 "a4c2d90a60930aa6e2cff330a81d8cec3636cdd9fc002ce79da30540499052d2" => :high_sierra
-    sha256 "0aae3fdf9ac8d330b536671ac4e9b20cc88f1eeeee6f8432e64e141c3b472af0" => :sierra
-    sha256 "f6af24d8ed4594db47b3c9ed4c525c524a7798101c4b2ad122164516e1a6ef7f" => :el_capitan
-    sha256 "5bd5698810c8d0879a94a922bd3cc6a9fb1ed6e4ea82d5a24ecdac17d6b93bd4" => :x86_64_linux
+    sha256 "6413fac659d9571e07eaef5cba9a2b150e04c6114984fa4ab39b05733065469b" => :high_sierra
+    sha256 "1de8f4c9ebeab4365dc1a26c70565ea8141784e355bc9368fe366984715f51b3" => :sierra
+    sha256 "6343a8becdc0fbd92e7db5aab2075f6513ddbb2f1919394f8c3da1fa30597c2f" => :el_capitan
   end
 
   option "with-debug", "Build with debugger hooks"
@@ -70,6 +69,12 @@ class Node < Formula
       cp bootstrap/"package.json", libexec/"lib/node_modules/npm"
       # These symlinks are never used & they've caused issues in the past.
       rm_rf libexec/"share"
+
+      # suppress incorrect node 10 incompatibility warning from npm
+      # remove during next npm upgrade (to npm 5.9+ or npm 6.0+)
+      inreplace libexec/"lib/node_modules/npm/lib/utils/unsupported.js",
+        "{ver: '9', min: '9.0.0'}",
+        "{ver: '9', min: '9.0.0'}, {ver: '10', min: '10.0.0'}"
 
       if build.with? "completion"
         bash_completion.install \
@@ -139,7 +144,7 @@ class Node < Formula
       assert_predicate HOMEBREW_PREFIX/"bin/npm", :executable?, "npm must be executable"
       npm_args = ["-ddd", "--cache=#{HOMEBREW_CACHE}/npm_cache", "--build-from-source"]
       system "#{HOMEBREW_PREFIX}/bin/npm", *npm_args, "install", "npm@latest"
-      system "#{HOMEBREW_PREFIX}/bin/npm", *npm_args, "install", "bignum" unless head?
+      system "#{HOMEBREW_PREFIX}/bin/npm", *npm_args, "install", "bufferutil" unless head?
       assert_predicate HOMEBREW_PREFIX/"bin/npx", :exist?, "npx must exist"
       assert_predicate HOMEBREW_PREFIX/"bin/npx", :executable?, "npx must be executable"
       assert_match "< hello >", shell_output("#{HOMEBREW_PREFIX}/bin/npx cowsay hello")

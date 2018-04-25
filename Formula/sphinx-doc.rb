@@ -3,13 +3,13 @@ class SphinxDoc < Formula
   homepage "http://sphinx-doc.org"
   url "https://files.pythonhosted.org/packages/ff/bd/a709626705bb1f13b86904f6caaf53e3d088cbf2919b678296ce11fd646c/Sphinx-1.7.3.tar.gz"
   sha256 "9495a1f78c13d0a725ab8104e923e9663519ecc04552aa4a8f684c2da355443d"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "34d0333374dc4388dbc6c6637c87c3686a9688d536f65ae28a08baa06a7aa62f" => :high_sierra
-    sha256 "3f4221871c0a85b351c12d2894250ac1b3d4ca2c037fbe485110579fbad5e2ba" => :sierra
-    sha256 "81d11f4f652e0aad99b34502f11b443b5fe6392d22ae08621a2cd4ac92630fb3" => :el_capitan
-    sha256 "50a2317a27505e334a0ddac8f563cfe80dc9f748e56c796e7cd86bedccba8da5" => :x86_64_linux
+    sha256 "8bb5ade124dc2880add242e76df1210402169ead2c65a2d79eec403bec1d68ec" => :high_sierra
+    sha256 "c9e86b4cc43d463402cd70399112365249538ae5bc9c4b7a438406510f23f647" => :sierra
+    sha256 "7700484b0c1cbf976ab0578a43a6581f36d243c42064b60a1ea6e25a6c748920" => :el_capitan
   end
 
   keg_only <<~EOS
@@ -123,6 +123,13 @@ class SphinxDoc < Formula
   resource "urllib3" do
     url "https://files.pythonhosted.org/packages/ee/11/7c59620aceedcc1ef65e156cc5ce5a24ef87be4107c2b74458464e437a5d/urllib3-1.22.tar.gz"
     sha256 "cc44da8e1145637334317feebd728bd869a35285b93cbb4cca2577da7e62db4f"
+  end
+
+  # Remove for > 1.7.3
+  # Upstream commit from 23 Apr 2018: "'DirectiveAdapter' object has no attribute 'env'"
+  patch do
+    url "https://github.com/sphinx-doc/sphinx/commit/3735ba39db51ee429344f88b8201cc3ac37496f4.diff?full_index=1"
+    sha256 "84559785c7a0b6df040f5c05904c25036714840e38ff14cc023ca27521393d38"
   end
 
   def install

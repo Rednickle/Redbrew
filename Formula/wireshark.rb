@@ -1,15 +1,15 @@
 class Wireshark < Formula
   desc "Graphical network analyzer and capture tool"
   homepage "https://www.wireshark.org"
-  url "https://www.wireshark.org/download/src/all-versions/wireshark-2.4.6.tar.xz"
-  mirror "https://1.eu.dl.wireshark.org/src/wireshark-2.4.6.tar.xz"
-  sha256 "8e965fd282bc0c09e7c4eba5f08a555d0ccf40a7d1544b939e01b90bc893d5fe"
+  url "https://www.wireshark.org/download/src/all-versions/wireshark-2.6.0.tar.xz"
+  mirror "https://1.eu.dl.wireshark.org/src/wireshark-2.6.0.tar.xz"
+  sha256 "711c7f01d27a8817d58277a5487cef3e3c7bab1c8caaf8f4c92aa21015b9117f"
   head "https://code.wireshark.org/review/wireshark", :using => :git
 
   bottle do
-    sha256 "42aa3820a62d0a15a60feaf5afe677135fe370a1a54187d416f73cf1af642fc6" => :high_sierra
-    sha256 "f74ef4468f25c72f0e0c0fd0c64c761169487c61c6a335e027897778178f889e" => :sierra
-    sha256 "14747b03159c2f384f2a400c1772ebe6c8121485f92fd20d3938e5b7f2b778f5" => :el_capitan
+    sha256 "5bb80bfd27c7b455a951afa29ad244f58b77b22cb2ba3be12ef54f41ed41243c" => :high_sierra
+    sha256 "42f6409d8d57ab65630cdc4b467a8ed9b5fadc4484c86383e6b2e9f48e7ff339" => :sierra
+    sha256 "479b873745e8c807d649e711cbd3bfd2f3c83201288264153eb3ae664c0841ed" => :el_capitan
   end
 
   deprecated_option "with-qt5" => "with-qt"
@@ -22,10 +22,10 @@ class Wireshark < Formula
 
   depends_on "cmake" => :build
   depends_on "c-ares"
-  depends_on "geoip"
   depends_on "glib"
   depends_on "gnutls"
   depends_on "libgcrypt"
+  depends_on "libmaxminddb"
   depends_on "lua"
   depends_on "libsmi" => :optional
   depends_on "libssh" => :optional
@@ -39,9 +39,9 @@ class Wireshark < Formula
   def install
     args = std_cmake_args + %w[
       -DENABLE_CARES=ON
-      -DENABLE_GEOIP=ON
       -DENABLE_GNUTLS=ON
       -DENABLE_LUA=ON
+      -DENABLE_MAXMINDDB=ON
     ]
 
     if build.with? "qt"

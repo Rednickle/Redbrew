@@ -5,18 +5,21 @@ class Joplin < Formula
   homepage "https://joplin.cozic.net/"
   url "https://registry.npmjs.org/joplin/-/joplin-1.0.106.tgz"
   sha256 "c1f1b19f0d078cd232bce5f62e8ec4f1a69bfcddf1cb90701c7cd7a4ecc59613"
+  revision 1
 
   bottle do
-    sha256 "e6a2d46d4a252486272556c71f3b39250406556924eeddbea732aa794a27b700" => :high_sierra
-    sha256 "1601f5efb1b92c1006b3832a17dcd6a844546e86a150d6c54e7effde9fe83439" => :sierra
-    sha256 "39314499551b6fb63782bc70c5bc669392688cbe1affabbf3090b04569b8b08b" => :el_capitan
-    sha256 "712239d0360769452c66e6d5914cb0766d0cb26cc6847b7003a19d22688cd56c" => :x86_64_linux
+    sha256 "623689379519111d6d9169b788d9037b9fc04c822ab98fbb1775731483558a2c" => :high_sierra
+    sha256 "37f80d50bfea27769e8fedab3394e2835868a483e34cdfbb5ddca73a09683c20" => :sierra
+    sha256 "4478b84cf2bbb5b7b08e2c05f6c0c855687a12d164934d50a1bde9813af55cd1" => :el_capitan
   end
 
   depends_on "node"
   depends_on "python@2" => :build
 
   def install
+    # upgrade the sqlite3 dependency to a version with node 10 support
+    inreplace "package.json", "\"sqlite3\": \"^3.1.8\",", "\"sqlite3\": \"^4.0.0\","
+
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
