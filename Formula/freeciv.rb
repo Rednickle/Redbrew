@@ -3,12 +3,12 @@ class Freeciv < Formula
   homepage "https://freeciv.wikia.com/"
   url "https://downloads.sourceforge.net/project/freeciv/Freeciv%202.5/2.5.11/freeciv-2.5.11.tar.bz2"
   sha256 "4c9c526952fe977cb4b302b8ccf75798fd066c6dde670f72f677fe4964259aad"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "b054ce3c05e877006cf79b4c99cd2b63dfc8ce0f68c9d70c2f3ab2d874d6722e" => :high_sierra
-    sha256 "5c2378c9054dee7927d0e14970a95c58aa9919e7ae0d525057f99439ab524539" => :sierra
-    sha256 "1d3e7934bc8cdd6448251cdde65b8e29a53c1923a952ce2cc5fc04418170ddc3" => :el_capitan
+    sha256 "7435994473ab6e8a1ffb57ccc2a15575d780abf36549e659194f201393ea33c2" => :high_sierra
+    sha256 "acafbff7ce32ca8769a94edd99f2736cb9671c53710c421d8a6f6d83ada472ce" => :sierra
+    sha256 "b0c281672834633506ab5a81fd1b7350437dc706ccbd1ed779d887071dc97102" => :el_capitan
   end
 
   head do
@@ -47,6 +47,8 @@ class Freeciv < Formula
   depends_on "gdk-pixbuf" if build.with? "gtk+3"
 
   def install
+    ENV["ac_cv_lib_lzma_lzma_code"] = "no"
+
     args = %W[
       --disable-debug
       --disable-dependency-tracking
