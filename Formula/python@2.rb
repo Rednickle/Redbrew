@@ -11,6 +11,7 @@ class PythonAT2 < Formula
     sha256 "de045349168897a773107c3698927ad48ca444910d7d101bd2fea896eb3cb567" => :high_sierra
     sha256 "51a2db64f53d9c3f8950f91e777522c261fb04eb8da172c37f9de2c52f6d2159" => :sierra
     sha256 "df47d7efad257ce33dec09ee55a3a2e1854eae494dcc3f1e45d03ed641eb11be" => :el_capitan
+    sha256 "884c8d6fe8133f1721cfbbca168d76475462c163b4c7b17ee6164ebf42a558a9" => :x86_64_linux
   end
 
   devel do
