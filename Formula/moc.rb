@@ -3,14 +3,12 @@ class Moc < Formula
   homepage "https://moc.daper.net/"
   url "http://ftp.daper.net/pub/soft/moc/stable/moc-2.5.2.tar.bz2"
   sha256 "f3a68115602a4788b7cfa9bbe9397a9d5e24c68cb61a57695d1c2c3ecf49db08"
-  revision 2
+  revision 3
 
   bottle do
-    rebuild 1
-    sha256 "fbabdaaaea2215a4b20636cf32f0fcf1723dbbfe3c522448c1d9bd4057ee8a7e" => :high_sierra
-    sha256 "785c68d5b1657c4bd9cd5a28bf0a1707cad2e7c3b822e1571871cb42464f4844" => :sierra
-    sha256 "09e0d32b7feaf0fc50e1cfe52a0692c5e514ea3f22463becd47b94a001cb8bcd" => :el_capitan
-    sha256 "c581f886b154997ad47165ebfa46950b75d7e362a10a5db5717d5bf580c58a0e" => :x86_64_linux
+    sha256 "6885bcf2c1b9d983da98b574679238233e8f72b11835838a60ccb193769661e4" => :high_sierra
+    sha256 "9a83617fd712f2c96079b192f1554345e1a89b1592d5f9dd60be1d229952303f" => :sierra
+    sha256 "4b578375503665ec52c8810eb4cfc48ef9608fc5fe387a29f0deb98a631e659d" => :el_capitan
   end
 
   devel do
@@ -46,6 +44,13 @@ class Moc < Formula
   depends_on "jack"
   depends_on "libtool"
   depends_on "ncurses"
+
+  # FFmpeg 4.0 compatibility
+  # Reported 26 Apr 2018 to mocmaint AT daper DOT net
+  patch :p0 do
+    url "https://git.archlinux.org/svntogit/packages.git/plain/trunk/moc-ffmpeg4.patch?h=packages/moc"
+    sha256 "f1a12d7d2e8269974487a2ffb011e87d9a6c5c06e2a47d1312d5965c98f050ea"
+  end
 
   def install
     # Remove build.devel? when 2.6-alpha4 comes out
