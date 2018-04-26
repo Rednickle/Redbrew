@@ -6,10 +6,10 @@ class Python < Formula
   head "https://github.com/python/cpython.git"
 
   bottle do
-    sha256 "6ec7a1efb260f95627a0f76689090f429ef2b0eab08c04f27c4e163f018adf5b" => :high_sierra
-    sha256 "fe2883208ee5cac0735a36cb747b56c2ee6a2f54fa5f53717ba2fa8d3adac982" => :sierra
-    sha256 "17d00dd31407b64ab8f466de043a24f7b7191b958b56adb8880dfc9737c7e846" => :el_capitan
-    sha256 "09718e09ea334b712aef13c19c6f682010ec398294fa0de4d9d0f691029820f2" => :x86_64_linux
+    rebuild 1
+    sha256 "7e0fc1b078b51d9478ab08660d5df01611976a7af0f6c24054bda58264bb506c" => :high_sierra
+    sha256 "2fe5ca9be0f1596798927c4aa1d4d187ca7f83adc4681483cec2cc52d7c95386" => :sierra
+    sha256 "bccf50de973644608af29652f2660124d033f3213d422fe44a7f012a47643a95" => :el_capitan
   end
 
   devel do
@@ -46,13 +46,13 @@ class Python < Formula
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/c4/44/e6b8056b6c8f2bfd1445cc9990f478930d8e3459e9dbf5b8e2d2922d64d3/pip-9.0.3.tar.gz"
-    sha256 "7bf48f9a693be1d58f49f7af7e0ae9fe29fd671cde8a55e6edca3581c4ef5796"
+    url "https://files.pythonhosted.org/packages/ae/e8/2340d46ecadb1692a1e455f13f75e596d4eab3d11a57446f08259dee8f02/pip-10.0.1.tar.gz"
+    sha256 "f2bd08e0cd1b06e10218feaf6fef299f473ba706582eb3bd9d52203fdbd7ee68"
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/fa/b4/f9886517624a4dcb81a1d766f68034344b7565db69f13d52697222daeb72/wheel-0.30.0.tar.gz"
-    sha256 "9515fe0a94e823fd90b08d22de45d7bde57c90edce705b22f5e1ecf7e1b653c8"
+    url "https://files.pythonhosted.org/packages/5d/c1/45947333669b31bc6b4933308dd07c2aa2fedcec0a95b14eedae993bd449/wheel-0.31.0.tar.gz"
+    sha256 "1ae8153bed701cb062913b72429bcf854ba824f973735427681882a688cb55ce"
   end
 
   fails_with :clang do
