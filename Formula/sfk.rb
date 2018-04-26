@@ -1,16 +1,15 @@
 class Sfk < Formula
   desc "Command-line tools collection"
   homepage "http://stahlworks.com/dev/swiss-file-knife.html"
-  url "https://downloads.sourceforge.net/project/swissfileknife/1-swissfileknife/1.9.1.0/sfk-1.9.1.tar.gz"
-  version "1.9.1.0"
-  sha256 "4b856d98de359de1f0ec7cb1eaaf8c4f75e7f8f22194db8530d6bf3b27fa0eda"
+  url "https://downloads.sourceforge.net/project/swissfileknife/1-swissfileknife/1.9.1.2/sfk-1.9.1.tar.gz"
+  version "1.9.1.2"
+  sha256 "9c44787b5fadc2e8ddf6ef518ecf4a50784021f9438e83132a2411c3befd7c22"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a346748a5770b74ef3e2127b1b37bb6600aec9af3e2a72d8883a580a44f33d0d" => :high_sierra
-    sha256 "ed632ffd40b925be528bd220ce628db5b820820cc1581f17f2043b3327bcd2fd" => :sierra
-    sha256 "ec2d63fd18b70425188c43aeb6f24e3773de08a16aa6cc8b361a28f891073237" => :el_capitan
-    sha256 "15437850956df2207f68b35314b8d80a545e46c37058cc377dd4e06f8466cd0d" => :x86_64_linux
+    sha256 "e7df98ea56af71c5179e3b7c9eb4c086fb7a464423799239a91ed3e4a55bd046" => :high_sierra
+    sha256 "ad56046d7cd1b5809be38cde43d524480b414225155828705bf1b88b1bf8f9d4" => :sierra
+    sha256 "7c451c8c18f3075b179aa21551b4ac48208c78645786956752d976427bdba364" => :el_capitan
   end
 
   def install

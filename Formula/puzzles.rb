@@ -1,19 +1,18 @@
 class Puzzles < Formula
   desc "Collection of one-player puzzle games"
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/"
-  url "https://mirrors.kernel.org/debian/pool/main/s/sgt-puzzles/sgt-puzzles_20161228.7cae89f.orig.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/s/sgt-puzzles/sgt-puzzles_20161228.7cae89f.orig.tar.gz"
-  version "20161228.7cae89f"
-  sha256 "96b6915941b8490188652ab5c81bcb3ee42117e6fb7c03eed3e4333fa97ed852"
+  # Extract https://www.chiark.greenend.org.uk/~sgtatham/puzzles/puzzles.tar.gz to get the version number
+  url "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/puzzles-20180425.b3da238.tar.gz"
+  version "20180425"
+  sha256 "bdf708b1342bab704a358ed8b5337dca24e59bfdaa2242a0a65703eb71d4659c"
 
   head "https://git.tartarus.org/simon/puzzles.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d283d7e9cc4ec3bef4cafb41d4739cc301bdaf31d62af81494f84f9a04319db4" => :high_sierra
-    sha256 "57b04776dc4696ac93b9230c4df569f3aecd36b238a05e73dcde3493659dc847" => :sierra
-    sha256 "57b04776dc4696ac93b9230c4df569f3aecd36b238a05e73dcde3493659dc847" => :el_capitan
-    sha256 "e01a6fc502cf54a2fc1d1c05a8d1e04b3762defb50aadd9d67e4049435649676" => :yosemite
+    sha256 "2a38c3178f3b0920ab0f00398e1e1e2e22fb3132cfe9e8b2d614824ff5cde92d" => :high_sierra
+    sha256 "40e877f288eff113e20c87e0884e2ab85522784b5b3a279c2763cc131a009136" => :sierra
+    sha256 "b22c137a442ded8b44107e23d58aaf06509959c7c73adffce5cd75a15ce396a3" => :el_capitan
   end
 
   depends_on "halibut"
