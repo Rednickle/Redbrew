@@ -1,15 +1,15 @@
 class Nginx < Formula
   desc "HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server"
   homepage "https://nginx.org/"
-  url "https://nginx.org/download/nginx-1.13.12.tar.gz"
-  sha256 "fb92f5602cdb8d3ab1ad47dbeca151b185d62eedb67d347bbe9d79c1438c85de"
+  # Stable releases correspond to even minor version numbers
+  url "https://nginx.org/download/nginx-1.14.0.tar.gz"
+  sha256 "5d15becbf69aba1fe33f8d416d97edd95ea8919ea9ac519eff9bafebb6022cb5"
   head "https://hg.nginx.org/nginx/", :using => :hg
 
   bottle do
-    sha256 "f00ac0a380462607107e7969d07984e6b8c0c71086200e150cbd7184fac40bc3" => :high_sierra
-    sha256 "985bcaa01f621f1872a8becb352fd405d0ae1a394d0188c46af5cbb00dc7872e" => :sierra
-    sha256 "3a31e1d75973c69df73bfad8060e1edb4c06a3c78d62d3aad7e3580cc0521d00" => :el_capitan
-    sha256 "aae670c9546a20492e5247975bdd4708fdbe83429357a2e947b4c443907e0e45" => :x86_64_linux
+    sha256 "763514fe72e7657e81de5b1b4be0d5cd18d6ce5c0f928148091c5892de478ebf" => :high_sierra
+    sha256 "d929371b9bd8e6b2cc2465cbe547b933314dd51538486ffebc5e3ecd6ef6a59e" => :sierra
+    sha256 "48a53206fb0bfdfb12169c73294e69677dd81453344bae982927125c79da46c0" => :el_capitan
   end
 
   option "with-passenger", "Compile with support for Phusion Passenger module"

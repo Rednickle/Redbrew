@@ -1,16 +1,14 @@
 class SphinxDoc < Formula
   desc "Tool to create intelligent and beautiful documentation"
   homepage "http://sphinx-doc.org"
-  url "https://files.pythonhosted.org/packages/ff/bd/a709626705bb1f13b86904f6caaf53e3d088cbf2919b678296ce11fd646c/Sphinx-1.7.3.tar.gz"
-  sha256 "9495a1f78c13d0a725ab8104e923e9663519ecc04552aa4a8f684c2da355443d"
-  revision 1
+  url "https://files.pythonhosted.org/packages/40/45/d4a68a1f8dc669714f48d251afb4352036f87be5e9873cd27e57b9c141f0/Sphinx-1.7.4.tar.gz"
+  sha256 "e9b1a75a3eae05dded19c80eb17325be675e0698975baae976df603b6ed1eb10"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8bb5ade124dc2880add242e76df1210402169ead2c65a2d79eec403bec1d68ec" => :high_sierra
-    sha256 "c9e86b4cc43d463402cd70399112365249538ae5bc9c4b7a438406510f23f647" => :sierra
-    sha256 "7700484b0c1cbf976ab0578a43a6581f36d243c42064b60a1ea6e25a6c748920" => :el_capitan
-    sha256 "cf35636a645e83a717fbac9ab89c489fa38c702f0928740f1e838721029563be" => :x86_64_linux
+    sha256 "bb23daf0adb1d733f2e7fc57c10a9eb9e74890611ab5f397b1c276aa8b087221" => :high_sierra
+    sha256 "11b5325c28dc2593065b58cd6e977b487082c20bd1aa2de8f4d871485b9ad2f2" => :sierra
+    sha256 "76eb15bfc440570f19705cd935898a732d5ae811b37bdc1e1a53c43098c5b367" => :el_capitan
   end
 
   keg_only <<~EOS
@@ -124,13 +122,6 @@ class SphinxDoc < Formula
   resource "urllib3" do
     url "https://files.pythonhosted.org/packages/ee/11/7c59620aceedcc1ef65e156cc5ce5a24ef87be4107c2b74458464e437a5d/urllib3-1.22.tar.gz"
     sha256 "cc44da8e1145637334317feebd728bd869a35285b93cbb4cca2577da7e62db4f"
-  end
-
-  # Remove for > 1.7.3
-  # Upstream commit from 23 Apr 2018: "'DirectiveAdapter' object has no attribute 'env'"
-  patch do
-    url "https://github.com/sphinx-doc/sphinx/commit/3735ba39db51ee429344f88b8201cc3ac37496f4.diff?full_index=1"
-    sha256 "84559785c7a0b6df040f5c05904c25036714840e38ff14cc023ca27521393d38"
   end
 
   def install
