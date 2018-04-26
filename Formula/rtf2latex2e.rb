@@ -9,6 +9,7 @@ class Rtf2latex2e < Formula
     sha256 "b31c9387003920d4c27cb846da71203d69711638ed284825861a12247eeabca9" => :high_sierra
     sha256 "bbab54edbb07cbc3e16da33bdb0bd68258a330a3d1e2fceb175d1b753e6b81de" => :sierra
     sha256 "0aa7144c74e8af3a935a87c2b9c822581c38566e24351a50ae601bbedca4aec3" => :el_capitan
+    sha256 "dfdb13ccaca3107bd5fb77ace21bee8126911b4eb9473e8a8d51e0f85a2b75be" => :x86_64_linux
   end
 
   def install
