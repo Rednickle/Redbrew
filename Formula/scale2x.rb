@@ -9,6 +9,7 @@ class Scale2x < Formula
     sha256 "2a3519bdbba8ff6caa1ca9b48d461866b8121dfd224a2c25da106087bb3cfd61" => :high_sierra
     sha256 "771e1b1ea660234e8bea89e774d0d802f7f1cb12c08e100cbb5b83d0a02a61ea" => :sierra
     sha256 "033e1adf0430ced99eef1b746842e9ca876b542f6fbd8f050e8f7c7e1b59f692" => :el_capitan
+    sha256 "caa20bd633f2b27b9f781cdb7148ded5edda2877dce1dc2825d17cb5730b976d" => :x86_64_linux
   end
 
   depends_on "libpng"
