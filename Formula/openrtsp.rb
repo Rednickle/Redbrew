@@ -1,14 +1,14 @@
 class Openrtsp < Formula
   desc "Command-line RTSP client"
   homepage "http://www.live555.com/openRTSP"
-  url "http://www.live555.com/liveMedia/public/live.2018.02.28.tar.gz"
-  sha256 "2db4f05616bdd21a609baf82c836486c44820c16a006315e02abe2b0b53a247e"
+  url "http://www.live555.com/liveMedia/public/live.2018.04.25.tar.gz"
+  sha256 "bfb72d79cfa42779115dd7e5db705b863e30f7956638407c8637e97cefcf4005"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "060936774f57ced6f74278d1fe807ac70040f56fd755271dc738cfc868a9059d" => :high_sierra
-    sha256 "1e126de1eed29c831eba0dca9f589d80f59af17c60bc75fecf2ea54b7218c703" => :sierra
-    sha256 "5b913b90d96a394d9ede3a287ffb7ad8b148661369987f632e449e7cf7e8f3ca" => :el_capitan
+    sha256 "41c7fc0e36e1a59a3ef3534dd9273f99f6c23b9dc21cb40260d30c38bd7eaad7" => :high_sierra
+    sha256 "eaae66891ec2e82269fb1b92a9ed205fd831af2962355f72b7a7d6a175659e17" => :sierra
+    sha256 "0df18b04b20f54a373d7aa13dfd942cde6178c88a90671e3fc50151deed2fa64" => :el_capitan
   end
 
   def install
