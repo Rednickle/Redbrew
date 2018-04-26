@@ -13,6 +13,7 @@ class Mighttpd2 < Formula
     sha256 "20b0a49d9442615903fb9532cd2ba070d5936b2cea69b9e5db2ca7be1052c47f" => :high_sierra
     sha256 "5d21c1640f273f3a57c9509c52750da51830fa21c79e6a69015001ed8f6f1f98" => :sierra
     sha256 "53b61f1044d2ef60b1dde3ebe5b5adcce01838c6c962fac14e9ba1e92b123d31" => :el_capitan
+    sha256 "ee26f4d72f211abc9fe21ba0b8d2c21900d17cf070ef45616b1f169bc974957e" => :x86_64_linux
   end
 
   depends_on "ghc" => :build
