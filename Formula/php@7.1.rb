@@ -1,14 +1,13 @@
 class PhpAT71 < Formula
   desc "General-purpose scripting language"
   homepage "https://secure.php.net/"
-  url "https://php.net/get/php-7.1.16.tar.xz/from/this/mirror"
-  sha256 "a5d67e477248a3911af7ef85c8400c1ba8cd632184186fd31070b96714e669f1"
-  revision 1
+  url "https://php.net/get/php-7.1.17.tar.xz/from/this/mirror"
+  sha256 "1a784806866e06367f7a5c88775d239d6f30041c7ce65a8232d03a3d4de56d56"
 
   bottle do
-    sha256 "c3623d5cb25b06be1e14e444518bafa92a5f4e5c8186f2a283d2aae6e644b784" => :high_sierra
-    sha256 "0d3e2725e80d8fa9e5ed9c59a4c195463b8c94d110cb3bec5ea2f871a1ca9b6a" => :sierra
-    sha256 "65c60080555467f447b1f5e1d071a139b2ccb666b400aa712d9e35f0b116ad5f" => :el_capitan
+    sha256 "ce7b4f4794d396439f3b452bac0b180677e27ddd41557026e53597997a42e0bd" => :high_sierra
+    sha256 "761aef3d37895072132045ee5b8a82565a94437320ee67ff073cc914898f35c5" => :sierra
+    sha256 "dd413b3c8c78a7ae745c272665a9937b35409053b5dbd77517a3e99701ed13f6" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -72,9 +71,6 @@ class PhpAT71 < Formula
 
     # Required due to icu4c dependency
     ENV.cxx11
-
-    # icu4c 61.1 compatability
-    ENV.append "CPPFLAGS", "-DU_USING_ICU_NAMESPACE=1"
 
     config_path = etc/"php/#{php_version}"
     # Prevent system pear config from inhibiting pear install

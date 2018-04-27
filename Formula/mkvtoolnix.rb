@@ -3,10 +3,12 @@ class Mkvtoolnix < Formula
   homepage "https://www.bunkus.org/videotools/mkvtoolnix/"
   url "https://mkvtoolnix.download/sources/mkvtoolnix-22.0.0.tar.xz"
   sha256 "88c5074d6731b65d5c2ddd02113ae064373eb83ef3e6e00a04876f88c0be7f67"
-  revision 1
+  revision 3
 
   bottle do
-    sha256 "e68d67c0a60131485940d43c7004cad0fb817de7ba53bc0f4c4f7da6a4bcc976" => :x86_64_linux
+    sha256 "245c1cd594fdf5b8d98d37bc2f33550209eeca371e96649c0ed3c95e6d467180" => :high_sierra
+    sha256 "eaa641f3b00207569d18b18382b3e20bcb3179af7c430e0642dba496f4122ede" => :sierra
+    sha256 "94600d322a7d86c27d81ca1dcdcd4fb7aec596ff80df67233163436dec263238" => :el_capitan
   end
 
   head do
