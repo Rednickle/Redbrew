@@ -9,6 +9,7 @@ class Dehydrated < Formula
     sha256 "d15ef3ebfbc9bfc48c16192a885bf5580f0269f05a62e569b18e18049cbe917d" => :high_sierra
     sha256 "d15ef3ebfbc9bfc48c16192a885bf5580f0269f05a62e569b18e18049cbe917d" => :sierra
     sha256 "d15ef3ebfbc9bfc48c16192a885bf5580f0269f05a62e569b18e18049cbe917d" => :el_capitan
+    sha256 "895c51c3c5b9cc8ccd48fcb350142380bda8050c8898b9312c97091d52f5db6a" => :x86_64_linux
   end
 
   def install
