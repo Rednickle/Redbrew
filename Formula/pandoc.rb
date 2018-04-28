@@ -5,12 +5,14 @@ class Pandoc < Formula
 
   desc "Swiss-army knife of markup format conversion"
   homepage "https://pandoc.org/"
-  url "https://hackage.haskell.org/package/pandoc-2.1.3/pandoc-2.1.3.tar.gz"
-  sha256 "4e0e9a891293f71a0d1309bbc5736e27601761888d9785ee19d8a4649b047008"
+  url "https://hackage.haskell.org/package/pandoc-2.2/pandoc-2.2.tar.gz"
+  sha256 "0f2984a6ea4948392154ecdcffcc21c561976c63f9c8aa648a56a677b80e8569"
   head "https://github.com/jgm/pandoc.git"
 
   bottle do
-    sha256 "17a14b46d16948edb720e6246bc99015d7728b43ccbc39c9fccc4fb1726f8972" => :x86_64_linux
+    sha256 "774554af79225ae040b25a87b9d762817d650e55c7016032f31f88076c69392f" => :high_sierra
+    sha256 "01dc946af86b59324acd67e8448a5e582f4e23ef5a5ec24653b7868343864399" => :sierra
+    sha256 "7c46b680f10275d25e48a53ccf5aa492fa7028397247403eb6ddfdd4abdc2554" => :el_capitan
   end
 
   depends_on "cabal-install" => :build
