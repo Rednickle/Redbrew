@@ -12,6 +12,7 @@ class DockerCompose < Formula
     sha256 "f2fe52ff385c4ceadd14058e728096fa055aefab366152de41960e0724706e8f" => :high_sierra
     sha256 "d561932cdae8452a7bbe8b56afacf5b2857a5a7a9571df00baea4b2460af68d1" => :sierra
     sha256 "7e0833a897aea7581133ed6e4dfcb109de13fc16ebc59d87288a63795cd64ab3" => :el_capitan
+    sha256 "13c9acb25ff4987da751974f9c4c059c56ec60d8244891f5e6cd7bad42162568" => :x86_64_linux
   end
 
   depends_on "python@2"
