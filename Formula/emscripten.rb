@@ -1,6 +1,7 @@
 class Emscripten < Formula
   desc "LLVM bytecode to JavaScript compiler"
   homepage "https://kripken.github.io/emscripten-site/"
+  revision 1
 
   stable do
     url "https://github.com/kripken/emscripten/archive/1.37.38.tar.gz"
@@ -19,10 +20,9 @@ class Emscripten < Formula
 
   bottle do
     cellar :any
-    sha256 "a44c87271c85bbfb3ef49138f1f561454f6f34a842805433dffe6e86997f13c9" => :high_sierra
-    sha256 "ef6b9bed0984d8cfd19e18eee63a84843a4b1bc7d46a6739c0aa1d0892034355" => :sierra
-    sha256 "5b32732451e6b91b6f969bd97f78179666068bfdabb8eef989e95f125bf4f1ba" => :el_capitan
-    sha256 "c058ef24221b6188f33232cb98ae93f6e500b72561936b9bd73f7013133af378" => :x86_64_linux
+    sha256 "a2811d70cd178b214d97747094b965ad4d584e38078353f02f242b74f6337ee9" => :high_sierra
+    sha256 "77c73e611dbf93e83ac902b1918996a5262333e7a25117b1547697f96173615a" => :sierra
+    sha256 "2d04378d4f6ce6f21bc65ef974385857f414fade90f12dee500e2fe0b5d5f652" => :el_capitan
   end
 
   head do
@@ -50,12 +50,12 @@ class Emscripten < Formula
     ENV["MAKEFLAGS"] = "-j2" if ENV["CIRCLECI"]
 
     ENV.cxx11
-    # OSX doesn't provide a "python2" binary so use "python" instead.
-    python2_shebangs = `grep --recursive --files-with-matches ^#!/usr/bin/.*python2$ #{buildpath}`
+    # rewrite hardcoded paths from system python to homebrew python
+    python2_shebangs = `grep --recursive --files-with-matches ^#!/usr/bin/python #{buildpath}`
     python2_shebang_files = python2_shebangs.lines.sort.uniq
     python2_shebang_files.map! { |f| Pathname(f.chomp) }
     python2_shebang_files.reject! &:symlink?
-    inreplace python2_shebang_files, %r{^(#!/usr/bin/.*python)2$}, "\\1"
+    inreplace python2_shebang_files, %r{^#!/usr/bin/python2?$}, "#!#{Formula["python@2"].opt_bin}/python2"
 
     # All files from the repository are required as emscripten is a collection
     # of scripts which need to be installed in the same layout as in the Git
