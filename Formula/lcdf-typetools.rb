@@ -11,8 +11,6 @@ class LcdfTypetools < Formula
     sha256 "f7a95d76120b54ac63d07cf3c886cc0d379ebc75545e40e1e0c1de7ff87d1573" => :x86_64_linux
   end
 
-  conflicts_with "open-mpi", :because => "both install same set of binaries."
-
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
