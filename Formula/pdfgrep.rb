@@ -9,6 +9,7 @@ class Pdfgrep < Formula
     sha256 "d8d121fd770825ebd23ae5e6ed433f5362c20aee6c6138c3f173a529ccb30c93" => :high_sierra
     sha256 "da7b01c7ca4b63dbb4f028b6e6c8e607c26c78717aed895636ee8dee59ff9a20" => :sierra
     sha256 "5f22fcfc3b6a85433d7ac85b0e8b74c25bf34daef8ca39b7cc117656239fa4b3" => :el_capitan
+    sha256 "f22fb63d1dc0a70c362de9d34dd9497c8f506ac637063a77417a20c3947c316d" => :x86_64_linux
   end
 
   head do
