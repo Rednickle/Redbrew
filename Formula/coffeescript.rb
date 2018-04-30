@@ -3,13 +3,15 @@ require "language/node"
 class Coffeescript < Formula
   desc "Unfancy JavaScript"
   homepage "http://coffeescript.org"
-  url "https://registry.npmjs.org/coffeescript/-/coffeescript-2.2.4.tgz"
-  sha256 "1b6b8756ff781fad3ec72ce25e7d62382c42e9d4e8234bcf9949e93c4581fb12"
+  url "https://registry.npmjs.org/coffeescript/-/coffeescript-2.3.0.tgz"
+  sha256 "695dffde7e71860020cfa0048f4f887b7f7066be194e27a821b3bedb3e7b2cc3"
   head "https://github.com/jashkenas/coffeescript.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "084b29850554137c0f48da30746ab60c845246d6faacec4c712a416dc49d5d5f" => :x86_64_linux
+    sha256 "aaca241c7e0891044ea1d21582b9df86813949ab4b93c6aedae6d97134a05ba1" => :high_sierra
+    sha256 "d855c47f212359ffdcd350d851c924124f22528b0b53709005bfaa28eac2c721" => :sierra
+    sha256 "50ba107ce918fe8d188ed577256d456fb7f007a92a3433f54ed6b29679ce2321" => :el_capitan
   end
 
   depends_on "node"

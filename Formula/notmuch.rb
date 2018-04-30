@@ -1,17 +1,15 @@
 class Notmuch < Formula
   desc "Thread-based email index, search, and tagging"
   homepage "https://notmuchmail.org"
-  url "https://notmuchmail.org/releases/notmuch-0.26.1.tar.gz"
-  sha256 "d3f7e44f4dd0a75150b73e41737c4923ba94ea2947b9fe585f0aab591bb4a837"
+  url "https://notmuchmail.org/releases/notmuch-0.26.2.tar.gz"
+  sha256 "109c1865db7a035d08707421d13e9b6b82ee8e9f1534db70c28c51bc39370e3b"
   head "git://notmuchmail.org/git/notmuch"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "1a319af5dd3a42454ccc1bc77a08beb6e1479efc444e741b34346aafdd677297" => :high_sierra
-    sha256 "11155f61ad9941f98e0703a0f51a9b48bfeb567369cf0b4a0c0236f4331a934c" => :sierra
-    sha256 "920c47a612a5a400c54b14eee7d86aa3c4c4c04eb1da8291cc04de221ea92d1e" => :el_capitan
-    sha256 "1dd398c8dffeaf06ffdd0c7beeaa25959fa8b8dd8b57e424a7e00b1783b6fa55" => :x86_64_linux
+    sha256 "b17b05c7c1825b5646c85f6babb6b01a5a6cf802bcee1ec445a563b1f7d6f138" => :high_sierra
+    sha256 "67cf06b561bd36c14220e3ac3920a9849c4e5c4cd2d4b2528e9bed24aaa8326c" => :sierra
+    sha256 "1a5e8f8482e66d4ace8a0fb1fef32d7f5cb38f710416b0f015fa37e3b8155c80" => :el_capitan
   end
 
   option "without-python@2", "Build without python2 support"
