@@ -3,16 +3,15 @@ class Pyinvoke < Formula
 
   desc "Pythonic task management & command execution"
   homepage "http://pyinvoke.org/"
-  url "https://github.com/pyinvoke/invoke/archive/0.22.1.tar.gz"
-  sha256 "0ff243defb9dfdc45a869fb9cc50ba3c0590ef6b337f4df49c465f63911176fb"
+  url "https://github.com/pyinvoke/invoke/archive/0.23.0.tar.gz"
+  sha256 "ee8ca664d5edeb42f2ccbdcff1c9fe45eb9ff953d633ed48ea38076237c4a39d"
   head "https://github.com/pyinvoke/invoke.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "22caddb4a74b1d916fee0352c5ca99f4abe7f7544d5afa870d9d9b22442a8105" => :high_sierra
-    sha256 "b649f689fa537171c909318338baa5147b4c6abe0e0d3ab4405bda9f9e433d3d" => :sierra
-    sha256 "f6576a575d302c1549e7cf76d3d07f5fc0f5c38efdd3534e915c0a39f4de57f9" => :el_capitan
-    sha256 "6b0d46bf3bef3dab4e49c2905a8f02dabe8dccd7850a72f6d3e9f291cdc9630f" => :x86_64_linux
+    sha256 "71c08cc513f4f9c9cfa9ecbbb7cc5db8a2d75ef2e1867981f294548c5e870994" => :high_sierra
+    sha256 "cf87a6da472511839c4446e1a2d0c22eba52b3da5db238f51210f5f19dcb170d" => :sierra
+    sha256 "a4641f98e40fe257ba66db8e5f224732471d33c07935ceca810b0bafa1959a63" => :el_capitan
   end
 
   depends_on "python@2"
