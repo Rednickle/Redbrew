@@ -1,13 +1,13 @@
 class Petsc < Formula
   desc "Portable, Extensible Toolkit for Scientific Computation"
   homepage "https://www.mcs.anl.gov/petsc/"
-  url "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.9.0.tar.gz"
-  sha256 "a233e0d7f69c98504a1c3548162c6024f7797dde5556b83b0f98ce7326251ca1"
+  url "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.9.1.tar.gz"
+  sha256 "8e3455d2ef0aed637d4d8033dab752551e049a088f893610b799aa3188a5c246"
 
   bottle do
-    sha256 "504bab16d879f2738e1568880c9d40cc68cad49ed8c0d0bdaa165e0a102f8465" => :high_sierra
-    sha256 "6ac3fdff619cecf97dd34ec49358c3004d4b610b7d062d5cb9b06fd135d55f04" => :sierra
-    sha256 "6e1b61304f92067de7ab36d5da2696b4132e79488cbf6bd729dea17908ca3bd4" => :el_capitan
+    sha256 "6404ca49a6462982c154f227f7de6e04ff6c17b463366007caec3ede24fd153c" => :high_sierra
+    sha256 "996159b6d360fc3606c7ebfe95325628c52ab8dc902e746775944a30a5c25d5a" => :sierra
+    sha256 "6a98da6a00692aa4c4e5d817785d00b23ddc212026c1b305dbebe28c18a1a0de" => :el_capitan
   end
 
   depends_on "hdf5"
