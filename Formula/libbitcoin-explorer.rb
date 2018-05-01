@@ -3,12 +3,12 @@ class LibbitcoinExplorer < Formula
   homepage "https://github.com/libbitcoin/libbitcoin-explorer"
   url "https://github.com/libbitcoin/libbitcoin-explorer/archive/v3.5.0.tar.gz"
   sha256 "630cffd577c0d10345b44ce8160f4604519b0ca69bf201f524f104c207b930aa"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "3ddae418ea3aac1c567e041b38275bc49720a8f221ace3c666a0fc6b16895762" => :high_sierra
-    sha256 "4b57fd07c6ca90d2f029853fca8b1ff8c1e5989860ed2312e0c062578a6fec20" => :sierra
-    sha256 "dca3ed395418f3f20c1956ece3de05fd384e44ab175c72b009781bf85731f8f1" => :el_capitan
+    sha256 "aae3ff770f5857bac91474ddbb6f1e82e82839e61dc568b21332fc33545fb39e" => :high_sierra
+    sha256 "57409051da543c57817a75d99448497b6e787e0d70c8ebccfcb5ca23b0750946" => :sierra
+    sha256 "fe5cc5e3dad6720b60318a672d3baa37fc14ebf7efb14befdb407e06e2f3bb31" => :el_capitan
   end
 
   depends_on "autoconf" => :build
@@ -16,38 +16,14 @@ class LibbitcoinExplorer < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "libbitcoin"
+  depends_on "libbitcoin-client"
   depends_on "libbitcoin-network"
   depends_on "zeromq"
 
-  resource "libbitcoin-protocol" do
-    url "https://github.com/libbitcoin/libbitcoin-protocol/archive/v3.5.0.tar.gz"
-    sha256 "9deac6908489e2d59fb9f89c895c49b00e01902d5fdb661f67d4dbe45b22af76"
-  end
-
-  resource "libbitcoin-client" do
-    url "https://github.com/libbitcoin/libbitcoin-client/archive/v3.5.0.tar.gz"
-    sha256 "bafa26647f334ecad04fc4bbef507a1954d7e0682f07bd38b90ab66dba5fe0d2"
-  end
-
   def install
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["libbitcoin"].opt_libexec/"lib/pkgconfig"
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libbitcoin-client"].opt_libexec/"lib/pkgconfig"
     ENV.prepend_create_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
-
-    resource("libbitcoin-protocol").stage do
-      system "./autogen.sh"
-      system "./configure", "--disable-dependency-tracking",
-                            "--disable-silent-rules",
-                            "--prefix=#{libexec}"
-      system "make", "install"
-    end
-
-    resource("libbitcoin-client").stage do
-      system "./autogen.sh"
-      system "./configure", "--disable-dependency-tracking",
-                            "--disable-silent-rules",
-                            "--prefix=#{libexec}"
-      system "make", "install"
-    end
 
     system "./autogen.sh"
     system "./configure", "--disable-dependency-tracking",
