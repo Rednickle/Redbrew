@@ -11,6 +11,7 @@ class Grep < Formula
     sha256 "17972d85803a24a567b92b1b25df46c5510684fe7ca64f29e277d27f9ca134b2" => :high_sierra
     sha256 "65cb0f628d3678c4dd7bf6af1c736d717c1eb8975e203619123379447063fec1" => :sierra
     sha256 "1556c6afb5cbc430e647e70fcd521ce42e203a0c5833cb6a2c6be4413b200c3b" => :el_capitan
+    sha256 "e72b0fa9dd48046c96209eef2b248ebc4d989804baf93f50e96dfc2614e22cac" => :x86_64_linux
   end
 
   option "with-default-names", "Do not prepend 'g' to the binary"
