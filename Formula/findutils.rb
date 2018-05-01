@@ -58,6 +58,10 @@ class Findutils < Formula
     end
   end
 
+  def post_install
+    (var/"locate").mkpath
+  end
+
   def caveats
     if build.without? "default-names"
       <<~EOS
@@ -75,10 +79,6 @@ class Findutils < Formula
             MANPATH="#{opt_libexec}/gnuman:$MANPATH"
       EOS
     end
-  end
-
-  def post_install
-    (var/"locate").mkpath
   end
 
   test do

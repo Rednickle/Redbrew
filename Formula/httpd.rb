@@ -99,6 +99,11 @@ class Httpd < Formula
     end
   end
 
+  def post_install
+    (var/"cache/httpd").mkpath
+    (var/"www").mkpath
+  end
+
   def caveats
     <<~EOS
       DocumentRoot is #{var}/www.
@@ -106,11 +111,6 @@ class Httpd < Formula
       The default ports have been set in #{etc}/httpd/httpd.conf to 8080 and in
       #{etc}/httpd/extra/httpd-ssl.conf to 8443 so that httpd can run without sudo.
     EOS
-  end
-
-  def post_install
-    (var/"cache/httpd").mkpath
-    (var/"www").mkpath
   end
 
   plist_options :manual => "apachectl start"
