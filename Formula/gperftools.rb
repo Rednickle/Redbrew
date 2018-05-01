@@ -20,6 +20,7 @@ class Gperftools < Formula
     sha256 "cd47308eb2e44e527b749b392bebfa17613afacd202285e95954fa00590f44d7" => :high_sierra
     sha256 "214a23363df0fe8d64260af6e86a891d3fb01452dbd2522f6c9451b21ab6e451" => :sierra
     sha256 "a1f10be5627404a571fa448e7f3f15f522348f89f642e097ba04cd0c584d2b3b" => :el_capitan
+    sha256 "497563efccf2f3ac79873d70058f8558c2d7eeb5b8af0cf670df9089b1c971cc" => :x86_64_linux
   end
 
   head do
