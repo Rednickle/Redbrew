@@ -10,6 +10,7 @@ class Freetype < Formula
     sha256 "444ef60a543aca6ca26223f46182c914e26d2908f33fca41cb54bcf9a81084a3" => :high_sierra
     sha256 "4afc7a144563abc6f4e58ef45aa57da598051290e7568afbff028585717b30fa" => :sierra
     sha256 "8f8fbbe028986cebd4a49c399e4861fb85cb6173298ba957172cb1ed915682ab" => :el_capitan
+    sha256 "d0539bcee98c5e47b6b7f1e06337bc6c3c7f4ec3e1d877d3ccfc34ca8b236849" => :x86_64_linux
   end
 
   depends_on "libpng"
