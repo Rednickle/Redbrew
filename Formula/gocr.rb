@@ -9,6 +9,7 @@ class Gocr < Formula
     sha256 "9130f859261ff352e24fc1dc17c5b7c73eae89d4387cbf35bd2fbdfdfbac62d5" => :high_sierra
     sha256 "45dd1209a1a24c9d63c8817eab5be77690be2c0a2ca1e26c71954c3dbaaeeff2" => :sierra
     sha256 "46a821f9815ad964bc58feff3e5344964e9c164db625c9a8faffc0c7450055fb" => :el_capitan
+    sha256 "f6d46d66e3ee0d40b0848a9b984b7cd6ddd1cd28f9c96b2d2a3186d96bf5108f" => :x86_64_linux
   end
 
   option "with-lib", "Install library and headers"
