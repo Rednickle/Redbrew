@@ -2,16 +2,15 @@ class GitlabRunner < Formula
   desc "The official GitLab CI runner written in Go"
   homepage "https://gitlab.com/gitlab-org/gitlab-runner"
   url "https://gitlab.com/gitlab-org/gitlab-runner.git",
-      :tag => "v10.7.0",
-      :revision => "7c273476f55ccfc0c714cbadb2a0f958ecda7732"
+      :tag => "v10.7.1",
+      :revision => "b9bba623e845cccf3488db85e35ecfefd2639899"
   head "https://gitlab.com/gitlab-org/gitlab-runner.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5afdd085a0b023c1955d68896b398798203b00c72013e6f1ce9a0c0fdf428619" => :high_sierra
-    sha256 "b36c57cde2bbfabf64d4aa00747b5fbc7bf1008eecf67656639a160b2f6f0de6" => :sierra
-    sha256 "d2068aaca6734e38b68a7a7621028b573b699d0bb7ec145c366d6ceb2d8c6769" => :el_capitan
-    sha256 "2265f1fbd3a7e6f8aebaa73542dc8809b1d60ac97c0b4fd5a2bbf4d8fa9d1bd1" => :x86_64_linux
+    sha256 "aca0e8bce7cdc70110ade2229e4c3209592ec04937a684350c077e9e7f8a4d69" => :high_sierra
+    sha256 "75dd508e837760f8cc4fdaa1843071328ffabc3a044262414e66e7a7a391ddde" => :sierra
+    sha256 "dae1b19d5ea5105ed41093f28971998c46b917dd6ad7d500de4f011d37f3d338" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -19,17 +18,17 @@ class GitlabRunner < Formula
   depends_on "docker" => :recommended
 
   resource "prebuilt-x86_64.tar.xz" do
-    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.7.0/docker/prebuilt-x86_64.tar.xz",
+    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.7.1/docker/prebuilt-x86_64.tar.xz",
         :using => :nounzip
-    version "10.7.0"
-    sha256 "3b3e2a2457103b9dbe21245751ecc5bdab676dbdb6a0a68536e8a4c3506d7d17"
+    version "10.7.1"
+    sha256 "8591f5fad5722db0eb97f9afa79abdda7b7e4a59b83497e1503626ba3f4b716f"
   end
 
   resource "prebuilt-arm.tar.xz" do
-    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.7.0/docker/prebuilt-arm.tar.xz",
+    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.7.1/docker/prebuilt-arm.tar.xz",
         :using => :nounzip
-    version "10.7.0"
-    sha256 "5fd022a00c88f02ac293b55e8fb90378118783f357ba84436975a200a48ee885"
+    version "10.7.1"
+    sha256 "0669115b8447d965cf77fa97eef324d9db023c736dafaafe3f3df9f2b52a68ed"
   end
 
   def install
