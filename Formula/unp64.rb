@@ -10,6 +10,7 @@ class Unp64 < Formula
     sha256 "cb2f615c3909bbf88db626681db7b07c22f94c72bb51a9dbb9ddc8b37c117202" => :high_sierra
     sha256 "f5ad308ae7daacc0419de6e9f131f78431b07a63a882078c7deded097065d4ff" => :sierra
     sha256 "730e5e71632110da2e1220001c63b86e29a302cb2ed2762f988625f4afa9722f" => :el_capitan
+    sha256 "9d1195ec62de8281fa39be044724a882363f51c4ea23bd8515b0c92016d52ab7" => :x86_64_linux
   end
 
   def install
