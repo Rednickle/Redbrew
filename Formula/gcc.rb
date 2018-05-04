@@ -34,6 +34,7 @@ class Gcc < Formula
     sha256 "283d21233301947b5fdfa832bc4b8f1d266b78729156c43b48ab771f345022b8" => :high_sierra
     sha256 "0c4c66df38f02799b762d969634cd17f3edc973cf7d7b5349325c31e32e32e54" => :sierra
     sha256 "a2b31d94e64afeec4912d65ad7a57a64995b0b7d11207be4f1b26253cdf7c8a3" => :el_capitan
+    sha256 "d6ebdb932d1e7e7357415711bcbe2661bbd940a27b713d44252a5511bc3caa3d" => :x86_64_linux
   end
 
   # GCC's Go compiler is not currently supported on macOS.
