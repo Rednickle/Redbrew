@@ -14,6 +14,12 @@ class GccAT7 < Formula
     sha256 "10fe64f506ae90c9141317a534fe0f83d879c6ea92b04e42f790ac55bc4ce8a3" => :x86_64_linux
   end
 
+  bottle do
+    sha256 "45cfaae98c9e82d6eb90449a541019c7b5f10c20e0221acc3b1a9b6fe48f5f39" => :high_sierra
+    sha256 "5875cde355e4e7611ccd58c3ab4c35ab27740bca99e37de59081953111de4ce0" => :sierra
+    sha256 "d38130e28eaf1d76e29f09deb616a5a1063dad898a2856879d93a67f51573ef6" => :el_capitan
+  end
+
   option "with-jit", "Build just-in-time compiler"
   option "with-nls", "Build with native language support (localization)"
 
