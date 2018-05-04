@@ -3,17 +3,14 @@ class Dxpy < Formula
 
   desc "DNAnexus toolkit utilities and platform API bindings for Python"
   homepage "https://github.com/dnanexus/dx-toolkit"
-  url "https://files.pythonhosted.org/packages/04/16/1d1e1ff25d4f694f04f88417afbd72703d850aebe9f84fdbb8ed836089d7/dxpy-0.191.0.tar.gz"
-  sha256 "b98a55fc766a9e7044f6f299d148c5dde3967f22669add915a1a1921e4006820"
-  revision 1
+  url "https://files.pythonhosted.org/packages/4d/e8/ab819593e2c658b3201f29b6c84da9a17e164af18244d61f402a76e2f5bc/dxpy-0.252.0.tar.gz"
+  sha256 "a0b76bd3f6993a4eead942aa63e252bd540dd4c18824e4b0a37f862ab054b586"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "73f52983798c560445f0a18ef35c9e830ad4faa8b5d4808511ca09928f80ffc1" => :high_sierra
-    sha256 "526ed51259393fb569a912b8865e1627af6ebae9bccd460d33cb403027c66e52" => :sierra
-    sha256 "08e04fb3cdca5a1d50229e76713fd6a7f384996ed1e30c97a5260118dbf75a91" => :el_capitan
-    sha256 "b5a5feb625e40d2bffca2a5be08bd4977a55129d7c9925129b50c51b782f5399" => :yosemite
-    sha256 "91a3634cb4366db887baf1e250bce3c978f9283a2a37593e676440a3a4791adf" => :mavericks
+    sha256 "591b6bfb901bc77798cf7dd69dc4bae573dfc6d9b3fdf1936685b0583f875cf3" => :high_sierra
+    sha256 "6374fa73cb3755737211944ba595e7317a2c26c1d44a62ec99f14cac0933db7d" => :sierra
+    sha256 "2629ef5b42c7b46a934e8b393580348ce67f348f41fffbb1d1e4861ec3ee64bd" => :el_capitan
   end
 
   depends_on "python@2"
@@ -31,11 +28,6 @@ class Dxpy < Formula
   resource "futures" do
     url "https://files.pythonhosted.org/packages/8d/73/b5fff618482bc06c9711e7cdc0d5d7eb1904d35898f48f2d7f9696b08bef/futures-3.0.4.tar.gz"
     sha256 "19485d83f7bd2151c0aeaf88fbba3ee50dadfb222ffc3b66a344ef4952b782a3"
-  end
-
-  resource "gnureadline" do
-    url "https://files.pythonhosted.org/packages/3a/ee/2c3f568b0a74974791ac590ec742ef6133e2fbd287a074ba72a53fa5e97c/gnureadline-6.3.3.tar.gz"
-    sha256 "a259b038f4b625b07e6206bbc060baa5489ca17c798df3f9507875f2bf980cbe"
   end
 
   resource "psutil" do
@@ -59,8 +51,8 @@ class Dxpy < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
-    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
+    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
+    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
   end
 
   resource "ws4py" do
@@ -74,19 +66,7 @@ class Dxpy < Formula
   end
 
   def install
-    # superenv removes -arch flags causing gnureadline to fail
-    # See Homebrew/legacy-homebrew#44472
-    ENV.permit_arch_flags
-
     virtualenv_install_with_resources
-
-    # Fix collision between system readline and gnureadline resulting in
-    # "incompatible readline module detected (libedit), tab completion disabled"
-    # Reported 7 Aug 2016: https://github.com/dnanexus/dx-toolkit/issues/169
-    site_packages = libexec/"lib/python2.7/site-packages"
-    (site_packages/"homebrew-gnureadline-hack.pth").write <<~EOS
-      import sys; import gnureadline; sys.modules["readline"] = gnureadline
-    EOS
   end
 
   test do
