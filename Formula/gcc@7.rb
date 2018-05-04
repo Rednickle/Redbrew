@@ -1,7 +1,6 @@
 class GccAT7 < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-  head "svn://gcc.gnu.org/svn/gcc/trunk"
 
   stable do
     url "https://ftp.gnu.org/gnu/gcc/gcc-7.3.0/gcc-7.3.0.tar.xz"
@@ -39,18 +38,11 @@ class GccAT7 < Formula
     satisfy { MacOS::CLT.installed? }
   end
 
-  def version_suffix
-    if build.head?
-      "HEAD"
-    else
-      version.to_s.slice(/\d/)
-    end
-  end
-
   # Fix for libgccjit.so linkage on Darwin
   # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=64089
   # https://github.com/Homebrew/homebrew-core/issues/1872#issuecomment-225625332
   # https://github.com/Homebrew/homebrew-core/issues/1872#issuecomment-225626490
+  # Now fixed on GCC trunk for GCC 8, may backported to other branches
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/e9e0ee09389a54cc4c8fe1c24ebca3cd765ed0ba/gcc/6.1.0-jit.patch"
     sha256 "863957f90a934ee8f89707980473769cff47ca0663c3906992da6afb242fb220"
@@ -72,6 +64,13 @@ class GccAT7 < Formula
 
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
+
+    version_suffix = version.to_s.slice(/\d/)
+
+    # Even when suffixes are appended, the info pages conflict when
+    # install-info is run so pretend we have an outdated makeinfo
+    # to prevent their build.
+    ENV["gcc_cv_prog_makeinfo_modern"] = "no"
 
     # We avoiding building:
     #  - Ada, which requires a pre-existing GCC Ada compiler to bootstrap
@@ -187,6 +186,7 @@ class GccAT7 < Formula
 
   def post_install
     unless OS.mac?
+      version_suffix = version.to_s.slice(/\d/)
       gcc = bin/"gcc-#{version_suffix}"
       libgcc = Pathname.new(Utils.popen_read(gcc, "-print-libgcc-file-name")).parent
       raise "command failed: #{gcc} -print-libgcc-file-name" if $CHILD_STATUS.exitstatus.nonzero?
@@ -259,7 +259,7 @@ class GccAT7 < Formula
         return 0;
       }
     EOS
-    system "#{bin}/gcc-#{version_suffix}", "-o", "hello-c", "hello-c.c"
+    system "#{bin}/gcc-7", "-o", "hello-c", "hello-c.c"
     assert_equal "Hello, world!\n", `./hello-c`
 
     (testpath/"hello-cc.cc").write <<~EOS
@@ -270,7 +270,7 @@ class GccAT7 < Formula
         return 0;
       }
     EOS
-    system "#{bin}/g++-#{version_suffix}", "-o", "hello-cc", "hello-cc.cc"
+    system "#{bin}/g++-7", "-o", "hello-cc", "hello-cc.cc"
     assert_equal "Hello, world!\n", `./hello-cc`
 
     (testpath/"test.f90").write <<~EOS
@@ -284,7 +284,7 @@ class GccAT7 < Formula
       write(*,"(A)") "Done"
       end
     EOS
-    system "#{bin}/gfortran-#{version_suffix}", "-o", "test", "test.f90"
+    system "#{bin}/gfortran-7", "-o", "test", "test.f90"
     assert_equal "Done\n", `./test`
   end
 end
