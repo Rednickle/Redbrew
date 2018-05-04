@@ -52,7 +52,7 @@ class Gcc < Formula
     depends_on "glibc" => (Formula["glibc"].installed? || !GlibcRequirement.new.satisfied?) ? :recommended : :optional
   end
   depends_on "gmp"
-  depends_on "isl"
+  depends_on "isl" if OS.mac?
   depends_on "libmpc"
   depends_on "mpfr"
   depends_on "isl@0.18" unless OS.mac?
