@@ -9,6 +9,7 @@ class Libraw < Formula
     sha256 "2ddbcad28cc494651a9347a93963a0162e9ec903a834483a4d56cc54fb6ab829" => :high_sierra
     sha256 "de4ed63b78083fbd1b444eebf2be8dd65ca6837babc93a1d4e65861ddb8fd8e7" => :sierra
     sha256 "7db3772dfe5eba9df235f4d70b37a02ddd57f75c70084873cf5e385775455382" => :el_capitan
+    sha256 "5823757da3a72a16aba4276b39bb8e583875509b1594ae7018ed1c8c5165feb3" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
