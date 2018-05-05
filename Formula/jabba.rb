@@ -1,16 +1,15 @@
 class Jabba < Formula
   desc "Cross-platform Java Version Manager"
   homepage "https://github.com/shyiko/jabba"
-  url "https://github.com/shyiko/jabba/archive/0.9.2.tar.gz"
-  sha256 "884da1fc23818db1396a8eeb4a10d40c7c008684b7642e2eec88bf264f47e071"
+  url "https://github.com/shyiko/jabba/archive/0.9.4.tar.gz"
+  sha256 "6c03151f0d4d224269bafb3a7655d92a8e19940a2fa8bf5a9bd78a28b71cd79d"
   head "https://github.com/shyiko/jabba.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1c23d02756f7701a08fa4805bd6e6ae267fb51e3587b7e2748d267b76cfb7e06" => :high_sierra
-    sha256 "1194d7753a570997667238c59ef05ca0c5f8c34029986b5cf7289fe48c656f15" => :sierra
-    sha256 "177f97bc1d5da9cc38c187d75e213a292f7b526de424e095efcc8446225fdf14" => :el_capitan
-    sha256 "c246f502633d627abe69f7eefd3eec440ed2260eaa99d7961c8498b9ae040c5c" => :x86_64_linux
+    sha256 "bfb2b3e097be96dffa5dd14aab109317a3b80e7351b6fc2b481ba8c3618b34d0" => :high_sierra
+    sha256 "1741877c9df2aae2350fe91ffe23ae30984996bd6e3a0ab09f608e5ea6b0c38e" => :sierra
+    sha256 "34529d4bfd9dbf396596ddfae8b15c99a24cc5d92e73cdf4e82c6cee2c7ec97a" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -31,9 +30,9 @@ class Jabba < Formula
 
   test do
     ENV["JABBA_HOME"] = testpath/"jabba_home"
-    system bin/"jabba", "install", "1.9.0"
-    jdk_path = Utils.popen_read("#{bin}/jabba which 1.9.0").strip
-    assert_match 'java version "9.0.1"',
+    system bin/"jabba", "install", "1.10"
+    jdk_path = Utils.popen_read("#{bin}/jabba which 1.10").strip
+    assert_match 'java version "10.0',
                  shell_output("#{jdk_path}/Contents/Home/bin/java -version 2>&1")
   end
 end
