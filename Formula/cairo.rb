@@ -21,7 +21,6 @@ class Cairo < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on :x11 => :optional if OS.mac?
   depends_on "freetype"
   depends_on "fontconfig"
   depends_on "libpng"
@@ -51,17 +50,18 @@ class Cairo < Formula
       --enable-quartz-image
     ] if OS.mac?
 
-    if build.with?("x11") || build.with?("xorg")
+    if !OS.mac? || build.with?("xorg")
       args << "--enable-xcb=yes" << "--enable-xlib=yes" << "--enable-xlib-xrender=yes"
     else
       args << "--enable-xcb=no" << "--enable-xlib=no" << "--enable-xlib-xrender=no"
     end
 
     if build.head?
-      system "./autogen.sh", *args
-    else
-      system "./configure", *args
+      ENV["NOCONFIGURE"] = "1"
+      system "./autogen.sh"
     end
+
+    system "./configure", *args
     system "make", "install"
   end
 
