@@ -10,6 +10,7 @@ class CheckPostgres < Formula
     sha256 "6d722bc7277678495996ecaecf62f5b61ea5de5f225286cab5ad36be3d467a9a" => :high_sierra
     sha256 "6d722bc7277678495996ecaecf62f5b61ea5de5f225286cab5ad36be3d467a9a" => :sierra
     sha256 "6d722bc7277678495996ecaecf62f5b61ea5de5f225286cab5ad36be3d467a9a" => :el_capitan
+    sha256 "1bd04c685033bf0a3265847006e766be202a0868f8f52c2120ed9ae9473367e4" => :x86_64_linux
   end
 
   depends_on "postgresql"
