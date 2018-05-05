@@ -8,6 +8,7 @@ class Click < Formula
     sha256 "998198613be6e5007df66eee76b9ba108078c58534869a03233e8fed93661b32" => :high_sierra
     sha256 "f165b40c17fceaa2ceac1a745124008255986e1e8e6da98973aadc49095f62ea" => :sierra
     sha256 "fcfc3052c5457fae773d76e93d680c3033f54df048f66dd4c38148c684d986aa" => :el_capitan
+    sha256 "054329ef1ba7e710620ee39d0e83efa7ac12b251b11039159be19346044762d9" => :x86_64_linux
   end
 
   depends_on "rust" => :build
