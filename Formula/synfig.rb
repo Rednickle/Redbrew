@@ -3,13 +3,13 @@ class Synfig < Formula
   homepage "https://synfig.org/"
   url "https://downloads.sourceforge.net/project/synfig/releases/1.0.2/source/synfig-1.0.2.tar.gz"
   sha256 "34cdf9eac90aadea29fb2997e82da1c32713ab02940f7c8873330f894e167fb4"
-  revision 3
+  revision 4
   head "https://svn.code.sf.net/p/synfig/code/"
 
   bottle do
-    sha256 "23bc8a06b80bec0734a32e694b7a56d81d6b089d7e45550e7070fad931adcafe" => :high_sierra
-    sha256 "94545b17928a46d08e22fdfd5959ba46d679284a565dddf2f125bf6bf4849d18" => :sierra
-    sha256 "b13a93ed2c76add7652425530771183eeeefc1bb8d57b7718aa22f32aee3c3e4" => :el_capitan
+    sha256 "fac42787f109335d1de27f324dc84bcc84c3ef6041e836ab5732473488f28e99" => :high_sierra
+    sha256 "f4a340c2bfafd68ecf4b6613e02adedd620914052376721b30834d55166117ba" => :sierra
+    sha256 "a5b663c83552f9cc07b87cb27ba5f0e1078fa64fd8866780c105ae27a7f3b2ae" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
