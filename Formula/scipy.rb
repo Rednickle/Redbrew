@@ -1,15 +1,14 @@
 class Scipy < Formula
   desc "Software for mathematics, science, and engineering"
   homepage "https://www.scipy.org"
-  url "https://files.pythonhosted.org/packages/bd/f4/3882758754dc083fea6ea66a6e8ceef55e7df173d06a12a074612958800f/scipy-1.0.1.tar.gz"
-  sha256 "8739c67842ed9a1c34c62d6cca6301d0ade40d50ef14ba292bd331f0d6c940ba"
-  revision 1
+  url "https://files.pythonhosted.org/packages/07/76/7e844757b9f3bf5ab9f951ccd3e4a8eed91ab8720b0aac8c2adcc2fdae9f/scipy-1.1.0.tar.gz"
+  sha256 "878352408424dffaa695ffedf2f9f92844e116686923ed9aa8626fc30d32cfd1"
   head "https://github.com/scipy/scipy.git"
 
   bottle do
-    sha256 "93ea64670620e814aec9dd5e0fd7b7aa19d76d28790759e842118833cd849bef" => :high_sierra
-    sha256 "7d288616798cdf3ee190a1feca1e04e476259c752c74a571f038d51ad628a8d5" => :sierra
-    sha256 "dbd5749d48949186284419eecf87d5a5daeac93db083c4ee056cfe4decce9aab" => :el_capitan
+    sha256 "14f480aab5e6de3cabe57b824ee37bc012b8c502e85329be737bffe652124a24" => :high_sierra
+    sha256 "886a096bcb5872cf150601a539f0431c5ac7ca1cc8a4c0e6be86db2ec3ac8530" => :sierra
+    sha256 "e4c87ee62b66c9e021a0b6e8e5d4c4db4177b6da074914a82a4a029a552dcefc" => :el_capitan
   end
 
   option "without-python", "Build without python2 support"

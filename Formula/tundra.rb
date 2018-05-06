@@ -1,15 +1,14 @@
 class Tundra < Formula
   desc "Code build system that tries to be fast for incremental builds"
   homepage "https://github.com/deplinenoise/tundra"
-  url "https://github.com/deplinenoise/tundra/archive/v2.06.tar.gz"
-  sha256 "c805882b2a469c46b19c4cf4964b614c840dd914db24066930a83ec61edd24f5"
+  url "https://github.com/deplinenoise/tundra/archive/v2.07.tar.gz"
+  sha256 "dc3cbaf977bdbd0b70e70c455656a6ed69ecd110a5ca9eb938789c044774ddbd"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7449f31d23d9cbd91191d25a38384a6bb01c4126c3fbbee7b01659c644d8fc32" => :high_sierra
-    sha256 "26cfd885d1bab667f9751adb36e5bf0fba2099dfae101fc6f5ebe4b75cbf8eb3" => :sierra
-    sha256 "f6548611e9052ef53ffcaffc4c55e323dadad23d7c7fed56d77fa1100b6b1397" => :el_capitan
-    sha256 "bcccba73f868ce8a0e45e1059a8d398e9b62374aa73e50c107326bebc962b661" => :x86_64_linux
+    sha256 "ed4b8f4972973c2c1eb1ba4cc68523bb77fae42b9e05b32d7af8f2ee62c6479a" => :high_sierra
+    sha256 "f64f3d3677204d32b25c1819dc3cce4c61bc0a18e66256921862e8d472bc4049" => :sierra
+    sha256 "e0c6dd40d2efdcd58bb6976b924b51104e1435f2b93255894d766cca80ff894c" => :el_capitan
   end
 
   resource "gtest" do
