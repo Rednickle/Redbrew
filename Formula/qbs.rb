@@ -9,6 +9,7 @@ class Qbs < Formula
     sha256 "ad1543d155fca186d7040edc612082eae9e550a50d5a34dcde6cacbcecd912e3" => :high_sierra
     sha256 "77e0b8f5f3b64b13fc3a9e6eba3ad0afb4bed39ed029dfe4fd275df1384db749" => :sierra
     sha256 "f1e5488c9cabeb2306616b1e61b1180fc3eec9754db658fc60f42c10784659dd" => :el_capitan
+    sha256 "4777f133842b223fba247e30c0118648b35bb1d0fc3d7967e7ecfc9fd8c45e6b" => :x86_64_linux
   end
 
   depends_on "qt"
