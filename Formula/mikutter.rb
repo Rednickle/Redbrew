@@ -1,15 +1,14 @@
 class Mikutter < Formula
   desc "Extensible Twitter client"
   homepage "https://mikutter.hachune.net/"
-  url "https://mikutter.hachune.net/bin/mikutter.3.6.7.tar.gz"
-  sha256 "16e1a0f8294f091c850b4c9ab64a4d475d62f57b31e063c62c5fb0f734ef7a4d"
+  url "https://mikutter.hachune.net/bin/mikutter.3.7.0.tar.gz"
+  sha256 "5850d805bd30994edfd971b6afd32b6640274ac91cc91c1f34ad801d4fa92f5a"
   head "git://toshia.dip.jp/mikutter.git", :branch => "develop"
 
   bottle do
-    sha256 "0e7dd7633e4ef9d6a3a052b0c3dc0b3dae1b5930165a90cae8cd14334a2b34e9" => :high_sierra
-    sha256 "977259873efd332c1e115c414463a21620bf830bf41eac8f2bf99c255db103e5" => :sierra
-    sha256 "54dae8717415c681a119085c80e5d6a6b448788373c36eb3e8c832ab74d8cca9" => :el_capitan
-    sha256 "bc8fdd209d6fcb8d67abfd458f8c87d17ac9b2d4e439b0fa606415ecbcb44ab9" => :x86_64_linux
+    sha256 "80c9254c614fbf10a96fe52b010ea77414d05f0c34321e88c2988789876326bb" => :high_sierra
+    sha256 "c961947fbe0630c5bd4ab5a559ba6b9a89f0ee691f6c1dc569835e6928af46db" => :sierra
+    sha256 "836f45bba1056c7d5bc078d5a906669496cc0601140eb1b6fd4bac6677ab60a4" => :el_capitan
   end
 
   depends_on "gobject-introspection"
@@ -30,8 +29,8 @@ class Mikutter < Formula
   end
 
   resource "cairo" do
-    url "https://rubygems.org/gems/cairo-1.15.12.gem"
-    sha256 "c4f3240a3da1ff3962ab30bd58f17c717ad5b1cee89744a34f0442bdfbce26ea"
+    url "https://rubygems.org/gems/cairo-1.15.13.gem"
+    sha256 "27863a94dd5646afd0a4ce309386e15eebdec6415c58b33017a24f42896b1d26"
   end
 
   resource "cairo-gobject" do
