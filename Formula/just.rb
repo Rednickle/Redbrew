@@ -8,6 +8,7 @@ class Just < Formula
     sha256 "a250bafb3b21f931cf075f354f8ed77ff90f7f5be9188f14ad4c44b882a908c5" => :high_sierra
     sha256 "540606e67eedc2c95d19133a613fa40152e8ca0b693dc764c9b3c491a5564d71" => :sierra
     sha256 "4d2980f96306ec681a1de6c99864a632b72014b5d0c3971308ad6b5ea4baafe4" => :el_capitan
+    sha256 "317f98e73c137557d7897ddc5d49a3da249127157ed7f3d8e07de29b7f983fb6" => :x86_64_linux
   end
 
   depends_on "rust" => :build
