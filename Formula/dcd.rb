@@ -2,13 +2,15 @@ class Dcd < Formula
   desc "Auto-complete program for the D programming language"
   homepage "https://github.com/dlang-community/DCD"
   url "https://github.com/dlang-community/DCD.git",
-      :tag => "v0.9.5",
-      :revision => "723a3ee113941742b310010d221b9dfb38206e42"
+      :tag => "v0.9.6",
+      :revision => "a6ef4e5a25bafd5f98ae5a6e9a496eb381b2d054"
 
   head "https://github.com/dlang-community/dcd.git", :shallow => false
 
   bottle do
-    sha256 "44de7ea16523d095e9beaafc89acb4caf9f91e4cfa2baadab1faad9d70cd7e30" => :x86_64_linux
+    sha256 "a1616c9d1271f3001b78f1fbab166eebeff644a330223be7ee43fba5e3ea007c" => :high_sierra
+    sha256 "7c8b32f5fb86462789a145fadc568344df1af1730567c507fbab319b1097d094" => :sierra
+    sha256 "8d74a821a8fa93f815e3715f27e8c2a6771c362b3a08097d16af05db28411225" => :el_capitan
   end
 
   depends_on "dmd" => :build
