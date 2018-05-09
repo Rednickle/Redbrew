@@ -8,6 +8,7 @@ class Pdns < Formula
     sha256 "fa683a8e83c6e5deeadebb94071eeed97578292d28f40ec29341c5efaea356b8" => :high_sierra
     sha256 "d9592add50f6ea15a56e39f24f142c7b6631497a4881dba2805730768c2a5ff8" => :sierra
     sha256 "4c3577023da4c055bb566c25ad5629b3c27c7a4fdc146038b156e8f4d21a0d63" => :el_capitan
+    sha256 "d7fd82c796740ae7ae41ca53174afeef28a659d41b59b3ff229b133c1fcdb785" => :x86_64_linux
   end
 
   head do
