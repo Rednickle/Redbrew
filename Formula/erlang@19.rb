@@ -11,6 +11,7 @@ class ErlangAT19 < Formula
     sha256 "c97c12d0b33578f375233cf71786191129fe341eb8a021ccd09d7291e4e4e41b" => :high_sierra
     sha256 "f01be69cb639c882c022cdfba350750ed8328b3fb315141bfebc46f10a19ec7f" => :sierra
     sha256 "f8e7a6745628bb71070898ec4b8cc6befdd7b804d46063bd1ef5475538f2d8d2" => :el_capitan
+    sha256 "550e2542e405dbb1d3fe171b6a5df9114eee069fa519bdc73fd7f40abd32f53c" => :x86_64_linux
   end
 
   keg_only :versioned_formula
