@@ -1,16 +1,15 @@
 class Folly < Formula
   desc "Collection of reusable C++ library artifacts developed at Facebook"
   homepage "https://github.com/facebook/folly"
-  url "https://github.com/facebook/folly/archive/v2018.04.30.00.tar.gz"
-  sha256 "2a5da9c8ce62e1e3bcb37439c54a9d8923327400d74f5f5ac1476498c7dbc541"
+  url "https://github.com/facebook/folly/archive/v2018.05.07.00.tar.gz"
+  sha256 "d3d5b653070bd21e8b1f0bfc26a28bb0948fd6d81a5db67bed60659e9dabb547"
   head "https://github.com/facebook/folly.git"
 
   bottle do
     cellar :any
-    sha256 "092e6d50e8dbc7c25827b8708ccf87a5c77d2d96ecb5a5ac9b73fd0ded176487" => :high_sierra
-    sha256 "29db9339bb9d7ed19eb7458440216202d256bb5098f37b3a408061a821379693" => :sierra
-    sha256 "fc6335f630d5e72644ad76a2d33c157b006387c38366ae5b81e88ced05cb5b22" => :el_capitan
-    sha256 "5dd27b645fc9643470ef097d0182b52b205744d834a858bdc86c1490821d905e" => :x86_64_linux
+    sha256 "a0763bdb46878f3ca9559a4b5045abee55f4f30d9541eecfcf84e9718272765d" => :high_sierra
+    sha256 "764986fbe3dba7bd50f384bd7468e1048ef37ab25427dab96a3c622cfa967fba" => :sierra
+    sha256 "a7d1717d60a9657c5d2d2fe7fab834a8d1458cf0d8109fd636dbe5e386d67107" => :el_capitan
   end
 
   depends_on "autoconf" => :build
@@ -36,6 +35,23 @@ class Folly < Formula
   # Known issue upstream. They're working on it:
   # https://github.com/facebook/folly/pull/445
   fails_with :gcc => "6"
+
+  # Remove for > 2018.05.07.00
+  # Fix build failure "error: no matching function for call to 'min'"
+  # Upstream commit from 7 May 2018 "Use size_t for
+  # ThreadPoolExecutor::getPendingTaskCountImpl"
+  patch do
+    url "https://github.com/facebook/folly/commit/a463b55ed3.patch?full_index=1"
+    sha256 "b72c88b081f204caddfd4fd2e7b49f43bbad7cc15f6214793993204ddafd405d"
+  end
+
+  # Remove for > 2018.05.07.00
+  # Fixes an issue with the first patch above
+  # Upstream commit from 8 May 2018 "Fix ThreadPoolExecutor::getPendingTaskCount decl"
+  patch do
+    url "https://github.com/facebook/folly/commit/bf237b575e.patch?full_index=1"
+    sha256 "2216295c4155b64e3d6130e049fac77c1ecf4b10209dfb688285d4d4c17bd3dc"
+  end
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
