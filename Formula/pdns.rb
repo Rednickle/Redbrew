@@ -1,14 +1,13 @@
 class Pdns < Formula
   desc "Authoritative nameserver"
   homepage "https://www.powerdns.com"
-  url "https://downloads.powerdns.com/releases/pdns-4.1.1.tar.bz2"
-  sha256 "08d388321c8a2c24ebe8d7e539f34a0ba2c0973313c168a1b5ecf507e4fb04ba"
+  url "https://downloads.powerdns.com/releases/pdns-4.1.2.tar.bz2"
+  sha256 "86d8be0171d1ba85c2c6496d62ebf9198a5d522135aa0df3714c0d487a725695"
 
   bottle do
-    sha256 "470c9841912c8c2ef96c69c8426b4cfc17d10277c978c193015261d677c87651" => :high_sierra
-    sha256 "857cb0232f168326f27f696b9ba2c1c1fe6577b21dcbca4f2179cdcae379704d" => :sierra
-    sha256 "1e22069fb9c9b263a75f2361602d87923f72094225fa27ba4662b3a8bd1f2566" => :el_capitan
-    sha256 "fb5624d1d4dad3e1cda7e60a7cd1a5b6ebb76804eb60a6dac13583aa8ebcd37c" => :x86_64_linux
+    sha256 "fa683a8e83c6e5deeadebb94071eeed97578292d28f40ec29341c5efaea356b8" => :high_sierra
+    sha256 "d9592add50f6ea15a56e39f24f142c7b6631497a4881dba2805730768c2a5ff8" => :sierra
+    sha256 "4c3577023da4c055bb566c25ad5629b3c27c7a4fdc146038b156e8f4d21a0d63" => :el_capitan
   end
 
   head do
