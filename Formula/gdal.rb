@@ -3,13 +3,12 @@ class Gdal < Formula
   homepage "http://www.gdal.org/"
   url "https://download.osgeo.org/gdal/2.2.4/gdal-2.2.4.tar.xz"
   sha256 "441eb1d1acb35238ca43a1a0a649493fc91fdcbab231d0747e9d462eea192278"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "6040f6b5e0c12347a8e93d92316b64fd1b9d3e5cf6c33863a23a5c8b6a182dcf" => :high_sierra
-    sha256 "c25066eecd00a5546c755818874925cc6e505c8507ae59c6922fd8676e643d76" => :sierra
-    sha256 "69a85adfadc44d067cea44d556a3d67c83fb8d070472f98b27dd0cc492908ab5" => :el_capitan
-    sha256 "055d256d7a8e8acae053f1d037a5a4c057e1d303a5563cc83542383a31f0e662" => :x86_64_linux
+    sha256 "9c734fffc287c4ed453bc6d9d89d5d5431f979c2ec33466ee6bdf081c86db547" => :high_sierra
+    sha256 "71d31162f4c5a16893fc1f928441b6376bb8d765fbd01c7b6642a3f4f193869f" => :sierra
+    sha256 "6497b2e4720a4ffeda32ff7c49e2017c95c4e868bf2f11bf55903e9b02916f6c" => :el_capitan
   end
 
   head do
@@ -103,6 +102,7 @@ class Gdal < Formula
       "--without-python",
       "--without-ruby",
       "--with-armadillo=no",
+      "--with-qhull=no",
     ]
 
     if OS.mac?
