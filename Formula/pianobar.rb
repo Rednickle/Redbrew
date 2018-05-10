@@ -21,6 +21,7 @@ class Pianobar < Formula
     sha256 "d4478a5404a4d912f512978420f66032ee5b094cdd970c9734877ecfe53165b3" => :high_sierra
     sha256 "e6006ef98f2a44e0dfd3ec57835bf955063165cd50d1b2ba0f9a50a2cf31e7d9" => :sierra
     sha256 "245e0fe8ff65bdb42356eb8a887a8df40c391a6fe8ee2e8d7f32bb110538392b" => :el_capitan
+    sha256 "78536888fafdc4f7e6a07926db1c12a9a1572f8283dde652eaef7fc2269462cf" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
