@@ -9,6 +9,7 @@ class Gdal < Formula
     sha256 "9c734fffc287c4ed453bc6d9d89d5d5431f979c2ec33466ee6bdf081c86db547" => :high_sierra
     sha256 "71d31162f4c5a16893fc1f928441b6376bb8d765fbd01c7b6642a3f4f193869f" => :sierra
     sha256 "6497b2e4720a4ffeda32ff7c49e2017c95c4e868bf2f11bf55903e9b02916f6c" => :el_capitan
+    sha256 "03cd7f512c3f199c184d9f6a25c6e92f448b4f58e87fa6dd782e57aaf31d30a1" => :x86_64_linux
   end
 
   head do
