@@ -60,7 +60,7 @@ class Gdal < Formula
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["MAKEFLAGS"] = "-j1" if ENV["CIRCLECI"]
 
-    # Fixes: error: inlining failed in call to always_inline __m128i _mm_shuffle_epi8  
+    # Fixes: error: inlining failed in call to always_inline __m128i _mm_shuffle_epi8
     ENV.append_to_cflags "-msse4.1" if ENV["CIRCLECI"]
 
     args = [
