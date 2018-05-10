@@ -1,16 +1,14 @@
 class Msgpack < Formula
   desc "Library for a binary-based efficient data interchange format"
   homepage "https://msgpack.org/"
-  url "https://github.com/msgpack/msgpack-c/releases/download/cpp-2.1.5/msgpack-2.1.5.tar.gz"
-  sha256 "6126375af9b204611b9d9f154929f4f747e4599e6ae8443b337915dcf2899d2b"
+  url "https://github.com/msgpack/msgpack-c/releases/download/cpp-3.0.0/msgpack-3.0.0.tar.gz"
+  sha256 "bfbb71b7c02f806393bc3cbc491b40523b89e64f83860c58e3e54af47de176e4"
   head "https://github.com/msgpack/msgpack-c.git"
 
   bottle do
-    sha256 "85933b57f67eaa2f08bdd634bf4615603586775d7c4558d2309f3894bf53a51c" => :high_sierra
-    sha256 "4666095a79d52aafd4f430d107621ce7478bd6a1fc605aa565c5c0fab25f82e3" => :sierra
-    sha256 "bd0d61248dbbf8fc6859d22a3ccc3b4a62289f6f5745c4415f129431614ae173" => :el_capitan
-    sha256 "f29ea6e3fa33c5ad7b3a6172ad1e993e7ebfd30bc745769da4f093f3283031a3" => :yosemite
-    sha256 "b00f79fe9d60e909820e3e9e2ccb54866510dc25df6ac95eeb47591f1ca0e1b4" => :x86_64_linux # glibc 2.19
+    sha256 "14d86d3e0c790146175b884c20423ae589b72363922a54fdfc1384b06476b6cc" => :high_sierra
+    sha256 "0ed6740916f2d9cb7b4d41139fd258eecdf04d90e0cf6f083167b47cdef20ac4" => :sierra
+    sha256 "29e120d663ef5e77160e7abd84b701ed5a0746382373142c5b19e1ea51921496" => :el_capitan
   end
 
   depends_on "cmake" => :build
