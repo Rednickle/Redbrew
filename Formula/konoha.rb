@@ -9,6 +9,7 @@ class Konoha < Formula
     sha256 "540d50178faec6e28c8107531943c25a11ab5776c2b8929905691f2c370b0c47" => :high_sierra
     sha256 "666717534024275ea2e66e1255e4df3a0f382f43cee5026fbeef2e28a47b8c33" => :sierra
     sha256 "ce642aff879d5e71a26317da1a98fbb7cf41ba1557cf6dafee0e323c2576ca01" => :el_capitan
+    sha256 "472036cba94e7042abb7189818aaee4c8bc9cacf3d0d3181e3b84401a27e52b3" => :x86_64_linux
   end
 
   head do
