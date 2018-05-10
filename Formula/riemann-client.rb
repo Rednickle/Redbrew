@@ -11,6 +11,7 @@ class RiemannClient < Formula
     sha256 "ba9cdc31d7fe2916f8e3372991b6220ff314cea3b3ec12a5a340b0ad248b3fcf" => :high_sierra
     sha256 "c57193eb61597b2fc23bdba949187fcdb9501104be779f9478c6f59d58a0916a" => :sierra
     sha256 "061be81a19aa935e9bc24c3fcd54f113de05f0e70c7e43bc6deb62180cacaf15" => :el_capitan
+    sha256 "e923b7ac6b1493905e8631c1541229b2c17422bd22c2c0709d0f86a77e63c4de" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
