@@ -9,6 +9,7 @@ class Pianod < Formula
     sha256 "d0aa3614b2b70ca8140820bd059c1ebdbb54799b69ab6346f36a42a4dac600de" => :high_sierra
     sha256 "fe7983c06b7fe6163792e7e0eeed5990b9d09e44ffc19d0c62808503ca409f5f" => :sierra
     sha256 "3ed572ebaf767ba924cc7b402362775b77a19cd69337f940344988f86d2a1936" => :el_capitan
+    sha256 "7a117366f9c1b44bbc46ba7595f531f58ae0846cb723de87ba9610c1d9d14242" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
