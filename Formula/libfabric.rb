@@ -9,6 +9,7 @@ class Libfabric < Formula
     sha256 "d54bc8c558cdb8cc043321e7d7525f5a6f0690941fb41dfb12911450eaa53721" => :high_sierra
     sha256 "affceee11460839d1688128378c8271ce1f0864a7622145bea792aa2d3acfc77" => :sierra
     sha256 "3586c060d04eaa55fa5a4f802ac4478cd762e1b303fe96c5bf22d8bbaba8f448" => :el_capitan
+    sha256 "8be8534bc3d6faa34c92ea81624b9abfe1581936addd95d3289b59ca3418ebfb" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
