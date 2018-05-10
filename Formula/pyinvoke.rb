@@ -12,6 +12,7 @@ class Pyinvoke < Formula
     sha256 "9f473f2a1494ec73191fa5f1e188bf59c4426b403d9d3620fd6bd877463c9313" => :high_sierra
     sha256 "37e2c92be98d5b920f53acac34a998c99c5b2a949f520ac02e76f5b9107564e6" => :sierra
     sha256 "7252a19f4d91b6b70feed40027a3db913b36a6e80bacf708b9126c3e818cba16" => :el_capitan
+    sha256 "859394887893172be53fd752b14d1913382948ede30f4e7798677940ae12c09f" => :x86_64_linux
   end
 
   depends_on "python@2"
