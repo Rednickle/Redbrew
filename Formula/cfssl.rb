@@ -10,6 +10,7 @@ class Cfssl < Formula
     sha256 "fcb0d745472f74dd799bfff8099a2330a8262fb24358a679b4dd417c8ef0552b" => :high_sierra
     sha256 "046cddc312759ba84d66a0f0242eb32aa54b4015011ce8ebb7d8e0978306e1e9" => :sierra
     sha256 "c354f5d2b7767ccd9ec5b50901a7be8e541f1ba0eb6c7c3d2ddc3b89ea3fb574" => :el_capitan
+    sha256 "79a65e4240c6263c66dd55fbc2e89995f38cbb6dba793428b84b182630430f1f" => :x86_64_linux
   end
 
   depends_on "go" => :build
