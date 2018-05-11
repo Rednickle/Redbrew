@@ -9,6 +9,7 @@ class Qcachegrind < Formula
     sha256 "4557cb6f0fdc5c1dafbcf3c1fa965fb01d6c1cc5a82d946884641559de3cf7c4" => :high_sierra
     sha256 "56eaefd107aeaec81b226d0542d28771eae2d22441462d9a8cf8172d091636fe" => :sierra
     sha256 "b7f51a724f909e110118f4098e24cec0482f99f0b5f3b01bb9ccc87c00c37f69" => :el_capitan
+    sha256 "43c16ffd344017c50e4c181acabee698b842539a95fabab6a00fcfb6ea0728e4" => :x86_64_linux
   end
 
   depends_on "qt"
