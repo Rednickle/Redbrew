@@ -11,6 +11,7 @@ class GetIplayer < Formula
     sha256 "0ba5c91219bcc6591fef339adc2911e8586417dc2a1bb9c1ad714a1c19e17cd4" => :high_sierra
     sha256 "db39518eb4fe8a45613c164377c7a87a4816b0c3ac72883066279774d13422c4" => :sierra
     sha256 "91f8d9272c2b4e760559d038e2d034236e69c654f787e307445409ea2a9e1d14" => :el_capitan
+    sha256 "36fa803c74cc9c89fc2f99d817f5e6b78155120f855b5f90b498346da32bbd0a" => :x86_64_linux
   end
 
   depends_on "atomicparsley" => :recommended
