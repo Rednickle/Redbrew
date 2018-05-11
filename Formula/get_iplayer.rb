@@ -3,13 +3,14 @@ class GetIplayer < Formula
   homepage "https://github.com/get-iplayer/get_iplayer"
   url "https://github.com/get-iplayer/get_iplayer/archive/v3.14.tar.gz"
   sha256 "6436a942b819aaa4b3df56f990812124909476142febe6432304e7a621411522"
+  revision 1
   head "https://github.com/get-iplayer/get_iplayer.git", :branch => "develop"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a726b2013a56964781e3395f7f8dad8ab09c289747b9c5631b863919f920c7bf" => :high_sierra
-    sha256 "188792fe7b2a0b69e959d10c81fa73483c169ee62da58f48f9c07b82c1963dc4" => :sierra
-    sha256 "3323464f538bac2a3679ddc19254bcd778cb216f16b9f57584224a994df2fd28" => :el_capitan
+    sha256 "0ba5c91219bcc6591fef339adc2911e8586417dc2a1bb9c1ad714a1c19e17cd4" => :high_sierra
+    sha256 "db39518eb4fe8a45613c164377c7a87a4816b0c3ac72883066279774d13422c4" => :sierra
+    sha256 "91f8d9272c2b4e760559d038e2d034236e69c654f787e307445409ea2a9e1d14" => :el_capitan
   end
 
   depends_on "atomicparsley" => :recommended
@@ -30,6 +31,11 @@ class GetIplayer < Formula
   resource "Mojolicious" do
     url "https://cpan.metacpan.org/authors/id/S/SR/SRI/Mojolicious-7.77.tar.gz"
     sha256 "b6416de94938ee621e355c36fd837704dd7cf15846148dfbbfb82e8710af846b"
+  end
+
+  resource "Mozilla::CA" do
+    url "https://cpan.metacpan.org/authors/id/A/AB/ABH/Mozilla-CA-20180117.tar.gz"
+    sha256 "f2cc9fbe119f756313f321e0d9f1fac0859f8f154ac9d75b1a264c1afdf4e406"
   end
 
   def install
