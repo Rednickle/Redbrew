@@ -12,6 +12,7 @@ class GxGo < Formula
     sha256 "7f169d9c48b0170a759ce56d9b14ea6975a2b120270276304254b88201767339" => :high_sierra
     sha256 "523c2412e982efd6a1107b1a123981eed3b9fb9e2eb73d9118312e4638e520bd" => :sierra
     sha256 "b55dab0e39dae445bed065f555535457b1f20cb22a4bcc3d0ec4584ed28c20c9" => :el_capitan
+    sha256 "5493e7679635e5318349c497300154980eadd2a7357df82d78ca9b099d4bb669" => :x86_64_linux
   end
 
   depends_on "go" => :build
