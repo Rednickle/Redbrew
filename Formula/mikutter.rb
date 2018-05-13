@@ -9,6 +9,7 @@ class Mikutter < Formula
     sha256 "73bfd22c272052aad6ddddbd95f40110be614589b9d15f7ce794e96505e7970c" => :high_sierra
     sha256 "a15ec212628f5f79242cfb90edd2d3623af71be4536a6f9983026b0410a33917" => :sierra
     sha256 "d884827af4b03c98e234ffa93bc4a80751709d126aa5f935c0b3bae0a0de3dd4" => :el_capitan
+    sha256 "18af2ec50cf43f6f10b0a7bb84af9f8f44aec7b123c1640ab5df0219f5d005fb" => :x86_64_linux
   end
 
   depends_on "gobject-introspection"
