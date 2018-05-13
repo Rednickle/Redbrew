@@ -10,6 +10,7 @@ class Loudmouth < Formula
     sha256 "0ae2fce2fd5edcea19ecf80cbcc4f12ab203e92f85c8c28f9444f11fc34df37c" => :high_sierra
     sha256 "778b6156e5d99748a1e4a2e45683cdea3c08295ad6dbaccf64cd23eea0f952ed" => :sierra
     sha256 "92264a248d2b8b7c02e4ab60cd64430869fac7ce5a09a49154c6b2ed3659223a" => :el_capitan
+    sha256 "8d6df75df156e25cbfca38bc3d719f8a9142719b97987188c0a416579eaa7dba" => :x86_64_linux
   end
 
   head do
