@@ -9,6 +9,7 @@ class Mcabber < Formula
     sha256 "2823cae4b0424e6ee1e3beb912275889e4d25c11f90ce2395b77dc60dcda0b39" => :high_sierra
     sha256 "eec539d040769c20a0515909bf79f65265c22b868c7fffa72a014e54b68a5ccb" => :sierra
     sha256 "349752c0dfc6164a84e41548079657878fd5bd3226ec16df17470ac91f64fb16" => :el_capitan
+    sha256 "a139c9a2432061b93a0117e96508b95fef4880adec03c7afc7951b35b3da3e2d" => :x86_64_linux
   end
 
   head do
