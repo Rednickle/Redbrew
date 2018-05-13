@@ -9,6 +9,7 @@ class Skipfish < Formula
     sha256 "1acea16d96d52ba66c14f3194fb1c7d63f570e3f1ce5828458d28ddbc75d7d77" => :high_sierra
     sha256 "e3e89e094313db04248263b0a6d9901ea47254215219046b01c048584ee98f4d" => :sierra
     sha256 "60db8bcf08796a72afa621516767d0d0120a4ad305c6b8793b492f20b4679a71" => :el_capitan
+    sha256 "31ec2c27a1f591b2430d58b3b5c979242d3b8bf008c39700d916bcb15171fb1b" => :x86_64_linux
   end
 
   depends_on "libidn"
