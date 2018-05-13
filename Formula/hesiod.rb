@@ -9,6 +9,7 @@ class Hesiod < Formula
     sha256 "7eb0a5a6ef9a8c9ad568ab371ac8186499f7616265a86f8fc3d28c2ed5ce9cfe" => :high_sierra
     sha256 "62ea1a19f382f4b07888c5bd286939e6fe055e6755ae7c702b16867a1854f40d" => :sierra
     sha256 "71c59e1287dd90d1cef092e87f1e05ab408fbd85ca101b6093d1513a4d63ffdc" => :el_capitan
+    sha256 "bbbc9f8fbee531f7bf168aa8d08682870ac52999753fa1052cf4e066c4f9b393" => :x86_64_linux
   end
 
   depends_on "automake" => :build
