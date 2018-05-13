@@ -4,15 +4,14 @@ require "json"
 class Webpack < Formula
   desc "Bundler for JavaScript and friends"
   homepage "https://webpack.js.org/"
-  url "https://registry.npmjs.org/webpack/-/webpack-4.8.2.tgz"
-  sha256 "04c1b95f4a9daa809c6be2e579abde6b77a611c9a12ec1bbd8750b6deb953787"
+  url "https://registry.npmjs.org/webpack/-/webpack-4.8.3.tgz"
+  sha256 "133454b1d9ba265049fe5d5e82266071063e26a366c3f2c05b230b0fae3ace00"
   head "https://github.com/webpack/webpack.git"
 
   bottle do
-    sha256 "0e4dbe75d429f6a7df60ccc2433f62ce50ece2671e439d5eaf45df2de4230ba1" => :high_sierra
-    sha256 "0ae716cb3fcea862d185b9c55005b404b9ad4cc41280da5f8c093b01619e5f6d" => :sierra
-    sha256 "03a09a25791c8ccca3c33369f8d7f626b99defaadbc19e84b3bd7286fde22bc3" => :el_capitan
-    sha256 "0063090323887d2bc4bcfbad3fb152a22a5af980530fa95843fe1db2d11fdd39" => :x86_64_linux
+    sha256 "a9d4723790e602678294b9f031c62c5094bb1d782c2ca033c7694e79999d0a89" => :high_sierra
+    sha256 "6270a4104dba7c5fbbcec4049cbd28e211480c4a2f3444c55e2fbc280d9d6c66" => :sierra
+    sha256 "18f8789445d2b72cd312912d132e1d4cc5a20ba4310e446c54629f382989ec75" => :el_capitan
   end
 
   depends_on "node"
@@ -23,18 +22,16 @@ class Webpack < Formula
   end
 
   def install
-    (buildpath/"cli/node_modules/webpack").install Dir["*"]
-    (buildpath/"cli").install resource("webpack-cli")
+    (buildpath/"node_modules/webpack").install Dir["*"]
+    buildpath.install resource("webpack-cli")
 
-    cd buildpath/"cli" do
-      # declare webpack as a bundledDependency of webpack-cli
-      pkg_json = JSON.parse(IO.read("package.json"))
-      pkg_json["dependencies"]["webpack"] = version
-      pkg_json["bundledDependencies"] = ["webpack"]
-      IO.write("package.json", JSON.pretty_generate(pkg_json))
+    # declare webpack as a bundledDependency of webpack-cli
+    pkg_json = JSON.parse(IO.read("package.json"))
+    pkg_json["dependencies"]["webpack"] = version
+    pkg_json["bundledDependencies"] = ["webpack"]
+    IO.write("package.json", JSON.pretty_generate(pkg_json))
 
-      system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    end
+    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
 
     bin.install_symlink libexec/"bin/webpack-cli"
     bin.install_symlink libexec/"bin/webpack-cli" => "webpack"
