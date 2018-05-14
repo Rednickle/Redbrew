@@ -10,6 +10,7 @@ class Snakemake < Formula
     sha256 "54efe44292b91ca1b5d728f06971cf1a55a400c69a8ab9990ca6d505b4585330" => :high_sierra
     sha256 "9faa0f31a32ed39d7af9b28563866d8ed9032352e5a902629ac725a66ed2fb0b" => :sierra
     sha256 "921d11249b45f5fcaf9d3bfd7e61b645015acd59965c4280f4c8e4fbfa5d7bd8" => :el_capitan
+    sha256 "0fbc77f17de343219461ef75f6d19495a0ef0caabe9815e6dedc34ac9acb54e6" => :x86_64_linux
   end
 
   depends_on "python"
