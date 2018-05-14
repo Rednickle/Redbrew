@@ -9,6 +9,7 @@ class Unrar < Formula
     sha256 "aaf3a082bba8c22035c832807d3da878979687298ac343df3893e84e779f9d7e" => :high_sierra
     sha256 "163e5cd7f6acb4ffa0e11e7bb4faa64b98b469e7b1c73a2c66913d573ac569bc" => :sierra
     sha256 "b1fc0858b0942b9062816372e51afb694ea7aeef8d59645bdb5d94ed4b99251a" => :el_capitan
+    sha256 "79ce9905561a0a80056df0255c86a0523df03a449850fafe86b82302c9cdddea" => :x86_64_linux
   end
 
   def install
