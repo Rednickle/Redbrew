@@ -10,6 +10,7 @@ class Libbi < Formula
     sha256 "f6de84b935be578ab58847976642adadd15682d0855fe2eedb5602263e30e79c" => :high_sierra
     sha256 "9785aa1e32f6fcf835b9b89b404d1eb1f602b5a0f3c47658ae00e0984cd500cc" => :sierra
     sha256 "b0a338b54bbab1958afad22e0e7b6f7d3595d71650192af991e39982e3bf87eb" => :el_capitan
+    sha256 "d84583854ad20abb803218a7697541d3b0d142e670cf34db329e845b6decbad1" => :x86_64_linux
   end
 
   depends_on "automake"
