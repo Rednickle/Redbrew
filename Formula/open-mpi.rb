@@ -1,15 +1,13 @@
 class OpenMpi < Formula
   desc "High performance message passing library"
   homepage "https://www.open-mpi.org/"
-  url "https://www.open-mpi.org/software/ompi/v3.0/downloads/openmpi-3.0.1.tar.bz2"
-  sha256 "663450d1ee7838b03644507e8a76edfb1fba23e601e9e0b5b2a738e54acd785d"
-  revision 1
+  url "https://www.open-mpi.org/software/ompi/v3.1/downloads/openmpi-3.1.0.tar.bz2"
+  sha256 "b25c044124cc859c0b4e6e825574f9439a51683af1950f6acda1951f5ccdf06c"
 
   bottle do
-    sha256 "1b29265401462db5ba55626fcbd3eead0f04e579e73817fbacfc036a6a965335" => :high_sierra
-    sha256 "f88bee16086bdae6549d6b019e9bbbf40087fb230dfb4f54addda2b9b070eba2" => :sierra
-    sha256 "db03f3652705cb29a3fca43b8644c21d4cfe560cf0c46e803092c63db0f3c804" => :el_capitan
-    sha256 "aadb0b8d33ee1c7bcfccaf8b1b4e1d2dd4b3451aca2f80fd49b7ba4c0248e065" => :x86_64_linux
+    sha256 "716e46cfa0e361cff9de31ec20f4e534e446ed3b598b59a708e70e9d80b97997" => :high_sierra
+    sha256 "bbe4e8ef9e043a04b1084334381857ae0279edd3f74c9b83bdb2411f2d0685d5" => :sierra
+    sha256 "4e8304212bb5ea0045974b096f7225c988657831521cc6fd5893a67477b3fb28" => :el_capitan
   end
 
   head do

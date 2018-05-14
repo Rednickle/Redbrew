@@ -1,19 +1,18 @@
 class Libpqxx < Formula
   desc "C++ connector for PostgreSQL"
   homepage "http://pqxx.org/development/libpqxx/"
-  url "https://github.com/jtv/libpqxx/archive/6.1.1.tar.gz"
-  sha256 "7b4f37dab4b17b71ef415ffa37f5102ef6bc12647e42f0abaaf6febeeefb8b1e"
-  revision 1
+  url "https://github.com/jtv/libpqxx/archive/6.2.3.tar.gz"
+  sha256 "382b88992c6162c9814388cc8575eb774ffad03d49743a5d9576aa3bffc91dfa"
 
   bottle do
     cellar :any
-    sha256 "2fe9395ca3528b8f165be947cf1f2696d729b73dca8981d51ce321a0475bfedb" => :high_sierra
-    sha256 "a9cbbd18c4c2adb8065d0f1671b0c6346b54326849bd47bebf2bff64ed8a6dd3" => :sierra
-    sha256 "21854ed4d76c5e00144c403b24658b8a61a56b0e66e02659dda55038f287879d" => :el_capitan
-    sha256 "d22bb138daa9cc6a178f46184f8a0ebb4cf44cb6592bf360860c535751a27c22" => :x86_64_linux
+    sha256 "a5426e7649a5cecac88f76ac23dac89c022ba825301556acbc81e8acf3bfc226" => :high_sierra
+    sha256 "15d7fe34b0fc5b21dd451145de6b5668c95dfc748af00fe526477778cc6fab82" => :sierra
+    sha256 "3d95610cf8e82f64adaf6e7feae4fabc0006b7ee3bf67b36c8c075fb052c8fe8" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
+  depends_on "xmlto" => :build
   depends_on "postgresql"
   unless OS.mac?
     depends_on "doxygen" => :build
