@@ -10,6 +10,7 @@ class ForkCleaner < Formula
     sha256 "54b01c44edf23b6d8d6909d7b2cb594f8bd2df01993d41a837b43d3ceb3f07ef" => :high_sierra
     sha256 "44c2eefd8d2e85b53af2b4414d5fd8387128e0b59e1bd47a076340378d755eb4" => :sierra
     sha256 "2c5420d0c8866a7dd1836dbf569f6dff1b136c8dbae7266bc2ea340aea8c06c1" => :el_capitan
+    sha256 "40bac8fa8e918e4b3ba9bfe872abf5db5e34ef67a2e385d5d19900a35008a649" => :x86_64_linux
   end
 
   depends_on "dep" => :build
