@@ -8,6 +8,7 @@ class Libgphoto2 < Formula
     sha256 "88f6b7614c1278de80aa5e72124cfe8d30bda5d8f5470e0d5bf299ca8f4da718" => :high_sierra
     sha256 "824d1619a67129548fa8e72abfec44209d9724629b0d78eedebfc607524843af" => :sierra
     sha256 "f5592982d36ed61b075cc203bf1ceeacd83aaaa64bc11781b22b45ec02f47371" => :el_capitan
+    sha256 "c49284f6701309845ac815817bb292f78d1ccf7c51f4f4ae1ac6ac1fde6e35fc" => :x86_64_linux
   end
 
   head do
