@@ -8,6 +8,7 @@ class Pound < Formula
     sha256 "2b8c55bbd7d5fd6596766f186289cbb239789b50e1cc9854916107738cc216f6" => :high_sierra
     sha256 "c39e63c7e5e173faf98a8be51df5ec7ea2d3347b912d62cd8b051955b3f75c91" => :sierra
     sha256 "d16c3c0aba3eafe8f50bc4e79401a0ce3129519860d0b3bca8cdfd10023ff7b5" => :el_capitan
+    sha256 "6e8214618ffa2738e0bfe626c5984041f00e6469a19532a669f53b386a0e3952" => :x86_64_linux
   end
 
   depends_on "openssl"
