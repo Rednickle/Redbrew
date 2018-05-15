@@ -6,11 +6,10 @@ class Gdal < Formula
   revision 2
 
   bottle do
-    rebuild 1
-    sha256 "f0e841156f09394cc635a219ce55c31db657dd581bdd5b5014c203f1c677e711" => :high_sierra
-    sha256 "c80c2c0fe005ba1b766335a656fd5e25e875c82787eac660dd77070f0807405b" => :sierra
-    sha256 "f625402ff57e10eb13f8b361f4a17dffaa126409d44fa5397050414da1e38a59" => :el_capitan
-    sha256 "c4e5e2d710f98ed0e0cdcf82f5cc663cb13e54b2ceb7d3ea05c368519cd02310" => :x86_64_linux
+    rebuild 2
+    sha256 "0e40d962b0b81b1bfe8dd8b37e4d252afc85246d1d0ffd6db4be1383d04882f0" => :high_sierra
+    sha256 "23d2524542aae03cffff9db10702193028eff35c926cf06fdb7301892ef36ffe" => :sierra
+    sha256 "79e367f5eb50209563292f6758b79a1d98ba710bae8639f755f0dcc66f4a205a" => :el_capitan
   end
 
   head do
@@ -151,10 +150,9 @@ class Gdal < Formula
     system "make", "install"
 
     if build.stable? # GDAL 2.3 handles Python differently
-      Language::Python.each_python(build) do |python, _version|
-        cd "swig/python" do
-          system python, *Language::Python.setup_install_args(prefix)
-        end
+      cd "swig/python" do
+        system "python3", *Language::Python.setup_install_args(prefix)
+        system "python2", *Language::Python.setup_install_args(prefix)
       end
       bin.install Dir["swig/python/scripts/*.py"]
     end
@@ -171,9 +169,8 @@ class Gdal < Formula
     system "#{bin}/gdalinfo", "--formats"
     system "#{bin}/ogrinfo", "--formats"
     if build.stable? # GDAL 2.3 handles Python differently
-      Language::Python.each_python(build) do |python, _version|
-        system python, "-c", "import gdal"
-      end
+      system "python3", "-c", "import gdal"
+      system "python2", "-c", "import gdal"
     end
   end
 end
