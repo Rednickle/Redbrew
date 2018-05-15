@@ -1,15 +1,14 @@
 class Vtk < Formula
   desc "Toolkit for 3D computer graphics, image processing, and visualization"
   homepage "https://www.vtk.org/"
-  url "https://www.vtk.org/files/release/8.1/VTK-8.1.0.tar.gz"
-  sha256 "6e269f07b64fb13774f5925161fb4e1f379f4e6a0131c8408c555f6b58ef3cb7"
-  revision 3
+  url "https://www.vtk.org/files/release/8.1/VTK-8.1.1.tar.gz"
+  sha256 "71a09b4340f0a9c58559fe946dc745ab68a866cf20636a41d97b6046cb736324"
   head "https://github.com/Kitware/VTK.git"
 
   bottle do
-    sha256 "ccd1a9a990a3e8397bfc9c0fd056b05ff04482bbebbc1ac594d4b6bb756c6428" => :high_sierra
-    sha256 "fa5527ff876f5b0965a92cea9df8dfb80499da2f88c1e1d388b6da702a8d71df" => :sierra
-    sha256 "d7b748cc0b4ef293ce9776dad79513408167f46dee20db48e0841f9303adb730" => :el_capitan
+    sha256 "19f31b478aab3de2b5773a5f1c1566732fa42d24d2f44f371065124799e260f0" => :high_sierra
+    sha256 "d0916f50a97650cea2d9ee6bb3a9521b505a8bc1068a1474af6f78b19954f0dc" => :sierra
+    sha256 "5627a620cc4da5e11adca3a25227dcc58e8744e6da6ec572736042c50fd31932" => :el_capitan
   end
 
   option "without-python@2", "Build without python2 support"

@@ -1,16 +1,15 @@
 class Dash < Formula
   desc "POSIX-compliant descendant of NetBSD's ash (the Almquist SHell)"
   homepage "http://gondor.apana.org.au/~herbert/dash/"
-  url "http://gondor.apana.org.au/~herbert/dash/files/dash-0.5.10.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/dash-0.5.10.tar.gz"
-  sha256 "ad70e0cc3116b424931c392912b3ebdb8053b21f3fd968c782f0b19fd8ae31ab"
+  url "http://gondor.apana.org.au/~herbert/dash/files/dash-0.5.10.1.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/dash-0.5.10.1.tar.gz"
+  sha256 "daac92be392ea5d9b03e8879384e437828e636b9f491a275a607f85d7e5e84ae"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9f1902af5e7e0e39575260af6b9058a48afc45557ae5bbd0e99b4e093ab07f4a" => :high_sierra
-    sha256 "3624150f7a9ddcf1d47266aa9623c16931c4957d2fbcd1061317c27117dd6b1d" => :sierra
-    sha256 "40ba355540342b25cc61fd28940829bc5ac819ac390c96b4f20340f4d084fd8b" => :el_capitan
-    sha256 "168b90e162787ede6fcf7db061b9943aabc2c88401b91b664af0da4a2a4acdbc" => :x86_64_linux
+    sha256 "16844012602d4d34c4a8bbd4c2aa9eaf4b55f3ace84b2dad9d43635d1385c9e1" => :high_sierra
+    sha256 "e0e8ce338b1508655259e85c5eed8185cf9cb39b9ae19c4d148fe81b7d78fe97" => :sierra
+    sha256 "e9abd2e67ab2080c39800b02ebe891b524af5f3e5fbe130ac4e6e1df6debf2fc" => :el_capitan
   end
 
   head do
