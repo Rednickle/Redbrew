@@ -12,6 +12,8 @@ class MingwW64 < Formula
     sha256 "9476992ce7c595febd0574ebfc488d97a641d53919c0ff067050b0fd6de4f301" => :x86_64_linux
   end
 
+  option "with-posix", "Compile with posix thread model"
+
   depends_on "gmp"
   depends_on "mpfr"
   depends_on "libmpc"
@@ -85,6 +87,11 @@ class MingwW64 < Formula
         --with-isl=#{Formula["isl"].opt_prefix}
         --disable-multilib
       ]
+      if build.with? "posix"
+        args << "--enable-threads=posix"
+      else
+        args << "--enable-threads=win32"
+      end
 
       mkdir "#{buildpath}/gcc/build-#{arch}" do
         system "../configure", *args
@@ -113,13 +120,10 @@ class MingwW64 < Formula
         system "make", "install"
       end
 
-      # Finish building GCC (runtime libraries)
-      chdir "#{buildpath}/gcc/build-#{arch}" do
-        system "make"
-        system "make", "install"
-      end
-
       # Build the winpthreads library
+      # we need to build this prior to the
+      # GCC runtime libraries, to have `-lpthread`
+      # available, for `--enable-threads=posix`
       args = %W[
         CC=#{target}-gcc
         CXX=#{target}-g++
@@ -129,6 +133,12 @@ class MingwW64 < Formula
       ]
       mkdir "mingw-w64-libraries/winpthreads/build-#{arch}" do
         system "../configure", *args
+        system "make"
+        system "make", "install"
+      end
+
+      # Finish building GCC (runtime libraries)
+      chdir "#{buildpath}/gcc/build-#{arch}" do
         system "make"
         system "make", "install"
       end
