@@ -9,6 +9,7 @@ class WireguardGo < Formula
     sha256 "0be24e1d3c45d5b81dbee640cbbff1c9a2fbc8985222efdd1b51dc958b81f6e7" => :high_sierra
     sha256 "b4b281254c748ca5ee189ad0eb982dc60cd1dc482241db4f7ec5794d35f5336f" => :sierra
     sha256 "6d981218bce9a716e97ba76c50b5cc3e85b189d21fea29d6e4d9c33be66654c9" => :el_capitan
+    sha256 "de95fdf9db562b65cbefe45f137c799a6a971146eeaba4991be48a5eb4abca51" => :x86_64_linux
   end
 
   depends_on "dep" => :build
