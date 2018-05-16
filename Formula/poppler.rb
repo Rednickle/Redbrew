@@ -3,13 +3,13 @@ class Poppler < Formula
   homepage "https://poppler.freedesktop.org/"
   url "https://poppler.freedesktop.org/poppler-0.64.0.tar.xz"
   sha256 "b21df92ca99f78067785cf2dc8e06deb04726b62389c0ee1f5d8b103c77f64b1"
+  revision 1
   head "https://anongit.freedesktop.org/git/poppler/poppler.git"
 
   bottle do
-    sha256 "fae8e28f893316a98df04746bd437233c5a8cd63df27ffee5fb82f79bd139d77" => :high_sierra
-    sha256 "14430fd4f774cd862215b91c9e9a4801a064c943638a576038c139fd617495d9" => :sierra
-    sha256 "b24d5a380d95dc37576bb7929906d54704cc58270f66100cd783cfe0b695ae00" => :el_capitan
-    sha256 "ef0d9fdab9df8ca2a892c610c210878f957b3375a43e920a52f10b610b095e92" => :x86_64_linux
+    sha256 "689e9741f7edfc2d8e2375c3e1f3f04f560a905028d5274b27b0d04a7c6e4746" => :high_sierra
+    sha256 "3c34f0a5592ff890ebf17bddc40435db0dc8ddc26b7c3eb3f19dbebff17de6e3" => :sierra
+    sha256 "d3686d1c8a3481da91efd16e50527435c045876bbe1e76b8ca433379ce79669e" => :el_capitan
   end
 
   option "with-qt", "Build Qt5 backend"
@@ -41,8 +41,8 @@ class Poppler < Formula
     :because => "poppler, pdftohtml, pdf2image, and xpdf install conflicting executables"
 
   resource "font-data" do
-    url "https://poppler.freedesktop.org/poppler-data-0.4.8.tar.gz"
-    sha256 "1096a18161f263cccdc6d8a2eb5548c41ff8fcf9a3609243f1b6296abdf72872"
+    url "https://poppler.freedesktop.org/poppler-data-0.4.9.tar.gz"
+    sha256 "1f9c7e7de9ecd0db6ab287349e31bf815ca108a5a175cf906a90163bdbe32012"
   end
 
   needs :cxx11 if build.with?("qt") || MacOS.version < :mavericks
