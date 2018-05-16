@@ -3,21 +3,26 @@ class GtksourceviewAT4 < Formula
   homepage "https://projects.gnome.org/gtksourceview/"
   url "https://download.gnome.org/sources/gtksourceview/4.0/gtksourceview-4.0.1.tar.xz"
   sha256 "38ce20ce0b8162d2ac0ee60c33b6c95173435499c7e101d2bde5f0276df5a37a"
+  revision 1
 
   bottle do
-    sha256 "29a97dde7e70c53c52b26e9123a6684e6ad5b5302d733b45cb416a0bc7c5c488" => :high_sierra
-    sha256 "dadf08080a0ac66346f63a2d0e19e5191000e050faf680de8a2d06670657f626" => :sierra
-    sha256 "35f3ac02d207e2b6726545ce11874ba0488dd3aeef923f11b651320d8ac8800c" => :el_capitan
+    sha256 "ef82f0e2d87f4fb97a747dedc0ad26ce1fd8de0a25ae39b5faee9394cb5ccf96" => :high_sierra
+    sha256 "687701a29173a815bfaf05d2c84a9fb1940d43eaed334fa873cb00617a9496b2" => :sierra
+    sha256 "a91fc67f7e793f1dbe04f792cea59ca73261874b78b7fa0d9b1db93b8f7c779c" => :el_capitan
   end
 
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
+  depends_on "vala" => :build
+  depends_on "gobject-introspection" => :build
   depends_on "gettext"
   depends_on "gtk+3"
 
   def install
     system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--enable-vala=yes",
+                          "--enable-gobject-introspection=yes"
     system "make", "install"
   end
 

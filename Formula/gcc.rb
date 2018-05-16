@@ -31,10 +31,10 @@ class Gcc < Formula
 
   # gcc is designed to be portable.
   bottle do
-    sha256 "283d21233301947b5fdfa832bc4b8f1d266b78729156c43b48ab771f345022b8" => :high_sierra
-    sha256 "0c4c66df38f02799b762d969634cd17f3edc973cf7d7b5349325c31e32e32e54" => :sierra
-    sha256 "a2b31d94e64afeec4912d65ad7a57a64995b0b7d11207be4f1b26253cdf7c8a3" => :el_capitan
-    sha256 "d6ebdb932d1e7e7357415711bcbe2661bbd940a27b713d44252a5511bc3caa3d" => :x86_64_linux
+    rebuild 1
+    sha256 "7b92e10293f1c1fc3208b7da7fef36b9611f6ee604d0d6a8b1af3a18f545c1c0" => :high_sierra
+    sha256 "2a2d951884aa9d6157e2afe8cc640de283c8e7d4899ca12b5bd8639efd989645" => :sierra
+    sha256 "57bb9160bcb4c0c2db09990d865463d863d5723a39652c2d1bcba646dbb10c0e" => :el_capitan
   end
 
   # GCC's Go compiler is not currently supported on macOS.
@@ -206,8 +206,9 @@ class Gcc < Formula
 
       make_args = []
       # Use -headerpad_max_install_names in the build,
-      # otherwise lto1 load commands cannot be edited on El Capitan
-      if MacOS.version == :el_capitan
+      # otherwise updated load commands won't fit in the Mach-O header.
+      # This is needed because `gcc` avoids the superenv shim.
+      if build.bottle?
         make_args << "BOOT_LDFLAGS=-Wl,-headerpad_max_install_names"
       end
 
