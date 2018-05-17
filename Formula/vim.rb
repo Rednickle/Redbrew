@@ -2,15 +2,14 @@ class Vim < Formula
   desc "Vi 'workalike' with many additional features"
   homepage "https://www.vim.org/"
   # vim should only be updated every 50 releases on multiples of 50
-  url "https://github.com/vim/vim/archive/v8.0.1800.tar.gz"
-  sha256 "388af19df5813db4f7fe524119699a62969299cb3f78314293c9e7058ca238fb"
+  url "https://github.com/vim/vim/archive/v8.0.1850.tar.gz"
+  sha256 "0d10ee1c45bc52897cd6abf15accd97688487f0d8b20155f4a6430f299d20a32"
   head "https://github.com/vim/vim.git"
 
   bottle do
-    sha256 "def44d7f28a1d47fe0de0d2619ef2ff7c7586ada153ee0a0a0c602ab3af8912d" => :high_sierra
-    sha256 "f8a7a357d7b549d20d723350051fe996ba13d8fa857d036488ea96e00c303e06" => :sierra
-    sha256 "824cbee9ecd8810035d3a2cdd461b199d71c439467869b7898dfa6a0afd891ed" => :el_capitan
-    sha256 "6f3b168dc666e7585face743f1fbf925fbc6e3bbd7d8a9239f798fac1c7c9cf3" => :x86_64_linux
+    sha256 "21e85a933475b8f3ab356834818aba94daae27d38c34c34f8aedb8e47f2ee445" => :high_sierra
+    sha256 "821b9dfdb974e435a983216af30a3dfeb9078fefe21b06a274c38dbc6ae0ecfa" => :sierra
+    sha256 "cb4e0ea89e6341001699f452dfcc5b2a3874ef2eba71eddc02a011eae9c8196a" => :el_capitan
   end
 
   deprecated_option "override-system-vi" => "with-override-system-vi"
