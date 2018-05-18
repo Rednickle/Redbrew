@@ -10,6 +10,7 @@ class Dash < Formula
     sha256 "11463b8d52c2d9616c2deaf40a4a4a186baf6c2b4724c3c8b35efc527f6ad0ef" => :high_sierra
     sha256 "ab44bf2512098fca3db4d0655191c1deaa0d0d8311d531976603242b1c7136e4" => :sierra
     sha256 "c634e0bb97fc544fc425c62d429e239519d7ecf447df4debc6406792ba1eb476" => :el_capitan
+    sha256 "7e3c7d9281a563c5f6436200db7c64e5e49766db490b253ee71a228409734a79" => :x86_64_linux
   end
 
   head do
