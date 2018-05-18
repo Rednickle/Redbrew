@@ -1,12 +1,14 @@
 class ForkCleaner < Formula
   desc "Cleans up old and inactive forks on your GitHub account"
   homepage "https://github.com/caarlos0/fork-cleaner"
-  url "https://github.com/caarlos0/fork-cleaner/archive/v1.3.1.tar.gz"
-  sha256 "d3259e74eb12f588fbd3073a27ba6efd4d36e467e84d346a466815fa8a4920ae"
+  url "https://github.com/caarlos0/fork-cleaner/archive/v1.4.0.tar.gz"
+  sha256 "74cbaeef71ceb12fb90e49c325d9da661eef1b5e395c8eeec04e5643b04877e1"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bd4e200d3acca2ef2017d00940ccc4d0fc65f5383ff1738cb15b16cada46bd57" => :x86_64_linux
+    sha256 "71c459d32e032eaf290e67e364e69ba7e404b65df89b15697cf747c2af67ab0f" => :high_sierra
+    sha256 "67296a4bf5445e45045ecc07441191e541554e307ad536f28a0f53b9148c4932" => :sierra
+    sha256 "c874fc4e1c1bb5bc586f54c67d391ce6c735b99fa4e66866ad1c08c0d63352d3" => :el_capitan
   end
 
   depends_on "dep" => :build
