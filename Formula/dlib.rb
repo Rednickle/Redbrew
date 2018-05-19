@@ -4,7 +4,6 @@ class Dlib < Formula
   url "http://dlib.net/files/dlib-19.11.tar.bz2"
   sha256 "3acb7525d25f445b3f8bc33ebe46f056297cc97c635abf275e6c0e7ca09ef48b"
   head "https://github.com/davisking/dlib.git"
-  revision 1 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
