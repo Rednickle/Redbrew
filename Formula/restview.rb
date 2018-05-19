@@ -1,14 +1,14 @@
 class Restview < Formula
   desc "Viewer for ReStructuredText documents that renders them on the fly"
   homepage "https://mg.pov.lt/restview/"
-  url "https://github.com/mgedmin/restview/archive/2.9.0.tar.gz"
-  sha256 "d4ecfa795736e1a132ce0b69af7a6e1679a9ff94e729f39992c7d1fee909845a"
+  url "https://github.com/mgedmin/restview/archive/2.9.1.tar.gz"
+  sha256 "a229119f7730c85ec75e4372c4cf69f9d846381ac4bdbc8ed672302a80c116d2"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bf14f8254116c956b8f10837dc608a702e41c06becf1e6f843ff9e17a70313fd" => :high_sierra
-    sha256 "33a36aab7a1615d2f39a2f1a33a1b7f5ea896cc8f532c34dd11e15221b9521e7" => :sierra
-    sha256 "c308803d9aea18aaeb5c83d2298b95dd5b1587120baefa05e5eeb6977ad8ac58" => :el_capitan
+    sha256 "c8b4a13c20f3c5e741c733729c041fcb3c1cb5aa3b698a14c375d2343d96e198" => :high_sierra
+    sha256 "76f817408bb2c45f889a17b467b3943e4d9365f4e34542c9244f7ab5b4ad8cbc" => :sierra
+    sha256 "cef6432a97e728c90ef4987999d493e6ae46e5709aa92e240e9dff1a32a5fb5b" => :el_capitan
   end
 
   depends_on "python@2"
