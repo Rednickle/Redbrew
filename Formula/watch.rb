@@ -11,6 +11,7 @@ class Watch < Formula
     sha256 "9fceef6cae551481726f86f9a0e5e79ca2bf27e0f41d0feb0800ab25e9161342" => :high_sierra
     sha256 "010375a88535763436571b3140bacd5733e8176621d663464a8ae3c57ed7813f" => :sierra
     sha256 "d89d82028efa1586bd6f6b05fba3f7c15259e6a9fedffa5e36d8a900514b0ecb" => :el_capitan
+    sha256 "ae6c7a360ad623aac7d10b5665c1b7754e66118fc4b11a52637586c8d57d7e14" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
