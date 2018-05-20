@@ -1,16 +1,15 @@
 class Neofetch < Formula
   desc "Fast, highly customisable system info script"
   homepage "https://github.com/dylanaraps/neofetch"
-  url "https://github.com/dylanaraps/neofetch/archive/4.0.1.tar.gz"
-  sha256 "a227e296547846296a19cc483ab6a3af5e3e9f2c2eba4563d060bad2c50f4fab"
+  url "https://github.com/dylanaraps/neofetch/archive/4.0.2.tar.gz"
+  sha256 "3cd4db97d732dd91424b357166d38edccec236c21612b392318b48a3ffa29004"
   head "https://github.com/dylanaraps/neofetch.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "00c1aabbb1937b49bce45e218fcf3a30a1a073db401b007529a34d8515bbf5ef" => :high_sierra
-    sha256 "00c1aabbb1937b49bce45e218fcf3a30a1a073db401b007529a34d8515bbf5ef" => :sierra
-    sha256 "00c1aabbb1937b49bce45e218fcf3a30a1a073db401b007529a34d8515bbf5ef" => :el_capitan
-    sha256 "15185af64b3a016892f8ece281c51a6d03b626cec6b4d591a3415d1604cf4949" => :x86_64_linux
+    sha256 "2dbb8cac5cec6d907af333f10ef6cfac4c2accdc59ee007a6f6a810228544659" => :high_sierra
+    sha256 "2dbb8cac5cec6d907af333f10ef6cfac4c2accdc59ee007a6f6a810228544659" => :sierra
+    sha256 "2dbb8cac5cec6d907af333f10ef6cfac4c2accdc59ee007a6f6a810228544659" => :el_capitan
   end
 
   depends_on "screenresolution" => :recommended if OS.mac?
