@@ -1,15 +1,15 @@
 class Monero < Formula
   desc "Official monero wallet and cpu miner"
   homepage "https://getmonero.org/"
-  url "https://github.com/monero-project/monero.git",
-      :tag => "v0.12.0.0",
-      :revision => "c29890c2c03f7f24aa4970b3ebbfe2dbb95b24eb"
-  revision 2
+  url "https://github.com/monero-project/monero/archive/v0.12.0.0.tar.gz"
+  sha256 "5e8303900a39e296c4ebaa41d957ab9ee04e915704e1049f82a9cbd4eedc8ffb"
+  revision 3
 
   bottle do
-    sha256 "7b46a56bcb031b17d3a797c2ed867d56c1deaed9ed1aaa8f94990c0e422eada9" => :high_sierra
-    sha256 "307880ddf49338dc47aae782dce07f38933edae01937e47023978e5c3709dc37" => :sierra
-    sha256 "acbabbefedf0fad2b0aa863585f48c0aefc4e0dfd99c662b3b7cb11e3d331fa3" => :el_capitan
+    cellar :any
+    sha256 "f58fd267783d40730adbee550c6313f1d243b5645c5dbb32539fb70fc9193a63" => :high_sierra
+    sha256 "c2248d4af891fd74267d1b3f80620d16e5636d31782f16a0a88a7162bda7a0e6" => :sierra
+    sha256 "6b8975a55c20163255ba0a3f5954d2bfad4839e2bddcb2e01e916c952bf59e14" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -18,6 +18,7 @@ class Monero < Formula
   depends_on "miniupnpc"
   depends_on "openssl"
   depends_on "readline"
+  depends_on "unbound"
   depends_on "zeromq"
 
   # Fix "fatal error: 'boost/thread/v2/thread.hpp' file not found"
