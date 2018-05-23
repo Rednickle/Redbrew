@@ -1,14 +1,14 @@
 class Kubeless < Formula
   desc "Kubernetes Native Serverless Framework"
   homepage "https://github.com/kubeless/kubeless"
-  url "https://github.com/kubeless/kubeless/archive/v1.0.0-alpha.2.tar.gz"
-  sha256 "0888bf4e9ae503307fdfbdcde03f8056dccdd77418cbf601c88d417bd2b307c9"
+  url "https://github.com/kubeless/kubeless/archive/v1.0.0-alpha.3.tar.gz"
+  sha256 "e2f8022bcdd9ba13c1fe47560c0b04f3d933db0f64f94c3e2bc3ec505df5f668"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "24791dcd0b4a7f14a092fa01145f415cefb61a44fbf3ef7ac31f547c44ba07f4" => :high_sierra
-    sha256 "b08c8e04d91c7b9ef53510a6bccbf09800042153d1293377c16456008a28009e" => :sierra
-    sha256 "66acd37ae6c7eefa7e5a457b489b3f5cc6afb1124a935b40c17d089cc36024a1" => :el_capitan
+    sha256 "8931330e79443c9c4e05355078d38cee7ee3585c46b33ed8150360caaf2f4bd2" => :high_sierra
+    sha256 "9d9476d25e21aea7b1067ceee9169e0f95a35d0e8a1a3cc489cd84c27e632786" => :sierra
+    sha256 "e7a83863c7d134fe98a0a22f212ef79952105e3ad6a425fe80cdd842658bebf3" => :el_capitan
   end
 
   depends_on "go" => :build
