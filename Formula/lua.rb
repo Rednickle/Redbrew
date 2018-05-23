@@ -56,6 +56,7 @@ class Lua < Formula
     inreplace "src/luaconf.h", "/usr/local", HOMEBREW_PREFIX
 
     # We ship our own pkg-config file as Lua no longer provide them upstream.
+    arch = OS.mac? ? "macosx" : "linux"
     system "make", arch, "INSTALL_TOP=#{prefix}", "INSTALL_INC=#{include}/lua", "INSTALL_MAN=#{man1}"
     system "make", "install", "INSTALL_TOP=#{prefix}", "INSTALL_INC=#{include}/lua", "INSTALL_MAN=#{man1}", *("TO_LIB=liblua.a liblua.so liblua.so.5.3 liblua.so.5.3.4" unless OS.mac?)
     (lib/"pkgconfig/lua.pc").write pc_file
