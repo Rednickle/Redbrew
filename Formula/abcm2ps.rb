@@ -1,11 +1,13 @@
 class Abcm2ps < Formula
   desc "ABC music notation software"
   homepage "http://moinejf.free.fr"
-  url "https://github.com/leesavide/abcm2ps/archive/v8.13.21.tar.gz"
-  sha256 "2c3f9bdac281feddc384e5719e3cd29f85c88cb326077516760425ebd0be6cd1"
+  url "https://github.com/leesavide/abcm2ps/archive/v8.13.22.tar.gz"
+  sha256 "9a1379fd93fcf2d87d580c85b43ca1930a4bc412c291be551af1035d08f26c36"
 
   bottle do
-    sha256 "58e9a00033aad2f146b4c6b1c183fd3ed5f5e34dc26bf0aea61e3368f7ac66e6" => :x86_64_linux
+    sha256 "5b7ba59b8007698ac9f8a5015453562490e2b5000af20759029236558329ed93" => :high_sierra
+    sha256 "26eb01aa6ead9788feecdb6d1cfc73c63c4d60498569f7abf2949808d653add2" => :sierra
+    sha256 "d59580fab4b183dce06e06393682b1b9d14d55bc64b8169b63a9304ff90c9ad6" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
