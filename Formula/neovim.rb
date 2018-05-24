@@ -24,8 +24,8 @@ class Neovim < Formula
   depends_on "luajit"
   depends_on "msgpack"
   depends_on "unibilium"
-  depends_on "python@2"
   unless OS.mac?
+    depends_on "python@2"
     depends_on "unzip" => :build
     depends_on "gperf"
   end
