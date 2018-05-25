@@ -9,6 +9,7 @@ class Jdupes < Formula
     sha256 "22083be28c6a7d610b2c04f766710f2f07367a3f1a571eeac1b287267ffba44c" => :high_sierra
     sha256 "0467bdff1e91566ec56ada84240068ca882500a3aecd33fd98b5901df9496ae9" => :sierra
     sha256 "080393ee6408d004a629c2427455eae484bb7f2edeaf993e2528a16e1c0055c0" => :el_capitan
+    sha256 "0add7d3cb5d69d687b5ad1972545af71c1919e90833372322b7f0594dd50ea6f" => :x86_64_linux
   end
 
   def install
