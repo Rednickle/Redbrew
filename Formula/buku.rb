@@ -11,6 +11,7 @@ class Buku < Formula
     sha256 "d3ff01ffb7454c49a54c4cb83e6acfbdd411a5cbf81786ac23555c554da75fcd" => :high_sierra
     sha256 "78467366da93bf4bab947bac81b0b56e04658d4bfe5290edde215b2e43b5de45" => :sierra
     sha256 "355db60dce74022ea81c7730236fb10e406321bb928aaf29d807ffc85f746b67" => :el_capitan
+    sha256 "de9e3a794fb8fb7a2209acc0abe1da37c0796cdf8247c60f0bb4c0d9ec8903d0" => :x86_64_linux
   end
 
   depends_on "openssl"
