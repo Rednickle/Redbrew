@@ -9,6 +9,7 @@ class Haproxy < Formula
     sha256 "5f12cff473eb09ee9f82f8be1bb92011f9ce982eeb05b1f6f4cadae7ed9b1d7d" => :high_sierra
     sha256 "e122c57eea95d605f20103957be26aca0d0ab7f9d578658fcaa81dc56b6b457f" => :sierra
     sha256 "a5cadba2f84db696b3d2e9c322ef065ae4e9474693017b29cfefed109a23fb2f" => :el_capitan
+    sha256 "fc90e26578502a9427c952b5165432e00b3adeb976507e818461ea7da5ef1159" => :x86_64_linux
   end
 
   depends_on "openssl"
