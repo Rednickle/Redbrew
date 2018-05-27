@@ -10,6 +10,7 @@ class Tbb < Formula
     sha256 "93debc8af52e4ce98cecc39d36ae5d7af40dbed16a826f9619ce77cccec915c9" => :high_sierra
     sha256 "7bf32ebbe897f6b3794315ea9309b4814925a389599ff0a1120ebaf65942d091" => :sierra
     sha256 "3659b877162a962c3d87251a3ad48333a1ea79ff25b90ff025b2999ea8083cdb" => :el_capitan
+    sha256 "7bca9ea7fb648b4e891121d84c60dd2d224cf4c220ec57232eb40550d4ba26bf" => :x86_64_linux
   end
 
   # requires malloc features first introduced in Lion
