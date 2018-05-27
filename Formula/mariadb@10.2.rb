@@ -1,14 +1,16 @@
-class Mariadb < Formula
+class MariadbAT102 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.org/f/mariadb-10.3.7/source/mariadb-10.3.7.tar.gz"
-  sha256 "e990afee6ae7cf9ac40154d0e150be359385dd6ef408ad80ea30df34e2c164cf"
+  url "https://downloads.mariadb.org/f/mariadb-10.2.15/source/mariadb-10.2.15.tar.gz"
+  sha256 "33de205158fc22fd8eb4e5770cc5ffa1cb4029f9c398dfd8c554ccb3e636ba11"
 
   bottle do
-    sha256 "87ef3b34b0c9a2c073c04e54112cb6dfc16d93e7481a6f28362a2b76cf8361ee" => :high_sierra
-    sha256 "e941f209a0e233308a59fec74f5c82323aa66eda6eccd04ad9b0c5ecc790a9be" => :sierra
-    sha256 "75158b86e0f73abdbc9aacd661de4671db56ebb2530410fc7fa6d37ccd6e1b9d" => :el_capitan
+    sha256 "4a13c4af3cab96008a09c740d6587ec652ba329aa21221935a99ed5fa8aeadc1" => :high_sierra
+    sha256 "9dec95a1017f7d5e7518ab7d696c2c54a63e1677cdc4e6dbd594676616c0d473" => :sierra
+    sha256 "759ecef13a789d76c8ceefe5e9f9e877e968a399deadea65d3f504aed93dbbfb" => :el_capitan
   end
+
+  keg_only :versioned_formula
 
   option "with-test", "Keep test when installing"
   option "with-bench", "Keep benchmark app when installing"
@@ -23,23 +25,8 @@ class Mariadb < Formula
 
   depends_on "cmake" => :build
   depends_on "openssl"
-  unless OS.mac?
-    depends_on "ncurses"
-    depends_on "bzip2"
-  end
-
-  conflicts_with "mysql", "mysql-cluster", "percona-server",
-    :because => "mariadb, mysql, and percona install the same binaries."
-  conflicts_with "mysql-connector-c",
-    :because => "both install MySQL client libraries"
-  conflicts_with "mytop", :because => "both install `mytop` binaries"
-  conflicts_with "mariadb-connector-c",
-    :because => "both install plugins"
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
-
     # Set basedir and ldata so that mysql_install_db can find the server
     # without needing an explicit path to be set. This can still
     # be overridden by calling --basedir= when calling.
@@ -63,8 +50,6 @@ class Mariadb < Formula
       -DINSTALL_SYSCONFDIR=#{etc}
       -DCOMPILATION_COMMENT=Homebrew
     ]
-
-    args << "-DWITH_NUMA=OFF" unless OS.mac?
 
     # disable TokuDB, which is currently not supported on macOS
     args << "-DPLUGIN_TOKUDB=NO"
@@ -155,7 +140,7 @@ class Mariadb < Formula
     EOS
   end
 
-  plist_options :manual => "mysql.server start"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/mariadb@10.2/bin/mysql.server start"
 
   def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
