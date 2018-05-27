@@ -9,6 +9,7 @@ class Byacc < Formula
     sha256 "f58b641379028ef74139e38d8f1e69fe822de4a2d7730e444029938006f10c86" => :high_sierra
     sha256 "1a5be8985b2b869d5fe9959da4f453966c8aacb2c40a36abf8e0b8c84ec3ec50" => :sierra
     sha256 "a0061f52669ee96a39ecdd767b57465e041928a05f59d72a663a89051aa71faa" => :el_capitan
+    sha256 "abbb51e4c79102f2bb99fdabe2ad5964412a6bfb91dcce9ea8a2ecf4aa264060" => :x86_64_linux
   end
 
   def install
