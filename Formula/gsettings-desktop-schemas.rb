@@ -18,8 +18,10 @@ class GsettingsDesktopSchemas < Formula
   depends_on "glib"
   depends_on "gettext"
   depends_on "libffi"
-  depends_on "python@2"
-  depends_on "expat" unless OS.mac?
+  unless OS.mac?
+    depends_on "python@2"
+    depends_on "expat"
+  end
 
   def install
     # Needed by intltool (xml::parser)

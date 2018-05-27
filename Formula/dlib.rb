@@ -1,16 +1,15 @@
 class Dlib < Formula
   desc "C++ library for machine learning"
   homepage "http://dlib.net/"
-  url "http://dlib.net/files/dlib-19.12.tar.bz2"
-  sha256 "e6a9a20e8350b237e0bc0a8dbc6cb75714f8358e86e7964b5ad8b551f6eb8fef"
+  url "http://dlib.net/files/dlib-19.13.tar.bz2"
+  sha256 "fe90b94677f837c8f0bcb0bb450b313a422a9171ac682583a75052c58f80ba54"
   head "https://github.com/davisking/dlib.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "917770d3e39e931557813077c9d952d012a792a24c6a659ad43452de5cac0113" => :high_sierra
-    sha256 "05c38de8edf52c3e2ad60c5e0e176f0702c300c739abdf0baaf0c6570f0bca6f" => :sierra
-    sha256 "3bd99bdd8253b71dc4cabd6c173e3839593227a1af810327f2b125ab39aa7b25" => :el_capitan
-    sha256 "1b4dcd6ac865333a213fdc99493f297a75d0e57d66ca02ffc909f0c5730e8938" => :x86_64_linux
+    sha256 "e834acd2a9694a54b32efb029119301f4d2e74317219333ab6e05964b6c9923a" => :high_sierra
+    sha256 "1fe9ecfb70229631a11e5ad4d75018e49ba13b9b6c6f10662f739d968ee4cbd3" => :sierra
+    sha256 "38803c09e00859a5f44f9eccad44070ee461213b98e543f759fdf9477c2d6016" => :el_capitan
   end
 
   depends_on :macos => :el_capitan # needs thread-local storage
