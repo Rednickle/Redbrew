@@ -11,6 +11,7 @@ class Pygitup < Formula
     sha256 "dd3c8cd2761f857ece8ab1e9a112475e770b3d06abfb3416ae19e0d777caacd7" => :high_sierra
     sha256 "1317c472920d4711e009dfbee37d4b6b0348924c5ee2a43c079e665f3536c2df" => :sierra
     sha256 "60c14f94f7124c4b659c2f04042d3971cec6b909c742cf8e66279ee7b0c7e24e" => :el_capitan
+    sha256 "1a80417fbb09bbd628f68374188fc0c9731f98277c7c960812f8a03f651ba2d9" => :x86_64_linux
   end
 
   depends_on "python"
