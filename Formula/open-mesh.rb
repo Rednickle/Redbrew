@@ -1,21 +1,22 @@
 class OpenMesh < Formula
   desc "Generic data structure to represent and manipulate polygonal meshes"
   homepage "https://openmesh.org/"
-  url "https://www.openmesh.org/media/Releases/6.3/OpenMesh-6.3.tar.bz2"
-  sha256 "b97be926e430bcda10f44f2d4bbe2657b0778c2eed17346f4f32c06db36843ce"
+  url "https://www.openmesh.org/media/Releases/7.0/OpenMesh-7.0.tar.bz2"
+  sha256 "e8e9414f7b0beba8603945d7794ee38712f3594a8b539a4acfaaad398d543e85"
   head "https://www.graphics.rwth-aachen.de:9000/OpenMesh/OpenMesh.git"
 
   bottle do
     cellar :any
-    sha256 "a2673ca1b0233e480d9c7e682714ce73371282dae666f29bc723e42d64b3729e" => :high_sierra
-    sha256 "676e75669a5b5d754bb4bfcb44ae218ee19e51a2ee337a73d02d7afa3975dbd4" => :sierra
-    sha256 "adcf854d3ed46bdd19c10f04537239991a9ca96e06c078f16c1d8f303f411561" => :el_capitan
-    sha256 "3ea01760dd5aed9a42c1961aaf020e146a0b9a57fcaab1181803a17525fca1b9" => :yosemite
+    sha256 "1ee3e6c151787c3ad3a542b1e1cac0c1dddce2846fbf2ff334745339e764bb78" => :high_sierra
+    sha256 "a933918f4f0ec229d3c747564fa85563d252932ddcc66d3d08571492abe6bf6b" => :sierra
+    sha256 "e23c60eff184291c797acda43f99a8b1f363c3e8a853ba1bb6c70c7381507fb1" => :el_capitan
   end
 
   depends_on "cmake" => :build
 
   def install
+    ENV.cxx11
+
     mkdir "build" do
       system "cmake", "..", "-DBUILD_APPS=OFF", *std_cmake_args
       system "make", "install"
