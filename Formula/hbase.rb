@@ -3,25 +3,24 @@ class Hbase < Formula
   homepage "https://hbase.apache.org"
   url "https://www.apache.org/dyn/closer.cgi?path=hbase/1.2.6/hbase-1.2.6-bin.tar.gz"
   sha256 "a0fbc22373a7f2d66648c6d9fe13477e689df50c8ee533eda962d4e8fa2185ea"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "7636268e52eb3c665b622d0082208d9b0a7a6996aa3f4013a0a175b523b0c6cc" => :high_sierra
-    sha256 "dc587058171735614818c876498ac034761f9a9cc5995399036b33b7563ed3cf" => :sierra
-    sha256 "acb79c92c8aee4a2daa8ddfbe4da6c6b47b622c714cc432bf1f70be58f5939cd" => :el_capitan
+    sha256 "684094d83f3f181cb2970c61ec7b0ce557b0959b252f41b7d27732677b9d1743" => :high_sierra
+    sha256 "91645c07ede24d70444ddfa7143ad43dcdae381e410d53919412a9f7e931e428" => :sierra
+    sha256 "fc2f0ebeca26bda50fe3c224a222bf245faa0c878ff1bbd9fcabc01a01e16bd2" => :el_capitan
   end
 
   depends_on :java => "1.8"
   depends_on "hadoop" => :optional
-  depends_on "lzo" => :recommended
-  depends_on "ant" => :build if build.with? "lzo"
-  depends_on :arch => :x86_64 if build.with? "lzo"
+  depends_on "lzo"
+  depends_on "ant" => :build
+  depends_on :arch => :x86_64
   # 64 bit is required because of three things:
   # the lzo jar has a native extension
   # building native extensions requires a version of java that matches the architecture
   # there is no 32 bit version of java for macOS since Java 1.7, and 1.7+ is required for hbase
   depends_on "gcc" => :build unless OS.mac?
-  fails_with :gcc => "4.8"
 
   resource "hadoop-lzo" do
     url "https://github.com/cloudera/hadoop-lzo/archive/0.4.14.tar.gz"
@@ -38,20 +37,18 @@ class Hbase < Formula
       (bin/script).write_env_script "#{libexec}/bin/#{script}", Language::Java.java_home_env("1.8")
     end
 
-    if build.with? "lzo"
-      resource("hadoop-lzo").stage do
-        # Fixed upstream: https://github.com/cloudera/hadoop-lzo/blob/master/build.xml#L235
-        inreplace "build.xml",
-                  %r{(<class name="com.hadoop.compression.lzo.LzoDecompressor" />)},
-                  "\\1\n<classpath refid=\"classpath\"/>"
-        ENV["CLASSPATH"] = Dir["#{libexec}/lib/hadoop-common-*.jar"].first
-        ENV["CFLAGS"] = "-m64"
-        ENV["CXXFLAGS"] = "-m64"
-        ENV["CPPFLAGS"] = "-I#{OS.mac? ? "/System/Library/Frameworks/JavaVM.framework/Versions/Current/Headers" : Formula["jdk"].opt_include}"
-        system "ant", "compile-native", "tar"
-        (libexec/"lib").install Dir["build/hadoop-lzo-*/hadoop-lzo-*.jar"]
-        (libexec/"lib/native").install Dir["build/hadoop-lzo-*/lib/native/*"]
-      end
+    resource("hadoop-lzo").stage do
+      # Fixed upstream: https://github.com/cloudera/hadoop-lzo/blob/master/build.xml#L235
+      inreplace "build.xml",
+                %r{(<class name="com.hadoop.compression.lzo.LzoDecompressor" />)},
+                "\\1\n<classpath refid=\"classpath\"/>"
+      ENV["CLASSPATH"] = Dir["#{libexec}/lib/hadoop-common-*.jar"].first
+      ENV["CFLAGS"] = "-m64"
+      ENV["CXXFLAGS"] = "-m64"
+      ENV["CPPFLAGS"] = "-I#{OS.mac? ? "/System/Library/Frameworks/JavaVM.framework/Versions/Current/Headers" : Formula["jdk"].opt_include}"
+      system "ant", "compile-native", "tar"
+      (libexec/"lib").install Dir["build/hadoop-lzo-*/hadoop-lzo-*.jar"]
+      (libexec/"lib/native").install Dir["build/hadoop-lzo-*/lib/native/*"]
     end
 
     inreplace "#{libexec}/conf/hbase-env.sh" do |s|
@@ -62,6 +59,8 @@ class Hbase < Formula
               "export HBASE_OPTS=\"-Djava.net.preferIPv4Stack=true -XX:+UseConcMarkSweepGC\"")
       s.gsub!("# export JAVA_HOME=/usr/java/jdk1.6.0/",
               "export JAVA_HOME=\"$(/usr/libexec/java_home --version 1.8)\"")
+      # avoid deprecated-option warning issued by Java 8
+      s.gsub!(" -XX:PermSize=128m -XX:MaxPermSize=128m", "")
 
       # Default `$HBASE_HOME/logs` is unsuitable as it would cause writes to the
       # formula's prefix. Provide a better default but still allow override.

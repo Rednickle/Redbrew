@@ -19,11 +19,11 @@ class Gstreamer < Formula
     depends_on "libtool" => :build
   end
 
+  depends_on "bison" => :build
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
-  depends_on "bison"
   depends_on "flex" => :build unless OS.mac?
 
   def install
