@@ -231,7 +231,7 @@ class GccAT49 < Formula
     version_suffix = version.to_s[/\d\.\d/]
     gcc = bin/"gcc-#{version_suffix}"
     libgcc = Pathname.new(Utils.popen_read(gcc, "-print-libgcc-file-name").chomp).dirname
-    raise "command failed: #{gcc} -print-libgcc-file-name" unless $?.success?
+    raise "command failed: #{gcc} -print-libgcc-file-name" unless $CHILD_STATUS.exitstatus.nonzero?
     specs = libgcc/"specs"
     ohai "Creating the GCC specs file: #{specs}"
     specs_orig = Pathname.new("#{specs}.orig")
@@ -239,7 +239,7 @@ class GccAT49 < Formula
 
     # Save a backup of the default specs file
     specs_string = Utils.popen_read(gcc, "-dumpspecs")
-    raise "command failed: #{gcc} -dumpspecs" unless $?.success?
+    raise "command failed: #{gcc} -dumpspecs" unless $CHILD_STATUS.exitstatus.nonzero?
     specs_orig.write specs_string
 
     # Set the dynamic linker and library search path
