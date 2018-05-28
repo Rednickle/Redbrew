@@ -9,6 +9,7 @@ class Emacs < Formula
     sha256 "baeeebc020fc3684a3a3c36437399cdaa4904a33308ef2304a9092b4eea70eb9" => :high_sierra
     sha256 "3abcdd00a76ff08ebe32513c974b3327ca8252173e7216a07855e4c00480fb34" => :sierra
     sha256 "4dfbcf899b24bcf7f8e390cd12b7c0c9a5243d97baad1a0a038827845245e110" => :el_capitan
+    sha256 "3202a8df143ca0d7be84d4157e7ca909ff11fa94c92c75360d53e088fa76ff99" => :x86_64_linux
   end
 
   head do
