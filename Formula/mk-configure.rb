@@ -9,6 +9,7 @@ class MkConfigure < Formula
     sha256 "1fbce32c61d2840795d80acbb69dba077a17190307e001e7297f34ba279bf2b4" => :high_sierra
     sha256 "1fbce32c61d2840795d80acbb69dba077a17190307e001e7297f34ba279bf2b4" => :sierra
     sha256 "1fbce32c61d2840795d80acbb69dba077a17190307e001e7297f34ba279bf2b4" => :el_capitan
+    sha256 "627fae56c7f1642b3dae289460e38c10899eb0a8134232593dcce7950a18642d" => :x86_64_linux
   end
 
   depends_on "bmake"
