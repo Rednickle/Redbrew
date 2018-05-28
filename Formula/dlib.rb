@@ -7,10 +7,10 @@ class Dlib < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e834acd2a9694a54b32efb029119301f4d2e74317219333ab6e05964b6c9923a" => :high_sierra
-    sha256 "1fe9ecfb70229631a11e5ad4d75018e49ba13b9b6c6f10662f739d968ee4cbd3" => :sierra
-    sha256 "38803c09e00859a5f44f9eccad44070ee461213b98e543f759fdf9477c2d6016" => :el_capitan
-    sha256 "793480162591b90fa3fb5d1851b4be9d0dbc12a09c52ed9f6fd30322c21a36fb" => :x86_64_linux
+    rebuild 1
+    sha256 "850809bf6ddc1db7c180d6ef4673b00fdf271790757097e2dbffe18be06d8d13" => :high_sierra
+    sha256 "d312a53d3b3a10ff658401fd0cf1fe9f2c37d4aa46c8b84d817ca355a89ad31b" => :sierra
+    sha256 "88778a5e22c7fb5e39c4c45359e0c19d28aae054363a666cd39aed3bb44ad161" => :el_capitan
   end
 
   depends_on :macos => :el_capitan # needs thread-local storage
@@ -32,6 +32,12 @@ class Dlib < Formula
 
     args = std_cmake_args + %w[-DDLIB_USE_BLAS=ON -DDLIB_USE_LAPACK=ON]
     args << "-DDLIB_NO_GUI_SUPPORT=ON" if build.without? "x11"
+    args << "-DUSE_SSE2_INSTRUCTIONS=ON" # SSE2 is present on all modern macOS hardware
+
+    unless build.bottle?
+      args << "-DUSE_AVX_INSTRUCTIONS=ON" if Hardware::CPU.avx?
+      args << "-DUSE_SSE4_INSTRUCTIONS=ON" if Hardware::CPU.sse4?
+    end
 
     if build.with? "openblas"
       args << "-Dcblas_lib=#{Formula["openblas"].opt_lib}/libopenblas.dylib"
