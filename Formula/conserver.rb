@@ -8,6 +8,7 @@ class Conserver < Formula
     sha256 "3fca2dc202bf6d68cc8294be8c2703bef813ad6583d51c3d9c4da12dbc975a89" => :high_sierra
     sha256 "c3885b3a01be7c4d0a4ed943906c4cb13be485b770271ac94cf9e439fdb9ca9a" => :sierra
     sha256 "d9f2d169e4a3adf0e46b7047991dba382147da1bd0923969bd0bec7bf7f14900" => :el_capitan
+    sha256 "816ecd617b233fb756a0dbe15dfe728f8409f3e7c3c7cf9f3ee6568032fb3051" => :x86_64_linux
   end
 
   def install
