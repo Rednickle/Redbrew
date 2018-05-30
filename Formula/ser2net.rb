@@ -7,6 +7,7 @@ class Ser2net < Formula
   bottle do
     sha256 "4533ef4f7200f9fe786332af987740b6db93e9e24b298b32909d9387eb168b3a" => :high_sierra
     sha256 "e14422b545c872c363edc5618c61a2d5772838c54d521c3b2688ac88ed2596d0" => :sierra
+    sha256 "516bd7d72e6eca9a64178456e2749ec8262a1971adb0d621efcf671732abfda0" => :x86_64_linux
   end
 
   depends_on :macos => :sierra # needs clock_gettime
