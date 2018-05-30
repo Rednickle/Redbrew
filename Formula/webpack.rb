@@ -12,6 +12,7 @@ class Webpack < Formula
     sha256 "c50c17ccb53d51303963e8dc2e9177a0fb3701c29fb82d0c57498918707852b0" => :high_sierra
     sha256 "00d6174d999238bd42c851d5a3ddf1d756cb9801a2822701a04262da15cb9c63" => :sierra
     sha256 "cae5aa7743c1493eb7595d45cb59dca27554fd58df377538e8f5e62b5b984131" => :el_capitan
+    sha256 "5d629f60c2ffc8bfb68e5703f7172a996226323034043363bc2edb871da60889" => :x86_64_linux
   end
 
   depends_on "node"
