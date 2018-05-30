@@ -8,6 +8,7 @@ class Scrcpy < Formula
     sha256 "2e4014b9592d76cfd2b3eb01511ddde2c082c671d913e5fdccb1a8bee74528c2" => :high_sierra
     sha256 "0ec5d7d5529033d4eeb4948b9c0f33735236dbd2cd3296af590ae41bc39faef1" => :sierra
     sha256 "b17ced2f2c92a8ab5cf77a59e1e011bdae9f0c0807dad219342e9fd9ccdff479" => :el_capitan
+    sha256 "dd84bf5f36e3bc5e58240ea3b08a3a07d0ff54dcc258da3f56a4cebb7ba23120" => :x86_64_linux
   end
 
   depends_on "meson" => :build
