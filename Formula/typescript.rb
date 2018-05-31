@@ -12,6 +12,7 @@ class Typescript < Formula
     sha256 "740d212dd804a4f7a798a26aee18b2b61acc70d09c751ff02caf818ac8596810" => :high_sierra
     sha256 "88128dd7bce3387eacf00a83d162582deba78ac587d5c780b9ca3b282b8066b2" => :sierra
     sha256 "7e5af0f06f13d679a8183272fb35d60b6fefab452421fc2ed7d400c466c26843" => :el_capitan
+    sha256 "3eb79390e4cfedcf264a967a410faff66a491bd8d29ec67fd5c45e999daf36b5" => :x86_64_linux
   end
 
   depends_on "node"
