@@ -14,17 +14,19 @@ class Gdb < Formula
 
   deprecated_option "with-brewed-python" => "with-python@2"
   deprecated_option "with-guile" => "with-guile@2.0"
-  deprecated_option "with-python" => "with-python@2"
 
   if OS.mac?
     option "with-python", "Use the Homebrew version of Python; by default system Python is used"
+    option "with-python@2", "Use the Homebrew version of Python 2; by default system Python is used"
   else
     option "without-python", "Use the system version of Python; by default Homebrew Python is used"
+    option "without-python@2", "Use the system version of Python; by default Homebrew Python is used"
   end
   option "with-version-suffix", "Add a version suffix to program"
   option "with-all-targets", "Build with support for all targets"
 
   depends_on "pkg-config" => :build
+  depends_on "python" => OS.mac? ? :optional : :recommended
   depends_on "python@2" => OS.mac? ? :optional : :recommended
   depends_on "guile@2.0" => :optional
   unless OS.mac?
@@ -60,8 +62,14 @@ class Gdb < Formula
     args << "--with-guile" if build.with? "guile@2.0"
     args << "--enable-targets=all" if build.with? "all-targets"
 
-    if build.with? "python@2"
-      args << "--with-python=#{Formula["python"].opt_libexec}/bin"
+    if build.with?("python@2") && build.with?("python")
+      odie "Options --with-python and --with-python@2 are mutually exclusive."
+    elsif build.with?("python@2")
+      args << "--with-python=#{Formula["python@2"].opt_bin}/python2"
+      ENV.append "CPPFLAGS", "-I#{Formula["python@2"].opt_libexec}"
+    elsif build.with?("python")
+      args << "--with-python=#{Formula["python"].opt_bin}/python3"
+      ENV.append "CPPFLAGS", "-I#{Formula["python"].opt_libexec}"
     else
       args << "--without-python"
     end
