@@ -10,6 +10,7 @@ class Codec2 < Formula
     sha256 "205941857ee7183277550016a6f6bd01c95be627e5c3594adc1674bd1bf2e03e" => :high_sierra
     sha256 "516e46003f5a9921ef6ea76ce1321de5de54790ece96a84b9d78d578e4565544" => :sierra
     sha256 "4db77776f89f5888824a0984a28c37ec9d568ef6f1e4c34cab5fe8b131db7fd0" => :el_capitan
+    sha256 "f7462747630a0b9fa354aeb980726a2ff34ad582a7f2147bde955a3720bef02b" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
