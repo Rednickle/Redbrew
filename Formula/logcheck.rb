@@ -10,6 +10,7 @@ class Logcheck < Formula
     sha256 "5afc20f769f2b9326958a81eb7349e6475d599e08f1c1ffc1f9dcd7d3f3c1218" => :high_sierra
     sha256 "5afc20f769f2b9326958a81eb7349e6475d599e08f1c1ffc1f9dcd7d3f3c1218" => :sierra
     sha256 "5afc20f769f2b9326958a81eb7349e6475d599e08f1c1ffc1f9dcd7d3f3c1218" => :el_capitan
+    sha256 "bac7fb9d03f106a2a70dbfef3729eba3296b79e5fab1179acbfefe0bafcb0d8f" => :x86_64_linux
   end
 
   def install
