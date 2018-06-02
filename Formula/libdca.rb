@@ -9,6 +9,7 @@ class Libdca < Formula
     sha256 "9b4fb37c6557a891de3aeec0f79dce74031af488207f6f1170c57c8d3c6f863b" => :high_sierra
     sha256 "9db0e0e2662aa86d8c8417d13669e1b7cd0d599afede76178f7fbbd0dd3b4b7b" => :sierra
     sha256 "641d1810fd6ca84d49824335403d79a8834611d1dd615d93300989040135ed1d" => :el_capitan
+    sha256 "3debb0f2b8635ca6e54152d55ce480e7f52d7d512d48d829fd751b01c227f915" => :x86_64_linux
   end
 
   def install
