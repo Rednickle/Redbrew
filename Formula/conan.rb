@@ -12,6 +12,7 @@ class Conan < Formula
     sha256 "0e8093938aa01bcadbf538d77844f53c39e1e71b6d43f3eea522be7928ef5632" => :high_sierra
     sha256 "0b62f99c6af429c2af171be6a6cbcc7a9fa55d32dadd0958d5643168f4d21eca" => :sierra
     sha256 "28b5cac3a2b9dbc7e755cef0139ec58aea1e5d18b97a4db1e07261e34b169f06" => :el_capitan
+    sha256 "4bf4d06283fe554629627890539545b7dd67acb549439733ca339218b576497e" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
