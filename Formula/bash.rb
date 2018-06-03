@@ -55,6 +55,7 @@ class Bash < Formula
     sha256 "de0293a18d1208a80444f5d1b0a33c44b7f328ba8e07214646e3405b5c1bb95f" => :high_sierra
     sha256 "d58a520a0ca3be4eb5c61d0bd9779c8ecf780d52b4b235043f048545717c9e33" => :sierra
     sha256 "291b5db2cc18c491f4a9e210bb2e61afa76632aac65a8dc4eec935e6cb475bd9" => :el_capitan
+    sha256 "908e6d9c8ef75e94285c3d0fa22e2230d5053e7efd8dda4827edb126a8ab9377" => :x86_64_linux
   end
 
   def install
