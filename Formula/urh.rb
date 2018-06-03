@@ -9,6 +9,7 @@ class Urh < Formula
     sha256 "afb62d75f88099a2a0e816319ecf3c249af1808be2af5d5c18b83f5d0b81bb9a" => :high_sierra
     sha256 "11f3649ee9a18113b7ea0fa0cdcafb79468b0b338d2236091f75b7c586875513" => :sierra
     sha256 "109078a0659d7d8eb51f26b68f7da7acc9e87ac04066f5d4dadbae163191d2a8" => :el_capitan
+    sha256 "53c5255c4f7a5c154905a3ebf2d1cbf9a39993f169b985fded2c560f8bff862a" => :x86_64_linux
   end
 
   option "with-hackrf", "Build with libhackrf support"
