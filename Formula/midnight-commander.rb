@@ -9,6 +9,7 @@ class MidnightCommander < Formula
     sha256 "a82ff8536b8e9427a4033ed485851341c7003c294a1aeba8dfe74410f5c2f33f" => :high_sierra
     sha256 "71401e028dcff038c22acced173c020003cb909fac46a5c33e45581665dc1da3" => :sierra
     sha256 "cf9e47ee1b5a3efbdc88f787496d0baaee65690f27e7cfafa031da2d51658792" => :el_capitan
+    sha256 "2640423ebcef54331d95433e4c778a8c3d1f8479cdcacc39f902d1294ae40c73" => :x86_64_linux
   end
 
   option "without-nls", "Build without Native Language Support"
