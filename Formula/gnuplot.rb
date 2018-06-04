@@ -1,11 +1,13 @@
 class Gnuplot < Formula
   desc "Command-driven, interactive function plotting"
   homepage "http://www.gnuplot.info/"
-  url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.2.3/gnuplot-5.2.3.tar.gz"
-  sha256 "feb58c9358d9d129e00507f3b34d4b13c4caea3f004325c587f8caafe5dbe724"
+  url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.2.4/gnuplot-5.2.4.tar.gz"
+  sha256 "1515f000bd373aaa53b16183f274189d4f5e0ae47d22f434857933d16a4770cb"
 
   bottle do
-    sha256 "05115f8f53d9a5fd49ed39a4b8a3c28d928c859c6f0384e8cdbb9d8ae9437ead" => :x86_64_linux
+    sha256 "83e62efd791e58c6be41b8da6975e66bf88ee01c2d364dc56f4496a2ec2c20aa" => :high_sierra
+    sha256 "bdd5bf26cfe0c268092d6120f1aaa57cf9f7c99464c83de1b64ac3d7c24f1741" => :sierra
+    sha256 "b0d21667f51ef06d824a1b68ed41d32d85848e8da4b9ac8fa9fdf09c31f7f05b" => :el_capitan
   end
 
   head do
