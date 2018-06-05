@@ -9,6 +9,7 @@ class Qrencode < Formula
     sha256 "bb786e4a5139fc1d3e3615139438c1b098a9c3e06ac5f5879784b617899b90c4" => :high_sierra
     sha256 "979e9d143753bada53e98ce8b27683ee6d4132d0cc7138085b18e2f90636d78b" => :sierra
     sha256 "c18a70b2d84e2020ade3cbc40b3f37ed86b07249a2b5e8c88c8650debf7aa337" => :el_capitan
+    sha256 "4584a90ef6b9284ca610a56695dfd72e52c3a3bfac8ee666d916af68aace9be1" => :x86_64_linux
   end
 
   head do
