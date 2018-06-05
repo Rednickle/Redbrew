@@ -8,6 +8,7 @@ class Tokei < Formula
     sha256 "2895c47b8bc84a128b379c3da43412bb7c10650375ab7d02da4be0b9ccb581cf" => :high_sierra
     sha256 "e288b99bbf45604558a6c91a90967a6cf2628987576236ceb784c0d20ed957de" => :sierra
     sha256 "b77f92594fa885a30a313673d5d69cb0733aca0e365e8128525bd9c66da24f55" => :el_capitan
+    sha256 "e786774eb1545a9ab74e47560ef07c37e06da0d1cf0553373e557c3c78291d54" => :x86_64_linux
   end
 
   depends_on "rust" => :build
