@@ -9,6 +9,7 @@ class Kompose < Formula
     sha256 "d452678fa9675fec11311586a95c49e3ed9e19e16f21b5ce1ce174c3600fdf84" => :high_sierra
     sha256 "126697b0e5ceebe58bf9a1f62f8235e0db8456385c8ede7a9a456163f5f4315f" => :sierra
     sha256 "3c9d58a94760ba1f5e276a6e5fcb01b1406f291fa9e8d62c4433d170883f3048" => :el_capitan
+    sha256 "03659b08e5e949d4a922d5256f427dabe8340d2641794c595a1d9a4094c4a73a" => :x86_64_linux
   end
 
   depends_on "go" => :build
