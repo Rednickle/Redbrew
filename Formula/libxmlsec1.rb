@@ -8,6 +8,7 @@ class Libxmlsec1 < Formula
     sha256 "dbdc3bb085b68e2c59924dba4193bdacbf305d8b91bada24a45b4ed1462febba" => :high_sierra
     sha256 "79f41292bc1d6e890b8840119ffc3be5170690d17faa20e9bca18100e66aecfa" => :sierra
     sha256 "698f1c0e00b8e4d1d98894e0d383f8e7cf9644b03e092213100a76f6e0d5e443" => :el_capitan
+    sha256 "56174292d08385df8e61b83cfccc95be0fceb0cc8cb2fe5b3709ab6a12fcc5a4" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
