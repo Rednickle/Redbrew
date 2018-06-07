@@ -12,6 +12,7 @@ class Xonsh < Formula
     sha256 "ba3a745b40eff1746dcfa409dc17efa7e36cc04f03e9fbefb90bb23f074bd50d" => :high_sierra
     sha256 "7c4525950071bc60c1604748b8d808332002a3ab9e1c794daea6d4b6dbdbbc0e" => :sierra
     sha256 "157fc93347fbbba815ad69afb80e91a82ee57ec53ead8a11be367be25b014785" => :el_capitan
+    sha256 "da7164f4d6c799e3a6143e7fbfb9e3c012908c83deb3609d924debb6691bd19a" => :x86_64_linux
   end
 
   depends_on "python"
