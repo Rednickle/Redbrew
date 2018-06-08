@@ -19,7 +19,7 @@ class Vert < Formula
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/Masterminds/vert").install buildpath.children
     cd "src/github.com/Masterminds/vert" do
-      system "dep", "ensure"
+      system "dep", "ensure", "-vendor-only"
       system "make", "build"
       bin.install "vert"
       prefix.install_metafiles
