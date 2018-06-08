@@ -1,15 +1,14 @@
 class Fn < Formula
   desc "Command-line tool for the fn project"
   homepage "https://fnproject.github.io"
-  url "https://github.com/fnproject/cli/archive/0.4.108.tar.gz"
-  sha256 "8d0762804cbdb0ad79c085ce1cecde51bd7d8d604e4c4d4b11f492cca8e6afbf"
+  url "https://github.com/fnproject/cli/archive/0.4.112.tar.gz"
+  sha256 "564e53dbd37b4bc984c3ba611ce3a12034e50f603bf65e3ca5b07cc42af814c7"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "563d9029be955660fdb570bf81c6969d963c55ed145d2ad1f749be43dcbc67ac" => :high_sierra
-    sha256 "850e4f67ebea81f609f26350c89d8999ae5b0649bf8a22a143ddfd5fcb2784fc" => :sierra
-    sha256 "f381fde04a7ae26965fb42b69934f5467f690b726fd2e6745a6bded2294742ca" => :el_capitan
-    sha256 "eb4eedb1f1d696033d16a357b273a96c92e46d9b15f96f2ee69e6d6572f65ead" => :x86_64_linux
+    sha256 "1db47f0255e5b964aff30241c105645799b619ac511e09a2bb23f729bcb80902" => :high_sierra
+    sha256 "63c2457453b0c407547fce50a151165e248bc5d495bfc0ebf221b925a60733c8" => :sierra
+    sha256 "8547c53d686ec9abd268d1981d7beb0c0768e16143a9448f5d7da49f34279530" => :el_capitan
   end
 
   depends_on "dep" => :build
@@ -50,12 +49,8 @@ class Fn < Formula
       ENV["FN_API_URL"] = "http://localhost:#{port}"
       ENV["FN_REGISTRY"] = "fnproject"
       expected = "/myfunc created with fnproject/myfunc"
-      # Test fails in circle ci with:
-      # ERROR: read tcp 127.0.0.1:47210->127.0.0.1:43523: read: connection reset by peer
-      unless ENV["CIRCLECI"]
-        output = shell_output("#{bin}/fn routes create myapp myfunc --image fnproject/myfunc:0.0.1")
-        assert_match expected, output.chomp
-      end
+      output = shell_output("#{bin}/fn create routes myapp myfunc fnproject/myfunc:0.0.1")
+      assert_match expected, output.chomp
     ensure
       Process.kill("TERM", pid)
       Process.wait(pid)
