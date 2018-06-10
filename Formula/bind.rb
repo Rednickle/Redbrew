@@ -111,7 +111,7 @@ class Bind < Formula
                     print-time yes;
             };
     };
-    EOS
+  EOS
   end
 
   def localhost_zone; <<~EOS
@@ -126,7 +126,7 @@ class Bind < Formula
 
                 1D IN NS    @
                 1D IN A        127.0.0.1
-    EOS
+  EOS
   end
 
   def named_local; <<~EOS
@@ -140,7 +140,7 @@ class Bind < Formula
                   IN      NS      localhost.
 
     1       IN      PTR     localhost.
-    EOS
+  EOS
   end
 
   plist_options :startup => true
@@ -167,7 +167,7 @@ class Bind < Formula
       <false/>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

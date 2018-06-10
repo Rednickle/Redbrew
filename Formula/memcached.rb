@@ -54,7 +54,7 @@ class Memcached < Formula
       <string>#{HOMEBREW_PREFIX}</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

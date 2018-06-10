@@ -24,7 +24,7 @@ class GitExtras < Formula
   def caveats; <<~EOS
     To load Zsh completions, add the following to your .zschrc:
       source #{opt_pkgshare}/git-extras-completion.zsh
-    EOS
+  EOS
   end
 
   test do

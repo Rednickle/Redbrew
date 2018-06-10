@@ -39,6 +39,6 @@ class Skipfish < Formula
 
     Use this command to print usage information:
       skipfish -h
-    EOS
+  EOS
   end
 end

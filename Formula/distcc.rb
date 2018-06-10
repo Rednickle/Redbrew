@@ -66,7 +66,7 @@ class Distcc < Formula
         <string>#{opt_prefix}</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

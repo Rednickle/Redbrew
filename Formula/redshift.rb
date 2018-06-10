@@ -48,7 +48,7 @@ class Redshift < Formula
 
     Please note redshift expects to read its configuration file from
     #{ENV["HOME"]}/.config/redshift/redshift.conf
-    EOS
+  EOS
   end
 
   plist_options :manual => "redshift"
@@ -74,7 +74,7 @@ class Redshift < Formula
         <string>/dev/null</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

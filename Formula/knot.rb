@@ -75,7 +75,7 @@ class Knot < Formula
     template:
       - id: "default"
         storage: "#{var}/knot"
-    EOS
+  EOS
   end
 
   plist_options :startup => true
@@ -105,7 +105,7 @@ class Knot < Formula
       <string>#{var}/log/knot.log</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

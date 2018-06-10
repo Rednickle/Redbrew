@@ -55,7 +55,7 @@ class MinimalRacket < Formula
 
     The full Racket distribution is available as a cask:
       brew cask install racket
-    EOS
+  EOS
   end
 
   test do

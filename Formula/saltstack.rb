@@ -143,7 +143,7 @@ class Saltstack < Formula
   def caveats; <<~EOS
     Sample configuration files have been placed in #{etc}/saltstack.
     Saltstack will not use these by default.
-    EOS
+  EOS
   end
 
   test do

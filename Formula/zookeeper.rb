@@ -158,7 +158,7 @@ class Zookeeper < Formula
         <string>#{var}</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

@@ -132,7 +132,7 @@ class Httpd < Formula
       <true/>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

@@ -24,7 +24,7 @@ class GitFixup < Formula
       [user]
         name = Real Person
         email = notacat@hotmail.cat
-      EOS
+    EOS
     system "git", "init"
     (testpath/"test").write "foo"
     system "git", "add", "test"

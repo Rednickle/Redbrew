@@ -44,7 +44,7 @@ class Scrcpy < Formula
 
     You can install adb from Homebrew Cask:
       brew cask install android-platform-tools
-    EOS
+  EOS
   end
 
   test do

@@ -31,7 +31,7 @@ class Whois < Formula
   def caveats; <<~EOS
     Debian whois has been installed as `whois` and may shadow the
     system binary of the same name.
-    EOS
+  EOS
   end
 
   test do

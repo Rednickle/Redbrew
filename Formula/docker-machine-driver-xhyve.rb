@@ -80,7 +80,7 @@ class DockerMachineDriverXhyve < Formula
     enable, execute
         sudo chown root:wheel #{opt_prefix}/bin/docker-machine-driver-xhyve
         sudo chmod u+s #{opt_prefix}/bin/docker-machine-driver-xhyve
-    EOS
+  EOS
   end
 
   test do

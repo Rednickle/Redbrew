@@ -33,7 +33,7 @@ class IrcdHybrid < Formula
   def caveats; <<~EOS
     You'll more than likely need to edit the default settings in the config file:
       #{etc}/ircd.conf
-    EOS
+  EOS
   end
 
   plist_options :manual => "ircd"
@@ -59,7 +59,7 @@ class IrcdHybrid < Formula
       <string>#{var}/ircd.log</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

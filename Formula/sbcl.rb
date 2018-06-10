@@ -87,7 +87,7 @@ class Sbcl < Formula
         (setf (logical-pathname-translations "SYS")
           '(("SYS:SRC;**;*.*.*" #p"#{pkgshare}/src/**/*.*")
             ("SYS:CONTRIB;**;*.*.*" #p"#{pkgshare}/contrib/**/*.*")))
-        EOS
+      EOS
     end
   end
 

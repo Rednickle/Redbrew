@@ -41,7 +41,7 @@ class BashCompletion < Formula
   def caveats; <<~EOS
     Add the following line to your ~/.bash_profile:
       [ -f #{etc}/bash_completion ] && . #{etc}/bash_completion
-    EOS
+  EOS
   end
 
   test do

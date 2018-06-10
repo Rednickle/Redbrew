@@ -32,7 +32,7 @@ class Dvm < Formula
     dvm is a shell function, and must be sourced before it can be used.
     Add the following command to your bash profile:
         [ -f #{opt_prefix}/dvm.sh ] && . #{opt_prefix}/dvm.sh
-    EOS
+  EOS
   end
 
   test do

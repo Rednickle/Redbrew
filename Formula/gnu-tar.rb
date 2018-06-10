@@ -52,7 +52,7 @@ class GnuTar < Formula
 
           MANPATH="#{opt_libexec}/gnuman:$MANPATH"
 
-      EOS
+    EOS
     end
   end
 

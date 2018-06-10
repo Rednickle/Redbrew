@@ -65,7 +65,7 @@ class Haproxy < Formula
         <string>#{var}/log/haproxy.log</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

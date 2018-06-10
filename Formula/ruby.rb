@@ -196,7 +196,7 @@ class Ruby < Formula
         "#{opt_bin}/ruby"
       end
     end
-    EOS
+  EOS
   end
 
   test do

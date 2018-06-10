@@ -75,7 +75,7 @@ class Consul < Formula
         <string>#{var}/log/consul.log</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

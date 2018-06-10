@@ -74,7 +74,7 @@ class Kafka < Formula
         <string>#{var}/log/kafka/kafka_output.log</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

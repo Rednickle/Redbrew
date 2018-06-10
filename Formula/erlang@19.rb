@@ -119,7 +119,7 @@ class ErlangAT19 < Formula
     Man pages can be found in:
       #{opt_lib}/erlang/man
     Access them with `erl -man`, or add this directory to MANPATH.
-    EOS
+  EOS
   end
 
   test do

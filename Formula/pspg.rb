@@ -27,7 +27,7 @@ class Pspg < Formula
       \\setenv PAGER pspg
       \\pset border 2
       \\pset linestyle unicode
-    EOS
+  EOS
   end
 
   test do

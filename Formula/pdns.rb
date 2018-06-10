@@ -86,7 +86,7 @@ class Pdns < Formula
       <string>system.preferences</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

@@ -42,7 +42,7 @@ class Zurl < Formula
       in_req_spec=ipc://#{ipcfile}
       defpolicy=allow
       timeout=10
-      EOS
+    EOS
                   )
 
     runfile.write(<<~EOS
@@ -86,7 +86,7 @@ class Zurl < Formula
       resp = json.loads(sock.recv()[1:])
       assert('type' not in resp)
       assert(resp['body'] == 'test response\\n')
-      EOS
+    EOS
                  )
 
     pid = fork do

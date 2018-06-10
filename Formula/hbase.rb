@@ -151,7 +151,7 @@ class Hbase < Formula
       <string>#{var}/hbase/hbase.err</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

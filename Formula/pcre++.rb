@@ -43,7 +43,7 @@ class Pcrexx < Formula
     The man page has been renamed to pcre++.3 to avoid conflicts with
     pcre in case-insensitive file system.  Please use "man pcre++"
     instead.
-    EOS
+  EOS
   end
 end
 

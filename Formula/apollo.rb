@@ -48,7 +48,7 @@ class Apollo < Formula
   def caveats; <<~EOS
     To create the broker:
         #{bin}/apollo create #{var}/apollo
-    EOS
+  EOS
   end
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/var/apollo/bin/apollo-broker run"
@@ -73,7 +73,7 @@ class Apollo < Formula
         <string>#{var}/apollo</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

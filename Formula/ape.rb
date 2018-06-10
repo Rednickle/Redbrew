@@ -31,7 +31,7 @@ class Ape < Formula
   def caveats; <<~EOS
     The default configuration file is stored in #{etc}. You should load aped with:
       aped --cfg #{etc}/ape.conf
-    EOS
+  EOS
   end
 
   test do

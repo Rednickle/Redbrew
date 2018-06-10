@@ -52,7 +52,7 @@ class Tmux < Formula
   def caveats; <<~EOS
     Example configuration has been installed to:
       #{opt_pkgshare}
-    EOS
+  EOS
   end
 
   test do

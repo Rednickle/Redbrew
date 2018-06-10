@@ -78,7 +78,7 @@ class Dnsmasq < Formula
   def caveats; <<~EOS
     To configure dnsmasq, take the default example configuration at
       #{etc}/dnsmasq.conf and edit to taste.
-    EOS
+  EOS
   end
 
   plist_options :startup => true
@@ -103,7 +103,7 @@ class Dnsmasq < Formula
         <true/>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

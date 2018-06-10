@@ -128,7 +128,7 @@ class Nginx < Formula
     To activate Phusion Passenger, add this to #{etc}/nginx/nginx.conf, inside the 'http' context:
       passenger_root #{Formula["passenger"].opt_libexec}/src/ruby_supportlib/phusion_passenger/locations.ini;
       passenger_ruby /usr/bin/ruby;
-    EOS
+  EOS
   end
 
   def caveats
@@ -167,7 +167,7 @@ class Nginx < Formula
         <string>#{HOMEBREW_PREFIX}</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

@@ -36,6 +36,6 @@ class Mad < Formula
     Conflicts:
     Libs: -L${libdir} -lmad -lm
     Cflags: -I${includedir}
-    EOS
+  EOS
   end
 end

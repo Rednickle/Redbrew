@@ -44,6 +44,6 @@ class ChocolateDoom < Formula
     Otherwise, there are tons of free levels available online.
     Try starting here:
       #{homepage}
-    EOS
+  EOS
   end
 end

@@ -115,7 +115,7 @@ class Postgresql < Formula
   def caveats; <<~EOS
     To migrate existing data from a previous major version of PostgreSQL run:
       brew postgresql-upgrade-database
-    EOS
+  EOS
   end
 
   plist_options :manual => "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgres start"
@@ -145,7 +145,7 @@ class Postgresql < Formula
       <string>#{var}/log/postgres.log</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

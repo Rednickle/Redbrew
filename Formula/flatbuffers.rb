@@ -45,7 +45,7 @@ class Flatbuffers < Formula
 
       root_type Monster;
 
-      EOS
+    EOS
     end
     (testpath/"test.fbs").write(testfbs)
 
@@ -59,7 +59,7 @@ class Flatbuffers < Formula
         hp: 80,
         name: "MyMonster"
       }
-      EOS
+    EOS
     end
     (testpath/"test.json").write(testjson)
 

@@ -99,8 +99,8 @@ class Coreutils < Formula
 
         MANPATH="#{opt_libexec}/gnuman:$MANPATH"
 
-    EOS
-  end if build.without? "default-names"
+  EOS
+  end
 
   def coreutils_filenames(dir)
     filenames = []

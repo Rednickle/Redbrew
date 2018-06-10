@@ -33,7 +33,7 @@ class Wxmaxima < Formula
     in ~/.maxima/maxima-init.mac:
       gnuplot_command:"#{HOMEBREW_PREFIX}/bin/gnuplot"$
       draw_command:"#{HOMEBREW_PREFIX}/bin/gnuplot"$
-    EOS
+  EOS
   end
 
   test do
