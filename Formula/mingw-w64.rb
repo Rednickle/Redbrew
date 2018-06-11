@@ -8,6 +8,7 @@ class MingwW64 < Formula
     sha256 "8e771aba7e63de9862159c3f93c2056e261b5b10fa7b7627d741fcab87f0348f" => :high_sierra
     sha256 "956a9322e6a2ff64732ef0324d206312dc6dfb306819e43e8e17f960f3c7054c" => :sierra
     sha256 "72afbecb32b3ffacf0ffd441a326329cd2cefbcd2e9664504330e66775dabdb1" => :el_capitan
+    sha256 "5c0c53e73e6b627d66b8b2cf9f89d62d38e544ae501b11a8b360f083ab4816a6" => :x86_64_linux
   end
 
   option "with-posix", "Compile with posix thread model"
