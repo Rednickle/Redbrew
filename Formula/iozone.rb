@@ -9,6 +9,7 @@ class Iozone < Formula
     sha256 "62705cc571622d994f5613ee4883772cc72509ea3e05abe31cbc4777da6e7b57" => :high_sierra
     sha256 "e469596b5c9555e2eed85a8b2fe3aefa5a308d42c23bee66c2d0a79144fc669a" => :sierra
     sha256 "f4116538d4101eb4f62bb35d956de0c30f918b3028616c78bc69d66375e2bdc7" => :el_capitan
+    sha256 "2977c83eeef70ae53cd3dfa55349303dadfd786bbbfb5e863cfb541fcdd6114d" => :x86_64_linux
   end
 
   def install
