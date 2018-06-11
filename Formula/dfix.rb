@@ -10,6 +10,7 @@ class Dfix < Formula
     sha256 "0b7f721031ba8a300a2fcd425d1920d6124993fae5ad6af3a79a9e0d882ff475" => :high_sierra
     sha256 "63c88b055983c1f9e5e76a7c4bf349ce5f07adda884356fd25d2af0653b92732" => :sierra
     sha256 "8e82902ec6075a0df5f09d17258f64fbbff88d4449d5704f9d66fbeae9d370b6" => :el_capitan
+    sha256 "926501e2d396bb0f67b89096c2aaa553d8e708f09d4924a6122b47c4fc8e7831" => :x86_64_linux
   end
 
   depends_on "dmd" => :build
