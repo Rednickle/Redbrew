@@ -9,6 +9,7 @@ class Treefrog < Formula
     sha256 "246236215fdb5e23dd57a58b53c2c4c41ea802468c614c8a7075c576e24644bc" => :high_sierra
     sha256 "451ff0b20b9ca36b1eb6eaf6af9c13a56e74031d6c15586fa8920f1189d67262" => :sierra
     sha256 "6ea31d04a301bee2b365c5affaea54286814718636386e2e0c9a2bfa9472c1f3" => :el_capitan
+    sha256 "166952c9c2eeafdf7a489e9482e44cd3d7a313739e73c5fcb101128751430169" => :x86_64_linux
   end
 
   deprecated_option "with-qt5" => "with-qt"
