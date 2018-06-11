@@ -8,6 +8,7 @@ class Libngspice < Formula
     sha256 "ad14b322a63580cbee9940bb67546cce89d654072446cbb90bd75020f359e3f6" => :high_sierra
     sha256 "bfae0f3f17b4f5493b1c3dab4f2ad45f33d276d9da2ebe44ec68c808d5204ffb" => :sierra
     sha256 "81fa4c4a1da3fb720f921274fde37cdd540ffce16d6bec9c35bbae8399aa728c" => :el_capitan
+    sha256 "7a991da23df22c6b7ea5dcef5641f8f009cbb4073ac3e7a476f824b4c3d661f8" => :x86_64_linux
   end
 
   head do
