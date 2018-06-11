@@ -10,6 +10,7 @@ class Restic < Formula
     sha256 "b40713df09aaf7bdd279882ded7a4ebdbfe23858c2449e2e22b9b02f73c8257a" => :high_sierra
     sha256 "38a643ada5131fdc41ad404205c8d7859cf31ec4fda34c1a72325ce3c866b186" => :sierra
     sha256 "585ccdbe4b1ec107e5e313104e3aa4863b27e4815b26fc862137577958dfbf10" => :el_capitan
+    sha256 "dd6fcc9701aeb95d2e039f531b5a69c1dcf4384dd166827ac5c90c5abfe4ab94" => :x86_64_linux
   end
 
   depends_on "go" => :build
