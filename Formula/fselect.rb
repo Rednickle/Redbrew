@@ -14,8 +14,7 @@ class Fselect < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "build", "--release"
-    bin.install "target/release/fselect"
+    system "cargo", "install", "--root", prefix
   end
 
   test do
