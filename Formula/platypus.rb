@@ -24,9 +24,6 @@ class Platypus < Formula
                "install"
 
     man1.install "CommandLineTool/man/platypus.1"
-
-    cd buildpath
-
     bin.install "platypus_clt" => "platypus"
 
     cd "build/UninstalledProducts/macosx/ScriptExec.app/Contents" do
