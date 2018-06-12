@@ -8,6 +8,7 @@ class Unbound < Formula
     sha256 "21300407dab4718b4e542c329ce6c90692b60e260b1e595b12565b146cb6d364" => :high_sierra
     sha256 "36cc1ddbcd2ad279a77d365554fd457e7b89bebe1aa45cd4b55ea6f6e5ff3125" => :sierra
     sha256 "017645debe23492ea7f0a490ab5968b0a9a94f75f8ce25a27fdf509a0ce80a3b" => :el_capitan
+    sha256 "1c89ec2b3075daf2251aae132ba2c34779e75df4ee89b918e5229b1e8a2ef318" => :x86_64_linux
   end
 
   deprecated_option "with-python" => "with-python@2"
