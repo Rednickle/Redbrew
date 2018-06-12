@@ -8,6 +8,7 @@ class PgpoolIi < Formula
     sha256 "47dd6bdd5eff9d9705f8ebc27967baa8bb0caf11bdda5c62cef67406b1e07daf" => :high_sierra
     sha256 "fbd2039a714413cc0678cd99135e9cfc6cb0d247c9c6b7b91579e92a8f47bc87" => :sierra
     sha256 "05535a283da10c44b7718b357b868ec64229ac6eade3c62d01582b7d4964072f" => :el_capitan
+    sha256 "07e5bc38038bebdc3b05e1d97588884ba5982b9ab5884af2bc1e1fc8294fefb0" => :x86_64_linux
   end
 
   depends_on "postgresql"
