@@ -12,6 +12,7 @@ class Logentries < Formula
     sha256 "991c1c932c069d8ead26a4591446b4bb1f4800ef58890632fafaba636ebb3d76" => :high_sierra
     sha256 "f5b46e814f05d0cf5a98e202a49f9033c4b28ee9d43295bf88fc527135310fae" => :sierra
     sha256 "aeac2779f63a04a415ee7aecab274fa5deade682596206caf23f97d449b9d16a" => :el_capitan
+    sha256 "e213c3b9a7d5ff792d23a7ac991187522a39caf43a8c2b0f7aa3db377a515819" => :x86_64_linux
   end
 
   depends_on "python@2"
