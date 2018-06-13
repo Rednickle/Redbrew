@@ -1,17 +1,15 @@
 class MongoCxxDriver < Formula
   desc "C++ driver for MongoDB"
   homepage "https://github.com/mongodb/mongo-cxx-driver"
-  url "https://github.com/mongodb/mongo-cxx-driver/archive/r3.2.0.tar.gz"
-  sha256 "e26edd44cf20bd6be91907403b6d63a065ce95df4c61565770147a46716aad8c"
-  revision 1
+  url "https://github.com/mongodb/mongo-cxx-driver/archive/r3.3.0.tar.gz"
+  sha256 "22857d0985039ca1bf77b7c709d4306a4d0728e1f839eccdb439415f1b26e199"
   head "https://github.com/mongodb/mongo-cxx-driver.git"
 
   bottle do
     cellar :any
-    sha256 "b39ff24b55319bbb3a3e54e2713081951a65358cc2c3f14f652b882b18eec17d" => :high_sierra
-    sha256 "06f4b242a7ee0a78f9cf35bef086dd5d329527d3c3af6c87c65618bf6f3c2028" => :sierra
-    sha256 "fe8fce4c6d14e638db3d1a0ce13ad87b5fc1f101f4b81bb8ef2708d42e52c850" => :el_capitan
-    sha256 "d2db4e3b2ce688f087c7c94775bfd2675f1d52a1187fce562c1d28bb87ab9d47" => :x86_64_linux
+    sha256 "2de8e512c9b26c6a36b2ef3f243868db329902215dbff9aa230f3362806d3ab2" => :high_sierra
+    sha256 "65e1ca03d1c508a5b159ff321b6e22ac8637151c6abd3215683fed8abbb6a1b0" => :sierra
+    sha256 "6927866e96e55929e97cccc889c1606387a056c1ec3cd83fab28343db83548bb" => :el_capitan
   end
 
   needs :cxx11
