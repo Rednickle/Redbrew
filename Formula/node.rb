@@ -1,15 +1,14 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v10.4.0/node-v10.4.0.tar.xz"
-  sha256 "b58f5a39253921c668eb7678679df36f9fb5e46c885242d20f13168973603762"
+  url "https://nodejs.org/dist/v10.4.1/node-v10.4.1.tar.xz"
+  sha256 "a5bf584b52f992b6ce31d8afd8c468945a772431575ad868e4e787f390ad8044"
   head "https://github.com/nodejs/node.git"
 
   bottle do
-    sha256 "bfef703a0182e34709c61192dc73177c5c63633a28ba6a88db2460fa01494dbd" => :high_sierra
-    sha256 "619b441c3e137468c39da25c949e921444e62f24c67b9e24bca887c8cd48fa3d" => :sierra
-    sha256 "fcfc8ee24b02591caea10540925e7486eac7d7c5d2f7d6315abf232ed9fae568" => :el_capitan
-    sha256 "c0151a50dbda4c91eb0c657fa50b1829cc369b28017e67e09323f271b015b3e6" => :x86_64_linux
+    sha256 "b0d4ff9aa5eabc88d0f24cb33ab0c1d8f810f6a97e11287cc9b1b7a8dc0302d3" => :high_sierra
+    sha256 "d2a65f3810fec8ce7f4b8bf214732564d352a94d5df4d876a9607814760ae8f3" => :sierra
+    sha256 "7aa7ec5a27ff9342f3143c4bf9e4e18fc719e11061029d1ce6095ee947c2e273" => :el_capitan
   end
 
   option "with-debug", "Build with debugger hooks"
@@ -41,22 +40,10 @@ class Node < Formula
     sha256 "be8bb5fdb52e5af8a62988ad32f51c688d1327f62412c4410b30c29c8d66a85f"
   end
 
-  # Patch node-gyp to support detecting double-digit Xcode versions
-  patch do
-    url "https://github.com/nodejs/node/commit/a9e70d7d0b50ed615428e8344d510effb6713f02.patch?full_index=1"
-    sha256 "e6c2a617f7550c1c6b36809ddea4a40a9f4ec612fe853c460b98368f72c646b2"
-  end
-
   # Patch configure to support detecting double-digit Xcode versions
   patch do
     url "https://github.com/nodejs/node/commit/400df22c6bfefc3c3f54ebd7c5fd0d38f5137841.patch?full_index=1"
     sha256 "a1ac0e2589c8b9e98bf4712723a6ef28bc23dcd1aa1891d045b5a5e3a329cb36"
-  end
-
-  # Patch configure to fix a buggy compiler version comparison
-  patch do
-    url "https://github.com/nodejs/node/commit/641d4a4159aaa96eece8356e03ec6c7248ae3e73.patch?full_index=1"
-    sha256 "c193ab8edf2084a94265762d9ace419c0680eda87986e30dc7325df55044cb1b"
   end
 
   def install
