@@ -11,6 +11,7 @@ class ImageoptimCli < Formula
     sha256 "4e2ecb52446d8a0cdf464189d1bc5900cf06b132b7964638b70732c43c4b9e9f" => :high_sierra
     sha256 "4e2ecb52446d8a0cdf464189d1bc5900cf06b132b7964638b70732c43c4b9e9f" => :sierra
     sha256 "4e2ecb52446d8a0cdf464189d1bc5900cf06b132b7964638b70732c43c4b9e9f" => :el_capitan
+    sha256 "cc26a080532bcfcbe678c66738217c59f6f85e3aa798ede23a865356ab6a7a4f" => :x86_64_linux
   end
 
   depends_on "node" => :build
