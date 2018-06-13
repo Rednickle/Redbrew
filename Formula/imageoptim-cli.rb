@@ -3,24 +3,19 @@ require "language/node"
 class ImageoptimCli < Formula
   desc "CLI for ImageOptim, ImageAlpha and JPEGmini"
   homepage "https://jamiemason.github.io/ImageOptim-CLI/"
-  url "https://github.com/JamieMason/ImageOptim-CLI/archive/2.0.2.tar.gz"
-  sha256 "65ccf26cf45012e20877bf7985b1f9d99cfef4ac3d0f1209dd6fa04ef02056ff"
+  url "https://github.com/JamieMason/ImageOptim-CLI/archive/2.0.3.tar.gz"
+  sha256 "47fc8a1f14478389cb71dc8a03ac6b3176ba311d1a2390867b792b60ef209fb3"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fda19a2e3f525c96fa8b08ebb35fd6ab8bf361d40e5cd76f5b585d725b6f813e" => :high_sierra
-    sha256 "fda19a2e3f525c96fa8b08ebb35fd6ab8bf361d40e5cd76f5b585d725b6f813e" => :sierra
-    sha256 "fda19a2e3f525c96fa8b08ebb35fd6ab8bf361d40e5cd76f5b585d725b6f813e" => :el_capitan
-    sha256 "bddf21934890e8f221018668a6f7227b8286c5abb90c88f7e54faeb50ca9d8a0" => :x86_64_linux
+    sha256 "4e2ecb52446d8a0cdf464189d1bc5900cf06b132b7964638b70732c43c4b9e9f" => :high_sierra
+    sha256 "4e2ecb52446d8a0cdf464189d1bc5900cf06b132b7964638b70732c43c4b9e9f" => :sierra
+    sha256 "4e2ecb52446d8a0cdf464189d1bc5900cf06b132b7964638b70732c43c4b9e9f" => :el_capitan
   end
 
   depends_on "node" => :build
 
   def install
-    # Fix has been submitted upstream, but not yet merged.
-    # https://github.com/JamieMason/ImageOptim-CLI/pull/166
-    inreplace "package.json", '"nexe": "2.0.0-rc.28"', '"nexe": "2.0.0-rc.30"'
-
     system "npm", "install", *Language::Node.local_npm_install_args
     system "npm", "run-script", "build"
     libexec.install "dist", "osascript"
