@@ -1,13 +1,16 @@
-class Mysql < Formula
+class MysqlAT57 < Formula
   desc "Open source relational database management system"
-  homepage "https://dev.mysql.com/doc/refman/8.0/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.11.tar.gz"
-  sha256 "f40711a9bd91ab2ccea331484a6d281f806b0fdecf78f4c9e9d8a4c91208f309"
+  homepage "https://dev.mysql.com/doc/refman/5.7/en/"
+  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.22.tar.gz"
+  sha256 "5b2a61700af7c99f5630a7dfdb099af9283c3029843cddd9e123bcdbcc4aad03"
 
   bottle do
-    sha256 "01824871432664b7ba9f0c8e7ee620625e48614befc12cf736405bc403d528ee" => :high_sierra
-    sha256 "f97901de99ff29356a12ff9ef00e041bccb023bd75b473e53f59745e8292771f" => :sierra
+    sha256 "1f236eb1e522d4b5b89ff80170c3a5aee9eef55da6ab4dce01a1a8261e1b7077" => :high_sierra
+    sha256 "bf73281119799191f7d446d82735f25f5b059cd26075ddd3931ae594bce21656" => :sierra
+    sha256 "4911e822fa6d0737d6e6a95bfd9e1fd970b1db60303a4087ee0f514624440aea" => :el_capitan
   end
+
+  keg_only :versioned_formula
 
   option "with-debug", "Build with debug support"
   option "with-embedded", "Build the embedded server"
@@ -21,39 +24,17 @@ class Mysql < Formula
   deprecated_option "with-tests" => "with-test"
 
   depends_on "cmake" => :build
-  depends_on "openssl"
-  # Fix error: Cannot find system editline libraries.
-  depends_on "libedit" unless OS.mac?
-
   # https://github.com/Homebrew/homebrew-core/issues/1475
-  # Needs at least Clang 3.6, which shipped alongside Yosemite.
-  # Note: MySQL themselves don't support anything below Sierra.
-  depends_on :macos => :yosemite
-
-  # https://bugs.mysql.com/bug.php?id=86711
-  # https://github.com/Homebrew/homebrew-core/pull/20538
-  fails_with :clang do
-    build 800
-    cause "Wrong inlining with Clang 8.0, see MySQL Bug #86711"
-  end
-  # GCC is not supported either, so exclude for El Capitan.
-  depends_on :macos => :sierra if DevelopmentTools.clang_build_version == 800
-
-  conflicts_with "mysql-cluster", "mariadb", "percona-server",
-    :because => "mysql, mariadb, and percona install the same binaries."
-  conflicts_with "mysql-connector-c",
-    :because => "both install MySQL client libraries"
-  conflicts_with "mariadb-connector-c",
-    :because => "both install plugins"
+  # Needs at least Clang 3.3, which shipped alongside Lion.
+  # Note: MySQL themselves don't support anything below El Capitan.
+  depends_on :macos => :lion
+  depends_on "openssl"
 
   def datadir
     var/"mysql"
   end
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j3" if ENV["CIRCLECI"]
-
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
     args = %W[
       -DCOMPILATION_COMMENT=Homebrew
@@ -90,6 +71,13 @@ class Mysql < Formula
 
     # Build with InnoDB Memcached plugin
     args << "-DWITH_INNODB_MEMCACHED=ON" if build.with? "memcached"
+
+    # To enable unit testing at build, we need to download the unit testing suite
+    if build.with? "test"
+      args << "-DENABLE_DOWNLOADS=ON"
+    else
+      args << "-DWITH_UNIT_TESTS=OFF"
+    end
 
     system "cmake", ".", *std_cmake_args, *args
     system "make"
@@ -152,7 +140,7 @@ class Mysql < Formula
     s
   end
 
-  plist_options :manual => "mysql.server start"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/mysql@5.7/bin/mysql.server start"
 
   def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
@@ -174,7 +162,7 @@ class Mysql < Formula
       <string>#{datadir}</string>
     </dict>
     </plist>
-  EOS
+    EOS
   end
 
   test do
