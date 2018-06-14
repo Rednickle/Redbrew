@@ -3,37 +3,36 @@ class Emscripten < Formula
   homepage "https://kripken.github.io/emscripten-site/"
 
   stable do
-    url "https://github.com/kripken/emscripten/archive/1.38.5.tar.gz"
-    sha256 "0007a473feea508a99f1c058d38390a94746341577b005af984b6d6b2c3f8275"
+    url "https://github.com/kripken/emscripten/archive/1.38.6.tar.gz"
+    sha256 "7e0d07beaa6177d7fca4446ed825cecf07ca4ced4a710f29411eea2082e763d5"
 
     resource "fastcomp" do
-      url "https://github.com/kripken/emscripten-fastcomp/archive/1.38.5.tar.gz"
-      sha256 "424a8985ef91ddbe1d9b6699b73fb8cf3a2145334ddc4629698ce0f08847fdc2"
+      url "https://github.com/kripken/emscripten-fastcomp/archive/1.38.6.tar.gz"
+      sha256 "1f313724c9353687c4c830f054bf7410706bedb62a718d37de3b5e9ea22bb9ab"
     end
 
     resource "fastcomp-clang" do
-      url "https://github.com/kripken/emscripten-fastcomp-clang/archive/1.38.5.tar.gz"
-      sha256 "8e63a57901a5db95c5135d2af552bafd0b305aacf44148114ad4fd349290b552"
+      url "https://github.com/kripken/emscripten-fastcomp-clang/archive/1.38.6.tar.gz"
+      sha256 "d61baa557a9cbb5c787bb9823f6c1b99d9ff123953531e74b046577f81ebb275"
     end
   end
 
   bottle do
     cellar :any
-    sha256 "644985f6c43f56d424ffa2fa38d00993fd22ccaaf0800e3fdef7ccc5af0dcec7" => :high_sierra
-    sha256 "62c09911046c478c43c5f4df2aa1059c523bb2daa2b5af347b68f839f36aee79" => :sierra
-    sha256 "57a12497dd94f1634059534919131b5e0966b95748e45f3fbea5a19773749e1b" => :el_capitan
-    sha256 "727d9d228da279a8d3f1469009e13fce788ed8f3933f3fafa3e9dd4c117ad65f" => :x86_64_linux
+    sha256 "e771069dca3d80bb68ec71492f64a335ae467b53a4a2047aa573fe0702d3b180" => :high_sierra
+    sha256 "db21575f88767911c065d64ca2cb51706cb8fcbf9e0d1865d6fcf0e29bec0139" => :sierra
+    sha256 "d1c8bfe17f35d0b655ff015ecf4a9fe970bee9672e2d66f879b91299c5ae192d" => :el_capitan
   end
 
   head do
-    url "https://github.com/kripken/emscripten.git", :branch => "master"
+    url "https://github.com/kripken/emscripten.git", :branch => "incoming"
 
     resource "fastcomp" do
-      url "https://github.com/kripken/emscripten-fastcomp.git", :branch => "master"
+      url "https://github.com/kripken/emscripten-fastcomp.git", :branch => "incoming"
     end
 
     resource "fastcomp-clang" do
-      url "https://github.com/kripken/emscripten-fastcomp-clang.git", :branch => "master"
+      url "https://github.com/kripken/emscripten-fastcomp-clang.git", :branch => "incoming"
     end
   end
 
