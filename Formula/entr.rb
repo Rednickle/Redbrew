@@ -9,6 +9,7 @@ class Entr < Formula
     sha256 "52b11e50b2d4be63553eed9a303932a4f1da19fe0969d6846f38a28b26ea8fcc" => :high_sierra
     sha256 "ec7a54d7b401a96eb335cd18869c528378196ea185fdba7d00de8a38b626868c" => :sierra
     sha256 "5547fc0dd281c1478b87d53f6de5502bbab1738aa3301beea655485404b23077" => :el_capitan
+    sha256 "e81b341dd36109f0c8951a52f359af6a186923f4efb6b565a12349357d887c62" => :x86_64_linux
   end
 
   head do
