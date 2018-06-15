@@ -1,16 +1,15 @@
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
-  url "https://cmake.org/files/v3.11/cmake-3.11.3.tar.gz"
-  sha256 "287135b6beb7ffc1ccd02707271080bbf14c21d80c067ae2c0040e5f3508c39a"
+  url "https://cmake.org/files/v3.11/cmake-3.11.4.tar.gz"
+  sha256 "8f864e9f78917de3e1483e256270daabc4a321741592c5b36af028e72bff87f5"
   head "https://cmake.org/cmake.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "84a5ac05b7db1314d8bf467960023ac2993afd2f37d7afc02baa0dc049bc23bd" => :high_sierra
-    sha256 "93d5bb128dd6b4dcf125892b006c6ddb84a7397e9900947d61360a9f4850c603" => :sierra
-    sha256 "51ca1c9c2b0971d44516618f55eb4f3e8bdb20879ef4d5785b6f7ad7ddbf78f9" => :el_capitan
-    sha256 "ce3477d419a497f6f461c022d3311859cc0e2a0bc326713848fda52a0ad2146f" => :x86_64_linux
+    sha256 "7feb0a9b1e704a3ea7d16cba1909905e6e288aba70fa47aef6ddf1edfb24b3ca" => :high_sierra
+    sha256 "d78ca97f60ed1564468ca018d631932000d941b867a4c24a79d0f1fc67166b64" => :sierra
+    sha256 "77efa082d4e876ff7756868f8fa95240a4ed88c044252aa6e8b1768073416b70" => :el_capitan
   end
 
   option "without-docs", "Don't build man pages"
