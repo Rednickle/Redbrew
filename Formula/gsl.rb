@@ -10,6 +10,7 @@ class Gsl < Formula
     sha256 "a11e16ee61294794105faf42908ae1547617c822b19edca88a627917feb87f28" => :high_sierra
     sha256 "79ad420d6c495d16a7a3ed57c5a5000dcd4f77cb98af27b3eb6c21e1a748a451" => :sierra
     sha256 "af4c116bf27bc4880d85d1a50c62ba435e2a9bfae0b6a7f2a09f974791a91408" => :el_capitan
+    sha256 "246a1687e0bf4631bc6d4556061a5bf0704ec38582912de76b8914bf4bfe571f" => :x86_64_linux
   end
 
   def install
