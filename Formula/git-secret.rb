@@ -20,6 +20,7 @@ class GitSecret < Formula
     sha256 "397fe1116f278a2a49fc864fc6a1f0bf2b6b7f872b0c5be146b9fc6cfe15821a" => :high_sierra
     sha256 "397fe1116f278a2a49fc864fc6a1f0bf2b6b7f872b0c5be146b9fc6cfe15821a" => :sierra
     sha256 "397fe1116f278a2a49fc864fc6a1f0bf2b6b7f872b0c5be146b9fc6cfe15821a" => :el_capitan
+    sha256 "938994c2b65c14e3f2ff514957b7006227fbf8935d9d957d6f54a8fdbf2ee47f" => :x86_64_linux
   end
 
   depends_on "gawk"
