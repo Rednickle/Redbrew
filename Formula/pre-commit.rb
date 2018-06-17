@@ -5,13 +5,13 @@ class PreCommit < Formula
   homepage "https://pre-commit.com/"
   url "https://github.com/pre-commit/pre-commit/archive/v1.10.2.tar.gz"
   sha256 "3c29668fa8fd1f9d83491c09351c408e403484e3fb114f6a220c5f4e9b60c6d4"
+  revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b6e04f836772de16c6af6ff7293af20d3831221be2334652e7e15521564697f0" => :high_sierra
-    sha256 "473841c8d20a1490bff8a60ee184aa457e3313eb949901959d771c63cd14108f" => :sierra
-    sha256 "ad5669fd58440dfac6a8641d9e08116b961a6c4d81631f7acee3726016f02037" => :el_capitan
-    sha256 "1d582340781275a9c313035d80786d279f49857977bd461f236bf504c006c3c2" => :x86_64_linux
+    cellar :any
+    sha256 "607a6b5aa199287b215be5f29127acc00d7bc1b372f79f9e95142ee7306bfec2" => :high_sierra
+    sha256 "d89cefcad7b5f52c6b4435d088e3bed97e40972bb9e8e5e615463f305449c69f" => :sierra
+    sha256 "43833bc39e8e64db8593d1ebd5c81475ebb65c3ff8c2d7489aff57afd2f24c62" => :el_capitan
   end
 
   depends_on "python"

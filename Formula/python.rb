@@ -3,12 +3,12 @@ class Python < Formula
   homepage "https://www.python.org/"
   url "https://www.python.org/ftp/python/3.6.5/Python-3.6.5.tar.xz"
   sha256 "f434053ba1b5c8a5cc597e966ead3c5143012af827fd3f0697d21450bb8d87a6"
+  revision 1
+
   bottle do
-    rebuild 1
-    sha256 "7e0fc1b078b51d9478ab08660d5df01611976a7af0f6c24054bda58264bb506c" => :high_sierra
-    sha256 "2fe5ca9be0f1596798927c4aa1d4d187ca7f83adc4681483cec2cc52d7c95386" => :sierra
-    sha256 "bccf50de973644608af29652f2660124d033f3213d422fe44a7f012a47643a95" => :el_capitan
-    sha256 "9039d65b47b59af13e4de149a030caeb568267bdc9f7ff1387fc0e6a30d519d8" => :x86_64_linux
+    sha256 "1bc5a2d3f0a8602bf2f46de7c43fcb6dde4f110c0f4518d4e802cb1f733a43de" => :high_sierra
+    sha256 "131d39120ac6ca2f21bf231de7414c08916cea472bc5219e0bcb49541f77cb9f" => :sierra
+    sha256 "b2584ea6f16c47fe3795745e9cae5a7762f750aa78c15cbe14736dcd2602b755" => :el_capitan
   end
 
   devel do
@@ -49,8 +49,8 @@ class Python < Formula
   skip_clean "bin/easy_install3", "bin/easy_install-3.4", "bin/easy_install-3.5", "bin/easy_install-3.6"
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/72/c2/c09362ab29338413ab687b47dab03bab4a792e2bbb727a1eb5e0a88e3b86/setuptools-39.0.1.zip"
-    sha256 "bec7badf0f60e7fc8153fac47836edc41b74e5d541d7692e614e635720d6a7c7"
+    url "https://files.pythonhosted.org/packages/1a/04/d6f1159feaccdfc508517dba1929eb93a2854de729fa68da9d5c6b48fa00/setuptools-39.2.0.zip"
+    sha256 "f7cddbb5f5c640311eb00eab6e849f7701fa70bf6a183fc8a2c33dd1d1672fb2"
   end
 
   resource "pip" do
@@ -59,8 +59,8 @@ class Python < Formula
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/5d/c1/45947333669b31bc6b4933308dd07c2aa2fedcec0a95b14eedae993bd449/wheel-0.31.0.tar.gz"
-    sha256 "1ae8153bed701cb062913b72429bcf854ba824f973735427681882a688cb55ce"
+    url "https://files.pythonhosted.org/packages/2a/fb/aefe5d5dbc3f4fe1e815bcdb05cbaab19744d201bbc9b59cfa06ec7fc789/wheel-0.31.1.tar.gz"
+    sha256 "0a2e54558a0628f2145d2fc822137e322412115173e8a2ddbe1c9024338ae83c"
   end
 
   fails_with :clang do
