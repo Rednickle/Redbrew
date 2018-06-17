@@ -1,13 +1,14 @@
 class Bitcoin < Formula
   desc "Decentralized, peer to peer payment network"
   homepage "https://bitcoin.org/"
-  url "https://bitcoin.org/bin/bitcoin-core-0.16.0/bitcoin-0.16.0.tar.gz"
-  sha256 "8cbec0397d932cab7297a8c23c918392f6eebd410646b4b954787de9f4a3ee40"
-  revision 2
+  url "https://bitcoin.org/bin/bitcoin-core-0.16.1/bitcoin-0.16.1.tar.gz"
+  sha256 "69b49ff2e3372d9342338f9f5c367b1ae03b57b4ae7fd6d71d8de5e847ba78fe"
 
   bottle do
     cellar :any
-    sha256 "bb289643030658910e8feebf403d70b93b2a81c3229db2382fed30930506b468" => :x86_64_linux
+    sha256 "7eff6f76c7990a52faa4cb0a7be82037402f9f81940c7c200bed4a20d41f5fce" => :high_sierra
+    sha256 "f5ea06ad7c73fcc1edf4e184c0e363e1c6fc7b2d1a552df0f531aa99c3ebed17" => :sierra
+    sha256 "32923829ea8992ab174490e839b16b283d391a3426d95b00a6f7d31a6f7fbd9f" => :el_capitan
   end
 
   head do
