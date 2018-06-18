@@ -8,6 +8,7 @@ class Tectonic < Formula
     sha256 "f5d4fe9a2041a90987912e79ad4b9b5c7c4a611dd17497dbff29e66c44b287b6" => :high_sierra
     sha256 "00737c34d87b0263dd6d2dc99ac45f26f4c6c73c0e54a41fdb0fc3a7a4ab8b77" => :sierra
     sha256 "e47a92175826f4d9fd37fc94e840945cec76c1cc866aec681921da89cba44807" => :el_capitan
+    sha256 "e6f1204de986bfbce0fb22b8e51612464a57bc2afb9520e722766233bb80e664" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
