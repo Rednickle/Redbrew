@@ -11,6 +11,7 @@ class Seqtk < Formula
     sha256 "4f377caf93e5d334e739375a5dcf06782f1d85516988a26df3f8f53d172b1e6f" => :high_sierra
     sha256 "fd3ecced5ba8f5a9eab13f8f2184f6a69d08b58c1ef53ad6e74bb45cab9324f4" => :sierra
     sha256 "55541e7e9249ef15bd4423ad9a45903918c2b4b54f632bc0472fb24aee683701" => :el_capitan
+    sha256 "209ca284bed07359cdc9a934f9892bb3e61d0eeb8368b93c500fb6dda55128c1" => :x86_64_linux
   end
 
   def install
