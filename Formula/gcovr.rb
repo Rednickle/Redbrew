@@ -10,6 +10,7 @@ class Gcovr < Formula
     sha256 "59df642ddfc6f02b6b7d016b5981d052993810172ffd6c40b762b4b29f2cc945" => :high_sierra
     sha256 "d7af2533c0368f4b09171804c04e482dcb275bc733192dbb7ae614a65190ffc0" => :sierra
     sha256 "7a763937433619fc56d1a44f20ff21ac509a04da217b211743d0299e49f6d510" => :el_capitan
+    sha256 "d7afe0aaf954a8b7f528f32a25542d6b181f11e3714593961958442dec359412" => :x86_64_linux
   end
 
   depends_on "python"
