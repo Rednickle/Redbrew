@@ -8,6 +8,7 @@ class Libdazzle < Formula
     sha256 "aa6cfbfd980b8ed482796c1a973d1085dff6afb1c1a4f0615a87e85b8bd6922f" => :high_sierra
     sha256 "34c42565af5fea5f0bf8220723f3b585bfa646868576a70141749b0105fc831b" => :sierra
     sha256 "cb90cbdafaae3b4b3697f744870c972a4393067f378b5ecb0e1ed86c81915cf0" => :el_capitan
+    sha256 "146d9bbfc3582a40e7007cf9b45fe3c0781053b61152c0e2cd5f2fe130038861" => :x86_64_linux
   end
 
   depends_on "gobject-introspection" => :build
