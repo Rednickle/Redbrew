@@ -8,6 +8,7 @@ class Tesseract < Formula
     sha256 "9fd259800c2c9b7c56f2f5b64be234c93019a0c00f8578cf82d45c28726e04ea" => :high_sierra
     sha256 "03335e88190bd7995f4ec721f84c54fa624733fde5af1086825292d287e8e7d6" => :sierra
     sha256 "421fa571e97ff211fb465eca39c4c289b57411867ebc1907818a0c8eac82d7dd" => :el_capitan
+    sha256 "85481200fb601e2885baece0c2389db2e03a43e0e1aed3418113eb44cced8752" => :x86_64_linux
   end
 
   head do
