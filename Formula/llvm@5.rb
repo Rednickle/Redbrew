@@ -27,6 +27,7 @@ class LlvmAT5 < Formula
     sha256 "d76f7ca753dd3464883c0ec21ce6751c7de02b3db9ee4fad19925e5283d902b8" => :high_sierra
     sha256 "a2eb1622d8ff63b6b38f3611ed5c0d9f5a609468d279d90ae10fb583c3388392" => :sierra
     sha256 "d240e166d5116243fce9d518da0167678aaa3b17151be702cdf9d38f57f27e54" => :el_capitan
+    sha256 "ce13973ad49693b268f9a06ae99c9a247abef76d146028b693295c799529fc0c" => :x86_64_linux
   end
 
   pour_bottle? do
