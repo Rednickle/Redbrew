@@ -6,21 +6,22 @@ end
 class CrystalLang < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
+  revision 1
 
   stable do
     url "https://github.com/crystal-lang/crystal/archive/0.25.0.tar.gz"
     sha256 "78cc53289bd983598133f8b789d95e01fad0bc95b512d7ccf60e33e36710ddde"
 
     resource "shards" do
-      url "https://github.com/crystal-lang/shards/archive/v0.8.0.tar.gz"
-      sha256 "7758bf3bf49cbb221456fc8a0fc1f78e4c9ef5e8b226615b03569b7e684f660b"
+      url "https://github.com/crystal-lang/shards/archive/v0.8.1.tar.gz"
+      sha256 "75c74ab6acf2d5c59f61a7efd3bbc3c4b1d65217f910340cb818ebf5233207a5"
     end
   end
 
   bottle do
-    sha256 "ade098725e31bc9dfac2c8e5fab1a79c66a9840eecba299c1c2e6f92734733f2" => :high_sierra
-    sha256 "78dcc889306ea55f0d5345088039b679e8a14d12e5c2d3427c73661041e40340" => :sierra
-    sha256 "cbb3c5d3a1fe460909783d13ddc682a60a5d1db9717375bc42143d7a9b649c7d" => :el_capitan
+    sha256 "5331928212087fad6434ec46031d1d5a7bbca583943e726ae2a1e119637b4337" => :high_sierra
+    sha256 "28f29b34da9ab7b9d47873fe72cb910879aa68b14f3a2cedd95d22d98d63ad92" => :sierra
+    sha256 "26b09b77b78d71a6d4b74cf28cb1890976124fe4f315dc6f3522f28b6d1b252b" => :el_capitan
   end
 
   head do
