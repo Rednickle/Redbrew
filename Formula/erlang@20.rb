@@ -1,22 +1,19 @@
-class CIRequirement < Requirement
-  fatal true
-  satisfy { ENV["CIRCLECI"].nil? && ENV["TRAVIS"].nil? }
-end
-
-class Erlang < Formula
+class ErlangAT20 < Formula
   desc "Programming language for highly scalable real-time systems"
-  homepage "http://www.erlang.org/"
+  homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/archive/OTP-21.0.tar.gz"
-  sha256 "5a2d8e33c39a78a2dcc0c39bf9d2dfdf2974f0fad28385b4ede020a2321d643f"
-  head "https://github.com/erlang/otp.git"
+  url "https://github.com/erlang/otp/archive/OTP-20.3.8.tar.gz"
+  sha256 "a7e59c531605fbd19ceac0568ae81c89ec690449e861da6e3598399f9c4b747f"
+  head "https://github.com/erlang/otp.git", :branch => "maint-20"
 
   bottle do
     cellar :any
-    sha256 "ce3a7ebbbecb30a8e00becbe5ee9bd1d0eac42bbbe76eb48d28af6ef393b97f9" => :high_sierra
-    sha256 "02b1e1ab3246636bde3fe7e4f4c1b1ac2057240161318b27fad18097748aaf19" => :sierra
-    sha256 "4cc3d15970a4c4cc056f881456a214f7dd36ac147bd84d4f5204e343a8f21144" => :el_capitan
+    sha256 "464a98017adbd4844758bfd92b1d3da9063cf5cc1e8f23dac82b5899061706f7" => :high_sierra
+    sha256 "12bf29a03acb9846e87b02ab4bbf62de807261cf40902830cf73f419a3ebebb8" => :sierra
+    sha256 "832f4ac79623820c5d6de4b007f09e649a830edcd4dda8394f471205e23b1ada" => :el_capitan
   end
+
+  keg_only :versioned_formula
 
   option "without-hipe", "Disable building hipe; fails on various macOS systems"
   option "with-native-libs", "Enable native library compilation"
@@ -34,18 +31,17 @@ class Erlang < Formula
   depends_on "fop" => :optional # enables building PDF docs
   depends_on :java => :optional
   depends_on "wxmac" => :recommended # for GUI apps like observer
-  depends_on CIRequirement
 
   resource "man" do
-    url "https://www.erlang.org/download/otp_doc_man_21.0.tar.gz"
-    mirror "https://fossies.org/linux/misc/otp_doc_man_21.0.tar.gz"
-    sha256 "10bf0e44b97ee8320c4868d5a4259c49d4d2a74e9c48583735ae0401f010fb31"
+    url "https://www.erlang.org/download/otp_doc_man_20.3.tar.gz"
+    mirror "https://fossies.org/linux/misc/legacy/otp_doc_man_20.3.tar.gz"
+    sha256 "17e0b2f94f11576a12526614a906ecad629b8804c25e6c18523f7c4346607112"
   end
 
   resource "html" do
-    url "https://www.erlang.org/download/otp_doc_html_21.0.tar.gz"
-    mirror "https://fossies.org/linux/misc/otp_doc_html_21.0.tar.gz"
-    sha256 "fcc10885e8bf2eef14f7d6e150c34eeccf3fcf29c19e457b4fb8c203e57e153c"
+    url "https://www.erlang.org/download/otp_doc_html_20.3.tar.gz"
+    mirror "https://fossies.org/linux/misc/legacy/otp_doc_html_20.3.tar.gz"
+    sha256 "8099b62e9fa24b3f90eaeda151fa23ae729c8297e7d3fd8adaca865b35a3125d"
   end
 
   def install
@@ -62,6 +58,7 @@ class Erlang < Formula
       --disable-debug
       --disable-silent-rules
       --prefix=#{prefix}
+      --enable-kernel-poll
       --enable-threads
       --enable-sctp
       --enable-dynamic-ssl-lib
@@ -70,12 +67,11 @@ class Erlang < Formula
       --enable-smp-support
     ]
 
-    args << "--enable-darwin-64bit" if MacOS.prefer_64_bit? && OS.mac?
+    args << "--enable-darwin-64bit" if MacOS.prefer_64_bit?
     args << "--enable-native-libs" if build.with? "native-libs"
     args << "--enable-dirty-schedulers" if build.with? "dirty-schedulers"
     args << "--enable-wx" if build.with? "wxmac"
-    args << "--with-dynamic-trace=dtrace" if MacOS::CLT.installed? && OS.mac?
-    args << "--enable-kernel-poll" if MacOS.version > :el_capitan
+    args << "--with-dynamic-trace=dtrace" if MacOS::CLT.installed?
 
     if build.without? "hipe"
       # HIPE doesn't strike me as that reliable on macOS
