@@ -3,25 +3,15 @@ class WireguardTools < Formula
   homepage "https://www.wireguard.com/"
   # Please only update version when the tools have been modified/updated,
   # since the Linux module aspect isn't of utility for us.
+  url "https://git.zx2c4.com/WireGuard/snapshot/WireGuard-0.0.20180620.tar.xz"
+  sha256 "b4db98ea751c8e667454f98ea1c15d704a784fe1bc093b03bd64575418a7c242"
   head "https://git.zx2c4.com/WireGuard", :using => :git
-
-  stable do
-    url "https://git.zx2c4.com/WireGuard/snapshot/WireGuard-0.0.20180613.tar.xz"
-    sha256 "c120cdedc3967dcb4ad5c1c7eadd2a1b04ef5dbf2fe60cc8e7c0db337bcda7dc"
-
-    # Remove for > 0.0.20180613
-    # Upstream commit from 14 Jun 2018 "tools: getentropy requires 10.12"
-    patch do
-      url "https://git.zx2c4.com/WireGuard/patch/?id=5bb62fe22f45b5b5deef4db23ae47c95e1679d1d"
-      sha256 "a057926e50f4981857a9c07905d5c0488588e88b9f0a8f20d236a83a39150901"
-    end
-  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "badb757ab64fe6e9401d456e56fe77c81c872b6f0028e0a8877995c70ee1a669" => :high_sierra
-    sha256 "5c17882918d28516d4af8727b3599ce238d792ea817e7ab9c444f1d2e231818a" => :sierra
-    sha256 "8d136e3ec22bd16d80e5d2031491b2ea198b5b2661f1bd3e20ef5895781d3a2f" => :el_capitan
+    sha256 "4f2a87ee624c60e9fcaad8c6ac8e824ce53e4cc873642ca0834e03cc61d6cab5" => :high_sierra
+    sha256 "7bfac6fecb9548fc1650f0312023de4b1b9812f751aff44de58d5bb925c64432" => :sierra
+    sha256 "bb0c1487e2e02892df04339073e90bc86f432cd2d10ec9e5cf5df86042f5b39e" => :el_capitan
   end
 
   depends_on "bash"
