@@ -12,6 +12,7 @@ class Quicktype < Formula
     sha256 "44cee1135f105a24d31d6a9ac26c96d8a24a53092ee0d7d42438ed68b2898fb7" => :high_sierra
     sha256 "5f23eaa7528f620b51511faa9b73436b55b334571887b3113a5c04af384d4ab3" => :sierra
     sha256 "55bd2677d02d859d5258336e22ebf2a64789114c8281f8fdc082374643039f7d" => :el_capitan
+    sha256 "38ef4a829a28bba26906a69f9a23fbc41c93781886a2ff4563efb9e2a895fb13" => :x86_64_linux
   end
 
   depends_on "node"
