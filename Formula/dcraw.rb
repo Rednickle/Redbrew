@@ -10,6 +10,7 @@ class Dcraw < Formula
     sha256 "21f31347e500f314a1f2e6fe03f0d6009b25fa5bd9f1f339b0fe77fc38050e81" => :high_sierra
     sha256 "dc99d6de1166a3f4fa66d23b798dad9a58e0fac24f72c02ab38ea32e74b30a9e" => :sierra
     sha256 "022f85e8da7b4cd8c68d7251d39bf3084ec28a15cb859d9cfe49bd439e312466" => :el_capitan
+    sha256 "3c8ab286691825d083271820ab48336b8456d5effa2fa3b4efe7f82ee17a16f8" => :x86_64_linux
   end
 
   depends_on "jpeg"
