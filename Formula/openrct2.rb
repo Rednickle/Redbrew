@@ -3,11 +3,12 @@ class Openrct2 < Formula
   homepage "https://openrct2.io/"
   url "https://github.com/OpenRCT2/OpenRCT2/archive/v0.2.0.tar.gz"
   sha256 "bff3fcc728765b51d2498e685e2a7f28e2c1a830691fd2c3ea5dd82354962bfb"
+  revision 1
   head "https://github.com/OpenRCT2/OpenRCT2.git", :branch => "develop"
 
   bottle do
     cellar :any
-    sha256 "9317c5dd65d45e0e0dd1ac6f5041989c2fac049f56a3ce471879df810a29d477" => :high_sierra
+    sha256 "f5b6701b30559683fa7681ad6675bd594007995a0f7aa708d6aac919df07f25b" => :high_sierra
   end
 
   depends_on "cmake" => :build
