@@ -1,21 +1,27 @@
 class Unp64 < Formula
   desc "Generic C64 prg unpacker,"
   homepage "http://iancoog.altervista.org/"
-  url "http://iancoog.altervista.org/C/unp64_234.7z"
-  version "2.34"
-  sha256 "86968afaa13b6c17fac7577041d5e3f3cc51cb534d818b5f360fddf41a05eaad"
+  url "http://iancoog.altervista.org/C/unp64_235.7z"
+  version "2.35"
+  sha256 "1a0561273aae7e41843197a0c04d7bfbfbb21480a24dcff88ecf7d0e2c2dda3f"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cb2f615c3909bbf88db626681db7b07c22f94c72bb51a9dbb9ddc8b37c117202" => :high_sierra
-    sha256 "f5ad308ae7daacc0419de6e9f131f78431b07a63a882078c7deded097065d4ff" => :sierra
-    sha256 "730e5e71632110da2e1220001c63b86e29a302cb2ed2762f988625f4afa9722f" => :el_capitan
-    sha256 "9d1195ec62de8281fa39be044724a882363f51c4ea23bd8515b0c92016d52ab7" => :x86_64_linux
+    sha256 "d557f1d75c5b5b1f68c0e088b88a55bd20d7a71110a7090570549602f81374e5" => :high_sierra
+    sha256 "7287c0bb661bf779b8fd564f372e09a020d2f9d41c39374e83b877aada641ab0" => :sierra
+    sha256 "3069407419e7b348c90f2001fb54671f2b145ed09c7a77eb4cf6a0599fb491ac" => :el_capitan
   end
 
   def install
-    system "make", "-C", "unp64_234/src", "unp64"
-    bin.install "unp64_234/src/Release/unp64"
+    cd Dir["unp64_*/src"].first do
+      # Fix "error: invalid suffix '-0x80d' on integer constant"
+      # Reported upstream 22 Jun 2018 to iancoog AT alice DOT it
+      inreplace "scanners/SledgeHammer.c", "(mem+0x80e-0x80d+p)",
+                                           "(mem + 0x80e - 0x80d + p)"
+
+      system "make", "unp64"
+      bin.install "Release/unp64"
+    end
   end
 
   test do
