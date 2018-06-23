@@ -3,8 +3,8 @@ class Rust < Formula
   homepage "https://www.rust-lang.org/"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.26.2-src.tar.gz"
-    sha256 "fb9ecf304488c9b56600ab20cfd1937482057f7e5db7899fddb86e0774548700"
+    url "https://static.rust-lang.org/dist/rustc-1.27.0-src.tar.gz"
+    sha256 "2cb9803f690349c9fd429564d909ddd4676c68dc48b670b8ddf797c2613e2d21"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
@@ -19,10 +19,9 @@ class Rust < Formula
   end
 
   bottle do
-    sha256 "7fc1822dfcc4f1d91c42cc784561e2c11322edd4d502a0a448460f823f9f2154" => :high_sierra
-    sha256 "f91e3445af8656a9e257314e493ab52f8b46a0d5eb887098cc40128907e34581" => :sierra
-    sha256 "e059c7a87460b42901d63eebb3293f7730719a3174fffc6ec3ebc16360fd1fc9" => :el_capitan
-    sha256 "0069000171abc6fe8910898bcb6b8d515f2dc519206bd0fa9b22f1e19b477a8b" => :x86_64_linux
+    sha256 "fc3dd655539149da38e351fd2f8bd5608a55d25c546bd87c8983346ff8b32568" => :high_sierra
+    sha256 "9d91681309cce40845d8c20d97ed2fa9ab0f4ecc7d015c33907abab7d5fa8643" => :sierra
+    sha256 "eafee2b64ed79f94c04fb46e394ff84e68f60cc89ef6036f81bef5ca041d6aac" => :el_capitan
   end
 
   head do
@@ -64,12 +63,12 @@ class Rust < Formula
   resource "cargobootstrap" do
     if OS.mac?
       # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
-      url "https://static.rust-lang.org/dist/2018-03-29/cargo-0.26.0-x86_64-apple-darwin.tar.gz"
-      sha256 "cab6adf58e9dea7ac217b1882312eff3487005cf32dcde099327669aac6e37de"
+      url "https://static.rust-lang.org/dist/2018-05-10/cargo-0.27.0-x86_64-apple-darwin.tar.gz"
+      sha256 "5a21a7569a67b9d06442063a1b4c2c2e42279e3d67f843ea77df647d87937eb5"
     elsif OS.linux?
       # From: https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
-      url "https://static.rust-lang.org/dist/2018-03-29/cargo-0.26.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "9ba227f2364f618dc9415dacf3a5dce17458e1cb9f6d4fe860416cb68db894e4"
+      url "https://static.rust-lang.org/dist/2018-05-10/cargo-0.27.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "f50b64a7610401f4c1afe21de238663f33c621b7fc42c51401090ebd48e69fec"
     end
   end
 
