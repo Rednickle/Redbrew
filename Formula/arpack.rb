@@ -1,15 +1,14 @@
 class Arpack < Formula
   desc "Routines to solve large scale eigenvalue problems"
   homepage "https://github.com/opencollab/arpack-ng"
-  url "https://github.com/opencollab/arpack-ng/archive/3.6.0.tar.gz"
-  sha256 "3c88e74cc10bba81dc2c72c4f5fff38a800beebaa0b4c64d321c28c9203b37ea"
+  url "https://github.com/opencollab/arpack-ng/archive/3.6.1.tar.gz"
+  sha256 "c753f929d3f1092d84bb0883a8ffe2551a8cb94d5ab891e63f596a876e44c351"
   head "https://github.com/opencollab/arpack-ng.git"
 
   bottle do
-    sha256 "3a9e865b2c3f78e307d5652a4ee8a6c57671c09f9099f870711b1609ccfa362e" => :high_sierra
-    sha256 "d9c6fb5dde09005ce6ac633d38c781fc5853696b4c3bbdc32631c106ad9c3db8" => :sierra
-    sha256 "f55010de5857a69507cde6348a6b4e407cbc0829c853b9f6d22ec4f4003d3548" => :el_capitan
-    sha256 "3f28fd1d62524c334a3b067abf890a910f9c92e4b8155303ae4a3d4ba47a5aff" => :x86_64_linux
+    sha256 "4b197f6e47b233c9674ca7a46871096142f187677e22c9dff627a8cdcbb3d370" => :high_sierra
+    sha256 "35b0aa89b21b81d55568b7ab1adbff0c3e22029abcfe13c62722f9d549f62f48" => :sierra
+    sha256 "68f38c961ae168d4e61e6693bddcf37b02fc7860e32c95dddc45e24ab58a0bb6" => :el_capitan
   end
 
   option "with-mpi", "Enable parallel support"
@@ -44,7 +43,7 @@ class Arpack < Formula
     lib.install_symlink Dir["#{libexec}/lib/*"].select { |f| File.file?(f) }
     (lib/"pkgconfig").install_symlink Dir["#{libexec}/lib/pkgconfig/*"]
     pkgshare.install "TESTS/testA.mtx", "TESTS/dnsimp.f",
-                     "TESTS/mmio.f", "TESTS/debug.h"
+                     "TESTS/mmio.f", "TESTS/debug-arpack.h"
 
     if build.with? "mpi"
       (libexec/"bin").install (buildpath/"PARPACK/EXAMPLES/MPI").children
