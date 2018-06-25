@@ -9,6 +9,7 @@ class NestopiaUe < Formula
     sha256 "2be015b071a5d17bd3a28aa2348949eeb91659c94efa12226adff66e8934356d" => :high_sierra
     sha256 "148a7754f387640b112f447327d23322e9d43b938d7aba9a584c311850fc284c" => :sierra
     sha256 "43b5dd65950c2bf19aebbb77f307e96933557597379b83023fd3914a26d4666c" => :el_capitan
+    sha256 "c7aef8b738643576583a50e31f4a574890c05c8d0f092204cab89c7012b605cd" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
