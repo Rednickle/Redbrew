@@ -8,6 +8,7 @@ class Eprover < Formula
     sha256 "25b002f9ebea09a19061dc34ecdf9df013c8e2dc10a591cfa52a35a817702c79" => :high_sierra
     sha256 "3bc21a8ded282e64ee8ed8062eec514133af36d2418e18f7821c4c678e288b54" => :sierra
     sha256 "3c91a8bc24e98889448a78fdccc888d5f6489a9715e903b255026b11dd5ff1b7" => :el_capitan
+    sha256 "68a109306a7f94674710c00c4723b5a5be50337f55e8309bd2c261b45eab6a46" => :x86_64_linux
   end
 
   def install
