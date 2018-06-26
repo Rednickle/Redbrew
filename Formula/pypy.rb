@@ -11,6 +11,7 @@ class Pypy < Formula
     sha256 "6dcfb7237a5e140e1553ed17765e831d9011ab9b94cab7ef17afe03b5ff73843" => :high_sierra
     sha256 "0ed2c2f9624ca5bbd48bc730378304ddfc22838edeb566c461ce574deba311df" => :sierra
     sha256 "639304dfa0d74fef27ad2566ececf3514288a87e471fb5f147ae4726c0a1f798" => :el_capitan
+    sha256 "df6ac843ffb7984d098421861033c50d24f1462e5a1494f66cb0ca50a5a8fd2c" => :x86_64_linux
   end
 
   option "without-bootstrap", "Translate Pypy with system Python instead of " \
