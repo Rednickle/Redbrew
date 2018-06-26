@@ -10,6 +10,7 @@ class RebarAT3 < Formula
     sha256 "93810f629b55e7bb96b63596b98aa1914c0d06091c988af2b03a7ea33ee74fe8" => :high_sierra
     sha256 "f6316f92f20c6a266c412ac49ec731743f7b43afecc44939049802c45ebee4e4" => :sierra
     sha256 "461a1ba52650feef1ed4ef6d831cfacc752b126298565ac6b469d067740b7e3b" => :el_capitan
+    sha256 "78680b3b323a3bfc01838fe47ad9e967ed4c05a54a99046edc9bd44f30305523" => :x86_64_linux
   end
 
   depends_on "erlang"
