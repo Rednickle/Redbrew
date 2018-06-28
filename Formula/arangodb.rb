@@ -1,14 +1,14 @@
 class Arangodb < Formula
   desc "The Multi-Model NoSQL Database"
   homepage "https://www.arangodb.com/"
-  url "https://download.arangodb.com/Source/ArangoDB-3.3.10.tar.gz"
-  sha256 "6facc491cb5469e4c04ca8157484adf9f93e2e092b7aaf1deb5ee4278ab38a0e"
+  url "https://download.arangodb.com/Source/ArangoDB-3.3.11.tar.gz"
+  sha256 "b23c2d9da3bcf4d5ee5b58a4651228152576345da71ca723da82befc3282a3ed"
   head "https://github.com/arangodb/arangodb.git", :branch => "unstable"
 
   bottle do
-    sha256 "eb756d602a258ccf439d30058064eaaa9936d41b80d0338673ea4fa82e6bfd15" => :high_sierra
-    sha256 "b222d60afb8a83d001f9da59b59943bc568ebb083127b9b1ac4d84d205bd19cc" => :sierra
-    sha256 "81d57bea1d8e64d824067924609e6305e7cd46d630170206cb49d11d13cf897c" => :el_capitan
+    sha256 "b6427dee8e790a0bf2af8735061293efa13093bef1a992a7bf52835b7d1bd305" => :high_sierra
+    sha256 "cba6dab4e1e6d4b788c605590e1e901324805f64dc66504c8688fddaa205927a" => :sierra
+    sha256 "6047b3f19b4d296470a55d00e9c35002c9afcbcd747a66ca79d79ea5a9cf9e9c" => :el_capitan
   end
 
   depends_on :macos => :yosemite

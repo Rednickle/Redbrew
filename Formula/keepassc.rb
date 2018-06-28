@@ -1,14 +1,14 @@
 class Keepassc < Formula
   desc "Curses-based password manager for KeePass v.1.x and KeePassX"
   homepage "https://raymontag.github.com/keepassc/"
-  url "https://files.pythonhosted.org/packages/ca/02/30e92fccd9b26f02782b36cffc4cb3a3ff824b23ad4a598b624958fe676e/keepassc-1.8.1.tar.gz"
-  sha256 "9724a26cd4a32ac4587a26ea7d5406bbc48c9703617eba16772ab43c272d7c12"
+  url "https://files.pythonhosted.org/packages/c8/87/a7d40d4a884039e9c967fb2289aa2aefe7165110a425c4fb74ea758e9074/keepassc-1.8.2.tar.gz"
+  sha256 "2e1fc6ccd5325c6f745f2d0a3bb2be26851b90d2095402dd1481a5c197a7b24e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c030cfcf3fdfef7addeed45b239dcfbbcaf13346d0020ebdf787611cabb6ce06" => :high_sierra
-    sha256 "828d015d7b090d70b3792ac02c4479c681a9716067e497969a993b23ccd04221" => :sierra
-    sha256 "1b1ababee30bca896679d79fc717605aa148ee6ccb7b0c28ec98992523686381" => :el_capitan
+    sha256 "80422223a8d5011e6d2b94f76139ee2f6f5c5058380db593894f9122e8c0cc34" => :high_sierra
+    sha256 "0a63a18a1f8468ba85f97bafe9f1ecca42faef5c31dfe8e0f0c5c821e7c387eb" => :sierra
+    sha256 "b52b9a7089b4bbcc11d4acd0c30060614a3906363de95553699614ce5a7f8d73" => :el_capitan
   end
 
   depends_on "python"
@@ -19,8 +19,8 @@ class Keepassc < Formula
   end
 
   resource "pycryptodomex" do
-    url "https://files.pythonhosted.org/packages/6a/c4/21d55c2bf30995847406cb1a737d4ae5e19615eca39c9258f0548b5656f1/pycryptodomex-3.6.1.tar.gz"
-    sha256 "82b758f870c8dd859f9b58bc9cff007403b68742f9e0376e2cbd8aa2ad3baa83"
+    url "https://files.pythonhosted.org/packages/e6/5a/cf2bd33574f8f8711bad12baee7ef5c9c53a09c338cec241abfc0ba0cf63/pycryptodomex-3.6.3.tar.gz"
+    sha256 "008ad82b8fdd1532dd32a0e0e4204af8e4710fc3d2a76e408cbdb3dddf4f8417"
   end
 
   def install
