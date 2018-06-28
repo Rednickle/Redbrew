@@ -1,16 +1,16 @@
 class Sratoolkit < Formula
   desc "Data tools for INSDC Sequence Read Archive"
   homepage "https://github.com/ncbi/sra-tools"
-  url "https://github.com/ncbi/sra-tools/archive/2.9.1.tar.gz"
-  sha256 "61f35be7e26cb538a93b8e7e0afd6bc593e97333638dc0de176a6a828b9b504e"
+  url "https://github.com/ncbi/sra-tools/archive/2.9.1-1.tar.gz"
+  version "2.9.1-1"
+  sha256 "561dea9bb00f76a6f9a65cb20d6794379353d02a9e33b0db4f10eb38a42465db"
   head "https://github.com/ncbi/sra-tools.git"
 
   bottle do
     cellar :any
-    sha256 "b633b23da5cceda972e54edad82310b51cea5974cfa254d9f472d73ab32ea103" => :high_sierra
-    sha256 "bf01cf629dfff991ea0120ba71b223aff9d2b06e554fda2fb0ea086f0cda58fd" => :sierra
-    sha256 "db7fd18c4521d867a0e92ae48ae32b4abed0e80ae39c7b14368775166bb73a27" => :el_capitan
-    sha256 "294d25c673d99dc73822b9c5a9fc169e6db4dbc39a90d49cb7c7c688f9776510" => :x86_64_linux
+    sha256 "341b131b3985cd604bca8fe4cda0f09184b6e6c744be37b7d36a7ef4708d2a70" => :high_sierra
+    sha256 "0a06b37706ab390130cba0e529ff9ba666b74bd747068b32771fd9484f4080c7" => :sierra
+    sha256 "6e25f614ce455865635ed1a477212a097c7d9d1ccd95aa18a4aa850cdde5c5b8" => :el_capitan
   end
 
   depends_on "hdf5"
@@ -22,8 +22,9 @@ class Sratoolkit < Formula
   end
 
   resource "ncbi-vdb" do
-    url "https://github.com/ncbi/ncbi-vdb/archive/2.9.1.tar.gz"
-    sha256 "ef55c5dac0e9f0f05cfff6c9e56061b72aa034153895990bf2b7daaba8f06739"
+    url "https://github.com/ncbi/ncbi-vdb/archive/2.9.1-1.tar.gz"
+    version "2.9.1-1"
+    sha256 "c1ee7443599d2cedab13eb44af0a2d29a4c3e8bf0130c2a6b34a9aa7016287e4"
   end
 
   def install
