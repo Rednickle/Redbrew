@@ -10,6 +10,7 @@ class Znapzend < Formula
     sha256 "7fca9b0f4b129afbc30bee164b1a73911e4da9e48c4943b1d6e7e8e77a1cec17" => :high_sierra
     sha256 "f12ede845017559f77147ceab275fcbb128f3bdec7a1ff0cd72d54029349a419" => :sierra
     sha256 "d88080d21fd9def227853fc0d08db6bef5a10d0bca74c16c0207f023aabc8d67" => :el_capitan
+    sha256 "2f13a3e8262bc87ef8df19b778c26370d624283b067379b6eea354607858e84c" => :x86_64_linux
   end
 
   depends_on "perl" if MacOS.version <= :mavericks
