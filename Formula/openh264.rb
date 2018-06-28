@@ -10,6 +10,7 @@ class Openh264 < Formula
     sha256 "2af5e6f5ef4dc7dcce2a420c7ed12ed06a252397ee0c24867a738c1b26ca73c5" => :high_sierra
     sha256 "a74aaa0c2ead93b8fbc31c6fd031be257188cd012583311541a2bc8b66dda4b2" => :sierra
     sha256 "ee2db0d05f6f3897fa6ece63a509ac1fffb8f33c7b02f8872af20e69b0e679b0" => :el_capitan
+    sha256 "582b37d4153cb5216ac9ecfebd19556249ad73e5d5c152e85eb3bcc2ab60357c" => :x86_64_linux
   end
 
   depends_on "nasm" => :build
