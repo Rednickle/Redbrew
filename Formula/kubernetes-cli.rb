@@ -2,19 +2,18 @@ class KubernetesCli < Formula
   desc "Kubernetes command-line interface"
   homepage "https://kubernetes.io/"
   url "https://github.com/kubernetes/kubernetes.git",
-      :tag => "v1.10.5",
-      :revision => "32ac1c9073b132b8ba18aa830f46b77dcceb0723"
+      :tag => "v1.11.0",
+      :revision => "91e7b4fd31fcd3d5f436da26c980becec37ceefe"
   head "https://github.com/kubernetes/kubernetes.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f71ea25c336b563e835cff8d91b247f273e78b710e1c6c176c72cc841f0067c5" => :high_sierra
-    sha256 "1ee746bba492acb1c75acfd523aa1d9dac08d5d89871adaddc49ccf7060d668a" => :sierra
-    sha256 "6c387a8bfa4cae7e783b77ec6fb182386821ffbc5661be6ed98ee812ec1d9a28" => :el_capitan
+    sha256 "1253dc4d34ce3ca9ca6a44210a48ce23cf571afebeae4d8d6d38c008b6072e47" => :high_sierra
+    sha256 "b48db64f4e09ec78e879402ff7b7f33982808482888bfc88ad6f1115cc0ede28" => :sierra
+    sha256 "7724805483a70aee1cf1f7bdf8cb0f75f6be121fa971f8953f43f3567930c858" => :el_capitan
   end
 
-  # kubernetes-cli will not support go1.10 until version 1.11.x
-  depends_on "go@1.9" => :build
+  depends_on "go" => :build
   depends_on "rsync" => :build unless OS.mac?
 
   def install
