@@ -1,16 +1,15 @@
 class Znapzend < Formula
   desc "ZFS backup with remote capabilities and mbuffer integration"
   homepage "https://www.znapzend.org/"
-  url "https://github.com/oetiker/znapzend/releases/download/v0.19.0/znapzend-0.19.0.tar.gz"
-  sha256 "fc5c3d6f03daf6ac03b079434f84b1918b777faba54393d7089e14f0b9d27acd"
+  url "https://github.com/oetiker/znapzend/releases/download/v0.19.1/znapzend-0.19.1.tar.gz"
+  sha256 "93e3ec3c6f5cdf6973f72a6b764c49dc6545f2a0a2e0267a1382d471b930efea"
   head "https://github.com/oetiker/znapzend.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c831a9da2c041639003cda93d5d8ca9270115806af14805be19b760cd654d8c1" => :high_sierra
-    sha256 "5a43e9538489018088338386ca07fcce56208df63a89ca634d087a2fa2ad502a" => :sierra
-    sha256 "3121abf2d721ca269094feb9a9b36febafb0f550b82a56ae04a5fc50b6aedbec" => :el_capitan
-    sha256 "0e50d090dd92b334b19192dc2ae495fae9e1ba4f4693c1eaf4d68eb39f1e285b" => :x86_64_linux
+    sha256 "7fca9b0f4b129afbc30bee164b1a73911e4da9e48c4943b1d6e7e8e77a1cec17" => :high_sierra
+    sha256 "f12ede845017559f77147ceab275fcbb128f3bdec7a1ff0cd72d54029349a419" => :sierra
+    sha256 "d88080d21fd9def227853fc0d08db6bef5a10d0bca74c16c0207f023aabc8d67" => :el_capitan
   end
 
   depends_on "perl" if MacOS.version <= :mavericks
