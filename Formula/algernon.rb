@@ -13,6 +13,7 @@ class Algernon < Formula
     sha256 "fdc8f4c140ae81fab0c3440dca7027ba315a2e7fcec11a72aa46c2ba3c58f8d0" => :high_sierra
     sha256 "2f93b502e7c5ca3d9861c1571dc3d33e4c1f5fe0d75ca52a123121f96181994c" => :sierra
     sha256 "2a1e917824d379406288e08b94841bd53315b9200773e308deff095b84553203" => :el_capitan
+    sha256 "ec65dd1703785d497db99f2d35b39b96ecc6b9a503853ff460349805a8816beb" => :x86_64_linux
   end
 
   depends_on "go" => :build
