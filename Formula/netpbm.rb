@@ -13,6 +13,7 @@ class Netpbm < Formula
     sha256 "19c9c04e9b7bf75584fd62982521802ddd73e8ff7ce7c897cda0802090911469" => :high_sierra
     sha256 "3d70d1f884a2403712a5049c90822aaa0eabf1f8d583655238e08e891f958626" => :sierra
     sha256 "c703cfef4c6aee5892cdf276ec131aba6a19854fd7f7b98fda6f62b4b3baa4b8" => :el_capitan
+    sha256 "08b67d1852b3d184b70ca119afa4e6b4824d5703df83946da38ce1a773b63d20" => :x86_64_linux
   end
 
   depends_on "libtiff"
