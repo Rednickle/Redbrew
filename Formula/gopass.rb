@@ -10,6 +10,7 @@ class Gopass < Formula
     sha256 "21354925ae75528e4b828a3bd8576bbfc0b87a5d32f7fba3390239c2195bd93b" => :high_sierra
     sha256 "d3ffc286bdd3aea88c21a34aeba0dcbdb648648ad7c7bae81ef8c5544bbdcb61" => :sierra
     sha256 "ba11c53440e647a9b16bb90722387e408c6d728592a455a1a99d3de71654d91c" => :el_capitan
+    sha256 "cf3ed5c07364a067c40120f6d13b5943508f1e2d426604771d0dd225c83506ab" => :x86_64_linux
   end
 
   depends_on "go" => :build
