@@ -1,15 +1,14 @@
 class Streamlink < Formula
   desc "CLI for extracting streams from various websites to a video player"
   homepage "https://streamlink.github.io/"
-  url "https://github.com/streamlink/streamlink/releases/download/0.14.0/streamlink-0.14.0.tar.gz"
-  sha256 "0b594d4a10d5d2eea340af3878ea0da98ccbbb13515d158301c4582c72ea4e75"
+  url "https://github.com/streamlink/streamlink/releases/download/0.14.2/streamlink-0.14.2.tar.gz"
+  sha256 "a8c7f9a758ade056a35d439f78408e9e43ce1069dde9289d322702d35c214150"
 
   bottle do
     cellar :any
-    sha256 "0e22fdbd1133b0aa4d5c842bb380d2da9e99f25e3b65795498bb36236987219b" => :high_sierra
-    sha256 "c3146655cde43f881918d9255aa78e70504a3a2dedb5d988bce4338eb4befcd7" => :sierra
-    sha256 "46b6619a7fec447df673bf6d925735d92da590a997c8424001122a82b9790f54" => :el_capitan
-    sha256 "390c6a946ab87e98ff81418e0d1495748438ee7714f728895d967b5ae79eb6a7" => :x86_64_linux
+    sha256 "543d62e37f1fbb828e1edd3948ff1023e58c06061f571ff220fe98e3092a3515" => :high_sierra
+    sha256 "a6cf0e91d30505802fad2113d9d2bc09e57d0e344bd1e92ebc7cc04b9e7be9cc" => :sierra
+    sha256 "0490544b830ee79ef680ce6e9b98e50e1181c637dd2713d156714f90bc9320fa" => :el_capitan
   end
 
   depends_on "python@2"
