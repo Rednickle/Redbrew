@@ -2,15 +2,15 @@ class ErlangAT20 < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/archive/OTP-20.3.8.1.tar.gz"
-  sha256 "014a44064d81ef9ce0a1f036e4fbf7402ca3f02b8c592e1aa446090953e338ca"
+  url "https://github.com/erlang/otp/archive/OTP-20.3.8.2.tar.gz"
+  sha256 "49f823b1fffe2c38dca5e7cce3165becc21a8bce4ff4e03f9236e7e39ee27094"
   head "https://github.com/erlang/otp.git", :branch => "maint-20"
 
   bottle do
     cellar :any
-    sha256 "88577c674d14e30c2d1bcd90595992b0eed0c1321ca076b19e30a119d1e6e61b" => :high_sierra
-    sha256 "de2bac29a454b3a9dd24d8487c8cf89077f5c49dfc89ff7b8c8cd8d8ae956c9c" => :sierra
-    sha256 "577805a90874ca92210e6c191851354139cc22017d17234d9b7c43daad7ba6f1" => :el_capitan
+    sha256 "e00757a81df5694cd39000aa00624c3a6aca05b07b336243984ba9b9635f2c6d" => :high_sierra
+    sha256 "ca29071a3294fa1d236b28ee53faec5d56c3a1c407c93c85b90b378d268522fd" => :sierra
+    sha256 "064fed8f8186f6430607541083c3c22292c2ba406cbc6577dfc230748a8d1e51" => :el_capitan
   end
 
   keg_only :versioned_formula
