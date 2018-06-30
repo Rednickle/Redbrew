@@ -6,11 +6,10 @@ end
 class CrystalLang < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
-  revision 1
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/0.25.0.tar.gz"
-    sha256 "78cc53289bd983598133f8b789d95e01fad0bc95b512d7ccf60e33e36710ddde"
+    url "https://github.com/crystal-lang/crystal/archive/0.25.1.tar.gz"
+    sha256 "9b5a7bd2de67ab36cc5430133228a1e656a431fc7d928a37a61109bd8da77fc6"
 
     resource "shards" do
       url "https://github.com/crystal-lang/shards/archive/v0.8.1.tar.gz"
@@ -19,9 +18,9 @@ class CrystalLang < Formula
   end
 
   bottle do
-    sha256 "5331928212087fad6434ec46031d1d5a7bbca583943e726ae2a1e119637b4337" => :high_sierra
-    sha256 "28f29b34da9ab7b9d47873fe72cb910879aa68b14f3a2cedd95d22d98d63ad92" => :sierra
-    sha256 "26b09b77b78d71a6d4b74cf28cb1890976124fe4f315dc6f3522f28b6d1b252b" => :el_capitan
+    sha256 "91dec0830cbb6f707eaaf4fc75476d7d1a119bbaa72033b70209ed4cdd7e1e78" => :high_sierra
+    sha256 "fde9cc0943039016a086859b34ba0ea2fa0ac76f484a1262461989f88aecf372" => :sierra
+    sha256 "ce1829da7a8add5eb250a1dd37586f2ba46cf2bb218258f41e18351e1074a55d" => :el_capitan
   end
 
   head do
@@ -47,17 +46,17 @@ class CrystalLang < Formula
 
   resource "boot" do
     if OS.mac?
-      url "https://github.com/crystal-lang/crystal/releases/download/0.24.2/crystal-0.24.2-1-darwin-x86_64.tar.gz"
-      version "0.24.2"
-      sha256 "05028a6ac8507b27a6dd5153f218deb255778d63ab7b45588cef3d974b5ce8ef"
+      url "https://github.com/crystal-lang/crystal/releases/download/0.25.0/crystal-0.25.0-2-darwin-x86_64.tar.gz"
+      version "0.25.0-2"
+      sha256 "4f538660c097b7e6607df2953f34a6d6a1693e5a984cf4b1b1e77024029dc8fb"
     elsif MacOS.version <= :el_capitan # no clock_gettime
       url "https://github.com/crystal-lang/crystal/releases/download/v0.24.1/crystal-0.24.1-2-darwin-x86_64.tar.gz"
       version "0.24.1"
       sha256 "2be256462f4388cd3bb14b1378ef94d668ab9d870944454e828b4145155428a0"
     else
-      url "https://github.com/crystal-lang/crystal/releases/download/0.24.2/crystal-0.24.2-1-linux-x86_64.tar.gz"
-      version "0.24.2"
-      sha256 "0336324fadaf1ecfac08bebead4dda2546a7efd53054845249aeccd278ccc6f5"
+      url "https://github.com/crystal-lang/crystal/releases/download/0.25.0/crystal-0.25.0-1-linux-x86_64.tar.gz"
+      version "0.25.0-1"
+      sha256 "baa2081dbad6c8645dfa894e7249bb77ca80db7affcbc574857bad6b103000e0"
     end
   end
 
