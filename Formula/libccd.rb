@@ -10,6 +10,7 @@ class Libccd < Formula
     sha256 "16412e782ac7bf2b0b488e495189663b75e04fdd51156c389ff580e7757f55d5" => :high_sierra
     sha256 "0bc8ed0f2e20d71f778dbf23a01fec029685f444eb4c50b9eaf7144ef907126b" => :sierra
     sha256 "506cfff7d53b7ad38174f240d156e46d0a79f336f859e5c8faca03e68b2a850b" => :el_capitan
+    sha256 "cf291f77ffbe054e203cbe289fc964f26d7a89fe45a14ef65e1f128a615300f1" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
