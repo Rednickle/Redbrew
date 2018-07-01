@@ -5,14 +5,14 @@ class Mitmproxy < Formula
   homepage "https://mitmproxy.org"
   url "https://github.com/mitmproxy/mitmproxy/archive/v4.0.3.tar.gz"
   sha256 "e6b6cc33babbe91ab1fe36f6ff1d8a9a8d3dbf966b437eb26e9789eb97dc188f"
+  revision 1
   head "https://github.com/mitmproxy/mitmproxy.git"
 
   bottle do
     cellar :any
-    sha256 "e14a81de469a6b0081fcd48051a4e3917983cfd792c92e140449df4aac69804d" => :high_sierra
-    sha256 "1d76957ef766ca4fa0482690b70673d7aa71641631ad4f2d9c5e0fd93d6cbcf5" => :sierra
-    sha256 "86322f6a79cf8609ba437d13099e3291bb4f8a67487162f9b494e4186f80bcc6" => :el_capitan
-    sha256 "e83f787ad43a535a3664403ac682b303d7c51035f0aa29039f7462e035a848e6" => :x86_64_linux
+    sha256 "faa4c5d841a7e82b3eb0510559797e44b5c3670da2dadb39b22e75a45fd43a9e" => :high_sierra
+    sha256 "4f59edfed01978cdeb9d1ffe518e92bc8e13bc965a207c0ca105878f1c8748b8" => :sierra
+    sha256 "dd3a20c98e1dc4515803b9450de2f0bdbef1d37b0aa71a15aeb4542c6bb46398" => :el_capitan
   end
 
   depends_on "openssl"
@@ -159,6 +159,7 @@ class Mitmproxy < Formula
     ENV["MAKEFLAGS"] = "-j4 -l2.5" if ENV["CIRCLECI"]
 
     venv = virtualenv_create(libexec, "python3")
+    venv.pip_install resource("cffi")
     venv.pip_install resources
     venv.pip_install_and_link buildpath
   end

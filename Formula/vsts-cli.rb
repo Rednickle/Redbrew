@@ -5,13 +5,13 @@ class VstsCli < Formula
   homepage "https://docs.microsoft.com/en-us/cli/vsts"
   url "https://files.pythonhosted.org/packages/91/16/735321002a6940e7b429ce9b5e3c57c734951063ce5b4bfa73ab590cc801/vsts-cli-0.1.1.tar.gz"
   sha256 "35bc769a60693fb7e219144fc76ce7603d8b67f8d2dc0efa32a03140f7ea1298"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "92540d1f2321d5776017df4260a26e6d31cbd6ea762fd389c06e8c629b77e485" => :high_sierra
-    sha256 "e26f76378fe74d84147f313a669c924bf321172fe0641b665ec455273e54724d" => :sierra
-    sha256 "bc3b48a94d636a1419a8676cbac6de3db054b0cf3c9ff1af40c33ddc7962980b" => :el_capitan
-    sha256 "be2d1445adaa0cf912455a2df3cc76f5b0a88602e1ece02608fa3010e8a83990" => :x86_64_linux
+    sha256 "751a2691ecac04952bcc0e2f86ed96d913fcf40ce7dd12445043ce06a699be57" => :high_sierra
+    sha256 "d0c820f6428b5d36a02fe892345fd8af6d78363197a46314e575b605da4245ba" => :sierra
+    sha256 "2bd52e840eea6f65f494a7c539ca6ccf0d0ab47f84059ed3cc92b1c0e5aa8dac" => :el_capitan
   end
 
   depends_on "python"
@@ -82,8 +82,8 @@ class VstsCli < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
-    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+    url "https://files.pythonhosted.org/packages/bd/da/0a49c1a31c60634b93fd1376b3b7966c4f81f2da8263f389cad5b6bbd6e8/PyYAML-4.2b1.tar.gz"
+    sha256 "ef3a0d5a5e950747f4a39ed7b204e036b37f9bddc7551c1a813b8727515a832e"
   end
 
   resource "requests" do
