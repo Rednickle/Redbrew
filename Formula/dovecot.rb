@@ -1,14 +1,13 @@
 class Dovecot < Formula
   desc "IMAP/POP3 server"
   homepage "https://dovecot.org/"
-  url "https://dovecot.org/releases/2.3/dovecot-2.3.1.tar.gz"
-  sha256 "0883821b97fd02a084a84b9469a681f7e6edc56541d854b5419d98891c51fb93"
+  url "https://dovecot.org/releases/2.3/dovecot-2.3.2.tar.gz"
+  sha256 "6e48f0fa60768427f03035b0a3e93d1ae29b972bb2bd9ca998ccc6a0f6dae393"
 
   bottle do
-    sha256 "45f1715564e702c8219d24089b09b526582cac66fbba92b64a0a3a7ad6fb8adf" => :high_sierra
-    sha256 "99ba590650def35c3fc895f768fdcb28095fd9297d47040801383e8314ceff62" => :sierra
-    sha256 "655ad80916e6f404014e9338ee691b053eb245dd5719adfffe75ddb82d6d1e83" => :el_capitan
-    sha256 "2ed21c3b183364149a59f6e4efafcdb517258deac960b105fd96990c96bc2efa" => :x86_64_linux
+    sha256 "4b56e6d8ae9d9110e255ddcfe58b7e64fb9962216dc1d82685fda4b31434caf2" => :high_sierra
+    sha256 "cc4da940215029372f2595a544abbf23265449b17bd6b65b34fd76b6067d8014" => :sierra
+    sha256 "d037c1f705e8be7c8d4c11e56f87f26d147f38837855dc042224b4556141d6d1" => :el_capitan
   end
 
   option "with-pam", "Build with PAM support"
@@ -24,13 +23,13 @@ class Dovecot < Formula
   end
 
   resource "pigeonhole" do
-    url "https://pigeonhole.dovecot.org/releases/2.3/dovecot-2.3-pigeonhole-0.5.1.tar.gz"
-    sha256 "e3b0aa59261881bcb0d33a6c398f3cb5f9f75e077e67bae175cf33c362577547"
+    url "https://pigeonhole.dovecot.org/releases/2.3/dovecot-2.3-pigeonhole-0.5.2.tar.gz"
+    sha256 "950e8e15c58e539761255e140dd3678dd2477fa432a5f2b804e53821bdc02535"
   end
 
   resource "stemmer" do
     url "https://github.com/snowballstem/snowball.git",
-        :revision => "16f059b827d0d2bd10746a3b3cfbde2fd102bf05"
+        :revision => "1964ce688cbeca505263c8f77e16ed923296ce7a"
   end
 
   def install
