@@ -8,7 +8,9 @@ class Meson < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4735c69d3c4e4175276a398295a52004b299c4f217a4bf2feff3d617dfb81ea5" => :x86_64_linux
+    sha256 "1695d2cffa2207a5c0b99999bacb239822593e50550ec3ed99ca1d5f1ab257b1" => :high_sierra
+    sha256 "1695d2cffa2207a5c0b99999bacb239822593e50550ec3ed99ca1d5f1ab257b1" => :sierra
+    sha256 "1695d2cffa2207a5c0b99999bacb239822593e50550ec3ed99ca1d5f1ab257b1" => :el_capitan
   end
 
   depends_on "python"
