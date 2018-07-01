@@ -1,25 +1,20 @@
 class Diffoscope < Formula
   desc "In-depth comparison of files, archives, and directories"
   homepage "https://diffoscope.org"
-  url "https://files.pythonhosted.org/packages/d6/47/cd80c971736581fb8d67c9e43f2cfc8a119c3851ed7c4430c476b06b132d/diffoscope-97.tar.gz"
-  sha256 "93a1e97665eaefdd1a7272ec594aa8bf587955268ada6b3fdbdaa5567aa7cd08"
-  revision 1
+  url "https://files.pythonhosted.org/packages/3a/3e/308a04b435a6c8c9956656b7f2a66d6ed38d5972df453d70202834c4ff43/diffoscope-98.tar.gz"
+  sha256 "7863d56a3ca3bce9dd206e8b1a6199dda464df92e051a9b475e2e3093cfbf472"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e25162912e9023982f68321d1862342b8384135d0af68266281afcb7cd89ef8c" => :high_sierra
-    sha256 "e25162912e9023982f68321d1862342b8384135d0af68266281afcb7cd89ef8c" => :sierra
-    sha256 "e25162912e9023982f68321d1862342b8384135d0af68266281afcb7cd89ef8c" => :el_capitan
-    sha256 "9fa1f5e5dd6bd237fc53069c32b313647db020793828fa7a68b515352d7ccb60" => :x86_64_linux
+    sha256 "3e09b5d1eeed2fbcfd22d8ac7ae15e241ebef876a497c680542c728067ce277a" => :high_sierra
+    sha256 "3e09b5d1eeed2fbcfd22d8ac7ae15e241ebef876a497c680542c728067ce277a" => :sierra
+    sha256 "3e09b5d1eeed2fbcfd22d8ac7ae15e241ebef876a497c680542c728067ce277a" => :el_capitan
   end
 
   depends_on "libmagic"
   depends_on "libarchive"
   depends_on "gnu-tar"
   depends_on "python"
-
-  # Python 3.7 compat
-  patch :DATA
 
   resource "libarchive-c" do
     url "https://files.pythonhosted.org/packages/b9/2c/c975b3410e148dab00d14471784a743268614e21121e50e4e00b13f38370/libarchive-c-2.8.tar.gz"
@@ -57,29 +52,3 @@ class Diffoscope < Formula
     system "#{bin}/diffoscope", "test1", "test2"
   end
 end
-
-__END__
-diff --git a/diffoscope/presenters/formats.py b/diffoscope/presenters/formats.py
-index 24b7190..df84fe2 100644
---- a/diffoscope/presenters/formats.py
-+++ b/diffoscope/presenters/formats.py
-@@ -109,5 +109,5 @@ class PresenterManager(object):
-         """
- 
-         return any(
--            x['klass'].supports_visual_diffs for x in self.config.values(),
-+            x['klass'].supports_visual_diffs for x in self.config.values()
-         )
-diff --git a/diffoscope/comparators/json.py b/diffoscope/comparators/json.py
-index 41c5ec7..8e210b9 100644
---- a/diffoscope/comparators/json.py
-+++ b/diffoscope/comparators/json.py
-@@ -39,7 +39,7 @@ class JSONFile(File):
-             # Try fuzzy matching for JSON files
-             is_text = any(
-                 file.magic_file_type.startswith(x)
--                for x in ('ASCII text', 'UTF-8 Unicode text'),
-+                for x in ('ASCII text', 'UTF-8 Unicode text')
-             )
-             if is_text and not file.name.endswith('.json'):
-                 buf = f.read(10)
