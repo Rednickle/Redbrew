@@ -170,7 +170,7 @@ class MysqlAT57 < Formula
       <string>#{datadir}</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do
