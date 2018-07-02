@@ -1,15 +1,14 @@
 class Yaws < Formula
   desc "Webserver for dynamic content (written in Erlang)"
   homepage "http://yaws.hyber.org"
-  url "http://yaws.hyber.org/download/yaws-2.0.5.tar.gz"
-  sha256 "be82d1b5bcd9d32406244eb4f542e653a2d9d82cf34bc3c61e15d26e84db7601"
-  revision 1
+  url "http://yaws.hyber.org/download/yaws-2.0.6.tar.gz"
+  sha256 "69f96f8b9bb574b129b0f258fb8437fdfd8369d55aabc2b5a94f577dde49d00e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fe9367164fe409d37868693a90eabd32cfde33e308c06707fcfcae64224f6514" => :high_sierra
-    sha256 "960e0cc26cdfc876eb77e25e1d21fab64fc9d8fce5c4a28d557e31753e5610b9" => :sierra
-    sha256 "4377a946fd346b777373e93ec06b50f660970bbc1664250c567f3971e2ebe13f" => :el_capitan
+    sha256 "6dddeec2cbce08b47d7b14e31d04b6e2e803965c47f44258dfd136b23f2e531c" => :high_sierra
+    sha256 "5eb3a9b15641e43e00b9ffb4626d32fa2931a57b1f492c2b2a641036005d6f1e" => :sierra
+    sha256 "f04163aed1bfe0397bc639d9903f80de457ca4391789049fc13e4f8a6410c798" => :el_capitan
   end
 
   head do

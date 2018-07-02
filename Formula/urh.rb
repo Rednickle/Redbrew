@@ -1,15 +1,14 @@
 class Urh < Formula
   desc "Universal Radio Hacker"
   homepage "https://github.com/jopohl/urh"
-  url "https://files.pythonhosted.org/packages/58/ad/473e532a9dff92faf0027fbfaa4ac36abe7dc65c3efcd7cc73e4b89007c1/urh-2.1.1.tar.gz"
-  sha256 "fd66d3f3c054eb9ebef62425cc5289627b93b19e3d9cd155ed02866660c06228"
-  revision 1
+  url "https://files.pythonhosted.org/packages/8c/60/656da24f60bce991c48aa6ac6aa0c741345a91dc354618661ce907a76850/urh-2.2.0.tar.gz"
+  sha256 "1aa54a0a3cd29ddfb91a9b5a09890f20429c731fd25414f3262ddef79e556d33"
   head "https://github.com/jopohl/urh.git"
 
   bottle do
-    sha256 "ab33f57721dbfc529c4abe34d9538e13016e7fd0600df7bb4dec02a4ba3e03d2" => :high_sierra
-    sha256 "4936e445e9a893f01c784aa6e4c3f400522c9989553789e537064baaf0230b75" => :sierra
-    sha256 "88857c290802ae5462319ac6946293346afb872c41ea3cf3f9fac8f35952f2f1" => :el_capitan
+    sha256 "9d09523dfe451d330a5c4bcf29fce0f9ad02ee5633787a465834a3913e497dd9" => :high_sierra
+    sha256 "8ba6461b38949d3f2790517cf70374da982bcce2489e4ba41028c5d36e9129bc" => :sierra
+    sha256 "e6b1a3c3159db5619b45fa134c72f34ad593f5b2873e1141b9bcbde77624db36" => :el_capitan
   end
 
   option "with-hackrf", "Build with libhackrf support"
@@ -22,6 +21,11 @@ class Urh < Formula
   depends_on "zeromq"
 
   depends_on "hackrf" => :optional
+
+  resource "Cython" do
+    url "https://files.pythonhosted.org/packages/b3/ae/971d3b936a7ad10e65cb7672356cff156000c5132cf406cb0f4d7a980fd3/Cython-0.28.3.tar.gz"
+    sha256 "1aae6d6e9858888144cea147eb5e677830f45faaff3d305d77378c3cba55f526"
+  end
 
   resource "psutil" do
     url "https://files.pythonhosted.org/packages/51/9e/0f8f5423ce28c9109807024f7bdde776ed0b1161de20b408875de7e030c3/psutil-5.4.6.tar.gz"
@@ -42,16 +46,24 @@ class Urh < Formula
     xy = Language::Python.major_minor_version "python3"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
     resources.each do |r|
+      next if r.name == "Cython"
       r.stage do
         system "python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
+    saved_python_path = ENV["PYTHONPATH"]
+    ENV.prepend_create_path "PYTHONPATH", buildpath/"cython/lib/python#{xy}/site-packages"
+
+    resource("Cython").stage do
+      system "python3", *Language::Python.setup_install_args(buildpath/"cython")
+    end
+
     system "python3", *Language::Python.setup_install_args(libexec)
 
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => saved_python_path)
   end
 
   test do

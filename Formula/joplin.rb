@@ -3,23 +3,19 @@ require "language/node"
 class Joplin < Formula
   desc "Note taking and to-do application with synchronisation capabilities"
   homepage "https://joplin.cozic.net/"
-  url "https://registry.npmjs.org/joplin/-/joplin-1.0.109.tgz"
-  sha256 "671b950d3f669c75478d9a164a77d45b50cd042f7d295f623de817b44e87cb39"
+  url "https://registry.npmjs.org/joplin/-/joplin-1.0.110.tgz"
+  sha256 "d48393e5bdbaf8a7a59b37774b6630c0be0ed6e5ed98d572d65cea2a28fff55f"
 
   bottle do
-    sha256 "ccbe1e308a33ebec10c6cb4f5b460940b1d54dcbc9782af5e5776109f9c2baa3" => :high_sierra
-    sha256 "782b80e50316a034fb5c98cb1a68e80868b3f20169f376f918c22d86946c166b" => :sierra
-    sha256 "c8a4f0dd75ef7c04b182ce6f22042ab0eedaa0facc47ab3696eb9fd9617b049a" => :el_capitan
-    sha256 "977892be75a32e01a1bd45cc1220e84047d5b0b618a2e358f5d0ef9e2fed0cab" => :x86_64_linux
+    sha256 "374de8e2ecc5bc82bb1cc0d03d618051c6f561b0bce83fd2aaf7b4eaa19a3773" => :high_sierra
+    sha256 "85d88d8d739fa4dd567221b7962fa84cd843a9029d7c84188d275da078ce58da" => :sierra
+    sha256 "5b597c30f3c5f471b8b4768e4c1250c364a84439bb48139ed4c5ed38183fbd04" => :el_capitan
   end
 
   depends_on "node"
   depends_on "python@2" => :build
 
   def install
-    # upgrade the sqlite3 dependency to a version with node 10 support
-    inreplace "package.json", "\"sqlite3\": \"^3.1.8\",", "\"sqlite3\": \"^4.0.0\","
-
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
