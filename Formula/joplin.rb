@@ -10,6 +10,7 @@ class Joplin < Formula
     sha256 "374de8e2ecc5bc82bb1cc0d03d618051c6f561b0bce83fd2aaf7b4eaa19a3773" => :high_sierra
     sha256 "85d88d8d739fa4dd567221b7962fa84cd843a9029d7c84188d275da078ce58da" => :sierra
     sha256 "5b597c30f3c5f471b8b4768e4c1250c364a84439bb48139ed4c5ed38183fbd04" => :el_capitan
+    sha256 "3fb51756585ba57811318ef55a0717880fed6f583b835d84f59bb46872b4c521" => :x86_64_linux
   end
 
   depends_on "node"
