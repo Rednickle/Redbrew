@@ -10,6 +10,7 @@ class Terragrunt < Formula
     sha256 "3a3e34a18184a9ba6e28852128dbe2930487ba01d4ac6d0520a2e76b5319d0b9" => :high_sierra
     sha256 "049a40a748ae198073b553c18c14cad3308de1f3461169068888f5c3dd8c7219" => :sierra
     sha256 "2f6c69ec802a94add41924fe7b42e40bc8c08a1493fc4b3bf5678630b4a86efc" => :el_capitan
+    sha256 "90d042b1a5d53fc040825924b23eba33d1b7f80b4847e6fe92703a9adc6d51f2" => :x86_64_linux
   end
 
   depends_on "glide" => :build
