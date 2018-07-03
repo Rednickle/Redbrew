@@ -12,6 +12,7 @@ class Castxml < Formula
     sha256 "094c47bde5f666aad5078e7b8652f71aca7f14cecb233977e7949e6e721ec685" => :high_sierra
     sha256 "0664be25be8a34110f61ff8cfba1b871aa956b9dfa0e8e0b89e3c75a8b2f6b4f" => :sierra
     sha256 "7c6ed31aa80033884da9f2a3265caaf7a5796736ca1d0f1743e1d93aad2cf993" => :el_capitan
+    sha256 "120024cdd8b1f216acc207d04dc5b40eccdae94a2d89d81b1483dfe8cb4bc649" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
