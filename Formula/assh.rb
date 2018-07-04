@@ -10,6 +10,7 @@ class Assh < Formula
     sha256 "7e48c5089af70b883059a68a4e8be6b3a4a973306067d16983bc1130e23979fc" => :high_sierra
     sha256 "0087bab708bd409d1cd00dcaba1ed40c4ad9e4f11f3b6db275a827fe2ff69011" => :sierra
     sha256 "f791dad7d95875ae19db21305c2d5d3632ebfb7783c837d212a08099d15c4d7a" => :el_capitan
+    sha256 "d4dbe8fe1d83d6ea791d0a65401e3b1ed36321ed9e2c91ea71cf0a986db8d5f8" => :x86_64_linux
   end
 
   depends_on "go" => :build
