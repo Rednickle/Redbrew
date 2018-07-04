@@ -10,6 +10,7 @@ class ConsulBackinator < Formula
     sha256 "f77ec3bd0fa7598d79ca30469140e989ddae59dbb5512d0aa22f0c21190dcd02" => :high_sierra
     sha256 "c52eaf11b850dea9c74b96d94157d25ee1912e52423628105c8b8d9240a2e52a" => :sierra
     sha256 "bb39c88ad9e3e5aa6b12ea08bbd6ec2b31601d0c14f943aaaf10bfcf14cc5b8d" => :el_capitan
+    sha256 "9dba886712a0b508e360ec764ef7004a1251bae60a1024c7637ef11c62027904" => :x86_64_linux
   end
 
   depends_on "go" => :build
