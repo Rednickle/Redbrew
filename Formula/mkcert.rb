@@ -9,6 +9,7 @@ class Mkcert < Formula
     sha256 "c7d7f6953c715961a039c5f759059b425589bb7f005e130525fed75704950182" => :high_sierra
     sha256 "687edb1753f91797d46e2dd5c50bc7603de1ae1235dfa37a2a611f0e4d5b67e8" => :sierra
     sha256 "47bc908a985edd34b71cb6dccb66dead174a5395b0dc27a73115e2fda963b64b" => :el_capitan
+    sha256 "e65147258dab33ebf8f84b60bcfa26d4d17df6ed13341d827bc450bcb141dab9" => :x86_64_linux
   end
 
   depends_on "go" => :build
