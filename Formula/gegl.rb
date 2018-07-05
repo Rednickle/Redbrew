@@ -8,6 +8,7 @@ class Gegl < Formula
     sha256 "2da5c7f33587ab1ca355f4abaa3286a9f3fcbf7d922be9f1b86d8c0be682cbe4" => :high_sierra
     sha256 "0f547392676648ecaa73d4797e2a80f3cbe530424c56b9939e1eb1ad998f7bbc" => :sierra
     sha256 "68e92a762b4be11b61b23c30c5f9091bf2d3663151548459a9a1dfc8a4f09b9c" => :el_capitan
+    sha256 "fd3493376a055126cab7267fdf750be6fb9348d6c0b0b48ad3dd47c11b3ba241" => :x86_64_linux
   end
 
   head do
