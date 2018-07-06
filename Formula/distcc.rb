@@ -10,6 +10,7 @@ class Distcc < Formula
     sha256 "9bb480cdefe02b8bb94ed823eaa7debbfc0b860891c7c7d5333b4e7e73c823d5" => :high_sierra
     sha256 "086bc49f3e9e497e608fb9111761c7bfe22c81ed9b8adf9a12fda10b23f1136a" => :sierra
     sha256 "e3b99a82bd2ed5861c76b5715a73d50e74171189805d05c7d48bf665e3b1ad47" => :el_capitan
+    sha256 "4a7f19003d9fae860ad2bb2aa9c91a5ce73098d7a09cbda32065f6f06e638ef9" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
