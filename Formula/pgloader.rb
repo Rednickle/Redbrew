@@ -9,6 +9,7 @@ class Pgloader < Formula
     sha256 "76b19db15b4574a9297d5b37ff170ea428b5e0954097c77fe75a0d83d79dfb85" => :high_sierra
     sha256 "9cdf7c6276fff08858d0fd4ddc46c659a9ea5578baa24fb2584f780a544dced7" => :sierra
     sha256 "125532b10e7cbbc7f3246290ce0d3ea1915c68f1e1b6d6277b4875f316c20fd2" => :el_capitan
+    sha256 "4552627d016f99b6c01f98cb3465e43ec8b9f67030c0cf021e49677bbd4d15e9" => :x86_64_linux
   end
 
   depends_on "sphinx-doc" => :build
