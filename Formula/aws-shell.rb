@@ -7,10 +7,10 @@ class AwsShell < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "22b7ada880a33061180b10ac6ffd9ba829a0f5976a26f95fe48879d86c4eedf1" => :high_sierra
-    sha256 "22b7ada880a33061180b10ac6ffd9ba829a0f5976a26f95fe48879d86c4eedf1" => :sierra
-    sha256 "22b7ada880a33061180b10ac6ffd9ba829a0f5976a26f95fe48879d86c4eedf1" => :el_capitan
-    sha256 "fa079a15f4671836cfdc0078cb42ce77237c72c093f5b5d7c116a3507a1c0bbf" => :x86_64_linux
+    rebuild 1
+    sha256 "fa17b3dce1800952ba17ba4a29b4471bb055b46bd0952133b2be0e02783cd1fb" => :high_sierra
+    sha256 "fa17b3dce1800952ba17ba4a29b4471bb055b46bd0952133b2be0e02783cd1fb" => :sierra
+    sha256 "fa17b3dce1800952ba17ba4a29b4471bb055b46bd0952133b2be0e02783cd1fb" => :el_capitan
   end
 
   depends_on "python"
@@ -71,8 +71,8 @@ class AwsShell < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/bd/da/0a49c1a31c60634b93fd1376b3b7966c4f81f2da8263f389cad5b6bbd6e8/PyYAML-4.2b1.tar.gz"
-    sha256 "ef3a0d5a5e950747f4a39ed7b204e036b37f9bddc7551c1a813b8727515a832e"
+    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
+    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
   end
 
   resource "rsa" do

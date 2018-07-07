@@ -9,10 +9,10 @@ class Fdroidserver < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "6a033da23c65a36571e371be2797ee2993335e8c3be26e44cfd706b48618c97e" => :high_sierra
-    sha256 "b25eccdf9213678d148ca8c9023baaffffff4f1d807c2effa0401bba7e16094c" => :sierra
-    sha256 "7280944f84cad4c8d7e60fe7ff4c1d481bcc2b6fe0feb5721052984695d396f2" => :el_capitan
+    rebuild 2
+    sha256 "c4c822c6e2b351c6b288c871d398674e9a230400732800ddfda6ef3d3fecaf29" => :high_sierra
+    sha256 "3325c59fff0505a5e37f7ee8d6285b9502abdd11ca41b5c00ef23d8db93daa19" => :sierra
+    sha256 "a6214ec30ff7a27f7211b1117ff62a90c1f260dccce257a529a6f1e7eaf29013" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -260,8 +260,8 @@ class Fdroidserver < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/bd/da/0a49c1a31c60634b93fd1376b3b7966c4f81f2da8263f389cad5b6bbd6e8/PyYAML-4.2b1.tar.gz"
-    sha256 "ef3a0d5a5e950747f4a39ed7b204e036b37f9bddc7551c1a813b8727515a832e"
+    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
+    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
   end
 
   resource "qrcode" do

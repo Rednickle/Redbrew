@@ -7,11 +7,11 @@ class Snakemake < Formula
   head "https://bitbucket.org/snakemake/snakemake.git"
 
   bottle do
-    cellar :any
-    sha256 "875123fd82d9182dd228dcf590baf0759c6d9ecf4e0208bd256501d27f49322c" => :high_sierra
-    sha256 "d71b5a0276cafda68a2b993ad0124f82ab957e94e625aa4de66d19077b49b2fa" => :sierra
-    sha256 "808fce894185c5f0204932a4ce9c05ed3a2b37758a07557b6737bed92fdba9b5" => :el_capitan
-    sha256 "fe742f776158d60578e3618d87b79bed5027ca23fe58e5b429ad549f96e5075a" => :x86_64_linux
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "bdfb37bd10e4dcf409a02a4553385aaab76a720c370d08d8b8de4a51077a212e" => :high_sierra
+    sha256 "dc50d6747dd253f61797a532f652e18d00853dd474b699ec8d3849f5d42ad56c" => :sierra
+    sha256 "ea8a4775262084fb7578ab21b4e3ed623f0cd80706751715d15f3f0c8fb05671" => :el_capitan
   end
 
   depends_on "python"
@@ -82,8 +82,8 @@ class Snakemake < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/bd/da/0a49c1a31c60634b93fd1376b3b7966c4f81f2da8263f389cad5b6bbd6e8/PyYAML-4.2b1.tar.gz"
-    sha256 "ef3a0d5a5e950747f4a39ed7b204e036b37f9bddc7551c1a813b8727515a832e"
+    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
+    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
   end
 
   resource "ratelimiter" do

@@ -10,10 +10,10 @@ class Awscli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b326b3154a58ca3fafd5781171b77f1ecfc0252477575d01e5b80696fda62207" => :high_sierra
-    sha256 "8ea95be4028408703677838a7c109e617856a454e4c45d98b3eef706202cf92c" => :sierra
-    sha256 "b0e73472a3eb86b93a9d1d8b2d7249deb6cb80e920bb4cfc9a0d04d3d70ce00f" => :el_capitan
-    sha256 "9def16721cc5333e952f2e296663b7f8e7d631167037f6a3e8f0d0a1b8f20ee2" => :x86_64_linux
+    rebuild 1
+    sha256 "4ff55bc264d5f8517d6d02c5596ef2bbbe0ca3fe0595684c2f45e0bbdbf04046" => :high_sierra
+    sha256 "8c248007ffc883642780b9b28fd7408c4e50c176c3df35bd41b73c37246d3bd5" => :sierra
+    sha256 "a9b1ca959a8d226a404f40cd11386d5f92b0cace4a19aa524e5d64f6e072baa4" => :el_capitan
   end
 
   # Some AWS APIs require TLS1.2, which system Python doesn't have before High
@@ -25,7 +25,7 @@ class Awscli < Formula
   def install
     venv = virtualenv_create(libexec, "python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
-                              "--ignore-installed", "PyYAML==4.2b1", buildpath
+                              "--ignore-installed", "PyYAML==3.13", buildpath
     system libexec/"bin/pip", "uninstall", "-y", "awscli"
     venv.pip_install_and_link buildpath
     pkgshare.install "awscli/examples"

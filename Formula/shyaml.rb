@@ -10,17 +10,18 @@ class Shyaml < Formula
 
   bottle do
     cellar :any
-    sha256 "9c781b5842ae5ac70560d07fa4bdd044777e66b25b594ad6e72bb1ea879fbbf7" => :high_sierra
-    sha256 "c89bdfdd3d8b63503602ce9bccd7d2d4e418ad8f3a20661f17b643e14a9bc129" => :sierra
-    sha256 "a217c5eeecdba87d025c7c089b69ee96a12704feb7f40ff02529a1b129991e75" => :el_capitan
+    rebuild 1
+    sha256 "ff016e9adec1fcde3aed838decd83cd643e1da3b4fdda4f3760edc706a96204e" => :high_sierra
+    sha256 "f56ae02770869a49ec55215d3444dfd07bdd2fb1788e4cc6f124bd63bfaf2769" => :sierra
+    sha256 "ff1078dcd1f6df8b14d7389704cec6ab3d60c79a926d741db4600af72ed87c55" => :el_capitan
   end
 
   depends_on "python"
   depends_on "libyaml"
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/bd/da/0a49c1a31c60634b93fd1376b3b7966c4f81f2da8263f389cad5b6bbd6e8/PyYAML-4.2b1.tar.gz"
-    sha256 "ef3a0d5a5e950747f4a39ed7b204e036b37f9bddc7551c1a813b8727515a832e"
+    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
+    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
   end
 
   def install

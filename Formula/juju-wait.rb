@@ -9,9 +9,10 @@ class JujuWait < Formula
 
   bottle do
     cellar :any
-    sha256 "161f3506996a9519a0494b1dd2c9e832f2455e19597a68665f0b444d00c6c8cf" => :high_sierra
-    sha256 "9a863b25abf2bf8b1f48a1b1420183698113f21d4db987b2442855203a898c3a" => :sierra
-    sha256 "7a6621f85da12560b95b18012a2c9e21acd0b3a89da45f621f68f9693139a172" => :el_capitan
+    rebuild 1
+    sha256 "2802694404b542f013d7d527060a824d0d23c4ed8df2afa65fbc9ae4b5fe7ad1" => :high_sierra
+    sha256 "8d5e2242690889d4c8dee8af054d3ca7ba91f4d75e2f3d9e7bcb1cd553ec4f81" => :sierra
+    sha256 "d3947255f7a166e1416c61ed8badf8d1bbb247afd62f12b9bf96d3a16ff7bee9" => :el_capitan
   end
 
   depends_on "python"
@@ -19,8 +20,8 @@ class JujuWait < Formula
   depends_on "juju"
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/bd/da/0a49c1a31c60634b93fd1376b3b7966c4f81f2da8263f389cad5b6bbd6e8/PyYAML-4.2b1.tar.gz"
-    sha256 "ef3a0d5a5e950747f4a39ed7b204e036b37f9bddc7551c1a813b8727515a832e"
+    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
+    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
   end
 
   def install

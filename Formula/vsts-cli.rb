@@ -9,10 +9,10 @@ class VstsCli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "751a2691ecac04952bcc0e2f86ed96d913fcf40ce7dd12445043ce06a699be57" => :high_sierra
-    sha256 "d0c820f6428b5d36a02fe892345fd8af6d78363197a46314e575b605da4245ba" => :sierra
-    sha256 "2bd52e840eea6f65f494a7c539ca6ccf0d0ab47f84059ed3cc92b1c0e5aa8dac" => :el_capitan
-    sha256 "6627990f1c60962d802edc734fd027a2a5bc6bde44607dbed0e3f05aa1ad1c0d" => :x86_64_linux
+    rebuild 1
+    sha256 "8c29ae7460893fdd6b73469e67d45318a7da0c7bf492fd62ba79893111a3d31b" => :high_sierra
+    sha256 "d573a715cf0d3731055ad5c57188e9b2c7d8a9b9dee42e6d0bfe09130d0cea4f" => :sierra
+    sha256 "6003f362fc25cbeed2d4c9a8d927ce690e832cf51b741cbca24993f6a26f7cfd" => :el_capitan
   end
 
   depends_on "python"
@@ -83,8 +83,8 @@ class VstsCli < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/bd/da/0a49c1a31c60634b93fd1376b3b7966c4f81f2da8263f389cad5b6bbd6e8/PyYAML-4.2b1.tar.gz"
-    sha256 "ef3a0d5a5e950747f4a39ed7b204e036b37f9bddc7551c1a813b8727515a832e"
+    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
+    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
   end
 
   resource "requests" do

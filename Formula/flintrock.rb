@@ -9,9 +9,10 @@ class Flintrock < Formula
 
   bottle do
     cellar :any
-    sha256 "05fd995462c40519255638391cb202a234b4e5a1d97b263248976f8adbf11a0d" => :high_sierra
-    sha256 "d93a7cd5335d0f984bf559347e2c8342cc1e154f7cb071dc7bbd135f61071b3a" => :sierra
-    sha256 "1fd182747725b1a8a5caaa81ea8fa118c36d7d217e878fcccde21a94d23aed00" => :el_capitan
+    rebuild 1
+    sha256 "f29c45b08b68e24c160c374816f0451e0a5f36238c4150cb8e1a6ad649c94685" => :high_sierra
+    sha256 "ee2293bc65766b0619c2abb0315ad6f5e5a74f2c81d328593484597e06f8fb46" => :sierra
+    sha256 "75b76160c49187628b2413b43a53ce69c7d3eb12df624910c537ab35d8cba160" => :el_capitan
   end
 
   depends_on "python"
@@ -92,8 +93,8 @@ class Flintrock < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/bd/da/0a49c1a31c60634b93fd1376b3b7966c4f81f2da8263f389cad5b6bbd6e8/PyYAML-4.2b1.tar.gz"
-    sha256 "ef3a0d5a5e950747f4a39ed7b204e036b37f9bddc7551c1a813b8727515a832e"
+    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
+    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
   end
 
   resource "s3transfer" do
@@ -109,7 +110,7 @@ class Flintrock < Formula
   def install
     # Python 3.7 compat
     inreplace "setup.py" do |s|
-      s.gsub! "PyYAML == 3.12", "PyYAML == 4.2b1"
+      s.gsub! "PyYAML == 3.12", "PyYAML == 3.13"
       s.gsub! "paramiko == 2.1.1", "paramiko == 2.4.1"
     end
 

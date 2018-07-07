@@ -9,18 +9,18 @@ class Yamllint < Formula
 
   bottle do
     cellar :any
-    sha256 "9656e08b29dc202a8c8ef97f9a7c62d33f4865dd00a0c30cd308adc3827f9543" => :high_sierra
-    sha256 "ea180291f5c3c822f9937d00366a35e4303c0dc5def41dcc85fbd718e5a17fc4" => :sierra
-    sha256 "6fe885dabb4b597a2ae610b8e68430af2342ae51be23b56eb0a347d396755af8" => :el_capitan
-    sha256 "14fdbae0b78779e954b8dd9c9c8f8851aeca023790a69ff770af4465661a3481" => :x86_64_linux
+    rebuild 1
+    sha256 "3ffaafca879769be72b0a8a98be07f8ffe746f8488f4430863fb8380544ab01c" => :high_sierra
+    sha256 "921109aebc30770d96997b33565faf1d21f5821d4bf9e19d18fc6e0f5908712a" => :sierra
+    sha256 "17ec47b0462e157f33a61fa95462c1b6f7bdd329fd687a870317c4eb4aeeaf9c" => :el_capitan
   end
 
   depends_on "libyaml"
   depends_on "python"
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/bd/da/0a49c1a31c60634b93fd1376b3b7966c4f81f2da8263f389cad5b6bbd6e8/PyYAML-4.2b1.tar.gz"
-    sha256 "ef3a0d5a5e950747f4a39ed7b204e036b37f9bddc7551c1a813b8727515a832e"
+    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
+    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
   end
 
   resource "pathspec" do
