@@ -11,6 +11,7 @@ class AwsShell < Formula
     sha256 "fa17b3dce1800952ba17ba4a29b4471bb055b46bd0952133b2be0e02783cd1fb" => :high_sierra
     sha256 "fa17b3dce1800952ba17ba4a29b4471bb055b46bd0952133b2be0e02783cd1fb" => :sierra
     sha256 "fa17b3dce1800952ba17ba4a29b4471bb055b46bd0952133b2be0e02783cd1fb" => :el_capitan
+    sha256 "35a94329b1fcc46e0a3111d0ebc1f30739dd8d5783140f8010a6e8aa4ddb2698" => :x86_64_linux
   end
 
   depends_on "python"
