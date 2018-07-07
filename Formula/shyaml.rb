@@ -14,6 +14,7 @@ class Shyaml < Formula
     sha256 "ff016e9adec1fcde3aed838decd83cd643e1da3b4fdda4f3760edc706a96204e" => :high_sierra
     sha256 "f56ae02770869a49ec55215d3444dfd07bdd2fb1788e4cc6f124bd63bfaf2769" => :sierra
     sha256 "ff1078dcd1f6df8b14d7389704cec6ab3d60c79a926d741db4600af72ed87c55" => :el_capitan
+    sha256 "0659f583981c598d7d2254a1b828b78c09afd445d6163c7d39a638799a971392" => :x86_64_linux
   end
 
   depends_on "python"
