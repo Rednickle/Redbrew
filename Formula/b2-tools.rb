@@ -11,6 +11,7 @@ class B2Tools < Formula
     sha256 "14aff17debc942de445e1bed7412f535056ef7fb13bad841c4b80a328fd9bb90" => :high_sierra
     sha256 "387a86e2ab8693340550a1131a02184b11a357c013bab086668c617d445d9212" => :sierra
     sha256 "8e3e9bde7540a41fc5e0a4fe6a4d6f154ff7eef1e07940d14c8cd35ee6a7004d" => :el_capitan
+    sha256 "3df61f9c2aaa72faea00777a4b574b60677398b1827dc6da0ac85b7221a61626" => :x86_64_linux
   end
 
   depends_on "python@2"
