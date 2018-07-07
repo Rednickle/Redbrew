@@ -3,15 +3,14 @@ class Mkdocs < Formula
 
   desc "Project documentation with Markdown"
   homepage "https://www.mkdocs.org/"
-  url "https://github.com/mkdocs/mkdocs/archive/0.17.4.tar.gz"
-  sha256 "62ee3686dcfb999b3b743632596df62cbd94b1ab80a28044cabcc22dc51c8471"
+  url "https://github.com/mkdocs/mkdocs/archive/0.17.5.tar.gz"
+  sha256 "716068cc4f3f5a01c708d66c702f39a181a4e29f4b41aa3d9f591e7c4e4a66cb"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5662a5516e8ea10e00ccd8ecaaa074b2394dd0dd53c6364e0679486f473e45f9" => :high_sierra
-    sha256 "0216a082a0038c72bbde01841df0cf69030cbc831dd156e554c47c362c257edc" => :sierra
-    sha256 "0b4e5e1c3740b7481a7ced6f49d621a9c58e96c192b103568ecac430da0fa9ed" => :el_capitan
-    sha256 "4de7cfd7884e5bd7f79ac08a5321f1b0520cf19000b18e5a3c96d1e096a7b7c3" => :x86_64_linux
+    sha256 "a50880c8a65d8714261d9eb1d8275070615d60ea3b355deab105784b235c8fe4" => :high_sierra
+    sha256 "7a92ec543b67f43dcc17de004ced0aa5e2b9309e3abcdd6b1435d784aaf57f13" => :sierra
+    sha256 "0c673da63fd6946a6605dd0ff4f53a9713961e5540900b1609dd6fe72657366b" => :el_capitan
   end
 
   depends_on "python@2"
@@ -52,8 +51,8 @@ class Mkdocs < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
-    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
+    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
   end
 
   resource "singledispatch" do
