@@ -8,6 +8,7 @@ class ProtobufAT26 < Formula
     sha256 "1ceb82b9eea2e86848d959bab4d5468b9388c45b7d687330cc709a11d591f893" => :high_sierra
     sha256 "c3a17e095f0bba62fc1dc9a84adf830b4ab9d1198ec497c8bb2575fde97b5d30" => :sierra
     sha256 "e1bf141c14c28ea10aec3cde34d228facbe0082c40dbb69d4d997b7103b72662" => :el_capitan
+    sha256 "f64c587d3bb512fdf5340d3c227866d71e1b01f56419e57ba3762916c269639c" => :x86_64_linux
   end
 
   keg_only :versioned_formula
