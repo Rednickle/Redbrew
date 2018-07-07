@@ -1,14 +1,14 @@
 class Ark < Formula
   desc "Disaster recovery for Kubernetes cluster resources and persistent volumes"
   homepage "https://github.com/heptio/ark"
-  url "https://github.com/heptio/ark/archive/v0.8.2.tar.gz"
-  sha256 "149b5262e9e113a8963cd97e1b32c6cfc1eea23b2cc45ffdda9b81a789da3e26"
+  url "https://github.com/heptio/ark/archive/v0.9.0.tar.gz"
+  sha256 "3317608b8fe9bfd85b91322fc526629e734a5b1749616d77fdeac5163c297d47"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f8669d5fbfa3642ed3ef3a729675ccf3e655464885291fa12e1f56c468d6c44c" => :high_sierra
-    sha256 "99c0024c44d20bc741305003b7945f3819420e7b73e26309bef4c90fa5a03cff" => :sierra
-    sha256 "454061ac749a8fd133c6fe12d069a12f9a692668c339023a94b6519a23b9041d" => :el_capitan
+    sha256 "5ba9a78189dfdebfdb7024be344beac7f7ba782c923dc31d30bafb70e3a42a2e" => :high_sierra
+    sha256 "9b30d9134366bad33ec71e0561e76a4fbcbd31c8520b7031467fb8197494aec0" => :sierra
+    sha256 "078d1b09323da566c6806fda0bed97378d72fe0270c4f346a3b7ab5bd3e13336" => :el_capitan
   end
 
   depends_on "go" => :build
