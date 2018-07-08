@@ -1,16 +1,16 @@
 class Hub < Formula
   desc "Add GitHub support to git on the command-line"
   homepage "https://hub.github.com/"
-  url "https://github.com/github/hub/archive/v2.4.0.tar.gz"
-  sha256 "894eb112be9aa0464fa2c63f48ae8e573ef9e32a00bad700e27fd09a0cb3be4b"
+  url "https://github.com/github/hub/archive/v2.5.0.tar.gz"
+  sha256 "8e3bda092ddc81eaf208c5fd2b87f66e030012129d55fa631635c6adf8437941"
   head "https://github.com/github/hub.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c495ef4d9f89c7e16b8a0be01abf18c257167a58d1a5609675d261222cc8b0f6" => :high_sierra
-    sha256 "3f4d0c1b72dfd9074e245815f11e286d1d5a22b03c283d5af85df46387690d64" => :sierra
-    sha256 "cb2cfec3e962d3427e8fd49c1cd6ceb3d68314347f7f23b74abffa5c439343ed" => :el_capitan
-    sha256 "ed178aa307197375841019d87221cf5905c8631cb4bb36a0ece1e533ba1eb252" => :x86_64_linux
+    rebuild 1
+    sha256 "2609a97cd6233a635e69e6baae251641729f73317db40d26c13a9f96c45d59cd" => :high_sierra
+    sha256 "aabdf10641af380804c8a640a072acd6c6806c1d1dc015d18169ae5e3e221653" => :sierra
+    sha256 "82c72bd7c6a4f9a4d24dd95bb3540b9d2f44985e3c3b72b92eccbd442fbacc87" => :el_capitan
   end
 
   option "without-completions", "Disable bash/zsh completions"
@@ -28,26 +28,32 @@ class Hub < Formula
   end
 
   def install
-    if build.with? "docs"
-      begin
-        deleted = ENV.delete "SDKROOT"
-        ENV["GEM_HOME"] = buildpath/"gem_home"
-        system "gem", "install", "bundler"
-        ENV.prepend_path "PATH", buildpath/"gem_home/bin"
-        system "make", "man-pages"
-      ensure
-        ENV["SDKROOT"] = deleted
+    ENV["GOPATH"] = buildpath
+    (buildpath/"src/github.com/github/hub").install buildpath.children
+    cd "src/github.com/github/hub" do
+      if build.with? "docs"
+        begin
+          deleted = ENV.delete "SDKROOT"
+          ENV["GEM_HOME"] = buildpath/"gem_home"
+          system "gem", "install", "bundler"
+          ENV.prepend_path "PATH", buildpath/"gem_home/bin"
+          system "make", "man-pages"
+        ensure
+          ENV["SDKROOT"] = deleted
+        end
+        system "make", "install", "prefix=#{prefix}"
+      else
+        system "script/build", "-o", "hub"
+        bin.install "hub"
       end
-      system "make", "install", "prefix=#{prefix}"
-    else
-      system "script/build", "-o", "hub"
-      bin.install "hub"
-    end
 
-    if build.with? "completions"
-      bash_completion.install "etc/hub.bash_completion.sh"
-      zsh_completion.install "etc/hub.zsh_completion" => "_hub"
-      fish_completion.install "etc/hub.fish_completion" => "hub.fish"
+      prefix.install_metafiles
+
+      if build.with? "completions"
+        bash_completion.install "etc/hub.bash_completion.sh"
+        zsh_completion.install "etc/hub.zsh_completion" => "_hub"
+        fish_completion.install "etc/hub.fish_completion" => "hub.fish"
+      end
     end
   end
 
