@@ -10,6 +10,7 @@ class Txr < Formula
     sha256 "80a3df0768847b56f4d7f9e06db6ffe0e248f6d6be33aaaaaf305202bdbf1a7e" => :high_sierra
     sha256 "69ac09578a8a6e2aa8113b6795553b9be2266ee2f4803435d0904658992b8a7e" => :sierra
     sha256 "164024941a33530d80cfedf4f0b3f585863686dbe623036bcfde4d9112276b5e" => :el_capitan
+    sha256 "5e460b0cbb6be1486a3e734dac867e0fccc6386f9262c39e936b521d2b8dda76" => :x86_64_linux
   end
 
   unless OS.mac?
