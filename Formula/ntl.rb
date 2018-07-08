@@ -9,6 +9,7 @@ class Ntl < Formula
     sha256 "d2e3084101cb8ef628b9b0e11bbab6a3a336d67b06698981e654817a32d1c174" => :high_sierra
     sha256 "2f164dd67a76431e105faa20ceb75160104f88ddce4aa38b08f309e64ee71548" => :sierra
     sha256 "5f14dc4efcc0306c5b2293a56bb4222d7b7b2f8f101994975a05c797ca3f74b2" => :el_capitan
+    sha256 "bdc1cc66d389b5a49d6a3275bcd4d28ac13981aa7ce2b4476b28bf80f7d3522b" => :x86_64_linux
   end
 
   depends_on "gmp"
