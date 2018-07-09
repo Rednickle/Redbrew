@@ -12,6 +12,7 @@ class Gobuster < Formula
     sha256 "5b9242b221840de7f36b70fc1942d939b107cf753df7ec38bff59610e5708055" => :high_sierra
     sha256 "45026bb16e7cb74a0e01779d5215e62b96f3cde44c5af879786acca524a3fa42" => :sierra
     sha256 "3f76c44c22a2d08796db6e2b371df9065e67276bc32a8494cce5d34367230da3" => :el_capitan
+    sha256 "3d2938e39c73dcb19fb24f8dc36895f02f7138a8c436016caea9b47939572ffc" => :x86_64_linux
   end
 
   depends_on "go" => :build
