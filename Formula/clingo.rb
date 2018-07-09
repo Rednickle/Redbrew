@@ -3,17 +3,18 @@ class Clingo < Formula
   homepage "https://potassco.org/"
   url "https://github.com/potassco/clingo/archive/v5.2.2.tar.gz"
   sha256 "da1ef8142e75c5a6f23c9403b90d4f40b9f862969ba71e2aaee9a257d058bfcf"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "c6d1544f386880a1c16c81f56fddc3bef9efccda62d624dc646e6e785a236301" => :high_sierra
-    sha256 "69df2be35e41efc97550deef3f12a66210a77838b4238e9046edf2aab9a38a25" => :sierra
-    sha256 "7c9b87455116a0538ff4e8de9a2366a7ae7cb0020ef9c8a38450a72efd4903ce" => :el_capitan
+    sha256 "2e8a34ad07eb87362981512cfe327c70e4305bbfc831bc8338a3ee652bfbf915" => :high_sierra
+    sha256 "4853e4bf71f3cd05c7f68e6652f8b36e218c549f4033c37f2e137326a51f7acd" => :sierra
+    sha256 "1a77e6bf8ce30c67fda7a53ae70906e4d61c951475037f8e0951649eb04d26eb" => :el_capitan
   end
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
-  depends_on "python@2"
+  depends_on "lua"
+  depends_on "python"
 
   needs :cxx14
 
@@ -29,7 +30,8 @@ class Clingo < Formula
     system "cmake", ".", "-DCLINGO_BUILD_WITH_PYTHON=ON",
                          "-DCLINGO_BUILD_PY_SHARED=ON",
                          "-DPYCLINGO_USE_INSTALL_PREFIX=ON",
-                         "-DCLINGO_BUILD_WITH_LUA=OFF",
+                         "-DCLINGO_BUILD_WITH_LUA=ON",
+                         "-DPYTHON_EXECUTABLE=#{Formula["python"].opt_bin}/python3",
                          *std_cmake_args
     system "make", "install"
   end
