@@ -9,6 +9,7 @@ class GoStatik < Formula
     sha256 "d1be81d490c76fa8dd3cefc34da67f4bae12af864698184af5be27e5a85ecf67" => :high_sierra
     sha256 "3f7a5afdad6fc23fa15218ca7f886941dff5bf30db923d33914f28b6d1846f36" => :sierra
     sha256 "e2fb6992f472e04e283f15f5fa51d2c472f8c311b3cac93e0a992c0d638dc5f8" => :el_capitan
+    sha256 "0f13b6d618ce401b797f7c6b0dc8470166f127287d6c9129564952371e31adfe" => :x86_64_linux
   end
 
   depends_on "go" => :build
