@@ -10,6 +10,7 @@ class DnscryptProxy < Formula
     sha256 "7a7fd188f9d779a89eedacba76e5d90bd8917eb893d65b68b2f7428c1223e851" => :high_sierra
     sha256 "5c53b259fbfe284fc9967d8626bafccf75d98a74cc4c882c8fb42bc690d39277" => :sierra
     sha256 "95652dfcb23f6555814267e296c338c1f3c5ed456cacad0d2c161eba2f7faf66" => :el_capitan
+    sha256 "152b50f9fcbff82ab26297f221a449376c41a0cf3108809fc17d8ee2e9bfa0a5" => :x86_64_linux
   end
 
   depends_on "go" => :build
