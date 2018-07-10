@@ -9,6 +9,7 @@ class Odpi < Formula
     sha256 "0b8f47fd36581501faf5d90da3e71edb27fddbdfd5bf35cdc2d7af330be517fe" => :high_sierra
     sha256 "9e4a3cb977bd94d4a03e2069deb57e13e6b91acc7ae2fc069cfd483d6ae0223c" => :sierra
     sha256 "d7497b877ba35e99b966ccbc294bf960a04fec4877163587f1555f578067cf55" => :el_capitan
+    sha256 "8e3dee0dc6cecc40a71cedf5bf59b27b3ff32e586f806659e0ab53bb21915a4b" => :x86_64_linux
   end
 
   def install
