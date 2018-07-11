@@ -11,6 +11,7 @@ class Influxdb < Formula
     sha256 "fea730f64a991b228afcc64d830d907acdd2b01a4ef3f8b72be46bdf65e78ca5" => :high_sierra
     sha256 "67c0eedf1b05b9417a15fec4bb856ed5727c2304bc999f1252ea28fc7bfdbaa7" => :sierra
     sha256 "091b99b99ddf8bb4ecfc16bee608bbbd95b6a247ad28156341687a1c0c2ad3dc" => :el_capitan
+    sha256 "dd3d5eb7a11af146e73d83e4a3bfe40268de96774fd90c4cee564c15a95986a6" => :x86_64_linux
   end
 
   depends_on "gdm" => :build
