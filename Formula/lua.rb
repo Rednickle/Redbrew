@@ -1,16 +1,14 @@
 class Lua < Formula
   desc "Powerful, lightweight programming language"
   homepage "https://www.lua.org/"
-  url "https://www.lua.org/ftp/lua-5.3.4.tar.gz"
-  sha256 "f681aa518233bc407e23acf0f5887c884f17436f000d453b2491a9f11a52400c"
-  revision OS.mac? ? 4 : 5
+  url "https://www.lua.org/ftp/lua-5.3.5.tar.gz"
+  sha256 "0c2eed3f960446e1a3e4b9a1ca2f3ff893b6ce41942cf54d5dd59ab4b3b058ac"
 
   bottle do
     cellar :any
-    sha256 "09e8525e7d2aad8e51c50181e9a9efab091d7397ddea0ee5fe16daea2b13a9cc" => :high_sierra
-    sha256 "8d55080cc58b7e2d82cbecc4c03f47ce14ed325e5c204eeb0d2225e9433103b6" => :sierra
-    sha256 "4e691c5e758e7dcb2c656ad433b5ae1a5018cad8ab9eb748faaf7c554ff295cb" => :el_capitan
-    sha256 "93026c5aade32638b44c1d391d77f155c8baa48bc684337fbc5081a3d63c9411" => :x86_64_linux
+    sha256 "0519eedf38f18d868842cead8c66ea1784ead938e0eed940d89e7d50c8259884" => :high_sierra
+    sha256 "e93b77f260956a5f16ff0df19c8bdaa6047ff6fe7cde806f65624c728db63ae9" => :sierra
+    sha256 "79caa0554afffb84b0827f50e65dc57d7e7d34ff83db76341427ed5293b3a21c" => :el_capitan
   end
 
   option "without-luarocks", "Don't build with Luarocks support embedded"
@@ -59,7 +57,7 @@ class Lua < Formula
     # We ship our own pkg-config file as Lua no longer provide them upstream.
     arch = OS.mac? ? "macosx" : "linux"
     system "make", arch, "INSTALL_TOP=#{prefix}", "INSTALL_INC=#{include}/lua", "INSTALL_MAN=#{man1}"
-    system "make", "install", "INSTALL_TOP=#{prefix}", "INSTALL_INC=#{include}/lua", "INSTALL_MAN=#{man1}", *("TO_LIB=liblua.a liblua.so liblua.so.5.3 liblua.so.5.3.4" unless OS.mac?)
+    system "make", "install", "INSTALL_TOP=#{prefix}", "INSTALL_INC=#{include}/lua", "INSTALL_MAN=#{man1}", *("TO_LIB=liblua.a liblua.so liblua.so.5.3 liblua.so.5.3.5" unless OS.mac?)
     (lib/"pkgconfig/lua.pc").write pc_file
 
     # Fix some software potentially hunting for different pc names.
@@ -155,7 +153,7 @@ index 7fa91c8..a825198 100644
  TO_BIN= lua luac
  TO_INC= lua.h luaconf.h lualib.h lauxlib.h lua.hpp
 -TO_LIB= liblua.a
-+TO_LIB= liblua.5.3.4.dylib
++TO_LIB= liblua.5.3.5.dylib
  TO_MAN= lua.1 luac.1
 
  # Lua version and release.
@@ -163,7 +161,7 @@ index 7fa91c8..a825198 100644
 	cd src && $(INSTALL_DATA) $(TO_INC) $(INSTALL_INC)
 	cd src && $(INSTALL_DATA) $(TO_LIB) $(INSTALL_LIB)
 	cd doc && $(INSTALL_DATA) $(TO_MAN) $(INSTALL_MAN)
-+	ln -s -f liblua.5.3.4.dylib $(INSTALL_LIB)/liblua.5.3.dylib
++	ln -s -f liblua.5.3.5.dylib $(INSTALL_LIB)/liblua.5.3.dylib
 +	ln -s -f liblua.5.3.dylib $(INSTALL_LIB)/liblua.dylib
 
  uninstall:
@@ -177,7 +175,7 @@ index 2e7a412..d0c4898 100644
  PLATS= aix bsd c89 freebsd generic linux macosx mingw posix solaris
 
 -LUA_A=	liblua.a
-+LUA_A=	liblua.5.3.4.dylib
++LUA_A=	liblua.5.3.5.dylib
  CORE_O=	lapi.o lcode.o lctype.o ldebug.o ldo.o ldump.o lfunc.o lgc.o llex.o \
 	lmem.o lobject.o lopcodes.o lparser.o lstate.o lstring.o ltable.o \
 	ltm.o lundump.o lvm.o lzio.o
@@ -188,12 +186,12 @@ index 2e7a412..d0c4898 100644
 -	$(AR) $@ $(BASE_O)
 -	$(RANLIB) $@
 +	$(CC) -dynamiclib -install_name @LUA_PREFIX@/lib/liblua.5.3.dylib \
-+		-compatibility_version 5.3 -current_version 5.3.4 \
-+		-o liblua.5.3.4.dylib $^
++		-compatibility_version 5.3 -current_version 5.3.5 \
++		-o liblua.5.3.5.dylib $^
 
  $(LUA_T): $(LUA_O) $(LUA_A)
 -	$(CC) -o $@ $(LDFLAGS) $(LUA_O) $(LUA_A) $(LIBS)
-+	$(CC) -fno-common $(MYLDFLAGS) -o $@ $(LUA_O) $(LUA_A) -L. -llua.5.3.4 $(LIBS)
++	$(CC) -fno-common $(MYLDFLAGS) -o $@ $(LUA_O) $(LUA_A) -L. -llua.5.3.5 $(LIBS)
 
  $(LUAC_T): $(LUAC_O) $(LUA_A)
 	$(CC) -o $@ $(LDFLAGS) $(LUAC_O) $(LUA_A) $(LIBS)
@@ -201,8 +199,8 @@ index 2e7a412..d0c4898 100644
 	$(MAKE) $(ALL) SYSCFLAGS="-DLUA_USE_LINUX" SYSLIBS="-Wl,-E -ldl -lreadline"
 
  macosx:
--	$(MAKE) $(ALL) SYSCFLAGS="-DLUA_USE_MACOSX" SYSLIBS="-lreadline" CC=cc
-+	$(MAKE) $(ALL) SYSCFLAGS="-DLUA_USE_MACOSX -fno-common" SYSLIBS="-lreadline" CC=cc
+-	$(MAKE) $(ALL) SYSCFLAGS="-DLUA_USE_MACOSX" SYSLIBS="-lreadline"
++	$(MAKE) $(ALL) SYSCFLAGS="-DLUA_USE_MACOSX -fno-common" SYSLIBS="-lreadline"
 
  mingw:
 	$(MAKE) "LUA_A=lua53.dll" "LUA_T=lua.exe" \
