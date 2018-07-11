@@ -4,6 +4,7 @@ class Liblwgeom < Formula
   url "https://download.osgeo.org/postgis/source/postgis-2.4.4.tar.gz"
   sha256 "0663efb589210d5048d95c817e5cf29552ec8180e16d4c6ef56c94255faca8c2"
   revision 1
+  head "https://svn.osgeo.org/postgis/trunk/"
 
   bottle do
     cellar :any
@@ -11,10 +12,6 @@ class Liblwgeom < Formula
     sha256 "49cff9c152a94004541516365c60decf5dd5107977e300ef9185d1e9bf8d6db6" => :sierra
     sha256 "38054f5facd281c4acbe75597f67bed2133549efe33bef0f6200116dd47605d2" => :el_capitan
     sha256 "afdd3cf87cf362bfe21684aaf9cbba98ea70cf214fda02e40e6604b5196ceb0f" => :x86_64_linux
-  end
-
-  head do
-    url "https://svn.osgeo.org/postgis/trunk/"
   end
 
   keg_only "conflicts with PostGIS, which also installs liblwgeom.dylib"
