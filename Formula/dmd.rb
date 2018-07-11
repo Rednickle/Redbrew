@@ -3,8 +3,8 @@ class Dmd < Formula
   homepage "https://dlang.org/"
 
   stable do
-    url "https://github.com/dlang/dmd/archive/v2.081.0.tar.gz"
-    sha256 "29b9882ed424b744df83ac73182d4ae952251029ebd16117d18f9cc1e83542e2"
+    url "https://github.com/dlang/dmd/archive/v2.081.1.tar.gz"
+    sha256 "14f3aafe1c93c86646aaeb3ed7361a5fc5a24374cf25c8848c81942bfd9fae1a"
 
     resource "druntime" do
       url "https://github.com/dlang/druntime/archive/v2.081.0.tar.gz"
@@ -23,10 +23,9 @@ class Dmd < Formula
   end
 
   bottle do
-    sha256 "d361c52b42481506e94fec815366f9bdcdbe80364cf9de2d1994fd32ae38fc35" => :high_sierra
-    sha256 "2858dfb8d67407ab2b56353290f8c4c3bd7a311c8fd75a026c06a03a748c082e" => :sierra
-    sha256 "7f127e26ef86436f50452822aaedf789fc8fc7f6c7b409b5535cff9b959da993" => :el_capitan
-    sha256 "59080c51bbed6e56802e71209df71566a96878412ed05a34979045e24d74320d" => :x86_64_linux
+    sha256 "db80b1127ed24bc1092c2c5aa3e2543649add79d67d23bd573533e3023014d11" => :high_sierra
+    sha256 "f8e42fccb34fece3eaa9eed5363ddb21597a7b74e27fc8de3ec993f91e2fcbfa" => :sierra
+    sha256 "4de616383512748eb474f12edda62bfe9a1004907c875f85db5e51665c011887" => :el_capitan
   end
 
   head do
