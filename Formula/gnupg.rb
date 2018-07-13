@@ -1,14 +1,13 @@
 class Gnupg < Formula
   desc "GNU Pretty Good Privacy (PGP) package"
   homepage "https://gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.8.tar.bz2"
-  sha256 "777b4cb8ced21965a5053d4fa20fe11484f0a478f3d011cef508a1a49db50dcd"
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.9.tar.bz2"
+  sha256 "6278eaabffa1ebc9fa2ceb3dc53eea9a1505ab02a668a86dd6fec06951af2164"
 
   bottle do
-    sha256 "ab5c3a5c825bc37847da76ea6b339a233af45b63a59dc28b26b827ecfc3ab3d5" => :high_sierra
-    sha256 "8ad56ec331ced2e4406046d21e08760efc003d4898eb4a185e0eaa1b45e1c97e" => :sierra
-    sha256 "72a5ebf8c9b70b09969c1d0c155f76be49c7563f5dd1e0222498b5ed79b013bf" => :el_capitan
-    sha256 "44f72b5592864b454efa4600f787541e0c9a45a1a3a577afb96c8e0636ea9dab" => :x86_64_linux
+    sha256 "6fdabe5ae04b57c9f6f3123509bead3417efc65989c7c6cc463cd2abd3fdda95" => :high_sierra
+    sha256 "f61567dcf8dd3b1762db06af321755fb451700c30ad47a794336991916e4a33b" => :sierra
+    sha256 "fe77bee08d5f6e23b3910aa7bcebcc5ba4bf0e3453e0a519d1f6ee03e977cc01" => :el_capitan
   end
 
   option "with-gpgsplit", "Additionally install the gpgsplit utility"
