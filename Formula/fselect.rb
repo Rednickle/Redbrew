@@ -8,6 +8,7 @@ class Fselect < Formula
     sha256 "bde60b778534ff4e6f199d7d30249eb53d11b71b3c9342c65c5096feaaee0453" => :high_sierra
     sha256 "d4eacbba6f24de0a3437774d233a0d4a17d59d94c02ca082a9ec6ffc4501521c" => :sierra
     sha256 "ec4b3ba4ca9cae917df8e8a983e0322bcff8e2d6c3f8c1d8e5c3d61e28ca64dd" => :el_capitan
+    sha256 "a77047b442193276919967aaead9e528a73e2b907b02af907446d80215858da0" => :x86_64_linux
   end
 
   depends_on "rust" => :build
