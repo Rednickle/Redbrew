@@ -2,17 +2,15 @@ class Mypy < Formula
   desc "Experimental optional static type checker for Python"
   homepage "http://www.mypy-lang.org/"
   url "https://github.com/python/mypy.git",
-      :tag => "v0.610",
-      :revision => "4f4dc6de32e5cfd6f2d2079a47f52942a2397b97"
-  revision 1
+      :tag => "v0.620",
+      :revision => "67b260f0fec0b0d97c92529359796e9ad5c1a30d"
   head "https://github.com/python/mypy.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c2f95dbe1311c93bc8e1cc0952f805c8aa89630f4b5c50384cd3315c52d80722" => :high_sierra
-    sha256 "6211d82f4fd1de37c1bb941a25c23fb39ef8536507251024b12bab1b7e83ae6f" => :sierra
-    sha256 "aac6db9b95a9f5aa1f9e637ba080f180547876dd5c5efd519270920db541cafd" => :el_capitan
-    sha256 "b7d68cb9a93ca7a7bd748a95120af00747b40522d0186b1edaf6cdf8f92de647" => :x86_64_linux
+    sha256 "2a13c36dbca981b4b7e658ccbce713273b5820fe44f13bc870198be92b1d892b" => :high_sierra
+    sha256 "719f628bd75e16058f494c4494235513c9c347958f0fe4234b952e4047367fd9" => :sierra
+    sha256 "95a7fda13b3fbace3617e4145719e839002b4523fbf5b35a3457e49ede590edb" => :el_capitan
   end
 
   option "without-sphinx-doc", "Don't build documentation"
