@@ -1,19 +1,19 @@
 class Tor < Formula
   desc "Anonymizing overlay network for TCP"
   homepage "https://www.torproject.org/"
-  url "https://www.torproject.org/dist/tor-0.3.3.8.tar.gz"
-  mirror "https://tor.eff.org/dist/tor-0.3.3.8.tar.gz"
-  sha256 "3cf5b4fea2491cbfefa1077bf1b2855e169052d381bd920cd57aa9bfaff6b3a5"
+  url "https://www.torproject.org/dist/tor-0.3.3.9.tar.gz"
+  mirror "https://tor.eff.org/dist/tor-0.3.3.9.tar.gz"
+  sha256 "85346b4d026e6a041c8e326d2cc64b5f5361b032075c89c5854f16dbc02fce6f"
 
   bottle do
-    sha256 "d54c7d7fe7d7beb05f3ab03547567766abf12cfb3ff628ec58210e62b65a61d4" => :high_sierra
-    sha256 "4761338cb4efe9c5b9f2626900fb77e70e228fdc1c2985a7ac091651b9dd6067" => :sierra
-    sha256 "d78e9e766a25c543200297f079d0656d25187b692dd99f76f27d5b82cb4ea92a" => :el_capitan
+    sha256 "6b697a2a3d37bc43e515337500932efc3b2c69a60964c662d7ad3d5d145f4372" => :high_sierra
+    sha256 "5f835a6778bb73f21058702a2b58f607b113776ad3d41e57abddc919c5e23bf5" => :sierra
+    sha256 "cc6ec669819157650c4c1a47881460b95cc71183b0f85beeb92a391550c9715d" => :el_capitan
   end
 
   devel do
-    url "https://www.torproject.org/dist/tor-0.3.4.4-rc.tar.gz"
-    sha256 "d9f556e3213e12bd989666da778c043d4c78b448290fcccee0f7590c08b9505f"
+    url "https://www.torproject.org/dist/tor-0.3.4.5-rc.tar.gz"
+    sha256 "4aedbb9ce536618d8d6ba0a4d8607db5b46409f3c0cc8375ff049d1b2326cd92"
   end
 
   depends_on "pkg-config" => :build
