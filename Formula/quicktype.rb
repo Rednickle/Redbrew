@@ -4,15 +4,14 @@ class Quicktype < Formula
   desc "Generate types and converters from JSON, Schema, and GraphQL"
   homepage "https://github.com/quicktype/quicktype"
   # quicktype should only be updated every 10 releases on multiples of 10
-  url "https://registry.npmjs.org/quicktype/-/quicktype-15.0.50.tgz"
-  sha256 "207888dcc8105fee832679d7e62c9be56fe1c41ce74d4add88fee39d2ac13cf9"
+  url "https://registry.npmjs.org/quicktype/-/quicktype-15.0.60.tgz"
+  sha256 "13e1b3c753284ffb80428bb7acea9b5b0f1c0cbd7dec218d3cb7053b1b98b140"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d3273c991ad95952943a275d0a5ddfd510ef5555dd576b9360cc98616b60d142" => :high_sierra
-    sha256 "08c8ca4c0057ae627a7b402c113bf3ef12ef8b4672370610bf93d6e004bcab51" => :sierra
-    sha256 "d8cba05d03be618f05f0c33badc53d76e04d8e95e5f6856eb24c4872b122954b" => :el_capitan
-    sha256 "caf25d0997068513348709f30e8acbe30b57ee155f73380d309c4a615663f82b" => :x86_64_linux
+    sha256 "be647f8bd17e3ff23eee7c3b6679a62ca831de50fcd9727eb7d69aac554f6165" => :high_sierra
+    sha256 "1c6ad3c5c5cf1036537232947c679413efe0662975dfcda5c1979e4e4f1df7ee" => :sierra
+    sha256 "248f750ae76f1ba99cf10f601a3d9021950d8597ac0b1f6d20373021f504f1dd" => :el_capitan
   end
 
   depends_on "node"
