@@ -9,6 +9,7 @@ class GnuProlog < Formula
     sha256 "21072ba374c5426f89448664738eea6e331c0e9da452ca7945d709901b72eda4" => :high_sierra
     sha256 "957d8a1d72f338cb94765a82f88d5154bb0611e938db765de2b8120fc8e8f0db" => :sierra
     sha256 "4437bfce43e947a2ae48b50963b9cda18c257b3dbe202f49dde1da8f615d54e2" => :el_capitan
+    sha256 "bc50d6c133bb75ffae0e9a12f3c669e8ef5411fc04edfd2a0b45be61c1aef069" => :x86_64_linux
   end
 
   def install
