@@ -1,15 +1,14 @@
 class DarkskyWeather < Formula
   desc "Command-line weather from the darksky.net API"
   homepage "https://github.com/genuinetools/weather"
-  url "https://github.com/genuinetools/weather/archive/v0.15.2.tar.gz"
-  sha256 "e9964c409bf3f7ec2929bfb371929dbc4a73552e013fd26f2456eaefc005e655"
+  url "https://github.com/genuinetools/weather/archive/v0.15.5.tar.gz"
+  sha256 "89ac1b9e767db0818da8fcf981a27371ebc18b542a47de65713425fed6da53e3"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4715a19399501e6418096418cae5c6798de81f397333fde968828604fb48d281" => :high_sierra
-    sha256 "d17d8161f0e29ec3431dd72740352483ee0d80c7b168e9e8b58382ea69687923" => :sierra
-    sha256 "cad678d22987a1143a9633d219c103de85b5ab84110bcb2fc1f21e57f8f4a9c3" => :el_capitan
-    sha256 "81af65a9a596009117b0d96661ce433b3bb22e81319905a6f7c70fa7a27b4fee" => :x86_64_linux
+    sha256 "74a814416ebe84e3999e5c465f9d4794402fce9f9f4e8a4552f2a50faf2f10da" => :high_sierra
+    sha256 "f4d070ead432f8e052c0e1e77cf2cef24898082ac84bc1a1acbfa8dd71790115" => :sierra
+    sha256 "50c07862d0c5a7e7ff4e75963c8af97622f3072b300cdebe4ccb7a9905153d3a" => :el_capitan
   end
 
   depends_on "go" => :build
