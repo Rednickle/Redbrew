@@ -1,15 +1,14 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v10.6.0/node-v10.6.0.tar.xz"
-  sha256 "1960742a836db36ad1aaf3cc024e79aa067adb8460f981c7ae8409390afc7e8f"
+  url "https://nodejs.org/dist/v10.7.0/node-v10.7.0.tar.xz"
+  sha256 "34ee6946ca67151f35c23115818f0b78233c21b7dff210648d4d6dbb5a1be962"
   head "https://github.com/nodejs/node.git"
 
   bottle do
-    sha256 "da81d3d696b639ffe8a42673c1e01b8f1ce4e37ddc6458fa490e254ebe256c73" => :high_sierra
-    sha256 "dbd8155f4c0fcc32b236381982eaddd0fe7f77290101099c824bd4b18ea13cb3" => :sierra
-    sha256 "0d2de2e28947288300fe443604d5f31b8648e16d55104ef728ed558958f35627" => :el_capitan
-    sha256 "d05e2e9526bfcb84c03491746a292b6e2bfc7a760f0278464b58eb579aaea612" => :x86_64_linux
+    sha256 "91abd24ab9aeceb24d6f5a7b298b35f86f2087da8a8edfe8e3e224217dbbe6f5" => :high_sierra
+    sha256 "93d61ad8bb29e6be9150ad040c1b5086aedcb4cd4ad357a32f3b3a378bcdbc3c" => :sierra
+    sha256 "c98990aca7283a19f4b748a60560efd04f7bd258f551a827ac176f728f3d7cde" => :el_capitan
   end
 
   option "with-debug", "Build with debugger hooks"
@@ -37,8 +36,8 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-6.1.0.tgz"
-    sha256 "be8bb5fdb52e5af8a62988ad32f51c688d1327f62412c4410b30c29c8d66a85f"
+    url "https://registry.npmjs.org/npm/-/npm-6.2.0.tgz"
+    sha256 "c40214b4181c50f8390c6c5a692438381054bf319062a36ef52f540599b1935f"
   end
 
   def install
