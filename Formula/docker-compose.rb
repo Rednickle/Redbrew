@@ -3,13 +3,15 @@ class DockerCompose < Formula
 
   desc "Isolated development environments using Docker"
   homepage "https://docs.docker.com/compose/"
-  url "https://github.com/docker/compose/archive/1.21.2.tar.gz"
-  sha256 "3fdaa361dceb919b6008a925b8b672d7402cc3dd8277b8f26b028dd546d39926"
+  url "https://github.com/docker/compose/archive/1.22.0.tar.gz"
+  sha256 "d28a2e96976dae306f480f656e4487a0334a5f95c456408f4bbe4acc5760ffa0"
   head "https://github.com/docker/compose.git"
 
   bottle do
     cellar :any
-    sha256 "c295564373993cf84337c084443f4e91856d581d6f69e366d0f0dea0bb7d6338" => :x86_64_linux
+    sha256 "e3297ba8e7066a3fb48c195b4d064d767659f5d73bf0fbc9b17c536a14b99969" => :high_sierra
+    sha256 "33b04317090c4c35b9178e866e99816da7df6cf06d1d73a3aafda14c2ec5522a" => :sierra
+    sha256 "5384c36aae1861722900b82aedf8440d9f2069a242573c22c8dc5faa9443646b" => :el_capitan
   end
 
   depends_on "python@2"
