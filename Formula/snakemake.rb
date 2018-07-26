@@ -1,18 +1,15 @@
 class Snakemake < Formula
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/a7/a0/ebafb2982558837824fd7a63ea73c68d07d81f99d1c1c0f3a05161da417c/snakemake-5.1.5.tar.gz"
-  sha256 "9e5d8ab6cba6c1e7cb2c6f4118dc6052b07480c90c9a68781d8482d151ebec2f"
-  revision 1
+  url "https://files.pythonhosted.org/packages/98/d8/de041c00f7bc82dd27c3e70ea410324094bb688b7a1886231b8459be9665/snakemake-5.2.0.tar.gz"
+  sha256 "4123accb7853371d5f7f62f22c2fbafd1e8fd4b6c9d773edbfb5ae8ecb2e3128"
   head "https://bitbucket.org/snakemake/snakemake.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "bdfb37bd10e4dcf409a02a4553385aaab76a720c370d08d8b8de4a51077a212e" => :high_sierra
-    sha256 "dc50d6747dd253f61797a532f652e18d00853dd474b699ec8d3849f5d42ad56c" => :sierra
-    sha256 "ea8a4775262084fb7578ab21b4e3ed623f0cd80706751715d15f3f0c8fb05671" => :el_capitan
-    sha256 "bac4827337bb4fe3bf36b61a32c659a40c51c9b6d53575923d4e0cb8a53309d6" => :x86_64_linux
+    sha256 "473ebf32edfcdbd45a735b3602773e812eb3bfb83dc834f5014f92c0910d795e" => :high_sierra
+    sha256 "84b252154a78333b29c60896cc757748b0f949671eba04f7de76f8ec907ab808" => :sierra
+    sha256 "8063145aef40644359726a8f0fdfdfa04bab4153785526fe79c4049c9d1d6da8" => :el_capitan
   end
 
   depends_on "python"
@@ -47,11 +44,6 @@ class Snakemake < Formula
     sha256 "7a11371cc2dbbad71d6dfef57ced6e8b384bb377eeb847c63d58f8dc8e8b2023"
   end
 
-  resource "decorator" do
-    url "https://files.pythonhosted.org/packages/6f/24/15a229626c775aae5806312f6bf1e2a73785be3402c0acdec5dbddd8c11e/decorator-4.3.0.tar.gz"
-    sha256 "c39efa13fbdeb4506c476c9b3babf6a718da943dab7811c206005a4a956c080c"
-  end
-
   resource "docutils" do
     url "https://files.pythonhosted.org/packages/84/f4/5771e41fdf52aabebbadecc9381d11dea0fa34e4759b4071244fa094804c/docutils-0.14.tar.gz"
     sha256 "51e64ef2ebfb29cae1faa133b3710143496eca21c530f3f71424d77687764274"
@@ -62,24 +54,9 @@ class Snakemake < Formula
     sha256 "684a38a6f903c1d71d6d5fac066b58d7768af4de2b832e426ec79c30daa94a16"
   end
 
-  resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/56/e6/332789f295cf22308386cf5bbd1f4e00ed11484299c5d7383378cf48ba47/Jinja2-2.10.tar.gz"
-    sha256 "f84be1bb0040caca4cea721fcbbbbd61f9be9464ca236387158b0feea01914a4"
-  end
-
   resource "jsonschema" do
     url "https://files.pythonhosted.org/packages/58/b9/171dbb07e18c6346090a37f03c7e74410a1a56123f847efed59af260a298/jsonschema-2.6.0.tar.gz"
     sha256 "6ff5f3180870836cae40f06fa10419f557208175f13ad7bc26caa77beb1f6e02"
-  end
-
-  resource "MarkupSafe" do
-    url "https://files.pythonhosted.org/packages/4d/de/32d741db316d8fdb7680822dd37001ef7a448255de9699ab4bfcbdf4172b/MarkupSafe-1.0.tar.gz"
-    sha256 "a6be69091dac236ea9c6bc7d012beab42010fa914c459791d627dad4910eb665"
-  end
-
-  resource "networkx" do
-    url "https://files.pythonhosted.org/packages/11/42/f951cc6838a4dff6ce57211c4d7f8444809ccbe2134179950301e5c4c83c/networkx-2.1.zip"
-    sha256 "64272ca418972b70a196cb15d9c85a5a6041f09a2f32e0d30c0255f25d458bb1"
   end
 
   resource "PyYAML" do
@@ -108,8 +85,6 @@ class Snakemake < Formula
   end
 
   def install
-    inreplace "snakemake/shell.py", "async", "async_" # Python 3.7 compat
-
     xy = Language::Python.major_minor_version "python3"
 
     ENV.prepend_create_path "PYTHONPATH", buildpath/"cython/lib/python#{xy}/site-packages"
