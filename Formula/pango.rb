@@ -3,11 +3,12 @@ class Pango < Formula
   homepage "https://www.pango.org/"
   url "https://download.gnome.org/sources/pango/1.42/pango-1.42.2.tar.xz"
   sha256 "b1e416b4d40416ef6c8224cf146492b86848703264ba88f792290992cf3ca1e2"
+  revision 1
 
   bottle do
-    sha256 "00652bf4d276be9c0f084418892e59d3df7f3e08259e40a38bdd5e7a7a11e4d7" => :high_sierra
-    sha256 "3c665356a1fd1e88cfe78ed2431a2b9f10a1374168266fbb266cbb15f7f6c6ea" => :sierra
-    sha256 "3e561ebcf7abef2511282a91b06fd6d88ea6fa77eec364a51e198629e23b0596" => :el_capitan
+    sha256 "7cababfdf855fb476c720a0321b61da3b136aafbb95d9777f3bd31feaf42f138" => :high_sierra
+    sha256 "c7f02c6d349e1b936966035feb3bc85cb69f58c28d1cff415c7755152332e41e" => :sierra
+    sha256 "e2996a4159ae800ace51b517b0f0690da8003fa9ce76c38e0df80bd46fd9446f" => :el_capitan
   end
 
   head do
@@ -26,6 +27,13 @@ class Pango < Formula
   depends_on "fontconfig"
   depends_on "glib"
   depends_on "harfbuzz"
+
+  # This fixes a font-size problem in gtk
+  # For discussion, see https://bugzilla.gnome.org/show_bug.cgi?id=787867
+  patch do
+    url "https://gitlab.gnome.org/tschoonj/pango/commit/60df2b006e5d4553abc7bb5fe9a99539c91b0022.patch"
+    sha256 "d5ece753cf393ef507dd2b0415721b4381159da5e2f40793c6d85741b1b163bc"
+  end
 
   def install
     system "./autogen.sh" if build.head?
