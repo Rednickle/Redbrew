@@ -8,6 +8,8 @@ class Sonarqube < Formula
 
   depends_on :java => "1.8+"
 
+  conflicts_with "sonarqube-lts", :because => "both install the same binaries"
+
   def install
     # Delete native bin directories for other systems
     rm_rf "bin/linux-x86-32" unless OS.linux? && !MacOS.prefer_64_bit?
