@@ -1,15 +1,15 @@
 class Ponyc < Formula
   desc "Object-oriented, actor-model, capabilities-secure programming language"
   homepage "https://www.ponylang.org/"
-  url "https://github.com/ponylang/ponyc/archive/0.24.0.tar.gz"
-  sha256 "840d8fb161c679d20650a80167b43adda8bdb5d7538d9377273e08d9e2d01fcd"
+  url "https://github.com/ponylang/ponyc/archive/0.24.1.tar.gz"
+  sha256 "2130e2415ce25d4c3399d273445f569959701bfc53b12424bcdaacc3674a91f6"
   head "https://github.com/ponylang/ponyc.git"
 
   bottle do
     cellar :any
-    sha256 "89c91241aaba3880827926b50b0e03d6467563e506537c4e473d9cfd6b58b087" => :high_sierra
-    sha256 "04281656fa85b7f600ce476f1bbb63da24fd0476e31dda9af3048ac13f587830" => :sierra
-    sha256 "026068f870513b3f349bae39848e78bae0e438720cddcfe87f7fea449fffed17" => :el_capitan
+    sha256 "031963cfaeab2b8e174f84dd034ff41b3c55272f56f69ef38e9caa07ee012950" => :high_sierra
+    sha256 "b73f42693d74b6d74f5bbd3ebdda505dd441047621dc3dfcf88f644ca76ee952" => :sierra
+    sha256 "a371493307cfaf9abb7b355a08ad68a70474bd865ce66c78df290abd7b746903" => :el_capitan
   end
 
   depends_on :macos => :yosemite
