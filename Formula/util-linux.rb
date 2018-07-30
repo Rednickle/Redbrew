@@ -6,10 +6,10 @@ class UtilLinux < Formula
 
   bottle do
     cellar :any
-    sha256 "dcfc28966d982c03bcbdad6fa531e27998446e3000b1bf39c73d7bfc7ebb423e" => :high_sierra
-    sha256 "c220f5314101fa69fc67a696b6f21d68b49489a91778ae873e4163c322fa3185" => :sierra
-    sha256 "f2ead84d7ee46a582a800ab4cde3dfeb17b5cd6e615a43799cb7c653ac70512d" => :el_capitan
-    sha256 "8aad3b3fb3c331d655fb39ccb5e3bb228aaa8c3cec8f3cff4e9f058f8cfc06c0" => :x86_64_linux
+    rebuild 1
+    sha256 "6efcade13c334a732e716ac6ce5779d23016fcc621a726af497b8a468620c680" => :high_sierra
+    sha256 "f08ce5604fe17b7d14d2dcca3902e7e01836368d41b3f05dd23a08fdb59bdd61" => :sierra
+    sha256 "ef8aea494486a2cb3c49c18a1772c596f12f4bed557cdbbec94639b279a4e969" => :el_capitan
   end
 
   depends_on "ncurses" unless OS.mac?
@@ -55,11 +55,19 @@ class UtilLinux < Formula
       rm_f sbin/prog
       rm_f man1/"#{prog}.1"
       rm_f man8/"#{prog}.8"
-      rm_f share/"bash-completion"/"completions"/prog
     end if OS.mac?
 
-    # conflicts with bash-completion
-    ["mount", "rtcwake"].each { |conflict| rm bash_completion/conflict } unless OS.mac?
+    # these conflict with bash-completion-1.3
+    %w[chsh mount rfkill rtcwake].each do |prog|
+      rm_f share/"bash-completion/completions/#{prog}"
+    end
+
+    # install completions only for installed programs
+    Pathname.glob("bash-completion/*") do |prog|
+      if (bin/prog.basename).exist? || (sbin/prog.basename).exist?
+        bash_completion.install prog
+      end
+    end
   end
 
   test do
