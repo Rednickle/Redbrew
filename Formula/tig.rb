@@ -1,14 +1,13 @@
 class Tig < Formula
   desc "Text interface for Git repositories"
   homepage "https://jonas.github.io/tig/"
-  url "https://github.com/jonas/tig/releases/download/tig-2.4.0/tig-2.4.0.tar.gz"
-  sha256 "1669b722a3152cde112ff3dae6e02a4280750a8a5ae5d6b57688c38e42243d97"
+  url "https://github.com/jonas/tig/releases/download/tig-2.4.1/tig-2.4.1.tar.gz"
+  sha256 "b6b6aa183e571224d0e1fab3ec482542c1a97fa7a85b26352dc31dbafe8558b8"
 
   bottle do
-    sha256 "cc10f4c5f2565695ea7242bd5785eac825fb93edd8674e9104f4be42ac9424a2" => :high_sierra
-    sha256 "3c7030954f808cc780b3161081bf4479532835f8e603b0605609c8b18e9b77a3" => :sierra
-    sha256 "209c931ce11600b591be4ffdb981b55ac7644c356e2b48ea271e228ad98f56fe" => :el_capitan
-    sha256 "bd55d96fdcb29a8935fa469921e29e752612bb67ac8bcb6443a2c648e05a2fef" => :x86_64_linux
+    sha256 "7212ea8dafd00af09770b01c3fd4e8e0f8fd0dbec15182443713e2e28a429bbb" => :high_sierra
+    sha256 "f5bb2f81aede65620461805770e47cf27f78450416918322079fcb4b5ef92a97" => :sierra
+    sha256 "328074d19609efd84dce823240a23142962091c49ca10ea3fd01c1143a49e207" => :el_capitan
   end
 
   head do
