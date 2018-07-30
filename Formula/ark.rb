@@ -9,6 +9,7 @@ class Ark < Formula
     sha256 "ab162b2b1c0ed16c8eb4ff5f4986a991fb45f0c31b18cec59112680d75644e70" => :high_sierra
     sha256 "87edd81a7bc456a5a0bef1a80d9c77d849db7ad9c8b4de30ac7f6da3cab78956" => :sierra
     sha256 "4cfd60f68c306762e87cf28387aa40fc5016d859e20a4830d27fef038a671892" => :el_capitan
+    sha256 "456f3a13959e2dd03afe26c6c17a82f1aaf62ab281e9e9213510230c27203eec" => :x86_64_linux
   end
 
   depends_on "go" => :build
