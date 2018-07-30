@@ -1,15 +1,14 @@
 class Pgcli < Formula
   desc "CLI for Postgres with auto-completion and syntax highlighting"
   homepage "https://pgcli.com/"
-  url "https://files.pythonhosted.org/packages/f6/9b/7a84e56a1088219d9a4cc595b14006f9654e6f3d94bc9423c97f0dbc2d2b/pgcli-1.10.1.tar.gz"
-  sha256 "cd68b8e5fe9098951eafc4be36976791cb9c349be2b7692619cd3b5e4bccef1e"
+  url "https://files.pythonhosted.org/packages/e9/5d/5d5ab8feb3d05b2a750c5bac59fb6e54cd4574193fccd6bce1c6d83d4cbb/pgcli-1.10.2.tar.gz"
+  sha256 "5a2446cd42e89aeec0ca0f32e45b49ae06f7e3586e2130383067d90b8a3bfa39"
 
   bottle do
     cellar :any
-    sha256 "82846becd2a4825b07b985608863e00a38d9688bed1ae37e6cd8fe1410bf1bdd" => :high_sierra
-    sha256 "6fcb6312ba68e892ebaff8e96657a60e31d15356ab62fc02ba5d473f43d22b33" => :sierra
-    sha256 "68724d2c9712ff9595cc7d65fcb25df34db01bdc5e059a7b5598c57cc59c6017" => :el_capitan
-    sha256 "47947afdf635c427bce99150268f1f62668d931efc1b3836ea59313fa1eb4560" => :x86_64_linux
+    sha256 "b2a29083b527d33a3d000568f05f97249a77de1b6f82ed36c833abcaa38f5739" => :high_sierra
+    sha256 "6b135e96c18cb9eb9fe727afb783a7935188cdb75486f33a2a6b15a7f6b1c81a" => :sierra
+    sha256 "ec494ab862b6e901b15feb440a78cdf3710d27fe884e17303730868d4d52d7c9" => :el_capitan
   end
 
   depends_on "python@2"
@@ -36,24 +35,9 @@ class Pgcli < Formula
     sha256 "a2f5650770e1c87fb335af19a9b7eb73fc05ccf22144eb68db7d00cd2bcb0902"
   end
 
-  resource "configparser" do
-    url "https://files.pythonhosted.org/packages/7c/69/c2ce7e91c89dc073eb1aa74c0621c3eefbffe8216b3f9af9d3885265c01c/configparser-3.5.0.tar.gz"
-    sha256 "5308b47021bc2340965c371f0f058cc6971a04502638d4244225c49d80db273a"
-  end
-
-  resource "entrypoints" do
-    url "https://files.pythonhosted.org/packages/27/e8/607697e6ab8a961fc0b141a97ea4ce72cd9c9e264adeb0669f6d194aa626/entrypoints-0.2.3.tar.gz"
-    sha256 "d2d587dde06f99545fb13a383d2cd336a8ff1f359c5839ce3a64c917d10c029f"
-  end
-
   resource "humanize" do
     url "https://files.pythonhosted.org/packages/8c/e0/e512e4ac6d091fc990bbe13f9e0378f34cf6eecd1c6c268c9e598dcf5bb9/humanize-0.5.1.tar.gz"
     sha256 "a43f57115831ac7c70de098e6ac46ac13be00d69abbf60bdcac251344785bb19"
-  end
-
-  resource "keyring" do
-    url "https://files.pythonhosted.org/packages/a0/c9/c08bf10bd057293ff385abaef38e7e548549bbe81e95333157684e75ebc6/keyring-13.2.1.tar.gz"
-    sha256 "6364bb8c233f28538df4928576f4e051229e0451651073ab20b315488da16a58"
   end
 
   resource "pgspecial" do
