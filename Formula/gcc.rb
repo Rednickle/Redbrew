@@ -14,28 +14,25 @@ class Gcc < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
   revision 4 unless OS.mac?
-
   head "svn://gcc.gnu.org/svn/gcc/trunk"
 
-  stable do
-    if OS.mac?
-      url "https://ftp.gnu.org/gnu/gcc/gcc-8.1.0/gcc-8.1.0.tar.xz"
-      mirror "https://ftpmirror.gnu.org/gcc/gcc-8.1.0/gcc-8.1.0.tar.xz"
-      sha256 "1d1866f992626e61349a1ccd0b8d5253816222cdc13390dcfaa74b093aa2b153"
-    else
-      url "https://ftp.gnu.org/gnu/gcc/gcc-5.5.0/gcc-5.5.0.tar.xz"
-      mirror "https://ftpmirror.gnu.org/gcc/gcc-5.5.0/gcc-5.5.0.tar.xz"
-      sha256 "530cea139d82fe542b358961130c69cfde8b3d14556370b65823d2f91f0ced87"
-    end
+  if OS.mac?
+    url "https://ftp.gnu.org/gnu/gcc/gcc-8.2.0/gcc-8.2.0.tar.xz"
+    mirror "https://ftpmirror.gnu.org/gcc/gcc-8.2.0/gcc-8.2.0.tar.xz"
+    sha256 "196c3c04ba2613f893283977e6011b2345d1cd1af9abeac58e916b1aab3e0080"
+  else
+    url "https://ftp.gnu.org/gnu/gcc/gcc-5.5.0/gcc-5.5.0.tar.xz"
+    mirror "https://ftpmirror.gnu.org/gcc/gcc-5.5.0/gcc-5.5.0.tar.xz"
+    sha256 "530cea139d82fe542b358961130c69cfde8b3d14556370b65823d2f91f0ced87"
   end
 
   # gcc is designed to be portable.
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "7b92e10293f1c1fc3208b7da7fef36b9611f6ee604d0d6a8b1af3a18f545c1c0" => :high_sierra
-    sha256 "2a2d951884aa9d6157e2afe8cc640de283c8e7d4899ca12b5bd8639efd989645" => :sierra
-    sha256 "57bb9160bcb4c0c2db09990d865463d863d5723a39652c2d1bcba646dbb10c0e" => :el_capitan
+    rebuild 1 unless OS.mac?
+    sha256 "594126c80c83e927daa11244f00d85e199a07733bfd196192a5b137be6192f77" => :high_sierra
+    sha256 "96bbe35cbc6c6d20eca7f6ab3e0a9af42d9db51d8c5e861ff0b771efd9190b30" => :sierra
+    sha256 "4e2299c3809915dac00d013181c59ef5c7162101cbf90c894e23322e9e7cc68b" => :el_capitan
     sha256 "e67391e083084ef4d0061345423f544816f0806447ce390d1a505a73d0b65c8b" => :x86_64_linux
   end
 
@@ -181,7 +178,7 @@ class Gcc < Formula
     args << "--enable-host-shared" if build.with?("jit") || build.with?("all-languages")
 
     # Ensure correct install names when linking against libgcc_s;
-    # see discussion in https://github.com/Homebrew/homebrew/pull/34303
+    # see discussion in https://github.com/Homebrew/legacy-homebrew/pull/34303
     inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}" if OS.mac?
 
     mkdir "build" do
