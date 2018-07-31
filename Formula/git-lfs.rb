@@ -1,15 +1,14 @@
 class GitLfs < Formula
   desc "Git extension for versioning large files"
   homepage "https://github.com/git-lfs/git-lfs"
-  url "https://github.com/git-lfs/git-lfs/archive/v2.4.2.tar.gz"
-  sha256 "130a552a27c8f324ac0548baf9db0519c4ae96c26a85f926c07ebe0f15a69fc2"
+  url "https://github.com/git-lfs/git-lfs/archive/v2.5.0.tar.gz"
+  sha256 "a09304d8bc767643469d738d3a1defbe5b3627dd4777bc668517a6a4f6018373"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ce479c1e882e71424b31f99712df288fbf77935f85d27f9f0cdbbdedc774dc92" => :high_sierra
-    sha256 "83fb6dce04da20d262d966b54b256471779afeccc0c17d3171d14a8442255477" => :sierra
-    sha256 "845e5877f4d1beb7ad15a7b9a078b4d820ff1f8392827ec42c8cbf7fd48850ba" => :el_capitan
-    sha256 "7835293c83f46297a0a741c184d0fe238f89a7788b44f9f26be9a8dfbf3f1da2" => :x86_64_linux
+    sha256 "15333ffc32711c11d739fbcde3785ef0243ed7ac65d69b9614c418842978dd5f" => :high_sierra
+    sha256 "8fa77cbd43541a3284ded867fc7c995e321dde13ec1c8358ae25f311590108e5" => :sierra
+    sha256 "329e996f4ced5247b258f5375d7b0a43a5bb91086b1d81315eb4ee6f1dd70070" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -19,21 +18,23 @@ class GitLfs < Formula
   depends_on "ruby" => :build if MacOS.version <= :sierra
 
   def install
-    begin
-      deleted = ENV.delete "SDKROOT"
-      ENV["GEM_HOME"] = buildpath/"gem_home"
+    ENV["GOPATH"] = buildpath
+    ENV["GIT_LFS_SHA"] = ""
+    ENV["VERSION"] = version
+
+    (buildpath/"src/github.com/git-lfs/git-lfs").install buildpath.children
+    cd "src/github.com/git-lfs/git-lfs" do
+      ENV["GEM_HOME"] = ".gem_home"
       system "gem", "install", "ronn"
-      ENV.prepend_path "PATH", buildpath/"gem_home/bin"
-    ensure
-      ENV["SDKROOT"] = deleted
+
+      system "make"
+      system "make", "man", "RONN=.gem_home/bin/ronn"
+
+      bin.install "bin/git-lfs"
+      man1.install Dir["man/*.1"]
+      man5.install Dir["man/*.5"]
+      doc.install Dir["man/*.html"]
     end
-
-    system "./script/bootstrap"
-    system "./script/man"
-
-    bin.install "bin/git-lfs"
-    man1.install Dir["man/*.1"]
-    doc.install Dir["man/*.html"]
   end
 
   def caveats; <<~EOS
