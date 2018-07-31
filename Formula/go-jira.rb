@@ -1,14 +1,14 @@
 class GoJira < Formula
   desc "Simple jira command-line client in Go"
   homepage "https://github.com/Netflix-Skunkworks/go-jira"
-  url "https://github.com/Netflix-Skunkworks/go-jira/archive/v1.0.17.tar.gz"
-  sha256 "c1127af5ff8d19ab3f6b5bf424f262495143448608ec59beadcefb5e645feddb"
+  url "https://github.com/Netflix-Skunkworks/go-jira/archive/v1.0.18.tar.gz"
+  sha256 "636a5c0a64441075b7cf5c8c452f5bd2c3788e9ed3201eb8de416f4b627b7f8d"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "998f112c60677a6148d494a228cb0c7ce52b1305ca592f390303aa4bbeafa1c3" => :high_sierra
-    sha256 "f69c2762ed8579b1e90039f87a4729e08713c44b3769a10a4d05ea39534532d6" => :sierra
-    sha256 "feac86e0055b80f2553211f21db03a8e56eb6e1f7e229afff6aa395c576a3aff" => :el_capitan
+    sha256 "6297f060b3b9619f317853647131e488c42560bcb9662d0e4698a9e31e806d67" => :high_sierra
+    sha256 "f395cc77022f3c6803dfcfcba7618e71175d77f236c821b286a8aec002a67d70" => :sierra
+    sha256 "6517c529ea7f56d8b97cbc8f32928b6688a6d8fa1ab881e8ab6c38620162fdd4" => :el_capitan
   end
 
   depends_on "go" => :build
