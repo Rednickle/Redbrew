@@ -3,15 +3,15 @@ class Fabric < Formula
 
   desc "Library and command-line tool for SSH"
   homepage "http://www.fabfile.org"
-  url "https://github.com/fabric/fabric/archive/2.2.1.tar.gz"
-  sha256 "2a7af0842e8fac0a42f56c591b8c8435fb007a6a8a36b9d43229482d8129dccb"
+  url "https://github.com/fabric/fabric/archive/2.2.2.tar.gz"
+  sha256 "0b5c02a5e06d491e3a57548f5e96eba093a2f7864d9543158d66c5853acb7346"
   head "https://github.com/fabric/fabric.git"
 
   bottle do
     cellar :any
-    sha256 "6b5821a7b6cba31c5e2bd783604b0dce30e54a7766108f8df47fd9c8d42aaa38" => :high_sierra
-    sha256 "52cebe718ef8cadc25d9c617291cacfd0bb11d7ef037e547b445e9be7a9a08d9" => :sierra
-    sha256 "c6b4e02bffcdd64df217b0c69662036f4f0f3d0b19d5db4082b5543b37ba345b" => :el_capitan
+    sha256 "5a8ba9c4299b4af8c78bb0ff306a96711958889842138f2482515350c03028fa" => :high_sierra
+    sha256 "a47fc3afb9c92030755677c09b82b9d12b63b6c3f4a300bd3efdc4d2997d4947" => :sierra
+    sha256 "48a44e7cd374582a3b1d6beedad600f551073fee32e3063527632c8fef881056" => :el_capitan
   end
 
   depends_on "python@2"
