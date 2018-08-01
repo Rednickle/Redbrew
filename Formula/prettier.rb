@@ -3,14 +3,14 @@ require "language/node"
 class Prettier < Formula
   desc "Code formatter for JavaScript, CSS, JSON, GraphQL, Markdown, YAML"
   homepage "https://prettier.io/"
-  url "https://registry.npmjs.org/prettier/-/prettier-1.13.7.tgz"
-  sha256 "a380bed5eda687946afceb09ed56ca960dc88292cc512303f426d9640522b47a"
+  url "https://registry.npmjs.org/prettier/-/prettier-1.14.0.tgz"
+  sha256 "00d0f227c712a2da72db1d77d24e01c5221506501cf0856aadb22431edb4c434"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d8ad0a3cea0d9cb906986a6201652060b0509a8c987ece7d7b2b8378e1d89282" => :high_sierra
-    sha256 "75261eea810825bf1ddc064cea871caffa46a13ec46e25e7d95fbf3514658cd3" => :sierra
-    sha256 "5df44611de806b8fce59a8b52afda14f61e416e1c7d4ae0eeab41f83950ee6da" => :el_capitan
+    sha256 "b448c8a59127b0989dfed50b1d776f7b40460ab224d104b8108e3cde55ad4e8d" => :high_sierra
+    sha256 "57c548b4cd7d3f5409b59b3aae47ef0ca9264075fd04018cbee28ee25d84db8c" => :sierra
+    sha256 "24b24f28bd753a7f843d7628a6f49a94a569e4ef6271846527c4d286018125e3" => :el_capitan
   end
 
   depends_on "node"
