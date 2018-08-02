@@ -10,6 +10,7 @@ class Mercurial < Formula
     sha256 "34bc44582749ca51684868eaccbb395b7e798c897528bf3452c63cd9c08ddd11" => :high_sierra
     sha256 "cf649a3c621ee6ebcbf0f69125c2473e07134f4e63ef51bac796b1dd0ab3637b" => :sierra
     sha256 "fe466296e89fabfae3d0257456e0da4356745c473737f915024e470d2ac175a8" => :el_capitan
+    sha256 "6bf43c7c1151c2080b2d9513c8a6e33845d3770ad7267534d861ebb30333402a" => :x86_64_linux
   end
 
   depends_on "python@2"
