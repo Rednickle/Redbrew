@@ -1,15 +1,14 @@
 class Uhd < Formula
   desc "Hardware driver for all USRP devices"
   homepage "https://files.ettus.com/manual/"
-  url "https://github.com/EttusResearch/uhd/archive/v3.13.0.0.tar.gz"
-  sha256 "c9b4038fc018406e9019f52e2e94d246caf0fb523fc9b13790526a23c415915d"
+  url "https://github.com/EttusResearch/uhd/archive/v3.13.0.1.tar.gz"
+  sha256 "ee5475e7ffbb14441b323cc2fc73950cde2326fd00772dab62efa677f27a97bf"
   head "https://github.com/EttusResearch/uhd.git"
 
   bottle do
-    sha256 "d63fecbd9f8ba6d9ba8f74cb3e2599e48fdd7d44f2a56645bc894b4b1bf0f798" => :high_sierra
-    sha256 "e7d8d66144c552cb7c4bd91245dfea7e0b49b93c46970a3146797aaa8156bc09" => :sierra
-    sha256 "61512bf4864e14c3ee48e3f026012c855d81eefa811f355676ef13594474f74c" => :el_capitan
-    sha256 "785ddd091e82d4c1cc3228fd7122f170da9b88de949ffe42fabcc42a4b3900b3" => :x86_64_linux
+    sha256 "88c7c8ba71ef237682afef3d2397ccd84623ad38e9ce256e8f45114122a0ffc0" => :high_sierra
+    sha256 "9683435c6f7275add84bd725b7753052e34e4f6031b898822a8395113f787117" => :sierra
+    sha256 "36cdebae5a9f4ff7615f26440d3baab7aa604914e1bcc3f095f6f1dba96b75e7" => :el_capitan
   end
 
   depends_on "cmake" => :build
