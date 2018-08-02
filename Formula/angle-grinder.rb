@@ -8,6 +8,7 @@ class AngleGrinder < Formula
     sha256 "8f2f356c465074a10d7ced0e41da052df20b7443cdcb5703f0c014f6d7c78223" => :high_sierra
     sha256 "635c1e2d84f5a176150628cc281550d0b0aaf7fe4d2dbc5a79752847e83ec0f8" => :sierra
     sha256 "0291d2073ce16b5f7edb8c6b1ae4b4722f9770e43ca1bac247d76da2adfff504" => :el_capitan
+    sha256 "6f06a8c93533ad298fd54fd701890e18cf0a2f599486d683bbb56e51d94989ac" => :x86_64_linux
   end
 
   depends_on "rust" => :build
