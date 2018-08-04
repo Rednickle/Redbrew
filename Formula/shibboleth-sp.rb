@@ -1,14 +1,13 @@
 class ShibbolethSp < Formula
   desc "Shibboleth 2 Service Provider daemon"
   homepage "https://wiki.shibboleth.net/confluence/display/SHIB2"
-  url "https://shibboleth.net/downloads/service-provider/3.0.1/shibboleth-sp-3.0.1.tar.bz2"
-  sha256 "9ea9fecccefb11af2cc81e532c55b8e4b138052f131bad8ff8468347d9511258"
-  revision 1
+  url "https://shibboleth.net/downloads/service-provider/3.0.2/shibboleth-sp-3.0.2.tar.bz2"
+  sha256 "7aab399aeaf39145c60e1713dbc29a65f618e9eca84505f5ed03cee63e3f31a3"
 
   bottle do
-    sha256 "db317a38fd0b2ce888b43138c215846b0803b67df0b2fc04b63c0ba76c634c59" => :high_sierra
-    sha256 "c706f0d17d94140e8063569d476bf4ffdc9d4784c334bc4e063243059d7307ee" => :sierra
-    sha256 "58638074f289c1a92eb5f254b5d3f0855d55454948caa3818f1ff9c9bd74f23c" => :el_capitan
+    sha256 "ea68592d27b642e356112d9f41ed43a449e8c206628ccdffffdead4742ac30bd" => :high_sierra
+    sha256 "95f5e6ea5ad8195d0013f419280c262cc9a8d10b5470962347dc6e62c0d2dd30" => :sierra
+    sha256 "ac57fa26bc3e53d7fa7640b3ed437148a6fb47648afdc7fb402e43de1d4fd7c2" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
