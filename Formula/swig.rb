@@ -12,10 +12,18 @@ class Swig < Formula
     sha256 "d23af3191eaa25dbfe8bc26d2c71d5116b47c523900f6a20ab534656811671c1" => :x86_64_linux # glibc 2.19
   end
 
+  head do
+    url "https://github.com/swig/swig.git"
+
+    depends_on "automake" => :build
+    depends_on "autoconf" => :build
+  end
+
   depends_on "pcre"
   depends_on "ruby" => :test unless OS.mac?
 
   def install
+    system "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make"
