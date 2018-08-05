@@ -3,16 +3,15 @@ class Proselint < Formula
 
   desc "Linter for prose"
   homepage "http://proselint.com"
-  url "https://files.pythonhosted.org/packages/f3/e8/97487c264e3aa08171bc9a028f65e023ecd1e77680b23df67b871c840fda/proselint-0.10.1.tar.gz"
-  sha256 "64ddfb036b63fa062c1303a784924c842e490ff6b7d90ee84bf9622422f888d8"
+  url "https://files.pythonhosted.org/packages/42/ff/8e7ad0108b8faffdf2ec7d170b4a8a3c9bc91f5077debf5381ef14702588/proselint-0.10.2.tar.gz"
+  sha256 "3a87eb393056d1bc77d898e4bcf8998f50e9ad84f7b9ff7cf2720509ac8ef904"
   head "https://github.com/amperser/proselint.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "82c94cbcee61bff8f8caad4811aa43e3f94468711112453d015c4d22e863ba8e" => :high_sierra
-    sha256 "dced8e141627ce6d735e24663839f1037f2b52e4a78945f5c6b9b5b735405146" => :sierra
-    sha256 "9ae605c01455d630279ec13589d6c2577745a04ff02b6e1d63537e9a39976e14" => :el_capitan
-    sha256 "7d210427e1a5cb844bea1547c032ab217fdbecd0cc132af3074a0c4e3cccfdc1" => :x86_64_linux
+    sha256 "c6c0425dc06297b4d4200e2f53920732e44bcc6009108e6cc5d5ce752e3913a2" => :high_sierra
+    sha256 "5c21d30d5a33124a411e7c6f79581f8ac7478c7508e100ac1a71e7d25b0e6a76" => :sierra
+    sha256 "791b9de22b93ff3e09a6bff939ccb5edfc1be84dc32d16692ee68603c46f6d31" => :el_capitan
   end
 
   depends_on "python@2"
