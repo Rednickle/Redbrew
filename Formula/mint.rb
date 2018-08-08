@@ -1,13 +1,13 @@
 class Mint < Formula
   desc "Dependency manager that installs and runs Swift command-line tool packages"
   homepage "https://github.com/yonaskolb/Mint"
-  url "https://github.com/yonaskolb/Mint/archive/0.10.2.tar.gz"
-  sha256 "d32be438caabc3e527a812e809f0f004dfede0959c8099e3a5ce24b526a464cc"
+  url "https://github.com/yonaskolb/Mint/archive/0.11.0.tar.gz"
+  sha256 "cc26485dcc9777f9c1770f91afb252f77ed96ef5af67c6a152caa9dc7f0bfafe"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1c7809eed9921e8d6b32a9d58656a7aebb593c00f4567bdea869e5be534e01c3" => :high_sierra
-    sha256 "9d328139982de23b815e2dc8ce08213c27f1b097eee8480dcc1ff2be1fd7973c" => :sierra
+    sha256 "e0aa789ac1be455ff321fcb57f06d969edafb90c511bc180952206e421eec910" => :high_sierra
+    sha256 "e79cb8d50cddd4a523b2ad3d93e8bdb4ee4df2271ebfc234f69431173a069a14" => :sierra
   end
 
   depends_on :xcode => ["9.2", :build]

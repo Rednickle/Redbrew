@@ -1,15 +1,14 @@
 class Tarantool < Formula
   desc "In-memory database and Lua application server"
   homepage "https://tarantool.org/"
-  url "https://download.tarantool.org/tarantool/1.9/src/tarantool-1.9.0.61.tar.gz"
-  sha256 "0045aaf8be05e12957f8ad7cd249789ffddb3021d7adaa5d90aef3646bce26d2"
-  revision 1
+  url "https://download.tarantool.org/tarantool/1.9/src/tarantool-1.9.1.63.tar.gz"
+  sha256 "2d035e33f1abbdc35fc3ecce2e93e506e52362a9d2474d31b19daa4289445683"
   head "https://github.com/tarantool/tarantool.git", :branch => "2.0", :shallow => false
 
   bottle do
-    sha256 "ea52cee8125b27022c2e8b260cd1ca4e911dea144699db31b04e8b7bbdfe1987" => :high_sierra
-    sha256 "7d69eefc1194feb94d1464d8dce8397e7317fca2f0af62409d6390e9892e47e8" => :sierra
-    sha256 "dec69699adc2b36b01922a8c0b99f003b63ce3261fc05bca13b3800152fb4d14" => :el_capitan
+    sha256 "8db536d3a4673e63ccd906245702c34be96fdbc3e2b40d405f2adee818e42ef8" => :high_sierra
+    sha256 "3399ae58a27bb6b2bef60b036317cb42055e01ae992a8e31a87c401ffc19f650" => :sierra
+    sha256 "b7b06522b88943cabd3d7100318b34713cd0f0a64faf7baef8a2ace63ded7dce" => :el_capitan
   end
 
   depends_on "cmake" => :build
