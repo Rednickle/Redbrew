@@ -12,6 +12,8 @@ class Optipng < Formula
     sha256 "f59e3cedb808003915ee214f6487b968e3e6dcea669452f0a732fcced03aaa8f" => :el_capitan
   end
 
+  depends_on "zlib" unless OS.mac?
+
   def install
     system "./configure", "--with-system-zlib",
                           "--prefix=#{prefix}",
