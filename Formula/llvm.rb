@@ -207,6 +207,12 @@ class Llvm < Formula
     build.with?("libcxx") || !MacOS::CLT.installed?
   end
 
+  # Clang cannot find system headers if Xcode CLT is not installed
+  pour_bottle? do
+    reason "The bottle needs the Xcode CLT to be installed."
+    satisfy { MacOS::CLT.installed? }
+  end
+
   def install
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["MAKEFLAGS"] = "-j2 -l2.0" if ENV["CIRCLECI"]

@@ -1,16 +1,14 @@
 class Hcloud < Formula
   desc "Command-line interface for Hetzner Cloud"
   homepage "https://github.com/hetznercloud/cli"
-  url "https://github.com/hetznercloud/cli/archive/v1.5.0.tar.gz"
-  sha256 "cc09f03c6a776a086ee9219e9ee70749e2ef5cda6171dd042cb1c623cccd6dfa"
+  url "https://github.com/hetznercloud/cli/archive/v1.6.0.tar.gz"
+  sha256 "8ada1db53f812774666d579722bce1d63cfd0212a70dd0d3ca734608610584b1"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "5c6ff02f7c5aa341b3a7cf640e66355a16083cb64a32bee32eec1aeaf0252400" => :high_sierra
-    sha256 "a389b4bf39549713809acdcec93ccc8c907c5b56a2817380fcb0946a270e8071" => :sierra
-    sha256 "e6fd5b0b4a9db1fb1db687e045c035c8cd552720ec887d7858436d5e2a3bb0bf" => :el_capitan
-    sha256 "c868d241924520029d05a2c287e05d0bf92e2daee989d98926cc7f36b37648cf" => :x86_64_linux
+    sha256 "0c710c7c12c15a186411ccf4e919227f6615557400f127f51ddbb1aed2f6110b" => :high_sierra
+    sha256 "91fbe41966cd0e151a79eaa0440e07f7baec9557bb870e6457a35694ddace58e" => :sierra
+    sha256 "907f1daf1241855d5007bad92f8401521d2a0d1a8c7bf883e39777f4a6236d8f" => :el_capitan
   end
 
   depends_on "go" => :build
