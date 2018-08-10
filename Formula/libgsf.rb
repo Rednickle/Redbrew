@@ -1,14 +1,13 @@
 class Libgsf < Formula
   desc "I/O abstraction library for dealing with structured file formats"
   homepage "https://developer.gnome.org/gsf/"
-  url "https://download.gnome.org/sources/libgsf/1.14/libgsf-1.14.43.tar.xz"
-  sha256 "12944e3d6d9a6e4071e89dbf58348e1e93544f5f9266dd1a107a28d8001cee16"
+  url "https://download.gnome.org/sources/libgsf/1.14/libgsf-1.14.44.tar.xz"
+  sha256 "68bede10037164764992970b4cb57cd6add6986a846d04657af9d5fac774ffde"
 
   bottle do
-    sha256 "31ec48d4eb908d85fda219299f442548997ce4600a5d46dab0889dbbe2a37097" => :high_sierra
-    sha256 "7c7ca0aae4be13b4f7a12fcdf6cfa528ff10de2b67c477246123e88e4aaac78b" => :sierra
-    sha256 "625687aaed0be8749b5bfd39160e760cecd8fe7fe51ecc24b60dcf32d620f91a" => :el_capitan
-    sha256 "ba3d32f2e0e3bceb58842112c4dc3075e743237de8bd1ace8f4978c1a30ed839" => :x86_64_linux
+    sha256 "93e371516b562160d21ce01177ce374e3cf230a06d79f879583d1d126af2606c" => :high_sierra
+    sha256 "4d53f3f3c337161669faf4c8bece29a90a8a875171cbc1d76a331f0d231f44cf" => :sierra
+    sha256 "cbed5a072ffd00e82f14a8d17e3a897357df53a92289eac230c84de8f17fc818" => :el_capitan
   end
 
   head do
