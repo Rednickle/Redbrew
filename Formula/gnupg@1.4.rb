@@ -4,12 +4,12 @@ class GnupgAT14 < Formula
   url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-1.4.23.tar.bz2"
   mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-1.4.23.tar.bz2"
   sha256 "c9462f17e651b6507848c08c430c791287cd75491f8b5a8b50c6ed46b12678ba"
+  revision 1
 
   bottle do
-    sha256 "06712329d11b029b7e1fcc0064d72865caa5e65c93fb39ccababc67320991f8c" => :high_sierra
-    sha256 "1e07e7c1deabd13be0b752bfbc926a14c832fccb0f88aca34f057142fd61428f" => :sierra
-    sha256 "63ec421f1def0a57f80228c9efbe70521e99bc10c9f30abd90ff3bfa067de14d" => :el_capitan
-    sha256 "02df17c2687d6b3e54a30dbc4bb349b2dc8a56b29ae04949498709a80aa4ea0a" => :x86_64_linux
+    sha256 "dbd43b52f11e65c2bb6dadf3adbf8ccf7f740af33b56e4d8c8b037611840f127" => :high_sierra
+    sha256 "abc1e142397fbe833f2f7c5f71409d925ce690506d77296f7f3d41656a0791f2" => :sierra
+    sha256 "397c92b88bd189ef61dfb01d5fe2e27e0477a63de64a713ffb883eb799dcbb87" => :el_capitan
   end
 
   depends_on "curl" if MacOS.version <= :mavericks
@@ -37,10 +37,17 @@ class GnupgAT14 < Formula
     # https://lists.gnupg.org/pipermail/gnupg-devel/2016-August/031533.html
     inreplace bin/"gpg-zip1", "GPG=gpg", "GPG=gpg1"
 
+    # link to libexec binaries without the "1" suffix
+    # gpg1 will call them without the suffix when it needs to
+    %w[curl finger hkp ldap].each do |cmd|
+      cmd.prepend("gpgkeys_")
+      (libexec/"gnupg").install_symlink (cmd + "1") => cmd
+    end
+
     # Although gpg2 support should be pretty universal these days
     # keep vanilla `gpg` executables available, at least for now.
-    %w[gpg-zip1 gpg1 gpgsplit1 gpgv1].each do |cmd|
-      (libexec/"gpgbin").install_symlink bin/cmd => cmd.to_s.sub(/1/, "")
+    %w[gpg-zip gpg gpgsplit gpgv].each do |cmd|
+      (libexec/"gpgbin").install_symlink bin/(cmd + "1") => cmd
     end
   end
 
