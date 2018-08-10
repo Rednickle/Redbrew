@@ -6,9 +6,10 @@ class Freeling < Formula
   revision 1
 
   bottle do
-    sha256 "4b5c69a8cfc0b2848746756070b8e54c9dbda57f4e236f2a018b9116ff1c42fb" => :high_sierra
-    sha256 "713eedd5e3bd15f897a54044dedd579ffc2920187c0994bd080abcb0d08269b9" => :sierra
-    sha256 "b95302dfefc5d54653393c40f2bfe12501397802aa0867839af4184215143d72" => :el_capitan
+    rebuild 1
+    sha256 "80fc641e9bb01820522377114bde6396423746df8b66ecb902359bc28e3f8d1e" => :high_sierra
+    sha256 "4a98299f8447dab5da5245828fae099e0699686f2b5e8d982c8ea8848f1e1eee" => :sierra
+    sha256 "8fb3e6914290b9164fb316a2b6725c457c8309aa0d9335fbda1308c46696b945" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -17,8 +18,8 @@ class Freeling < Formula
   conflicts_with "hunspell", :because => "both install 'analyze' binary"
 
   resource "boost" do
-    url "https://dl.bintray.com/boostorg/release/1.67.0/source/boost_1_67_0.tar.bz2"
-    sha256 "2684c972994ee57fc5632e03bf044746f6eb45d4920c343937a465fd67a5adba"
+    url "https://dl.bintray.com/boostorg/release/1.68.0/source/boost_1_68_0.tar.bz2"
+    sha256 "7f6130bc3cf65f56a618888ce9d5ea704fa10b462be126ad053e80e553d6d8b7"
   end
 
   def install
@@ -29,7 +30,6 @@ class Freeling < Formula
       end
 
       bootstrap_args = %W[
-        --without-icu
         --prefix=#{libexec}/boost
         --libdir=#{libexec}/boost/lib
         --with-icu=#{Formula["icu4c"].opt_prefix}

@@ -1,14 +1,13 @@
 class Libsoup < Formula
   desc "HTTP client/server library for GNOME"
   homepage "https://wiki.gnome.org/Projects/libsoup"
-  url "https://download.gnome.org/sources/libsoup/2.62/libsoup-2.62.2.tar.xz"
-  sha256 "9e536fe3da60b25d2c63addb84a9d5072d00b0d8b8cbeabc629a6bcd63f879b6"
+  url "https://download.gnome.org/sources/libsoup/2.62/libsoup-2.62.3.tar.xz"
+  sha256 "d312ade547495c2093ff8bda61f9b9727a98cfdae339f3263277dd39c0451172"
 
   bottle do
-    sha256 "1272bebf7bb3ab258b2e01bceb82dce9a08cd8fb9ec604240a61c77afabbcbf3" => :high_sierra
-    sha256 "9151f558ef5c9f291bc5044614aaf6fde277a1d08c1a796c188a718fc52127d7" => :sierra
-    sha256 "224752dc0d4e4d71994c38da324c4625dc9c25f14a0607cdc6b32115feb4b01a" => :el_capitan
-    sha256 "8b1fba8542680dcd3abdbf34f7739c9cec9769621e0ed6700a3c9dfd7e65598e" => :x86_64_linux
+    sha256 "4aa8d356d3617c754488b56982d41f93fee2ed9103c05e6687e226bfc0dfd26d" => :high_sierra
+    sha256 "43a1ddb3bcdb5d0c4a29ea7c0dc23a34f396da7604b32e425d5e450921f948fa" => :sierra
+    sha256 "86c8301beb1a991dbfcf76866ffcd6fff9f8b7c758722467125f0c9221ce55d6" => :el_capitan
   end
 
   depends_on "gobject-introspection" => :build
