@@ -1,15 +1,14 @@
 class Postgresql < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v10.4/postgresql-10.4.tar.bz2"
-  sha256 "1b60812310bd5756c62d93a9f93de8c28ea63b0df254f428cd1cf1a4d9020048"
+  url "https://ftp.postgresql.org/pub/source/v10.5/postgresql-10.5.tar.bz2"
+  sha256 "6c8e616c91a45142b85c0aeb1f29ebba4a361309e86469e0fb4617b6a73c4011"
   head "https://github.com/postgres/postgres.git"
 
   bottle do
-    sha256 "1e7b54fb14f79b5ebda6ff50432abfc8fc0ee1b608d7c0c0f6b1503eab4dfafc" => :high_sierra
-    sha256 "4da4fd7d3d855816470392f64a07fad981dbf67457202d7f7cbdf90afe8ce09c" => :sierra
-    sha256 "626d253e3fa4c8464e30ff0cfe595b1fb7663597dd9918e73f3789aff2776233" => :el_capitan
-    sha256 "fe81c222296ff972e95c57107d36d95332db36f00cfb0f5e80115d3c40bd8911" => :x86_64_linux
+    sha256 "9f657c1da00a6fe27549b47e63c1c4eb1e805f123a6e9fd633eea231e207908f" => :high_sierra
+    sha256 "16300cc113408922aa4b217eb88c01a89be7ea49493d5ed7ef2456573a048782" => :sierra
+    sha256 "80f8dd999aa719e37c12243cfc9388690741a290099c36e49bba2290c5a253a1" => :el_capitan
   end
 
   option "without-perl", "Build without Perl support"
@@ -27,6 +26,8 @@ class Postgresql < Formula
   deprecated_option "enable-dtrace" => "with-dtrace"
   deprecated_option "with-python3" => "with-python"
 
+  depends_on "pkg-config" => :build
+  depends_on "icu4c"
   depends_on "openssl"
   depends_on "readline"
 
@@ -65,6 +66,7 @@ class Postgresql < Formula
       --with-openssl
       --with-libxml
       --with-libxslt
+      --with-icu
     ]
     args += %w[
       --with-bonjour

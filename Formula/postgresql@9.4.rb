@@ -1,14 +1,13 @@
 class PostgresqlAT94 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v9.4.18/postgresql-9.4.18.tar.bz2"
-  sha256 "428337f2b2f5e3ea21b8a44f88eb89c99a07a324559b99aebe777c9abdf4c4c0"
+  url "https://ftp.postgresql.org/pub/source/v9.4.19/postgresql-9.4.19.tar.bz2"
+  sha256 "03776b036b2a05371083558e10c21cc4b90bde9eb3aff60299c4ce7c084c168b"
 
   bottle do
-    sha256 "3b6142111be8016544c6033f264f4b958c67a0e55050833aa29106eef4f5375a" => :high_sierra
-    sha256 "23ce9c8a6ed128d559d9c87051dd0d05a27e5548664e12e75728cf5dd3c5f51c" => :sierra
-    sha256 "495fa8f166505f36671469d7c2c653853f62ff10fe5823b2d4b2be4f8832eb95" => :el_capitan
-    sha256 "01d2cf942bcbe0812bfe70e9984640244ba1806ff9b36bbc24164c1127b6db6e" => :x86_64_linux
+    sha256 "b593ab2e71cfa12c23b1f4f8de5503a914c84fa7f7c1eb494562dfc604f0d8fb" => :high_sierra
+    sha256 "4f0e3954fdb63d05fec7fb5a5defe6be9f2c0521a7ac3c4a5b07b8f7fcc3fa2f" => :sierra
+    sha256 "cbd349a265798fd5d07d0d75377c3bb6c0eac238e72d1c2307b1908df487f9fe" => :el_capitan
   end
 
   keg_only :versioned_formula
