@@ -1,16 +1,15 @@
 class Twoping < Formula
   desc "Ping utility to determine directional packet loss"
   homepage "https://www.finnie.org/software/2ping/"
-  url "https://www.finnie.org/software/2ping/2ping-4.1.tar.gz"
-  sha256 "85331ae57f445bc8895ba4e61da4c7300b67fde55642f5e42ea02f2daf07b1ed"
-  revision 3
+  url "https://www.finnie.org/software/2ping/2ping-4.1.2.tar.gz"
+  sha256 "961c1b67b2d63599e439ff00facc0270e60b67809b26e6fcc048dcbed2d5966d"
   head "https://github.com/rfinnie/2ping.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2498b6a53b330f5c4a8bb4be89cda6ca3be4e0bc27efbdf7cdfc17660d6b5356" => :high_sierra
-    sha256 "2498b6a53b330f5c4a8bb4be89cda6ca3be4e0bc27efbdf7cdfc17660d6b5356" => :sierra
-    sha256 "2498b6a53b330f5c4a8bb4be89cda6ca3be4e0bc27efbdf7cdfc17660d6b5356" => :el_capitan
+    sha256 "9c26393a8739488bdce5ec1353343df5adad1f6ef0be90552ad1679e00db8e10" => :high_sierra
+    sha256 "9c26393a8739488bdce5ec1353343df5adad1f6ef0be90552ad1679e00db8e10" => :sierra
+    sha256 "9c26393a8739488bdce5ec1353343df5adad1f6ef0be90552ad1679e00db8e10" => :el_capitan
   end
 
   depends_on "python"
