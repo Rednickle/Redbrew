@@ -1,15 +1,14 @@
 class OsmiumTool < Formula
   desc "Libosmium-based command-line tool for processing OpenStreetMap data"
   homepage "https://osmcode.org/osmium-tool/"
-  url "https://github.com/osmcode/osmium-tool/archive/v1.8.0.tar.gz"
-  sha256 "3e996ddcdedcfc3ac70dec3687d59a100dbfb04d00ed3f03df6b3e8d0bd92755"
+  url "https://github.com/osmcode/osmium-tool/archive/v1.9.0.tar.gz"
+  sha256 "b337c416751014ea81cb44b7ebf52c91f2bd77156bf8f6f8095a337de711e0e5"
 
   bottle do
     cellar :any
-    sha256 "38cad32aa92035906161ea8eb3fad6857aff23e930869ba767bb7071f2d95c26" => :high_sierra
-    sha256 "5b11e95a4d33405ec3f57aadd2e90a4694ba010a492ab15174c8c7d20aa9be88" => :sierra
-    sha256 "ad19ecff2341a5554588fdc82841180bc6648f7ffd18264cffaf5c92f9fd27cc" => :el_capitan
-    sha256 "12384d97def64898f44099db120f572e67dd8a83c7c9651eb042b2fe968b1901" => :x86_64_linux
+    sha256 "a7d445f092f4bc558aac3068e6d4c34f5e1f7c4a943fa19047bc507213104377" => :high_sierra
+    sha256 "be09a5d9f049d7910da93a744ee94b281b6eecac63dda5a5eaeda88fa491f25e" => :sierra
+    sha256 "77fe660e4d1527e3eec205dd6f2659896decb790928dbaf06790469f8ff36ca1" => :el_capitan
   end
 
   depends_on "cmake" => :build

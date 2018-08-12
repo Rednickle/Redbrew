@@ -3,12 +3,12 @@ class GlibNetworking < Formula
   homepage "https://launchpad.net/glib-networking"
   url "https://download.gnome.org/sources/glib-networking/2.56/glib-networking-2.56.1.tar.xz"
   sha256 "df47b0e0a037d2dcf6b1846cbdf68dd4b3cc055e026bb40c4a55f19f29f635c8"
+  revision 1
 
   bottle do
-    sha256 "da2db63fe14a07847b4e39456e71b694e40b5d13280c9cdea09d865bbf5966e0" => :high_sierra
-    sha256 "cb898d2ae8576f8d5ced34d65567bf2c1cfa0fedb8fddb7d43c7213c538e613d" => :sierra
-    sha256 "f44e60d7daeb84cd055d359b7e2b54cc10cf64e35fd808cb4a3ba71cbd85be08" => :el_capitan
-    sha256 "11508a134b7fbdd7df9f550f33add464a028a26fc12c2bb4ad6c6b976288a302" => :x86_64_linux
+    sha256 "848ca8306d7132d621325029270190bdfc1ceb4c27260ac1bb924a1d586f1bcc" => :high_sierra
+    sha256 "fe7eee17a3d576796fb8201eed5e0957726fc5af4e08500b2fc443cd2b8d3527" => :sierra
+    sha256 "4992ba80139c7bea88e579e24756b1c1793e0ff7f4cf30450123f405e0bc7e70" => :el_capitan
   end
 
   depends_on "meson" => :build
@@ -31,10 +31,6 @@ class GlibNetworking < Formula
     ENV["DESTDIR"] = ""
     mkdir "build" do
       system "meson", "--prefix=#{prefix}",
-                      # Remove when p11-kit >= 0.20.7 builds on OSX
-                      # see https://github.com/Homebrew/homebrew/issues/36323
-                      # and https://bugs.freedesktop.org/show_bug.cgi?id=91602
-                      "-Dpkcs11_support=false",
                       "-Dlibproxy_support=false",
                       "-Dca_certificates_path=#{etc}/openssl/cert.pem",
                       ".."

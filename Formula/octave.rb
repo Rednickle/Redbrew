@@ -1,15 +1,14 @@
 class Octave < Formula
   desc "High-level interpreted language for numerical computing"
   homepage "https://www.gnu.org/software/octave/index.html"
-  url "https://ftp.gnu.org/gnu/octave/octave-4.4.0.tar.gz"
-  mirror "https://ftpmirror.gnu.org/octave/octave-4.4.0.tar.gz"
-  sha256 "72f846379fcec7e813d46adcbacd069d72c4f4d8f6003bcd92c3513aafcd6e96"
-  revision 2
+  url "https://ftp.gnu.org/gnu/octave/octave-4.4.1.tar.xz"
+  mirror "https://ftpmirror.gnu.org/octave/octave-4.4.1.tar.xz"
+  sha256 "7e4e9ac67ed809bd56768fb69807abae0d229f4e169db63a37c11c9f08215f90"
 
   bottle do
-    sha256 "1c951852a2e7d94ec6f245698f656fe84b637ecc5f86b0508fa644be95fcece7" => :high_sierra
-    sha256 "ea706026288b995c179a2bedae8c297b3ddb8c494c9053721ad4e41f3fe9dfdd" => :sierra
-    sha256 "232cb8215826cd378a98bae1221b6002993916e89eca343e41e046c8658bb1cd" => :el_capitan
+    sha256 "2ea3658a30bc9b73bf2a5a0eac3112bc3cd5de32a3aa9ce8f363037dcb120c4d" => :high_sierra
+    sha256 "c2e07a092b1a11b0bb90cc78b408f5e37b4454b57188cd67ae5d84d7f7605d3f" => :sierra
+    sha256 "ecfd8554bc84d90e4512d18f68e2ccee4b370446193d973379d4b5b5320febcd" => :el_capitan
   end
 
   head do
