@@ -3,14 +3,14 @@ class Sshguard < Formula
   homepage "https://www.sshguard.net/"
   url "https://downloads.sourceforge.net/project/sshguard/sshguard/2.2.0/sshguard-2.2.0.tar.gz"
   sha256 "2aff07fee6ec33e4ffd5411916b75189977af1d77b86dac5f3834dd3aa3656c2"
+  revision 1
   version_scheme 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "55acb263d41a284fa3581bde9239be11038e56c73e62110073da19a07a72d499" => :high_sierra
-    sha256 "0172ad8624eca77e726d26d479a6e3fdf373e750daeb804c9ff0f772be159a41" => :sierra
-    sha256 "6ba75075590383494544771a547b721f0e134fb95f2743b2898ad5d90ee875b6" => :el_capitan
-    sha256 "78bf77ba2157db93703e16e2edba8833f45f178df98392fafdebd05c3b89778e" => :x86_64_linux
+    sha256 "2b979c2504070e5f23e74567eb309128a89ce468e1fbdb0507467fa59f48fe59" => :high_sierra
+    sha256 "db07c4e6798f424c73a343fd52ce08b026bfa7457e88de3c9af7a92428312df0" => :sierra
+    sha256 "e7abf2b9d63c4051e10e565f37cbf069748ff7836932aa1e3971abd98356d6ac" => :el_capitan
   end
 
   head do
@@ -34,7 +34,6 @@ class Sshguard < Formula
       s.gsub! /^#BACKEND=.*$/, "BACKEND=\"#{opt_libexec}/sshg-fw-#{firewall}\""
       if MacOS.version >= :sierra
         s.gsub! %r{^#LOGREADER="/usr/bin/log}, "LOGREADER=\"/usr/bin/log"
-        s.gsub! %q{\"sshd\")'"}, %q{"sshd")'"}
       else
         s.gsub! /^#FILES.*$/, "FILES=#{log_path}"
       end
