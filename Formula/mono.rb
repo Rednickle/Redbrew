@@ -1,14 +1,13 @@
 class Mono < Formula
   desc "Cross platform, open source .NET development framework"
   homepage "https://www.mono-project.com/"
-  url "https://download.mono-project.com/sources/mono/mono-5.12.0.226.tar.bz2"
-  sha256 "f0636baa0c1399805526142e799cb697ddccf736e506cf1a30a870eaa2830a89"
-  revision 1
+  url "https://download.mono-project.com/sources/mono/mono-5.14.0.177.tar.bz2"
+  sha256 "d4f5fa2e8188d66fbc8054f4145711e45c1faa6d070e63600efab93d1d189498"
 
   bottle do
-    sha256 "bd914502b997ba891e948791b4f9e4709ccab551c93f3f6389ebdd081a060b19" => :high_sierra
-    sha256 "03bc79c25e36f17ae200a1ff9750e3bdc7e9bb7bbd4c823672b759be310a03fc" => :sierra
-    sha256 "595d90ac60e236fdbb84ac6b6aed4f119e8e3d77c411b3cf727a833e0a6547ba" => :el_capitan
+    sha256 "32a208795022a8aa55c86c4f77aca63725d9fe957998c160e43b9048898ce2fa" => :high_sierra
+    sha256 "5b881b5ed9b9fdcef2003dc6f525887f27df2278349644dc8ba446ea4a1b62e5" => :sierra
+    sha256 "22551363ddcd90271af6bac89055ea7bfdf0647455b9ea0be355649dfc6e6e9a" => :el_capitan
   end
 
   # xbuild requires the .exe files inside the runtime directories to
@@ -24,8 +23,6 @@ class Mono < Formula
 
   option "without-fsharp", "Build without support for the F# language."
 
-  depends_on "automake" => :build
-  depends_on "autoconf" => :build
   depends_on "pkg-config" => :build
   depends_on "cmake" => :build
 
@@ -33,18 +30,15 @@ class Mono < Formula
 
   resource "fsharp" do
     url "https://github.com/fsharp/fsharp.git",
-        :tag => "4.1.33",
-        :revision => "95b66263420b62ae0e246bd1bf3c2641e9fb9625"
+        :tag => "10.0.2",
+        :revision => "0020622135540ad8ef835d19175902fd8a2dd31e"
   end
 
   # When upgrading Mono, make sure to use the revision from
   # https://github.com/mono/mono/blob/mono-#{version}/packaging/MacSDK/msbuild.py
-  # NOTE: We're currently using a later revision than from the point release we're using;
-  #       the buildsystem changed between them, and 5.12.0.226's is broken.
-  #       Revisit this on the next release.
   resource "msbuild" do
     url "https://github.com/mono/msbuild.git",
-        :revision => "49a614cda8cedbc6b42e37d49e40cc89fbdac4fd"
+        :revision => "8af44c5b9e727c096833a88fae05c3ddb76716d0"
   end
 
   def install
@@ -69,7 +63,7 @@ class Mono < Formula
 
     # Next build msbuild
     resource("msbuild").stage do
-      system "./build.sh", "-host", "mono", "-configuration", "Release", "-skipTests"
+      system "./build.sh", "-hostType", "mono", "-configuration", "Release", "-skipTests"
       system "./artifacts/mono-msbuild/msbuild", "mono/build/install.proj",
              "/p:MonoInstallPrefix=#{prefix}", "/p:Configuration=Release-MONO",
              "/p:IgnoreDiffFailure=true"
@@ -79,8 +73,6 @@ class Mono < Formula
     if build.with? "fsharp"
       resource("fsharp").stage do
         ENV.prepend_path "PKG_CONFIG_PATH", lib/"pkgconfig"
-        system "./autogen.sh", "--prefix=#{prefix}"
-        system "mozroots", "--import", "--sync" unless OS.mac?
         system "make"
         system "make", "install"
       end
