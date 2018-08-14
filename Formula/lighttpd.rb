@@ -1,13 +1,13 @@
 class Lighttpd < Formula
   desc "Small memory footprint, flexible web-server"
   homepage "https://www.lighttpd.net/"
-  url "https://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.49.tar.xz"
-  sha256 "aedf49d7127d9e4c0ea56618e9e945a17674dc46a37ac7990120f87dd939ce09"
+  url "https://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.50.tar.xz"
+  sha256 "29378312d8887cbc14ffe8a7fadef2d5a08c7e7e1be942795142346ad95629eb"
 
   bottle do
-    sha256 "0d2df35cb64ebd3682f2b6763fcf14faac60341673842efe84b737255633e819" => :high_sierra
-    sha256 "5ab375350e1069b70e1216b0065f05d23aae5d46fbab078b8eb73c37426cb3e4" => :sierra
-    sha256 "3c439deb2e84a3e1cc4bc2d6fdc2ffd2ad041f810bfbb329143687cc62f8cc1a" => :el_capitan
+    sha256 "9434517884196a66f4638ef886428e4ebb0220d68a44e987fb82b9e4015e5741" => :high_sierra
+    sha256 "7cf2702a5e55fd0c304b6f6ebb2f4370a3149afedddb0e3b6e221f6f292cf6a7" => :sierra
+    sha256 "c7d4f9a437e97d8b085d499dc39e7b78b753291cfbed93dfd7d9ca13f9e48bd4" => :el_capitan
   end
 
   option "with-lua@5.1", "Include Lua scripting support for mod_magnet"
@@ -27,19 +27,19 @@ class Lighttpd < Formula
   MAX_FDS = 512
 
   def config_path
-    etc+"lighttpd"
+    etc/"lighttpd"
   end
 
   def log_path
-    var+"log/lighttpd"
+    var/"log/lighttpd"
   end
 
   def www_path
-    var+"www"
+    var/"www"
   end
 
   def run_path
-    var+"lighttpd"
+    var/"lighttpd"
   end
 
   def install
@@ -146,6 +146,6 @@ class Lighttpd < Formula
   end
 
   test do
-    system "#{bin}/lighttpd", "-t", "-f", config_path+"lighttpd.conf"
+    system "#{bin}/lighttpd", "-t", "-f", config_path/"lighttpd.conf"
   end
 end

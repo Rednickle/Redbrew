@@ -5,15 +5,14 @@ class Hadolint < Formula
 
   desc "Smarter Dockerfile linter to validate best practices"
   homepage "https://github.com/hadolint/hadolint"
-  url "https://github.com/hadolint/hadolint/archive/v1.10.4.tar.gz"
-  sha256 "78c7f3f5494de9c88fd1aa0b86015728cf7215694557818f27a57c7ff906eaab"
+  url "https://github.com/hadolint/hadolint/archive/v1.11.0.tar.gz"
+  sha256 "6e637d2e9aad973388183db4e8dc604cdc18c55fcf7271b86296219da08b80a1"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "be846bd545a0c392d2d8c326e0141e5335bba8913cf9a9e0aaa3088fd8ee52a6" => :high_sierra
-    sha256 "65af8e62db81ec467ddf74432fbcd349f9c7014b967ccce759f495aff0458ea4" => :sierra
-    sha256 "0e223d743e5b86c32900e05246d72e9efe2887dd25a875b478f3d36b520200e9" => :el_capitan
-    sha256 "00b5b97fd28d6aaa5638178ab06c9375d18f26bf4c66f5915da20d37d98669e0" => :x86_64_linux
+    sha256 "116faa9245d892ea1c0b112541cac7966479ab23c2b132fa202234c47279b2e3" => :high_sierra
+    sha256 "1076f053ad0b0d78cb61fad472fd3fefa68e57094bd24c490e3c86f9d771c220" => :sierra
+    sha256 "59353b788d3c884c0845bc7812fb2b7155cb1ac186d4374c5da7dd08296c8a64" => :el_capitan
   end
 
   depends_on "cabal-install" => :build

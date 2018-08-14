@@ -1,26 +1,29 @@
 class Hh < Formula
   desc "Bash and zsh history suggest box"
   homepage "https://github.com/dvorka/hstr"
-  url "https://github.com/dvorka/hstr/archive/1.25.tar.gz"
-  sha256 "9d50e46d2eefc667f4d2b9cd41856be6ffb33a897ab1b036886573d61cadb27f"
-  head "https://github.com/dvorka/hstr.git"
+  url "https://github.com/dvorka/hstr/releases/download/1.27/hh-1.27.0-tarball.tgz"
+  sha256 "32d7ae015c9a055fd9d0e1dc3f946a851feb4f17fb777281e7c4602ba07b6819"
 
   bottle do
     cellar :any
-    sha256 "b5bef6ba56d49837f25b4e99b15065b6658fc3ff9c230bd8136c60b3528c9d48" => :high_sierra
-    sha256 "4c6295eb6610a8b304d576dc8d1fec1fe70d98f267afdbd5e95f3dc40354f155" => :sierra
-    sha256 "e8b147fea236a8f50fe8b63e83050d3060348ebca7fb53ed08d592d85675e41f" => :el_capitan
-    sha256 "121ef2e3285d856b9bf27436a5077dd871928b00a5a049180acde676c072554a" => :x86_64_linux
+    sha256 "a1e2b478c301d6c582040bcc4f8f05efad260de69fac49e979305e0f7e9b3221" => :high_sierra
+    sha256 "662118b81ed13840b804b8d22a850f1762465be491cf8132ffd8824fc46a2ec6" => :sierra
+    sha256 "e19f7381ac79726f29069c21f95b0ad64f1d880e428765bebab40e8cfdfff426" => :el_capitan
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  head do
+    url "https://github.com/dvorka/hstr.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   depends_on "pkg-config" => :build
   depends_on "readline"
 
   def install
-    system "autoreconf", "-fvi"
+    system "autoreconf", "-fvi" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
