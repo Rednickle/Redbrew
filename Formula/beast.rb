@@ -1,16 +1,24 @@
 class Beast < Formula
   desc "Bayesian Evolutionary Analysis Sampling Trees"
   homepage "http://beast.community/"
-  url "https://github.com/beast-dev/beast-mcmc/archive/v1.10.0.tar.gz"
-  sha256 "5c77d0dab496489d1418d562a4ef90710f9ff70628a35e6089269605788953df"
   head "https://github.com/beast-dev/beast-mcmc.git"
+
+  stable do
+    url "https://github.com/beast-dev/beast-mcmc/archive/v1.10.1.tar.gz"
+    sha256 "bceed133e21fcde567a6c32e3fc4a07ef77791c5b48fb01769bb2a6431edcb5f"
+
+    # Fix build system on 1.10.1. Remove after next release
+    patch do
+      url "https://github.com/beast-dev/beast-mcmc/commit/0b6ab7d5771648051e430579c4baa51aea497c65.patch?full_index=1"
+      sha256 "0db99329d47062d0e507c5387d5dacbb44c83273ec2e5e30ee18bc7adba2c9de"
+    end
+  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d2ac18914ff4796b0ebf2d8dd957d3ae7cab960ce54b7708f97555199fbb135d" => :high_sierra
-    sha256 "5415f2f49a9bb8ff4b5b8078b1df6dcfc76043e3d9fd29d0ed4baaf7349a4418" => :sierra
-    sha256 "e27eb22cbfde02b27d6354b1c6a532be88ac5ac2168353d59ae15fae477ba71e" => :el_capitan
-    sha256 "f0aea6db1db09c7ceaeca32dfe07d762abbf6ec1c6895faea560741d0f6d229a" => :x86_64_linux
+    sha256 "18363f90761d465aa9b3e1a2e37b884fcc2361fbb927cb5d91184eb92fc3c0d7" => :high_sierra
+    sha256 "3440a01630e7673369720258960618b4c0f0f8305775151b62e8b50818208675" => :sierra
+    sha256 "b11b1291e5a960aaf77bef07542f9e7a9b0da2e8fb24a24da3fa8c12a07381ee" => :el_capitan
   end
 
   depends_on "ant" => :build
