@@ -11,7 +11,7 @@ class Mas < Formula
     sha256 "af5be6aa9902d9cfc2aa69dbf313441a7c201463d516face721f900ceae9556b" => :sierra
   end
 
-  depends_on :xcode => ["9.0", :build]
+  depends_on :xcode => ["9.0", :build] if OS.mac?
   depends_on :macos
 
   def install

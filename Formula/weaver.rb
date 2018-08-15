@@ -10,7 +10,7 @@ class Weaver < Formula
     sha256 "9fb37fbc0afb25c1453f7bff075bbe9770b7cedc6672719545e283954ad57787" => :sierra
   end
 
-  depends_on :xcode => ["9.0", :build]
+  depends_on :xcode => ["9.0", :build] if OS.mac?
 
   def install
     # libxml2 has to be included in ISYSTEM_PATH for building one of

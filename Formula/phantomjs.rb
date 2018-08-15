@@ -32,7 +32,7 @@ class Phantomjs < Formula
   end
 
   depends_on :macos => :lion
-  depends_on :xcode => :build
+  depends_on :xcode => :build if OS.mac?
   depends_on "openssl"
   unless OS.mac?
     depends_on "flex" => :build

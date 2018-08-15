@@ -10,8 +10,10 @@ class Sourcery < Formula
     sha256 "7119feb40c5beec48915c953e3e5af7d6614033d731647288d2e91c97f7e1264" => :high_sierra
   end
 
-  depends_on :xcode => "6.0"
-  depends_on :xcode => ["9.3", :build]
+  if OS.mac?
+    depends_on :xcode => "6.0"
+    depends_on :xcode => ["9.3", :build]
+  end
 
   def install
     ENV["CC"] = Utils.popen_read("xcrun -find clang").chomp # rdar://40724445

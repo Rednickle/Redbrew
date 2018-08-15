@@ -9,7 +9,7 @@ class Xcodegen < Formula
     sha256 "fa6e2a206f3316a3b86bdf40c05576d6f70981752857359249c265bd061102dc" => :high_sierra
   end
 
-  depends_on :xcode => ["9.3", :build]
+  depends_on :xcode => ["9.3", :build] if OS.mac?
 
   def install
     # fixes an issue an issue in homebrew when both Xcode 9.3+ and command line tools are installed

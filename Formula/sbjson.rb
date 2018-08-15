@@ -13,7 +13,7 @@ class Sbjson < Formula
     sha256 "46f00ae266cdc64c839ff5ad2f8258eb42bdb7682e8e5201e9acb1f07f449611" => :yosemite
   end
 
-  depends_on :xcode => :build
+  depends_on :xcode => :build if OS.mac?
   depends_on :macos
 
   def install

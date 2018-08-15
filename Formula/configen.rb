@@ -11,7 +11,7 @@ class Configen < Formula
     sha256 "3b445fd66dc371d20cd561f2ceb13b61c9814d02f759e458708cf5355077fb25" => :sierra
   end
 
-  depends_on :xcode => ["9.0", :build]
+  depends_on :xcode => ["9.0", :build] if OS.mac?
 
   def install
     xcodebuild "SYMROOT=build"

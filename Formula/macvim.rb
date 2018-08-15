@@ -17,7 +17,7 @@ class Macvim < Formula
 
   deprecated_option "override-system-vim" => "with-override-system-vim"
 
-  depends_on :xcode => :build
+  depends_on :xcode => :build if OS.mac?
   depends_on "cscope" => :recommended
   depends_on "python" => :recommended
   depends_on "lua" => :optional

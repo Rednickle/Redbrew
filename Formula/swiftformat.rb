@@ -12,7 +12,7 @@ class Swiftformat < Formula
   end
 
   depends_on :macos
-  depends_on :xcode => ["9.2", :build]
+  depends_on :xcode => ["9.2", :build] if OS.mac?
 
   def install
     xcodebuild "-project",

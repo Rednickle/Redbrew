@@ -22,7 +22,7 @@ class QtAT55 < Formula
   # reported to fail: <https://github.com/Homebrew/homebrew/issues/45284>.
   depends_on :macos => :mountain_lion
 
-  depends_on :xcode => :build
+  depends_on :xcode => :build if OS.mac?
 
   # Build error: Fix library detection for QtWebEngine with Xcode 7.
   # https://codereview.qt-project.org/#/c/1w27759/

@@ -34,7 +34,7 @@ class Freerdp < Formula
     url "https://github.com/FreeRDP/FreeRDP/archive/4c69c3ea1489f09e1c3e698eaebd67b6d8d25785.tar.gz" # stable-1.1 branch as of Aug 13, 2016
     sha256 "1a4b03daca9bd82ef2e3827e1cdb469121f62aab1061f79ffa587babf9fe080c"
     version "1.1.0-beta1"
-    depends_on :xcode => :build # for "ibtool"
+    depends_on :xcode => :build if OS.mac? # for "ibtool"
 
     patch do
       url "https://github.com/untoldone/FreeRDP/commit/65e53694eb5d6faa5d57a31a54defd1c5233ac09.diff?full_index=1"
@@ -44,7 +44,7 @@ class Freerdp < Formula
 
   head do
     url "https://github.com/FreeRDP/FreeRDP.git"
-    depends_on :xcode => :build
+    depends_on :xcode => :build if OS.mac?
   end
 
   depends_on :x11

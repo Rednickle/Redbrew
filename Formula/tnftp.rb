@@ -12,7 +12,7 @@ class Tnftp < Formula
     sha256 "fdaf7c1ab1fcb48226a9846452b352e4da302ac6aca61a74a67f97b8bb21c942" => :el_capitan
   end
 
-  depends_on :xcode => :build
+  depends_on :xcode => :build if OS.mac?
 
   conflicts_with "inetutils", :because => "both install `ftp' binaries"
 

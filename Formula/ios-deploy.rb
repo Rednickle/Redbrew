@@ -13,7 +13,7 @@ class IosDeploy < Formula
     sha256 "a4849694da9a396a14a6e2f67418da862363d2c2f14a514eeab32d79c320587e" => :yosemite
   end
 
-  depends_on :xcode => :build
+  depends_on :xcode => :build if OS.mac?
   depends_on :macos => :yosemite
   depends_on :macos
 

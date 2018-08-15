@@ -12,7 +12,7 @@ class ClozureCl < Formula
     sha256 "6cb7aa8d20a8657bc70cd35cce042cd50841b7d2b2533ff233ecbd8fae2e6a49" => :el_capitan
   end
 
-  depends_on :xcode => :build
+  depends_on :xcode => :build if OS.mac?
 
   conflicts_with "cclive", :because => "both install a ccl binary"
 

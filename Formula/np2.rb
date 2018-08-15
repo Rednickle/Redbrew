@@ -16,7 +16,7 @@ class Np2 < Formula
     sha256 "a7340b1deadb9fdb4e117b9d793e695631d7d9a52ae111703e9bc6ea796c290b" => :yosemite
   end
 
-  depends_on :xcode => :build
+  depends_on :xcode => :build if OS.mac?
   depends_on "sdl2"
   depends_on "sdl2_ttf"
 

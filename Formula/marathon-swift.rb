@@ -10,7 +10,7 @@ class MarathonSwift < Formula
     sha256 "80fc6f4b1ff33081f4b27091ea42901c3921e00f6ffc3a2017662e6905e562df" => :sierra
   end
 
-  depends_on :xcode => ["8.3", :build]
+  depends_on :xcode => ["8.3", :build] if OS.mac?
 
   def install
     if MacOS::Xcode.version >= "9.0"

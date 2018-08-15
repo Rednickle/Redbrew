@@ -17,7 +17,7 @@ class Fmdiff < Formula
   # Needs FileMerge.app, which has been part of Xcode since Xcode 4 (OS X 10.7)
   # Prior to that it was included in the Developer Tools package.
   # "make" has logic for checking both possibilities.
-  depends_on :xcode if MacOS.version >= :lion
+  depends_on :xcode if OS.mac? && MacOS.version >= :lion
 
   depends_on :macos
 

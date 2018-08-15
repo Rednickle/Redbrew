@@ -15,8 +15,10 @@ class Swiftlint < Formula
   # Fixes the error: make: xcodebuild: Command not found
   depends_on :macos
 
-  depends_on :xcode => "8.0"
-  depends_on :xcode => ["9.0", :build]
+  if OS.mac?
+    depends_on :xcode => "8.0"
+    depends_on :xcode => ["9.0", :build]
+  end
 
   def install
     ENV["CC"] = Utils.popen_read("xcrun -find clang").chomp # rdar://40724445

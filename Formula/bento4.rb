@@ -13,7 +13,7 @@ class Bento4 < Formula
     sha256 "a9f65233b8bfd756e673a09ea18cb1847610170402bd9ac6a57107370ce9a3e5" => :el_capitan
   end
 
-  depends_on :xcode => :build
+  depends_on :xcode => :build if OS.mac?
   depends_on "python@2"
 
   conflicts_with "gpac", :because => "both install `mp42ts` binaries"

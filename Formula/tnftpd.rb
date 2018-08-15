@@ -11,7 +11,7 @@ class Tnftpd < Formula
     sha256 "4ef4b7c1a35307c4a3e6b70dad1ba193aceda75920da79b0a2bd135446863d5e" => :el_capitan
   end
 
-  depends_on :xcode => :build
+  depends_on :xcode => :build if OS.mac?
 
   def install
     system "tar", "zxvf", "tnftpd-20100324.tar.gz"

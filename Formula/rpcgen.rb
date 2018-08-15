@@ -13,7 +13,7 @@ class Rpcgen < Formula
 
   keg_only :provided_by_macos
 
-  depends_on :xcode => ["7.3", :build]
+  depends_on :xcode => ["7.3", :build] if OS.mac?
 
   # Add support for parsing 'hyper' and 'quad' types, as per RFC4506.
   # https://github.com/openbsd/src/commit/26f19e833517620fd866d2ef3b1ea76ece6924c5

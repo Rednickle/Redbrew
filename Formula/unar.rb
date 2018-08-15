@@ -15,7 +15,7 @@ class Unar < Formula
     sha256 "dab9604cafaab887741e0d6511f88e7ca66ad556ee86a41f4b1896ec558d9650" => :mavericks
   end
 
-  depends_on :xcode => :build
+  depends_on :xcode => :build if OS.mac?
 
   def install
     # ZIP for 1.10.1 additionally contains a `__MACOSX` directory, preventing

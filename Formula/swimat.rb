@@ -11,7 +11,7 @@ class Swimat < Formula
     sha256 "b6900b8712d237bf704bb1c0b218beed0e0d790c290532f6fc806e033105ad8a" => :sierra
   end
 
-  depends_on :xcode => "9.0"
+  depends_on :xcode => "9.0" if OS.mac?
 
   def install
     xcodebuild "-target", "CLI",

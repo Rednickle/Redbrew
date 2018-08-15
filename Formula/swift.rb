@@ -16,7 +16,7 @@ class Swift < Formula
 
   # Depends on latest version of Xcode
   # https://github.com/apple/swift#system-requirements
-  depends_on :xcode => ["9.3", :build]
+  depends_on :xcode => ["9.3", :build] if OS.mac?
 
   depends_on "icu4c" unless OS.mac?
 

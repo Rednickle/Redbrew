@@ -13,8 +13,10 @@ class Sourcekitten < Formula
   end
 
   depends_on :macos
-  depends_on :xcode => "6.0"
-  depends_on :xcode => ["9.0", :build]
+  if OS.mac?
+    depends_on :xcode => "6.0"
+    depends_on :xcode => ["9.0", :build]
+  end
 
   def install
     ENV["CC"] = Utils.popen_read("xcrun -find clang").chomp # rdar://40724445

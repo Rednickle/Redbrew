@@ -15,7 +15,7 @@ class IosClassGuard < Formula
   end
 
   depends_on :macos => :mavericks
-  depends_on :xcode => :build
+  depends_on :xcode => :build if OS.mac?
 
   def install
     xcodebuild "-workspace", "ios-class-guard.xcworkspace", "-scheme", "ios-class-guard", "-configuration", "Release", "SYMROOT=build", "PREFIX=#{prefix}", "ONLY_ACTIVE_ARCH=YES"

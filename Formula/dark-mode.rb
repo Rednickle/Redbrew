@@ -13,7 +13,7 @@ class DarkMode < Formula
   end
 
   depends_on :macos => :el_capitan
-  depends_on :xcode => :build
+  depends_on :xcode => :build if OS.mac?
   depends_on :macos
 
   def install

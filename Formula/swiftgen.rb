@@ -12,7 +12,7 @@ class Swiftgen < Formula
     sha256 "446700f3feb9651d8a7817f7d28a0f9e4a3990c33d358bfb006724a47431944f" => :sierra
   end
 
-  depends_on :xcode => ["9.2", :build]
+  depends_on :xcode => ["9.2", :build] if OS.mac?
 
   # Depends on xcode
   depends_on :macos

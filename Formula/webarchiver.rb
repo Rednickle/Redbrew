@@ -15,7 +15,7 @@ class Webarchiver < Formula
     sha256 "404f9ffdf69b13cd1e89a51c331b4f8478400944eaf109a5d6f380dcf97bbddb" => :mavericks
   end
 
-  depends_on :xcode => ["6.0.1", :build]
+  depends_on :xcode => ["6.0.1", :build] if OS.mac?
 
   def install
     xcodebuild "SYMROOT=build"
@@ -24,6 +24,6 @@ class Webarchiver < Formula
 
   test do
     system "#{bin}/webarchiver", "-url", "https://www.google.com", "-output", "foo.webarchive"
-    assert_match /Apple binary property list/, shell_output("file foo.webarchive", 0)
+    assert_match /Apple binary property list/, shell_output("file foo.webarchive")
   end
 end

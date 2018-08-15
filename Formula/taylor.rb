@@ -11,7 +11,7 @@ class Taylor < Formula
     sha256 "fda9d12ec890daca148dd5819dfe5e61750b30b677031d035129dcf226a8fe84" => :sierra
   end
 
-  depends_on :xcode => ["9.0"]
+  depends_on :xcode => ["9.0"] if OS.mac?
 
   def install
     system "make", "install", "PREFIX=#{prefix}", "MAKE_SYMLINKS=no"

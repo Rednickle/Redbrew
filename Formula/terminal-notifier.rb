@@ -13,7 +13,7 @@ class TerminalNotifier < Formula
   end
 
   depends_on :macos => :mountain_lion
-  depends_on :xcode => :build
+  depends_on :xcode => :build if OS.mac?
 
   # https://github.com/julienXX/terminal-notifier/issues/184
   depends_on :macos

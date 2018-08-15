@@ -11,7 +11,7 @@ class Rswift < Formula
     sha256 "8638bcbaa77fd1861c6d1978bed6d2ff7cbc2bdc7ae6d25df9471428d53b784d" => :sierra
   end
 
-  depends_on :xcode => "9.0"
+  depends_on :xcode => "9.0" if OS.mac?
 
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release", "-Xswiftc",

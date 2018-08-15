@@ -13,7 +13,7 @@ class Yacas < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on :xcode => :build
+  depends_on :xcode => :build if OS.mac?
 
   def install
     mkdir "build" do

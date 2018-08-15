@@ -10,7 +10,7 @@ class Bartycrouch < Formula
     sha256 "659b955035f9dbc317b7e1d74d7add56ae7cb874464545bc0ed5dd87cd144642" => :sierra
   end
 
-  depends_on :xcode => ["9.0", :build]
+  depends_on :xcode => ["9.0", :build] if OS.mac?
 
   def install
     xcodebuild "-project", "BartyCrouch.xcodeproj",

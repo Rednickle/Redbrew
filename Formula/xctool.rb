@@ -12,7 +12,7 @@ class Xctool < Formula
     sha256 "cfd03ef1008a4a01b923e72fb7e79209d021d88ffe8bb89ac22307ba6af0cce0" => :el_capitan
   end
 
-  depends_on :xcode => "7.0"
+  depends_on :xcode => "7.0" if OS.mac?
   depends_on :macos
 
   def install

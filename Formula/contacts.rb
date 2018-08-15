@@ -8,8 +8,6 @@ class Contacts < Formula
   version "1.1a-3"
   sha256 "e3dd7e592af0016b28e9215d8ac0fe1a94c360eca5bfbdafc2b0e5d76c60b871"
 
-  depends_on :macos
-
   bottle do
     cellar :any_skip_relocation
     sha256 "27b7b256aa6f034b245c6cc1e6c7def038bbf183e73f94db942a220aa876ef0d" => :high_sierra
@@ -20,7 +18,8 @@ class Contacts < Formula
     sha256 "842a3ef87a54aab40009788d034f6095f3c10223867d1b8d5b6e3c933b5e4800" => :lion
   end
 
-  depends_on :xcode => :build
+  depends_on :macos
+  depends_on :xcode => :build if OS.mac?
 
   def install
     system "make", "SDKROOT=#{MacOS.sdk_path}"

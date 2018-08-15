@@ -14,7 +14,7 @@ class MongodbAT36 < Formula
   option "with-boost", "Compile using installed boost, not the version shipped with mongodb"
   option "with-sasl", "Compile with SASL support"
 
-  depends_on :xcode => ["8.3.2", :build]
+  depends_on :xcode => ["8.3.2", :build] if OS.mac?
   depends_on "go" => :build
   depends_on "pkg-config" => :build
   depends_on "scons" => :build

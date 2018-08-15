@@ -13,7 +13,7 @@ class Mogenerator < Formula
     sha256 "ceedcaabd71b51758c0b03e4b14be0f228e030af83651ad6f774c08d5910123b" => :yosemite
   end
 
-  depends_on :xcode => :build
+  depends_on :xcode => :build if OS.mac?
   depends_on :macos => :yosemite
 
   def install

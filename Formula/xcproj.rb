@@ -14,7 +14,7 @@ class Xcproj < Formula
   end
 
   depends_on :macos => :mountain_lion
-  depends_on :xcode
+  depends_on :xcode if OS.mac?
 
   def install
     xcodebuild "-project", "xcproj.xcodeproj",

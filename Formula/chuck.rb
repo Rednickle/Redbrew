@@ -11,7 +11,7 @@ class Chuck < Formula
     sha256 "4c27808b3b8755a856bdc49e9a97569a6bfb3ebc90991f8d3112b4debfd28bdf" => :el_capitan
   end
 
-  depends_on :xcode => :build
+  depends_on :xcode => :build if OS.mac?
 
   def install
     system "make", "-C", "src", "osx"

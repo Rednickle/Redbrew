@@ -15,7 +15,7 @@ class ObjcCodegenutils < Formula
   end
 
   depends_on :macos => :mountain_lion
-  depends_on :xcode => :build
+  depends_on :xcode => :build if OS.mac?
 
   def install
     xcodebuild "-project", "codegenutils.xcodeproj", "-target", "assetgen", "-configuration", "Release", "SYMROOT=build", "OBJROOT=build"

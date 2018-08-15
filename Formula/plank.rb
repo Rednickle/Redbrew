@@ -10,7 +10,7 @@ class Plank < Formula
     sha256 "374262fdc60398fdf217c8bb2e458641ce683eb5dc6c5979cea84f0a5a4adc82" => :sierra
   end
 
-  depends_on :xcode => ["9.0", :build]
+  depends_on :xcode => ["9.0", :build] if OS.mac?
 
   def install
     system "make", "install", "PREFIX=#{prefix}"

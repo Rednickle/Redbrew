@@ -13,7 +13,7 @@ class ChooseGui < Formula
   end
 
   depends_on :macos => :yosemite
-  depends_on :xcode => :build
+  depends_on :xcode => :build if OS.mac?
 
   conflicts_with "choose", :because => "both install a `choose` binary"
 

@@ -13,7 +13,7 @@ class Irrlicht < Formula
     sha256 "4eaaf9df3b87d34a4ed562d3bedb4a07bbfe8ff069025f3d28000755c09a4d88" => :yosemite
   end
 
-  depends_on :xcode => :build
+  depends_on :xcode => :build if OS.mac?
 
   def install
     # Fix "error: cannot initialize a parameter of type

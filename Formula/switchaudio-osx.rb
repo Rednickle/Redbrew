@@ -17,7 +17,7 @@ class SwitchaudioOsx < Formula
 
   depends_on :macos => :lion
   depends_on :macos
-  depends_on :xcode => :build
+  depends_on :xcode => :build if OS.mac?
 
   def install
     xcodebuild "-project", "AudioSwitcher.xcodeproj",

@@ -33,7 +33,7 @@ class Graphviz < Formula
   deprecated_option "with-pangocairo" => "with-pango"
 
   depends_on "pkg-config" => :build
-  depends_on :xcode => :build if build.with? "app"
+  depends_on :xcode => :build if OS.mac? && build.with?("app")
   depends_on "libtool"
   depends_on "pango" => :optional
   depends_on "gts" => :optional
