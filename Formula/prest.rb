@@ -1,15 +1,14 @@
 class Prest < Formula
   desc "Serve a RESTful API from any PostgreSQL database"
   homepage "https://github.com/prest/prest"
-  url "https://github.com/prest/prest/archive/v0.3.3.tar.gz"
-  sha256 "dbadb08c44ddf43b4cffe2845efe3def91a6254d27193d8a4968632a13959215"
+  url "https://github.com/prest/prest/archive/v0.3.4.tar.gz"
+  sha256 "cc45eb5de17a1957124545e11ae6dcc6e3957e9d5e9b06acf37a341113963829"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d29db7af3359e62274c1756f63ab4b401c93fcaca3d4299e970dc155cb9fdb68" => :high_sierra
-    sha256 "7243715a491111ecaab69eee85ea0f6b6b9fc06d6ea9aa55fa964e521f72dfc1" => :sierra
-    sha256 "104ae54713231e8a6b06612a763c98564f9d43a2eeb6e2676f145f34c1151cdc" => :el_capitan
-    sha256 "45d80429909221fa4cb4715ead1e63273de0f2d98b1162e69c2709bca0d1bca6" => :x86_64_linux
+    sha256 "6a79ee6fc88b5a450348d977b8adf0d14c80aa5ba0bbd22375d1795cf3d8e070" => :high_sierra
+    sha256 "3b6a51b5a9c9ee58510fd70416dc8953f037e3575a255b6171363d2364bce1be" => :sierra
+    sha256 "e0ec971459deb768c19460db26246dcd2ea71baa34706052d0a4f572bff9606d" => :el_capitan
   end
 
   depends_on "go" => :build

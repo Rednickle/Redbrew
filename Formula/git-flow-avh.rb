@@ -15,11 +15,10 @@ class GitFlowAvh < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e48230e7b1bfd53aba1608167e607c3fc9792b05bd3063ef5bb47bebbdb9ddc5" => :high_sierra
-    sha256 "f54736764e21c714e51cab2bb2bda7d8f775fabe6575f57cf31d02ba4f57a673" => :sierra
-    sha256 "f54736764e21c714e51cab2bb2bda7d8f775fabe6575f57cf31d02ba4f57a673" => :el_capitan
-    sha256 "f54736764e21c714e51cab2bb2bda7d8f775fabe6575f57cf31d02ba4f57a673" => :yosemite
-    sha256 "ae6f961d94d1d020037965069302d457f237941bbcc2bfaa64154ed207a2b02f" => :x86_64_linux # glibc 2.19
+    rebuild 1
+    sha256 "8bb41dc59b2157b9f287f24d1c6f509038ef4c7644847ffc6922a0eb2eab8de7" => :high_sierra
+    sha256 "8bb41dc59b2157b9f287f24d1c6f509038ef4c7644847ffc6922a0eb2eab8de7" => :sierra
+    sha256 "8bb41dc59b2157b9f287f24d1c6f509038ef4c7644847ffc6922a0eb2eab8de7" => :el_capitan
   end
 
   head do
@@ -45,6 +44,7 @@ class GitFlowAvh < Formula
     resource("completion").stage do
       bash_completion.install "git-flow-completion.bash"
       zsh_completion.install "git-flow-completion.zsh"
+      fish_completion.install "git.fish"
     end
   end
 

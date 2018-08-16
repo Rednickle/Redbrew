@@ -10,11 +10,10 @@ class GccAT6 < Formula
 
   # gcc is designed to be portable.
   bottle do
-    cellar :any
-    sha256 "2d073860c3899b3d61441931ebb230ccb7249e2ac63d957860c408c01ecc081b" => :high_sierra
-    sha256 "c9f0ebfe118e7c43a081e952dd0135e7b6621a9f935426fd08372486fa5ddea9" => :sierra
-    sha256 "cfb7468673433e7ef683f1746fb94ce9719c181e9c7e86f4d70453578c1822cc" => :el_capitan
-    sha256 "dc07b18f01f15c437237aa7c7d2b3018e85bd7bb53ff503fb77361ed491c3183" => :x86_64_linux
+    rebuild 1
+    sha256 "1e33eda2bb05662fe7f061765332f32451d7b9ac0dc70651e94ff5dfd6ef2d07" => :high_sierra
+    sha256 "dfc7cef94a96b5c9e38463ae771726747576b77af63e91c2158d5344c189d681" => :sierra
+    sha256 "929f81db0795b08b4768f667780cff9ef0950990faa7d7215f4498c9752df7cd" => :el_capitan
   end
 
   option "with-all-languages", "Enable all compilers and languages, except Ada"
@@ -64,6 +63,10 @@ class GccAT6 < Formula
       sha256 "f7772a6ba73f44a6b378e4fe3548e0284f48ae2d02c701df1be93780c1607074"
     end
   end
+
+  # isl 0.20 compatibility
+  # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=86724
+  patch :DATA
 
   def install
     # GCC will suffer build errors if forced to use a particular linker.
@@ -329,3 +332,18 @@ class GccAT6 < Formula
     end
   end
 end
+
+__END__
+diff --git a/gcc/graphite.h b/gcc/graphite.h
+index 578fa1a..e4fad06 100644
+--- a/gcc/graphite.h
++++ b/gcc/graphite.h
+@@ -36,6 +36,8 @@ along with GCC; see the file COPYING3.  If not see
+ #include <isl/ilp.h>
+ #include <isl/schedule.h>
+ #include <isl/ast_build.h>
++#include <isl/id.h>
++#include <isl/space.h>
+
+ #ifdef HAVE_ISL_OPTIONS_SET_SCHEDULE_SERIALIZE_SCCS
+ /* isl 0.15 or later.  */
