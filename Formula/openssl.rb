@@ -1,4 +1,3 @@
-# openssl: Build a bottle for Linuxbrew
 # This formula tracks 1.0.2 branch of OpenSSL, not the 1.1.0 branch. Due to
 # significant breaking API changes in 1.1.0 other formulae will be migrated
 # across slowly, so core will ship `openssl` & `openssl@1.1` for foreseeable.
@@ -15,6 +14,7 @@ class Openssl < Formula
     sha256 "f5f498c4e8dee3e835c1750cb4140c2f7c52ae21f18f699894d0f0e418970ec3" => :high_sierra
     sha256 "f5b1eb9a6be49ffa4f1de54542156564ead972408d893c9a4ee54ba59d7ad66c" => :sierra
     sha256 "62ed09b9c268f32a9ab73869d7e11d9ad9b07e5e207928e5773471952b34ba9d" => :el_capitan
+    sha256 "8c7457a3dc3d6f8dc774bcbc6b1481cf1d1c66c82bfb90b595e01dd3a03b3db5" => :x86_64_linux
   end
 
   keg_only :provided_by_macos,
