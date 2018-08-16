@@ -8,6 +8,7 @@ class PkgConfig < Formula
   revision 1 unless OS.mac?
 
   bottle do
+    sha256 "85e5bbffb3424f22cd1bf54b69161110481bab100f9abea54e0a0f00fcf761b9" => :mojave
     sha256 "f1b29fb5388dccab0fcaf665ab43d308ee51816b24262417bf83a686b6e308ae" => :high_sierra
     sha256 "8eb723bfc03cd468d779d54d015d47d2e8ab1dd4d35e595ab4abaca8833b3277" => :sierra
     sha256 "93f044f166bcbd84db14133ee4f56104031c65409cfd2801c7ac0d182936dc78" => :el_capitan

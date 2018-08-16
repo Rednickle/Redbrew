@@ -1,15 +1,14 @@
 class Kafka < Formula
   desc "Publish-subscribe messaging rethought as a distributed commit log"
   homepage "https://kafka.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=/kafka/1.1.0/kafka_2.12-1.1.0.tgz"
-  sha256 "499283970b5020358726949b4f1d93d3167bc5eecaa1d167076bae6bb2862d12"
+  url "https://www.apache.org/dyn/closer.cgi?path=/kafka/2.0.0/kafka_2.12-2.0.0.tgz"
+  sha256 "b5f1539c4030e6f6e64d0c14a9acea31156e7cbf2cb66c93ca2b6ca732ba7955"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "67105a99b29380f4af1e124de0ce92cda4d90eeb1cac0ee4bfc7771a9b408213" => :high_sierra
-    sha256 "67105a99b29380f4af1e124de0ce92cda4d90eeb1cac0ee4bfc7771a9b408213" => :sierra
-    sha256 "67105a99b29380f4af1e124de0ce92cda4d90eeb1cac0ee4bfc7771a9b408213" => :el_capitan
-    sha256 "8dae0c90fae162d20427e5466dac57f8be8ad3bec8be690eb9ecb812e4bc8af4" => :x86_64_linux
+    sha256 "723fb5b585ad4822695b985ced2e306aac2a45c2a8cd3f9d9cc4c8bc008f9f2a" => :high_sierra
+    sha256 "723fb5b585ad4822695b985ced2e306aac2a45c2a8cd3f9d9cc4c8bc008f9f2a" => :sierra
+    sha256 "723fb5b585ad4822695b985ced2e306aac2a45c2a8cd3f9d9cc4c8bc008f9f2a" => :el_capitan
   end
 
   depends_on "zookeeper"
@@ -101,7 +100,7 @@ class Kafka < Formula
 
       system "#{bin}/kafka-topics --zookeeper localhost:2181 --create --if-not-exists --replication-factor 1 --partitions 1 --topic test > #{testpath}/kafka/demo.out 2>/dev/null"
       pipe_output("#{bin}/kafka-console-producer --broker-list localhost:9092 --topic test 2>/dev/null", "test message")
-      system "#{bin}/kafka-console-consumer --zookeeper localhost:2181 --topic test --from-beginning --max-messages 1 >> #{testpath}/kafka/demo.out 2>/dev/null"
+      system "#{bin}/kafka-console-consumer --bootstrap-server localhost:9092 --topic test --from-beginning --max-messages 1 >> #{testpath}/kafka/demo.out 2>/dev/null"
       system "#{bin}/kafka-topics --zookeeper localhost:2181 --delete --topic test >> #{testpath}/kafka/demo.out 2>/dev/null"
     ensure
       system "#{bin}/kafka-server-stop"
