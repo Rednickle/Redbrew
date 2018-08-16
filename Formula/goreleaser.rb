@@ -1,4 +1,3 @@
-# goreleaser: Build a bottle for Linuxbrew
 class Goreleaser < Formula
   desc "Deliver Go binaries as fast and easily as possible"
   homepage "https://goreleaser.com/"
