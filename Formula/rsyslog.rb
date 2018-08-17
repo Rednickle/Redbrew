@@ -1,14 +1,13 @@
 class Rsyslog < Formula
   desc "Enhanced, multi-threaded syslogd"
   homepage "https://www.rsyslog.com/"
-  url "https://www.rsyslog.com/files/download/rsyslog/rsyslog-8.36.0.tar.gz"
-  sha256 "8a4b5beb92c6b308c3d14de2364c2788f62ef5d37ca0448144619edfe508ee70"
+  url "https://www.rsyslog.com/files/download/rsyslog/rsyslog-8.37.0.tar.gz"
+  sha256 "295c289b4c8abd8f8f3fe35a83249b739cedabe82721702b910255f9faf147e7"
 
   bottle do
-    sha256 "fe6369499b8b45a0721de48b85a01f0a1d0eeb21faf9e19169ba5c7205c0f583" => :high_sierra
-    sha256 "6ba51b3cbbadad0f504e99606716db248289ddd86d26ab067e2dfda2962f2e11" => :sierra
-    sha256 "bda24f04bcca9ce06ed3e79b272d23373123ea197216d626f3f4f2b08139b79f" => :el_capitan
-    sha256 "c2524db98c6654f9f33799d079a780c112831800771f170b753ab912b8e177b2" => :x86_64_linux
+    sha256 "a7830278d2bddc26ab55d32cf4b424f9ef46fe4e14d3a152594560b65e8cccc4" => :high_sierra
+    sha256 "162a2cff81e34d67cca2696f5b0b09a511b13c56236828eb2014f05f2e6416ff" => :sierra
+    sha256 "a46359fabb1218e33e0fbdddf71ebe7361504d1c40b5473a8484b2f5f4ed2784" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
