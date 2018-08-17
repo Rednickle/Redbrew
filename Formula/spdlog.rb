@@ -1,16 +1,15 @@
 class Spdlog < Formula
   desc "Super fast C++ logging library"
   homepage "https://github.com/gabime/spdlog"
-  url "https://github.com/gabime/spdlog/archive/v0.17.0.tar.gz"
-  sha256 "94f74fd1b3344733d1db3de2ec22e6cbeb769f93a8baa0d4a22b1f62dc7369f8"
+  url "https://github.com/gabime/spdlog/archive/v1.1.0.tar.gz"
+  sha256 "3dbcbfd8c07e25f5e0d662b194d3a7772ef214358c49ada23c044c4747ce8b19"
   head "https://github.com/gabime/spdlog.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8d084c2d0651856ffde9c40995a7628733c3a964f9a3222b184c2a7ff678fb4b" => :high_sierra
-    sha256 "8d084c2d0651856ffde9c40995a7628733c3a964f9a3222b184c2a7ff678fb4b" => :sierra
-    sha256 "8d084c2d0651856ffde9c40995a7628733c3a964f9a3222b184c2a7ff678fb4b" => :el_capitan
-    sha256 "93df4edd63b615f755db9aebd654a753a4f9867c5542cef4d8e5408f304a3664" => :x86_64_linux
+    sha256 "fac46636becf90fdf7cbe169422b7a11934ac7656a3e601f462947197e6a24a3" => :high_sierra
+    sha256 "fac46636becf90fdf7cbe169422b7a11934ac7656a3e601f462947197e6a24a3" => :sierra
+    sha256 "fac46636becf90fdf7cbe169422b7a11934ac7656a3e601f462947197e6a24a3" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -30,15 +29,26 @@ class Spdlog < Formula
 
   test do
     (testpath/"test.cpp").write <<~EOS
-      #include "spdlog/spdlog.h"
+      #include "spdlog/sinks/basic_file_sink.h"
       #include <iostream>
       #include <memory>
       int main()
       {
-        auto console = spdlog::stdout_logger_mt("console");
+        try {
+          auto console = spdlog::basic_logger_mt("basic_logger", "#{testpath}/basic-log.txt");
+          console->info("Test");
+        }
+        catch (const spdlog::spdlog_ex &ex)
+        {
+          std::cout << "Log init failed: " << ex.what() << std::endl;
+          return 1;
+        }
       }
     EOS
+
     system ENV.cxx, "-std=c++11", "test.cpp", "-I#{include}", "-o", "test"
     system "./test"
+    assert_predicate testpath/"basic-log.txt", :exist?
+    assert_match "Test", (testpath/"basic-log.txt").read
   end
 end
