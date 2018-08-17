@@ -8,8 +8,8 @@ class Crystal < Formula
   homepage "https://crystal-lang.org/"
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/0.25.1.tar.gz"
-    sha256 "9b5a7bd2de67ab36cc5430133228a1e656a431fc7d928a37a61109bd8da77fc6"
+    url "https://github.com/crystal-lang/crystal/archive/0.26.0.tar.gz"
+    sha256 "e98cf1403d5182fce888a120cda61918c329244765eaa265a17038bbfb217ba3"
 
     resource "shards" do
       url "https://github.com/crystal-lang/shards/archive/v0.8.1.tar.gz"
@@ -18,9 +18,9 @@ class Crystal < Formula
   end
 
   bottle do
-    sha256 "678df358cd84481ebf7caff0da1497b9ebda5e52e9682d0aed011d9325c1b2ab" => :high_sierra
-    sha256 "b15470237a34bbed50ea87ed49cafef29333eb7fa3cdc6f6e7e91534e99bc14e" => :sierra
-    sha256 "d05d4b439b62415cc10a6b17a4e83c4d30a935f51905e666496090bff5d20e33" => :el_capitan
+    sha256 "42bbf810ed2f3bad9708b596409989265281c32ed801963d99e744c8c9743a34" => :high_sierra
+    sha256 "8fa840a8c937bc01eba1bb298255102ff960d9d945bd63b35798ed0b44f53841" => :sierra
+    sha256 "8b4bb9364d4d1a367e3e3037584621d525452e84eb46a715f9efa5a6167f2fb7" => :el_capitan
   end
 
   head do
@@ -38,7 +38,7 @@ class Crystal < Formula
   depends_on "libatomic_ops" => :build # for building bdw-gc
   depends_on "libevent"
   depends_on "bdw-gc"
-  depends_on "llvm@5"
+  depends_on "llvm"
   depends_on "pcre"
   depends_on "gmp" # std uses it but it's not linked
   depends_on "libyaml" if build.with? "shards"
@@ -46,17 +46,17 @@ class Crystal < Formula
 
   resource "boot" do
     if OS.mac?
-      url "https://github.com/crystal-lang/crystal/releases/download/0.25.0/crystal-0.25.0-2-darwin-x86_64.tar.gz"
-      version "0.25.0-2"
-      sha256 "4f538660c097b7e6607df2953f34a6d6a1693e5a984cf4b1b1e77024029dc8fb"
+      url "https://github.com/crystal-lang/crystal/releases/download/0.25.1/crystal-0.25.1-2-darwin-x86_64.tar.gz"
+      version "0.25.1-2"
+      sha256 "6a72db4b4b9323186b6da3f72c7c4b1aaaa06a036707bd9fe4ffb60575edc6db"
     elsif MacOS.version <= :el_capitan # no clock_gettime
       url "https://github.com/crystal-lang/crystal/releases/download/v0.24.1/crystal-0.24.1-2-darwin-x86_64.tar.gz"
       version "0.24.1"
       sha256 "2be256462f4388cd3bb14b1378ef94d668ab9d870944454e828b4145155428a0"
     else
-      url "https://github.com/crystal-lang/crystal/releases/download/0.25.0/crystal-0.25.0-1-linux-x86_64.tar.gz"
-      version "0.25.0-1"
-      sha256 "baa2081dbad6c8645dfa894e7249bb77ca80db7affcbc574857bad6b103000e0"
+      url "https://github.com/crystal-lang/crystal/releases/download/0.25.1/crystal-0.25.1-1-linux-x86_64.tar.gz"
+      version "0.25.1-1"
+      sha256 "943ea77a976e80d2b3558ef525d2c9fa7fc3d41d6b5799923e378408d75e557e"
     end
   end
 
