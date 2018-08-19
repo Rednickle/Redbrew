@@ -16,26 +16,31 @@ class Gcc < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
   revision 4 unless OS.mac?
-  head "svn://gcc.gnu.org/svn/gcc/trunk"
+  head "svn://gcc.gnu.org/svn/gcc/trunk" if OS.mac?
 
-  if OS.mac?
-    url "https://ftp.gnu.org/gnu/gcc/gcc-8.2.0/gcc-8.2.0.tar.xz"
-    mirror "https://ftpmirror.gnu.org/gcc/gcc-8.2.0/gcc-8.2.0.tar.xz"
-    sha256 "196c3c04ba2613f893283977e6011b2345d1cd1af9abeac58e916b1aab3e0080"
-  else
+  unless OS.mac?
     url "https://ftp.gnu.org/gnu/gcc/gcc-5.5.0/gcc-5.5.0.tar.xz"
     mirror "https://ftpmirror.gnu.org/gcc/gcc-5.5.0/gcc-5.5.0.tar.xz"
     sha256 "530cea139d82fe542b358961130c69cfde8b3d14556370b65823d2f91f0ced87"
   end
 
+  stable do
+    url "https://ftp.gnu.org/gnu/gcc/gcc-8.2.0/gcc-8.2.0.tar.xz"
+    mirror "https://ftpmirror.gnu.org/gcc/gcc-8.2.0/gcc-8.2.0.tar.xz"
+    sha256 "196c3c04ba2613f893283977e6011b2345d1cd1af9abeac58e916b1aab3e0080"
+
+    # isl 0.20 compatibility
+    # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=86724
+    patch :DATA
+  end if OS.mac?
+
   # gcc is designed to be portable.
   bottle do
     cellar :any
-    rebuild 1 unless OS.mac?
-    sha256 "594126c80c83e927daa11244f00d85e199a07733bfd196192a5b137be6192f77" => :high_sierra
-    sha256 "96bbe35cbc6c6d20eca7f6ab3e0a9af42d9db51d8c5e861ff0b771efd9190b30" => :sierra
-    sha256 "4e2299c3809915dac00d013181c59ef5c7162101cbf90c894e23322e9e7cc68b" => :el_capitan
-    sha256 "e67391e083084ef4d0061345423f544816f0806447ce390d1a505a73d0b65c8b" => :x86_64_linux
+    rebuild OS.mac? ? 1 : 2
+    sha256 "f65f583746746494db1b02bb8a8d53ef54089ff8564d88d886527148794e9eef" => :high_sierra
+    sha256 "0fa57f7f5dbbc6360c5894b987a37d829b4984dfe51a91ba26f48d6c97d1f370" => :sierra
+    sha256 "5a51d9f6ab8d14a0b2a37783225cc356f3d68a074f1b814124f00c739475c655" => :el_capitan
   end
 
   # GCC's Go compiler is not currently supported on macOS.
@@ -75,10 +80,6 @@ class Gcc < Formula
       version.to_s.slice(/\d/)
     end
   end
-
-  # isl 0.20 compatibility
-  # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=86724
-  patch :DATA if OS.mac?
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
