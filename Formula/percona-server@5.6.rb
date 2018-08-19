@@ -1,15 +1,14 @@
 class PerconaServerAT56 < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
-  url "https://www.percona.com/downloads/Percona-Server-5.6/Percona-Server-5.6.40-84.0/source/tarball/percona-server-5.6.40-84.0.tar.gz"
-  version "5.6.40-84.0"
-  sha256 "9d817e00610368c27184b26928a8c6d5db61c8df745365d462fedecb3291847c"
+  url "https://www.percona.com/downloads/Percona-Server-5.6/Percona-Server-5.6.41-84.1/source/tarball/percona-server-5.6.41-84.1.tar.gz"
+  version "5.6.41-84.1"
+  sha256 "8c24f8f19d19f06b9e77c6e952198dfc7c652ce413263dccb4c48225e943a45d"
 
   bottle do
-    sha256 "ba017647235c7ba6515fdaf17f86cfe288519b37a6fe7fab6b301182ba66c069" => :high_sierra
-    sha256 "ceb5addb490a31b420eee3bac3562995446d81737884abdc15a3f78541ebbf27" => :sierra
-    sha256 "925bb01c4848439461256222f513467425ec041b45390e309d9a2a8708608b57" => :el_capitan
-    sha256 "1b0b99bb757fa0b0d9d3c81f872c6f928252dd0cfb4c2851a8b5de6996c50c9e" => :x86_64_linux
+    sha256 "fd5c4c759c72edc1b5dca683ab860c2f74178a10bf09b3029b35e3dca4879632" => :high_sierra
+    sha256 "9b8a05eb87f8bd0bc1f09dcc38ede084b889b548c3dea810edd293839ec3a875" => :sierra
+    sha256 "aa90a2216314fefbe8d7774e54ba2dcfd8e30bb13be48c786dd68f756b7f385b" => :el_capitan
   end
 
   keg_only :versioned_formula
