@@ -59,11 +59,10 @@ class Glibc < Formula
   homepage "https://www.gnu.org/software/libc/"
   url "https://ftp.gnu.org/gnu/glibc/glibc-2.23.tar.gz"
   sha256 "2bd08abb24811cda62e17e61e9972f091f02a697df550e2e44ddcfb2255269d2"
-  revision 1
   # tag "linuxbrew"
 
   bottle do
-    sha256 "5f2d9516da082fa31f7bba99f6cfe0b08b045fbd147b4aa1dcb8e4d32315e8c9" => :x86_64_linux
+    sha256 "654794e9e18c2401f1101a3fcf0a85eda448b4b969e9a99782a3f4f4659feda4" => :x86_64_linux
   end
 
   option "with-current-kernel", "Compile for compatibility with kernel not older than your current one"
