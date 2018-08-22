@@ -15,6 +15,7 @@ class Rbenv < Formula
   end
 
   depends_on "ruby-build" => :recommended
+  depends_on "ruby" => :test unless OS.mac?
 
   def install
     inreplace "libexec/rbenv" do |s|
