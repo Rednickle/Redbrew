@@ -10,6 +10,7 @@ class Vis < Formula
     sha256 "da6c3c09d9b53f77c0aecbdd99d145447ed12505f3d2103532502415b53f4564" => :high_sierra
     sha256 "831f3f4424b231e086784a1741eb1bdc94b5134fa220176a24848f7f226634ab" => :sierra
     sha256 "d902e9dbb59c21ab7b8d3476c9125a160c8633599ed1097caa001f32ac50f3b4" => :el_capitan
+    sha256 "035a08edb9d6b465fc838c29033c9fdeea684c54aced30435a55b416087a6f06" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
