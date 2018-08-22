@@ -9,6 +9,7 @@ class Luarocks < Formula
     sha256 "7a23c8cd3129369ae7502801765242e2e8a1f4afaf6c58d09b812654d5ba2dd3" => :high_sierra
     sha256 "7a23c8cd3129369ae7502801765242e2e8a1f4afaf6c58d09b812654d5ba2dd3" => :sierra
     sha256 "7a23c8cd3129369ae7502801765242e2e8a1f4afaf6c58d09b812654d5ba2dd3" => :el_capitan
+    sha256 "c6e36b5606e5c0020793921d5abd1e0faa3f6c12bde569451891fb876efc4677" => :x86_64_linux
   end
 
   depends_on "lua@5.1" => :test
