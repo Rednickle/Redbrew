@@ -3,21 +3,18 @@ class Lua < Formula
   homepage "https://www.lua.org/"
   url "https://www.lua.org/ftp/lua-5.3.5.tar.gz"
   sha256 "0c2eed3f960446e1a3e4b9a1ca2f3ff893b6ce41942cf54d5dd59ab4b3b058ac"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "e4878844eb5b248ac72df3fead9d5dac8b432ad4385c1956d8577884fb2520c1" => :mojave
-    sha256 "0519eedf38f18d868842cead8c66ea1784ead938e0eed940d89e7d50c8259884" => :high_sierra
-    sha256 "e93b77f260956a5f16ff0df19c8bdaa6047ff6fe7cde806f65624c728db63ae9" => :sierra
-    sha256 "79caa0554afffb84b0827f50e65dc57d7e7d34ff83db76341427ed5293b3a21c" => :el_capitan
-    sha256 "8b3cf9e36717f1a37fb7679b9db4f4a5e7c7f5ff80bfcdc938e6cc78ff92b13c" => :x86_64_linux
+    sha256 "fcf36c0a4785ed9f515a1a18d8e158ad806c8ff92a5359959fbfa1b84bc52454" => :high_sierra
+    sha256 "17947facfc289e35fc19a1c4091f4d26387bdc254150df75e0aa95d881e58135" => :sierra
+    sha256 "b6e9699312e768aaa800d06e1f1e445f1bed64c8eb614083915c60e0a2e3d746" => :el_capitan
   end
 
-  option "without-luarocks", "Don't build with Luarocks support embedded"
-
   unless OS.mac?
-    depends_on "unzip"
     depends_on "readline"
+    depends_on "unzip"
   end
 
   # Add shared library for linux
@@ -32,11 +29,6 @@ class Lua < Formula
   # See: https://github.com/Homebrew/legacy-homebrew/pull/5043
   # ***Update me with each version bump!***
   patch :DATA if OS.mac?
-
-  resource "luarocks" do
-    url "https://luarocks.org/releases/luarocks-2.4.4.tar.gz"
-    sha256 "3938df33de33752ff2c526e604410af3dceb4b7ff06a770bc4a240de80a1f934"
-  end
 
   def install
     # Fix: /usr/bin/ld: lapi.o: relocation R_X86_64_32 against `luaO_nilobject_' can not be used
@@ -71,34 +63,6 @@ class Lua < Formula
     lib.install_symlink "liblua.5.3.dylib" => "liblua5.3.dylib"
     (lib/"pkgconfig").install_symlink "lua.pc" => "lua5.3.pc"
     (lib/"pkgconfig").install_symlink "lua.pc" => "lua-5.3.pc"
-
-    # This resource must be handled after the main install, since there's a lua dep.
-    # Keeping it in install rather than postinstall means we can bottle.
-    if build.with? "luarocks"
-      resource("luarocks").stage do
-        ENV.prepend_path "PATH", bin
-
-        system "./configure", "--prefix=#{libexec}", "--rocks-tree=#{HOMEBREW_PREFIX}",
-                              "--sysconfdir=#{etc}/luarocks53", "--with-lua=#{prefix}",
-                              "--lua-version=5.3", "--versioned-rocks-dir"
-        system "make", "build"
-        system "make", "install"
-
-        (pkgshare/"5.3/luarocks").install_symlink Dir["#{libexec}/share/lua/5.3/luarocks/*"]
-        bin.install_symlink libexec/"bin/luarocks-5.3"
-        bin.install_symlink libexec/"bin/luarocks-admin-5.3"
-        bin.install_symlink libexec/"bin/luarocks"
-        bin.install_symlink libexec/"bin/luarocks-admin"
-
-        # This block ensures luarock exec scripts don't break across updates.
-        inreplace libexec/"share/lua/5.3/luarocks/site_config.lua" do |s|
-          s.gsub! libexec, opt_libexec
-          s.gsub! include, HOMEBREW_PREFIX/"include"
-          s.gsub! lib, HOMEBREW_PREFIX/"lib"
-          s.gsub! bin, HOMEBREW_PREFIX/"bin"
-        end
-      end
-    end
   end
 
   def pc_file; <<~EOS
@@ -125,23 +89,13 @@ class Lua < Formula
   end
 
   def caveats; <<~EOS
-    Please be aware due to the way Luarocks is designed any binaries installed
-    via Luarocks-5.3 AND 5.1 will overwrite each other in #{HOMEBREW_PREFIX}/bin.
-
-    This is, for now, unavoidable. If this is troublesome for you, you can build
-    rocks with the `--tree=` command to a special, non-conflicting location and
-    then add that to your `$PATH`.
+    You may also want luarocks:
+      brew install luarocks
   EOS
   end
 
   test do
     system "#{bin}/lua", "-e", "print ('Ducks are cool')"
-
-    if File.exist?(bin/"luarocks-5.3")
-      (testpath/"luarocks").mkpath
-      system bin/"luarocks-5.3", "install", "moonscript", "--tree=#{testpath}/luarocks"
-      assert_predicate testpath/"luarocks/bin/moon", :exist?
-    end
   end
 end
 
