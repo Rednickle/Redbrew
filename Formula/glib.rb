@@ -1,15 +1,14 @@
 class Glib < Formula
   desc "Core application library for C"
   homepage "https://developer.gnome.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.56/glib-2.56.1.tar.xz"
-  sha256 "40ef3f44f2c651c7a31aedee44259809b6f03d3d20be44545cd7d177221c0b8d"
+  url "https://download.gnome.org/sources/glib/2.56/glib-2.56.2.tar.xz"
+  sha256 "d64abd16813501c956c4e123ae79f47f1b58de573df9fdd3b0795f1e2c1aa789"
 
   bottle do
-    sha256 "74a1b5eba8896db8ceb7d1f6f653e6874941f1c33dd0f3f74f7b6955eba2292c" => :mojave
-    sha256 "ecf8e80be0bfd37f484125c3b433edadbb842fd112335ca1f14c4034fcf040d8" => :high_sierra
-    sha256 "f121604cc5d37e8c6391043018307b0c2ab28fbc903bfc513c77a52a6bdcc8cc" => :sierra
-    sha256 "ddefe1801b23dcbfd19c06fa8c85f20bf618e2129ff1db55e4fe252a55acfdca" => :el_capitan
-    sha256 "4d0e6164d73d56f534fda78f5e0177ae23ccc32aaffde51fbd30af17ac49b28b" => :x86_64_linux
+    sha256 "fdb7ec14e392902e6554650bc88075d23ceb4435d720f57ba503b23975ce5b68" => :mojave
+    sha256 "767aad0befbf0d44b64fbe7cfbc9f5a6668eb0600b31950ca852771182a9065c" => :high_sierra
+    sha256 "77ee2f3961f8dede7af40536e80be3ad5fd72997713467dc8a527da1a78f2007" => :sierra
+    sha256 "9fedf57a518a0656766e4ee1699d555f3b0752d8c015cec0da98d380b616175b" => :el_capitan
   end
 
   option "with-test", "Build a debug build and run tests. NOTE: Not all tests succeed yet"
@@ -37,29 +36,16 @@ class Glib < Formula
     sha256 "a4cb96b5861672ec0750cb30ecebe1d417d38052cac12fbb8a77dbf04a886fcb"
   end
 
-  # Fixes compilation with FSF GCC. Doesn't fix it on every platform, due
-  # to unrelated issues in GCC, but improves the situation.
-  # Patch submitted upstream: https://bugzilla.gnome.org/show_bug.cgi?id=672777
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/0f8183e5f8a78dfe6394f5592006383499de725d/glib/gio.patch"
-    sha256 "b4cc0c2d9ef308de2229e496bcd9523f28bd7f6f83452b5e5b9d7807c48e6ea4"
-  end
-
   # Revert some bad macOS specific commits
   # https://bugzilla.gnome.org/show_bug.cgi?id=780271
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/0f8183e5f8a78dfe6394f5592006383499de725d/glib/revert-appinfo-contenttype.patch"
-    sha256 "3a848cc0061ed9b5cf1a96b177a094a807c7a0b3436d4f813861ad56bea9547b"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/5857984/glib/revert-appinfo-contenttype.patch"
+    sha256 "88bfc2a69aaeda07c5f057d11e106a97837ff319f8be1f553b8537f3c136f48c"
   end
 
   def install
     inreplace %w[gio/gdbusprivate.c gio/xdgmime/xdgmime.c glib/gutils.c],
       "@@HOMEBREW_PREFIX@@", HOMEBREW_PREFIX
-
-    # renaming is necessary for patches to work
-    mv "gio/gcocoanotificationbackend.c", "gio/gcocoanotificationbackend.m"
-    mv "gio/gnextstepsettingsbackend.c", "gio/gnextstepsettingsbackend.m"
-    rm "gio/gosxappinfo.h"
 
     # Disable dtrace; see https://trac.macports.org/ticket/30413
     args = %W[
