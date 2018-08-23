@@ -29,7 +29,7 @@ class Folly < Formula
   depends_on "python" unless OS.mac?
 
   # https://github.com/facebook/folly/issues/451
-  depends_on :macos => :el_capitan unless OS.mac?
+  depends_on :macos => :el_capitan if OS.mac?
 
   needs :cxx11
 
