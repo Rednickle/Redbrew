@@ -13,10 +13,10 @@ class UtilLinux < Formula
     sha256 "e9b848c71aa03ed81c425e4d73d9bdd5e955cb496aea0edc37753bb8282c21ba" => :x86_64_linux
   end
 
-  conflicts_with "rename", :because => "both install `rename` binaries"
-
   depends_on "ncurses" unless OS.mac?
   depends_on "linuxbrew/extra/linux-pam" => :optional
+
+  conflicts_with "rename", :because => "both install `rename` binaries"
 
   def install
     args = [
