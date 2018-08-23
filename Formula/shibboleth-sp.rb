@@ -3,16 +3,17 @@ class ShibbolethSp < Formula
   homepage "https://wiki.shibboleth.net/confluence/display/SHIB2"
   url "https://shibboleth.net/downloads/service-provider/3.0.2/shibboleth-sp-3.0.2.tar.bz2"
   sha256 "7aab399aeaf39145c60e1713dbc29a65f618e9eca84505f5ed03cee63e3f31a3"
+  revision 1
 
   bottle do
-    sha256 "ea68592d27b642e356112d9f41ed43a449e8c206628ccdffffdead4742ac30bd" => :high_sierra
-    sha256 "95f5e6ea5ad8195d0013f419280c262cc9a8d10b5470962347dc6e62c0d2dd30" => :sierra
-    sha256 "ac57fa26bc3e53d7fa7640b3ed437148a6fb47648afdc7fb402e43de1d4fd7c2" => :el_capitan
+    sha256 "c135bc6082bdfcf28d4db188a0263d08e84fb11bb79a79d785aca8f16da7ef05" => :high_sierra
+    sha256 "2d2dcdeeaf7b23fa5fb09633dc73804bd0b917dfa6bf143fae096fcb3a39ef74" => :sierra
+    sha256 "ce407e628b733ce46224e30cd82cb33e850a727df71b1901ec981f651b274e08" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
   depends_on :macos => :yosemite
-  depends_on "curl" => "with-openssl"
+  depends_on "openssl"
   depends_on "httpd" if MacOS.version >= :high_sierra
   depends_on "opensaml"
   depends_on "xml-tooling-c"
