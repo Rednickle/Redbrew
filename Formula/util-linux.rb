@@ -3,16 +3,16 @@ class UtilLinux < Formula
   homepage "https://github.com/karelzak/util-linux"
   url "https://www.kernel.org/pub/linux/utils/util-linux/v2.32/util-linux-2.32.1.tar.xz"
   sha256 "86e6707a379c7ff5489c218cfaf1e3464b0b95acf7817db0bc5f179e356a67b2"
+  revision 1
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "642b5ab01b27fba0cd38010786d156a4bffd4bbaaf4a3e911810bb6e724b7438" => :mojave
-    sha256 "6efcade13c334a732e716ac6ce5779d23016fcc621a726af497b8a468620c680" => :high_sierra
-    sha256 "f08ce5604fe17b7d14d2dcca3902e7e01836368d41b3f05dd23a08fdb59bdd61" => :sierra
-    sha256 "ef8aea494486a2cb3c49c18a1772c596f12f4bed557cdbbec94639b279a4e969" => :el_capitan
-    sha256 "796aaa86a98f50fbaf44e357b54f69284a5923290ef8ea3c09434504ae4a3731" => :x86_64_linux
+    sha256 "d551dad77ab8c533bab98d5bd91291db1f296564336d59d600f0ce75496a9d08" => :high_sierra
+    sha256 "aeef9c88dd7ea82ac3f71b6f3793b2316b76ee59a8e01cc56f6316efa4e1346c" => :sierra
+    sha256 "f3040a39ad4ffb9eabd9446843dfc3b66df01b3264c875dc68e7339636830357" => :el_capitan
   end
+
+  conflicts_with "rename", :because => "both install `rename` binaries"
 
   depends_on "ncurses" unless OS.mac?
   depends_on "linuxbrew/extra/linux-pam" => :optional
