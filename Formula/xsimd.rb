@@ -1,14 +1,14 @@
 class Xsimd < Formula
   desc "Modern, portable C++ wrappers for SIMD intrinsics"
   homepage "https://xsimd.readthedocs.io/en/latest/"
-  url "https://github.com/QuantStack/xsimd/archive/6.1.5.tar.gz"
-  sha256 "ecc781520f7b2bfdeb51d1385683694f2e89be1a05b77b222b9783cfeb645034"
+  url "https://github.com/QuantStack/xsimd/archive/6.1.6.tar.gz"
+  sha256 "949139130fce7fc357f7671a6c5e83fc0daa0ab302529c53e416fcf7c372d258"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "45dd6378d60d276d7071333b5fd2a787c54d164488d478654c15538c57a6796e" => :high_sierra
-    sha256 "45dd6378d60d276d7071333b5fd2a787c54d164488d478654c15538c57a6796e" => :sierra
-    sha256 "45dd6378d60d276d7071333b5fd2a787c54d164488d478654c15538c57a6796e" => :el_capitan
+    sha256 "ec4ea29cee3b00e25067916fbbd54bec16e07a8a5fc5ff25ccfb4745b587575d" => :high_sierra
+    sha256 "ec4ea29cee3b00e25067916fbbd54bec16e07a8a5fc5ff25ccfb4745b587575d" => :sierra
+    sha256 "ec4ea29cee3b00e25067916fbbd54bec16e07a8a5fc5ff25ccfb4745b587575d" => :el_capitan
   end
 
   depends_on "cmake" => :build
