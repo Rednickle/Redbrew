@@ -6,9 +6,17 @@ class Php < Formula
   revision 1
 
   bottle do
-    sha256 "ce4c5ad3ab1df435d216896f56636baef2048dcaa59a8df56c3819826a9b69bc" => :high_sierra
-    sha256 "64de61f7b1c141ce335c102e06304a2b82c0c4a78372ca66caa374743fa1a575" => :sierra
-    sha256 "b756599fd111893e36bffbe12476c5c93730b72c4c24733f1a648993d9ff47c6" => :el_capitan
+    rebuild 1
+    sha256 "a9582f3bd290ea913221cb6c29019450ae418b5f1086c73c1fca4f57189c32e5" => :high_sierra
+    sha256 "e0a881ba6dc4116138789ccb7cfc0103cc3088bb685c333969a44f7ebaa2b6bd" => :sierra
+    sha256 "cd07f6fc100cbe104c1c06a97b628f35add4a45f10014262bc80c4081c99c67b" => :el_capitan
+  end
+
+  devel do
+    url "https://downloads.php.net/~cmb/php-7.3.0beta2.tar.xz"
+    sha256 "28f040680ff517b6c3da403fd1048054de0e867246c47da36342f6a488661c70"
+
+    depends_on "openldap"
   end
 
   depends_on "httpd" => [:build, :test]
@@ -121,7 +129,6 @@ class Php < Formula
       --with-kerberos
       --with-layout=GNU
       --with-libxml-dir=#{Formula["libxml2"].opt_prefix}
-      --with-ldap
       --with-ldap-sasl
       --with-libedit
       --with-libzip
@@ -153,6 +160,12 @@ class Php < Formula
       args << "--with-curl"
     end
 
+    if build.devel?
+      args << "--with-ldap=#{Formula["openldap"].opt_prefix}"
+    else
+      args << "--with-ldap"
+    end
+
     system "./configure", *args
     system "make"
     system "make", "install"
@@ -161,7 +174,7 @@ class Php < Formula
     extension_dir = Utils.popen_read("#{bin}/php-config --extension-dir").chomp
     orig_ext_dir = File.basename(extension_dir)
     inreplace bin/"php-config", lib/"php", prefix/"pecl"
-    inreplace "php.ini-development", "; extension_dir = \"./\"",
+    inreplace "php.ini-development", %r{; ?extension_dir = "\./"},
       "extension_dir = \"#{HOMEBREW_PREFIX}/lib/php/pecl/#{orig_ext_dir}\""
 
     config_files = {

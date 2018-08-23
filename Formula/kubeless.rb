@@ -1,14 +1,14 @@
 class Kubeless < Formula
   desc "Kubernetes Native Serverless Framework"
   homepage "https://github.com/kubeless/kubeless"
-  url "https://github.com/kubeless/kubeless/archive/v1.0.0-alpha.7.tar.gz"
-  sha256 "516f41b5c77e2068deb1624a338d1b7e0a37d44f30690942e038622881121636"
+  url "https://github.com/kubeless/kubeless/archive/v1.0.0-alpha.8.tar.gz"
+  sha256 "a03c69d9a3e9abd4378628b35e8e3364011d51eeded5b1b31d879d22ef3da31d"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9c9a1eeb6342c71794f3d6ddbb1257b4a4fcf06dda6a14aeeccabc5a36b3fcf5" => :high_sierra
-    sha256 "ffabb4de31a34cb0dc0c6b98feb4a4375ffb17b09b57798ff05c2baeb075c75c" => :sierra
-    sha256 "5b905e32a80603ffee68d4c03192901561f893cf3dcfe1b78abc899828049744" => :el_capitan
+    sha256 "bb6998e774e37318701a6a66c90946b0715eb02e28e824aeda6093e83cba988e" => :high_sierra
+    sha256 "2b3cb765a118f41d26459d3488ff848c1304bac2b40c7a7e499e854b65dff11e" => :sierra
+    sha256 "d8e5e3453bc4a1a2d18e3f65d9d7ca5ca59246c7bcf9fe39f066282b826cc859" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -21,8 +21,8 @@ class Kubeless < Formula
       ldflags = %W[
         -w -X github.com/kubeless/kubeless/pkg/version.Version=v#{version}
       ]
-      system "go", "build", "-o", bin/"kubeless", "-ldflags", ldflags.join(" "),
-             "./cmd/kubeless"
+      system "go", "build", "-o", bin/"kubeless", "-ldflags",
+             ldflags.join(" "), "./cmd/kubeless"
       prefix.install_metafiles
     end
   end
