@@ -9,6 +9,7 @@ class Xcodegen < Formula
     sha256 "f1f58515546e4b67f4fef683a4d9182c1088976e9fd80db0923e1770ff1356b5" => :high_sierra
   end
 
+  depends_on :macos
   depends_on :xcode => ["9.3", :build] if OS.mac?
 
   def install
