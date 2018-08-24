@@ -7,11 +7,10 @@ class PythonAT2 < Formula
   head "https://github.com/python/cpython.git", :branch => "2.7"
 
   bottle do
-    rebuild 2
-    sha256 "d7363d4915adde267e383547dc10d946434a2e0ce596a644ee475a2923380d5d" => :high_sierra
-    sha256 "8b778a6c52f90a8c54c91174b05c1044fbf720771124468ceb2b4183f81d9780" => :sierra
-    sha256 "f39c5bff2b9d7c901d0dc12a70eb067d7123afbfc17e2643898b112fcd938359" => :el_capitan
-    sha256 "e5b2304c490adf49d90740d897b8ef211e7c480befb3ef49a6d2760f9525043b" => :x86_64_linux
+    rebuild 3
+    sha256 "b713f6116757c5899450836f1e4484c086d14e4d31a759b4faea45ee860d4e9a" => :high_sierra
+    sha256 "a690d38a18c08f8082384cd1009b2d5737c0f8f024592c38cc31350a6dd2cbaa" => :sierra
+    sha256 "d09aa60dc7f5aca86c285807cf6f6202b63a02e5a6cd3a112c6d81e8a7652b17" => :el_capitan
   end
 
   # Please don't add a wide/ucs4 option as it won't be accepted.
@@ -35,8 +34,8 @@ class PythonAT2 < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/5a/df/b2e3d9693bb0dcbeac516a73dd7a9eb82b126ae52e4a74605a9b01beddd5/setuptools-40.1.0.zip"
-    sha256 "664500268e4d649ce5b9f9dc0af0edc2b144666b1544d64af0453da94aa72b70"
+    url "https://files.pythonhosted.org/packages/ef/1d/201c13e353956a1c840f5d0fbf0461bd45bbd678ea4843ebf25924e8984c/setuptools-40.2.0.zip"
+    sha256 "47881d54ede4da9c15273bac65f9340f8929d4f0213193fa7894be384f2dcfa6"
   end
 
   resource "pip" do
