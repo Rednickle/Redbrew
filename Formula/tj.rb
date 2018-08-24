@@ -6,6 +6,10 @@ class Tj < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9e9789735a9437803ccadf92845d8bfb2f85e11429fb97e195c01fb2887cf045" => :mojave
+    sha256 "6e47b0d410b1a9aafc4b31bf6f397e5b6194faf2aea88e0fc0f45a4584adbf37" => :high_sierra
+    sha256 "f62d1e6bebec485f947355a7a0a79fd9f3986396ac5f79c96e630693533a5c9d" => :sierra
+    sha256 "679f41ee55f109604f19583683f43406e4af88f86b60534ab4e758d5b2192940" => :el_capitan
     sha256 "c7486821bd35ae016c533c2b8a49839ede4754bf2405e5f192a431dc8b50fa99" => :x86_64_linux
   end
 

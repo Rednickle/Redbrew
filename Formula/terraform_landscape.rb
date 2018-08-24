@@ -1,15 +1,14 @@
 class TerraformLandscape < Formula
   desc "Improve Terraform's plan output"
   homepage "https://github.com/coinbase/terraform-landscape"
-  url "https://github.com/coinbase/terraform-landscape/archive/v0.1.18.tar.gz"
-  sha256 "49670fd71a115c3f12ae5b9c84f9bf1e0f47734a4501ad3cc1ea980068066de7"
+  url "https://github.com/coinbase/terraform-landscape/archive/v0.2.0.tar.gz"
+  sha256 "909b7e613dd94cb09db3d44b2f92daff32f1b3f97f01a8fefd9c6adf0a34aa02"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3d74b4f1bd664587e2f18b0de2a011dc6374e3df11b898b20843cf33efc42260" => :high_sierra
-    sha256 "2ba9788343219f9b73bc34a8ae064408c97a70706e86a3d78b0c55a26feacc6c" => :sierra
-    sha256 "cf5c36e5435434b14b62caa8ba46c41854bfd134baf8d1bd70a606436b3de0e9" => :el_capitan
-    sha256 "b5244f8c64f782dc7dd8497d2de0424f5ab022ea916745698a911531891a6816" => :x86_64_linux
+    sha256 "c1ff280fa0e073f3f0aa5902b0f91e7176e873ee1f50f02e505d1f3673ae8fee" => :high_sierra
+    sha256 "7fe6f7d0f4172299dd32af3f8ef4cd1e4a1909c5d3ec4734a8dadff051967123" => :sierra
+    sha256 "e50e45786e742fcef94e1576b39e333afc8e31ea65792cc437d5a4768e13f12f" => :el_capitan
   end
 
   depends_on "ruby" if MacOS.version <= :mountain_lion
@@ -20,8 +19,8 @@ class TerraformLandscape < Formula
   end
 
   resource "commander" do
-    url "https://rubygems.org/gems/commander-4.4.5.gem"
-    sha256 "d6ee57931e589e89c5ed27b2fdb1661ba28c6c021c635bbac6e96ded55363e6b"
+    url "https://rubygems.org/gems/commander-4.4.6.gem"
+    sha256 "8e73079a5a1efb5c51b604ce427485bd071563ab7e5fb2675f4db40896164d87"
   end
 
   resource "diffy" do
@@ -49,7 +48,7 @@ class TerraformLandscape < Formula
     resources.each do |r|
       r.verify_download_integrity(r.fetch)
       system "gem", "install", r.cached_download, "--no-document",
-                    "--install-dir", libexec
+                    "--ignore-dependencies", "--install-dir", libexec
     end
     system "gem", "build", "terraform_landscape.gemspec"
     system "gem", "install", "--ignore-dependencies", "terraform_landscape-#{version}.gem"

@@ -5,13 +5,12 @@ class Openssh < Formula
   mirror "https://mirror.vdms.io/pub/OpenBSD/OpenSSH/portable/openssh-7.7p1.tar.gz"
   version "7.7p1"
   sha256 "d73be7e684e99efcd024be15a30bffcbe41b012b2f7b3c9084aed621775e6b8f"
+  revision 1
 
   bottle do
-    sha256 "e40eeaf811a916330941692831192b7369c243e2a155357c64e4e3eb18442f00" => :mojave
-    sha256 "d378e6ea62cc33ab02df2c7394c8b9dc90fa7ab7d0a54a2f5f9a1db4c6f69dd4" => :high_sierra
-    sha256 "f30f9b4163419d95b59e62dc6b55b956ab0612b49a654ace9fae3f67d18d3198" => :sierra
-    sha256 "8c163dd34c4fbde8de02c58ccca743966b4f755be40049740f604509d2135a3c" => :el_capitan
-    sha256 "a4dfb3b6cacda3d3fefa50d56db02199ca56c1f316a198e9bf23303bdb8d9c24" => :x86_64_linux
+    sha256 "e748ef7bf9feb3b0bb2917cc00fb2a36fb4d4fca131eefb892ccf8926b5fccd8" => :high_sierra
+    sha256 "7b0c5e9a9f1c88c3cd0367a3ae69498535886bae6fba385eb40248975614c166" => :sierra
+    sha256 "3c74825c289c80afda8a4495b2394780f745a7bc368c13393606dace4edf4bcb" => :el_capitan
   end
 
   # Please don't resubmit the keychain patch option. It will never be accepted.
@@ -42,6 +41,15 @@ class Openssh < Formula
   resource "com.openssh.sshd.sb" do
     url "https://opensource.apple.com/source/OpenSSH/OpenSSH-209.50.1/com.openssh.sshd.sb"
     sha256 "a273f86360ea5da3910cfa4c118be931d10904267605cdd4b2055ced3a829774"
+  end
+
+  # CVE-2018-15473. Patch safe to remove on next upstream release.
+  # http://www.openwall.com/lists/oss-security/2018/08/15/5
+  patch do
+    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/o/openssh/openssh_7.7p1-4.debian.tar.xz"
+    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/o/openssh/openssh_7.7p1-4.debian.tar.xz"
+    sha256 "a7d3a5f9c2b91639f128620c231792698199a2ba0a74fb28dd26204714ccd865"
+    apply "patches/upstream-delay-bailout-for-invalid-authenticating-user.patch"
   end
 
   def install

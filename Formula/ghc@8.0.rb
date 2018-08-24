@@ -9,7 +9,9 @@ class GhcAT80 < Formula
   sha256 "11625453e1d0686b3fa6739988f70ecac836cadc30b9f0c8b49ef9091d6118b1"
   revision 1 unless OS.mac?
 
+  # gcc is designed to be portable.
   bottle do
+    cellar :any
     sha256 "f2a42cd1cef4c212cae841513039bd280457ea8f58b696707c16dbc90c829a88" => :high_sierra
     sha256 "9184f9147b526c425fd14498dca9fa1550c563857291c3c5ad616c6e5e521e47" => :sierra
     sha256 "be71492dc8783027300be80d8554bf0a239ba53991002094dc11c5d982f7294f" => :el_capitan

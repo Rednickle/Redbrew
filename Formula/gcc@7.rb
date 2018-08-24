@@ -10,10 +10,10 @@ class GccAT7 < Formula
   # gcc is designed to be portable.
   bottle do
     cellar :any
-    sha256 "45cfaae98c9e82d6eb90449a541019c7b5f10c20e0221acc3b1a9b6fe48f5f39" => :high_sierra
-    sha256 "5875cde355e4e7611ccd58c3ab4c35ab27740bca99e37de59081953111de4ce0" => :sierra
-    sha256 "d38130e28eaf1d76e29f09deb616a5a1063dad898a2856879d93a67f51573ef6" => :el_capitan
-    sha256 "10fe64f506ae90c9141317a534fe0f83d879c6ea92b04e42f790ac55bc4ce8a3" => :x86_64_linux
+    rebuild 1
+    sha256 "5f798446d0193232ceeb27fa34965ef988ed42796b6aab63e6983304a771afc0" => :high_sierra
+    sha256 "47b785a673df97f76b974aed4de9f80426ab69db455f56387f0746d744a375d6" => :sierra
+    sha256 "4fed764370e0b2b283d498ac06de3f3d028edad121bc1a3659f4c10c8665ac73" => :el_capitan
   end
 
   option "with-jit", "Build just-in-time compiler"
@@ -59,6 +59,10 @@ class GccAT7 < Formula
       sha256 "f7772a6ba73f44a6b378e4fe3548e0284f48ae2d02c701df1be93780c1607074"
     end
   end
+
+  # isl 0.20 compatibility
+  # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=86724
+  patch :DATA
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
@@ -307,3 +311,17 @@ class GccAT7 < Formula
     assert_equal "Done\n", `./test`
   end
 end
+
+__END__
+diff --git a/gcc/graphite.h b/gcc/graphite.h
+index 578fa1a..e4fad06 100644
+--- a/gcc/graphite.h
++++ b/gcc/graphite.h
+@@ -37,6 +37,8 @@ along with GCC; see the file COPYING3.  If not see
+ #include <isl/schedule.h>
+ #include <isl/ast_build.h>
+ #include <isl/schedule_node.h>
++#include <isl/id.h>
++#include <isl/space.h>
+
+ typedef struct poly_dr *poly_dr_p;
