@@ -30,9 +30,19 @@ class Libewf < Formula
 
   depends_on "pkg-config" => :build
   depends_on "openssl"
-  depends_on :osxfuse => :optional
+  if OS.mac?
+    depends_on :osxfuse => :optional
+  else
+    depends_on "bzip2"
+    depends_on "libfuse" => :optional
+    depends_on "zlib"
+  end
 
   def install
+    # Workaround bug in gcc-5 that causes the following error:
+    # undefined reference to `libuna_ ...
+    ENV.append_to_cflags "-std=gnu89" if ENV.cc == "gcc-5"
+
     if build.head?
       system "./synclibs.sh"
       system "./autogen.sh"
@@ -44,7 +54,7 @@ class Libewf < Formula
       --prefix=#{prefix}
     ]
 
-    args << "--with-libfuse=no" if build.without? "osxfuse"
+    args << "--with-libfuse=no" if build.without?(OS.mac? ? "osxfuse" : "libfuse")
 
     system "./configure", *args
     system "make", "install"
