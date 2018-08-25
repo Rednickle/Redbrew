@@ -1,17 +1,15 @@
 class Openssh < Formula
   desc "OpenBSD freely-licensed SSH connectivity tools"
   homepage "https://www.openssh.com/"
-  url "https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.7p1.tar.gz"
-  mirror "https://mirror.vdms.io/pub/OpenBSD/OpenSSH/portable/openssh-7.7p1.tar.gz"
-  version "7.7p1"
-  sha256 "d73be7e684e99efcd024be15a30bffcbe41b012b2f7b3c9084aed621775e6b8f"
-  revision 1
+  url "https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.8p1.tar.gz"
+  mirror "https://mirror.vdms.io/pub/OpenBSD/OpenSSH/portable/openssh-7.8p1.tar.gz"
+  version "7.8p1"
+  sha256 "1a484bb15152c183bb2514e112aa30dd34138c3cfb032eee5490a66c507144ca"
 
   bottle do
-    sha256 "e748ef7bf9feb3b0bb2917cc00fb2a36fb4d4fca131eefb892ccf8926b5fccd8" => :high_sierra
-    sha256 "7b0c5e9a9f1c88c3cd0367a3ae69498535886bae6fba385eb40248975614c166" => :sierra
-    sha256 "3c74825c289c80afda8a4495b2394780f745a7bc368c13393606dace4edf4bcb" => :el_capitan
-    sha256 "cc39ffcbbb89edcd5c48d8d3788f99060442057300cd59b389cec0ed436374a9" => :x86_64_linux
+    sha256 "062be6d245517da48f9977bd8773c4df34b346eceecf6ee710694014dfb546a0" => :high_sierra
+    sha256 "d41c0c0d627746f9c196d9257e9912d77e38907ca08db16d5b30683acbe1c3fe" => :sierra
+    sha256 "74a820270916e79b3885c171d87a562ddeb5f755f58fde2b80fa9eb63aa09d89" => :el_capitan
   end
 
   # Please don't resubmit the keychain patch option. It will never be accepted.
@@ -42,15 +40,6 @@ class Openssh < Formula
   resource "com.openssh.sshd.sb" do
     url "https://opensource.apple.com/source/OpenSSH/OpenSSH-209.50.1/com.openssh.sshd.sb"
     sha256 "a273f86360ea5da3910cfa4c118be931d10904267605cdd4b2055ced3a829774"
-  end
-
-  # CVE-2018-15473. Patch safe to remove on next upstream release.
-  # http://www.openwall.com/lists/oss-security/2018/08/15/5
-  patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/o/openssh/openssh_7.7p1-4.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/o/openssh/openssh_7.7p1-4.debian.tar.xz"
-    sha256 "a7d3a5f9c2b91639f128620c231792698199a2ba0a74fb28dd26204714ccd865"
-    apply "patches/upstream-delay-bailout-for-invalid-authenticating-user.patch"
   end
 
   def install
