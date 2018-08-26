@@ -1,16 +1,15 @@
-class GoAT19 < Formula
-  desc "Go programming environment (1.9)"
+class GoAT110 < Formula
+  desc "Go programming environment (1.10)"
   homepage "https://golang.org"
-  url "https://dl.google.com/go/go1.9.7.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.9.7.src.tar.gz"
-  sha256 "582814fa45e8ecb0859a208e517b48aa0ad951e3b36c7fff203d834e0ef27722"
+  url "https://dl.google.com/go/go1.10.4.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.10.4.src.tar.gz"
+  sha256 "6fe44965ed453cd968a81988523e9b0e794d3a478f91fd7983c28763d52d5781"
 
   bottle do
-    sha256 "1a334f11789d867af6974b0b8c2c53444cbdaaf0422ea1f2bf5f3b25bd8d39df" => :mojave
-    sha256 "097a7bde112c08b746f167b1f10603cf714369fb90da1c4fe3ead6980ca319fb" => :high_sierra
-    sha256 "85b2bb9a42d7b414c31a98ab0fbdfcb3aa540ee663b157f1726f0d85abcb333b" => :sierra
-    sha256 "e87155e00891f02aa430d1cc2eee45448a836f044f40baaae6c58192269abe72" => :el_capitan
-    sha256 "b3e976be9e30376595330b6b8af1ececbd81e1bbb824c4b0fa60bf7b46dc8325" => :x86_64_linux
+    sha256 "708d7da25f16bc496d2031d18e3364cd27307cc81b350efd70cf0129f12d7f3e" => :mojave
+    sha256 "8f61daebea1012743280f2aab830db7d812b6064dffa786a1514dc06550facc0" => :high_sierra
+    sha256 "c198d33774a788840143677bd396fd9f9601c1e568b01f6c41afe1b292a94796" => :sierra
+    sha256 "f8ae863158b47ddbc82df4dcfdd3248d1c55c5f2bbce291a855053850819044b" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -18,50 +17,28 @@ class GoAT19 < Formula
   option "without-cgo", "Build without cgo (also disables race detector)"
   option "without-race", "Build without race detector"
 
-  depends_on :macos => :mountain_lion if OS.mac?
+  depends_on :macos => :mountain_lion
 
   resource "gotools" do
     url "https://go.googlesource.com/tools.git",
-        :branch => "release-branch.go1.9"
+        :branch => "release-branch.go1.10"
   end
 
   # Don't update this unless this version cannot bootstrap the new version.
   resource "gobootstrap" do
-    if OS.mac?
-      url "https://storage.googleapis.com/golang/go1.7.darwin-amd64.tar.gz"
-      sha256 "51d905e0b43b3d0ed41aaf23e19001ab4bc3f96c3ca134b48f7892485fc52961"
-    elsif OS.linux?
-      url "https://storage.googleapis.com/golang/go1.7.linux-amd64.tar.gz"
-      sha256 "702ad90f705365227e902b42d91dd1a40e48ca7f67a2f4b2fd052aaa4295cd95"
-    end
+    url "https://storage.googleapis.com/golang/go1.7.darwin-amd64.tar.gz"
     version "1.7"
-  end
-
-  # Backports the following commit from 1.10/1.11:
-  # https://github.com/golang/go/commit/1a92cdbfc10e0c66f2e015264a39159c055a5c15
-  patch do
-    url "https://github.com/Homebrew/formula-patches/raw/e089e057dbb8aff7d0dc36a6c1933c29dca9c77e/go%401.9/go_19_load_commands.patch"
-    sha256 "771b67df44e3d5d5d7c01ea4a0d1693032bc880ea4f16cf82c1bacb42bfd9b10"
+    sha256 "51d905e0b43b3d0ed41aaf23e19001ab4bc3f96c3ca134b48f7892485fc52961"
   end
 
   def install
-    # Fixes: Error: Failure while executing: ../bin/ldd ../line-clang.elf: Permission denied
-    unless OS.mac?
-      chmod "+x", Dir.glob("src/debug/dwarf/testdata/*.elf")
-      chmod "+x", Dir.glob("src/debug/elf/testdata/*-exec")
-    end
-
     (buildpath/"gobootstrap").install resource("gobootstrap")
     ENV["GOROOT_BOOTSTRAP"] = buildpath/"gobootstrap"
 
     cd "src" do
       ENV["GOROOT_FINAL"] = libexec
-      ENV["GOOS"] = OS.mac? ? "darwin" : "linux"
-      if build.without?("cgo")
-        ENV["CGO_ENABLED"]  = "0"
-      else
-        ENV["CGO_ENABLED"]  = "1"
-      end
+      ENV["GOOS"]         = "darwin"
+      ENV["CGO_ENABLED"]  = "0" if build.without?("cgo")
       system "./make.bash", "--no-clean"
     end
 
