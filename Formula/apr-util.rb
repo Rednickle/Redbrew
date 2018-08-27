@@ -21,9 +21,11 @@ class AprUtil < Formula
   depends_on "mysql" => :optional
   depends_on "freetds" => :optional
   depends_on "unixodbc" => :optional
-  depends_on "sqlite" => :optional
   depends_on "openldap" => :optional
-  unless OS.mac?
+  if OS.mac?
+    depends_on "sqlite" => :optional
+  else
+    depends_on "sqlite" => :recommended
     depends_on "expat"
     depends_on "util-linux" # for libuuid
   end
@@ -41,6 +43,7 @@ class AprUtil < Formula
     args << "--with-mysql=#{Formula["mysql"].opt_prefix}" if build.with? "mysql"
     args << "--with-freetds=#{Formula["freetds"].opt_prefix}" if build.with? "freetds"
     args << "--with-odbc=#{Formula["unixodbc"].opt_prefix}" if build.with? "unixodbc"
+    args << "--with-sqlite3=#{build.with?("sqlite") ? "yes" : "no"}" unless OS.mac?
 
     if build.with? "openldap"
       args << "--with-ldap"
