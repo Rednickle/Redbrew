@@ -17,7 +17,7 @@ class Bat < Formula
   depends_on "zlib" unless OS.mac?
 
   def install
-    system "cargo", "install", "--root", prefix
+    system "cargo", "install", "--root", prefix, "--path", "."
   end
 
   test do
