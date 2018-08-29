@@ -11,6 +11,7 @@ class Cmocka < Formula
     sha256 "c6c4e7501378c12f36ee6018178b0083d17bc69fe2cc40e07107b72b9fe12391" => :high_sierra
     sha256 "06424efd3a7383a55524c08b61408542920469dcecebf27c6b73d7f609dc4bbe" => :sierra
     sha256 "6ac37854fdbba60081e67cc10c63fb18fc6c03a2cbf1dd4ca87fe819d18455b6" => :el_capitan
+    sha256 "a5c905b8a93c9ba520bf063881b5ff3f2429da316ee0ab4952e4ba7c4acd0d02" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
