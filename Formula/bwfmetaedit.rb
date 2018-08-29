@@ -11,6 +11,7 @@ class Bwfmetaedit < Formula
     sha256 "8d4491da134ad7946b9f4dafb93762e8cc3ef5ae7472de25ddcdda49bc3a1264" => :high_sierra
     sha256 "c3ac3fded8f13d7bf277a4c76b586d1fc6fc6c90b14842f36c586b36a3241b97" => :sierra
     sha256 "e0162b43a0806a785da4f4838ed5fcf0d60bd809b3fcc915c58589c9e6938798" => :el_capitan
+    sha256 "12a20f993412d64ef18faec7e139b22ea0f68184da11a7ea9f3a3f71acf6666f" => :x86_64_linux
   end
 
   def install
