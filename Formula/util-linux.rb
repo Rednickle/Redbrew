@@ -21,7 +21,6 @@ class UtilLinux < Formula
 
   def install
     args = [
-      "--disable-debug",
       "--disable-dependency-tracking",
       "--disable-silent-rules",
       "--prefix=#{prefix}",
@@ -60,11 +59,6 @@ class UtilLinux < Formula
       rm_f man1/"#{prog}.1"
       rm_f man8/"#{prog}.8"
     end if OS.mac?
-
-    # these conflict with bash-completion-1.3
-    %w[chsh mount rfkill rtcwake].each do |prog|
-      rm_f share/"bash-completion/completions/#{prog}"
-    end
 
     # install completions only for installed programs
     Pathname.glob("bash-completion/*") do |prog|
