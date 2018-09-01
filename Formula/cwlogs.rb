@@ -10,6 +10,7 @@ class Cwlogs < Formula
     sha256 "1c07bb31b455ea7e28f55854424b9fbcba9f9ab9e352f759377d7152b1b3c367" => :high_sierra
     sha256 "b3528646611cd4f462bafe83c25c84f551e191629a93a84b11c872f9e86b720f" => :sierra
     sha256 "6384495666e5235c5969ccd1688092fe335a5147b31156e1cb658a41594ae594" => :el_capitan
+    sha256 "7f13ec74eec4d4b9e8b35ddac2adbe0d145413b13ae3ad0bf21e46d05fc6e399" => :x86_64_linux
   end
 
   depends_on "go" => :build
