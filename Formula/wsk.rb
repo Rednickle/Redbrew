@@ -11,6 +11,7 @@ class Wsk < Formula
     sha256 "3a0e83ba6602152b582acc334c71a7aaf375dcc46730bc66aad3212fd840a348" => :high_sierra
     sha256 "f80044426ee56b6e70bb9eb8f63c95772e3d60f9aa579572e17bbf168ea91eca" => :sierra
     sha256 "12b2a1282a36a66f9abc148dcc6dd93cce4e34e381088d0f3b519132776a43e8" => :el_capitan
+    sha256 "40a60db2ac86f6e375614c2a8253a9840f4bf5603b5a026c52764820a72be64f" => :x86_64_linux
   end
 
   depends_on "go" => :build
