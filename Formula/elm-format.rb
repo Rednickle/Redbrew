@@ -16,6 +16,7 @@ class ElmFormat < Formula
     sha256 "a1047123c27bd64f9ee8a9105abfcf2e474cb76cee9c33c815ffb148f8864968" => :high_sierra
     sha256 "5af4a51247a7ed87cb10e5a68d42fdd29441ea943cb97aefde67ba73e562718e" => :sierra
     sha256 "81ceb798aab9192629dfe1b98b91dfcaec272db1c83eba9c662f90f8e776d0fa" => :el_capitan
+    sha256 "2a3cb01ffeb5540f28f2e3d6480da044788d3fd3aa3c75954fd1112bf5acb05c" => :x86_64_linux
   end
 
   depends_on "cabal-install" => :build
