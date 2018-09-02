@@ -1,15 +1,14 @@
 class Glib < Formula
   desc "Core application library for C"
   homepage "https://developer.gnome.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.56/glib-2.56.2.tar.xz"
-  sha256 "d64abd16813501c956c4e123ae79f47f1b58de573df9fdd3b0795f1e2c1aa789"
+  url "https://download.gnome.org/sources/glib/2.58/glib-2.58.0.tar.xz"
+  sha256 "c0f4ce0730b4f95c47b711613b5406a887c2ee13ea6d25930d72a4fa7fdb77f6"
 
   bottle do
-    sha256 "fdb7ec14e392902e6554650bc88075d23ceb4435d720f57ba503b23975ce5b68" => :mojave
-    sha256 "767aad0befbf0d44b64fbe7cfbc9f5a6668eb0600b31950ca852771182a9065c" => :high_sierra
-    sha256 "77ee2f3961f8dede7af40536e80be3ad5fd72997713467dc8a527da1a78f2007" => :sierra
-    sha256 "9fedf57a518a0656766e4ee1699d555f3b0752d8c015cec0da98d380b616175b" => :el_capitan
-    sha256 "24d3b9417ffc068fe55e30c1dbca70e5a81a6b59dec7019c53fcd22f27519446" => :x86_64_linux
+    sha256 "ca271e3fc42d83b0c22223cf364c0d34ea201ec36b2c03dfe05ce495e9f9d565" => :mojave
+    sha256 "566038e5b2e58c780d88958ad6db24dae4c36b66e75ee71c7cefade1bd1cdb5e" => :high_sierra
+    sha256 "e7282881f1ea46e412a33ec44ac243397a799e8b5860c0cb7902dcb543adcb79" => :sierra
+    sha256 "43065ecf5ea3d7c24f683313ef45a89ac9eac8a86f232729eeb58f36eca6384e" => :el_capitan
   end
 
   option "with-test", "Build a debug build and run tests. NOTE: Not all tests succeed yet"
@@ -21,6 +20,7 @@ class Glib < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "gtk-doc" => :build
   depends_on "gettext"
   depends_on "libffi"
   depends_on "pcre"
@@ -62,8 +62,9 @@ class Glib < Formula
       --with-gio-module-dir=#{HOMEBREW_PREFIX}/lib/gio/modules
     ]
 
-    # next line can be removed when bug 780271 is fixed and gio.patch is modified accordingly
-    system "autoreconf", "-i", "-f"
+    # next two lines can be removed when bug 780271 is fixed and gio.patch is modified accordingly
+    ENV["NOCONFIGURE"] = "1"
+    system "./autogen.sh"
 
     system "./configure", *args
 
@@ -84,8 +85,6 @@ class Glib < Formula
       s.gsub! "Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include",
               "Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include -I#{gettext}/include"
     end if OS.mac?
-
-    (share+"gtk-doc").rmtree
   end
 
   def post_install
