@@ -3,14 +3,14 @@ class Travis < Formula
   homepage "https://github.com/travis-ci/travis.rb/"
   url "https://github.com/travis-ci/travis.rb/archive/v1.8.9.tar.gz"
   sha256 "7a143bd0eb90e825370c808d38b70cca8c399c68bea8138442f40f09b6bbafc4"
+  revision 1
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "cf80d94fe1d3bd9e00d1ff7cc28273c6206de00dbea7f9227f69cac4f152599c" => :high_sierra
-    sha256 "4fd917fdec9d5cd2feb5bb9e462fff7325468a43863f117c3147d04d0e1314b7" => :sierra
-    sha256 "815f04d34837f071a13ea720e221e5f1cd4f7b4b1388aabce568a3a7e86a17db" => :el_capitan
-    sha256 "49c4298433b2cd561cc3b87ff4e65c0cbd111fdf787268897cfbeaac4691edcb" => :x86_64_linux
+    sha256 "6338b2e199cb6ae30c29c02384f8269602d11842685c007ecd7d47932c02d2e5" => :mojave
+    sha256 "a85b312df0e6d91c3cf3ce5a935b53b193e3e60dfbfcf0592427d5f976b4220b" => :high_sierra
+    sha256 "5244d9146eb622169744fb10f7e3e3e529b1d2bb9aab13f98dc97de6b564315c" => :sierra
+    sha256 "fce097e64f335bd69ea49b3025aebb904db15bcb7f2599b8e0e5beb0de427e9e" => :el_capitan
   end
 
   depends_on "ruby" if MacOS.version <= :sierra

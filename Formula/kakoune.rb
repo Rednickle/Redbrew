@@ -5,10 +5,12 @@ class Kakoune < Formula
   sha256 "cd8ccf8d833a7de8014b6d64f0c34105bc5996c3671275b00ced77996dd17fce"
 
   bottle do
-    sha256 "963dcb1f0cb83f49b4fca50b556299f7b817d6186cf0ccf57ace72ec465f449e" => :high_sierra
-    sha256 "d49c1a22732564d9a88ec1a14edb2481840f5041abfb954fd323c6b1d4153c90" => :sierra
-    sha256 "8eb380637d9d50b956b7dd7e7e46a8a789ee3743ef6a783ff885958a5337c5cb" => :el_capitan
-    sha256 "7c5e5aee0d54db2329e43c7595f5c3e6d8fd90e291869af23ce9e8b88d5b6e3e" => :x86_64_linux
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "50176fd868ebf3bf357ec583000d9dff76e6a155dc2457518630d5e2b1e16a56" => :mojave
+    sha256 "16dfec7140e99f6780b24d81fc45bb7a8703dce51e8ebe080b7d73f855126615" => :high_sierra
+    sha256 "ab41d37bb6e4d47208eea741354b09a48ffbe8ea5a32f88456a60643738c6f8c" => :sierra
+    sha256 "6122fb695a150e34742fcb544f92b9261180730ec335f3ee730bcc7f5d7e2db4" => :el_capitan
   end
 
   depends_on "asciidoc" => :build
