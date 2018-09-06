@@ -3,13 +3,13 @@ class Glib < Formula
   homepage "https://developer.gnome.org/glib/"
   url "https://download.gnome.org/sources/glib/2.58/glib-2.58.0.tar.xz"
   sha256 "c0f4ce0730b4f95c47b711613b5406a887c2ee13ea6d25930d72a4fa7fdb77f6"
+  revision 1
 
   bottle do
-    sha256 "ca271e3fc42d83b0c22223cf364c0d34ea201ec36b2c03dfe05ce495e9f9d565" => :mojave
-    sha256 "566038e5b2e58c780d88958ad6db24dae4c36b66e75ee71c7cefade1bd1cdb5e" => :high_sierra
-    sha256 "e7282881f1ea46e412a33ec44ac243397a799e8b5860c0cb7902dcb543adcb79" => :sierra
-    sha256 "43065ecf5ea3d7c24f683313ef45a89ac9eac8a86f232729eeb58f36eca6384e" => :el_capitan
-    sha256 "8124dc35bc71bc73b9ecdf900202202aaccc0707191f94e30a548f5c0a6551ce" => :x86_64_linux
+    sha256 "7aaa24ceea95436299ec13251aba2b53b7b75ed622819d94686b54c638f4308b" => :mojave
+    sha256 "cf62335e49678260e16ea6a6af2ddc971d538f535b2e8e83bf5ad4d14b53036a" => :high_sierra
+    sha256 "9d1b90e0fa79961605fccfa3bbc539c80ac23dc4d78b4c53d4b55d317349473b" => :sierra
+    sha256 "3856bc5aeafee8895cae577551aadb0780ad1b7c5a55be1e75c42621cb1755a7" => :el_capitan
   end
 
   option "with-test", "Build a debug build and run tests. NOTE: Not all tests succeed yet"
@@ -71,6 +71,10 @@ class Glib < Formula
 
     # disable creating directory for GIO_MODULE_DIR, we will do this manually in post_install
     inreplace "gio/Makefile", "$(mkinstalldirs) $(DESTDIR)$(GIO_MODULE_DIR)", ""
+
+    # ensure giomoduledir contains prefix, as this pkgconfig variable will be used
+    # by glib-networking and glib-openssl to determine where to install their modules
+    inreplace "gio-2.0.pc", "giomoduledir=#{HOMEBREW_PREFIX}/lib/gio/modules", "giomoduledir=${prefix}/lib/gio/modules"
 
     system "make"
     # the spawn-multithreaded tests require more open files

@@ -59,6 +59,8 @@ class Octave < Formula
     depends_on "openblas" => :recommended
   end
 
+  depends_on "qt" => :optional
+
   # Dependencies use Fortran, leading to spurious messages about GCC
   cxxstdlib_check :skip
 
@@ -97,13 +99,14 @@ class Octave < Formula
       --disable-static
       --disable-docs
       --without-osmesa
-      --without-qt
       --with-hdf5-includedir=#{Formula["hdf5"].opt_include}
       --with-hdf5-libdir=#{Formula["hdf5"].opt_lib}
       --with-x=no
       --with-portaudio
       --with-sndfile
     ]
+
+    args << "--without-qt" if build.without? "qt"
 
     system "./bootstrap" if build.head?
     system "./configure", *args
