@@ -13,13 +13,10 @@ class Node < Formula
     sha256 "a499977b321f64d30ef171b2241fa9dd892bb1a46c940ba88f4a213108c4868b" => :x86_64_linux
   end
 
-  option "with-debug", "Build with debugger hooks"
   option "with-openssl@1.1", "Build against Homebrew's OpenSSL instead of the bundled OpenSSL"
   option "without-npm", "npm will not be installed"
-  option "without-completion", "npm bash completion will not be installed"
   option "without-icu4c", "Build with small-icu (English only) instead of system-icu (all locales)"
 
-  deprecated_option "enable-debug" => "with-debug"
   deprecated_option "with-openssl" => "with-openssl@1.1"
 
   depends_on "python@2" => :build
@@ -49,7 +46,6 @@ class Node < Formula
     # Never install the bundled "npm", always prefer our
     # installation from tarball for better packaging control.
     args = %W[--prefix=#{prefix} --without-npm]
-    args << "--debug" if build.with? "debug"
     args << "--with-intl=system-icu" if build.with? "icu4c"
     args << "--shared-openssl" << "--openssl-use-def-ca-store" if build.with? "openssl@1.1"
     args << "--tag=head" if build.head?
@@ -73,10 +69,7 @@ class Node < Formula
       # These symlinks are never used & they've caused issues in the past.
       rm_rf libexec/"share"
 
-      if build.with? "completion"
-        bash_completion.install \
-          bootstrap/"lib/utils/completion.sh" => "npm"
-      end
+      bash_completion.install bootstrap/"lib/utils/completion.sh" => "npm"
     end
   end
 

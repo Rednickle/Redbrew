@@ -25,11 +25,8 @@ class SwiProlog < Formula
     depends_on "autoconf" => :build
   end
 
-  option "with-lite", "Disable all packages"
   option "with-jpl", "Enable JPL (Java Prolog Bridge)"
   option "with-xpce", "Enable XPCE (Prolog Native GUI Library)"
-
-  deprecated_option "lite" => "with-lite"
 
   depends_on "pkg-config" => :build
   depends_on "readline"
@@ -59,9 +56,6 @@ class SwiProlog < Formula
     # the Homebrew-generated CFLAGS into COFLAGS here.
     ENV["CIFLAGS"] = ENV.cppflags
     ENV["COFLAGS"] = ENV.cflags
-
-    # Build the packages unless --with-lite option specified
-    args << "--with-world" if build.without? "lite"
 
     # './prepare' prompts the user to build documentation
     # (which requires other modules). '3' is the option
