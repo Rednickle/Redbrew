@@ -14,11 +14,8 @@ class Protobuf < Formula
     sha256 "147629d332d26e65661f4e6423ddbc01da1ee94a67e9417f92e49d717cec70ba" => :x86_64_linux
   end
 
-  # this will double the build time approximately if enabled
-  option "with-test", "Run build-time check"
   option "without-python@2", "Build without python2 support"
 
-  deprecated_option "with-check" => "with-test"
   deprecated_option "without-python" => "with-python@2"
   deprecated_option "with-python3" => "with-python"
 
@@ -61,7 +58,7 @@ class Protobuf < Formula
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}", "--with-zlib"
     system "make"
-    system "make", "check" if build.with?("test") || build.bottle?
+    system "make", "check" if build.bottle?
     system "make", "install"
 
     # Install editor support and examples

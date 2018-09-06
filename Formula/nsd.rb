@@ -12,29 +12,15 @@ class Nsd < Formula
     sha256 "47c81063b0f8a929bd50fc046a4b2e33e980982856c24504d4abc7df63e12815" => :x86_64_linux
   end
 
-  option "with-root-server", "Allow NSD to run as a root name server"
-  option "with-bind8-stats", "Enable BIND8-like NSTATS & XSTATS"
-  option "with-ratelimit", "Enable rate limiting"
-  option "with-zone-stats", "Enable per-zone statistics"
-
   depends_on "libevent"
   depends_on "openssl"
 
   def install
-    args = %W[
-      --prefix=#{prefix}
-      --sysconfdir=#{etc}
-      --localstatedir=#{var}
-      --with-libevent=#{Formula["libevent"].opt_prefix}
-      --with-ssl=#{Formula["openssl"].opt_prefix}
-    ]
-
-    args << "--enable-root-server" if build.with? "root-server"
-    args << "--enable-bind8-stats" if build.with? "bind8-stats"
-    args << "--enable-ratelimit" if build.with? "ratelimit"
-    args << "--enable-zone-stats" if build.with? "zone-stats"
-
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}",
+                          "--sysconfdir=#{etc}",
+                          "--localstatedir=#{var}",
+                          "--with-libevent=#{Formula["libevent"].opt_prefix}",
+                          "--with-ssl=#{Formula["openssl"].opt_prefix}"
     system "make", "install"
   end
 
