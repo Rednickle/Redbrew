@@ -14,12 +14,8 @@ class Xapian < Formula
     sha256 "26b537e0808f3a0243c41cd191ff2e0abe42b511c44c0ecc7532ce4525082a95" => :x86_64_linux
   end
 
-  option "with-java", "Java bindings"
-  option "with-php", "PHP bindings"
   option "with-ruby", "Ruby bindings"
 
-  deprecated_option "java" => "with-java"
-  deprecated_option "php" => "with-php"
   deprecated_option "ruby" => "with-ruby"
   deprecated_option "with-python" => "with-python@2"
 
@@ -37,14 +33,12 @@ class Xapian < Formula
   end
 
   def install
-    build_binds = build.with?("ruby") || build.with?("python@2") || build.with?("java") || build.with?("php")
-
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
 
-    if build_binds
+    if build.with?("ruby") || build.with?("python@2")
       resource("bindings").stage do
         ENV["XAPIAN_CONFIG"] = bin/"xapian-config"
 
@@ -52,8 +46,6 @@ class Xapian < Formula
           --disable-dependency-tracking
           --prefix=#{prefix}
         ]
-
-        args << "--with-java" if build.with? "java"
 
         if build.with? "ruby"
           ruby_site = lib/"ruby/site_ruby"
@@ -74,12 +66,6 @@ class Xapian < Formula
                           Formula["sphinx-doc"].opt_libexec/"vendor/lib/python2.7/site-packages"
 
           args << "--with-python"
-        end
-
-        if build.with? "php"
-          extension_dir = lib/"php/extensions"
-          extension_dir.mkpath
-          args << "--with-php" << "PHP_EXTENSION_DIR=#{extension_dir}"
         end
 
         system "./configure", *args

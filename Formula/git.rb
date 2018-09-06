@@ -13,17 +13,9 @@ class Git < Formula
     sha256 "c9b6a86938fc9b8dbd1ddc86014c0e4c2684013de38442bccdf9db28ea9f0d1a" => :x86_64_linux
   end
 
-  option "with-blk-sha1", "Compile with the block-optimized SHA1 implementation"
-  option "without-completions", "Disable bash/zsh completions from 'contrib' directory"
-  option "with-subversion", "Use Homebrew's version of SVN"
-  option "with-persistent-https", "Build git-remote-persistent-https from 'contrib' directory"
-
-  deprecated_option "with-brewed-svn" => "with-subversion"
   deprecated_option "with-pcre" => "with-pcre2"
 
   depends_on "pcre2" => :optional
-  depends_on "gettext" => :optional
-  depends_on "go" => :build if build.with? "persistent-https"
 
   if OS.mac?
     if MacOS.version < :yosemite
@@ -49,14 +41,6 @@ class Git < Formula
     depends_on "zlib"
   end
 
-  if build.with? "subversion"
-    depends_on "subversion"
-    depends_on "perl" => :recommended
-  else
-    option "with-perl", "Build against Homebrew's Perl rather than system default"
-    depends_on "perl" => :optional
-  end
-
   resource "html" do
     url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.18.0.tar.xz"
     sha256 "5b70d9b1f86aad464ae172040eb87da83058c00581388af6f60b050214912efc"
@@ -71,22 +55,15 @@ class Git < Formula
     # If these things are installed, tell Git build system not to use them
     ENV["NO_FINK"] = "1"
     ENV["NO_DARWIN_PORTS"] = "1"
-    ENV["V"] = "1" # build verbosely
+    ENV["NO_GETTEXT"] = "1"
     ENV["NO_R_TO_GCC_LINKER"] = "1" # pass arguments to LD correctly
     ENV["PYTHON_PATH"] = which("python")
     ENV["PERL_PATH"] = which("perl")
+    ENV["V"] = "1" # build verbosely
 
     perl_version = Utils.popen_read("perl --version")[/v(\d+\.\d+)(?:\.\d+)?/, 1]
-    # If building with a non-system Perl search everywhere declared in @INC.
-    perl_inc = Utils.popen_read("perl -e 'print join\":\",@INC'").sub(":.", "")
 
-    if build.with? "subversion"
-      ENV["PERLLIB_EXTRA"] = %W[
-        #{Formula["subversion"].opt_lib}/perl5/site_perl
-      ].join(":")
-    elsif build.with? "perl"
-      ENV["PERLLIB_EXTRA"] = perl_inc
-    elsif MacOS.version >= :mavericks
+    if MacOS.version >= :mavericks
       ENV["PERLLIB_EXTRA"] = %W[
         #{MacOS.active_developer_dir}
         /Library/Developer/CommandLineTools
@@ -99,9 +76,6 @@ class Git < Formula
     unless quiet_system ENV["PERL_PATH"], "-e", "use ExtUtils::MakeMaker"
       ENV["NO_PERL_MAKEMAKER"] = "1"
     end
-
-    ENV["BLK_SHA1"] = "1" if build.with? "blk-sha1"
-    ENV["NO_GETTEXT"] = "1" if build.without? "gettext"
 
     if build.with? "pcre2"
       ENV["USE_LIBPCRE2"] = "1"
@@ -156,23 +130,11 @@ class Git < Formula
       git_core.install "git-subtree"
     end
 
-    if build.with? "persistent-https"
-      cd "contrib/persistent-https" do
-        system "make"
-        git_core.install "git-remote-persistent-http",
-                         "git-remote-persistent-https",
-                         "git-remote-persistent-https--proxy"
-      end
-    end
-
-    if build.with? "completions"
-      # install the completion script first because it is inside "contrib"
-      bash_completion.install "contrib/completion/git-completion.bash"
-      bash_completion.install "contrib/completion/git-prompt.sh"
-
-      zsh_completion.install "contrib/completion/git-completion.zsh" => "_git"
-      cp "#{bash_completion}/git-completion.bash", zsh_completion
-    end
+    # install the completion script first because it is inside "contrib"
+    bash_completion.install "contrib/completion/git-completion.bash"
+    bash_completion.install "contrib/completion/git-prompt.sh"
+    zsh_completion.install "contrib/completion/git-completion.zsh" => "_git"
+    cp "#{bash_completion}/git-completion.bash", zsh_completion
 
     elisp.install Dir["contrib/emacs/*.el"]
     (share/"git-core").install "contrib"

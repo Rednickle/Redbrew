@@ -14,36 +14,18 @@ class Libgetdata < Formula
     sha256 "58282cea595279e7caeb57a47ff320194e9724d9e127ab5400000bcdac22ad37" => :x86_64_linux
   end
 
-  option "with-gcc", "Build Fortran bindings"
-  option "with-libzzip", "Build with zzip compression support"
-  option "with-perl", "Build against Homebrew's Perl rather than system default"
-  option "with-xz", "Build with LZMA compression support"
-
-  deprecated_option "lzma" => "with-xz"
-  deprecated_option "zzip" => "with-libzzip"
-  deprecated_option "with-fortran" => "with-gcc"
-
   depends_on "libtool"
-  depends_on "gcc" => :optional
-  depends_on "libzzip" => :optional
-  depends_on "perl" => :optional
-  depends_on "xz" => :optional
 
   def install
-    args = %W[
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --prefix=#{prefix}
-      --disable-php
-      --disable-python
-    ]
-
-    args << "--with-perl-dir=#{lib}/perl5/site_perl" if build.with? "perl"
-    args << "--without-liblzma" if build.without? "xz"
-    args << "--without-libzzip" if build.without? "libzzip"
-    args << "--disable-fortran" << "--disable-fortran95" if build.without? "gcc"
-
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}",
+                          "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--disable-fortran",
+                          "--disable-fortran95",
+                          "--disable-php",
+                          "--disable-python",
+                          "--without-liblzma",
+                          "--without-libzzip"
     system "make"
     system "make", "install"
   end
