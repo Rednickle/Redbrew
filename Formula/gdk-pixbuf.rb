@@ -26,7 +26,7 @@ class GdkPixbuf < Formula
   depends_on "shared-mime-info" unless OS.mac?
 
   patch do
-    url "https://raw.githubusercontent.com/tschoonj/formula-patches/25ea7fd21e42b8ed95947b0b2abfb3fad9679f65/gdk-pixbuf/meson-patches.diff"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/3d39ffd/gdk-pixbuf/meson-patches.diff"
     sha256 "eb78bdfd5452c617ea0873629a5ec8f502a986357aa2d1a462dc9f2551b37c38"
   end
 
@@ -43,7 +43,9 @@ class GdkPixbuf < Formula
   end
 
   def install
-    inreplace "gdk-pixbuf/meson.build", "-DGDK_PIXBUF_LIBDIR=\"@0@\"'.format(gdk_pixbuf_libdir)", "-DGDK_PIXBUF_LIBDIR=\"@0@\"'.format('#{HOMEBREW_PREFIX}/lib')"
+    inreplace "gdk-pixbuf/meson.build",
+              "-DGDK_PIXBUF_LIBDIR=\"@0@\"'.format(gdk_pixbuf_libdir)",
+              "-DGDK_PIXBUF_LIBDIR=\"@0@\"'.format('#{HOMEBREW_PREFIX}/lib')"
 
     args = %W[
       --prefix=#{prefix}
