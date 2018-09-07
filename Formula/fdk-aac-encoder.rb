@@ -10,6 +10,7 @@ class FdkAacEncoder < Formula
     sha256 "37f34d998eb6cc54f6b49d1abfdf7e0e4d256c98764f36e8befce86ee118dcbf" => :high_sierra
     sha256 "2ae9013ce4ba2137734d76d6b9911b65cc16a90e4499b582973bc045e9c931f2" => :sierra
     sha256 "eb1aadd4cd6b6d6982854b351703e175fd683ebc81f16e5f98858ee38c0675e0" => :el_capitan
+    sha256 "7f0c2171121b94422e0e51a099a8eacef8f1b0d8edd9a32d60457314db78acf2" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
