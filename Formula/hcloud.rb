@@ -10,6 +10,7 @@ class Hcloud < Formula
     sha256 "43815538078107706a98f2954d4ebcce062f0498af92eb170c2baf162495b448" => :high_sierra
     sha256 "53fe4e5ba7f8c37b739f7f77c3e776c7ad5f70eb9259b9740b356b234bc067f7" => :sierra
     sha256 "41ed36b25e27d88fd7c433c09da1a65430b78e857ec72e0dbcf1d5d0eb5874d8" => :el_capitan
+    sha256 "e39680a37f6cb4d9e76e15edc2424aa28236c2568ae029758ac8d36f1b7372a7" => :x86_64_linux
   end
 
   depends_on "go" => :build
