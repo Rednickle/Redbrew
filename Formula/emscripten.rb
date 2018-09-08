@@ -23,6 +23,7 @@ class Emscripten < Formula
     sha256 "57955f338f884f10d6cd44505521164822473bdbfade81bd29fe3c139d248b16" => :high_sierra
     sha256 "7b246813a47d17ab7a50079665fcf7d1aa7164f5cb342663eca939d1bc8c81d5" => :sierra
     sha256 "d2a6a0937780734f7d1f527ab2a7c15f64d2a984ac5c382ad437a03f2dcb6318" => :el_capitan
+    sha256 "f305f408ffc20d70e7e0e874f6990061a25c54ddd808f43cc239c8c250df8307" => :x86_64_linux
   end
 
   head do
