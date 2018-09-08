@@ -9,6 +9,7 @@ class Gifski < Formula
     sha256 "ba26d7e59f381268f03c80539710060b6be978a214d1b0d7fda441c7e1aadd98" => :high_sierra
     sha256 "b4c232f074255a72f3886e2372f62d668d17b106392ed5c4a5fda1b57aa57275" => :sierra
     sha256 "b93399bf691af7d49c3f84930435c6bc516dc43aeebee1381615b9f032ffad78" => :el_capitan
+    sha256 "35b1d0d7a50801b7c55d0124565420c6edb37f95b3dd17128dbb9003c6ac4645" => :x86_64_linux
   end
 
   option "with-openmp", "Enable OpenMP multithreading"
