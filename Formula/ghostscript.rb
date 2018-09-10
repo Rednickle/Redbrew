@@ -9,6 +9,7 @@ class Ghostscript < Formula
     sha256 "d06228914976019d0eca54e6ec2bdaef76a89a1f4a8d6b11d02dc215aa149d42" => :high_sierra
     sha256 "f3aa14075ad480cf7f5768ce0e095acfc0087050cb7f5786ba5d23abc8a71dd3" => :sierra
     sha256 "96ca74ec9bc802068edc6cdfbe2e41baeab1bb8f7f8cf54833bd00ade1888fb8" => :el_capitan
+    sha256 "8cda460e002cccbc0c782186c4c28d0133663d47b20fca4d86ae3569384e1042" => :x86_64_linux
   end
 
   head do
