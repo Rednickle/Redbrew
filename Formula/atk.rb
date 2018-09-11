@@ -9,6 +9,7 @@ class Atk < Formula
     sha256 "13a414fd51dc409c7fb66ff5a91920f11cda4a18e311b16249df7a1395e8f2b5" => :high_sierra
     sha256 "945bbdb2a8e1ed4802a9b437fcdfccd59d0de099bcbee66e32a42f7cf9c86896" => :sierra
     sha256 "786efff084a599afbdc9ab706da2e64ae1c4fc29110ab8f7379649a9651599e2" => :el_capitan
+    sha256 "9e31f70a66872885c111897635e53565a9eb0fd3c9de7a159946015b017083a7" => :x86_64_linux
   end
 
   depends_on "gobject-introspection" => :build
