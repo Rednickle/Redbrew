@@ -10,6 +10,7 @@ class AtSpi2Atk < Formula
     sha256 "93b22bd8e17c750e71f8afbe96d2ed1011884f3a9461eeeeff7689b7473675ad" => :high_sierra
     sha256 "a017537217c5c1533adc6a9c2ed209349186380ccda808375d10a3e8d7b393ed" => :sierra
     sha256 "ac94ce79b4199253f019f7fd270e60931e2fbc301b86ec7e45aca16f58d0fc58" => :el_capitan
+    sha256 "324d51328b5a35fd57f8926de55d7329d2694c7a6f404f0d429b22955d081a4a" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
