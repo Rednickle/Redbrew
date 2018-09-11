@@ -14,6 +14,11 @@ class Cairo < Formula
     sha256 "f280c34cad69a036fb1f209249e054e78da643481afd8a3962bed5ad91ca9ccb" => :x86_64_linux
   end
 
+  devel do
+    url "https://cairographics.org/snapshots/cairo-1.15.12.tar.xz"
+    sha256 "7623081b94548a47ee6839a7312af34e9322997806948b6eec421a8c6d0594c9"
+  end
+
   head do
     url "https://anongit.freedesktop.org/git/cairo", :using => :git
     depends_on "automake" => :build
