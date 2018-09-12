@@ -9,6 +9,7 @@ class Geoipupdate < Formula
     sha256 "1e45c489ab5d3022b71e00adca105287de4175ae999552a1f0f62981a16cbf4c" => :high_sierra
     sha256 "d13fd47dd374265af81e2824335b714bd647359671f82ed6643ae988722647fc" => :sierra
     sha256 "a8fdd107eca63868f7ae9e216f3ecab4bb1c0ce635d9bda0fdb03d35f37d1380" => :el_capitan
+    sha256 "99092832d211b28035a331298bcacc43bb60b5c26355548f582685426e264f74" => :x86_64_linux
   end
 
   head do
