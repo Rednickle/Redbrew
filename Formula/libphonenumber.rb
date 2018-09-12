@@ -3,14 +3,14 @@ class Libphonenumber < Formula
   homepage "https://github.com/googlei18n/libphonenumber"
   url "https://github.com/googlei18n/libphonenumber/archive/v8.9.13.tar.gz"
   sha256 "3f0a061457ea6260e03f32f01ad9d953f51cf30f29884924cad5c3eec7d635e1"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "ce61a953ff3b54be7c68b224acad77769473accd5ec53bbf92308a7c1457d93e" => :mojave
-    sha256 "db689d7e9a5c8c5d110db9a9e528b3ef0d7ae88216305b9e76c62af1ee1d4263" => :high_sierra
-    sha256 "0c2d7d7a004dbb369c11d615fc277a948fc8fd6ac14eab03cda9fce491e64582" => :sierra
-    sha256 "a7013b67e84fcbef19d9e0b4951ba514d29326bc9fef73357614c1e3183e34c1" => :el_capitan
-    sha256 "b2931bf269e65d5bb79eade0af33a7a0222c6007261c755783feaa9245f4b5f8" => :x86_64_linux
+    sha256 "98d80349d5066cdcad4eb57d66d7a4c4719df692591e14bceb91c884de5aadfc" => :mojave
+    sha256 "72bf62079a9cc3e44f942c49fafa4f70918e6b173241bc5eb5b067d652806c0f" => :high_sierra
+    sha256 "7096c77bf9aa7aea27785b50b76076bf01984ce385613b3036a911c2fa86047a" => :sierra
+    sha256 "7f66d7bcf62ab3bf1b272b8159c116b42499486c19d2c958522b4d3ffde95a8f" => :el_capitan
   end
 
   depends_on "cmake" => :build
