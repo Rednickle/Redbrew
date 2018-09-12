@@ -11,6 +11,7 @@ class ThePlatinumSearcher < Formula
     sha256 "5b85047b2b893e8ec45e3f68b37c09cfb80ceb0a7c2b9c70937f2f2ca1f6f0bc" => :high_sierra
     sha256 "1e952c6a666f180343cfdc1afa859f702638276e597d4292520fa6cf91ac82b8" => :sierra
     sha256 "3439437518655cdd74c95eda5a161c01d5fe80604ef9c3e8936449a96ba3dcc1" => :el_capitan
+    sha256 "72f6aa602956c5711bbea7ab536935d9ec8937eef34ffee7369b84b3f6af8bb4" => :x86_64_linux
   end
 
   depends_on "go" => :build
