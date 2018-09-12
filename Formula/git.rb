@@ -3,19 +3,18 @@ class Git < Formula
   homepage "https://git-scm.com"
   url "https://www.kernel.org/pub/software/scm/git/git-2.19.0.tar.xz"
   sha256 "180feff58fc0d965d23ea010aa2c69ead92ec318eb9b09cf737529aec62f3ef4"
+  revision 1
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
-    sha256 "1c90a0ac7d9f027bd24cc54043b996dd0d3d11462c83d8b8c1660299a53cf23d" => :mojave
-    sha256 "b10bcf50b981b0d5b0407fc0fc5d87054b0dbeab401f6eaedfa7d8f4b278a603" => :high_sierra
-    sha256 "60f02d9b13bed6e99197d66e6cbb39af1f037ebbce3c1594959012ad93aa9e4b" => :sierra
-    sha256 "bec8956a4e80bd8eeff0abc640b776afe637bfeb3b6d323f5a95d00074565df4" => :el_capitan
-    sha256 "f227f714da19ad57f0fd7f77d2d8a8a633a59e7cb05308e7077541b4d652b334" => :x86_64_linux
+    sha256 "f061e24aa928a97ef77b7f443c165172c0c85511c3411b98226cf657dfc2aa1b" => :mojave
+    sha256 "85ab559f0870530b3fa59c405245a33d97ea57bcb1566aa97c492c2ccb01d2b4" => :high_sierra
+    sha256 "14191459ad180081eb11e41b5ce1ee35e89351869fe94530cbd8a783bb41b61d" => :sierra
+    sha256 "0b983c47e72a8d474771597178d921b068100f471c28276f8be193433cb547ea" => :el_capitan
   end
 
-  deprecated_option "with-pcre" => "with-pcre2"
-
-  depends_on "pcre2" => :optional
+  depends_on "gettext"
+  depends_on "pcre2"
 
   if OS.mac?
     if MacOS.version < :yosemite
@@ -55,10 +54,11 @@ class Git < Formula
     # If these things are installed, tell Git build system not to use them
     ENV["NO_FINK"] = "1"
     ENV["NO_DARWIN_PORTS"] = "1"
-    ENV["NO_GETTEXT"] = "1"
     ENV["NO_R_TO_GCC_LINKER"] = "1" # pass arguments to LD correctly
     ENV["PYTHON_PATH"] = which("python")
     ENV["PERL_PATH"] = which("perl")
+    ENV["USE_LIBPCRE2"] = "1"
+    ENV["LIBPCREDIR"] = Formula["pcre2"].opt_prefix
     ENV["V"] = "1" # build verbosely
 
     perl_version = Utils.popen_read("perl --version")[/v(\d+\.\d+)(?:\.\d+)?/, 1]
@@ -75,11 +75,6 @@ class Git < Formula
 
     unless quiet_system ENV["PERL_PATH"], "-e", "use ExtUtils::MakeMaker"
       ENV["NO_PERL_MAKEMAKER"] = "1"
-    end
-
-    if build.with? "pcre2"
-      ENV["USE_LIBPCRE2"] = "1"
-      ENV["LIBPCREDIR"] = Formula["pcre2"].opt_prefix
     end
 
     args = %W[
