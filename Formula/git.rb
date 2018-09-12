@@ -10,6 +10,7 @@ class Git < Formula
     sha256 "b10bcf50b981b0d5b0407fc0fc5d87054b0dbeab401f6eaedfa7d8f4b278a603" => :high_sierra
     sha256 "60f02d9b13bed6e99197d66e6cbb39af1f037ebbce3c1594959012ad93aa9e4b" => :sierra
     sha256 "bec8956a4e80bd8eeff0abc640b776afe637bfeb3b6d323f5a95d00074565df4" => :el_capitan
+    sha256 "f227f714da19ad57f0fd7f77d2d8a8a633a59e7cb05308e7077541b4d652b334" => :x86_64_linux
   end
 
   deprecated_option "with-pcre" => "with-pcre2"
