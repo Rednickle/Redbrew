@@ -4,16 +4,16 @@ class Heroku < Formula
   desc "Command-line client for the cloud PaaS"
   homepage "https://cli.heroku.com"
   # heroku should only be updated every 10 releases on multiples of 10
-  url "https://registry.npmjs.org/heroku/-/heroku-7.14.2.tgz"
-  sha256 "3356034a5f2cfa1e9fe7b9c439d62669524674628dd0ae895a8936ce77e5d224"
+  url "https://registry.npmjs.org/heroku/-/heroku-7.15.1.tgz"
+  sha256 "51d91148d716039ffa4cb1ba2c0e1530581fa23e708d2ac77c1f7e83d1ecf7d8"
   head "https://github.com/heroku/cli.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "20448386ca27a11b4ad7a1c7a43c895e3dd23e7ba0d1d99b0fa2fecc8b8262a9" => :mojave
-    sha256 "4879b0140e86fc83dd4bad26df554157dc91232f4f5de60f1bd15b5bfea91517" => :high_sierra
-    sha256 "3c693df3f580a079b35c2d55f6e5400cd87056eca173ed8e45e5992d7a6ea622" => :sierra
-    sha256 "22bb36c8dc835c9651d8ce7a3b8df61aab4efb5d3652b6d9d39c8c3a1e60ffb4" => :el_capitan
+    sha256 "5505495cee468c816d9c56d7c6a9c845bbdf6e3c0f1439159e8913b6415a15b0" => :mojave
+    sha256 "fc51e8bcebe8e299a48be3842c7b1555865c8766011e09694505f2e272ae7bc5" => :high_sierra
+    sha256 "02b8433da035c14bf0da37069bae2f3f0505446c0007d2ea28a0fd633d0f6827" => :sierra
+    sha256 "89dac5fcff802489988290a2fdcb9fd326c71dd766bb43774f74746e4b92f874" => :el_capitan
   end
 
   depends_on :macos
