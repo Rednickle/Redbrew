@@ -5,14 +5,7 @@ class Asciinema2gif < Formula
   sha256 "2ff5b7145e31db55ebe06c320d3b5d53c42101ec669621344aac0a4fb9f1a4be"
   head "https://github.com/tav/asciinema2gif.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "9802e9fdba9003a1521ee050e87000fb221e7044e96e63da6531a270b6788a22" => :high_sierra
-    sha256 "49f626f86c63d429f618ae4d010bd3d98080aa1840354b1f6c9dc398eeb5fec2" => :sierra
-    sha256 "49f626f86c63d429f618ae4d010bd3d98080aa1840354b1f6c9dc398eeb5fec2" => :el_capitan
-    sha256 "49f626f86c63d429f618ae4d010bd3d98080aa1840354b1f6c9dc398eeb5fec2" => :yosemite
-    sha256 "18c89099970e6e5a39e884797385b2819d6b95f557c572277cf2fe6f1a49e97b" => :x86_64_linux # glibc 2.19
-  end
+  bottle :unneeded
 
   depends_on "gifsicle"
   depends_on "imagemagick"
