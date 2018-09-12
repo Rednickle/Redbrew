@@ -11,6 +11,7 @@ class Protobuf < Formula
     sha256 "0f5f2cf5d166e083f7456e08f3dca248625b1c385e91fd1fd7c8bf9f46162092" => :high_sierra
     sha256 "a667c98b9cf7d81bd81436d50bc8ad4dea8e8e063ab1ed1be7f95625cddf4eb2" => :sierra
     sha256 "ef87974beb704c499ee6233211358e900372c89b09c3438d8933f18af70b1750" => :el_capitan
+    sha256 "7d604836abcbad0de367bcd3cc6eecca2ac2506e1bc65a641f2bcc7b694ecb71" => :x86_64_linux
   end
 
   option "without-python@2", "Build without python2 support"
