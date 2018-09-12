@@ -3,19 +3,18 @@ class Folly < Formula
   homepage "https://github.com/facebook/folly"
   url "https://github.com/facebook/folly/archive/v2018.09.10.00.tar.gz"
   sha256 "86e58bb2642475abb1fd8608ef0d591892670ac7618b290875a8f48c34625f01"
+  revision 1
   head "https://github.com/facebook/folly.git"
 
   bottle do
     cellar :any
-    sha256 "ce400476384a10deac7849f4817b517a57c9e443871ac889a3e541dc7bf21999" => :mojave
-    sha256 "2525b5570e1847d5f937d73bff881b3b64a5591693259034f72ef1b98dfe2aba" => :high_sierra
-    sha256 "79864be12f741cd54f131574ebd0eda7bf85887eb9b3b00354ece41967612334" => :sierra
-    sha256 "53a76921c9ee9a98638b972e5f6179a3acbe6233bc2276f14f3eb6062fdeea50" => :el_capitan
+    sha256 "327915f0eb96f02b9245372d6090e40524d5bb391a41a62dea1dc9a3ab9ecc08" => :mojave
+    sha256 "df8239b6bbf79792daa0ab78adecc3a2aa1849df2a6f27f7ea86c49ded4585a6" => :high_sierra
+    sha256 "a55d9faaed8bd79f7aaabda020a08b3c109519d6de0dd836339b37dae381f6b6" => :sierra
+    sha256 "76b87f54dad08694b3eaaf34787111d561adec38e79990b82b9fd8f3d1ae389d" => :el_capitan
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "double-conversion"
   depends_on "glog"
@@ -43,13 +42,23 @@ class Folly < Formula
 
     ENV.cxx11
 
-    cd "folly" do
-      system "autoreconf", "-fvi"
-      system "./configure", "--prefix=#{prefix}", "--disable-silent-rules",
-                            "--disable-dependency-tracking",
-                            "--with-boost-libdir=#{Formula["boost"].opt_lib}"
+    mkdir "_build" do
+      args = std_cmake_args + %w[
+        -DFOLLY_USE_JEMALLOC=OFF
+      ]
+
+      # Upstream issue 10 Jun 2018 "Build fails on macOS Sierra"
+      # See https://github.com/facebook/folly/issues/864
+      args << "-DCOMPILER_HAS_F_ALIGNED_NEW=OFF" if MacOS.version == :sierra
+
+      system "cmake", "..", *args, "-DBUILD_SHARED_LIBS=ON"
       system "make"
       system "make", "install"
+
+      system "make", "clean"
+      system "cmake", "..", *args, "-DBUILD_SHARED_LIBS=OFF"
+      system "make"
+      lib.install "libfolly.a", "folly/libfollybenchmark.a"
     end
   end
 
