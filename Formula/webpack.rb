@@ -4,16 +4,15 @@ require "json"
 class Webpack < Formula
   desc "Bundler for JavaScript and friends"
   homepage "https://webpack.js.org/"
-  url "https://registry.npmjs.org/webpack/-/webpack-4.17.2.tgz"
-  sha256 "272d6b3dde4498a4f4b3613ec117ea037594f51b30af6597873892ade332101c"
+  url "https://registry.npmjs.org/webpack/-/webpack-4.18.0.tgz"
+  sha256 "d65e4456cee5754574a63b17d33683ff88e1aec9bdd13b26d610db003b59371d"
   head "https://github.com/webpack/webpack.git"
 
   bottle do
-    sha256 "a1e00dd0c24052e2b271c8fcfc6ebbc244f5843ad6c9e273345752313b0bd9b1" => :mojave
-    sha256 "b4d8ca4ca0be782708f3b8133f11a29b37078daefbe5224c758f13091aa8e229" => :high_sierra
-    sha256 "b2fde6be5743b8d3554858b895a42dce7485d1d252bb3b1c47262cfe45b12e2e" => :sierra
-    sha256 "55c6a77ccd5eff0e127de94d99d0a823e14e4d05d6b8f7c2512def92f06c48dc" => :el_capitan
-    sha256 "63c155c6b14bec1c1fc9a52b674965769b3fc8b31243a00f5d6e668f61b02704" => :x86_64_linux
+    sha256 "70ab4eddfb9a768ce771f3e361ea023f1fc9bf8bad01a47f67542a0b43064752" => :mojave
+    sha256 "c4614cb6dfcb5bda8422ffe3cd6ef141d7dc674a072b6670db7b43cb2bbf4281" => :high_sierra
+    sha256 "db936008399d39e8d573036bd164f9c99b7541d037683d7fffa170c6890532d8" => :sierra
+    sha256 "74f5e712c007ab1253af6722dbc3eb7cd53a202a694e8c6bb7f2704e4d0c9f5d" => :el_capitan
   end
 
   depends_on "node"

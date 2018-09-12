@@ -1,16 +1,15 @@
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
-  url "https://www.kernel.org/pub/software/scm/git/git-2.18.0.tar.xz"
-  sha256 "8b40be383a603147ae29337136c00d1c634bdfdc169a30924a024596a7e30e92"
+  url "https://www.kernel.org/pub/software/scm/git/git-2.19.0.tar.xz"
+  sha256 "180feff58fc0d965d23ea010aa2c69ead92ec318eb9b09cf737529aec62f3ef4"
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
-    sha256 "e79618cad4a991104ca426ae84858880f37b1a5b528ad00975ba069b76b40834" => :mojave
-    sha256 "1fdceaff995cc18ddff3e56cdfc30bb363f69aecde01925985f3951ad21ae340" => :high_sierra
-    sha256 "05653ebe3f1d154be4b86ea73728a36d45c021cda81c9508534c433601ea3509" => :sierra
-    sha256 "cb0c4eac4a49fbd1936bae4070ecac3c3543aecfb2ba09869f6f6fd2aeb11015" => :el_capitan
-    sha256 "c9b6a86938fc9b8dbd1ddc86014c0e4c2684013de38442bccdf9db28ea9f0d1a" => :x86_64_linux
+    sha256 "1c90a0ac7d9f027bd24cc54043b996dd0d3d11462c83d8b8c1660299a53cf23d" => :mojave
+    sha256 "b10bcf50b981b0d5b0407fc0fc5d87054b0dbeab401f6eaedfa7d8f4b278a603" => :high_sierra
+    sha256 "60f02d9b13bed6e99197d66e6cbb39af1f037ebbce3c1594959012ad93aa9e4b" => :sierra
+    sha256 "bec8956a4e80bd8eeff0abc640b776afe637bfeb3b6d323f5a95d00074565df4" => :el_capitan
   end
 
   deprecated_option "with-pcre" => "with-pcre2"
@@ -42,13 +41,13 @@ class Git < Formula
   end
 
   resource "html" do
-    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.18.0.tar.xz"
-    sha256 "5b70d9b1f86aad464ae172040eb87da83058c00581388af6f60b050214912efc"
+    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.19.0.tar.xz"
+    sha256 "d5f850b9c6e87ad10ff24801c1c5ab9cd769e9e444881e9fdb8e6cc116fd8040"
   end
 
   resource "man" do
-    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.18.0.tar.xz"
-    sha256 "9ae3be95e63379597164c79c9018e84b7ef6964da923e5689dbc307693266096"
+    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.19.0.tar.xz"
+    sha256 "4e51041b9636a1fdd8887091d1cca8b0cc6af3f1761870edd091e074378e7dcb"
   end
 
   def install
