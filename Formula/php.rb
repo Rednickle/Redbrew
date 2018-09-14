@@ -1,21 +1,19 @@
 class Php < Formula
   desc "General-purpose scripting language"
   homepage "https://secure.php.net/"
-  url "https://php.net/get/php-7.2.9.tar.xz/from/this/mirror"
-  sha256 "3585c1222e00494efee4f5a65a8e03a1e6eca3dfb834814236ee7f02c5248ae0"
-  revision 2
+  url "https://php.net/get/php-7.2.10.tar.xz/from/this/mirror"
+  sha256 "01c2154a3a8e3c0818acbdbc1a956832c828a0380ce6d1d14fea495ea21804f0"
 
   bottle do
-    rebuild 1
-    sha256 "9d1c8d10ec13951655562a8ec11223e925f9ba897fd2f6643c3ca2f2493fc88e" => :mojave
-    sha256 "ec461617f7e66356a10da308443ed13e46dd5f52fd7f75e12c63be56d1e95882" => :high_sierra
-    sha256 "b71b2be0417418df3bcd48ae3f5f0bf6a6b7ea4debddbc2904d0869f7360e487" => :sierra
-    sha256 "1c53a63a15c0e6f0e2d250fb1e17b6bfcb4be4eb436c772babfef52977d5cdff" => :el_capitan
+    sha256 "f6267ba38a514ce87e979942a381e4a453df2a4c0ab543911e201c72eb5cb4c4" => :mojave
+    sha256 "3fc056f4c970bf2590fa26552d74dec8e67393cdf831704d66bb8ee1510cbc6b" => :high_sierra
+    sha256 "ccf3c9f1d496d7f1d60a22d6b2ac95f6a1263726bd07eb5a1be070d15f85e518" => :sierra
+    sha256 "97df44572785772091aaaedd038a10bc481ed7a04c341653f0ecb930b5eb8035" => :el_capitan
   end
 
   devel do
-    url "https://downloads.php.net/~cmb/php-7.3.0beta2.tar.xz"
-    sha256 "28f040680ff517b6c3da403fd1048054de0e867246c47da36342f6a488661c70"
+    url "https://downloads.php.net/~cmb/php-7.3.0RC1.tar.xz"
+    sha256 "f6af9e4e2376f1aadee8d1b4b7a60c5080bf53fe8816e141c78d4f72c93c5075"
 
     depends_on "openldap"
   end

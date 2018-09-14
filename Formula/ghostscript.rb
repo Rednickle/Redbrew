@@ -1,15 +1,14 @@
 class Ghostscript < Formula
   desc "Interpreter for PostScript and PDF"
   homepage "https://www.ghostscript.com/"
-  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs924/ghostpdl-9.24.tar.xz"
-  sha256 "022e1c27fdd874f5c2a2284ad2c26ff566fbc4d28076aa7e314cf90ea982a9f8"
+  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs925/ghostpdl-9.25.tar.xz"
+  sha256 "9a6f382badeb86cc5474f0f8f85cde57c0b898bf236be00494754988d0aa0133"
 
   bottle do
-    sha256 "009c835e8193e07866d6ada5890c02c13d446865bb404f95acb4055fb3c7aa06" => :mojave
-    sha256 "d06228914976019d0eca54e6ec2bdaef76a89a1f4a8d6b11d02dc215aa149d42" => :high_sierra
-    sha256 "f3aa14075ad480cf7f5768ce0e095acfc0087050cb7f5786ba5d23abc8a71dd3" => :sierra
-    sha256 "96ca74ec9bc802068edc6cdfbe2e41baeab1bb8f7f8cf54833bd00ade1888fb8" => :el_capitan
-    sha256 "8cda460e002cccbc0c782186c4c28d0133663d47b20fca4d86ae3569384e1042" => :x86_64_linux
+    sha256 "1656cd0d6c7d2a2c0efca4af5c0f70cc96d233708cc0908a3bdfa77d01737af2" => :mojave
+    sha256 "18cfe88d14ecd3c60c053d218af67f3b1220a97a4fd066ff49d750e175d950b5" => :high_sierra
+    sha256 "a1222a6abf93355e5040c89a41a46fbcfb4036d0bab8142f8876cc96bc234055" => :sierra
+    sha256 "ab95b5d129618a49ceee70bb508ab4f6b336ab142f28b7a735062a135a7838ff" => :el_capitan
   end
 
   head do

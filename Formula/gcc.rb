@@ -16,7 +16,7 @@ class Gcc < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
   revision 4 unless OS.mac?
-  head "svn://gcc.gnu.org/svn/gcc/trunk" if OS.mac?
+  head "https://gcc.gnu.org/git/gcc.git" if OS.mac?
 
   unless OS.mac?
     url "https://ftp.gnu.org/gnu/gcc/gcc-5.5.0/gcc-5.5.0.tar.xz"
