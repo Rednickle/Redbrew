@@ -21,7 +21,7 @@ class Tig < Formula
     depends_on "xmlto" => :build
   end
 
-  depends_on "readline" => :recommended
+  depends_on "readline"
 
   def install
     system "./autogen.sh" if build.head?
