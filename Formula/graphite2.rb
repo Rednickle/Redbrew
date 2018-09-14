@@ -15,6 +15,7 @@ class Graphite2 < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "freetype" => :build unless OS.mac?
 
   needs :cxx11
 
