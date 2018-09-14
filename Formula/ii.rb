@@ -7,31 +7,17 @@ class Ii < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cb33673d9ff4f1ae5df30e60ece783e6c7e2024f2722fe96dd60ab9504b124e5" => :high_sierra
-    sha256 "1315c3181d0c2320d05927e84f84a8b1a0de21d9f53e448993e95fb00a1489a0" => :sierra
-    sha256 "7f1cb092b6940dc4d9b1e1e47b78165c6f37c0dc322dc0bfd5053afcb42e3fb6" => :el_capitan
-  end
-
-  # Update Makefile, upstream commit:
-  # https://git.suckless.org/ii/commit/e32415744c0e7f2d75d4669addefc1b50f977cd6.html
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/4a447b87/ii/e32415.diff"
-    sha256 "4fe81cad8507c2cc06141171039f3c1337c2ff68f4923ff7aad9e13b79c5ca82"
-  end
-
-  # Provide an option to use the system strlcpy, upstream commit:
-  # https://git.suckless.org/ii/commit/51cb204eb2a7ee840a86cc66b762ddfff56f01b2.html
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/4a447b87/ii/51cb20.diff"
-    sha256 "1ca71e4fe1197dadef95b9b63b594b71c5161ab0e28fe255a456f412bb8ca428"
+    rebuild 1
+    sha256 "c8e535b535af9adf8c3c3e760849f581d3e93ec227ae9f0ae2f30490b44e9c4d" => :mojave
+    sha256 "dcc9e7c86395491f5a62dd87dfcfb0f1b8b89a8f5ceb4e767ac70cf60ef350cd" => :high_sierra
+    sha256 "a83511296e08d8ec1d126bb09574b02856f382f3f504b6f2b256cab6bd645ed1" => :sierra
+    sha256 "eeba4fb4ec437895a9946bbbb00186ff05277ce9d57e8bbe29e1db5596d8a70f" => :el_capitan
   end
 
   def install
-    inreplace "config.mk" do |s|
-      s.gsub! "/usr/local", prefix
-      s.gsub! "strlcpy.o", ""
-      s.gsub! "-DNEED_STRLCPY", ""
-    end
-    system "make", "install"
+    # Fixed upstream, drop for next version
+    inreplace "Makefile", "SRC = ii.c strlcpy.c", "SRC = ii.c"
+
+    system "make", "install", "PREFIX=#{prefix}"
   end
 end
