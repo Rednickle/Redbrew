@@ -16,17 +16,13 @@ class Cln < Formula
     sha256 "26c953a9f756d021e266d1c84ff2b15feeeb9874d8d56100713776d7260fb5f2" => :x86_64_linux # glibc 2.19
   end
 
-  option "without-test", "Skip compile-time checks (Not recommended)"
-
-  deprecated_option "without-check" => "without-test"
-
   depends_on "gmp"
 
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--disable-dependency-tracking"
     system "make"
-    system "make", "check" if build.with? "test"
+    system "make", "check"
     system "make", "install"
   end
 

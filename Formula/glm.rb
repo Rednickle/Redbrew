@@ -3,6 +3,7 @@ class Glm < Formula
   homepage "https://glm.g-truc.net/"
   url "https://github.com/g-truc/glm/releases/download/0.9.9.1/glm-0.9.9.1.zip"
   sha256 "10f1471d69ec09992f400705bedc9f5121e17a2c8fd6f9591244bb5ee1104a10"
+  revision 1
   head "https://github.com/g-truc/glm.git"
 
   bottle do
@@ -14,9 +15,8 @@ class Glm < Formula
     sha256 "4febb52dbaf4ee5a7acc375529e255909d6c3f604007808c17fe9e9c7381c723" => :x86_64_linux
   end
 
-  option "with-doxygen", "Build documentation"
-  depends_on "doxygen" => [:build, :optional]
   depends_on "cmake" => :build
+  depends_on "doxygen" => :build
 
   def install
     mkdir "build" do
@@ -24,11 +24,9 @@ class Glm < Formula
       system "make", "install"
     end
 
-    if build.with? "doxygen"
-      cd "doc" do
-        system "doxygen", "man.doxy"
-        man.install "html"
-      end
+    cd "doc" do
+      system "doxygen", "man.doxy"
+      man.install "html"
     end
     doc.install Dir["doc/*"]
   end

@@ -17,14 +17,12 @@ class Alot < Formula
     sha256 "561412f1ecd213e3ca1073a79e67985d8d5ae5dc1b3be5dc2b383e0621a02657" => :x86_64_linux
   end
 
-  option "without-sphinx-doc", "Don't build documentation"
-
+  depends_on "sphinx-doc" => :build
   depends_on "swig" => :build
   depends_on "gpgme"
   depends_on "libmagic"
   depends_on "notmuch"
   depends_on "python@2"
-  depends_on "sphinx-doc" => [:build, :recommended]
 
   resource "Automat" do
     url "https://files.pythonhosted.org/packages/de/05/b8e453085cf8a7f27bb1226596f4ccf5cc9e758377d60284f990bbdc592c/Automat-0.6.0.tar.gz"
@@ -96,15 +94,13 @@ class Alot < Formula
     pkgshare.install Dir["extra/*"] - %w[extra/completion]
     zsh_completion.install "extra/completion/alot-completion.zsh" => "_alot"
 
-    if build.with? "sphinx-doc"
-      ENV["LC_ALL"] = "en_US.UTF-8"
-      ENV["SPHINXBUILD"] = Formula["sphinx-doc"].opt_bin/"sphinx-build"
-      cd "docs" do
-        system "make", "pickle"
-        system "make", "man", "html"
-        man1.install "build/man/alot.1"
-        doc.install Dir["build/html/*"]
-      end
+    ENV["LC_ALL"] = "en_US.UTF-8"
+    ENV["SPHINXBUILD"] = Formula["sphinx-doc"].opt_bin/"sphinx-build"
+    cd "docs" do
+      system "make", "pickle"
+      system "make", "man", "html"
+      man1.install "build/man/alot.1"
+      doc.install Dir["build/html/*"]
     end
   end
 

@@ -17,19 +17,17 @@ class Arabica < Formula
     sha256 "04f7acb8f3458aed3aafeebf09f2f5465d5dfb9a05e15c49591bd0904907b793" => :x86_64_linux # glibc 2.19
   end
 
-  option "without-test", "Skip compile-time make checks (Not Recommended)"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "boost" => :recommended
+  depends_on "boost"
   depends_on "expat" unless OS.mac?
 
   def install
     system "autoreconf", "-fvi"
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make"
-    system "make", "check" if build.with? "test"
+    system "make", "check"
     system "make", "install"
   end
 

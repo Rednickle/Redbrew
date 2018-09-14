@@ -15,17 +15,13 @@ class Jp2a < Formula
     sha256 "553b3479ae0dee9a8546a10db8f8f6ce04efec18731bf7b7bfb13c5bd5d1ab48" => :x86_64_linux
   end
 
-  option "without-test", "Skip compile-time tests"
-
-  deprecated_option "without-check" => "without-test"
-
   depends_on "jpeg"
 
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
-    system "make", "test" if build.with? "test"
+    system "make", "test"
     system "make", "install"
   end
 

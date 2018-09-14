@@ -14,11 +14,8 @@ class Blahtexml < Formula
     sha256 "5d88f5d4496b22549a57283b33cf3eb95f0a0ec8db5105e6180d48ab59422f01" => :x86_64_linux
   end
 
-  deprecated_option "blahtex-only" => "without-blahtexml"
-  option "without-blahtexml", "Build only blahtex, not blahtexml"
-
-  depends_on "xerces-c" if build.with? "blahtexml"
-  needs :cxx11 if build.with? "blahtexml"
+  depends_on "xerces-c"
+  needs :cxx11
 
   # Add missing unistd.h includes, taken from MacPorts
   patch :p0 do
@@ -32,13 +29,12 @@ class Blahtexml < Formula
   end
 
   def install
-    ENV.cxx11 if build.with? "blahtexml"
+    ENV.cxx11
+
     os = OS.mac? ? "mac" : "linux"
     system "make", "blahtex-#{os}"
     bin.install "blahtex"
-    if build.with? "blahtexml"
-      system "make", "blahtexml-#{os}"
-      bin.install "blahtexml"
-    end
+    system "make", "blahtexml-#{os}"
+    bin.install "blahtexml"
   end
 end
