@@ -13,7 +13,6 @@ class Algol68g < Formula
     sha256 "a28634c00d51c3050ca7a4aa13f4f36377a7651e7b45e886c86d23cbfdf49440" => :x86_64_linux # glibc 2.19
   end
 
-  depends_on "gsl" => :optional
   depends_on "postgresql" unless OS.mac?
 
   def install
