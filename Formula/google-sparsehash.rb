@@ -16,14 +16,10 @@ class GoogleSparsehash < Formula
     sha256 "7b59ab353073ab88845a20e4f326bc92a560fdc3c0b26c9de058c30ed33712a0" => :x86_64_linux
   end
 
-  option "without-test", "Skip build-time tests (not recommended)"
-
-  deprecated_option "without-check" => "without-test"
-
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
-    system "make", "check" if build.with? "test"
+    system "make", "check"
     system "make", "install"
   end
 end

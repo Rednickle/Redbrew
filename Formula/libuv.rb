@@ -14,14 +14,10 @@ class Libuv < Formula
     sha256 "d54d855729c49fd584f8699177933402e4297210900cf59da41093021591079c" => :x86_64_linux
   end
 
-  option "with-test", "Execute compile time checks (Requires Internet connection)"
-
-  deprecated_option "with-check" => "with-test"
-
-  depends_on "pkg-config" => :build
-  depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build
 
   def install
@@ -38,7 +34,6 @@ class Libuv < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make"
-    system "make", "check" if build.with? "test"
     system "make", "install"
   end
 

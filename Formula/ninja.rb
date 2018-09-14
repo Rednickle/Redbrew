@@ -15,20 +15,15 @@ class Ninja < Formula
     sha256 "8034d3a23cf8123dfdfdf37a32947dd43c699b1d0a94010630613b4adf1b7fff" => :x86_64_linux
   end
 
-  option "without-test", "Don't run build-time tests"
-
-  deprecated_option "without-tests" => "without-test"
-
   depends_on "python" unless OS.mac?
 
   def install
     system "python", "configure.py", "--bootstrap"
 
-    if build.with? "test"
-      system "./configure.py"
-      system "./ninja", "ninja_test"
-      system "./ninja_test", "--gtest_filter=-SubprocessTest.SetWithLots"
-    end
+    # Quickly test the build
+    system "./configure.py"
+    system "./ninja", "ninja_test"
+    system "./ninja_test", "--gtest_filter=-SubprocessTest.SetWithLots"
 
     bin.install "ninja"
     bash_completion.install "misc/bash-completion" => "ninja-completion.sh"
