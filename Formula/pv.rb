@@ -14,20 +14,9 @@ class Pv < Formula
     sha256 "7bb996047b05101f4895e5178f1a5fe01318f06747bcbdbb6cb0d45d6fe2e9b7" => :x86_64_linux # glibc 2.19
   end
 
-  option "with-gettext", "Build with Native Language Support"
-
-  depends_on "gettext" => :optional
-
   def install
-    args = %W[
-      --disable-debug
-      --prefix=#{prefix}
-      --mandir=#{man}
-    ]
-
-    args << "--disable-nls" if build.without? "gettext"
-
-    system "./configure", *args
+    system "./configure", "--disable-debug", "--prefix=#{prefix}",
+                          "--mandir=#{man}", "--disable-nls"
     system "make", "install"
   end
 

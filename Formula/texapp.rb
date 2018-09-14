@@ -13,26 +13,8 @@ class Texapp < Formula
     sha256 "84560f05d9dff6dfec4878d4393c248e210ec29f3081edf35078bcb7018bfca7" => :x86_64_linux
   end
 
-  depends_on "readline" => :optional
-
-  resource "Term::ReadLine::TTYtter" do
-    url "https://cpan.metacpan.org/authors/id/C/CK/CKAISER/Term-ReadLine-TTYtter-1.4.tar.gz"
-    sha256 "ac373133cee1b2122a8273fe7b4244613d0eecefe88b668bd98fe71d1ec4ac93"
-  end
-
   def install
     bin.install "#{version}.txt" => "texapp"
-
-    if build.with? "readline"
-      ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
-      resource("Term::ReadLine::TTYtter").stage do
-        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
-        system "make"
-        system "make", "install"
-      end
-      bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
-      chmod 0755, libexec/"bin/texapp"
-    end
   end
 
   test do
