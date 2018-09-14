@@ -11,6 +11,7 @@ class Glm < Formula
     sha256 "5c4d2d3dc01a98ad994550aa0e81f2cff45ea32c22fec5104ef19572a6eb241d" => :high_sierra
     sha256 "2bd62827e1691e5285195c183cc43fbdd2a39319c5d32d982b628fc7274d804f" => :sierra
     sha256 "10e0b39c04844526959e11f61b46ad3d99014ab2d4a176e7ebe64573f69842b6" => :el_capitan
+    sha256 "16248c3898b9bc57b131fe67596fd4b32f57e28d40f26f19db999bcd86be84e0" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
