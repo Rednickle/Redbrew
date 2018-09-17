@@ -15,10 +15,10 @@ class Ccache < Formula
   head do
     url "https://github.com/ccache/ccache.git"
 
+    depends_on "asciidoc" => :build
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
-    depends_on "asciidoc" => :build
   end
 
   depends_on "zlib" unless OS.mac?

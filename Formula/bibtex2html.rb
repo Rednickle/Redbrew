@@ -13,8 +13,8 @@ class Bibtex2html < Formula
     sha256 "7e6ccc485cef501d26a02d4920708137bbeff2df17a281e2f6165eb63f93f26a" => :x86_64_linux
   end
 
-  depends_on "ocaml"
   depends_on "hevea"
+  depends_on "ocaml"
 
   def install
     ENV["OCAMLPARAM"] = "safe-string=0,_" # OCaml 4.06.0 compat

@@ -18,8 +18,8 @@ class Cgrep < Formula
     sha256 "224c48ddf0d34d3520e85fd8e820e858c1d3e988ffc97c45adc5206e5e719533" => :x86_64_linux
   end
 
-  depends_on "ghc" => :build
   depends_on "cabal-install" => :build
+  depends_on "ghc" => :build
   depends_on "pcre"
 
   def install
