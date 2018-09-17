@@ -16,11 +16,11 @@ class CharmTools < Formula
     sha256 "dcad161a9b20a915fac66420f28d265376704fc7926d9cb9fb4419084dce9ddb" => :x86_64_linux
   end
 
-  depends_on "python@2"
+  depends_on "charm"
   depends_on "libyaml"
   depends_on "mercurial"
-  depends_on "charm"
   depends_on "openssl"
+  depends_on "python@2"
   unless OS.mac?
     # pkg-config helps setuptools find libffi
     depends_on "pkg-config" => :build

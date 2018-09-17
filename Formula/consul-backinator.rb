@@ -14,8 +14,8 @@ class ConsulBackinator < Formula
     sha256 "9dba886712a0b508e360ec764ef7004a1251bae60a1024c7637ef11c62027904" => :x86_64_linux
   end
 
-  depends_on "go" => :build
   depends_on "glide" => :build
+  depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath

@@ -17,8 +17,8 @@ class Colortail < Formula
     sha256 "d3cd61e660155bded960b5fb5334e8dcc587efb36575a832c85b7a9a2e28bd0b" => :x86_64_linux # glibc 2.19
   end
 
-  depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
 
   # Upstream PR to fix the build on ML
   patch do

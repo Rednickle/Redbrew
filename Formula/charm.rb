@@ -15,8 +15,8 @@ class Charm < Formula
     sha256 "a099f2a3c0754c9c13481682b3f70ee4a6542545694618db749b555ceb3311e3" => :x86_64_linux
   end
 
-  depends_on "go" => :build
   depends_on "bazaar" => :build
+  depends_on "go" => :build
 
   go_resource "github.com/kisielk/gotool" do
     url "https://github.com/kisielk/gotool.git",

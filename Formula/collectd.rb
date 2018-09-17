@@ -16,8 +16,8 @@ class Collectd < Formula
   head do
     url "https://github.com/collectd/collectd.git"
 
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
   end
 
   option "with-java", "Enable Java support"
@@ -32,10 +32,10 @@ class Collectd < Formula
   depends_on "pkg-config" => :build
   depends_on "libgcrypt"
   depends_on "libtool"
-  depends_on "riemann-client" => :optional
+  depends_on "net-snmp"
   depends_on :java => :optional
   depends_on "python@2" => :optional
-  depends_on "net-snmp"
+  depends_on "riemann-client" => :optional
   depends_on "perl" unless OS.mac?
 
   fails_with :clang do
