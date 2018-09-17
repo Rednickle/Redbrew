@@ -14,8 +14,8 @@ class Dcraw < Formula
     sha256 "3c8ab286691825d083271820ab48336b8456d5effa2fa3b4efe7f82ee17a16f8" => :x86_64_linux
   end
 
-  depends_on "jpeg"
   depends_on "jasper"
+  depends_on "jpeg"
   depends_on "little-cms2"
 
   def install

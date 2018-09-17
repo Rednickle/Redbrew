@@ -14,13 +14,13 @@ class DiffPdf < Formula
     sha256 "dc0a1bb137c768bd0baacb98ec02be02c2e59dce3e0b4ffc52a481ea644432cc" => :x86_64_linux
   end
 
-  depends_on "pkg-config" => :build
-  depends_on "automake" => :build
   depends_on "autoconf" => :build
-  depends_on :x11 if OS.mac?
-  depends_on "wxmac"
+  depends_on "automake" => :build
+  depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "poppler"
+  depends_on "wxmac"
+  depends_on :x11 if OS.mac?
   depends_on "linuxbrew/xorg/xorg" unless OS.mac?
 
   def install

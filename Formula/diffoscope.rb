@@ -13,9 +13,9 @@ class Diffoscope < Formula
     sha256 "78960b9d491bf441b20499721033fbf9b33d7cee75d38f1ecd4fce96091550e2" => :x86_64_linux
   end
 
-  depends_on "libmagic"
-  depends_on "libarchive"
   depends_on "gnu-tar"
+  depends_on "libarchive"
+  depends_on "libmagic"
   depends_on "python"
 
   resource "libarchive-c" do

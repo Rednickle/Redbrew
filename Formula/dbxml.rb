@@ -12,9 +12,9 @@ class Dbxml < Formula
     sha256 "612cb40d40a4b4504ac8831c8ff3cc95085d61688199f9caabaac6231605a24c" => :x86_64_linux
   end
 
+  depends_on "berkeley-db"
   depends_on "xerces-c"
   depends_on "xqilla"
-  depends_on "berkeley-db"
 
   needs :cxx11
 
