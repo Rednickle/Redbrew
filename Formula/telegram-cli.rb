@@ -15,16 +15,12 @@ class TelegramCli < Formula
     sha256 "14e69a815eacb0d728166b5ff2483fbc928cca13b5912e9d7a2ee7edd70bd81f" => :x86_64_linux
   end
 
-  deprecated_option "with-python" => "with-python@2"
-
   depends_on "pkg-config" => :build
-  depends_on "readline"
+  depends_on "jansson"
+  depends_on "libconfig"
   depends_on "libevent"
   depends_on "openssl"
-  depends_on "libconfig"
-  depends_on "jansson"
-  depends_on "lua" => :optional
-  depends_on "python@2" => :optional
+  depends_on "readline"
 
   # Look for the configuration file under /usr/local/etc rather than /etc on OS X.
   # Pull Request: https://github.com/vysheng/tg/pull/1306
@@ -39,10 +35,9 @@ class TelegramCli < Formula
       CFLAGS=-I#{Formula["readline"].include}
       CPPFLAGS=-I#{Formula["readline"].include}
       LDFLAGS=-L#{Formula["readline"].lib}
+      --disable-liblua
+      --disable-python
     ]
-
-    args << "--disable-liblua" if build.without? "lua"
-    args << "--disable-python" if build.without? "python@2"
 
     system "./configure", *args
     system "make"

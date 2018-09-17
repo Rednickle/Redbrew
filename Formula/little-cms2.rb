@@ -16,13 +16,11 @@ class LittleCms2 < Formula
     sha256 "d22224ff78fc838210b032de4385b83b5b94b6d47aad6e479bc70a5643e0f0f7" => :x86_64_linux
   end
 
-  depends_on "jpeg" => :recommended
-  depends_on "libtiff" => :recommended
+  depends_on "jpeg"
+  depends_on "libtiff"
 
   def install
     args = %W[--disable-dependency-tracking --prefix=#{prefix}]
-    args << "--without-tiff" if build.without? "libtiff"
-    args << "--without-jpeg" if build.without? "jpeg"
 
     system "./configure", *args
     system "make", "install"

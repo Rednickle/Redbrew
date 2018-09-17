@@ -12,8 +12,6 @@ class GdkPixbuf < Formula
     sha256 "715b6ccb006caa7e15634aee7013336e8f8bbc07a255945a68a68d221cbfc00a" => :x86_64_linux
   end
 
-  option "with-included-loaders=", "Build the specified loaders into gdk-pixbuf"
-
   depends_on "gobject-introspection" => :build
   depends_on "meson-internal" => :build
   depends_on "ninja" => :build
@@ -62,9 +60,6 @@ class GdkPixbuf < Formula
     args << "--libdir=#{lib}" unless OS.mac?
 
     args << "-Djasper=true" if build.with?("jasper")
-
-    included_loaders = ARGV.value("with-included-loaders")
-    args << "-Dbuiltin_loaders=#{included_loaders}" if included_loaders
 
     ENV["DESTDIR"] = "/"
     mkdir "build" do
