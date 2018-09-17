@@ -14,11 +14,10 @@ class Dlib < Formula
     sha256 "7a1d1b9bae26b9cfe7645d939f87535446d4823eff4a8ed6b100f45008e8d477" => :x86_64_linux
   end
 
-  depends_on :macos => :el_capitan # needs thread-local storage
-
   depends_on "cmake" => :build
   depends_on "jpeg"
   depends_on "libpng"
+  depends_on :macos => :el_capitan # needs thread-local storage
   depends_on "openblas" => :optional
   depends_on :x11 => :optional if OS.mac?
   depends_on "linuxbrew/xorg/xorg" => :optional unless OS.mac?

@@ -19,8 +19,8 @@ class Dub < Formula
     sha256 "38c8cc2a0d11457efc21b7b3b8ea010b5f1de6c98cd85e192b51ca24f20ffa96" => :x86_64_linux
   end
 
-  depends_on "pkg-config" => :recommended
   depends_on "dmd" => :build
+  depends_on "pkg-config" => :recommended
   depends_on "curl" unless OS.mac?
 
   def install

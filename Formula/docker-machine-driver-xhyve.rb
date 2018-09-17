@@ -17,15 +17,15 @@ class DockerMachineDriverXhyve < Formula
 
   option "without-qcow2", "Do not support qcow2 disk image format"
 
-  depends_on :macos
-  depends_on :macos => :yosemite if OS.mac?
   depends_on "go" => :build
+  depends_on :macos => :yosemite
   depends_on "docker-machine" => :recommended
   if build.with? "qcow2"
     depends_on "ocaml" => :build
     depends_on "opam" => :build
     depends_on "libev"
   end
+  depends_on :macos
 
   def install
     (buildpath/"gopath/src/github.com/zchee/docker-machine-driver-xhyve").install Dir["{*,.git,.gitignore,.gitmodules}"]

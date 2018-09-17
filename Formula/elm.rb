@@ -17,8 +17,8 @@ class Elm < Formula
     sha256 "6cc9cf1ca8e529101ecc6ed9aefcb2426f82cfa6d01aa3bc4cd4415c5387922f" => :x86_64_linux
   end
 
-  depends_on "ghc@8.2" => :build
   depends_on "cabal-install" => :build
+  depends_on "ghc@8.2" => :build
   unless OS.mac?
     depends_on "ncurses"
     depends_on "zlib"

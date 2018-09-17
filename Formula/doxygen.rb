@@ -26,10 +26,12 @@ class Doxygen < Formula
 
   depends_on "cmake" => :build
   depends_on "graphviz" => :optional
-  depends_on "qt" => :optional
   depends_on "llvm" => :optional
-  depends_on "bison" unless OS.mac?
-  depends_on "flex" unless OS.mac?
+  depends_on "qt" => :optional
+  unless OS.mac?
+    depends_on "bison"
+    depends_on "flex"
+  end
 
   def install
     args = std_cmake_args << "-DCMAKE_OSX_DEPLOYMENT_TARGET:STRING=#{MacOS.version}"

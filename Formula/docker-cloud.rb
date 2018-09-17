@@ -14,8 +14,8 @@ class DockerCloud < Formula
     sha256 "c92c6e376e3131099042845da4b849c90d6def56c9eda2533f8a111abe67cba6" => :x86_64_linux
   end
 
-  depends_on "python@2"
   depends_on "libyaml"
+  depends_on "python@2"
 
   resource "ago" do
     url "https://files.pythonhosted.org/packages/83/1a/17e89f0be2cf69e17fbc96012bd6a2bf6d88a8fd3ac79854cc7007971943/ago-0.0.9.tar.gz"
