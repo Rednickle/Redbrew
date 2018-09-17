@@ -33,9 +33,9 @@ class Freetds < Formula
   deprecated_option "enable-krb" => "with-krb5"
 
   depends_on "pkg-config" => :build
-  depends_on "unixodbc" => :optional
-  depends_on "libiodbc" => :optional
   depends_on "openssl" => :recommended
+  depends_on "libiodbc" => :optional
+  depends_on "unixodbc" => :optional
   depends_on "readline" unless OS.mac?
 
   def install

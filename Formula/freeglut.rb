@@ -15,8 +15,8 @@ class Freeglut < Formula
     sha256 "cec00d93fb08f9b3883f8fba3d0c2e5b46c84e29108c151f41083d2664c1f783" => :x86_64_linux
   end
 
-  depends_on :x11 if OS.mac?
   depends_on "cmake" => :build
+  depends_on :x11 if OS.mac?
   unless OS.mac?
     depends_on "linuxbrew/xorg/glu"
     depends_on "linuxbrew/xorg/xorg"

@@ -14,10 +14,10 @@ class Fourstore < Formula
     sha256 "6657d873485e29d62bab41c8bf953473c0f959e57ed40e07af6f2425be088351" => :x86_64_linux
   end
 
-  depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
   depends_on "pcre"

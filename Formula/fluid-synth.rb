@@ -12,8 +12,8 @@ class FluidSynth < Formula
     sha256 "a9a94ae559d6814f46c2a344304406cc50f6a9e63eba24c395a80436b4cf5eca" => :x86_64_linux
   end
 
-  depends_on "pkg-config" => :build
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "libsndfile" => :optional
   depends_on "portaudio" => :optional

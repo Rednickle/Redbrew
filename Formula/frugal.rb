@@ -13,8 +13,8 @@ class Frugal < Formula
     sha256 "a587e1fc3c7bce3c6f4b55f10e7350fa85d0cf9b46f21b9a9654dd29031678c3" => :x86_64_linux
   end
 
-  depends_on "go" => :build
   depends_on "glide" => :build
+  depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath

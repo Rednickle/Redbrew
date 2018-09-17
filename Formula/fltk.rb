@@ -14,8 +14,8 @@ class Fltk < Formula
     sha256 "bd2e506d8f52e2fa7caa526bf0d013b6e1433b1e074bd1ced92facdaf3b1230c" => :x86_64_linux
   end
 
-  depends_on "libpng"
   depends_on "jpeg"
+  depends_on "libpng"
   unless OS.mac?
     depends_on "linuxbrew/xorg/mesa"
     depends_on "linuxbrew/xorg/xorg"
