@@ -1,17 +1,16 @@
 class DoubleConversion < Formula
   desc "Binary-decimal and decimal-binary routines for IEEE doubles"
   homepage "https://github.com/google/double-conversion"
-  url "https://github.com/google/double-conversion/archive/3.1.0.tar.gz"
-  sha256 "aef5f528dab826b269b54766a4c2d179e361866c75717af529f91c56b4034665"
+  url "https://github.com/google/double-conversion/archive/v3.1.1.tar.gz"
+  sha256 "c49a6b3fa9c917f827b156c8e0799ece88ae50440487a99fc2f284cfd357a5b9"
   head "https://github.com/google/double-conversion.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ea685a125c6a84ec8eba498628a91b18ee8417b4e0b2f51d21cdd125519287f4" => :mojave
-    sha256 "ea9f34958fb3d97b9ed50446bbf784de9f86430e26b68229f46c86ea02cf2d67" => :high_sierra
-    sha256 "70fe99bf8106928a4f7d1b8c94b7624d7dd18b29b37c13edbb711c19d2223ebf" => :sierra
-    sha256 "b9d0e8483f1622b55cda3f1107c4264134758f0fb47e328edab279721b5b8c16" => :el_capitan
-    sha256 "a879aab33ace0c4180b2e18eaf4f4e64d1e781c0670644f9b1841c8387391e7f" => :x86_64_linux
+    sha256 "f749b917ef7b94719212489781681cfe46ff65729c272d136282d62c8925759d" => :mojave
+    sha256 "96f51c2d05fe260eefd15c9718a2a9ee332aad9d669f1311dec8f0036a1a08e1" => :high_sierra
+    sha256 "279e9cd2113226f9ba4f6649fb16ceacf8ce664858cfb3eb0ea08146be9546f6" => :sierra
+    sha256 "dcdac9ac3b9a2621bdbb190baadc85d332bd0bfb75663f80b0e3787e94f630c1" => :el_capitan
   end
 
   depends_on "cmake" => :build
