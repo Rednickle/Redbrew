@@ -13,13 +13,10 @@ class Avfs < Formula
 
   depends_on "pkg-config" => :build
   depends_on :macos => :sierra # needs clock_gettime
+  depends_on :osxfuse if OS.mac?
   depends_on "xz" => :recommended # Upstream recommends building with lzma support.
   depends_on "openssl" => :optional
-  if OS.mac?
-    depends_on :osxfuse
-  else
-    depends_on "libfuse"
-  end
+  depends_on "libfuse" unless OS.mac?
 
   # Fix scripts to work on Mac OS X.
   # Nothing the patch fixes has been changed in 1.0.2, so still necessary.

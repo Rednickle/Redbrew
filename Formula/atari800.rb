@@ -13,8 +13,8 @@ class Atari800 < Formula
     sha256 "332faf6b5ec3a0a120f71d47e1a331562ae3ffee0c441557a64a65fe27db6a6c" => :x86_64_linux
   end
 
-  depends_on "sdl"
   depends_on "libpng"
+  depends_on "sdl"
 
   def install
     cd "src" do

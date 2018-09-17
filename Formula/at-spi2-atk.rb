@@ -13,9 +13,9 @@ class AtSpi2Atk < Formula
     sha256 "324d51328b5a35fd57f8926de55d7329d2694c7a6f404f0d429b22955d081a4a" => :x86_64_linux
   end
 
-  depends_on "pkg-config" => :build
   depends_on "meson-internal" => :build
   depends_on "ninja" => :build
+  depends_on "pkg-config" => :build
   depends_on "python" => :build
   depends_on "at-spi2-core"
   depends_on "atk"

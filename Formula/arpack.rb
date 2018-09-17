@@ -20,8 +20,8 @@ class Arpack < Formula
   depends_on "libtool" => :build
 
   depends_on "gcc" # for gfortran
-  depends_on "veclibfort" if build.without?("openblas") && OS.mac?
   depends_on "open-mpi" if build.with? "mpi"
+  depends_on "veclibfort" if OS.mac?
   depends_on "openblas" unless OS.mac?
 
   def install

@@ -13,10 +13,10 @@ class AppscaleTools < Formula
     sha256 "fb7096134ec7fd4172c3906190f123f21d8cf9c336729c07271f792e926997d3" => :el_capitan
   end
 
-  depends_on "python@2"
   depends_on "libyaml"
-  depends_on "ssh-copy-id"
   depends_on "openssl"
+  depends_on "python@2"
+  depends_on "ssh-copy-id"
   depends_on "libffi" unless OS.mac?
 
   resource "retrying" do

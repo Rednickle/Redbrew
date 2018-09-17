@@ -21,8 +21,8 @@ class AwsApigatewayImporter < Formula
     sha256 "c1b5793a470c5027f4be302cb0d3143a41cf0de2edce8ce8bb7b399be125072a" => :x86_64_linux # glibc 2.19
   end
 
-  depends_on :java => "1.8"
   depends_on "maven" => :build
+  depends_on :java => "1.8"
 
   def install
     system "mvn", "assembly:assembly"

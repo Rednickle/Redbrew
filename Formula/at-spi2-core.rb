@@ -13,14 +13,14 @@ class AtSpi2Core < Formula
   end
 
   depends_on "gobject-introspection" => :build
+  depends_on "intltool" => :build
   depends_on "meson-internal" => :build
   depends_on "ninja" => :build
-  depends_on "python" => :build
   depends_on "pkg-config" => :build
-  depends_on "intltool" => :build
+  depends_on "python" => :build
+  depends_on "dbus"
   depends_on "gettext"
   depends_on "glib"
-  depends_on "dbus"
   unless OS.mac?
     depends_on "linuxbrew/xorg/bigreqsproto"
     depends_on "linuxbrew/xorg/fixesproto"
