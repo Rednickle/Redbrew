@@ -27,6 +27,7 @@ class Asciidoc < Formula
   end
 
   def install
+    ENV.prepend_path "PATH", "/System/Library/Frameworks/Python.framework/Versions/2.7/bin"
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
     system "autoconf"

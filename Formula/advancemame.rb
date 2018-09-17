@@ -13,8 +13,8 @@ class Advancemame < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "sdl"
   depends_on "freetype"
+  depends_on "sdl"
   unless OS.mac?
     depends_on "expat"
     depends_on "ncurses"
