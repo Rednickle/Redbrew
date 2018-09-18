@@ -13,8 +13,8 @@ class Htmldoc < Formula
     sha256 "3158ba2818c50553696628511208357d799502929ba9630e2b7d080da315ecc0" => :x86_64_linux
   end
 
-  depends_on "libpng"
   depends_on "jpeg"
+  depends_on "libpng"
 
   def install
     system "./configure", "--disable-debug",

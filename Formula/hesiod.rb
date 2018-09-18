@@ -13,8 +13,8 @@ class Hesiod < Formula
     sha256 "bbbc9f8fbee531f7bf168aa8d08682870ac52999753fa1052cf4e066c4f9b393" => :x86_64_linux
   end
 
-  depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "libidn"
 
