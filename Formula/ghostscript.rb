@@ -24,8 +24,8 @@ class Ghostscript < Formula
   patch :DATA if OS.mac? # Uncomment macOS-specific make vars
 
   depends_on "pkg-config" => :build
-  depends_on "little-cms2"
   depends_on "libtiff"
+  depends_on "little-cms2"
   depends_on :x11 => :optional
   unless OS.mac?
     depends_on "libidn"

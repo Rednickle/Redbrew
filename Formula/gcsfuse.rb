@@ -15,9 +15,8 @@ class Gcsfuse < Formula
     sha256 "5b7012014e9fb5d2c41632672df476cc7e780cc58b9189ff96f018a5445bbdc0" => :x86_64_linux
   end
 
-  depends_on :osxfuse
-
   depends_on "go" => :build
+  depends_on :osxfuse
 
   def install
     # Build the build_gcsfuse tool. Ensure that it doesn't pick up any

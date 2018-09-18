@@ -13,10 +13,9 @@ class GetIplayer < Formula
     sha256 "fa56ddecbfe51c9763840b83b7dfa9a1138edb41baa21cf91aa28df955583818" => :el_capitan
   end
 
+  depends_on :macos => :yosemite if OS.mac?
   depends_on "atomicparsley" => :recommended
   depends_on "ffmpeg" => :recommended
-
-  depends_on :macos => :yosemite
   depends_on "libxml2" unless OS.mac?
 
   resource "IO::Socket::IP" do

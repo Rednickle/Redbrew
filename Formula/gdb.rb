@@ -25,9 +25,9 @@ class Gdb < Formula
   option "with-all-targets", "Build with support for all targets"
 
   depends_on "pkg-config" => :build
+  depends_on "guile@2.0" => :optional
   depends_on "python" => OS.mac? ? :optional : :recommended
   depends_on "python@2" => :optional
-  depends_on "guile@2.0" => :optional
   unless OS.mac?
     depends_on "texinfo" => :build
     depends_on "ncurses"

@@ -29,9 +29,9 @@ class Ghc < Formula
     end
   end
 
-  depends_on :macos => :lion if OS.mac?
   depends_on "python" => :build if build.bottle?
   depends_on "sphinx-doc" => :build
+  depends_on :macos => :lion if OS.mac?
 
   unless OS.mac?
     depends_on "m4" => :build
