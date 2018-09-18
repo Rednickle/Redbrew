@@ -16,8 +16,8 @@ class Openldap < Formula
 
   option "with-sssvlv", "Enable server side sorting and virtual list view"
 
-  depends_on "berkeley-db@4" => :optional
   depends_on "openssl"
+  depends_on "berkeley-db@4" => :optional
   unless OS.mac?
     depends_on "groff" => :build
     depends_on "util-linux" # for libuuid.so.1

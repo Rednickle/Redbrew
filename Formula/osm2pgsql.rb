@@ -14,9 +14,9 @@ class Osm2pgsql < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "postgresql"
   depends_on "boost"
   depends_on "geos"
+  depends_on "postgresql"
   depends_on "proj"
   depends_on "lua" => :recommended
 

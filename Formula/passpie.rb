@@ -17,8 +17,8 @@ class Passpie < Formula
     sha256 "e36de118956043ccd6a74831fff6832f0e50d80cc039f94005b3efea15e54a5d" => :x86_64_linux
   end
 
-  depends_on "python@2"
   depends_on "gnupg"
+  depends_on "python@2"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/7a/00/c14926d8232b36b08218067bcd5853caefb4737cda3f0a47437151344792/click-6.6.tar.gz"

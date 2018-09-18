@@ -15,8 +15,8 @@ class Pangomm < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "glibmm"
   depends_on "cairomm"
+  depends_on "glibmm"
   depends_on "pango"
 
   needs :cxx11

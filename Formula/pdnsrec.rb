@@ -14,9 +14,9 @@ class Pdnsrec < Formula
 
   depends_on "pkg-config" => :build
   depends_on "boost"
-  depends_on "openssl"
-  depends_on "lua"
   depends_on "gcc" if OS.mac? && DevelopmentTools.clang_build_version <= 600
+  depends_on "lua"
+  depends_on "openssl"
 
   needs :cxx11
 

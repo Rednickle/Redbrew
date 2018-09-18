@@ -12,8 +12,8 @@ class Openfortivpn < Formula
     sha256 "18a7d344258046e5653d2c584035c7c3940c772fd20472f1b8f31b32da065b69" => :x86_64_linux
   end
 
-  depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "pkg-config" => :build
   depends_on "openssl"
 

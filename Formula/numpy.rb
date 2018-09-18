@@ -24,8 +24,8 @@ class Numpy < Formula
   option "without-python@2", "Build without python2 support"
 
   depends_on "gcc" => :build # for gfortran
-  depends_on "python@2" => :recommended
   depends_on "python" => :recommended
+  depends_on "python@2" => :recommended
   depends_on "openblas" unless OS.mac?
 
   resource "nose" do

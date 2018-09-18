@@ -15,8 +15,8 @@ class Osmfilter < Formula
     sha256 "6cdb4f66cebaa32ea579a0f7d3e2b22ad1d95cd30988bd617ad006d9bc32037a" => :x86_64_linux
   end
 
-  depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
 
   resource "pbf" do
     url "https://download.gisgraphy.com/openstreetmap/pbf/AD.tar.bz2"
