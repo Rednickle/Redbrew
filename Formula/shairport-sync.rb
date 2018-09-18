@@ -13,15 +13,15 @@ class ShairportSync < Formula
     sha256 "143f70b6c96183e39da6f55b110ee6b83a4b736558a0efef2f167b6a4ee59ad0" => :x86_64_linux
   end
 
-  depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "pkg-config" => :build
+  depends_on "libao"
+  depends_on "libconfig"
+  depends_on "libdaemon"
+  depends_on "libsoxr"
   depends_on "openssl"
   depends_on "popt"
-  depends_on "libsoxr"
-  depends_on "libao"
-  depends_on "libdaemon"
-  depends_on "libconfig"
 
   def install
     system "autoreconf", "-fvi"

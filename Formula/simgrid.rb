@@ -15,9 +15,9 @@ class Simgrid < Formula
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "boost"
+  depends_on "graphviz"
   depends_on "pcre"
   depends_on "python"
-  depends_on "graphviz"
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.

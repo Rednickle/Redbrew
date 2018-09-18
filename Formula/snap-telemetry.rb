@@ -14,8 +14,8 @@ class SnapTelemetry < Formula
     sha256 "88fc6b67ef8f1a47044ed06ea2744d51193e7fd26fdee82df38c8782ba99ef68" => :x86_64_linux
   end
 
-  depends_on "go" => :build
   depends_on "glide" => :build
+  depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath

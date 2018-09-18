@@ -18,6 +18,7 @@ class Spidermonkey < Formula
     sha256 "be685dbfce38a7dbcec242c6ad04ad94c4881e7876d1d92e4aa08174220e64c1" => :x86_64_linux
   end
 
+  depends_on "nspr"
   # Readline support is disabled; fails with:
   # No rule to make target '-lreadline', needed by 'js'.  Stop.
   depends_on "readline" if OS.mac?

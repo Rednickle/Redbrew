@@ -15,16 +15,16 @@ class Sshfs < Formula
 
   option "without-sshnodelay", "Don't compile NODELAY workaround for ssh"
 
-  depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
+  depends_on "glib"
   if OS.mac?
     depends_on :osxfuse
   else
     depends_on "libfuse"
   end
-  depends_on "glib"
 
   def install
     args = %W[

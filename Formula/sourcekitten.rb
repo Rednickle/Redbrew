@@ -15,8 +15,8 @@ class Sourcekitten < Formula
 
   depends_on :macos
   if OS.mac?
-    depends_on :xcode => "6.0"
     depends_on :xcode => ["9.0", :build]
+    depends_on :xcode => "6.0"
   end
 
   def install

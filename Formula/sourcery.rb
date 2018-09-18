@@ -11,8 +11,8 @@ class Sourcery < Formula
   end
 
   if OS.mac?
-    depends_on :xcode => "6.0"
     depends_on :xcode => ["9.3", :build]
+    depends_on :xcode => "6.0"
   end
 
   def install

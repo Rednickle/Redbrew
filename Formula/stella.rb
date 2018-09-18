@@ -14,8 +14,6 @@ class Stella < Formula
     sha256 "a8a76e3c221ca57f8bc9fdf53be0914ae00879b72be4693dfd695eaf08636072" => :x86_64_linux
   end
 
-  needs :cxx14
-
   depends_on :xcode => :build if OS.mac?
   depends_on "sdl2"
   depends_on "libpng"

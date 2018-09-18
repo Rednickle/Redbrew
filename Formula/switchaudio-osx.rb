@@ -14,9 +14,9 @@ class SwitchaudioOsx < Formula
     sha256 "515b762164648d739ae36f8c5013d250d84af1264bf3ee366ed35adae2f44208" => :el_capitan
   end
 
+  depends_on :xcode => :build if OS.mac?
   depends_on :macos => :lion
   depends_on :macos
-  depends_on :xcode => :build if OS.mac?
 
   def install
     xcodebuild "-project", "AudioSwitcher.xcodeproj",
