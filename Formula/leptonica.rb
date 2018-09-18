@@ -13,13 +13,13 @@ class Leptonica < Formula
     sha256 "b458477055901aa657a615f65b61d12a574286d830c4fa14380fcc2c5e9f07f1" => :x86_64_linux
   end
 
-  depends_on "libpng" => :recommended
+  depends_on "pkg-config" => :build
   depends_on "jpeg" => :recommended
+  depends_on "libpng" => :recommended
   depends_on "libtiff" => :recommended
   depends_on "giflib" => :optional
   depends_on "openjpeg" => :optional
   depends_on "webp" => :optional
-  depends_on "pkg-config" => :build
 
   def install
     args = %W[

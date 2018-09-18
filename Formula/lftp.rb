@@ -12,9 +12,9 @@ class Lftp < Formula
     sha256 "65974e52a94d3096c7ecfa397daf94dda815d6c0482aeed6ff323846f15e5ac8" => :x86_64_linux
   end
 
-  depends_on "readline"
-  depends_on "openssl"
   depends_on "libidn"
+  depends_on "openssl"
+  depends_on "readline"
   depends_on "zlib" unless OS.mac?
 
   def install

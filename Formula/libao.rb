@@ -14,8 +14,8 @@ class Libao < Formula
     sha256 "43ffb0841ba2f17b094ab03b6f933462aec7376caee3a6acb06bcc2510eb7baa" => :x86_64_linux # glibc 2.19
   end
 
-  depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "pulseaudio" => :optional

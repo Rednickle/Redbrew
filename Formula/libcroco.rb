@@ -14,8 +14,8 @@ class Libcroco < Formula
     sha256 "a2e52d0162df33905cf6043703e2500439cd77f487d4e5b733a4c0406f00d7e1" => :x86_64_linux # glibc 2.19
   end
 
-  depends_on "pkg-config" => :build
   depends_on "intltool" => :build
+  depends_on "pkg-config" => :build
   depends_on "glib"
 
   # Fix error: No package 'libxml-2.0' found

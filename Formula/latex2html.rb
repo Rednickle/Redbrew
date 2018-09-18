@@ -13,8 +13,8 @@ class Latex2html < Formula
     sha256 "730b901c189a8998359d5e0325b4f6a1c85553d4e8d1a84ffb7c714408d27258" => :x86_64_linux
   end
 
-  depends_on "netpbm"
   depends_on "ghostscript"
+  depends_on "netpbm"
 
   def install
     system "./configure", "--prefix=#{prefix}",

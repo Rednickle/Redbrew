@@ -14,8 +14,8 @@ class Libcdr < Formula
     sha256 "aeca0a8d73f4435c4d41081bae96926bf4e3592261f19c4b18fa50cffb6ce855" => :x86_64_linux
   end
 
-  depends_on "pkg-config" => :build
   depends_on "cppunit" => :build
+  depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "icu4c"
   depends_on "librevenge"

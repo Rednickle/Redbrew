@@ -13,8 +13,8 @@ class Libconfig < Formula
     sha256 "5d8520ed4354e6bea3b2188afc4717034cb659bcc76f7cad079ed1c97e33c932" => :x86_64_linux
   end
 
-  depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "libtool" => :build
 
   unless OS.mac?
