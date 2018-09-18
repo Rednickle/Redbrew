@@ -15,8 +15,8 @@ class SyncGateway < Formula
     sha256 "46e8cf0fc39eba48cc3ed7923aee8777314a9e0946ad0a6103617d8668d6de86" => :x86_64_linux
   end
 
-  depends_on "go" => :build
   depends_on "gnupg" => :build
+  depends_on "go" => :build
 
   resource "depot_tools" do
     url "https://chromium.googlesource.com/chromium/tools/depot_tools.git",

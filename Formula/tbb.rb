@@ -13,12 +13,12 @@ class Tbb < Formula
     sha256 "104aaf686bd69b0f8afde554bf63a35741562ef8038b7f94bd92035db0faf673" => :x86_64_linux
   end
 
+  depends_on "cmake" => :build
+  depends_on "swig" => :build
   # requires malloc features first introduced in Lion
   # https://github.com/Homebrew/homebrew/issues/32274
   depends_on :macos => :lion
   depends_on "python@2"
-  depends_on "swig" => :build
-  depends_on "cmake" => :build
 
   def install
     compiler = (ENV.compiler == :clang) ? "clang" : "gcc"

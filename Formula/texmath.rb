@@ -17,8 +17,8 @@ class Texmath < Formula
     sha256 "fe1d97ddd381a13f864555a613983be9d0fd758c4ca7b11290d67b00b467e2d9" => :x86_64_linux
   end
 
-  depends_on "ghc" => :build
   depends_on "cabal-install" => :build
+  depends_on "ghc" => :build
 
   def install
     install_cabal_package "--enable-tests", :flags => ["executable"] do

@@ -16,8 +16,8 @@ class Vgmstream < Formula
     sha256 "07d84f5937c5e50b6a62dff84c97bf44b5e352bb5682eead76fffbbc9c5bea92" => :x86_64_linux
   end
 
-  depends_on "mpg123"
   depends_on "libvorbis"
+  depends_on "mpg123"
 
   def install
     cd "test" do

@@ -16,9 +16,9 @@ class Ttyd < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl"
   depends_on "json-c"
   depends_on "libwebsockets"
+  depends_on "openssl"
   depends_on "vim" unless OS.mac? # needed for xxd
 
   def install
