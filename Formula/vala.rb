@@ -1,15 +1,14 @@
 class Vala < Formula
   desc "Compiler for the GObject type system"
   homepage "https://wiki.gnome.org/Projects/Vala"
-  url "https://download.gnome.org/sources/vala/0.42/vala-0.42.0.tar.xz"
-  sha256 "62a55986da23cf3aaafd7624c32db2a1af11c8419e0bb0751727d10f1f7ab7be"
+  url "https://download.gnome.org/sources/vala/0.42/vala-0.42.1.tar.xz"
+  sha256 "b4a52524207aadc77f4b39e29e4375387d2b6efe40738b33434e3298ebdabb11"
 
   bottle do
-    sha256 "06b85a7575c5adbd9fccaa7b2c541da747e51e6471483cf1d63201c3595c9aaa" => :mojave
-    sha256 "9a8ddd7921d244d41d336b04f8c5395735d3815d302f32e96985e1dbf2d0d83d" => :high_sierra
-    sha256 "9b99aa038ce86e74dd14f2a97111c3f77542ba1c7d74550089d04b7b079a1118" => :sierra
-    sha256 "cf52d824c26ff0ef76918ccb3bede88945f3f88145396b5dc32263890be46cef" => :el_capitan
-    sha256 "af5357d2aad943d8b09522734cf0945666680d19b1aa6f220b56376ae15b581d" => :x86_64_linux
+    sha256 "1f7ef67af91976e069d9722d0e0807576751c78b6130f0ed98afb9cbd4d5c7db" => :mojave
+    sha256 "f24f20f39730f4029ab62fd5ccce4c31fb3283122623435f7941e2de759ad450" => :high_sierra
+    sha256 "8fef70f4cf5df946f2514b37c1b451d9212338ac819f837ce4dcf539c1444156" => :sierra
+    sha256 "6aa59e49e9f7d10414abc3162c9085e46a1bb84919dd7583e633d5dd11a71a1b" => :el_capitan
   end
 
   depends_on "pkg-config"
