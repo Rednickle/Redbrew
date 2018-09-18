@@ -14,8 +14,8 @@ class Gssdp < Formula
     sha256 "8dc6f41c923529849f43e90d804cd4c548d6b6ea95f1221d2ef6e2d455d78d09" => :x86_64_linux
   end
 
-  depends_on "pkg-config" => :build
   depends_on "intltool" => :build
+  depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
   depends_on "libsoup"
