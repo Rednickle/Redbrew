@@ -1,16 +1,17 @@
 class Simutrans < Formula
   desc "Transport simulator"
   homepage "https://www.simutrans.com/"
-  url "https://downloads.sourceforge.net/project/simutrans/simutrans/120-3/simutrans-src-120-3.zip"
-  version "120.3"
-  sha256 "6f68785798688bf956b0d7f5971a8d8fa42d12199011665b07b903164cb3929f"
+  url "https://downloads.sourceforge.net/project/simutrans/simutrans/120-4/simutrans-src-120-4.zip"
+  version "120.4"
+  sha256 "cf0f364a26d178d9fbee8ec59196b308c811f1c1c69f45c05cdb554e58b61898"
   head "https://github.com/aburch/simutrans.git"
 
   bottle do
     cellar :any
-    sha256 "5a907f0eb27745f123e0605d5f8949ab2e11f67f00f0fba0e6c956227c77e1c4" => :high_sierra
-    sha256 "bed263f91db1565b569ed74dceab5eba88f904ccebf25459b35b534252556fc2" => :sierra
-    sha256 "ee6fb59f8452c16a57b13b55d7cf2a0954e1362259e4ecc9669610e0c403ae79" => :el_capitan
+    sha256 "5a6c026584d0519b0b7adf626a4f7b0b7d7689615de27241232593569a906868" => :mojave
+    sha256 "d20fe9c5a2039bd438fd6f96e24979424acc9c1e7e442d9496ecd1a244640211" => :high_sierra
+    sha256 "e4ac8b4e3ece8ee265e46419db351cba744c6b66b89683d3443ab35e65b936cd" => :sierra
+    sha256 "0c7270b180b815014d92577de3e255d247f422ada4545e0c836bcaafa9a0b94b" => :el_capitan
   end
 
   depends_on "libpng"
@@ -18,13 +19,13 @@ class Simutrans < Formula
   depends_on "sdl2"
 
   resource "pak64" do
-    url "https://downloads.sourceforge.net/project/simutrans/pak64/120-3/simupak64-120-3.zip"
-    sha256 "332ff947fdddf99e0c9b67d857b1ffd02c91dfea1edc98f4195ec1f1309060f5"
+    url "https://downloads.sourceforge.net/project/simutrans/pak64/120-4/simupak64-120-4.zip"
+    sha256 "b1dba2876838fcda6fb1b90c9b981e2aa490c1b0a81bab7c53b8bd50f59c0ffd"
   end
 
   resource "text" do
     url "https://simutrans-germany.com/translator/data/tab/language_pack-Base+texts.zip"
-    sha256 "9c125325e14c6f19a5f6712be7267754e171565a5f49a185ed0b0edea774be0a"
+    sha256 "44caa98599089f55d5cfef34d24f9b8ae362d0b41c784ca1b649270436cdea02"
   end
 
   def install
