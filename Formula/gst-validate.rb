@@ -1,14 +1,14 @@
 class GstValidate < Formula
   desc "Tools to validate GstElements from GStreamer"
   homepage "https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-validate/html/"
-  url "https://gstreamer.freedesktop.org/src/gst-validate/gst-validate-1.14.2.tar.xz"
-  sha256 "ea9e423e5470ef85ef8a0aea1714e7abfc49deb2ed282057367484cdeba6f19f"
+  url "https://gstreamer.freedesktop.org/src/gst-validate/gst-validate-1.14.3.tar.xz"
+  sha256 "0910f75de9028edb9f1ba0571470482365ff0c9e5373506780ea38ba0cc9f703"
 
   bottle do
-    sha256 "ff45705140e16fff9fb743d756313a7ab7ec85c980156b5020811bead6cc644e" => :mojave
-    sha256 "187bcb4fc5ce37e413db4b359d6bf9afb6a7b229f70af1b383d56ab230b74577" => :high_sierra
-    sha256 "82c72efbf1d119c1353a31d19e5ee90f3925793fcb8483c89629386988aeb574" => :sierra
-    sha256 "ffa2a301e0b0dc61fe672b014cf69d20375d1ee54f13d9429fd89c32ef301ce1" => :el_capitan
+    sha256 "7fbebd2136308b40da746f9c6894a53543ca700ac0a08af7593b7be3e9a8343b" => :mojave
+    sha256 "8d0233be95f46cdc71b2f95f87b6522d33b57bf42ba08174066ae5150e2a5a43" => :high_sierra
+    sha256 "dbe94ee52258b48770ba1f60b408439cd1b64195f40a4cc698dc39cc61107c66" => :sierra
+    sha256 "9ebf5f62391ab54e64a76a4e5dd5d33616288c324fcf922e4837d337658b23cd" => :el_capitan
   end
 
   head do

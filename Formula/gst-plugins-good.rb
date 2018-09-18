@@ -3,17 +3,17 @@ class GstPluginsGood < Formula
   homepage "https://gstreamer.freedesktop.org/"
 
   stable do
-    url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.14.2.tar.xz"
-    sha256 "c0575e2811860bfff59b865b8d125153859a01f0615fa41e279b64d88d25caad"
+    url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.14.3.tar.xz"
+    sha256 "5112bce6af0be62760687ca47873c90ce4d65d3fe920a3adf8145db7b07bff5d"
 
     depends_on "check" => :optional
   end
 
   bottle do
-    sha256 "65d6095b61597becf765646e35d30e0a58293fe2e94ea8f716d20509905e0d57" => :mojave
-    sha256 "d9662303e702a1dd2c521ce3b4d0acf85181ec72ffe8e29e97b01ae97af19d5a" => :high_sierra
-    sha256 "42582defb0dff9b1d6bdec017f8bfb22440d6fe8f479b2e1736eb8e4b711c043" => :sierra
-    sha256 "5c40515683b558638307ea9511b63b86f3970038fd06be9eb21b660eb2a2cff5" => :el_capitan
+    sha256 "551cf486f1289f1c8a07350cb06b52c7edadba439a9263a907c26a6e21d75139" => :mojave
+    sha256 "90a3fc4336e9d7e596f092d3a1d325d8888c6d29ff3988ae7cc44ccac82a5c7e" => :high_sierra
+    sha256 "75fe5452ab4ca9570da1e5e4c4fa40b15d7eb43855e2ca0004bc6a72808a57c9" => :sierra
+    sha256 "0884f4ff81b994dd98b61ed43b0c9e11d036742bef49ee783b70996f824b5d93" => :el_capitan
   end
 
   head do
