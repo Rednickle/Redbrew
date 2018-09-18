@@ -17,10 +17,10 @@ class Netpbm < Formula
     sha256 "08b67d1852b3d184b70ca119afa4e6b4824d5703df83946da38ce1a773b63d20" => :x86_64_linux
   end
 
-  depends_on "libtiff"
   depends_on "jasper"
   depends_on "jpeg"
   depends_on "libpng"
+  depends_on "libtiff"
   unless OS.mac?
     depends_on "flex"
     depends_on "zlib"

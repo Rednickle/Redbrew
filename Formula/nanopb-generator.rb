@@ -14,8 +14,8 @@ class NanopbGenerator < Formula
     sha256 "cb2eff6c0c90452d1bfc132f0f2007005470b2281a1aa21cbac0d08a55e350b1" => :x86_64_linux
   end
 
-  depends_on "python@2"
   depends_on "protobuf"
+  depends_on "python@2"
 
   conflicts_with "mesos",
     :because => "they depend on an incompatible version of protobuf"

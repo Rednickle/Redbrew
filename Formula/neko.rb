@@ -17,10 +17,10 @@ class Neko < Formula
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "mbedtls"
   depends_on "bdw-gc"
-  depends_on "pcre"
+  depends_on "mbedtls"
   depends_on "openssl"
+  depends_on "pcre"
   unless OS.mac?
     depends_on "apr"
     depends_on "apr-util"

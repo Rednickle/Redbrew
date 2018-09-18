@@ -14,8 +14,8 @@ class Netcdf < Formula
     sha256 "2e496e7a762957f9690dcef38f3db58e5b7a345842941077afdeb6772bef1f40" => :x86_64_linux
   end
 
-  depends_on "gcc" # for gfortran
   depends_on "cmake" => :build
+  depends_on "gcc" # for gfortran
   depends_on "hdf5"
   depends_on "curl" unless OS.mac?
 
