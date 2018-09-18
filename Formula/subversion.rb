@@ -13,6 +13,14 @@ class Subversion < Formula
     sha256 "276dc063fc20f683313476af6176f995a7ad198095a0c84d827b6671d3b3de8d" => :x86_64_linux
   end
 
+  head do
+    url "https://github.com/apache/subversion.git", :branch => "trunk"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "gettext" => :build
+  end
+
   deprecated_option "java" => "with-java"
   deprecated_option "perl" => "with-perl"
   deprecated_option "ruby" => "with-ruby"
@@ -138,6 +146,7 @@ class Subversion < Formula
               "toolsdir = @bindir@/svn-tools",
               "toolsdir = @libexecdir@/svn-tools"
 
+    system "./autogen.sh" if build.head?
     system "./configure", *args
     system "make"
     # Fix ld: cannot find -lsvn_delta-1
