@@ -15,12 +15,6 @@ class Apollo < Formula
     sha256 "ec8bd2fc4541adb625796c0dd925620c7abf4ede0ce735c2ab3873bde21d379d" => :x86_64_linux # glibc 2.19
   end
 
-  deprecated_option "no-bdb" => "without-bdb"
-  deprecated_option "no-mqtt" => "without-mqtt"
-
-  option "without-bdb", "Install without bdb store support"
-  option "without-mqtt", "Install without MQTT protocol support"
-
   depends_on :java => "1.7+"
 
   # https://www.oracle.com/technetwork/database/berkeleydb/overview/index-093405.html
@@ -40,8 +34,8 @@ class Apollo < Formula
     prefix.install %w[docs examples]
     libexec.install Dir["*"]
 
-    (libexec/"lib").install resource("bdb-je") if build.with? "bdb"
-    (libexec/"lib").install resource("mqtt") if build.with? "mqtt"
+    (libexec/"lib").install resource("bdb-je")
+    (libexec/"lib").install resource("mqtt")
 
     (bin/"apollo").write_env_script libexec/"bin/apollo", Language::Java.java_home_env
   end

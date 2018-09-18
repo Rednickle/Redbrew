@@ -13,17 +13,15 @@ class Graphicsmagick < Formula
     sha256 "5c9e3319a9fa3ef3a2012a6cd9b5bcc6860e119359e4cf5bd00b58996a6bfa72" => :x86_64_linux
   end
 
-  option "without-magick-plus-plus", "disable build/install of Magick++"
-  option "without-svg", "Compile without svg support"
   option "with-perl", "Build PerlMagick; provides the Graphics::Magick module"
 
   depends_on "pkg-config" => :build
+  depends_on "freetype"
+  depends_on "jasper"
+  depends_on "jpeg"
+  depends_on "libpng"
+  depends_on "libtiff"
   depends_on "libtool"
-  depends_on "jpeg" => :recommended
-  depends_on "libpng" => :recommended
-  depends_on "libtiff" => :recommended
-  depends_on "freetype" => :recommended
-  depends_on "jasper" => :recommended
   depends_on "little-cms2" => :optional
   depends_on "libwmf" => :optional
   depends_on "ghostscript" => :optional
@@ -52,12 +50,9 @@ class Graphicsmagick < Formula
 
     args << "--without-gslib" if build.without? "ghostscript"
     args << "--with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts" if build.without? "ghostscript"
-    args << "--without-magick-plus-plus" if build.without? "magick-plus-plus"
     args << "--with-perl" if build.with? "perl"
     args << "--with-webp=no" if build.without? "webp"
     args << "--without-x" if build.without? "x11"
-    args << "--without-ttf" if build.without? "freetype"
-    args << "--without-xml" if build.without? "svg"
     args << "--without-lcms2" if build.without? "little-cms2"
     args << "--without-wmf" if build.without? "libwmf"
 
