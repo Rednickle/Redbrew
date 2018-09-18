@@ -15,8 +15,8 @@ class Scrollkeeper < Formula
     sha256 "e636c7888f5d3d005fa189127531f1e03901b49f172ccdebc3d2250343fe57f7" => :x86_64_linux # glibc 2.19
   end
 
-  depends_on "gettext"
   depends_on "docbook"
+  depends_on "gettext"
   depends_on "libxslt" unless OS.mac?
 
   conflicts_with "rarian",

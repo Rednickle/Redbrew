@@ -13,8 +13,8 @@ class Roswell < Formula
     sha256 "598280e6aaca5e5d0b20b18fca535af0d238976477a1ed68338ee6c25b6923c1" => :x86_64_linux
   end
 
-  depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "curl" unless OS.mac?
 
   def install

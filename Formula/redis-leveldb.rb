@@ -16,9 +16,9 @@ class RedisLeveldb < Formula
     sha256 "2c90cf622dcee9f866e1dbbc9c30059fa80b5aef07d0ae190e3e32b710be2212" => :x86_64_linux # glibc 2.19
   end
 
-  depends_on "libev"
   depends_on "gmp"
   depends_on "leveldb"
+  depends_on "libev"
   depends_on "snappy"
 
   def install

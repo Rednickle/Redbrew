@@ -20,8 +20,8 @@ class R < Formula
   depends_on "pcre"
   depends_on "readline"
   depends_on "xz"
-  depends_on "openblas" => :optional
   depends_on :java => :optional
+  depends_on "openblas" => :optional
 
   unless OS.mac?
     depends_on "cairo" => :recommended

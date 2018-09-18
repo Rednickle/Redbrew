@@ -14,9 +14,9 @@ class Rlwrap < Formula
     sha256 "50fa31d7a9ab1c0403f6e69fc5311aa40fc0847f3f6777e660791d511d35e2a2" => :x86_64_linux # glibc 2.19
   end
 
-  depends_on "readline"
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "readline"
 
   def install
     system "autoreconf", "-v", "-i"

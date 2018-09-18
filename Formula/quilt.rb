@@ -15,8 +15,8 @@ class Quilt < Formula
     sha256 "7786c1cdee0778e1d6997f7a3c0603c24f56800920d0c0df9e5530163d5f550f" => :x86_64_linux # glibc 2.19
   end
 
-  depends_on "gnu-sed"
   depends_on "coreutils"
+  depends_on "gnu-sed"
 
   def install
     system "./configure", "--prefix=#{prefix}",

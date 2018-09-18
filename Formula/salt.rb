@@ -16,11 +16,11 @@ class Salt < Formula
   end
 
   depends_on "swig" => :build
-  depends_on "python@2"
-  depends_on "zeromq"
   depends_on "libgit2"
   depends_on "libyaml"
   depends_on "openssl" # For M2Crypto
+  depends_on "python@2"
+  depends_on "zeromq"
 
   unless OS.mac?
     depends_on "gmp"

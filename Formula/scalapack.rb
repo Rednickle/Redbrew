@@ -17,8 +17,8 @@ class Scalapack < Formula
   depends_on "cmake" => :build
   depends_on "gcc" # for gfortran
   depends_on "open-mpi"
-  depends_on "openblas" => OS.mac? ? :optional : :recommended
   depends_on "veclibfort" if build.without?("openblas") && OS.mac?
+  depends_on "openblas" => OS.mac? ? :optional : :recommended
 
   def install
     blas = "-L#{Formula["openblas"].opt_lib} -lopenblas"
