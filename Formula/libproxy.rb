@@ -15,9 +15,9 @@ class Libproxy < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "python@2"
   # Non-fatally fails to build against system Perl, so stick to Homebrew's here.
   depends_on "perl" => :optional
-  depends_on "python@2"
 
   # tries to install to system perl location
   depends_on "perl" unless OS.mac?

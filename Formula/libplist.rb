@@ -17,8 +17,8 @@ class Libplist < Formula
   head do
     url "https://git.sukimashita.com/libplist.git"
 
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
@@ -26,8 +26,8 @@ class Libplist < Formula
 
   deprecated_option "with-python" => "without-cython"
 
-  depends_on "pkg-config" => :build
   depends_on "cython" => [:build, :recommended]
+  depends_on "pkg-config" => :build
 
   def install
     ENV.deparallelize

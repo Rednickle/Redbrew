@@ -14,10 +14,10 @@ class Libgit2 < Formula
     sha256 "f63a386fe2037191d373250ee1c918e11ecf25175505299b9f67867dcc697ccd" => :x86_64_linux
   end
 
-  depends_on "pkg-config" => :build
   depends_on "cmake" => :build
-  depends_on "libssh2" => :recommended
+  depends_on "pkg-config" => :build
   depends_on "openssl" if MacOS.version <= :lion # Uses SecureTransport on >10.7
+  depends_on "libssh2" => :recommended
 
   def install
     args = std_cmake_args

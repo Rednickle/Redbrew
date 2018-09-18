@@ -13,13 +13,13 @@ class Libosmium < Formula
     sha256 "e0499a0969f53d9c534cd196c315a790e98a316132f83a95e3848ddb2cce6323" => :x86_64_linux
   end
 
-  depends_on "cmake" => :build
   depends_on "boost" => :build
-  depends_on "google-sparsehash" => :optional
+  depends_on "cmake" => :build
+  depends_on "doxygen" => :optional
   depends_on "expat" => :optional
   depends_on "gdal" => :optional
+  depends_on "google-sparsehash" => :optional
   depends_on "proj" => :optional
-  depends_on "doxygen" => :optional
   depends_on "expat" unless OS.mac?
 
   resource "protozero" do

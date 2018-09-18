@@ -14,12 +14,12 @@ class Libmspub < Formula
     sha256 "f85c0c0dec041b91be4d9d7cb924e6e43980fe1d31e2bac2dbf9eaed0c2200f7" => :x86_64_linux
   end
 
-  depends_on "pkg-config" => :build
   depends_on "boost" => :build
   depends_on "libwpg" => :build
-  depends_on "libwpd"
+  depends_on "pkg-config" => :build
   depends_on "icu4c"
   depends_on "librevenge"
+  depends_on "libwpd"
 
   def install
     system "./configure", "--without-docs",
