@@ -14,8 +14,8 @@ class Perkeep < Formula
     sha256 "4ecb435daf3f277b031ab3c06b6efc8e21d5a1f443eeaf3bdbfc309a43868c03" => :x86_64_linux
   end
 
-  depends_on "pkg-config" => :build
   depends_on "go" => :build
+  depends_on "pkg-config" => :build
 
   conflicts_with "hello", :because => "both install `hello` binaries"
 

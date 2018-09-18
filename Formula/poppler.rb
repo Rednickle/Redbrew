@@ -43,9 +43,9 @@ class Poppler < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "openjpeg"
-  depends_on "qt" => :optional
   depends_on "little-cms2" => :optional
   depends_on "nss" => :optional
+  depends_on "qt" => :optional
   depends_on "curl" unless OS.mac?
 
   conflicts_with "pdftohtml", "pdf2image", "xpdf",
