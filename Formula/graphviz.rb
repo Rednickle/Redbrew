@@ -20,8 +20,8 @@ class Graphviz < Formula
   head do
     url "https://github.com/ellson/graphviz.git"
 
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
@@ -35,14 +35,14 @@ class Graphviz < Formula
 
   depends_on "pkg-config" => :build
   depends_on :xcode => :build if OS.mac? && build.with?("app")
-  depends_on "libtool"
-  depends_on "pango" => :optional
-  depends_on "gts" => :optional
-  depends_on "librsvg" => :optional
-  depends_on "freetype" => :optional
-  depends_on :x11 => :optional
   depends_on "gd"
   depends_on "libpng"
+  depends_on "libtool"
+  depends_on "freetype" => :optional
+  depends_on "gts" => :optional
+  depends_on "librsvg" => :optional
+  depends_on "pango" => :optional
+  depends_on :x11 => :optional
 
   if build.with? "bindings"
     depends_on "swig" => :build

@@ -12,10 +12,10 @@ class GobjectIntrospection < Formula
     sha256 "e1159f0d5dcc23f67dd1c88dbe91d6c0f9b2440df4d9837aedd77e2fd639ff65" => :x86_64_linux
   end
 
-  depends_on "pkg-config"
-  depends_on "glib"
   depends_on "cairo"
+  depends_on "glib"
   depends_on "libffi"
+  depends_on "pkg-config"
   depends_on "python@2"
 
   unless OS.mac?

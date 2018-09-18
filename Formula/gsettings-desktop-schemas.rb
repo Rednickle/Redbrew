@@ -13,11 +13,11 @@ class GsettingsDesktopSchemas < Formula
     sha256 "91db960063df6a3d7afacb5c97d7bf7221e8476e63d62486c3253808f15ef217" => :x86_64_linux
   end
 
-  depends_on "pkg-config" => :build
-  depends_on "intltool" => :build
   depends_on "gobject-introspection" => :build
-  depends_on "glib"
+  depends_on "intltool" => :build
+  depends_on "pkg-config" => :build
   depends_on "gettext"
+  depends_on "glib"
   depends_on "libffi"
   unless OS.mac?
     depends_on "python@2"

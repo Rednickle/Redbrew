@@ -15,8 +15,8 @@ class Gpsim < Formula
     sha256 "ac25cec9c613f3404c96d2376de658d97e3fc3b2caef89785779156cf8ff6fff" => :x86_64_linux
   end
 
-  depends_on "pkg-config" => :build
   depends_on "gputils" => :build
+  depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "popt"
 

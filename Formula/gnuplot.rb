@@ -36,9 +36,9 @@ class Gnuplot < Formula
   depends_on "gd"
   depends_on "readline"
   depends_on "lua" => :recommended
-  depends_on "pango" if build.with?("cairo") || build.with?("wxmac")
   depends_on "qt" => :optional
   depends_on "wxmac" => :optional
+  depends_on "pango" if build.with?("cairo") || build.with?("wxmac")
   depends_on :x11 => :optional
   depends_on "linuxbrew/xorg/xorg" if build.with?("x11") && !OS.mac?
 

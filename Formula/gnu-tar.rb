@@ -16,8 +16,8 @@ class GnuTar < Formula
   head do
     url "https://git.savannah.gnu.org/git/tar.git"
 
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "gettext" => :build
   end
 

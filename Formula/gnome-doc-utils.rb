@@ -14,12 +14,12 @@ class GnomeDocUtils < Formula
     sha256 "e77f8c9e8f74f99ee4a3a90e55c8752a8d7150de1959b4996c09b445682a91ad" => :x86_64_linux
   end
 
-  depends_on "pkg-config" => :build
   depends_on "intltool" => :build
-  depends_on "python@2"
+  depends_on "pkg-config" => :build
   depends_on "docbook"
   depends_on "gettext"
   depends_on "libxml2"
+  depends_on "python@2"
   depends_on "libxslt" unless OS.mac?
 
   def install
