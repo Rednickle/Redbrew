@@ -16,10 +16,10 @@ class Libstrophe < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "pkg-config" => :build
   depends_on "libtool" => :build
-  depends_on "openssl"
+  depends_on "pkg-config" => :build
   depends_on "check"
+  depends_on "openssl"
   depends_on "libxml2" unless OS.mac?
 
   def install

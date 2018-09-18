@@ -16,8 +16,8 @@ class Mycli < Formula
     sha256 "e9e903b1aaa1c0c92e371ed9889ef090c4fd4794fbffbf6470446b34b2975127" => :x86_64_linux
   end
 
-  depends_on "python@2"
   depends_on "openssl"
+  depends_on "python@2"
   unless OS.mac?
     depends_on "pkg-config" => :build
     depends_on "libffi"

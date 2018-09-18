@@ -14,9 +14,9 @@ class Libvoikko < Formula
     sha256 "c7ed141d50e07c74ad504a852d123080a2ce9b23cf9b11e7ce3e4145a0c444e1" => :x86_64_linux
   end
 
+  depends_on "foma" => :build
   depends_on "pkg-config" => :build
   depends_on "python" => :build
-  depends_on "foma" => :build
   depends_on "hfstospell"
 
   needs :cxx11

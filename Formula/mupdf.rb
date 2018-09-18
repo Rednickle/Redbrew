@@ -13,8 +13,8 @@ class Mupdf < Formula
     sha256 "96b2f59e4f35d2efb229df4a1b7e4d8c02f4dcdb0ee4f3d95f8352d5b1cacfe8" => :el_capitan
   end
 
-  depends_on :x11
   depends_on "openssl"
+  depends_on :x11 if OS.mac?
   unless OS.mac?
     depends_on "linuxbrew/xorg/mesa"
     depends_on "linuxbrew/xorg/glu"

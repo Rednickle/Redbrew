@@ -14,10 +14,10 @@ class MysqlConnectorCxx < Formula
     sha256 "da918a746cdf3337c900ff475c9503356bfb1988c3e90a340d286cec69032326" => :x86_64_linux
   end
 
-  depends_on "cmake" => :build
   depends_on "boost" => :build
-  depends_on "openssl"
+  depends_on "cmake" => :build
   depends_on "mysql-client"
+  depends_on "openssl"
 
   def install
     system "cmake", ".", *std_cmake_args

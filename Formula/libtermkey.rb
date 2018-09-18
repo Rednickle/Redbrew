@@ -14,10 +14,12 @@ class Libtermkey < Formula
     sha256 "8aa860a155529e4e659572b06b442fd90551580773a283f93070af18e0efed39" => :x86_64_linux # glibc 2.19
   end
 
-  depends_on "pkg-config" => :build
   depends_on "libtool" => :build
-  depends_on "glib" => :build unless OS.mac?
-  depends_on "ncurses" unless OS.mac?
+  depends_on "pkg-config" => :build
+  unless OS.mac?
+    depends_on "glib" => :build
+    depends_on "ncurses"
+  end
 
   def install
     system "make", "PREFIX=#{prefix}"

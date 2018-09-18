@@ -24,8 +24,8 @@ class Mono < Formula
 
   option "without-fsharp", "Build without support for the F# language."
 
-  depends_on "pkg-config" => :build
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   unless OS.mac?
     depends_on "python@2" => :build
     depends_on "unzip" => :build

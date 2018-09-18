@@ -13,8 +13,8 @@ class Megatools < Formula
     sha256 "d182ee128b52b5ae1936d86403d40588906726c7338f3d27154dea79d0a3e014" => :x86_64_linux
   end
 
-  depends_on "pkg-config" => :build
   depends_on "asciidoc" => :build
+  depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "glib-networking"
   depends_on "openssl"

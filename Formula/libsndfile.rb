@@ -14,10 +14,10 @@ class Libsndfile < Formula
     sha256 "c68c5c4eb7176e632a84c72ebd0f9a7269d4a3272dd852356fed0e5da33fa6b6" => :x86_64_linux # glibc 2.19
   end
 
-  depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
   depends_on "flac"
   depends_on "libogg"
   depends_on "libvorbis"

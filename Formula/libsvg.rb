@@ -18,9 +18,9 @@ class Libsvg < Formula
     sha256 "2c2a09470b239192bce44a058fbe0313735c7ce096c26b2eba4e88032ebe4e62" => :x86_64_linux
   end
 
-  depends_on "libpng"
   depends_on "pkg-config" => :build
   depends_on "jpeg"
+  depends_on "libpng"
   depends_on "libxml2" unless OS.mac?
 
   def install

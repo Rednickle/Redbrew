@@ -12,12 +12,12 @@ class Libsecret < Formula
     sha256 "2dbfa0a0bf8f38d1a925595066ea34c2cc1d20668be19b5ffd729f146d870cba" => :x86_64_linux
   end
 
-  depends_on "gobject-introspection" => :build
-  depends_on "pkg-config" => :build
-  depends_on "gnu-sed" => :build
-  depends_on "intltool" => :build
-  depends_on "gettext" => :build
   depends_on "docbook-xsl" => :build
+  depends_on "gettext" => :build
+  depends_on "gnu-sed" => :build
+  depends_on "gobject-introspection" => :build
+  depends_on "intltool" => :build
+  depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "libgcrypt"
   depends_on "vala" => :optional

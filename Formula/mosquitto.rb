@@ -12,11 +12,11 @@ class Mosquitto < Formula
     sha256 "22e9935cc0dcb9d951cb9689c7e8309cf10fef4d0d5c160f0de4ac72a0b5015d" => :x86_64_linux
   end
 
-  depends_on "pkg-config" => :build
   depends_on "cmake" => :build
-  depends_on "util-linux" if OS.linux? # for libuuid
+  depends_on "pkg-config" => :build
   depends_on "openssl"
   depends_on "libwebsockets" => :recommended
+  depends_on "util-linux" unless OS.mac? # for libuuid
 
   def install
     args = std_cmake_args

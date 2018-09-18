@@ -13,8 +13,8 @@ class Minisign < Formula
     sha256 "1cb6ad5812cfb0618c208e121fde7ff27201881d5d9930454f00808620bd4118" => :x86_64_linux
   end
 
-  depends_on "libsodium"
   depends_on "cmake" => :build
+  depends_on "libsodium"
 
   def install
     system "cmake", ".", *std_cmake_args

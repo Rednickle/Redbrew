@@ -14,14 +14,14 @@ class Mvtools < Formula
     sha256 "e338ec6a3863ca7f728984da8147cb967e6ca53b235bfdcd2687c10aabc76ff2" => :x86_64_linux
   end
 
-  depends_on "pkg-config" => :build
-  depends_on "nasm" => :build
-  depends_on "vapoursynth"
-  depends_on "fftw"
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "nasm" => :build
+  depends_on "pkg-config" => :build
+  depends_on "fftw"
   depends_on :macos => :el_capitan # due to zimg
+  depends_on "vapoursynth"
 
   def install
     system "./autogen.sh"

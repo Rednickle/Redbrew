@@ -13,10 +13,10 @@ class Libwps < Formula
     sha256 "56a4206df8bc4100d9afe3e53eaae82ba02a158787e24ce8d211c70c4dfa05ae" => :x86_64_linux
   end
 
-  depends_on "pkg-config" => :build
   depends_on "boost" => :build
-  depends_on "libwpd"
+  depends_on "pkg-config" => :build
   depends_on "librevenge"
+  depends_on "libwpd"
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
