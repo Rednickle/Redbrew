@@ -15,21 +15,19 @@ class Knot < Formula
   head do
     url "https://gitlab.labs.nic.cz/knot/knot-dns.git"
 
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
-  # due to AT_REMOVEDIR
-  depends_on :macos => :yosemite unless OS.mac?
-
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build
+  depends_on "fstrm"
   depends_on "gnutls"
   depends_on "libidn"
-  depends_on "userspace-rcu"
+  depends_on :macos => :yosemite if OS.mac? # due to AT_REMOVEDIR
   depends_on "protobuf-c"
-  depends_on "fstrm"
+  depends_on "userspace-rcu"
   depends_on "libedit" unless OS.mac?
 
   def install

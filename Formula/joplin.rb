@@ -14,8 +14,8 @@ class Joplin < Formula
     sha256 "e0362f45056ab922729ebffa90fcfdfcb8bd2cd9d90a5df701edacba81775ab4" => :x86_64_linux
   end
 
-  depends_on "node"
   depends_on "python@2" => :build
+  depends_on "node"
 
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)

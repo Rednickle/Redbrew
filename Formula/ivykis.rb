@@ -13,8 +13,8 @@ class Ivykis < Formula
     sha256 "eb82ff56adeaf023fe3321fe8a2e56b820e9dab2d5fbdb66bb46d998af8fb4ff" => :x86_64_linux
   end
 
-  depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "libtool" => :build
 
   def install

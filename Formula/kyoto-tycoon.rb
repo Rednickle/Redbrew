@@ -13,8 +13,8 @@ class KyotoTycoon < Formula
     sha256 "719e0bf6552fb1b9a5cdaf60a99e4fc020e5d621f5ab77baa1e32aaacf4e9dbf" => :x86_64_linux
   end
 
-  depends_on "lua" => :recommended
   depends_on "kyoto-cabinet"
+  depends_on "lua" => :recommended
 
   patch :DATA if MacOS.version >= :mavericks || !OS.mac?
 

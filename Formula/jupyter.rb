@@ -19,9 +19,9 @@ class Jupyter < Formula
 
   depends_on "ipython"
   depends_on "pandoc"
+  depends_on "pyqt" if build.with? "qtconsole"
   depends_on "python"
   depends_on "zeromq"
-  depends_on "pyqt" if build.with? "qtconsole"
   depends_on "expect" => :test unless OS.mac?
 
   resource "appnope" do

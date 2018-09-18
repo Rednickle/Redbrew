@@ -17,9 +17,9 @@ class JujuWait < Formula
     sha256 "90d78a69f66a7e011d650039bac889eb4f0607e4a1f1e9886456539a0133f7a9" => :x86_64_linux
   end
 
-  depends_on "python"
-  depends_on "libyaml"
   depends_on "juju"
+  depends_on "libyaml"
+  depends_on "python"
 
   resource "PyYAML" do
     url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"

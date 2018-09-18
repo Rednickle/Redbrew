@@ -23,8 +23,8 @@ class Jack < Formula
 
   depends_on "pkg-config" => :build
   depends_on "berkeley-db"
-  depends_on "libsndfile"
   depends_on "libsamplerate"
+  depends_on "libsndfile"
   depends_on "util-linux" unless OS.mac? # for libuuid
 
   def install
