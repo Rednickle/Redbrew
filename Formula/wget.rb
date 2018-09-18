@@ -30,9 +30,9 @@ class Wget < Formula
   depends_on "pod2man" => :build if OS.mac? && MacOS.version <= :snow_leopard
   depends_on "libidn2"
   depends_on "openssl"
-  depends_on "pcre" => :optional
-  depends_on "libmetalink" => :optional
   depends_on "gpgme" => :optional
+  depends_on "libmetalink" => :optional
+  depends_on "pcre" => :optional
   depends_on "util-linux" if OS.linux? # for libuuid
 
   def install

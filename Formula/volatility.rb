@@ -18,10 +18,10 @@ class Volatility < Formula
     sha256 "00e61089078d23985675d533789704662ed72c49b3a5ff99e5a8bc503e9c4380" => :x86_64_linux
   end
 
+  depends_on "freetype"
+  depends_on "jpeg"
   depends_on "python@2"
   depends_on "yara"
-  depends_on "jpeg"
-  depends_on "freetype"
   depends_on "gmp" unless OS.mac? # for pycrypto
 
   resource "distorm3" do

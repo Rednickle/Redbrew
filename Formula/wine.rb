@@ -54,14 +54,12 @@ class Wine < Formula
     end
   end
 
-  depends_on :macos => :el_capitan
-  depends_on "pkg-config" => :build
   depends_on "cmake" => :build
   depends_on "makedepend" => :build
-  unless OS.mac?
-    # libusb depends on libudev
-    depends_on "systemd"
-  end
+  depends_on "pkg-config" => :build
+  depends_on :macos => :el_capitan if OS.mac?
+  # libusb depends on libudev
+  depends_on "systemd" unless OS.mac?
 
   resource "gecko-x86" do
     url "https://dl.winehq.org/wine/wine-gecko/2.47/wine_gecko-2.47-x86.msi"

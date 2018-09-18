@@ -14,8 +14,8 @@ class YleDl < Formula
     sha256 "e02ad633478bd7e241973ee7b4263ed522e5152a1a5854996b201d790f6ab203" => :x86_64_linux
   end
 
-  depends_on "rtmpdump"
   depends_on "python@2"
+  depends_on "rtmpdump"
   depends_on "libxslt" unless OS.mac? # To be able to build the lxml resource
 
   resource "AdobeHDS.php" do

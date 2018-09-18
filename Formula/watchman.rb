@@ -14,14 +14,14 @@ class Watchman < Formula
     sha256 "70980a178ab90e74549f213501cc53892930e2317e1659957d5c499011d5a9fc" => :x86_64_linux
   end
 
-  depends_on :macos => :yosemite # older versions don't support fstatat(2)
-  depends_on "python@2"
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on :macos => :yosemite # older versions don't support fstatat(2)
   depends_on "openssl"
   depends_on "pcre"
+  depends_on "python@2"
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.

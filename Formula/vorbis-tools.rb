@@ -16,9 +16,9 @@ class VorbisTools < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "libao"
   depends_on "libogg"
   depends_on "libvorbis"
-  depends_on "libao"
   depends_on "flac" => :optional
   depends_on "curl" unless OS.mac?
 
