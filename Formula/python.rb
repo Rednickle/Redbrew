@@ -5,12 +5,11 @@ class Python < Formula
   sha256 "0382996d1ee6aafe59763426cf0139ffebe36984474d0ec4126dd1c40a8b3549"
 
   bottle do
-    rebuild 4
-    sha256 "63946292c0cb324dac16443fd260235389de2ab7ed7a9727a29b6dc67c5d742f" => :mojave
-    sha256 "60b216a4eee6410329a22236ae68d648361c1f7a54afa45c5b4b6c584d776730" => :high_sierra
-    sha256 "f7ab9c63324ca48aa0007cf2999bf5eea2635bc102df2281fb7ab1cfdfe47cd1" => :sierra
-    sha256 "72db80926f8ed4570ab7be44919ffe35706a3640cd783ce8810d6ddde7c57cde" => :el_capitan
-    sha256 "f8a78be2a00dee836afee17d446e19328ccda610f1dcd8dc00390efa7ebff485" => :x86_64_linux
+    rebuild 5
+    sha256 "600501d78904da7b5cbbf0d6e42d0028be2a9f85bdeb3b97724982c6453705ab" => :mojave
+    sha256 "3d55617b68b1cb58415159b31a29193e0b8c08e3726030f756d40a65107a46ce" => :high_sierra
+    sha256 "5720eaec832c06608ce60bf366dfb772f7ad5b1bf869f6f4d0f62636b9194d48" => :sierra
+    sha256 "19bbe7ade52e031cbf7e2b6d0d7ebce204c51fd7fae3d675c06fffdd29cdccae" => :el_capitan
   end
 
   head do
@@ -46,8 +45,8 @@ class Python < Formula
   skip_clean "bin/easy_install3", "bin/easy_install-3.4", "bin/easy_install-3.5", "bin/easy_install-3.6", "bin/easy_install-3.7"
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/80/f1/89d8a18ed758d4de4efbc56712676052b0f8a94f0d5c115d080b219f29af/setuptools-40.3.0.zip"
-    sha256 "d7051b952509a24623469193935162daeb500b8a00a9efef88080fa242f6d7fc"
+    url "https://files.pythonhosted.org/packages/c3/a8/a497f2f220fd51a714d0a466a32b8ec7d71dafbb053cb490a427b5fa2a1c/setuptools-40.4.1.zip"
+    sha256 "0565104c1fdc39cc28bcd8131e9d5af9eac6040168933a969f152a247ef59d11"
   end
 
   resource "pip" do
