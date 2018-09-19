@@ -14,25 +14,13 @@ class Twemcache < Formula
     sha256 "a8e3738ed8405dfefbaced33ab66472f9da64488eb2f3ab72db95e8f309c2620" => :x86_64_linux
   end
 
-  option "with-debug", "Debug mode with assertion panics enabled"
-
-  deprecated_option "enable-debug" => "with-debug"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libevent"
 
   def install
-    args = %W[--prefix=#{prefix}]
-
-    if build.with? "debug"
-      ENV.O0
-      ENV.append "CFLAGS", "-ggdb3"
-      args << "--enable-debug=full"
-    end
-
     system "autoreconf", "-fvi"
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
   end

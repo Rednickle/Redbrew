@@ -12,12 +12,6 @@ class Sword < Formula
     sha256 "daa1f0360c2a9b72ecdba5ca9574bfe9688f4c852d1313456502a2538b93b1e7" => :x86_64_linux
   end
 
-  option "with-clucene", "Use clucene for text searching capabilities"
-  option "with-icu4c", "Use icu4c for unicode support"
-
-  depends_on "clucene" => :optional
-  depends_on "icu4c" => :optional
-
   def install
     args = %W[
       --prefix=#{prefix}
@@ -25,19 +19,9 @@ class Sword < Formula
       --disable-profile
       --disable-tests
       --with-curl
+      --without-icu
+      --without-clucene
     ]
-
-    if build.with? "icu4c"
-      args << "--with-icu"
-    else
-      args << "--without-icu"
-    end
-
-    if build.with? "clucene"
-      args << "--with-clucene"
-    else
-      args << "--without-clucene"
-    end
 
     system "./configure", *args
     system "make", "install"

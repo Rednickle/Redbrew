@@ -17,13 +17,13 @@ class Makefile2graph < Formula
     sha256 "d9cf1abfadeef69329bed8ebf251753f2aadb18f6955b8869a468a47b76b6f10" => :x86_64_linux
   end
 
-  depends_on "graphviz" => :recommended
+  depends_on "graphviz"
 
   def install
     system "make"
     # make test fails on CircleCI. Error: fontconfig: Couldn't find font.
     # It can be fixed with apt-get install fonts-dejavu-core
-    system "make", "test" if build.with?("graphviz") && !ENV["CIRCLECI"]
+    system "make", "test" unless ENV["CIRCLECI"]
     bin.install "make2graph", "makefile2graph"
     man1.install "make2graph.1", "makefile2graph.1"
     doc.install "LICENSE", "README.md", "screenshot.png"

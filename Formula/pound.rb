@@ -12,9 +12,9 @@ class Pound < Formula
     sha256 "6e8214618ffa2738e0bfe626c5984041f00e6469a19532a669f53b386a0e3952" => :x86_64_linux
   end
 
+  depends_on "gperftools"
   depends_on "openssl"
   depends_on "pcre"
-  depends_on "gperftools" => :recommended
 
   def install
     system "./configure", "--prefix=#{prefix}", "--disable-tcmalloc"
