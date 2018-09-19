@@ -1,17 +1,15 @@
 class Libphonenumber < Formula
   desc "C++ Phone Number library by Google"
   homepage "https://github.com/googlei18n/libphonenumber"
-  url "https://github.com/googlei18n/libphonenumber/archive/v8.9.13.tar.gz"
-  sha256 "3f0a061457ea6260e03f32f01ad9d953f51cf30f29884924cad5c3eec7d635e1"
-  revision 1
+  url "https://github.com/googlei18n/libphonenumber/archive/v8.9.14.tar.gz"
+  sha256 "030097e05e376f919674d01d1075f4d3a92668c8743705b7ca6e24567ae47a59"
 
   bottle do
     cellar :any
-    sha256 "98d80349d5066cdcad4eb57d66d7a4c4719df692591e14bceb91c884de5aadfc" => :mojave
-    sha256 "72bf62079a9cc3e44f942c49fafa4f70918e6b173241bc5eb5b067d652806c0f" => :high_sierra
-    sha256 "7096c77bf9aa7aea27785b50b76076bf01984ce385613b3036a911c2fa86047a" => :sierra
-    sha256 "7f66d7bcf62ab3bf1b272b8159c116b42499486c19d2c958522b4d3ffde95a8f" => :el_capitan
-    sha256 "b9b3a4b2a28cf965cc5d18c0e1b0b73ecf836d2d1c154cba04637d45ffdeecbd" => :x86_64_linux
+    sha256 "8b876af35222332507fee4e119533e9663054e2d1630f298bc27efd27ab1fe15" => :mojave
+    sha256 "aa9d17a3e75dd0e1ea16813b6bdd9adcccb2283418d0ee94986c8b022a07a251" => :high_sierra
+    sha256 "cbc10a48320104c6c553ae7a0a753c45ec0ee275566a6bfc688a215aa6acd9e0" => :sierra
+    sha256 "cba62bc7d5f6ba956486e1d218b7ce192e2ed3768992f7fa6327ed4cff7f2094" => :el_capitan
   end
 
   depends_on "cmake" => :build
