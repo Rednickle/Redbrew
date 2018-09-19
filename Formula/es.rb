@@ -16,25 +16,13 @@ class Es < Formula
     sha256 "47eb9c54542fdc1f05144632e4d0cb93a50d8ddea973d452b98ad4de527b2d25" => :x86_64_linux # glibc 2.19
   end
 
-  option "with-readline", "Use readline instead of libedit"
-
-  depends_on "readline" => :optional
-
   def install
-    args = %W[--prefix=#{prefix}]
-
-    if build.with? "readline"
-      args << "--with-readline"
-    else
-      args << "--with-editline"
-    end
-
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}", "--with-editline"
     system "make"
 
-    man1.install "doc/es.1"
     bin.install "es"
     doc.install %w[CHANGES README trip.es examples]
+    man1.install "doc/es.1"
   end
 
   test do

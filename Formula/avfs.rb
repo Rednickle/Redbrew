@@ -3,7 +3,7 @@ class Avfs < Formula
   homepage "https://avf.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/avf/avfs/1.0.5/avfs-1.0.5.tar.bz2"
   sha256 "e5ce6b1f4193c37148b1b8a021f4f3d05e88f725cf11b16b95a58e8fdae50176"
-  revision 1 unless OS.mac?
+  revision OS.mac? ? 1 : 2
 
   bottle do
     sha256 "18dd2a2958a2a07b74309e3ec832dcc4c99de70b73e5d5b263be8833cc820ebb" => :high_sierra
@@ -13,9 +13,9 @@ class Avfs < Formula
 
   depends_on "pkg-config" => :build
   depends_on :macos => :sierra # needs clock_gettime
+  depends_on "openssl"
   depends_on :osxfuse if OS.mac?
-  depends_on "xz" => :recommended # Upstream recommends building with lzma support.
-  depends_on "openssl" => :optional
+  depends_on "xz"
   depends_on "libfuse" unless OS.mac?
 
   # Fix scripts to work on Mac OS X.
@@ -23,16 +23,15 @@ class Avfs < Formula
   patch :DATA
 
   def install
-    args = [
-      "--prefix=#{prefix}",
-      "--disable-debug",
-      "--disable-dependency-tracking",
-      "--disable-silent-rules",
-      "--enable-fuse",
-      "--enable-library",
+    args = %W[
+      --prefix=#{prefix}
+      --disable-debug
+      --disable-dependency-tracking
+      --disable-silent-rules
+      --enable-fuse
+      --enable-library
+      --with-ssl=#{Formula["openssl"].opt_prefix}
     ]
-
-    args << "--with-ssl=#{Formula["openssl"].opt_prefix}" if build.with? "openssl"
 
     system "./configure", *args
     system "make", "install"

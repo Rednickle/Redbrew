@@ -14,17 +14,11 @@ class Lightning < Formula
     sha256 "c45d791b33a4c44d6d7a35e5117d3255c3ad69919fda261bf1710711162496bd" => :x86_64_linux
   end
 
-  depends_on "binutils" => [:build, :optional]
+  depends_on "binutils" => :build
 
   def install
-    args = [
-      "--disable-dependency-tracking",
-      "--disable-silent-rules",
-      "--prefix=#{prefix}",
-    ]
-    args << "--disable-disassembler" if build.without? "binutils"
-
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking",
+                          "--disable-silent-rules", "--prefix=#{prefix}"
     system "make", "check", "-j1"
     system "make", "install"
   end

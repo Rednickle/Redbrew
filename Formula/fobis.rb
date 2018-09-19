@@ -15,11 +15,9 @@ class Fobis < Formula
     sha256 "c054eb9f133d0eed6d89b7c2ad7804f8f06a6d281a601ee61395a50aee806a26" => :x86_64_linux
   end
 
-  option "without-pygooglechart", "Disable support for coverage charts generated with pygooglechart"
-
   depends_on "gcc" # for gfortran
+  depends_on "graphviz"
   depends_on "python@2"
-  depends_on "graphviz" => :recommended
 
   resource "pygooglechart" do
     url "https://files.pythonhosted.org/packages/95/88/54f91552de1e1b0085c02b96671acfba6e351915de3a12a398533fc82e20/pygooglechart-0.4.0.tar.gz"
@@ -33,8 +31,8 @@ class Fobis < Formula
 
   def install
     venv = virtualenv_create(libexec)
-    venv.pip_install "pygooglechart" if build.with? "pygooglechart"
-    venv.pip_install "graphviz" if build.with? "graphviz"
+    venv.pip_install "pygooglechart"
+    venv.pip_install "graphviz"
     venv.pip_install_and_link buildpath
   end
 

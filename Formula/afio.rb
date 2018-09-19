@@ -17,20 +17,7 @@ class Afio < Formula
     sha256 "5b8c646c90cd1e46681bb2540d5f309bc7220d6bcbed402f8d95843f71a21377" => :x86_64_linux # glibc 2.19
   end
 
-  # Note - The Freecode website is no longer being updated and alternative
-  # links should be found from now on.
-
-  option "with-bzip2", "Use bzip2(1) instead of gzip(1) for compression/decompression"
-  deprecated_option "bzip2" => "with-bzip2"
-
   def install
-    if build.with? "bzip2"
-      inreplace "Makefile", "-DPRG_COMPRESS='\"gzip\"'", "-DPRG_COMPRESS='\"bzip2\"'"
-      inreplace "afio.c", "with -o: gzip files", "with -o: bzip2 files"
-      inreplace "afio.1", "gzip", "bzip2"
-      inreplace "afio.1", "bzip2, bzip2,", "gzip, bzip2,"
-    end
-
     system "make", "DESTDIR=#{prefix}"
     bin.install "afio"
     man1.install "afio.1"
