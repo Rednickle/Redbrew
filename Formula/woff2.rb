@@ -6,11 +6,11 @@ class Woff2 < Formula
 
   bottle do
     cellar :any
-    sha256 "0d92977b90e1fe7699d1dc2bf1dd26407173e7c1da0ffc23d9459ca3fa3d24b1" => :mojave
-    sha256 "dbbb582bc42ae47944c1004e3ec8017cc4a227e6167887dd0df6cde2571e2843" => :high_sierra
-    sha256 "dc8769da8c1b1d81d9a186da0cabc8f06ab869ca82d5c7625ec9b3db15531e53" => :sierra
-    sha256 "70df26c10ab652ba4e9f109936d93798922f17a88bc996343a2c840668963735" => :el_capitan
-    sha256 "00f96324a13703e2579c33754346016b7b6c60ea75bfd2e16315cb1dc87c55e9" => :x86_64_linux
+    rebuild 1
+    sha256 "d3ccc0d5d910483c5fa385cf213bb352bfe886f1b824f8c182d050ae96e77fdd" => :mojave
+    sha256 "f0a9cba72030b62b02336c277f2688ad96bf45c1720e58205cfa597be9860296" => :high_sierra
+    sha256 "965310f79a417663d33d4917880b4dd2a9654ca85f5a9a243465e3e0e86a394d" => :sierra
+    sha256 "59d4f6c77ae933445a0fde4b1445208a094169fa5dac784889dd6c8d4947c997" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -27,7 +27,12 @@ class Woff2 < Formula
   end
 
   def install
-    system "cmake", ".", *std_cmake_args
+    args = std_cmake_args + %W[
+      -DCMAKE_INSTALL_NAME_DIR=#{opt_lib}
+      -DCMAKE_BUILD_WITH_INSTALL_NAME_DIR=ON
+    ]
+
+    system "cmake", ".", *args
     system "make", "install"
 
     # make install does not install binaries
@@ -45,6 +50,6 @@ class Woff2 < Formula
     resource("roboto_2").stage testpath
     system "#{bin}/woff2_decompress", "KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.woff2"
     output = shell_output("file --brief KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.ttf")
-    assert_match "TrueType font data", output
+    assert_match(/TrueType font data/i, output)
   end
 end
