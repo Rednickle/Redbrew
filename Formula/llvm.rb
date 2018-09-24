@@ -84,6 +84,12 @@ class Llvm < Formula
     sha256 "b0afc0d6a628eed90274ec79fd9b2602ed1c1ca2402e539dfbdafc6907671dc8" => :el_capitan
   end
 
+  # Clang cannot find system headers if Xcode CLT is not installed
+  pour_bottle? do
+    reason "The bottle needs the Xcode CLT to be installed."
+    satisfy { MacOS::CLT.installed? }
+  end if OS.mac?
+
   head do
     url "https://llvm.org/git/llvm.git"
 
@@ -172,12 +178,6 @@ class Llvm < Formula
   ("4.3".."4.6").each do |n|
     fails_with :gcc => n
   end
-
-  # Clang cannot find system headers if Xcode CLT is not installed
-  pour_bottle? do
-    reason "The bottle needs the Xcode CLT to be installed."
-    satisfy { MacOS::CLT.installed? }
-  end if OS.mac?
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.

@@ -37,19 +37,19 @@ class Mysql < Formula
   # Fix error: Cannot find system editline libraries.
   depends_on "libedit" unless OS.mac?
 
-  # https://bugs.mysql.com/bug.php?id=86711
-  # https://github.com/Homebrew/homebrew-core/pull/20538
-  fails_with :clang do
-    build 800
-    cause "Wrong inlining with Clang 8.0, see MySQL Bug #86711"
-  end
-
   conflicts_with "mysql-cluster", "mariadb", "percona-server",
     :because => "mysql, mariadb, and percona install the same binaries."
   conflicts_with "mysql-connector-c",
     :because => "both install MySQL client libraries"
   conflicts_with "mariadb-connector-c",
     :because => "both install plugins"
+
+  # https://bugs.mysql.com/bug.php?id=86711
+  # https://github.com/Homebrew/homebrew-core/pull/20538
+  fails_with :clang do
+    build 800
+    cause "Wrong inlining with Clang 8.0, see MySQL Bug #86711"
+  end
 
   def datadir
     var/"mysql"

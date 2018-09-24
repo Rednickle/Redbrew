@@ -13,9 +13,6 @@ class Kafka < Formula
     sha256 "95b41e5130271655712e3eb40374b99ef59f075a72da9383f7e7b10a92d1d470" => :x86_64_linux
   end
 
-  depends_on :java => "1.8"
-  depends_on "zookeeper"
-
   # Related to https://issues.apache.org/jira/browse/KAFKA-2034
   # Since Kafka does not currently set the source or target compability version inside build.gradle
   # if you do not have Java 1.8 installed you cannot used the bottled version of Kafka
@@ -23,6 +20,9 @@ class Kafka < Formula
     reason "The bottle requires Java 1.8."
     satisfy { quiet_system("/usr/libexec/java_home --version 1.8 --failfast") }
   end
+
+  depends_on :java => "1.8"
+  depends_on "zookeeper"
 
   def install
     data = var/"lib"

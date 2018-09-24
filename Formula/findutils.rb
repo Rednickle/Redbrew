@@ -14,13 +14,13 @@ class Findutils < Formula
     sha256 "dd4a2e64a94370d964f2521de013b2a56bbc2e2a321e95aef83aa3d95a1fe648" => :x86_64_linux
   end
 
-  deprecated_option "default-names" => "with-default-names"
-
   if OS.mac?
     option "with-default-names", "Don't prepend 'g' to the binaries"
   else
     option "without-default-names", "Prepend 'g' to the binaries"
   end
+
+  deprecated_option "default-names" => "with-default-names"
 
   def install
     # Work around unremovable, nested dirs bug that affects lots of

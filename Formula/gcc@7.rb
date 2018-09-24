@@ -18,6 +18,13 @@ class GccAT7 < Formula
     sha256 "9da16081558aab97b76c7ca24e0a9f84843c05f4acbe2d2077f10fd90118e7e9" => :x86_64_linux
   end
 
+  # The bottles are built on systems with the CLT installed, and do not work
+  # out of the box on Xcode-only systems due to an incorrect sysroot.
+  pour_bottle? do
+    reason "The bottle needs the Xcode CLT to be installed."
+    satisfy { MacOS::CLT.installed? }
+  end
+
   option "with-jit", "Build just-in-time compiler"
   option "with-nls", "Build with native language support (localization)"
 
@@ -34,13 +41,6 @@ class GccAT7 < Formula
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
-
-  # The bottles are built on systems with the CLT installed, and do not work
-  # out of the box on Xcode-only systems due to an incorrect sysroot.
-  pour_bottle? do
-    reason "The bottle needs the Xcode CLT to be installed."
-    satisfy { MacOS::CLT.installed? }
-  end
 
   # Fix for libgccjit.so linkage on Darwin
   # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=64089

@@ -20,9 +20,9 @@ class GnuSed < Formula
     option "without-default-names", "Prepend 'g' to the binaries"
   end
 
-  conflicts_with "ssed", :because => "both install share/info/sed.info"
-
   deprecated_option "default-names" => "with-default-names"
+
+  conflicts_with "ssed", :because => "both install share/info/sed.info"
 
   def install
     args = ["--prefix=#{prefix}", "--disable-dependency-tracking"]

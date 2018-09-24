@@ -13,13 +13,13 @@ class GnuUnits < Formula
     sha256 "e9bef7041482d070bc902a241b0a45c9f715bbc17d2582ba314e5357d6bca592" => :x86_64_linux
   end
 
-  deprecated_option "default-names" => "with-default-names"
-
   if OS.mac?
     option "with-default-names", "Don't prepend 'g' to the binaries"
   else
     option "without-default-names", "Prepend 'g' to the binaries"
   end
+
+  deprecated_option "default-names" => "with-default-names"
 
   depends_on "readline"
 

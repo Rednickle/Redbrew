@@ -37,6 +37,13 @@ class Ocaml < Formula
     sha256 "be8e20363e12abca3dc243ce82817ed38829e5e0503d92d86b6a9644a8b7f438" => :x86_64_linux
   end
 
+  pour_bottle? do
+    # The ocaml compilers embed prefix information in weird ways that the default
+    # brew detection doesn't find, and so needs to be explicitly blacklisted.
+    reason "The bottle needs to be installed into /usr/local."
+    satisfy { HOMEBREW_PREFIX.to_s == "/usr/local" }
+  end
+
   option "with-x11", "Install with the Graphics module"
   option "with-flambda", "Install with flambda support"
 

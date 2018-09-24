@@ -39,6 +39,8 @@ class Ghostscript < Formula
     sha256 "0eb6f356119f2e49b2563210852e17f57f9dcc5755f350a69a46a0d641a0c401"
   end
 
+  patch :DATA # Uncomment macOS-specific make vars
+
   def install
     args = %W[
       --prefix=#{prefix}

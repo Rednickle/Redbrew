@@ -37,6 +37,13 @@ class GccAT5 < Formula
     sha256 "97bce0daec95df10eed7c749b7ea178ca7c03aae81227131d5a833d4a05bd7c1" => :x86_64_linux
   end
 
+  # The bottles are built on systems with the CLT installed, and do not work
+  # out of the box on Xcode-only systems due to an incorrect sysroot.
+  pour_bottle? do
+    reason "The bottle needs the Xcode CLT to be installed."
+    satisfy { MacOS::CLT.installed? }
+  end
+
   option "with-all-languages", "Enable all compilers and languages, except Ada"
   option "with-nls", "Build with native language support (localization)"
   option "with-profiled-build", "Make use of profile guided optimization when bootstrapping GCC"
@@ -54,21 +61,14 @@ class GccAT5 < Formula
     depends_on "glibc" => (Formula["glibc"].installed? || OS::Linux::Glibc.system_version < Formula["glibc"].version) ? :recommended : :optional
   end
 
+  # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
+  cxxstdlib_check :skip
+
   resource "isl" do
     url "https://gcc.gnu.org/pub/gcc/infrastructure/isl-0.14.tar.bz2"
     mirror "https://mirrorservice.org/sites/distfiles.macports.org/isl/isl-0.14.tar.bz2"
     sha256 "7e3c02ff52f8540f6a85534f54158968417fd676001651c8289c705bd0228f36"
   end
-
-  # The bottles are built on systems with the CLT installed, and do not work
-  # out of the box on Xcode-only systems due to an incorrect sysroot.
-  pour_bottle? do
-    reason "The bottle needs the Xcode CLT to be installed."
-    satisfy { MacOS::CLT.installed? }
-  end
-
-  # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
-  cxxstdlib_check :skip
 
   # Fix for libgccjit.so linkage on Darwin.
   # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=64089

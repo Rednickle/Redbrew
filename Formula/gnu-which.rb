@@ -18,13 +18,13 @@ class GnuWhich < Formula
     sha256 "5f9dc6704dbc7599c299c6e0dd186efe19d2cdf6680651010c7a9c3b377a983e" => :mountain_lion
   end
 
-  deprecated_option "default-names" => "with-default-names"
-
   if OS.mac?
     option "with-default-names", "Don't prepend 'g' to the binaries"
   else
     option "without-default-names", "Prepend 'g' to the binaries"
   end
+
+  deprecated_option "default-names" => "with-default-names"
 
   def install
     args = ["--prefix=#{prefix}", "--disable-dependency-tracking"]

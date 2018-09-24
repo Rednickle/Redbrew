@@ -14,10 +14,10 @@ class MongoCxxDriver < Formula
     sha256 "ab8fcb18414d61f2ecc3d06ef737fa24b13f4dd29361e406b538a21558aea931" => :x86_64_linux
   end
 
-  needs :cxx11
-
   depends_on "cmake" => :build
   depends_on "mongo-c-driver"
+
+  needs :cxx11
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.

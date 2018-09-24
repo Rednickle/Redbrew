@@ -19,6 +19,13 @@ class GccAT6 < Formula
     sha256 "1481fbb262fe7ef2b313cc148fc71857fbd2847b60f3349247308be45ca5ee20" => :x86_64_linux
   end
 
+  # The bottles are built on systems with the CLT installed, and do not work
+  # out of the box on Xcode-only systems due to an incorrect sysroot.
+  pour_bottle? do
+    reason "The bottle needs the Xcode CLT to be installed."
+    satisfy { MacOS::CLT.installed? }
+  end
+
   option "with-all-languages", "Enable all compilers and languages, except Ada"
   option "with-nls", "Build with native language support (localization)"
   option "with-jit", "Build the jit compiler"
@@ -34,17 +41,10 @@ class GccAT6 < Formula
   depends_on "libmpc"
   depends_on "mpfr"
 
-  fails_with :gcc_4_0
-
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
 
-  # The bottles are built on systems with the CLT installed, and do not work
-  # out of the box on Xcode-only systems due to an incorrect sysroot.
-  pour_bottle? do
-    reason "The bottle needs the Xcode CLT to be installed."
-    satisfy { MacOS::CLT.installed? }
-  end
+  fails_with :gcc_4_0
 
   # Fix for libgccjit.so linkage on Darwin
   # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=64089

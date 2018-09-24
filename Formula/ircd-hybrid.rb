@@ -12,12 +12,12 @@ class IrcdHybrid < Formula
     sha256 "3b0d4691fbe4535f09d875882e15c63dff6398304f96e4b1c7d0532fa61fc34c" => :x86_64_linux
   end
 
-  # ircd-hybrid needs the .la files
-  skip_clean :la
-
   depends_on "openssl"
 
   conflicts_with "ircd-irc2", :because => "both install an `ircd` binary"
+
+  # ircd-hybrid needs the .la files
+  skip_clean :la
 
   def install
     ENV.deparallelize # build system trips over itself

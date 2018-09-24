@@ -35,11 +35,21 @@ class GccAT49 < Formula
     sha256 "7b96ca4423b15494935fc775503132602637fae4fd773c4fe1f773738afb1205" => :x86_64_linux
   end
 
+  # The bottles are built on systems with the CLT installed, and do not work
+  # out of the box on Xcode-only systems due to an incorrect sysroot.
+  pour_bottle? do
+    reason "The bottle needs the Xcode CLT to be installed."
+    satisfy { MacOS::CLT.installed? }
+  end
+
   option "with-nls", "Build with native language support (localization)"
   option "with-profiled-build", "Make use of profile guided optimization when bootstrapping GCC"
 
   deprecated_option "enable-nls" => "with-nls"
   deprecated_option "enable-profiled-build" => "with-profiled-build"
+
+  # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
+  cxxstdlib_check :skip
 
   unless OS.mac?
     depends_on "binutils"
@@ -81,16 +91,6 @@ class GccAT49 < Formula
     mirror "https://mirrorservice.org/sites/archive.ubuntu.com/ubuntu/pool/main/c/cloog/cloog_0.18.4.orig.tar.gz"
     sha256 "325adf3710ce2229b7eeb9e84d3b539556d093ae860027185e7af8a8b00a750e"
   end
-
-  # The bottles are built on systems with the CLT installed, and do not work
-  # out of the box on Xcode-only systems due to an incorrect sysroot.
-  pour_bottle? do
-    reason "The bottle needs the Xcode CLT to be installed."
-    satisfy { MacOS::CLT.installed? }
-  end
-
-  # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
-  cxxstdlib_check :skip
 
   # Fix build with Xcode 9
   # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=82091

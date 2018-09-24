@@ -26,12 +26,12 @@ class Opencv < Formula
   depends_on "tbb"
   depends_on "openblas" unless OS.mac?
 
-  needs :cxx11
-
   resource "contrib" do
     url "https://github.com/opencv/opencv_contrib/archive/3.4.2.tar.gz"
     sha256 "45a52764ebd2558fa0b7fd8dc47379b37dd0956d912abbf7c786228374fdf60d"
   end
+
+  needs :cxx11
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.

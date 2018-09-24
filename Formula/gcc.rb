@@ -45,10 +45,15 @@ class Gcc < Formula
     sha256 "406111bf6c70681f2acbf39bb2462da0a15e1522d01bd909abed43556dff50ca" => :x86_64_linux
   end
 
-  # GCC's Go compiler is not currently supported on macOS.
-  # See: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=46986
-  option "with-java", "Build the gcj compiler"
-  option "with-all-languages", "Enable all compilers and languages, except Ada"
+  # The bottles are built on systems with the CLT installed, and do not work
+  # out of the box on Xcode-only systems due to an incorrect sysroot.
+  pour_bottle? do
+    default_prefix = BottleSpecification::DEFAULT_PREFIX
+    reason "The bottle needs the Xcode CLT to be installed and to be installed into #{default_prefix}."
+    satisfy { !OS.mac? || (MacOS::CLT.installed? && HOMEBREW_PREFIX.to_s == default_prefix) }
+  end
+
+  option "with-jit", "Build just-in-time compiler"
   option "with-nls", "Build with native language support (localization)"
   option "with-jit", "Build the jit compiler"
   option "without-fortran", "Build without the gfortran compiler"
@@ -66,14 +71,6 @@ class Gcc < Formula
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
-
-  # The bottles are built on systems with the CLT installed, and do not work
-  # out of the box on Xcode-only systems due to an incorrect sysroot.
-  pour_bottle? do
-    default_prefix = BottleSpecification::DEFAULT_PREFIX
-    reason "The bottle needs the Xcode CLT to be installed and to be installed into #{default_prefix}."
-    satisfy { !OS.mac? || (MacOS::CLT.installed? && HOMEBREW_PREFIX.to_s == default_prefix) }
-  end
 
   def version_suffix
     if build.head?

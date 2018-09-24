@@ -12,8 +12,9 @@ class Exim < Formula
     sha256 "a6b18ee606ee9393fed6f10b7777adcd97f95d31a1e1f6cd5a9c16c648b594cc" => :x86_64_linux
   end
 
-  deprecated_option "support-maildir" => "with-maildir"
   option "with-maildir", "Support delivery in Maildir format"
+
+  deprecated_option "support-maildir" => "with-maildir"
 
   depends_on "berkeley-db@4"
   depends_on "openssl"

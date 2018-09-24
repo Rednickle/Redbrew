@@ -30,11 +30,11 @@ class Ldc < Formula
     end
   end
 
-  needs :cxx11
-
   depends_on "cmake" => :build
   depends_on "libconfig" => :build
   depends_on "llvm"
+
+  needs :cxx11
 
   def install
     # Fix the error:

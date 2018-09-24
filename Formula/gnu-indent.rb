@@ -18,9 +18,9 @@ class GnuIndent < Formula
     option "without-default-names", "Prepend 'g' to the binaries"
   end
 
-  depends_on "gettext"
-
   deprecated_option "default-names" => "with-default-names"
+
+  depends_on "gettext"
 
   def install
     args = %W[
