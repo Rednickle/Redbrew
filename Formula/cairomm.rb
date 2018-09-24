@@ -14,12 +14,12 @@ class Cairomm < Formula
     sha256 "c2083f0fb89462891ba7ee9846554b32a1b5e5428955715caf17201bd0b1278a" => :x86_64_linux # glibc 2.19
   end
 
-  needs :cxx11
-
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "libpng"
   depends_on "libsigc++"
+
+  needs :cxx11
 
   def install
     ENV.cxx11

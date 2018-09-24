@@ -15,12 +15,13 @@ class Ed < Formula
     sha256 "e1b739510bc99fd9984d3a70ff533d344faac4c4697bb4c079d8a9eb52e49f70" => :x86_64_linux # glibc 2.19
   end
 
-  deprecated_option "default-names" => "with-default-names"
   if OS.mac?
     option "with-default-names", "Don't prepend 'g' to the binaries"
   else
     option "without-default-names", "Prepend 'g' to the binaries"
   end
+
+  deprecated_option "default-names" => "with-default-names"
 
   def install
     ENV.deparallelize

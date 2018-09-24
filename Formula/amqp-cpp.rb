@@ -15,10 +15,10 @@ class AmqpCpp < Formula
     sha256 "d83d3a6773e3a462826163a8608fed73e07063464cefe9e6238864433688ced7" => :x86_64_linux
   end
 
-  needs :cxx11
-
   depends_on "cmake" => :build
   depends_on "openssl"
+
+  needs :cxx11
 
   def install
     ENV.cxx11

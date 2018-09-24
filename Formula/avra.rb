@@ -15,15 +15,15 @@ class Avra < Formula
     sha256 "003cb0324d01616cdc62c13c0384587bd4a8f82e7eedff2f26b5c17841eae75f" => :x86_64_linux # glibc 2.19
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+
   # Crashes with 'abort trap 6' unless this fix is applied.
   # See: https://sourceforge.net/p/avra/patches/16/
   patch do
     url "https://gist.githubusercontent.com/adammck/7e4a14f7dd4cc58eea8afa99d1ad9f5d/raw/5cdbfe5ac310a12cae6671502697737d56827b05/avra-fix-osx.patch"
     sha256 "03493058c351cfce0764a8c2e63c2a7b691601dd836c760048fe47ddb9e91682"
   end if OS.mac?
-
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
 
   def install
     # build fails if these don't exist
