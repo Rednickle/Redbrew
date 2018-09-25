@@ -18,12 +18,12 @@ class Pdnsrec < Formula
   depends_on "lua"
   depends_on "openssl"
 
-  needs :cxx11
-
   fails_with :clang do
     build 600
     cause "incomplete C++11 support"
   end
+
+  needs :cxx11
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.

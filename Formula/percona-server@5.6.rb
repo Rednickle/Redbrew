@@ -13,6 +13,11 @@ class PerconaServerAT56 < Formula
     sha256 "427c070ca7cc70267f1a498af9a63385968c4a13b04b1ff06903d94ed58cbff1" => :x86_64_linux
   end
 
+  pour_bottle? do
+    reason "The bottle needs a var/mysql datadir (yours is var/percona)."
+    satisfy { datadir == var/"mysql" }
+  end
+
   keg_only :versioned_formula
 
   option "with-test", "Build with unit tests"
@@ -32,11 +37,6 @@ class PerconaServerAT56 < Formula
   # shared with the mysql and mariadb formulae.
   def datadir
     @datadir ||= (var/"percona").directory? ? var/"percona" : var/"mysql"
-  end
-
-  pour_bottle? do
-    reason "The bottle needs a var/mysql datadir (yours is var/percona)."
-    satisfy { datadir == var/"mysql" }
   end
 
   def install

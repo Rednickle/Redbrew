@@ -30,8 +30,6 @@ class Protobuf < Formula
     sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
   end
 
-  needs :cxx11
-
   unless OS.mac?
     fails_with :gcc => "4"
     fails_with :gcc => "5"
@@ -43,6 +41,8 @@ class Protobuf < Formula
     url "https://github.com/protocolbuffers/protobuf/pull/4862.patch?full_index=1"
     sha256 "4b1fe1893c40cdcef531c31746ddd18759c9ce3564c89ddcc0ec934ea5dbf377"
   end
+
+  needs :cxx11
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
