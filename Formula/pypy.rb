@@ -31,6 +31,9 @@ class Pypy < Formula
     depends_on "zlib"
   end
 
+  # https://bugs.launchpad.net/ubuntu/+source/gcc-4.2/+bug/187391
+  fails_with :gcc
+
   resource "bootstrap" do
     if OS.mac?
       url "https://bitbucket.org/pypy/pypy/downloads/pypy2-v6.0.0-osx64.tar.bz2"
@@ -51,9 +54,6 @@ class Pypy < Formula
     url "https://files.pythonhosted.org/packages/ae/e8/2340d46ecadb1692a1e455f13f75e596d4eab3d11a57446f08259dee8f02/pip-10.0.1.tar.gz"
     sha256 "f2bd08e0cd1b06e10218feaf6fef299f473ba706582eb3bd9d52203fdbd7ee68"
   end
-
-  # https://bugs.launchpad.net/ubuntu/+source/gcc-4.2/+bug/187391
-  fails_with :gcc
 
   def install
     # Having PYTHONPATH set can cause the build to fail if another
