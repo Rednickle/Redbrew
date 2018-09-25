@@ -1,15 +1,15 @@
 class Skafos < Formula
   desc "CLI for the Metis Machine A.I. and machine learning deployment platform"
   homepage "https://metismachine.com/"
-  url "https://github.com/MetisMachine/skafos/archive/1.7.0.tar.gz"
-  sha256 "2f1da1bc6c1452b10fe9ecc738cfde6ddd35ec58fc24f8a511da8efefeab5ab0"
+  url "https://github.com/MetisMachine/skafos/archive/1.7.1.tar.gz"
+  sha256 "d693649c1a433f129e30bbe125e0de239d7f4090e717d9b286dad127598ec6a0"
 
   bottle do
     cellar :any
-    sha256 "aff1c7b8c32ea76e8daf3fab0cc67fd3d8706dff8d3251e08c7f66d04fc6bddd" => :mojave
-    sha256 "e7393b659b619c29eaa18d2cb856b68b2936cf0d70587a5b4fcbb3d3c0a9ba11" => :high_sierra
-    sha256 "d1f46fdebb1f6b963fa2b155048e096b67e72429f6b3240d50faa4e47484dc68" => :sierra
-    sha256 "d4a3ca0ab54e6ca489621151fc55a5ef4d0dd70f772f8c071087cdb1df4449ac" => :el_capitan
+    sha256 "d175157ccabe3d3dccae204f54e1a06d7759bda12bf5002e40ebf8ea9e80cf37" => :mojave
+    sha256 "42c027075f50bf6d6d82258844a2c0ae13a1b2e39d2dfd2efa568751d2cdf7bc" => :high_sierra
+    sha256 "680dcca8cfea85fd136ce8b0364a14fba9f6e8574416c1ec4ca68268bba9da39" => :sierra
+    sha256 "24bf4ec6fc2220216c421274a26c8a5e3d3e676e4e8a7277b58785ff4c7c1b74" => :el_capitan
   end
 
   depends_on "cmake" => :build

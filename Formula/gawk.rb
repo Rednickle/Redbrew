@@ -29,6 +29,9 @@ class Gawk < Formula
       opoo "Skipping `make check` due to unavailable `cmp`"
     end
     system "make", "install"
+
+    (libexec/"gnubin").install_symlink bin/"gawk" => "awk"
+    (libexec/"gnuman/man1").install_symlink man1/"gawk.1" => "awk.1"
   end
 
   test do
