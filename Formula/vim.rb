@@ -14,8 +14,6 @@ class Vim < Formula
     sha256 "044144f580c53206217ac118645e85a7562c1983376ed1c1f326f47a6d47583c" => :x86_64_linux
   end
 
-  deprecated_option "override-system-vi" => "with-override-system-vi"
-
   option "with-override-system-vi", "Override system vi"
   option "with-gettext", "Build vim with National Language Support (translated messages, keymaps)"
   option "with-client-server", "Enable client/server mode"
@@ -30,6 +28,8 @@ class Vim < Formula
   LANGUAGES_DEFAULT.each do |language|
     option "without-#{language}", "Build vim without #{language} support"
   end
+
+  deprecated_option "override-system-vi" => "with-override-system-vi"
 
   depends_on "perl"
   depends_on "ruby"

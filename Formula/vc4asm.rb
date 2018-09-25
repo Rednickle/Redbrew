@@ -14,14 +14,14 @@ class Vc4asm < Formula
     sha256 "adc9f29aec1987af9be4278ed1838bdc6903dc71e5985f9dc7aecca4b1803b8e" => :x86_64_linux # glibc 2.19
   end
 
-  needs :cxx11
-
   # Fixes "ar: illegal option combination for -r"
   # Reported 13 Apr 2017 https://github.com/maazl/vc4asm/issues/18
   resource "old_makefile" do
     url "https://raw.githubusercontent.com/maazl/vc4asm/c6991f0/src/Makefile"
     sha256 "2ea9a9e660e85dace2e9b1c9be17a57c8a91e89259d477f9f63820aee102a2d3"
   end
+
+  needs :cxx11
 
   def install
     ENV.cxx11

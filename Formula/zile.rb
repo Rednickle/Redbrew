@@ -14,6 +14,10 @@ class Zile < Formula
     sha256 "7be8a01bcbb729217d76a3387a797ae63d85f40540a1e18f5d75ed9b318e5c6a" => :x86_64_linux
   end
 
+  depends_on "help2man" => :build
+  depends_on "pkg-config" => :build
+  depends_on "bdw-gc"
+
   # https://github.com/mistydemeo/tigerbrew/issues/215
   fails_with :gcc_4_0 do
     cause "src/funcs.c:1128: error: #pragma GCC diagnostic not allowed inside functions"
