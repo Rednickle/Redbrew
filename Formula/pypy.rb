@@ -14,16 +14,11 @@ class Pypy < Formula
     sha256 "df6ac843ffb7984d098421861033c50d24f1462e5a1494f66cb0ca50a5a8fd2c" => :x86_64_linux
   end
 
-  option "without-bootstrap", "Translate Pypy with system Python instead of " \
-                              "downloading a Pypy binary distribution to " \
-                              "perform the translation (adds 30-60 minutes " \
-                              "to build)"
-
   depends_on "pkg-config" => :build
   depends_on :arch => :x86_64
+  depends_on "gdbm"
   depends_on "openssl"
-  depends_on "gdbm" => :recommended
-  depends_on "sqlite" => :recommended
+  depends_on "sqlite"
   unless OS.mac?
     depends_on "expat"
     depends_on "libffi"
@@ -62,11 +57,8 @@ class Pypy < Formula
     ENV["PYTHONPATH"] = ""
     ENV["PYPY_USESSION_DIR"] = buildpath
 
-    python = "python"
-    if build.with?("bootstrap") && MacOS.prefer_64_bit?
-      resource("bootstrap").stage buildpath/"bootstrap"
-      python = buildpath/"bootstrap/bin/pypy"
-    end
+    resource("bootstrap").stage buildpath/"bootstrap"
+    python = buildpath/"bootstrap/bin/pypy"
 
     inreplace "lib_pypy/_tkinter/tklib_build.py" do |s|
       s.gsub! "/usr/include/tcl", Formula["tcl-tk"].opt_include.to_s
@@ -82,7 +74,6 @@ class Pypy < Formula
     libexec.mkpath
     cd "pypy/tool/release" do
       package_args = %w[--archive-name pypy --targetdir .]
-      package_args << "--without-gdbm" if build.without? "gdbm"
       system python, "package.py", *package_args
       system "tar", "-C", libexec.to_s, "--strip-components", "1", "-xf", "pypy.tar.bz2"
     end

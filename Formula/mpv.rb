@@ -19,14 +19,13 @@ class Mpv < Formula
   depends_on "python@2" => :build
 
   depends_on "ffmpeg"
+  depends_on "jpeg"
   depends_on "libass"
+  depends_on "little-cms2"
   depends_on "lua@5.1"
   depends_on :macos => :mountain_lion
-
-  depends_on "jpeg" => :recommended
-  depends_on "little-cms2" => :recommended
-  depends_on "mujs" => :recommended if OS.mac?
-  depends_on "youtube-dl" => :recommended
+  depends_on "mujs" if OS.mac?
+  depends_on "youtube-dl"
 
   depends_on "jack" => :optional
   depends_on "libaacs" => :optional
@@ -67,8 +66,9 @@ class Mpv < Formula
 
     args = %W[
       --prefix=#{prefix}
-      --enable-libmpv-shared
       --enable-html-build
+      --enable-javascript
+      --enable-libmpv-shared
       --enable-lua
       --confdir=#{etc}/mpv
       --datadir=#{pkgshare}
@@ -79,7 +79,6 @@ class Mpv < Formula
     args << "--enable-libbluray" if build.with? "libbluray"
     args << "--enable-dvdnav" if build.with? "libdvdnav"
     args << "--enable-dvdread" if build.with? "libdvdread"
-    args << "--enable-javascript" if build.with? "mujs"
     args << "--enable-pulse" if build.with? "pulseaudio"
     args << "--disable-javascript" unless OS.mac? # The mujs formula does not build .so files
 

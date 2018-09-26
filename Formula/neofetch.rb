@@ -14,8 +14,8 @@ class Neofetch < Formula
     sha256 "14cc74fb3b01ae676c23701bca05c0c33799368c6f148f606053415d2dde374d" => :x86_64_linux
   end
 
-  depends_on "imagemagick" => :recommended
-  depends_on "screenresolution" => :recommended if OS.mac?
+  depends_on "imagemagick"
+  depends_on "screenresolution" if OS.mac?
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
