@@ -14,11 +14,6 @@ class Xcodegen < Formula
   depends_on :xcode => ["9.3", :build] if OS.mac?
 
   def install
-    # fixes an issue an issue in homebrew when both Xcode 9.3+ and command line tools are installed
-    # see more details here https://github.com/Homebrew/brew/pull/4147
-    # remove this once homebrew is patched
-    ENV["CC"] = Utils.popen_read("xcrun -find clang").chomp
-
     system "make", "install", "PREFIX=#{prefix}"
   end
 

@@ -17,8 +17,6 @@ class Sourcery < Formula
   end
 
   def install
-    ENV["CC"] = Utils.popen_read("xcrun -find clang").chomp # rdar://40724445
-
     system "swift", "build", "--disable-sandbox", "-c", "release", "-Xswiftc",
            "-static-stdlib"
     bin.install ".build/release/sourcery"
