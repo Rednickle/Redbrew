@@ -14,11 +14,8 @@ class Giflossy < Formula
     sha256 "3ea7beb1ba8f3c9629ab0b7958d57c493e1b3fcf91b58c4d1caeda60f0d13335" => :x86_64_linux
   end
 
-  option "with-x11", "Install gifview"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on :x11 => :optional
 
   conflicts_with "gifsicle",
     :because => "both install an `gifsicle` binary"
@@ -27,9 +24,8 @@ class Giflossy < Formula
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
+      --disable-gifview
     ]
-
-    args << "--disable-gifview" if build.without? "x11"
 
     system "autoreconf", "-fvi"
     system "./configure", *args

@@ -17,7 +17,6 @@ class Libuvc < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "libusb"
-  depends_on "jpeg" => :optional
 
   def install
     system "cmake", ".", *std_cmake_args

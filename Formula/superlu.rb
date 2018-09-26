@@ -14,29 +14,17 @@ class Superlu < Formula
     sha256 "b802873f78079ca283f9ffb0a2822b5579f5abb314523f989a200febce19c2c4" => :x86_64_linux
   end
 
-  option "with-openmp", "Enable OpenMP multithreading"
-
-  depends_on "gcc" if build.with? "openmp"
-  depends_on "veclibfort" if build.without?("openblas") && OS.mac?
-  depends_on "openblas" => (OS.mac? ? :optional : :recommended)
-
-  fails_with :clang if build.with? "openmp"
+  depends_on "veclibfort" if OS.mac?
+  depends_on "openblas" unless OS.mac?
 
   def install
     ENV.deparallelize
     cp "MAKE_INC/make.mac-x", "./make.inc"
 
-    if build.with? "openblas"
-      blas = "-L#{Formula["openblas"].opt_lib} -lopenblas"
-    else
-      blas = "-L#{Formula["veclibfort"].opt_lib} -lvecLibFort"
-    end
-
     args = ["SuperLUroot=#{buildpath}",
             "SUPERLULIB=$(SuperLUroot)/lib/libsuperlu.a",
             "CC=#{ENV.cc}",
-            "BLASLIB=#{blas}"]
-    args << "LOADOPTS=-fopenmp" if build.with?("openmp")
+            "BLASLIB=-L#{Formula["veclibfort"].opt_lib} -lvecLibFort"]
 
     system "make", "lib", *args
     lib.install Dir["lib/*"]

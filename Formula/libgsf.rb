@@ -24,7 +24,6 @@ class Libgsf < Formula
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
-  depends_on "gdk-pixbuf" => :optional
   depends_on "libxml2" unless OS.mac?
 
   def install

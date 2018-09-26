@@ -15,8 +15,6 @@ class SLang < Formula
   end
 
   depends_on "libpng"
-  depends_on "oniguruma" => :optional
-  depends_on "pcre" => :optional
 
   def install
     png = Formula["libpng"]

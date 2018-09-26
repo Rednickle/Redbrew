@@ -3,6 +3,7 @@ class AvroC < Formula
   homepage "https://avro.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=avro/avro-1.8.2/c/avro-c-1.8.2.tar.gz"
   sha256 "4639982b2b8fbd91fc7128fef672207129c959bb7900dd64b077ce4206edf10e"
+  revision 1
 
   bottle do
     rebuild 1
@@ -13,14 +14,11 @@ class AvroC < Formula
     sha256 "8d15c6d4222a0e049a7faad723e7f572e602518a4261de6b3a0eb131332035ee" => :x86_64_linux
   end
 
-  option "with-snappy", "Build with Snappy codec support"
-  option "with-xz", "Build with LZMA codec support"
-
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "jansson"
-  depends_on "snappy" => :optional
-  depends_on "xz" => :optional
+  depends_on "snappy"
+  depends_on "xz"
   depends_on "zlib" unless OS.mac?
 
   def install

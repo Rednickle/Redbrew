@@ -16,7 +16,7 @@ class Mikutter < Formula
   depends_on "gtk+"
   depends_on "libidn"
   depends_on "ruby"
-  depends_on "terminal-notifier" => :recommended if OS.mac?
+  depends_on "terminal-notifier" if OS.mac?
   depends_on "xz" unless OS.mac? # get liblzma compression algorithm library from XZutils
 
   resource "addressable" do
