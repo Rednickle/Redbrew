@@ -12,6 +12,7 @@ class Diceware < Formula
     sha256 "804dedba249ec07880d46de1c438ab1e030dcabbd3c3a856376421c365fc2355" => :high_sierra
     sha256 "d6a2b39814cd36908c198fff005f449c5acda91b7b4416e8e670348bee83aaf1" => :sierra
     sha256 "5f0aeaaeecf438f4d61a8cdf4420198f167d49bf962dbde55e2bd8abc305dd63" => :el_capitan
+    sha256 "227c7939d03ab0b7b4c2f9aa3e7a7a09e615af521d9d517b24e04ade059c5b3c" => :x86_64_linux
   end
 
   depends_on "python"
