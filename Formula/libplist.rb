@@ -22,11 +22,7 @@ class Libplist < Formula
     depends_on "libtool" => :build
   end
 
-  option "without-cython", "Skip building Cython Python bindings"
-
-  deprecated_option "with-python" => "without-cython"
-
-  depends_on "cython" => [:build, :recommended]
+  depends_on "cython" => :build
   depends_on "pkg-config" => :build
 
   def install
@@ -37,7 +33,6 @@ class Libplist < Formula
       --disable-silent-rules
       --prefix=#{prefix}
     ]
-    args << "--without-cython" if build.without? "cython"
 
     system "./autogen.sh" if build.head?
     system "./configure", *args

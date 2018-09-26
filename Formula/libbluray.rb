@@ -24,8 +24,7 @@ class Libbluray < Formula
   depends_on :java => ["1.8", :build]
   depends_on "pkg-config" => :build
   depends_on "fontconfig"
-  depends_on "ant" => [:build, :optional]
-  depends_on "freetype" => :recommended
+  depends_on "freetype"
   depends_on "libxml2" unless OS.mac?
 
   def install
@@ -37,7 +36,6 @@ class Libbluray < Formula
     ENV.append_to_cflags "-D_DARWIN_C_SOURCE"
 
     args = %W[--prefix=#{prefix} --disable-dependency-tracking]
-    args << "--without-freetype" if build.without? "freetype"
 
     system "./bootstrap" if build.head?
     system "./configure", *args

@@ -16,9 +16,7 @@ class HttpLoad < Formula
     sha256 "6a93ee2b2d031c2e001698317c10b2f99dfce6d31fe61043044844de3d3d7ced" => :x86_64_linux # glibc 2.19
   end
 
-  option "without-openssl", "Build without OpenSSL / HTTPS support"
-
-  depends_on "openssl" => :recommended
+  depends_on "openssl"
 
   def install
     bin.mkpath
@@ -29,13 +27,10 @@ class HttpLoad < Formula
       LIBDIR=#{lib}
       MANDIR=#{man1}
       CC=#{ENV.cc}
+      SSL_TREE=#{Formula["openssl"].opt_prefix}
     ]
 
-    if build.with? "openssl"
-      inreplace "Makefile", "#SSL_", "SSL_"
-      args << "SSL_TREE=#{Formula["openssl"].opt_prefix}"
-    end
-
+    inreplace "Makefile", "#SSL_", "SSL_"
     system "make", "install", *args
   end
 

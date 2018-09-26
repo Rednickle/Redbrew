@@ -14,8 +14,8 @@ class Gprof2dot < Formula
     sha256 "cf119d9998427ca193f5008f5dba9539789d4da885767ef8f391c29a4acb4863" => :x86_64_linux
   end
 
+  depends_on "graphviz"
   depends_on "python@2"
-  depends_on "graphviz" => :recommended
 
   def install
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
