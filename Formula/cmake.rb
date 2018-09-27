@@ -14,10 +14,9 @@ class Cmake < Formula
     sha256 "eafb24ecebaa03ca38c9e63b436fccd8eba65255307abcf00042f65546ea9d23" => :x86_64_linux
   end
 
-  option "without-docs", "Don't build man pages"
   option "with-completion", "Install Bash completion (Has potential problems with system bash)"
 
-  depends_on "sphinx-doc" => :build if build.with? "docs"
+  depends_on "sphinx-doc" => :build
   unless OS.mac?
     depends_on "ncurses"
     depends_on "openssl"
@@ -46,18 +45,17 @@ class Cmake < Formula
       --datadir=/share/cmake
       --docdir=/share/doc/cmake
       --mandir=/share/man
+      --sphinx-build=#{Formula["sphinx-doc"].opt_bin}/sphinx-build
+      --sphinx-man
       --system-zlib
       --system-bzip2
       --system-curl
     ]
     args -= ["--system-zlib", "--system-bzip2", "--system-curl"] unless OS.mac?
 
-    if build.with? "docs"
-      # There is an existing issue around macOS & Python locale setting
-      # See https://bugs.python.org/issue18378#msg215215 for explanation
-      ENV["LC_ALL"] = "en_US.UTF-8"
-      args << "--sphinx-man" << "--sphinx-build=#{Formula["sphinx-doc"].opt_bin}/sphinx-build"
-    end
+    # There is an existing issue around macOS & Python locale setting
+    # See https://bugs.python.org/issue18378#msg215215 for explanation
+    ENV["LC_ALL"] = "en_US.UTF-8"
 
     system "./bootstrap", *args, "--", "-DCMAKE_BUILD_TYPE=Release"
     system "make"

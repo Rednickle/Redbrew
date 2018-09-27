@@ -13,15 +13,13 @@ class Libupnp < Formula
     sha256 "9784db62d7c259028796eccedfad89b170d0e0afd05234137b6b92d4cf72d1e4" => :x86_64_linux
   end
 
-  option "without-ipv6", "Disable IPv6 support"
-
   def install
     args = %W[
       --disable-debug
       --disable-dependency-tracking
       --prefix=#{prefix}
+      --enable-ipv6
     ]
-    args << "--enable-ipv6" if build.with? "ipv6"
 
     system "./configure", *args
     system "make", "install"

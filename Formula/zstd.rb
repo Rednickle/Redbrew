@@ -13,28 +13,23 @@ class Zstd < Formula
     sha256 "304d5330673b5d4aae229474cf6cebf526b98b72a204db1053c592db257b2ee2" => :x86_64_linux
   end
 
-  option "without-pzstd", "Build without parallel (de-)compression tool"
-
   depends_on "cmake" => :build
   depends_on "zlib" unless OS.mac?
 
   def install
     system "make", "install", "PREFIX=#{prefix}/"
 
-    if build.with? "pzstd"
-      system "make", "-C", "contrib/pzstd", "googletest"
-      system "make", "-C", "contrib/pzstd", "PREFIX=#{prefix}"
-      bin.install "contrib/pzstd/pzstd"
-    end
+    # Build parallel version
+    system "make", "-C", "contrib/pzstd", "googletest"
+    system "make", "-C", "contrib/pzstd", "PREFIX=#{prefix}"
+    bin.install "contrib/pzstd/pzstd"
   end
 
   test do
     assert_equal "hello\n",
       pipe_output("#{bin}/zstd | #{bin}/zstd -d", "hello\n", 0)
 
-    if build.with? "pzstd"
-      assert_equal "hello\n",
-        pipe_output("#{bin}/pzstd | #{bin}/pzstd -d", "hello\n", 0)
-    end
+    assert_equal "hello\n",
+      pipe_output("#{bin}/pzstd | #{bin}/pzstd -d", "hello\n", 0)
   end
 end
