@@ -15,7 +15,6 @@ class Gflags < Formula
     sha256 "5101d3ed48e1ca28c8976dff5d7304df3c7c99b71dd45ec46bef74e48738fa8f" => :x86_64_linux
   end
 
-  option "with-debug", "Build debug version"
   option "with-static", "Build gflags as a static (instead of shared) library."
 
   depends_on "cmake" => :build

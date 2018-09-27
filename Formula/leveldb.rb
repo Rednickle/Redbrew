@@ -15,14 +15,12 @@ class Leveldb < Formula
     sha256 "43ce37a668a53bf194828a2eb32cc9e291df8a408b3002c12077189ef3f87f89" => :x86_64_linux # glibc 2.19
   end
 
-  option "with-test", "Verify the build with make check"
-
   depends_on "gperftools"
   depends_on "snappy"
 
   def install
     system "make"
-    system "make", "check" if build.bottle? || build.with?("test")
+    system "make", "check" if build.bottle?
 
     include.install "include/leveldb"
     bin.install "out-static/leveldbutil"

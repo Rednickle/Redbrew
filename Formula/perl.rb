@@ -14,7 +14,6 @@ class Perl < Formula
   end
 
   option "with-dtrace", "Build with DTrace probes"
-  option "with-test", "Run build-time tests"
 
   unless OS.mac?
     depends_on "gdbm"
@@ -61,9 +60,7 @@ class Perl < Formula
     system "make"
     # On Linux (in travis / docker container), the op/getppid.t fails too, disable the tests:
     # https://rt.perl.org/Public/Bug/Display.html?id=130143
-    if OS.mac?
-      system "make", "test" if build.with?("test") || build.bottle?
-    end
+    system "make", "test" if build.bottle? && OS.mac?
 
     # Remove the symlink so the library actually gets installed.
     rm lib/"perl5/#{version}/darwin-thread-multi-2level/CORE/libperl.dylib" if OS.mac?

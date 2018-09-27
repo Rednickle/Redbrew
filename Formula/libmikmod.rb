@@ -14,21 +14,11 @@ class Libmikmod < Formula
     sha256 "be7aefb9f7630a6626b95611782862c529bac8df955e8a4d16ef9bf25b2c2928" => :x86_64_linux # glibc 2.19
   end
 
-  option "with-debug", "Enable debugging symbols"
-
   def install
-    ENV.O2 if build.with? "debug"
-
-    # macOS has CoreAudio, but ALSA is not for this OS nor is SAM9407 nor ULTRA.
-    args = %W[
-      --prefix=#{prefix}
-      --disable-alsa
-      --disable-sam9407
-      --disable-ultra
-    ]
-    args << "--with-debug" if build.with? "debug"
     mkdir "macbuild" do
-      system "../configure", *args
+      # macOS has CoreAudio, but ALSA, SAM9407 and ULTRA are not supported
+      system "../configure", "--prefix=#{prefix}", "--disable-alsa",
+                             "--disable-sam9407", "--disable-ultra"
       system "make", "install"
     end
   end

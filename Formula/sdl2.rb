@@ -22,8 +22,6 @@ class Sdl2 < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-test", "Compile and install the tests"
-
   unless OS.mac?
     depends_on "pulseaudio"
     depends_on "libxkbcommon"
@@ -48,13 +46,12 @@ class Sdl2 < Formula
 
     system "./autogen.sh" if build.head? || build.devel?
 
-    args = %W[--prefix=#{prefix}]
+    args = %W[--prefix=#{prefix} --without-x]
 
     # LLVM-based compilers choke on the assembly code packaged with SDL.
     if ENV.compiler == :clang && DevelopmentTools.clang_build_version < 421
       args << "--disable-assembly"
     end
-    args << "--without-x" if OS.mac?
     args << "--disable-haptic" << "--disable-joystick" if MacOS.version <= :snow_leopard
 
     unless OS.mac?
@@ -76,34 +73,6 @@ class Sdl2 < Formula
 
     system "./configure", *args
     system "make", "install"
-
-    if build.with? "test"
-      ENV.prepend_path "PATH", bin
-      # We need the build to point at the newly-built (not yet linked) copy of SDL.
-      inreplace bin/"sdl2-config", "prefix=#{HOMEBREW_PREFIX}", "prefix=#{prefix}"
-      cd "test" do
-        # These test source files produce binaries which by default will reference
-        # some sample resources in the working directory.
-        # Let's point them to the test_extras directory we're about to set up instead!
-        inreplace %w[controllermap.c loopwave.c loopwavequeue.c testmultiaudio.c
-                     testoverlay2.c testsprite2.c],
-                  /"(\w+\.(?:bmp|dat|wav))"/,
-                  "\"#{pkgshare}/test_extras/\\1\""
-        system "./configure", *("--without-x" if OS.mac?)
-        system "make"
-        # Tests don't have a "make install" target
-        (pkgshare/"tests").install %w[checkkeys controllermap loopwave loopwavequeue testaudioinfo
-                                      testerror testfile testgl2 testiconv testjoystick testkeys
-                                      testloadso testlock testmultiaudio testoverlay2 testplatform
-                                      testsem testshape testsprite2 testthread testtimer testver
-                                      testwm2 torturethread]
-        (pkgshare/"test_extras").install %w[axis.bmp button.bmp controllermap.bmp icon.bmp moose.dat
-                                            picture.xbm sample.bmp sample.wav shapes]
-        bin.write_exec_script Dir["#{pkgshare}/tests/*"]
-      end
-      # Point sdl-config back at the normal prefix once we've built everything.
-      inreplace bin/"sdl2-config", "prefix=#{prefix}", "prefix=#{HOMEBREW_PREFIX}"
-    end
   end
 
   test do
