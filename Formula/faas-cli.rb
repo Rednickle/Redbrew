@@ -2,16 +2,14 @@ class FaasCli < Formula
   desc "CLI for templating and/or deploying FaaS functions"
   homepage "https://docs.get-faas.com/"
   url "https://github.com/openfaas/faas-cli.git",
-      :tag => "0.7.3",
-      :revision => "54dc4d4499f9e9698ad1a9c459f60643a2b096a4"
+      :tag => "0.7.4",
+      :revision => "2152c4610c12948119f0326e0851e4f019e5ab50"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fdcc994ad2bed41b6340643c18b0b23a72e5cbb358b2584c356699a1be94b569" => :mojave
-    sha256 "6735cfd97df01b91a160d853d64adb82b26a2dceff6ec6fdc3a346731f3a860b" => :high_sierra
-    sha256 "f04ef5f4e0bd8a3460116738ad29d91ec0afc6e95f6d1de5dd50268b23f3a3c7" => :sierra
-    sha256 "d482170c04b2601c7dea09cf475af447fcfdd87379b310297c4f3ff06b762389" => :el_capitan
-    sha256 "6712c45f4a2a208ae01731c817222e6d9cae4a75943641dc0ec50832295b88a8" => :x86_64_linux
+    sha256 "6f8716640ef9ffc2f41d48a20b2b59ab583aa8cba3506775cab32c8a7d4b2bfc" => :mojave
+    sha256 "f657ab1850debce8c6d41a2ffbbb6b05057fe562e6533eaf2fbf8602d7c80686" => :high_sierra
+    sha256 "cd5a43f3c4121812c5258eb1919f8984c073f17a6110712e5ebfa5319d875d05" => :sierra
   end
 
   depends_on "go" => :build
