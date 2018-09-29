@@ -7,14 +7,11 @@ class Pyqt < Formula
   revision 1
 
   bottle do
-    sha256 "c34c54730c440ba9e1a3b5ec28ca09866cf793df8545985d13e92f7ac89751aa" => :mojave
-    sha256 "7098976f9222b541929b63e50038127b85263c1b820186b79fe011d559a1d4aa" => :high_sierra
-    sha256 "692d8ce2949fcc4258818c68dbf142bdc5b1a22a98af99bcdac2a321d0b79ea0" => :sierra
-    sha256 "17ae485e79a5b3e35f0a09bcb3862239517218ebeae10850d7804d49edc1d839" => :el_capitan
-    sha256 "d35aee3dbfbdaada61d1bef0c013ef6b32d7ff3df7a12111c55ef74de7cc1800" => :x86_64_linux
+    rebuild 1
+    sha256 "75eb3512285c77fd8c3a65a2a4e19b9ea5debbcd039fa377b19e97dcc7cf8604" => :mojave
+    sha256 "34bc0231cb08e1943d1fd0afc13eb13bcedddd402b1a0f66b3bc267d8da40938" => :high_sierra
+    sha256 "efef45925e917682ccba19acc4ccc62b5945c9619d7104c2c721e31b7f7efc8b" => :sierra
   end
-
-  option "with-docs", "Install HTML documentation and python examples"
 
   depends_on "qt"
   depends_on "sip"
@@ -51,7 +48,6 @@ class Pyqt < Formula
       system "make", "install"
       system "make", "clean"
     end
-    doc.install "doc/html", "examples" if build.with? "docs"
   end
 
   test do
