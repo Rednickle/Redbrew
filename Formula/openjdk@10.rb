@@ -1,6 +1,10 @@
 class OpenjdkAT10 < Formula
   desc "Java Development Kit"
   homepage "http://jdk.java.net/10/"
+  bottle do
+    sha256 "07db75aecdfd58b5fb0b7eca8885de56a42134b07ed4c05764967569583c63d7" => :x86_64_linux
+  end
+
   # tag "linuxbrew"
 
   version "10.0.2"
