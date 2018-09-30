@@ -1,6 +1,12 @@
 class Openjdk < Formula
   desc "Java Development Kit"
   homepage "https://github.com/ojdkbuild/"
+
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "470d6361589e4a6a89050be2ddeee8467d08fc8e773ad5332055990cbf5f76fe" => :x86_64_linux
+  end
+
   # tag "linuxbrew"
 
   version "1.8.0-181"
