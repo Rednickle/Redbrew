@@ -1,6 +1,10 @@
 class OpenjdkAT9 < Formula
   desc "Java Development Kit"
   homepage "http://jdk.java.net/archive/"
+  bottle do
+    sha256 "32ee918a254ba3059a2b6ef27279bebbf2b8941654338ab55af563442f5fe778" => :x86_64_linux
+  end
+
   # tag "linuxbrew"
 
   version "9.0.4"
