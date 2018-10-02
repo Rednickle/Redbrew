@@ -31,7 +31,7 @@ class Pypy3 < Formula
   end
 
   # https://bugs.launchpad.net/ubuntu/+source/gcc-4.2/+bug/187391
-  fails_with :gcc if OS.mac?
+  fails_with :gcc_4_2
 
   # packaging depends on pyparsing
   resource "pyparsing" do

@@ -29,7 +29,7 @@ class Pypy < Formula
   end
 
   # https://bugs.launchpad.net/ubuntu/+source/gcc-4.2/+bug/187391
-  fails_with :gcc
+  fails_with :gcc_4_2
 
   resource "bootstrap" do
     if OS.mac?
