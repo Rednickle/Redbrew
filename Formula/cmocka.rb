@@ -10,6 +10,7 @@ class Cmocka < Formula
     sha256 "4f2dda00b968d99edbd3bd2aa3143ea7dd2ff37972f7e607cb4063ac059684c6" => :mojave
     sha256 "d304c4817bc9efe26cf406ce282ded888b4364be6d0752ddb3012542ae384a52" => :high_sierra
     sha256 "d888978c74742f86fee309289e99b9eaa379cf5c9c2692ad668021e5fa3213a4" => :sierra
+    sha256 "d74187359027aeed6a4c954a73f50a1c926a796b41b0b61219eee6e469f18fc7" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
