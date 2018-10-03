@@ -10,6 +10,7 @@ class Cpprestsdk < Formula
     sha256 "70aa8095ca1b1ad92ca77122602d1fc999b523e9cb97f680a056328620c571fe" => :mojave
     sha256 "9103ac596b82312771f1b1cd2b0a7dfc3cf0c2dfe3d51eb9642d9488a51cc3be" => :high_sierra
     sha256 "9172c16e95e799434c9336b7c6d87893dd507e7b7682e9009c8bc59eaabf47f3" => :sierra
+    sha256 "8e5cf344c01e662cd85aa46ff662d87763897e948dc6de1d4a41f3e238cd49ae" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
