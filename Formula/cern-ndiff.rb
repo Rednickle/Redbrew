@@ -11,6 +11,7 @@ class CernNdiff < Formula
     sha256 "e810aa4514ce9bb4c0372ca03a759ded3f49fab15fdadff8fe9c51982841b9d8" => :mojave
     sha256 "4d41effe39127598b9eed196eb2802c81b3f48decb139183fe69670e9f98e8b3" => :high_sierra
     sha256 "9a1d68667b2ac122f5245e5b9af2154d5ccb18d82b2d34500b8fbcb089ef90a0" => :sierra
+    sha256 "104aaac2f8f391e53b7da4ec9d89bd27d4c974fef021bce3f57163bee9b2a1f5" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
