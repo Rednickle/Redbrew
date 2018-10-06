@@ -11,6 +11,7 @@ class Jhipster < Formula
     sha256 "7a4f96e9669867257db44244b40b64a3bddae5aca02874c7ab60d02af1fdcf58" => :mojave
     sha256 "e1b1e785747a0387eda139553acd91d3f73097d01d7db68d96e8400654e9c33b" => :high_sierra
     sha256 "c10c550b67684b61291a26bfe5480f32bbb5953f93415f197e2118254ec1dcd7" => :sierra
+    sha256 "1f3e05f839eb1aa70384fb390e1c4530d804fa094e5eaae2451ac017d644abd9" => :x86_64_linux
   end
 
   depends_on :java => "1.8+"
