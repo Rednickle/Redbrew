@@ -10,6 +10,7 @@ class Cmake < Formula
     sha256 "7621c1684f0501f93c3bdf0b93dbae8881cd45edc42c8ad6952c42824a6247fb" => :mojave
     sha256 "11d1f19c0a4425665573c46032d5cd73297181eba8f329b7a0deb12c2eb1fb66" => :high_sierra
     sha256 "a940f8d8e9818512c466ffd205612cb1b477d936e87ab3d6c7dac888f6d03b92" => :sierra
+    sha256 "002d5189e957f4f6d9fddabdd0f22c02fc2c594ef6768a27493625592dd22b45" => :x86_64_linux
   end
 
   option "with-completion", "Install Bash completion (Has potential problems with system bash)"
