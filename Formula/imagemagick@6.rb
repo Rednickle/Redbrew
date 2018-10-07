@@ -20,7 +20,6 @@ class ImagemagickAT6 < Formula
 
   option "with-fftw", "Compile with FFTW support"
   option "with-hdri", "Compile with HDRI support"
-  option "with-opencl", "Compile with OpenCL support"
   option "with-openmp", "Compile with OpenMP support"
   option "with-perl", "Compile with PerlMagick"
   option "with-zero-configuration", "Disables depending on XML configuration files"
@@ -65,17 +64,12 @@ class ImagemagickAT6 < Formula
       --prefix=#{prefix}
       --disable-dependency-tracking
       --disable-silent-rules
+      --disable-opencl
       --enable-shared
       --enable-static
       --with-freetype=yes
       --with-modules
     ]
-
-    if build.with? "opencl"
-      args << "--enable-opencl"
-    else
-      args << "--disable-opencl"
-    end
 
     if build.with? "openmp"
       args << "--enable-openmp"
