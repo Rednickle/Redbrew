@@ -1,25 +1,15 @@
 class MupdfTools < Formula
   desc "Lightweight PDF and XPS viewer"
   homepage "https://mupdf.com/"
-  url "https://mupdf.com/downloads/mupdf-1.13.0-source.tar.gz"
-  sha256 "071c6962cbee1136188da62136596a9d704b81e35fe617cd34874bbb0ae7ca09"
+  url "https://mupdf.com/downloads/archive/mupdf-1.14.0-source.tar.gz"
+  sha256 "c443483a678c3fc258fa4adc124146225d0bb443c522619faadebf6b363d7724"
   head "https://git.ghostscript.com/mupdf.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e9b9952ce57aee95995948164bab35e111a86e97be90be9daec06b4da9dc2e95" => :mojave
-    sha256 "aaeb5b84d303ddac285b08e1508d1ec7c51327e9dd51c878d45002cff348c1ba" => :high_sierra
-    sha256 "e2784582c73bea831d1a23fef44e0b792fa073fe4ec9d0494b0f72a894e3cdd1" => :sierra
-    sha256 "e4d44153713cd6029d9ab609d745a7a3c7984e532ababf5311280c319ab4ca99" => :el_capitan
-  end
-
-  # Reverts an upstream commit which is incompatible with the macOS GLUT;
-  # the commit in question adds the use of a freeglut-only function and constants.
-  # An earlier commit added explicit OS X GLUT support, so this looks like a bug.
-  # https://bugs.ghostscript.com/show_bug.cgi?id=699374
-  patch do
-    url "https://gist.githubusercontent.com/mistydemeo/af049b9151363cd5d5fb58b8ce9e26b6/raw/1c4448c7c0e7c165c5805fd37b4de03ffb7f26fd/0001-Revert-gl-Tell-glut-to-return-from-main-loop-when-th.patch"
-    sha256 "e5c5d00874f09c6f70a1fd8db7e86f0d386c88bc209dcb287f4eef644c1de44b"
+    sha256 "145ff51125e52e946f67b8ef71c76a66d529e496de5a369c8649971cf55e1960" => :mojave
+    sha256 "efbf6d0fc63b64b1fb934446f85613dc33f71d9ed4197bb59902ad068c2df482" => :high_sierra
+    sha256 "1d5fd02807e08b2888e0bf26967d3177ea8c25b0980751a9428184478bdc567b" => :sierra
   end
 
   def install
