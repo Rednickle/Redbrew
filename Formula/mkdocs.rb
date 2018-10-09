@@ -3,16 +3,14 @@ class Mkdocs < Formula
 
   desc "Project documentation with Markdown"
   homepage "https://www.mkdocs.org/"
-  url "https://github.com/mkdocs/mkdocs/archive/1.0.2.tar.gz"
-  sha256 "c555849d28066075a35f1bbf3786871311010c1ae097061eed270b500e258039"
+  url "https://github.com/mkdocs/mkdocs/archive/1.0.4.tar.gz"
+  sha256 "c9a0e1637c1e92b663d290a74ed1370ee7d50c6af165f49215df3a0c10b5bafa"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "fe96ba7efb84d2ac29f70bdfc4f9df19457441fc9bb87c1ac0c98d10e8aeecf6" => :mojave
-    sha256 "cd05ad964f3d34d54bf7838805939ae55d6393443e2c4eb398f329cf1b7a01da" => :high_sierra
-    sha256 "9b282d08e0a9f898e7a1423edd754a2e28cf80c2d877cbdb91ad16c03b0807c7" => :sierra
-    sha256 "356a71c3ccf0719256afb5006943a6a173848e1957dcf5707b9878b3c347b5a9" => :x86_64_linux
+    sha256 "1e4e15ca16a41e32de2554b4c965cce95a1c65a8513212d9b080bc8c91b4f1c8" => :mojave
+    sha256 "a827a3dd3681cfc42dae9be56381b2de9525082be6f427e10e16ad20700cb259" => :high_sierra
+    sha256 "c96d34021105be1b0a2fbbb27334aa327ffe91470dbca269c5f5021ed6776ef4" => :sierra
   end
 
   depends_on "python@2"
