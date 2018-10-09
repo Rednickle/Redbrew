@@ -3,13 +3,14 @@ class MupdfTools < Formula
   homepage "https://mupdf.com/"
   url "https://mupdf.com/downloads/archive/mupdf-1.14.0-source.tar.gz"
   sha256 "c443483a678c3fc258fa4adc124146225d0bb443c522619faadebf6b363d7724"
+  revision 1
   head "https://git.ghostscript.com/mupdf.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "145ff51125e52e946f67b8ef71c76a66d529e496de5a369c8649971cf55e1960" => :mojave
-    sha256 "efbf6d0fc63b64b1fb934446f85613dc33f71d9ed4197bb59902ad068c2df482" => :high_sierra
-    sha256 "1d5fd02807e08b2888e0bf26967d3177ea8c25b0980751a9428184478bdc567b" => :sierra
+    sha256 "cdef022dd6020e97503ede16d8d0f78c33bcd0290420379c848792ca92eabbcc" => :mojave
+    sha256 "8178f8da3a5d8f45678c5563cc005ea70a93439c2d68dc8daa7716ec6bb58715" => :high_sierra
+    sha256 "9327d7061bffc2f1319e124a5fb5d09921d1855249c8aca18568f5830f0db485" => :sierra
   end
 
   def install
@@ -17,6 +18,7 @@ class MupdfTools < Formula
            "build=release",
            "verbose=yes",
            "HAVE_X11=no",
+           "HAVE_GLUT=no",
            "CC=#{ENV.cc}",
            "prefix=#{prefix}"
 

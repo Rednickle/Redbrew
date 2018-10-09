@@ -31,4 +31,8 @@ class Bonniexx < Formula
                           "--mandir=#{man}"
     system "make", "install"
   end
+
+  test do
+    system "#{sbin}/bonnie++", "-s", "0"
+  end
 end
