@@ -8,11 +8,10 @@ class Mkdocs < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "de9d4dfd6c69c5dd4c1f9bc658bfdfd800308cce845f03860b4c9d32dcaf08e6" => :mojave
-    sha256 "ed13a1551149247f367f1bc5855809cc8178d11d9ce338027ecaae12094e14c4" => :high_sierra
-    sha256 "245835b4f6b2e09d6068d906d3c2d33eca5239f26c4e2ae4ace0d3659012585e" => :sierra
-    sha256 "d8fd48a2bbe180fe4d4a646f06e10c7a217eb063b2e934982633c8e9fd627cf3" => :el_capitan
-    sha256 "0166ab080739f216197e67673ae8cfc91918559c4a379d261047d1a6cf7b529d" => :x86_64_linux
+    rebuild 1
+    sha256 "fe96ba7efb84d2ac29f70bdfc4f9df19457441fc9bb87c1ac0c98d10e8aeecf6" => :mojave
+    sha256 "cd05ad964f3d34d54bf7838805939ae55d6393443e2c4eb398f329cf1b7a01da" => :high_sierra
+    sha256 "9b282d08e0a9f898e7a1423edd754a2e28cf80c2d877cbdb91ad16c03b0807c7" => :sierra
   end
 
   depends_on "python@2"
@@ -23,8 +22,8 @@ class Mkdocs < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/95/d9/c3336b6b5711c3ab9d1d3a80f1a3e2afeb9d8c02a7166462f6cc96570897/click-6.7.tar.gz"
-    sha256 "f15516df478d5a56180fbf80e68f206010e6d160fc39fa508b65e035fd75130b"
+    url "https://files.pythonhosted.org/packages/f8/5c/f60e9d8a1e77005f664b76ff8aeaee5bc05d0a91798afd7f53fc998dbc47/Click-7.0.tar.gz"
+    sha256 "5b94b49521f6456670fdb30cd82a4eca9412788a93fa6dd6df72c94d5a8ff2d7"
   end
 
   resource "futures" do
@@ -43,8 +42,8 @@ class Mkdocs < Formula
   end
 
   resource "Markdown" do
-    url "https://files.pythonhosted.org/packages/b3/73/fc5c850f44af5889192dff783b7b0d8f3fe8d30b65c8e3f78f8f0265fecf/Markdown-2.6.11.tar.gz"
-    sha256 "a856869c7ff079ad84a3e19cd87a64998350c2b94e9e08e44270faef33400f81"
+    url "https://files.pythonhosted.org/packages/3c/52/7bae9e99a7a4be6af4a713fe9b692777e6468d28991c54c273dfb6ec9fb2/Markdown-3.0.1.tar.gz"
+    sha256 "d02e0f9b04c500cde6637c11ad7c72671f359b87b9fe924b2383649d8841db7c"
   end
 
   resource "MarkupSafe" do
@@ -68,8 +67,8 @@ class Mkdocs < Formula
   end
 
   resource "tornado" do
-    url "https://files.pythonhosted.org/packages/45/ec/f2a03a0509bcfca336bef23a3dab0d07504893af34fd13064059ba4a0503/tornado-5.1.tar.gz"
-    sha256 "4f66a2172cb947387193ca4c2c3e19131f1c70fa8be470ddbbd9317fd0801582"
+    url "https://files.pythonhosted.org/packages/e6/78/6e7b5af12c12bdf38ca9bfe863fcaf53dc10430a312d0324e76c1e5ca426/tornado-5.1.1.tar.gz"
+    sha256 "4e5158d97583502a7e2739951553cbd88a72076f152b4b11b64b9a10c4c49409"
   end
 
   def install
