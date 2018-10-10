@@ -13,6 +13,7 @@ class Cheat < Formula
     sha256 "8cc9e97113e4f89b33a16234227b2bc2ce3faeadc585bbeb321906423af616ec" => :mojave
     sha256 "53df82d94ca2d7baa975b23d890cf7497174734fe669ba76fedea04418ffcce4" => :high_sierra
     sha256 "f5545ac8947eeb8d12128df710ec5214f85351aa26e4b944ecbd73b095ba95b2" => :sierra
+    sha256 "d6184a90ff559f6999f1f3ef95d7bf5ed646d53cd043d6b32ab73fb9f2d9e9e2" => :x86_64_linux
   end
 
   depends_on "python"
