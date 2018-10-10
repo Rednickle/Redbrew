@@ -13,6 +13,7 @@ class Remarshal < Formula
     sha256 "74295e786b5009d2686b5e00b9bfcc05e5ec2a4ddf3e8f50c5e46d01d49dcfac" => :mojave
     sha256 "72f14a13ba67e6d6124d9c50a6605da5b61b39ad925a9323a23a0b2d090617e4" => :high_sierra
     sha256 "bd08be5ee7cee3293dc21bf8b13a730071b23de74280ce03fd05b82a909e15ac" => :sierra
+    sha256 "6dbd6dcdd73fc0ac42103dc686a45f7a568e75d7ce9904bdf1729f284374a1b5" => :x86_64_linux
   end
 
   depends_on "python"
