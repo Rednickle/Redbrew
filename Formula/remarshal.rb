@@ -5,18 +5,17 @@ class Remarshal < Formula
   homepage "https://github.com/dbohdan/remarshal"
   url "https://github.com/dbohdan/remarshal/archive/v0.8.0.tar.gz"
   sha256 "ab2ab978aaf20e97719680f8f242ea3407090b562d747205486a02cdbf14d17f"
+  revision 1
   head "https://github.com/dbohdan/remarshal.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "301ed86d51a55376e300dd4e854e96fe2d8c699f1973c03ce27183f4e5dfd7b4" => :mojave
-    sha256 "63e760f882da33ef11b3b0d1339d75aa8876f2ce73b7e895edd7f00e2c3c453c" => :high_sierra
-    sha256 "6bdde286613dec8bdbecf6a9f1c5726109e94eed5a77ecf603cc07184faa352b" => :sierra
-    sha256 "ed9cf2d1329e174021492b470f34e3f953fb06148758255607e5acb54d52cd75" => :el_capitan
-    sha256 "e521e4a011f34406fd1fd5c6636c833103bf8d731c3e71603e04ab3ab6efc347" => :x86_64_linux
+    sha256 "74295e786b5009d2686b5e00b9bfcc05e5ec2a4ddf3e8f50c5e46d01d49dcfac" => :mojave
+    sha256 "72f14a13ba67e6d6124d9c50a6605da5b61b39ad925a9323a23a0b2d090617e4" => :high_sierra
+    sha256 "bd08be5ee7cee3293dc21bf8b13a730071b23de74280ce03fd05b82a909e15ac" => :sierra
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   resource "PyYAML" do
     url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
