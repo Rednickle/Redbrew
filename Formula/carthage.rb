@@ -2,24 +2,20 @@ class Carthage < Formula
   desc "Decentralized dependency manager for Cocoa"
   homepage "https://github.com/Carthage/Carthage"
   url "https://github.com/Carthage/Carthage.git",
-      :tag => "0.31.0",
-      :revision => "04994e9e844d53220d8796a648a7dad12a5808c9",
+      :tag => "0.31.1",
+      :revision => "784cd382ea7440c34a91b19adb6ae0c4d5f9dcbc",
       :shallow => false
   head "https://github.com/Carthage/Carthage.git", :shallow => false
 
   bottle do
     cellar :any
-    sha256 "5b2afa3e9f600f519f7dd5069b416fbbdbe03b0046c145965b974ff73162f5ac" => :mojave
-    sha256 "ff3b1cf943d4ca2a89531f62c03878a6d56ed06bad0a627615b57b9ed2ab9650" => :high_sierra
+    sha256 "4c86ff31bf54d7ee8dad4e9921d7757c5fc6f4b62ec141e339bcfae667fb23da" => :mojave
+    sha256 "99f35655d278ebe1dae617847f77ec5bbae4a8ebbe7c636c7912c53902c0e7a8" => :high_sierra
   end
 
   depends_on :xcode => ["9.4", :build] if OS.mac?
 
   def install
-    match = "XCODEFLAGS=-workspace 'Carthage.xcworkspace' -scheme 'carthage' DSTROOT=$(CARTHAGE_TEMPORARY_FOLDER)"
-    inreplace "Makefile" do |s|
-      s.sub!(match, match + " OTHER_LDFLAGS=-Wl,-headerpad_max_install_names")
-    end
     system "make", "prefix_install", "PREFIX=#{prefix}"
     bash_completion.install "Source/Scripts/carthage-bash-completion" => "carthage"
     zsh_completion.install "Source/Scripts/carthage-zsh-completion" => "_carthage"
