@@ -9,6 +9,7 @@ class Libsecret < Formula
     sha256 "583473cf026c29c42884e9b14339bdec9f6b4eb447e0cdbb14761dda998a9489" => :mojave
     sha256 "a8326840251e2661e1c598a268a418dd62f382f8e2c60718581c71441e3740d8" => :high_sierra
     sha256 "0466f97c31fc994382b8944c0ad1b72b55d09b82d2584996bfe801a6bc0c5109" => :sierra
+    sha256 "f601b94c6647d091ab5527f9360da8c756feb348c909cdf82266e96664ed768f" => :x86_64_linux
   end
 
   depends_on "docbook-xsl" => :build
