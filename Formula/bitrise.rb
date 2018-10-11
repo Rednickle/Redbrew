@@ -9,6 +9,7 @@ class Bitrise < Formula
     sha256 "f32e2b6a3d13a71036f1c835a541cae101fdf538156fbbdfbcc6867298edb52a" => :mojave
     sha256 "9567b53fb2adbe81dc930de3f6deeb710fbe837cf9f4be6533c1ca17066b3460" => :high_sierra
     sha256 "8694100553699e93a1959c388e0e3480292dd896276491b95ef233938b49d7d8" => :sierra
+    sha256 "4989479454fcb72877bcde3299c2e3924e7d2ad2a08ad8329f731da68419247b" => :x86_64_linux
   end
 
   depends_on "go" => :build
