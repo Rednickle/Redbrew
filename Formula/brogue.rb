@@ -12,6 +12,7 @@ class Brogue < Formula
     sha256 "62d88540558c2f014403686898cf68d9a44c62e0095e285e77958b66e5c1ff3a" => :mojave
     sha256 "864ae48cf80e2f1f3dc2a31a2ea4811177906eda30b11d12d5e3018ca4f1f3b8" => :high_sierra
     sha256 "b5f6a25670f2eeb737bcde972b78801892971e2af4e3f7df1bbaa237eb4db50f" => :sierra
+    sha256 "9e01e39ea1e103323f0a090d5a82aae9fe100e85efb8d22cacc9d1f8b652cf37" => :x86_64_linux
   end
 
   depends_on "ncurses" unless OS.mac?
