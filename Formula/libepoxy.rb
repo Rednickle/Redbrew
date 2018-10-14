@@ -20,7 +20,11 @@ class Libepoxy < Formula
     depends_on "freeglut"
     depends_on "linuxbrew/xorg/mesa"
     depends_on "linuxbrew/xorg/xorg"
-    depends_on "linuxbrew/xorg/xorgproto"
+    depends_on "linuxbrew/xorg/damageproto"
+    depends_on "linuxbrew/xorg/fixesproto"
+    depends_on "linuxbrew/xorg/kbproto"
+    depends_on "linuxbrew/xorg/xf86vidmodeproto"
+    depends_on "linuxbrew/xorg/xextproto"
   end
 
   def install
