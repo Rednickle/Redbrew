@@ -24,7 +24,7 @@ class Gtkx3 < Formula
   unless OS.mac?
     depends_on "at-spi2-atk"
     depends_on "cairo"
-    depends_on "linuxbrew/xorg/xorgproto"
+    depends_on "linuxbrew/xorg/inputproto"
   end
 
   def install
