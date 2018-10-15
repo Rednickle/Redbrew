@@ -29,6 +29,7 @@ class LlvmAT6 < Formula
     sha256 "678c82b80c002acc096a4eb9d4554adeae839751e780831a953e21cbd8f368aa" => :high_sierra
     sha256 "9c243e27f8d49570e3fc0378605fa627ab6e57049d6d6e1376c9bbd88aa1f902" => :sierra
     sha256 "ae87b1ab1ca1994f18891831d36b23cff4ecb271265d7629b6c19f2a968f22ba" => :el_capitan
+    sha256 "0733931c19b391873cc2f16e1519f953b2a54b1c8f939f8e588f99f5e62f3794" => :x86_64_linux
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
