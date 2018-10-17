@@ -3,18 +3,19 @@ class Libvirt < Formula
   homepage "https://www.libvirt.org"
   url "https://libvirt.org/sources/libvirt-4.8.0.tar.xz"
   sha256 "c2fd7112d6689fbb4d700b31c01aadd8a0eb275e127dc959cdc166f5f60b3032"
+  revision 1
   head "https://github.com/libvirt/libvirt.git"
 
   bottle do
-    rebuild 1
-    sha256 "e2830cdfd31fe257db85c1e139e989228d42fe2dfde4f8d5476c3fb38842916c" => :mojave
-    sha256 "2d0c51b48ff01506008d20d16d986bee16498ad8974da843f8113d8cd6603283" => :high_sierra
-    sha256 "648eb3141e8f585b42ce6996b122acf9dabe67c42450428f5b699ea1cb53922f" => :sierra
+    sha256 "82b492f1b78ff924c2f17a271c5d24b8147ef5d1350fc7ded796edf7241306a3" => :mojave
+    sha256 "b8d09cc19613f1bae96c986caf24bf9f0485e479bdfdf8a141a1b157e3346b14" => :high_sierra
+    sha256 "c884c9f923fb6c5dd124c8802dbeb0bad7b46f58ba64462747c6794c67bccf55" => :sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "gnutls"
   depends_on "libgcrypt"
+  depends_on "yajl"
 
   if build.head?
     depends_on "autoconf" => :build
