@@ -3,18 +3,17 @@ class GitReview < Formula
   homepage "https://git.openstack.org/cgit/openstack-infra/git-review"
   url "https://files.pythonhosted.org/packages/70/c5/e2930e1017516a9cbe777581767785650b7e8ee89580ba00cabdf992e058/git-review-1.26.0.tar.gz"
   sha256 "487c3c1d7cc81d02b303a1245e432579f683695c827ad454685b3953f70f0b94"
+  revision 1
   head "https://git.openstack.org/openstack-infra/git-review.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "be858923a6b043a0de813d19ce99e458763fd964a7a316c7693a50191882f4c0" => :mojave
-    sha256 "5187b16328f105d195c58b4a978f8232b98b47e9cb91557f15ce4ca439a50385" => :high_sierra
-    sha256 "5187b16328f105d195c58b4a978f8232b98b47e9cb91557f15ce4ca439a50385" => :sierra
-    sha256 "661bd93e96795bb2ef4a0260fc441fd6eb437bb109e9f4353a577db638617c58" => :el_capitan
-    sha256 "cdbb1fb8034daf2d52730b711b84306ab43a9c3d5b7a96c678fb08fb9a3e3220" => :x86_64_linux
+    sha256 "81cd67b1d8bd3d31ea7f53e7645b2ccd097a655342690f81e440452ec37865a8" => :mojave
+    sha256 "d99d34d3279b4e7525b3b6316c84fb3122fc2db5f9fdae1c6cc279a510d7d8c7" => :high_sierra
+    sha256 "d99d34d3279b4e7525b3b6316c84fb3122fc2db5f9fdae1c6cc279a510d7d8c7" => :sierra
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/23/3f/8be01c50ed24a4bd6b8da799839066ce0288f66f5e11f0367323467f0cbc/certifi-2017.11.5.tar.gz"
@@ -42,15 +41,16 @@ class GitReview < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", "#{libexec}/vendor/lib/python2.7/site-packages"
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", "#{libexec}/vendor/lib/python#{xy}/site-packages"
     resources.each do |r|
       r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
+        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
-    ENV.prepend_create_path "PYTHONPATH", "#{libexec}/lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
+    ENV.prepend_create_path "PYTHONPATH", "#{libexec}/lib/python#{xy}/site-packages"
+    system "python3", *Language::Python.setup_install_args(libexec)
 
     man1.install gzip("git-review.1")
 

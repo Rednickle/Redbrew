@@ -1,15 +1,14 @@
 class LibtorrentRasterbar < Formula
   desc "C++ bittorrent library by Rasterbar Software"
   homepage "https://www.libtorrent.org/"
-  url "https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_1_8/libtorrent-rasterbar-1.1.8.tar.gz"
-  sha256 "6bbf8fd0430e27037b09a870c89cfc330ea41816102fe1d1d16cc7428df08d5d"
-  revision 1
+  url "https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_1_10/libtorrent-rasterbar-1.1.10.tar.gz"
+  sha256 "07b2b391e0d16bc693d793e352338488a0e41f3130b70884bb2e0270ea00b8c2"
 
   bottle do
     cellar :any
-    sha256 "da975aa7d88a1da2d1814bc25ef43fb6ab397a5fc46591b1040a6c50a24c0ada" => :mojave
-    sha256 "550af800561a4d33c9fccba045091a39b64502016006e5f011d84f224c54e6d2" => :high_sierra
-    sha256 "5b98de7c476ce4b102520af2bb28bcad1bb3f25bc2e250dee1d757c573321d5e" => :sierra
+    sha256 "c9d318a90481b9563cc4242ff347dfc0c8740ae126e839a3aa68e06eff669e05" => :mojave
+    sha256 "a962771be1c8be8f58caee767b91f99641a2a22197a023b8248d9b325342b7c4" => :high_sierra
+    sha256 "1f5445cf2679669f90d9f7c604ba8cc4adea252303c660d48d877f3374a6aff8" => :sierra
   end
 
   head do
@@ -21,9 +20,9 @@ class LibtorrentRasterbar < Formula
 
   depends_on "pkg-config" => :build
   depends_on "boost"
-  depends_on "boost-python"
+  depends_on "boost-python3"
   depends_on "openssl"
-  depends_on "python@2"
+  depends_on "python"
 
   def install
     ENV.cxx11
@@ -36,7 +35,8 @@ class LibtorrentRasterbar < Formula
       --enable-encryption
       --enable-python-binding
       --with-boost=#{Formula["boost"].opt_prefix}
-      --with-boost-python=boost_python27-mt
+      --with-boost-python=boost_python37-mt
+      PYTHON=python3
     ]
 
     if build.head?

@@ -3,22 +3,21 @@ class Ansible < Formula
 
   desc "Automate deployment, configuration, and upgrading"
   homepage "https://www.ansible.com/"
-  url "https://releases.ansible.com/ansible/ansible-2.6.5.tar.gz"
-  sha256 "b33beec86e74bb4b9161260b73ed83c31018eff10929bdcbf28028af70fe4143"
+  url "https://releases.ansible.com/ansible/ansible-2.7.0.tar.gz"
+  sha256 "a1ab8e0f13e79a20661ad6546f45a142afeaeb664deb2c290e32362d8ae5b618"
   head "https://github.com/ansible/ansible.git", :branch => "devel"
 
   bottle do
     cellar :any
-    sha256 "a8ab2bcf80ea674cf781d215510ba41203aca703f81d7a9b2c31b61b5616de8c" => :mojave
-    sha256 "ad4d41ff29878626eb6fc2316f63f2047e3b75f71bd822cc30b562651b4d1b40" => :high_sierra
-    sha256 "dc30f9ac91d94c3b772d3e22ea6cb8eb6b9711b96ab6a5788f637731afa0239b" => :sierra
-    sha256 "2496b0b2b240acbb4f09ca3528c8300dbf79ab456cc468b37348302d6b4f92c6" => :x86_64_linux
+    sha256 "4dcf9b34c498644ae8c228c30d29878e599fd051a2a5c16c03b919dbe31f774c" => :mojave
+    sha256 "49c38915a62b98135c3d546711ef560b9a41a5b8b797127bbe06fbb2e0e73447" => :high_sierra
+    sha256 "d1f3e2c4b24c3331f53896b9608a1ffccd2d5192a33a7e7bf6b5271cbab234ee" => :sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "libyaml"
   depends_on "openssl"
-  depends_on "python@2"
+  depends_on "python"
   unless OS.mac?
     depends_on "libffi" # for cffi
     depends_on "libxslt" # for lxml
@@ -47,8 +46,8 @@ class Ansible < Formula
 
   ### setup_requires dependencies
   resource "pbr" do
-    url "https://files.pythonhosted.org/packages/c8/c3/935b102539529ea9e6dcf3e8b899583095a018b09f29855ab754a2012513/pbr-4.2.0.tar.gz"
-    sha256 "1b8be50d938c9bb75d0eaf7eda111eec1bf6dc88a62a6412e33bf077457e0f45"
+    url "https://files.pythonhosted.org/packages/4c/22/91722b7d842a9e2e6ae41346f691fea95d9ac08678de7ac51c38754f9961/pbr-4.3.0.tar.gz"
+    sha256 "1be135151a0da949af8c5d0ee9013d9eafada71237eb80b3ba8896b4f12ec5dc"
   end
 
   resource "pytz" do
@@ -69,8 +68,8 @@ class Ansible < Formula
   end
 
   resource "pyOpenSSL" do
-    url "https://files.pythonhosted.org/packages/3b/15/a5d90ab1a41075e8f0fae334f13452549528f82142b3b9d0c9d86ab7178c/pyOpenSSL-17.5.0.tar.gz"
-    sha256 "2c10cfba46a52c0b0950118981d61e72c1e5b1aac451ca1bc77de1a679456773"
+    url "https://files.pythonhosted.org/packages/9b/7c/ee600b2a9304d260d96044ab5c5e57aa489755b92bbeb4c0803f9504f480/pyOpenSSL-18.0.0.tar.gz"
+    sha256 "6488f1423b00f73b7ad5167885312bb0ce410d3312eb212393795b53c8caa580"
   end
   ### end
 
@@ -221,19 +220,9 @@ class Ansible < Formula
     sha256 "fca7deb7c276b879b01c15c5d39b3c05701dc43b263ec3fef1e52cb851cf88ab"
   end
 
-  resource "enum34" do
-    url "https://files.pythonhosted.org/packages/bf/3e/31d502c25302814a7c2f1d3959d2a3b3f78e509002ba91aea64993936876/enum34-1.1.6.tar.gz"
-    sha256 "8ad8c4783bf61ded74527bffb48ed9b54166685e4230386a9ed9b1279e2df5b1"
-  end
-
   resource "funcsigs" do
     url "https://files.pythonhosted.org/packages/94/4a/db842e7a0545de1cdb0439bb80e6e42dfe82aaeaadd4072f2263a4fbed23/funcsigs-1.0.2.tar.gz"
     sha256 "a7bb0f2cf3a3fd1ab2732cb49eba4252c2af4240442415b4abce3b87022a8f50"
-  end
-
-  resource "futures" do
-    url "https://files.pythonhosted.org/packages/1f/9e/7b2ff7e965fc654592269f2906ade1c7d705f1bf25b7d469fa153f7d19eb/futures-3.2.0.tar.gz"
-    sha256 "9ec02aa7d674acb8618afb127e27fde7fc68994c0437ad759fa094a574adb265"
   end
 
   resource "ipaddress" do
@@ -542,7 +531,7 @@ class Ansible < Formula
   end
 
   def install
-    ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
 
     # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
     ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
@@ -583,6 +572,6 @@ class Ansible < Formula
 
     # Ensure requests[security] is activated
     script = "import requests as r; r.get('https://mozilla-modern.badssl.com')"
-    system libexec/"bin/python", "-c", script
+    system libexec/"bin/python3", "-c", script
   end
 end
