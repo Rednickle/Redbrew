@@ -3,12 +3,12 @@ class Bat < Formula
   homepage "https://github.com/sharkdp/bat"
   url "https://github.com/sharkdp/bat/archive/v0.7.1.tar.gz"
   sha256 "5863895e6ac95f5349da95ff74e196c4b365af3fc3f4a1376cab797df493b7a4"
+  revision 1
 
   bottle do
-    sha256 "62e42c268d73f27f0eada988ddaf5a2f841b72af3cbc8c85d716183788608448" => :mojave
-    sha256 "0ab5a742c1fadeb7749caf7d96bc7005518df5d939c4482396d539aaceb0bd9d" => :high_sierra
-    sha256 "b556a914588cc041a14493fe735d39d1fab438cfde09b79f9f834404c8516ddd" => :sierra
-    sha256 "9a8134c1d9b345e5f97965b3796dfbdf24ccb6fe480de4185bb215f373ba0109" => :x86_64_linux
+    sha256 "51ad433dcb1a2eda8f31f300588ab6371933bf07cb4ba5fc156e0846ae101999" => :mojave
+    sha256 "fd731a798b6d3a11032afa64bb7f5361c05af3ce555e49276528ee7afdd57882" => :high_sierra
+    sha256 "47e906eda55ebb73bf5b3f1173cf0caa27d9fa183c8a6af24ceb42268984f789" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -17,6 +17,7 @@ class Bat < Formula
 
   def install
     system "cargo", "install", "--root", prefix, "--path", "."
+    man1.install "doc/bat.1"
   end
 
   test do

@@ -17,7 +17,7 @@ class Logentries < Formula
     sha256 "a51b82600b059053ecf179030f23c22e592376197cfb0b926f5b2d2c89348ef3" => :x86_64_linux
   end
 
-  depends_on "python@2"
+  depends_on "python@2" # does not support Python 3
 
   conflicts_with "le", :because => "both install a le binary"
 
