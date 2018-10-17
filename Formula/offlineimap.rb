@@ -17,7 +17,7 @@ class Offlineimap < Formula
   depends_on "asciidoc" => :build
   depends_on "docbook-xsl" => :build
   depends_on "sphinx-doc" => :build
-  depends_on "python@2"
+  depends_on "python@2" # does not support Python 3
   unless OS.mac?
     depends_on "libxml2" => :build # for xmllint
     depends_on "libxslt" => :build # for xsltproc
