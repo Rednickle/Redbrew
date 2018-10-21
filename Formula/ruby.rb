@@ -1,13 +1,13 @@
 class Ruby < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.2.tar.xz"
-  sha256 "8be6b6afdf09957a6e2c2a6ada4b1982a391a828b34e49072c4beb60febb678d"
+  url "https://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.3.tar.xz"
+  sha256 "1cc9d0359a8ea35fc6111ec830d12e60168f3b9b305a3c2578357d360fcf306f"
 
   bottle do
-    sha256 "526209b8748df1669b9c73eab9e205627e9e2b249ac41765b12f76880a7296c6" => :mojave
-    sha256 "0192b435eadc54981acc4db8aa3859f256a7a0468873d3462429d5baa7aff2d0" => :high_sierra
-    sha256 "7d258f00243199129e9dc0b1e5bfda6ad50e94b637cd184d2e379390587ce063" => :sierra
+    sha256 "6c620464fee701978124bdb9ef12179fb55ba62e73222ed42d59e6c07d25a04a" => :mojave
+    sha256 "4973d5cabcb8b53ab892a331e6c02b8230e9c8ef7a69f6a96d0aec69d3099831" => :high_sierra
+    sha256 "df8aabed70a29a81ca6f1d5e6a4fcbc0de999cab09b6377b1f61b9dde29b5b21" => :sierra
   end
 
   devel do

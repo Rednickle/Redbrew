@@ -14,7 +14,7 @@ class Mercurial < Formula
     sha256 "1e4bbfcd450bdd9f1f34024a1b6b61fdc6d38a09d834ab2d113ba91cb1e3c6f1" => :x86_64_linux
   end
 
-  depends_on "python@2"
+  depends_on "python@2" # does not support Python 3
 
   def install
     ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin"
