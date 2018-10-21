@@ -1,16 +1,15 @@
 class Spades < Formula
   desc "De novo genome sequence assembly"
   homepage "http://cab.spbu.ru/software/spades/"
-  url "http://cab.spbu.ru/files/release3.12.0/SPAdes-3.12.0.tar.gz"
-  mirror "https://github.com/ablab/spades/releases/download/v3.12.0/SPAdes-3.12.0.tar.gz"
-  sha256 "15b48a3bcbbe6a8ad58fd04ba5d3f1015990fbfd9bdf4913042803b171853ac7"
-  revision 1
+  url "http://cab.spbu.ru/files/release3.13.0/SPAdes-3.13.0.tar.gz"
+  mirror "https://github.com/ablab/spades/releases/download/v3.13.0/SPAdes-3.13.0.tar.gz"
+  sha256 "c63442248c4c712603979fa70503c2bff82354f005acda2abc42dd5598427040"
 
   bottle do
     cellar :any
-    sha256 "6040a9bd289a6da30bc4b47f0d9a484355604d38ccfa91973d023dfc92e266b8" => :mojave
-    sha256 "92dfcc3091aabc822284cba8384d4a18c0f59d1bc297d5052a346a584814794e" => :high_sierra
-    sha256 "7d5a1293aeb3be0efddd29836095d6610e42bb8000f39b5785f5b2f32aada243" => :sierra
+    sha256 "1728c4d25e0f62e1f630de9622a2b6dc1add3703cfa8d7471c415ee21bd6e36e" => :mojave
+    sha256 "3403d415389703649cd92acec88e85646e755a783d289b8a6beb7508ecf96f21" => :high_sierra
+    sha256 "0d01c5eb1d4072a40ae8a1a2436ecd3987250152f4abc3ba76379b914929bc95" => :sierra
   end
 
   depends_on "cmake" => :build
