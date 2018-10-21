@@ -11,6 +11,7 @@ class Gprof2dot < Formula
     sha256 "2b090e85c705d72b374cbcd0edebfcee857966b487e27438d74ca67710f31ed0" => :mojave
     sha256 "f638c54489227411236cc969200a20c49bf59caa19ace82ab81589ba857e353e" => :high_sierra
     sha256 "f638c54489227411236cc969200a20c49bf59caa19ace82ab81589ba857e353e" => :sierra
+    sha256 "0db9fece6a655141f8b5b74b166b24173f15281ffba3a845df82baa0e07629e6" => :x86_64_linux
   end
 
   depends_on "graphviz"
