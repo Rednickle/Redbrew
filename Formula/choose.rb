@@ -11,6 +11,7 @@ class Choose < Formula
     sha256 "dba7080c2cbfec86cece9b777e0e8bbddc978d9d16869d8c40dedca3db5fa2f7" => :mojave
     sha256 "0798c4a91ff53f4ab075f9509c20fa40c809d7d692be156089e934673a6d73f8" => :high_sierra
     sha256 "9a91c98c4f1ff7d3a639e324d7926d39b21fca78cb32d2ef153510ac8d2306e1" => :sierra
+    sha256 "beb76cc063cac9e8c804c47840da0898e6f978538ef6e0a1b643f9e48900c17d" => :x86_64_linux
   end
 
   depends_on "python"
