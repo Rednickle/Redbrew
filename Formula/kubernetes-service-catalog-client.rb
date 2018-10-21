@@ -2,14 +2,14 @@ class KubernetesServiceCatalogClient < Formula
   desc "Consume Services in k8s using the OSB API"
   homepage "https://svc-cat.io/"
   url "https://github.com/kubernetes-incubator/service-catalog.git",
-      :tag => "v0.1.35",
-      :revision => "f3a7a072ac60d9ccb7bd55b05ada0de18db3cab1"
+      :tag => "v0.1.36",
+      :revision => "58b88f4d33cb708e4b22c39ccbe498b00738488e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "514107a39e522c7013d6e4d7e5f611fff2224b909afeb7e9231a37d8671c98c5" => :mojave
-    sha256 "d47d2d1258b3b7fa467ec71dc2ee3e725445909017b470c61110663bba525265" => :high_sierra
-    sha256 "d90fbe717dd5486dda805ad916e735172339ada0d7fc31c735e10a7dc2716104" => :sierra
+    sha256 "541d3fe04ab14a4fd4bbd305510a3cda162218031df669370489537a8838934e" => :mojave
+    sha256 "2137298e01c7c1b56ee3fa7701fa9bf8218c85b36be20547b28b12c5bb7d7e5c" => :high_sierra
+    sha256 "637f06c549ad751158b99a147496f32a34eb027386d6331143a037e97fcf4e22" => :sierra
   end
 
   depends_on "go" => :build

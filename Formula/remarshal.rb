@@ -10,17 +10,17 @@ class Remarshal < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "74295e786b5009d2686b5e00b9bfcc05e5ec2a4ddf3e8f50c5e46d01d49dcfac" => :mojave
-    sha256 "72f14a13ba67e6d6124d9c50a6605da5b61b39ad925a9323a23a0b2d090617e4" => :high_sierra
-    sha256 "bd08be5ee7cee3293dc21bf8b13a730071b23de74280ce03fd05b82a909e15ac" => :sierra
-    sha256 "6dbd6dcdd73fc0ac42103dc686a45f7a568e75d7ce9904bdf1729f284374a1b5" => :x86_64_linux
+    rebuild 1
+    sha256 "b712854f25a498770ff04dab6f675279763ee0b7b1d354407135e80368d8e418" => :mojave
+    sha256 "44582cb5294bd6f84f5488b9ed3872656b732c81504b6063b104d1244614ab08" => :high_sierra
+    sha256 "f5006481444b6658f07ecbb7106a99291671690ffe45e6d54ad40372a4c92c20" => :sierra
   end
 
   depends_on "python"
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
-    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
+    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
   end
 
   resource "pytoml" do
