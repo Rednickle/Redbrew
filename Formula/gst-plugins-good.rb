@@ -1,6 +1,7 @@
 class GstPluginsGood < Formula
   desc "GStreamer plugins (well-supported, under the LGPL)"
   homepage "https://gstreamer.freedesktop.org/"
+  revision 1
 
   stable do
     url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.14.4.tar.xz"
@@ -10,9 +11,9 @@ class GstPluginsGood < Formula
   end
 
   bottle do
-    sha256 "008476a42bc0d81c9fde5874630c2bb354d6562a0737533c8fcb50edafe29b96" => :mojave
-    sha256 "9f437a2f9156f256ffe5d7d4c39bd0d718253cf2d01245ebdc275321d758a19f" => :high_sierra
-    sha256 "8ba60a17e345f65f542b7325e1d54e92c21d375268d4e839d05b9314863e8bd1" => :sierra
+    sha256 "b064a88166dde9a0728e2b4931265c36331fe04763cd86a374f7e871970154b7" => :mojave
+    sha256 "4690c041a027f7f8a4d50a50b704bf4474c457bf6d5587d4f6d00b02e0ae9770" => :high_sierra
+    sha256 "a992fea0e10e1227d9747bfac9a8df892a63e1e23efe753e65a8e9a93f363c34" => :sierra
   end
 
   head do
@@ -25,29 +26,29 @@ class GstPluginsGood < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "cairo"
+  depends_on "flac"
   depends_on "gettext"
   depends_on "gst-plugins-base"
+  depends_on "jpeg"
+  depends_on "libpng"
+  depends_on "libshout"
   depends_on "libsoup"
+  depends_on "libvpx"
+  depends_on "orc"
+  depends_on "speex"
+  depends_on "taglib"
 
   # Dependencies based on the intersection of
   # https://cgit.freedesktop.org/gstreamer/gst-plugins-good/tree/REQUIREMENTS
   # and Homebrew formulae.
-  depends_on "jpeg" => :recommended
-  depends_on "orc" => :recommended
   depends_on "aalib" => :optional
-  depends_on "cairo" => :optional
-  depends_on "flac" => :optional
   depends_on "gdk-pixbuf" => :optional
   depends_on "gtk+3" => :optional
   depends_on "jack" => :optional
   depends_on "libcaca" => :optional
   depends_on "libdv" => :optional
-  depends_on "libpng" => :optional
-  depends_on "libshout" => :optional
-  depends_on "libvpx" => :optional
   depends_on "pulseaudio" => :optional
-  depends_on "speex" => :optional
-  depends_on "taglib" => :optional
   depends_on :x11 => :optional
 
   def install
