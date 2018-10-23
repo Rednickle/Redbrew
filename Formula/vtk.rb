@@ -3,14 +3,13 @@ class Vtk < Formula
   homepage "https://www.vtk.org/"
   url "https://www.vtk.org/files/release/8.1/VTK-8.1.1.tar.gz"
   sha256 "71a09b4340f0a9c58559fe946dc745ab68a866cf20636a41d97b6046cb736324"
-  revision 1
+  revision 2
   head "https://github.com/Kitware/VTK.git"
 
   bottle do
-    rebuild 1
-    sha256 "2f6b343c4fa0f875c3701792a0f148b619cb2da288c14b0606c4ef00ae5caf73" => :mojave
-    sha256 "91c0de753f55355f86297a4e9f14b32e18d65b32d23143f7aa0e9c7de4704cee" => :high_sierra
-    sha256 "9885f9cc2f509a4181c5783449945588ffcfb2086126decd18aa21958dc5244f" => :sierra
+    sha256 "9ebecbab78563a12b4a55f62d7c15afeab7b288891ba2b71d8f461b1d77b8b33" => :mojave
+    sha256 "f17ccc19e0183f06c07e6d7b2ac23f21a5056bb8b8bcb57f5411f656639d168a" => :high_sierra
+    sha256 "b0cce7d37ebea9901e98519412b7d8078499ca03ee4cc6ec283525ba9dd2f121" => :sierra
   end
 
   option "without-python@2", "Build without python2 support"
