@@ -5,17 +5,15 @@ class GitAnnex < Formula
 
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-6.20180926/git-annex-6.20180926.tar.gz"
-  sha256 "ad9c32dc2d01bc0b521936156f8ab8247ce8c131f083899d06c30f0391cca188"
+  url "https://hackage.haskell.org/package/git-annex-6.20181011/git-annex-6.20181011.tar.gz"
+  sha256 "ee319b305b9279cd11fd5da08882d62cf533a577243c3a37a4cda55766de284c"
   head "git://git-annex.branchable.com/"
 
   bottle do
-    sha256 "bf4d1c2787b44a8724ae1c5a402b1bab043399cb78c7bc1256a0c5ea5befb180" => :mojave
-    sha256 "3bb20d613b13cec529f74769de9214d8e9556266be272a0a51f316430c21458c" => :high_sierra
-    sha256 "3c51fa068af0798623d4e23ee763fe0503d4b880c4822c053b4a7381dec0ac3b" => :sierra
+    sha256 "3de536085890f16136d8f95ca8328b07d9d8e1a64e31c51ea64c4866887b96eb" => :mojave
+    sha256 "0dec2e07b446289426b35e90d288fb50ceb305ef6fb37221df4255e4a69d4280" => :high_sierra
+    sha256 "e14e425f71603482458acc3a98ba4031d81ef7a37276e8bdcc22c28bd468e0af" => :sierra
   end
-
-  option "with-git-union-merge", "Build the git-union-merge tool"
 
   depends_on "cabal-install" => :build
   depends_on "ghc@8.2" => :build
@@ -23,7 +21,7 @@ class GitAnnex < Formula
   depends_on "gsasl"
   depends_on "libmagic"
   depends_on "quvi"
-  depends_on "xdot" => :recommended
+  depends_on "xdot"
 
   def install
     # Reported 28 Feb 2018 to aws upstream https://github.com/aristidb/aws/issues/244
@@ -33,14 +31,7 @@ class GitAnnex < Formula
     install_cabal_package "--constraint", "http-conduit<2.3",
                           "--constraint", "network<2.7.0.1",
                           :using => ["alex", "happy", "c2hs"],
-                          :flags => ["s3", "webapp"] do
-      # this can be made the default behavior again once git-union-merge builds properly when bottling
-      if build.with? "git-union-merge"
-        system "make", "git-union-merge", "PREFIX=#{prefix}"
-        bin.install "git-union-merge"
-        system "make", "git-union-merge.1", "PREFIX=#{prefix}"
-      end
-    end
+                          :flags => ["s3", "webapp"]
     bin.install_symlink "git-annex" => "git-annex-shell"
   end
 
