@@ -15,12 +15,6 @@ class Aspell < Formula
     sha256 "eb3c1216d4977031fc69a9f92416fc321e548d84ffcccf49ec2389c10a0a4300" => :x86_64_linux # glibc 2.19
   end
 
-  devel do
-    url "https://alpha.gnu.org/gnu/aspell/aspell-0.60.7-rc1.tar.gz"
-    sha256 "86b5662f24316142f70c5890787bdc5596625ca3604dfe85926ee61f27f2365e"
-    version "0.60.7-20170129"
-  end
-
   # Dictionaries installed by default: en, de, es, fr
   option "without-lang-en", "Do not install en dictionary"
   resource "en" do
