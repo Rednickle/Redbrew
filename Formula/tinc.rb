@@ -11,11 +11,6 @@ class Tinc < Formula
     sha256 "92623529db377a869ddc37fee589e656a187580a472f78fc7bba2a2e1606c383" => :x86_64_linux
   end
 
-  devel do
-    url "https://www.tinc-vpn.org/packages/tinc-1.1pre17.tar.gz"
-    sha256 "61b9c9f9f396768551f39216edcc41918c65909ffd9af071feb3b5f9f9ac1c27"
-  end
-
   depends_on "lzo"
   depends_on "openssl"
   depends_on "zlib" unless OS.mac?

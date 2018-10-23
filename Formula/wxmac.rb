@@ -15,11 +15,6 @@ class Wxmac < Formula
     sha256 "9db7e24b014fd7549f9c30346307342173422b0d937d9346af3d6dba73a07e33" => :x86_64_linux
   end
 
-  devel do
-    url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.1.1/wxWidgets-3.1.1.tar.bz2"
-    sha256 "c925dfe17e8f8b09eb7ea9bfdcfcc13696a3e14e92750effd839f5e10726159e"
-  end
-
   option "with-stl", "use standard C++ classes for everything"
   option "with-static", "build static libraries"
 

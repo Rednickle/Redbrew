@@ -16,11 +16,6 @@ class Theora < Formula
     sha256 "c9980f278bca53f6cca1bd77631f7d1b20b0e1cc6df052af7bdab97d41606d33" => :x86_64_linux
   end
 
-  devel do
-    url "https://downloads.xiph.org/releases/theora/libtheora-1.2.0alpha1.tar.xz"
-    sha256 "5be692c6be66c8ec06214c28628d7b6c9997464ae95c4937805e8057808d88f7"
-  end
-
   head do
     url "https://git.xiph.org/theora.git"
 
@@ -45,7 +40,7 @@ class Theora < Formula
       --disable-examples
     ]
 
-    args << "--disable-asm" unless build.stable?
+    args << "--disable-asm" if build.head?
 
     system "./configure", *args
     system "make", "install"

@@ -16,11 +16,6 @@ class Libewf < Formula
     sha256 "d0efe162fc1c3d527a00ebc07cdd1b56c28ee2aaa9af85357438520d741fcaee" => :x86_64_linux
   end
 
-  devel do
-    url "https://github.com/libyal/libewf/releases/download/20170703/libewf-experimental-20170703.tar.gz"
-    sha256 "84fe12389abacf63dea2d921b636220bb7fda3262d1c467f6d445a5e31f53ade"
-  end
-
   head do
     url "https://github.com/libyal/libewf.git"
     depends_on "autoconf" => :build

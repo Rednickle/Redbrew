@@ -14,15 +14,6 @@ class Jq < Formula
     sha256 "cfad6f50b6630939fc7f32a97d3f70d3233b3a960290105892648b525a8a9886" => :x86_64_linux
   end
 
-  devel do
-    url "https://github.com/stedolan/jq.git", :tag => "jq-1.6rc1"
-    version "1.6rc1"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
   head do
     url "https://github.com/stedolan/jq.git"
 
@@ -34,7 +25,7 @@ class Jq < Formula
   depends_on "oniguruma" # jq depends > 1.5
 
   def install
-    system "autoreconf", "-iv" unless build.stable?
+    system "autoreconf", "-iv" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--disable-maintainer-mode",

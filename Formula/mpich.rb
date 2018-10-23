@@ -14,11 +14,6 @@ class Mpich < Formula
     sha256 "4d555b6430f90a398cf9386de8f4140d4dacca8f1437eecca5bdf5f2cb90b054" => :x86_64_linux
   end
 
-  devel do
-    url "https://www.mpich.org/static/downloads/3.3b3/mpich-3.3b3.tar.gz"
-    sha256 "73a881c065f798a47a7db1e0ad34ad16c4cb73bf7ebf34c97618aac152c416bf"
-  end
-
   head do
     url "http://git.mpich.org/mpich.git"
 
