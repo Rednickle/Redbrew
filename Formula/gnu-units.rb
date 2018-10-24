@@ -9,6 +9,7 @@ class GnuUnits < Formula
     sha256 "1aa452c7a4984005145a7900c5f44e899efacffa307cee4014f472cb939ff789" => :mojave
     sha256 "1c3aacea01deab09ec709f91539fe43839846d7be5f3e0a130ea1e8ae7606fff" => :high_sierra
     sha256 "3ed2c600cbc2af885b6c3d660b2a707e74cec265d94e141a62e40bb9517348c6" => :sierra
+    sha256 "1006731c4af0d3893c8e2ba94f411f25c5b3aff5ca040b2de5658a87ef230552" => :x86_64_linux
   end
 
   if OS.mac?
