@@ -1,15 +1,24 @@
 class Watchman < Formula
   desc "Watch files and take action when they change"
   homepage "https://github.com/facebook/watchman"
-  url "https://github.com/facebook/watchman/archive/v4.9.0.tar.gz"
-  sha256 "1f6402dc70b1d056fffc3748f2fdcecff730d8843bb6936de395b3443ce05322"
-  revision 1
+  revision 2
   head "https://github.com/facebook/watchman.git"
 
+  stable do
+    url "https://github.com/facebook/watchman/archive/v4.9.0.tar.gz"
+    sha256 "1f6402dc70b1d056fffc3748f2fdcecff730d8843bb6936de395b3443ce05322"
+
+    # Upstream commit from 1 Sep 2017: "Have bin scripts use iter() method for python3"
+    patch do
+      url "https://github.com/facebook/watchman/commit/17958f7d.diff?full_index=1"
+      sha256 "edad4971fceed2aecfa2b9c3e8e22c455bfa073732a3a0c77b030e506ee860af"
+    end
+  end
+
   bottle do
-    sha256 "3d3a3d943fc99ebb189798a632c1284e9cf0c33c3e79861af37e2c1182806649" => :mojave
-    sha256 "188dc7775797d76f4f092ec010d804990755244f0feb39989b88a4fca4e5da23" => :high_sierra
-    sha256 "3dfb7b952b099624171987dfec946c39b74dd8f930c005e14cdd7c9d98275981" => :sierra
+    sha256 "fd932d78fec199bbd71e7f192eb16deb728d0d7aeb26127fd0827221de2d92cb" => :mojave
+    sha256 "83e3c11bdb57ba39b51c4d9e17fb38638f541a17343be51106f7409df17c7bf3" => :high_sierra
+    sha256 "a6ae3a7240b6427a44a032fa2d1d23743bdcc4a8cf3ee80276eac895028b470b" => :sierra
   end
 
   depends_on "autoconf" => :build
