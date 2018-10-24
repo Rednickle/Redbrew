@@ -3,17 +3,24 @@ class Pdftoipe < Formula
   homepage "https://github.com/otfried/ipe-tools"
   url "https://github.com/otfried/ipe-tools/archive/v7.2.7.1.tar.gz"
   sha256 "b45a7d6bec339e878717bd273c32c7957e2d4d87c57e117e772ee3dd3231d7aa"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "4a04c9219dc9113a39ba33ddacd28768d139d86c59ee6ddbc87c86188956797e" => :mojave
-    sha256 "95061176fb7818c898729baf87589497f068c9bccb0584d307ba85a50cb0ce47" => :high_sierra
-    sha256 "f7dd43fd6d2883a5195d08f9a371749657107315f190a14bf063952bf12cfc20" => :sierra
-    sha256 "67bdeffd385457ae126acfff2a19b6e308873aa807e728a3d51c61da1a7accf3" => :x86_64_linux
+    sha256 "bb6c9f9614cb9d09cc3641118f627ce21dc4e4b35c22b139c3437e5e4231e917" => :mojave
+    sha256 "4b8af712c6d8bdae593f60b03dfc6abaa0205013b9470376c519b6552ebddf52" => :high_sierra
+    sha256 "89642035b0968b03bbac12d40a0b14b00caef43590e4f3f3311ca07715997a34" => :sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "poppler"
+
+  # https://github.com/otfried/ipe-tools/pull/30
+  # Should be safe to remove on next release but check if merged.
+  patch do
+    url "https://github.com/otfried/ipe-tools/pull/30.patch?full_index=1"
+    sha256 "ac7f9945f12ff11a3ae41e368cb439aeac1e9ff3e81907568b39c3752959288c"
+  end
 
   needs :cxx11
 
