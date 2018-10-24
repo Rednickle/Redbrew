@@ -32,13 +32,6 @@ class GitCinnabar < Formula
     sha256 "358bc548d43c4d6b8489371a7ecb62ef1898474026a78e0aa67e426a62762a68" => :x86_64_linux
   end
 
-  devel do
-    url "https://github.com/glandium/git-cinnabar.git",
-        :tag => "0.5.0b4",
-        :revision => "125ae46f06383fd69c6b9febac9a33317d12b368"
-    version "0.5.0b4"
-  end
-
   depends_on "mercurial"
   depends_on "curl" unless OS.mac?
 

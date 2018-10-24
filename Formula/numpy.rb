@@ -3,12 +3,12 @@ class Numpy < Formula
   homepage "https://www.numpy.org/"
   url "https://files.pythonhosted.org/packages/45/ba/2a781ebbb0cd7962cc1d12a6b65bd4eff57ffda449fdbbae4726dc05fbc3/numpy-1.15.2.zip"
   sha256 "27a0d018f608a3fe34ac5e2b876f4c23c47e38295c47dd0775cc294cd2614bc1"
+  revision 1
 
   bottle do
-    sha256 "0d480693793b2a59bcbd6fdd367c99b98e4adc3734c6335a2f49e09947b87d3b" => :mojave
-    sha256 "83a0997e1099392cddb7b6cbd6dcaa279268a413097dd42d96d7eff63d734225" => :high_sierra
-    sha256 "d89bfc673ec39122be99c3be6d581f981a7c2b70327787456f650c3df6805dad" => :sierra
-    sha256 "4a7bfdc9e3278a8a5e740c534529b57ba616d3bf763c71cf7df0e9f9be32a705" => :x86_64_linux
+    sha256 "fd06e65851fca8ee9d06cdefa4ff6fd6e1ac0d404cde94b0a95bc1b90d69fe66" => :mojave
+    sha256 "0928c6950db0b3976ebc87ccefb836fe89d32a427c6cbf1c7081ef7f5a3baf22" => :high_sierra
+    sha256 "474e492961f9b2871f58725fdd26bef8c7270930d3406224b3a71ad2a0d4b629" => :sierra
   end
 
   head do
@@ -23,9 +23,9 @@ class Numpy < Formula
   option "without-python@2", "Build without python2 support"
 
   depends_on "gcc" => :build # for gfortran
+  depends_on "openblas"
   depends_on "python" => :recommended
   depends_on "python@2" => :recommended
-  depends_on "openblas" unless OS.mac?
 
   resource "nose" do
     url "https://files.pythonhosted.org/packages/58/a5/0dc93c3ec33f4e281849523a5a913fa1eea9a3068acfa754d44d88107a44/nose-1.3.7.tar.gz"
@@ -33,15 +33,19 @@ class Numpy < Formula
   end
 
   def install
-    unless OS.mac?
-      # Help the installer finding openblas on Red Hat
-      config = <<~EOS
-        [DEFAULT]
-        library_dirs = #{HOMEBREW_PREFIX}/lib
-        include_dirs = #{HOMEBREW_PREFIX}/include
-      EOS
-      Pathname("site.cfg").write config
-    end
+    openblas = Formula["openblas"].opt_prefix
+    ENV["ATLAS"] = "None" # avoid linking against Accelerate.framework
+    ENV["BLAS"] = ENV["LAPACK"] = "#{openblas}/lib/libopenblas.dylib"
+
+    config = <<~EOS
+      [openblas]
+      libraries = openblas
+      library_dirs = #{openblas}/lib
+      include_dirs = #{openblas}/include
+    EOS
+
+    Pathname("site.cfg").write config
+
     Language::Python.each_python(build) do |python, version|
       dest_path = lib/"python#{version}/site-packages"
       dest_path.mkpath

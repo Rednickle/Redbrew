@@ -12,13 +12,6 @@ class SwiProlog < Formula
     sha256 "7b86e11f244c21051f94c9ffd2648f3411131f58b5b6efcf2830c3982c1257a8" => :x86_64_linux
   end
 
-  devel do
-    url "http://www.swi-prolog.org/download/devel/src/swipl-7.7.19.tar.gz"
-    sha256 "a7820510afd89c2d7cad977ff455841350e7163f8c532d25ce94e70336564a82"
-
-    depends_on "zlib" if MacOS.version <= :el_capitan
-  end
-
   head do
     url "https://github.com/SWI-Prolog/swipl-devel.git"
 

@@ -16,11 +16,6 @@ class Premake < Formula
     sha256 "aa6e7f314ec8636d79601dfc5f1ef30861288b238c2cb1f02ec37d9bda773818" => :x86_64_linux
   end
 
-  devel do
-    url "https://github.com/premake/premake-core/releases/download/v5.0.0-alpha12/premake-5.0.0-alpha12-src.zip"
-    sha256 "5fa4a9f5b100024e23e2b9117ffa4935a6ac3c0a61aa027c3211388d53536751"
-  end
-
   def install
     if build.head?
       system "make", "-f", "Bootstrap.mak", "osx"
@@ -29,7 +24,7 @@ class Premake < Formula
 
     system "make", "-C", "build/gmake.#{OS.mac? ? "macosx" : "unix"}"
 
-    if build.devel? || build.head?
+    if build.head?
       bin.install "bin/release/premake5"
     else
       bin.install "bin/release/premake4"
@@ -37,10 +32,10 @@ class Premake < Formula
   end
 
   test do
-    if stable?
-      assert_match version.to_s, shell_output("#{bin}/premake4 --version", 1)
-    else
+    if build.head?
       assert_match version.to_s, shell_output("#{bin}/premake5 --version")
+    else
+      assert_match version.to_s, shell_output("#{bin}/premake4 --version", 1)
     end
   end
 end
