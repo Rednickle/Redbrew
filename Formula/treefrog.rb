@@ -19,8 +19,8 @@ class Treefrog < Formula
 
   deprecated_option "with-qt5" => "with-qt"
 
-  depends_on :xcode => [:build, "8.0"] if OS.mac?
-  depends_on :macos => :el_capitan
+  depends_on :xcode => ["8.0", :build] if OS.mac?
+  depends_on :macos => :el_capitan if OS.mac?
 
   qt_build_options = []
   qt_build_options << "with-mysql" if build.with?("mysql")
