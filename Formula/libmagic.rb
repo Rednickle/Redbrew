@@ -9,6 +9,7 @@ class Libmagic < Formula
     sha256 "c3fe0254292ede89316f4f51c4e603065439e9d090d0d7a32d95ce9b10697fca" => :mojave
     sha256 "c8ff7d4f1248f71c8486290fa67539d4a011bb14e2e361dc610a5e914e7db2a0" => :high_sierra
     sha256 "cfd626e5f31452b0e482141f06b3bc56244c4e6298e752ea25196236d94ebc98" => :sierra
+    sha256 "f4718aefac2014dc4a75209d4131e8be221e20ab55470c05c8ce9229c0da5b2f" => :x86_64_linux
   end
 
   deprecated_option "with-python" => "with-python@2"
