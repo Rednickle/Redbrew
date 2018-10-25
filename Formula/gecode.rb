@@ -9,6 +9,7 @@ class Gecode < Formula
     sha256 "2bc4fdd0449bfaa2240096cc0cb4c41410bbd98ca5f5aecd17ad447c75de15e5" => :mojave
     sha256 "429df4b22ad12271341419dc6872e65ffac5b70b9815dd9274914209370c701b" => :high_sierra
     sha256 "a91ba1e8e0ee585a8bea0adbfe4c9242bf30f61bce3cf50a4d0cfff4088b568b" => :sierra
+    sha256 "43b84d6c65a03a80d262abcfd754637bddf2ca0bd49ee397341505596ebd78b2" => :x86_64_linux
   end
 
   deprecated_option "with-qt5" => "with-qt"
