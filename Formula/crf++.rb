@@ -11,6 +11,7 @@ class Crfxx < Formula
     sha256 "478347b2973b7ace27af0bc55b3ed3fca14e158433b512a8e92d9cc8f3336872" => :mojave
     sha256 "fa5bcfa302710b90736e3fd21709d4da3619a86251b876d52c9adbb57a3b17f7" => :high_sierra
     sha256 "5c958b605baab60e1b01eb3bbb67851119025c84e1c4c1b2c0a0dd2b272f70ea" => :sierra
+    sha256 "5ce42f436921eb39a43fbaa965db9159b2f26bdc1aed91aa5fa12541215ee5a7" => :x86_64_linux
   end
 
   def install
