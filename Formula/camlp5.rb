@@ -15,17 +15,10 @@ class Camlp5 < Formula
     sha256 "dd1dd887a9cb97c3736a8e03c8c1db69bcc4a161d784c9d6fc7bd7dcdf6c9b60" => :x86_64_linux
   end
 
-  option "with-strict", "Compile in strict mode (not recommended)"
-
-  deprecated_option "strict" => "with-strict"
-
   depends_on "ocaml"
 
   def install
-    args = ["--prefix", prefix, "--mandir", man]
-    args << "--transitional" if build.without? "strict"
-
-    system "./configure", *args
+    system "./configure", "--prefix", prefix, "--mandir", man
     system "make", "world.opt"
     system "make", "install"
     (lib/"ocaml/camlp5").install "etc/META"
@@ -33,6 +26,7 @@ class Camlp5 < Formula
 
   test do
     (testpath/"hi.ml").write "print_endline \"Hi!\";;"
-    assert_equal "let _ = print_endline \"Hi!\"", shell_output("#{bin}/camlp5 #{lib}/ocaml/camlp5/pa_o.cmo #{lib}/ocaml/camlp5/pr_o.cmo hi.ml")
+    assert_equal "let _ = print_endline \"Hi!\"",
+      shell_output("#{bin}/camlp5 #{lib}/ocaml/camlp5/pa_o.cmo #{lib}/ocaml/camlp5/pr_o.cmo hi.ml")
   end
 end
