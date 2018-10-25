@@ -14,9 +14,6 @@ class Hub < Formula
     sha256 "af9ded7ac23a11c6832812d1d40eeb67b4811e7509b30f00019a8e3665c25079" => :x86_64_linux
   end
 
-  option "without-completions", "Disable bash/zsh completions"
-  option "without-docs", "Don't install man pages"
-
   depends_on "go" => :build
 
   # System Ruby uses old TLS versions no longer supported by RubyGems.
@@ -32,29 +29,22 @@ class Hub < Formula
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/github/hub").install buildpath.children
     cd "src/github.com/github/hub" do
-      if build.with? "docs"
-        begin
-          deleted = ENV.delete "SDKROOT"
-          ENV["GEM_HOME"] = buildpath/"gem_home"
-          system "gem", "install", "bundler"
-          ENV.prepend_path "PATH", buildpath/"gem_home/bin"
-          system "make", "man-pages"
-        ensure
-          ENV["SDKROOT"] = deleted
-        end
-        system "make", "install", "prefix=#{prefix}"
-      else
-        system "script/build", "-o", "hub"
-        bin.install "hub"
+      begin
+        deleted = ENV.delete "SDKROOT"
+        ENV["GEM_HOME"] = buildpath/"gem_home"
+        system "gem", "install", "bundler"
+        ENV.prepend_path "PATH", buildpath/"gem_home/bin"
+        system "make", "man-pages"
+      ensure
+        ENV["SDKROOT"] = deleted
       end
+      system "make", "install", "prefix=#{prefix}"
 
       prefix.install_metafiles
 
-      if build.with? "completions"
-        bash_completion.install "etc/hub.bash_completion.sh"
-        zsh_completion.install "etc/hub.zsh_completion" => "_hub"
-        fish_completion.install "etc/hub.fish_completion" => "hub.fish"
-      end
+      bash_completion.install "etc/hub.bash_completion.sh"
+      zsh_completion.install "etc/hub.zsh_completion" => "_hub"
+      fish_completion.install "etc/hub.fish_completion" => "hub.fish"
     end
   end
 

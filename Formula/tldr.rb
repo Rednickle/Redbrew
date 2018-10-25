@@ -19,6 +19,8 @@ class Tldr < Formula
   depends_on "libzip"
   depends_on "curl" unless OS.mac?
 
+  conflicts_with "tealdeer", :because => "both install `tldr` binaries"
+
   def install
     system "make", "PREFIX=#{prefix}", "install"
   end
