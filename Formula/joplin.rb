@@ -11,6 +11,7 @@ class Joplin < Formula
     sha256 "d9b4ce17add87eab53f2068a9dbad86cd502f30860b4212d59b2c348e99fd861" => :mojave
     sha256 "f5d6b2f57e89f0e824f1f620bf91c437f9e5a181e5419d6164ba9cf17c463044" => :high_sierra
     sha256 "45ce024877e21d40651b76b1f758b2cd0ba645e7e538fee0b6207f92cff87004" => :sierra
+    sha256 "bed65cbfdaa73eb2b2068b1d2c69844988329cd6b9237e134635bf15ca950626" => :x86_64_linux
   end
 
   depends_on "python@2" => :build
