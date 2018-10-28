@@ -9,6 +9,7 @@ class Elixir < Formula
     sha256 "bf12a711bafb1376ef61747a8b630f3dc17db104a2067ce2d7681db4e84b7dc9" => :mojave
     sha256 "571a686fc769e8c6d83040d8eba361b888842a3f9699284e9585e1c76c15352a" => :high_sierra
     sha256 "481aefb8f5dd96e32bf38bba04019f4951c2b62cc16293ec98d329844e7c62f0" => :sierra
+    sha256 "ea71044b9ed768fd120e7404630923a88515e549cbb00fd90e144b78e88aa205" => :x86_64_linux
   end
 
   depends_on "erlang"
