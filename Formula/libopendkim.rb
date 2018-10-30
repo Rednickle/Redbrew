@@ -9,6 +9,7 @@ class Libopendkim < Formula
     sha256 "b144ac9d9fe9a2ba8a298001df5beacde4ed6461dbcdda089d462ddf8314c35a" => :mojave
     sha256 "c44483297476334acbfa979c81902b01528fd5c7a429e699764899512e687fbc" => :high_sierra
     sha256 "5d2163990816a1af9420fc096d3579febb819582053faf133424d689ad5e190c" => :sierra
+    sha256 "f585393c2ff3b461c9ed3501cc775d1e73e5077d56a392d5ebdae48c1cbb29ab" => :x86_64_linux
   end
 
   depends_on "openssl"
