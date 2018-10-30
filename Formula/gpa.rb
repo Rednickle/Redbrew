@@ -9,6 +9,7 @@ class Gpa < Formula
     sha256 "fa40434b7e39fb6fd15f67ea757c9b18f3e3c0cdb0eb533940517d51793e3cfd" => :mojave
     sha256 "ba20aa21492d9b334cbf4f1dc2ea072d0302f8a97fcd2537fc38f2539e4a19b8" => :high_sierra
     sha256 "5ef7f508f0b6a8bb688b417abd865e53da69dea0d5e048ba0da0686bd2a67043" => :sierra
+    sha256 "3110d3777bfb71abcdd6c55a643ba4fc4d72bd8cc4b0a82ccef0f8998856da8a" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
