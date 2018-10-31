@@ -52,10 +52,6 @@ class GccAT6 < Formula
     end
   end
 
-  # isl 0.20 compatibility
-  # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=86724
-  patch :DATA
-
   def install
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
