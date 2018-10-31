@@ -4,26 +4,30 @@ class Binutils < Formula
   url "https://ftp.gnu.org/gnu/binutils/binutils-2.31.1.tar.gz"
   mirror "https://ftpmirror.gnu.org/binutils/binutils-2.31.1.tar.gz"
   sha256 "e88f8d36bd0a75d3765a4ad088d819e35f8d7ac6288049780e2fefcad18dde88"
+  revision 1
 
   bottle do
     cellar :any # manually added
-    sha256 "92fdc2c6b6b95c3944156ad3da3b5c8a3118c245e088712df451237de67d6732" => :mojave
-    sha256 "a3ed5e2bf0cd0823c5140a6bf44d13f32fbc63a67a4e6d239e1c391518432bd7" => :high_sierra
-    sha256 "a815d5c60302a1e71c0970d86769931abd5e985f8d420cfd527aa495930cd393" => :sierra
-    sha256 "7c693e68ebfcd654fd781480e68469e8f5af93c7397754a8caae1937322feb8f" => :el_capitan
-    sha256 "99698e2b25a672056e8969f0b1a82f9c0a7e19f8cf09cc5ac1710c56d6e72d46" => :x86_64_linux # glibc 2.12
+    sha256 "b4ed7c31d6738e2f084e801cb747f98cb63a4857ab5044c757ae361e3a68d32b" => :mojave
+    sha256 "35253f02238a83fcfc243a79b1fb445d6bec93b2a602789e063896d03f0012f5" => :high_sierra
+    sha256 "3fa0ed58f41b068c5c6e81e2ae99879f0f36f9588814f52be8806e09a3b7bca5" => :sierra
   end
 
-  # No --default-names option as it interferes with Homebrew builds.
-  option "without-gold", "Do not build the gold linker" if OS.linux?
+  if OS.mac?
+    keg_only :provided_by_macos,
+             "because Apple provides the same tools and binutils is poorly supported on macOS"
+  end
 
-  depends_on "zlib" => :recommended unless OS.mac?
+  unless OS.mac?
+    option "without-gold", "Do not build the gold linker"
+
+    depends_on "zlib" => :recommended unless OS.mac?
+  end
 
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
-                          ("--program-prefix=g" if OS.mac?),
-                          ("--with-sysroot=/" if OS.linux?),
+                          ("--with-sysroot=/" unless OS.mac?),
                           "--enable-deterministic-archives",
                           "--prefix=#{prefix}",
                           "--infodir=#{info}",
@@ -33,18 +37,21 @@ class Binutils < Formula
                           "--enable-multilib",
                           "--enable-64-bit-bfd",
                           ("--enable-gold" if build.with? "gold"),
-                          ("--enable-plugins" if OS.linux?),
+                          ("--enable-plugins" unless OS.mac?),
                           "--enable-targets=all"
     system "make"
     system "make", "install"
     bin.install_symlink "ld.gold" => "gold" if build.with? "gold"
+
+    Dir["#{bin}/*"].each do |f|
+      bin.install_symlink f => "g" + File.basename(f)
+    end if OS.mac?
 
     # Reduce the size of the bottle.
     system "strip", *Dir[bin/"*", lib/"*.a"] unless OS.mac?
   end
 
   test do
-    size = OS.mac? ? "gsize" : "size"
-    assert_match "text", shell_output("#{bin}/#{size} #{bin}/#{size}")
+    assert_match "Usage:", shell_output("#{bin}/strings #{bin}/strings")
   end
 end
