@@ -38,4 +38,10 @@ class Blahtexml < Formula
     system "make", "blahtexml-#{os}"
     bin.install "blahtexml"
   end
+
+  test do
+    input = '\sqrt{x^2+\alpha}'
+    output = pipe_output("#{bin}/blahtex --mathml", input)
+    assert_match "<msqrt><msup><mi>x</mi><mn>2</mn></msup><mo ", output
+  end
 end

@@ -9,11 +9,10 @@ class Ghc < Formula
   sha256 "ae47afda985830de8811243255aa3744dfb9207cb980af74393298b2b62160d6"
 
   bottle do
-    sha256 "02efe429ad3b258784afb6c4313f71ff6b9b6210d4ee86594349fb7ecdc6faeb" => :mojave
-    sha256 "fcf4fd3d4a75b5b71f6f047cb652820d290ceb55856ee62d63c23746dcfb66ee" => :high_sierra
-    sha256 "b488193dbf9877a9a3195d0ada5883b07adc8e537d6576678c096014567d8673" => :sierra
-    sha256 "8efdc2390e8379da21a4212730d29d12d168903f945918c5f226783ba4dd3c37" => :el_capitan
-    sha256 "b733c5d37fcb02cc44041c2c3c4c7d5cb1902478b363323e2cb47bdcb8fd4e95" => :x86_64_linux
+    rebuild 1
+    sha256 "d5ee4456af389eac773bf98e1d0b82701a7a16b5050631e2f34dec62a1a06fce" => :mojave
+    sha256 "2ca1521c279ecc3042b592ad0ee2a213eaedaf6eb4c71ea1785a03e3c66cdd60" => :high_sierra
+    sha256 "3c7aa9670108ad72839c86d8780f9575ebb61dec2f67c739a7edd4d226e1fb44" => :sierra
   end
 
   head do
@@ -75,6 +74,8 @@ class Ghc < Formula
     url "https://downloads.haskell.org/~ghc/8.4.3/ghc-8.4.3-testsuite.tar.xz"
     sha256 "ff43a015f803005dd9d9248ea9ffa92f9ebe79e146cfd044c3f48e0a7e58a5fc"
   end
+
+  patch :DATA
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
@@ -177,6 +178,7 @@ class Ghc < Formula
 
       system "./boot"
     end
+
     system "./configure", "--prefix=#{prefix}", *args
     system "make"
 
@@ -203,3 +205,42 @@ class Ghc < Formula
     system "./hello"
   end
 end
+
+__END__
+
+diff --git a/docs/users_guide/flags.py b/docs/users_guide/flags.py
+index cc30b8c066..21c7ae3a16 100644
+--- a/docs/users_guide/flags.py
++++ b/docs/users_guide/flags.py
+@@ -46,9 +46,11 @@
+
+ from docutils import nodes
+ from docutils.parsers.rst import Directive, directives
++import sphinx
+ from sphinx import addnodes
+ from sphinx.domains.std import GenericObject
+ from sphinx.errors import SphinxError
++from distutils.version import LooseVersion
+ from utils import build_table_from_list
+
+ ### Settings
+@@ -597,14 +599,18 @@ def purge_flags(app, env, docname):
+ ### Initialization
+
+ def setup(app):
++    # The override argument to add_directive_to_domain is only supported by >= 1.8
++    sphinx_version = LooseVersion(sphinx.__version__)
++    override_arg = {'override': True} if sphinx_version >= LooseVersion('1.8') else {}
+
+     # Add ghc-flag directive, and override the class with our own
+     app.add_object_type('ghc-flag', 'ghc-flag')
+-    app.add_directive_to_domain('std', 'ghc-flag', Flag)
++    app.add_directive_to_domain('std', 'ghc-flag', Flag, **override_arg)
+
+     # Add extension directive, and override the class with our own
+     app.add_object_type('extension', 'extension')
+-    app.add_directive_to_domain('std', 'extension', LanguageExtension)
++    app.add_directive_to_domain('std', 'extension', LanguageExtension,
++                                **override_arg)
+     # NB: language-extension would be misinterpreted by sphinx, and produce
+     # lang="extensions" XML attributes
