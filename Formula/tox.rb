@@ -3,15 +3,14 @@ class Tox < Formula
 
   desc "Generic Python virtualenv management and test command-line tool"
   homepage "https://tox.readthedocs.org/"
-  url "https://files.pythonhosted.org/packages/38/ab/3674069bb1dadcd23e2e76c133cfa806026e68c97510224b3726562a8c44/tox-3.5.2.tar.gz"
-  sha256 "4baeb3d8ebdcd9f43afce38aa67d06f1165a87d221d5bb21e8b39a0d4880c134"
+  url "https://files.pythonhosted.org/packages/01/64/a1654cacb2f1dc291854b50df8570418135623c9c3445b0e1c78aeff8fee/tox-3.5.3.tar.gz"
+  sha256 "513e32fdf2f9e2d583c2f248f47ba9886428c949f068ac54a0469cac55df5862"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "148b687fe292d8ffc0ff70f2ba3d389098c4e880497c60f7d7bf6d9dd1ec08ed" => :mojave
-    sha256 "eea5b32511a04806655d91cd2341bf651787324f9e026d8416135c39bdb52e01" => :high_sierra
-    sha256 "fa41720517ada45e2fde7345104f653259477f84bef4f830a7b1c253e33d5f08" => :sierra
-    sha256 "dc6bbe6ec190e2225cd7ee109d9fc315094555fc6c768c718523fb80297199eb" => :x86_64_linux
+    sha256 "3f9df6096039e4d6df2f8aa21c9b530a6d76298994f7663d559907e225c1df61" => :mojave
+    sha256 "56fe350321d5c3333c6df29f1d2b1c9fd095199cadfa7b8b8f704a08bd950a74" => :high_sierra
+    sha256 "571fdddadff742860b529dd717449ef6d2db80d4aeb3b2ec01e05d1c6c41ec2e" => :sierra
   end
 
   depends_on "python"
