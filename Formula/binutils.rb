@@ -4,7 +4,7 @@ class Binutils < Formula
   url "https://ftp.gnu.org/gnu/binutils/binutils-2.31.1.tar.gz"
   mirror "https://ftpmirror.gnu.org/binutils/binutils-2.31.1.tar.gz"
   sha256 "e88f8d36bd0a75d3765a4ad088d819e35f8d7ac6288049780e2fefcad18dde88"
-  revision 1
+  revision OS.mac? ? 1 : 2
 
   # binutils is portable.
   bottle do
