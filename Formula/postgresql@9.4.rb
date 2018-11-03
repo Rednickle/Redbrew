@@ -15,14 +15,6 @@ class PostgresqlAT94 < Formula
 
   keg_only :versioned_formula
 
-  option "without-perl", "Build without Perl support"
-  if OS.mac?
-    option "without-tcl", "Build without Tcl support"
-  else
-    option "with-tcl", "Build with Tcl support"
-  end
-  option "with-dtrace", "Build with DTrace support"
-
   deprecated_option "with-python" => "with-python@2"
 
   depends_on "openssl"
@@ -31,14 +23,8 @@ class PostgresqlAT94 < Formula
 
   unless OS.mac?
     depends_on "libxslt"
-    depends_on "perl" => :recommended # for libperl.so
-    depends_on "tcl-tk" if build.with? "tcl"
+    depends_on "perl"
     depends_on "util-linux" # for libuuid
-  end
-
-  fails_with :clang do
-    build 211
-    cause "Miscompilation resulting in segfault on queries"
   end
 
   def install
@@ -60,6 +46,8 @@ class PostgresqlAT94 < Formula
       --with-openssl
       --with-libxml
       --with-libxslt
+      --with-perl
+      --with-uuid=e2fs
     ]
     args += %w[
       --with-bonjour
@@ -68,20 +56,15 @@ class PostgresqlAT94 < Formula
       --with-pam
     ] if OS.mac?
 
-    args << "--with-perl" if build.with? "perl"
     args << "--with-python" if build.with? "python@2"
 
     # The CLT is required to build tcl support on 10.7 and 10.8 because tclConfig.sh is not part of the SDK
-    if build.with?("tcl") && (MacOS.version >= :mavericks || MacOS::CLT.installed?)
+    if MacOS.version >= :mavericks || MacOS::CLT.installed?
       args << "--with-tcl"
-
       if File.exist?("#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework/tclConfig.sh")
         args << "--with-tclconfig=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
       end
     end
-
-    args << "--enable-dtrace" if build.with? "dtrace"
-    args << "--with-uuid=e2fs"
 
     # As of Xcode/CLT 10.x the Perl headers were moved from /System
     # to inside the SDK, so we need to use `-iwithsysroot` instead

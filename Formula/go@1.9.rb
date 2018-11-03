@@ -15,9 +15,6 @@ class GoAT19 < Formula
 
   keg_only :versioned_formula
 
-  option "without-cgo", "Build without cgo (also disables race detector)"
-  option "without-race", "Build without race detector"
-
   depends_on :macos => :mountain_lion if OS.mac?
 
   resource "gotools" do
@@ -57,11 +54,6 @@ class GoAT19 < Formula
     cd "src" do
       ENV["GOROOT_FINAL"] = libexec
       ENV["GOOS"] = OS.mac? ? "darwin" : "linux"
-      if build.without?("cgo")
-        ENV["CGO_ENABLED"]  = "0"
-      else
-        ENV["CGO_ENABLED"]  = "1"
-      end
       system "./make.bash", "--no-clean"
     end
 
@@ -70,11 +62,7 @@ class GoAT19 < Formula
     libexec.install Dir["*"]
     bin.install_symlink Dir[libexec/"bin/go*"]
 
-    # Race detector only supported on amd64 platforms.
-    # https://golang.org/doc/articles/race_detector.html
-    if build.with?("cgo") && build.with?("race") && MacOS.prefer_64_bit?
-      system bin/"go", "install", "-race", "std"
-    end
+    system bin/"go", "install", "-race", "std"
 
     # Build and install godoc
     ENV.prepend_path "PATH", bin
@@ -116,9 +104,7 @@ class GoAT19 < Formula
     assert_predicate libexec/"bin/godoc", :exist?
     assert_predicate libexec/"bin/godoc", :executable?
 
-    if build.with? "cgo"
-      ENV["GOOS"] = "freebsd"
-      system bin/"go", "build", "hello.go"
-    end
+    ENV["GOOS"] = "freebsd"
+    system bin/"go", "build", "hello.go"
   end
 end

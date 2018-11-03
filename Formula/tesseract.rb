@@ -3,12 +3,13 @@ class Tesseract < Formula
   homepage "https://github.com/tesseract-ocr/"
   url "https://github.com/tesseract-ocr/tesseract/archive/4.0.0.tar.gz"
   sha256 "a1f5422ca49a32e5f35c54dee5112b11b99928fc9f4ee6695cdc6768d69f61dd"
+  head "https://github.com/tesseract-ocr/tesseract.git"
 
   bottle do
-    sha256 "e4eaf45b39ff29548aafb2dc32fe9834e1e8ee8d63b6b5e760ac823a25beec37" => :mojave
-    sha256 "1a9a686a74d2acccb7c6b1da208916de91f5466fa78441ec32524bcd9cb827b3" => :high_sierra
-    sha256 "56f223e7ff045d5639a8d447791c8ad9876abe997d393f9e3d918dc098a0a467" => :sierra
-    sha256 "5516027a007d95e394f301ac2bed70b714a53f5ced84b7c451814bd416146096" => :x86_64_linux
+    rebuild 1
+    sha256 "76f2053063b398c6b73a9a34cc94e3624aef5f4ea4df75841860d68a7791b6b5" => :mojave
+    sha256 "4586623a6e94cc9ff80a814a1c7be0be9b952f8776b333a81297b1443a0b0b04" => :high_sierra
+    sha256 "ca1d2d2c38cc2f3054bf3b9692977b217dc060dcfe77af5f84f767d0dbac5150" => :sierra
   end
 
   option "with-all-languages", "Install recognition data for all languages"
@@ -35,17 +36,17 @@ class Tesseract < Formula
   end
 
   resource "tessdata" do
-    url "https://github.com/tesseract-ocr/tessdata_fast/archive/4.0.0-beta.1.tar.gz"
-    sha256 "cfae2d9e15887a719c995baad70c01ad8f68c0361f5f0a4f46e4aa9ed8a47120"
+    url "https://github.com/tesseract-ocr/tessdata_fast/archive/4.0.0.tar.gz"
+    sha256 "f1b71e97f27bafffb6a730ee66fd9dc021afc38f318fdc80a464a84a519227fe"
   end
 
   resource "eng" do
-    url "https://github.com/tesseract-ocr/tessdata_fast/raw/4.0.0-beta.1/eng.traineddata"
+    url "https://github.com/tesseract-ocr/tessdata_fast/raw/4.0.0/eng.traineddata"
     sha256 "7d4322bd2a7749724879683fc3912cb542f19906c83bcc1a52132556427170b2"
   end
 
   resource "osd" do
-    url "https://github.com/tesseract-ocr/tessdata_fast/raw/4.0.0-beta.1/osd.traineddata"
+    url "https://github.com/tesseract-ocr/tessdata_fast/raw/4.0.0/osd.traineddata"
     sha256 "9cf5d576fcc47564f11265841e5ca839001e7e6f38ff7f7aacf46d15a96b00ff"
   end
 

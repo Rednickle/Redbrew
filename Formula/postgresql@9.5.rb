@@ -15,32 +15,17 @@ class PostgresqlAT95 < Formula
 
   keg_only :versioned_formula
 
-  option "without-perl", "Build without Perl support"
-  if OS.mac?
-    option "without-tcl", "Build without Tcl support"
-  else
-    option "with-tcl", "Build with Tcl support"
-  end
-  option "with-dtrace", "Build with DTrace support"
-  option "with-python", "Build with Python3 (incompatible with --with-python@2)"
-  option "with-python@2", "Build with Python2 (incompatible with --with-python)"
+  option "with-python", "Build with Python3"
 
   deprecated_option "with-python3" => "with-python"
 
   depends_on "openssl"
   depends_on "readline"
   depends_on "python" => :optional
-  depends_on "python@2" => :optional
   unless OS.mac?
     depends_on "libxslt"
-    depends_on "perl" => :recommended # for libperl.so
-    depends_on "tcl-tk" if build.with? "tcl"
+    depends_on "perl"
     depends_on "util-linux" # for libuuid
-  end
-
-  fails_with :clang do
-    build 211
-    cause "Miscompilation resulting in segfault on queries"
   end
 
   def install
@@ -58,9 +43,11 @@ class PostgresqlAT95 < Formula
       --sysconfdir=#{prefix}/etc
       --docdir=#{doc}
       --enable-thread-safety
-      --with-openssl
       --with-libxml
       --with-libxslt
+      --with-openssl
+      --with-perl
+      --with-uuid=e2fs
     ]
     args += %w[
       --with-bonjour
@@ -69,29 +56,19 @@ class PostgresqlAT95 < Formula
       --with-pam
     ] if OS.mac?
 
-    args << "--with-perl" if build.with? "perl"
-
-    which_python = nil
-    if build.with?("python") && build.with?("python@2")
-      odie "Cannot provide both --with-python and --with-python@2"
-    elsif build.with?("python") || build.with?("python@2")
+    if build.with?("python")
       args << "--with-python"
-      which_python = which(build.with?("python") ? "python3" : "python2.7")
+      ENV["PYTHON"] = which("python3")
     end
-    ENV["PYTHON"] = which_python
 
     # The CLT is required to build Tcl support on 10.7 and 10.8 because
     # tclConfig.sh is not part of the SDK
-    if build.with?("tcl") && (MacOS.version >= :mavericks || MacOS::CLT.installed?)
+    if MacOS.version >= :mavericks || MacOS::CLT.installed?
       args << "--with-tcl"
-
       if File.exist?("#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework/tclConfig.sh")
         args << "--with-tclconfig=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
       end
     end
-
-    args << "--enable-dtrace" if build.with? "dtrace"
-    args << "--with-uuid=e2fs"
 
     # As of Xcode/CLT 10.x the Perl headers were moved from /System
     # to inside the SDK, so we need to use `-iwithsysroot` instead

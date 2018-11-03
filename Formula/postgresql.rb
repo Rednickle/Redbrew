@@ -14,42 +14,23 @@ class Postgresql < Formula
     sha256 "a80798b0c82161e23c32c896ce6a7ed7513c06c89722fce92722396955f1ec67" => :x86_64_linux
   end
 
-  option "without-perl", "Build without Perl support"
-  if OS.mac?
-    option "without-tcl", "Build without Tcl support"
-  else
-    option "with-tcl", "Build with Tcl support"
-  end
-  option "with-dtrace", "Build with DTrace support"
-  option "with-python", "Enable PL/Python3 (incompatible with --with-python@2)"
-  option "with-python@2", "Enable PL/Python2"
+  option "with-python", "Enable PL/Python3"
 
-  deprecated_option "no-perl" => "without-perl"
-  deprecated_option "no-tcl" => "without-tcl"
-  deprecated_option "enable-dtrace" => "with-dtrace"
   deprecated_option "with-python3" => "with-python"
 
   depends_on "pkg-config" => :build
   depends_on "icu4c"
   depends_on "openssl"
   depends_on "readline"
-
   depends_on "python" => :optional
-  depends_on "python@2" => :optional
   unless OS.mac?
     depends_on "libxslt"
-    depends_on "perl" => :recommended # for libperl.so
-    depends_on "tcl-tk" if build.with? "tcl"
+    depends_on "perl"
     depends_on "util-linux" # for libuuid
   end
 
   conflicts_with "postgres-xc",
     :because => "postgresql and postgres-xc install the same binaries."
-
-  fails_with :clang do
-    build 211
-    cause "Miscompilation resulting in segfault on queries"
-  end
 
   def install
     # avoid adding the SDK library directory to the linker search path
@@ -66,10 +47,12 @@ class Postgresql < Formula
       --sysconfdir=#{etc}
       --docdir=#{doc}
       --enable-thread-safety
-      --with-openssl
+      --with-icu
       --with-libxml
       --with-libxslt
-      --with-icu
+      --with-openssl
+      --with-perl
+      --with-uuid=e2fs
     ]
     args += %w[
       --with-bonjour
@@ -78,29 +61,19 @@ class Postgresql < Formula
       --with-pam
     ] if OS.mac?
 
-    args << "--with-perl" if build.with? "perl"
-
-    which_python = nil
-    if build.with?("python") && build.with?("python@2")
-      odie "Cannot provide both --with-python and --with-python@2"
-    elsif build.with?("python") || build.with?("python@2")
+    if build.with?("python")
       args << "--with-python"
-      which_python = which(build.with?("python") ? "python3" : "python2.7")
+      ENV["PYTHON"] = which("python3")
     end
-    ENV["PYTHON"] = which_python
 
     # The CLT is required to build Tcl support on 10.7 and 10.8 because
     # tclConfig.sh is not part of the SDK
-    if build.with?("tcl") && (MacOS.version >= :mavericks || MacOS::CLT.installed?)
+    if MacOS.version >= :mavericks || MacOS::CLT.installed?
       args << "--with-tcl"
-
       if File.exist?("#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework/tclConfig.sh")
         args << "--with-tclconfig=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
       end
     end
-
-    args << "--enable-dtrace" if build.with? "dtrace"
-    args << "--with-uuid=e2fs"
 
     # As of Xcode/CLT 10.x the Perl headers were moved from /System
     # to inside the SDK, so we need to use `-iwithsysroot` instead
