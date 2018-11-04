@@ -16,7 +16,7 @@ class Ruby < Formula
     depends_on "autoconf" => :build
   end
 
-  keg_only :provided_by_macos
+  keg_only :provided_by_macos if OS.mac?
 
   depends_on "pkg-config" => :build
   depends_on "libyaml"
