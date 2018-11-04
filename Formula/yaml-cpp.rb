@@ -6,28 +6,18 @@ class YamlCpp < Formula
 
   bottle do
     cellar :any
-    sha256 "ad5862fe71b309d1b37f9cda29e969e803b3c3ef93432b38faf68c4b7b5cf4f3" => :mojave
-    sha256 "5e1d0907d3cb39861ff36476f8cabb78d9bdf4a9b228cd860502b03b280c226d" => :high_sierra
-    sha256 "d081b409a0e7c60fc5c4d2c965b63fc0f0c7f3b1e36f61274719982ac5799b09" => :sierra
-    sha256 "5ad764dbd25373bc0bd68b213c611650694fe69f36c90fcd746aa90bc876e8f3" => :el_capitan
-    sha256 "cb5d74aeaf1a8db007f77c2e3b5b5ee5f1c893f90b7bc91238a23196fb339899" => :x86_64_linux
+    rebuild 1
+    sha256 "0110c3434c6af9ddd0e36cfe2b875724edc221081a3c28437d827c8a1a2e83e1" => :mojave
+    sha256 "2479b905895f0877694a510343a411cd3239d190141c02854a193324bc47ece1" => :high_sierra
+    sha256 "a0e866bdf04718de53be3525bfc6f12b075a7613fceca1e828f02df054cae8c4" => :sierra
   end
-
-  option "with-static-lib", "Build a static library"
 
   depends_on "cmake" => :build
 
   needs :cxx11
 
   def install
-    args = std_cmake_args
-    if build.with? "static-lib"
-      args << "-DBUILD_SHARED_LIBS=OFF"
-    else
-      args << "-DBUILD_SHARED_LIBS=ON"
-    end
-
-    system "cmake", ".", *args
+    system "cmake", ".", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON"
     system "make", "install"
   end
 
