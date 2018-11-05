@@ -1,14 +1,13 @@
 class Numpy < Formula
   desc "Package for scientific computing with Python"
   homepage "https://www.numpy.org/"
-  url "https://files.pythonhosted.org/packages/83/6b/d03277eacf113697675cd659086a4dcf9472108e2f1a83884c0271bdca46/numpy-1.15.3.zip"
-  sha256 "1c0c80e74759fa4942298044274f2c11b08c86230b25b8b819e55e644f5ff2b6"
+  url "https://files.pythonhosted.org/packages/2d/80/1809de155bad674b494248bcfca0e49eb4c5d8bee58f26fe7a0dd45029e2/numpy-1.15.4.zip"
+  sha256 "3d734559db35aa3697dadcea492a423118c5c55d176da2f3be9c98d4803fc2a7"
 
   bottle do
-    sha256 "f09037da31fe744c79455c27993b0496e638e9e817bd1a1d6b1bd7f750b7dfcc" => :mojave
-    sha256 "c8b98a056e29916cfe172acb5426734ed136486e31476b5e932353341dbf8de8" => :high_sierra
-    sha256 "6c49d36ada8d285b711a108b0d5a7547abdc0374448437b40f508f502430d6d0" => :sierra
-    sha256 "5fa681b4bc9c8a2e95d0ea0b689d78d48d3a7c4224c320888e0bf08c5fa97608" => :x86_64_linux
+    sha256 "5b718dd8e7b82c90212e5bb7f8c19abde83aba114a3ccce7c12af857a4841978" => :mojave
+    sha256 "84ae5941c9d952657ea49708f2e705fac035c410dc991790edd6779432e357f2" => :high_sierra
+    sha256 "d4267f45ef17ecc2827960f4c063bf0cd2b99f2eeb99e2ec24d4f335595ea268" => :sierra
   end
 
   head do
