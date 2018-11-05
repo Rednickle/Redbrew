@@ -10,6 +10,7 @@ class YamlCpp < Formula
     sha256 "0ce658deb59e0d2fc5268fbc4f02923770b5be7867ab10e2d2bba339d71bd593" => :mojave
     sha256 "cbcedc236b8ec1dbd389de60327e59fc546cf116cccd5d7d5da786fe52a4e7c0" => :high_sierra
     sha256 "b332f87fbdda1324e819dd9e4c4f388b58e9c19159b97afe92b2992a17add1b9" => :sierra
+    sha256 "8740dbe205b9316e4fc356adf5c6bf8553202653b9491a6287ae85881a6247dd" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
