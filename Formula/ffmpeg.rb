@@ -7,6 +7,7 @@ class Ffmpeg < Formula
 
   bottle do
     sha256 "0568e07c668f64ffdd2d83d46037bd3f452b89d72cc192967c0c48daae472cc9" => :sierra
+    sha256 "2a13b80e51ff0be9d0561ad533ba90200cd9f81e16ca0369d74b63e38670135c" => :x86_64_linux
   end
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
