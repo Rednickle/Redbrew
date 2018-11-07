@@ -9,6 +9,7 @@ class Yank < Formula
     sha256 "fd34ce68912ccb856a143f314080dec53992714d956cc05546dd94552b58d5b2" => :mojave
     sha256 "1518adfd6aa39659841fc6193b298e4571c7a6e588f7f15e73dd1f12d7e5cb4f" => :high_sierra
     sha256 "ea6abac30a504eadac6017fde6c26272f4bcc39baf44ae78d1b69a1f2e1ac99c" => :sierra
+    sha256 "c4ce53518f43d63dfb449a638ed232a3a35dcb5ddec89d74673a82344cc80838" => :x86_64_linux
   end
 
   def install
