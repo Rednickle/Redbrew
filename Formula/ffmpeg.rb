@@ -9,6 +9,7 @@ class Ffmpeg < Formula
     sha256 "1ce5bf5ad28e01e364412ccbff7496ab97a955789a1bd19e76318bed09ed424f" => :mojave
     sha256 "d961826ea952306c060a8863f4005db567ffd11d71ecdd0ec3381cae5ea25606" => :high_sierra
     sha256 "313c5575eaafe5f321a4343ae13517ff98dc5c3fc614771e21b25081d92d7bf7" => :sierra
+    sha256 "736f4d0cc4f9a65e2b9a581ffad51cd2f48ab47a7874d9f44fa23e50aeb43b90" => :x86_64_linux
   end
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
