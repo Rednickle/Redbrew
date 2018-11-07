@@ -10,6 +10,7 @@ class CmarkGfm < Formula
     sha256 "9dc3b3299af2f9b6c296b5274072a4fc4bdb4e03ef128b15c67b8a4d8276b87f" => :mojave
     sha256 "c9c688f80020c67d59047cb9b1d8d1b668c8ebc615d9c1ac3043b3afc4a26420" => :high_sierra
     sha256 "d809dd43688fdaa9abc423540bf0702a00304a4de01a7e0af90ea682aefd2ab5" => :sierra
+    sha256 "a2ece3ac1d129cc1218e39c10406cfbf92ac7b5323b165204d075d94c70193e8" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
