@@ -10,6 +10,7 @@ class Buildifier < Formula
     sha256 "f3c17f5b5dcc56bea01dbc84796cfaea83fe4bc991a3c4ba301f7a2c74b4975f" => :mojave
     sha256 "9146773b6013b16d689769a97ca35b88f63ebfb905415618ad275569f1470f7a" => :high_sierra
     sha256 "eaae6bfd07289eedced6fec304145d68b297b52440ce4407aaf74a88d2862fe1" => :sierra
+    sha256 "33ae43fa7266cbebf0082709898b78cf289cd4df31463900e332b961aa9cbc99" => :x86_64_linux
   end
 
   depends_on "go" => :build
