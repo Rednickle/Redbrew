@@ -10,6 +10,7 @@ class Liblcf < Formula
     sha256 "0d2b6a270ae79194597674af96acd7f900da9b561bdc2e78680a7c6e23f59367" => :mojave
     sha256 "86ce78f1757ffa349ed43dc19518b4d8bbccb994e494b37bd3c8f0a395aa211e" => :high_sierra
     sha256 "e630bdd83ca7e7fc5321ff1accc4fd2dd3942b18d8131753d88e5988dc01b181" => :sierra
+    sha256 "2f6be4af70dd90f73f5c73ed37d01999b16d850cf050cacdd999dbd478512524" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
