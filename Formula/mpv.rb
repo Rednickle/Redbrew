@@ -10,6 +10,7 @@ class Mpv < Formula
     sha256 "37957b0d09f6d214501afedf86e4819cc4ef6ae2e14eeca4cc72590c8838cf77" => :mojave
     sha256 "581bfc39b0c3d8e91f2f5d2529d4b27d6db854ded5daf3b7fa3f71260034ba1d" => :high_sierra
     sha256 "01dd3eb9eef24754c2279b16607bfed281a481c6a0e6af357b63b78a8bf50053" => :sierra
+    sha256 "7ebafb67d4c69f61e6270bceb1216b0803a2c0d2b4fc118c548abdd4280b8737" => :x86_64_linux
   end
 
   option "with-bundle", "Enable compilation of the .app bundle."
