@@ -4,14 +4,14 @@ class Binutils < Formula
   url "https://ftp.gnu.org/gnu/binutils/binutils-2.31.1.tar.gz"
   mirror "https://ftpmirror.gnu.org/binutils/binutils-2.31.1.tar.gz"
   sha256 "e88f8d36bd0a75d3765a4ad088d819e35f8d7ac6288049780e2fefcad18dde88"
-  revision OS.mac? ? 1 : 2
+  revision 2
 
   # binutils is portable.
   bottle do
     cellar :any
-    sha256 "b4ed7c31d6738e2f084e801cb747f98cb63a4857ab5044c757ae361e3a68d32b" => :mojave
-    sha256 "35253f02238a83fcfc243a79b1fb445d6bec93b2a602789e063896d03f0012f5" => :high_sierra
-    sha256 "3fa0ed58f41b068c5c6e81e2ae99879f0f36f9588814f52be8806e09a3b7bca5" => :sierra
+    sha256 "dbe26381158b6fe4c597761babd3e3057353f59fa1b20cd73842f651d02f37da" => :mojave
+    sha256 "fe41922c19581745c04cec1d4d91332111a18c5a160852478d301f6735753a2a" => :high_sierra
+    sha256 "983abea2ac000ceb1deb4a87088ffbada2f6047d904aa16c9ad2e56f3a363516" => :sierra
     sha256 "cef382f33ee1b898811b2a49015ac51d398bd7b6e0fbd3d119dbaa739cefd4fe" => :x86_64_linux # glibc 2.12
   end
 
@@ -25,6 +25,14 @@ class Binutils < Formula
 
     depends_on "zlib" => :recommended unless OS.mac?
   end
+
+  # Adds support for macOS 10.14's new load commands.
+  # Will be in the next release.
+  # https://github.com/Homebrew/homebrew-core/issues/32516
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/91dc37fa4609cf1d040b5ede9f2eb971f3730597/binutils/add_mach_o_command.patch"
+    sha256 "abb053663a56c5caef35685ee60badf57e321b18f308e7cbd11626b48c876e8c"
+  end if OS.mac?
 
   def install
     system "./configure", "--disable-debug",
