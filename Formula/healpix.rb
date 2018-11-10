@@ -6,10 +6,11 @@ class Healpix < Formula
   sha256 "f10ce170a10a2f37830c65616554c39005442021741ed19c1efa998994d8a069"
 
   bottle do
-    cellar :any
+    cellar :any_skip_relocation
     sha256 "92101cb2e4318646752c725b75b8c6499eae9f62cea5edf1aa2329128e759d1a" => :mojave
     sha256 "48cdfdf1664a9cd9daa88493b799182e54806c77a68ee697442b2bc142d070e7" => :high_sierra
     sha256 "ba7b07582cac6c714c868a8e5d8c804601ae0837bb8ccaa8739191be5f5e1d41" => :sierra
+    sha256 "6874345c6faa5cb1f581a86c1f1d1d848a39f9660c1c869b9ff4a68973cf4b41" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
