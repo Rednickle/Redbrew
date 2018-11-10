@@ -9,6 +9,7 @@ class Ansifilter < Formula
     sha256 "54ac35d7070d268ddccfb365b02df23488642309bbf2f28bde95b79d8000915d" => :mojave
     sha256 "bc8b44b251714842c9f4b338f8ba129f3834ecf24b85247278e54e03033bbc69" => :high_sierra
     sha256 "66e69a7a4fe7190d7975fe414a43423bdd271dcf991017f3ce7e1f2f44b19590" => :sierra
+    sha256 "01245e2d449cf513f18afe782463749da5a26cec33b7e5586a4ad5a70b23532d" => :x86_64_linux
   end
 
   def install
