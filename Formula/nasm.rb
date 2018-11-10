@@ -9,6 +9,7 @@ class Nasm < Formula
     sha256 "89165be514c28651d474a7f9455e9ab916542cec50ecce3cfcef114277c60707" => :mojave
     sha256 "af12fee78edfa24fad74389a17814296826eab230e84ce519ee61782be3a44e6" => :high_sierra
     sha256 "dba53c9cadfd7cc537260f3a9c8becb322218787468a75da280fa06c6428f454" => :sierra
+    sha256 "6d6383e3065e485be081bc7062d3b4581f8fcc0d28ae36d00ee7fc7f66f5449a" => :x86_64_linux
   end
 
   head do
