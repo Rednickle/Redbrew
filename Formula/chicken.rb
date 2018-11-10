@@ -9,6 +9,7 @@ class Chicken < Formula
     sha256 "eee1a269507e626190797aa7768d581aca9cd83e21313f91ffde0139fd629009" => :mojave
     sha256 "aea05c909bd9f831daa2fcdc9c3f04a09aab0bb5634afd8162034504da6a5801" => :high_sierra
     sha256 "2083f2b685d91839bee340267d65713b3aa4024fed2b987fc3f51798910aef20" => :sierra
+    sha256 "ca28efbefa211ec6f9d15ff2b862b074b59cab6603066d2d292d37d041951e80" => :x86_64_linux
   end
 
   def install
