@@ -12,6 +12,7 @@ class MpsYoutube < Formula
     sha256 "a6d866b3548a5ae2967dc37d00cae1f00a4cb1336e6848ffa32608886cc745f1" => :mojave
     sha256 "1795b8e875beb9bd304c9d442e6f74b7fb3d56ec452d119bfe26ad94604f6947" => :high_sierra
     sha256 "710dd03598462b6806d16a848c5bfa2235866df5453b31245d30d68ec0b07255" => :sierra
+    sha256 "a99d0bfb3c77b58c4dbbb83694480d0e1f0c1a601e08f065f7a52070e6c68f81" => :x86_64_linux
   end
 
   depends_on "mpv"
