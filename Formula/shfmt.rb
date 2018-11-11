@@ -10,6 +10,7 @@ class Shfmt < Formula
     sha256 "72b464f5c78a49c3f1f707dbc79ca6b0e476d02a247b9426e3f85704ed545df5" => :mojave
     sha256 "cdfcf94dca01736d24f8c55b99f7feb8ff35a61017b99f708bec24a338569725" => :high_sierra
     sha256 "81a3c1e27f878b79c1d8cb2bee5457fa648323a905f12e8c85b19e8466d9c772" => :sierra
+    sha256 "9c086d5de86f4caa1948be143a7ab07e3a101672e0314e12003129c490a5de78" => :x86_64_linux
   end
 
   depends_on "go" => :build
