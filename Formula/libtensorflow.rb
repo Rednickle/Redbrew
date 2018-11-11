@@ -1,14 +1,14 @@
 class Libtensorflow < Formula
   desc "C interface for Google's OS library for Machine Intelligence"
   homepage "https://www.tensorflow.org/"
-  url "https://github.com/tensorflow/tensorflow/archive/v1.11.0.tar.gz"
-  sha256 "f49ce3f1d04cee854bc9f74fa9696991140b34a2e2447f35f01391b72c8bfa9f"
+  url "https://github.com/tensorflow/tensorflow/archive/v1.12.0.tar.gz"
+  sha256 "3c87b81e37d4ed7f3da6200474fa5e656ffd20d8811068572f43610cae97ca92"
 
   bottle do
     cellar :any
-    sha256 "17d24f41a141f61d1e1002b922af489425484b3ec3c11ace9c39d5db69a3454b" => :mojave
-    sha256 "24c5188904edd4c4834c1c70824b0f4687955975aa163eb0553a52744e3dc974" => :high_sierra
-    sha256 "c9444e684dfd38a879378501ba085002117a63e3c06faafc6ec11a841aa9ee72" => :sierra
+    sha256 "130969aee8e8813251c8d3711d26ab7bd434371618a7aee3d1c8f5d954345b21" => :mojave
+    sha256 "4f867cc269c44fc8efb7e832471475108644dd1f0ae0d188bbdadd114c8e9af2" => :high_sierra
+    sha256 "4fb898f8f698baa34c6c61df2a6280a5a6e7f058883cf6d2a35024264d25e235" => :sierra
   end
 
   depends_on "bazel" => :build
