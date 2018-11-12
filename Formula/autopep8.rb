@@ -11,6 +11,7 @@ class Autopep8 < Formula
     sha256 "e907895a8bb66a4dd3803db9ab36c94ed19d267858d002da0b8cb6a71ced6d79" => :mojave
     sha256 "6906758261366f6cdefebccb7e40418285aa1ab8ced2946f3b865691fad42c26" => :high_sierra
     sha256 "22f0fc75ab33b8096c78c5ad90782d00cbe35c3571d974710d157a30540cfc45" => :sierra
+    sha256 "6c714f7d6f90991b2e3dc15da6578df2142ada532f58e343d51383690ea66366" => :x86_64_linux
   end
 
   depends_on "python"
