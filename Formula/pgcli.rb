@@ -11,6 +11,7 @@ class Pgcli < Formula
     sha256 "c13f5645e681549662613188bb767697ca1fd8dfb139b64fe5905fe11e1f74f4" => :mojave
     sha256 "39837c897623fcc5c49eff8fbab16cd31f8414bf7f8110424161d0c3f3c8b8bb" => :high_sierra
     sha256 "e14943815fee7b35bcb48b57b9c6c023c690ecd8b84d7b5861ed8f431d08d668" => :sierra
+    sha256 "7c5f5dd52c4deb42448554da8356fb80b3f78f7d8ba0272912622b3281c3967c" => :x86_64_linux
   end
 
   depends_on "libpq"
