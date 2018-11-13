@@ -10,6 +10,7 @@ class Beast < Formula
     sha256 "3c894f422a0ee8e3a60a4fc4383b7c92e3373bcddf913034ef92541a346c5d8c" => :mojave
     sha256 "a5c4138c07edad9c5fe6cb2a24c50c3b7e77abfa206f31e0b6d2f6ac62f2fa5b" => :high_sierra
     sha256 "c3b2d7c0e17ee1072e0278ff8cfc4d27cee98450e3b23c29a2e0724c6278def8" => :sierra
+    sha256 "bdc5f91dead278139e9d21489bd0292e74ce36713ee6d585c299c220152558b9" => :x86_64_linux
   end
 
   depends_on "ant" => :build
