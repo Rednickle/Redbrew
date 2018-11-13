@@ -9,6 +9,7 @@ class Gflags < Formula
     sha256 "82fe53e7e195d7a2c72243c357c8f3120eb8fa79b06e9a1c0928849b7cf60260" => :mojave
     sha256 "51a508dc83e6213a1726509c0fc1761e5b7a79b220f4c86f8ace660799caaec8" => :high_sierra
     sha256 "44b0ad9e8d8ce61431d959b1c6197e121f8369acc777a8010aabce2adb8eb4db" => :sierra
+    sha256 "1e1a8908718b3d4dcc140f9471993f1288ae308f5cf5b238595eafddd24c3e3d" => :x86_64_linux
   end
 
   option "with-static", "Build gflags as a static (instead of shared) library."
