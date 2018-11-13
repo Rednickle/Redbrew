@@ -12,6 +12,7 @@ class Glog < Formula
     sha256 "d67fbac8d23e5daac4283c005537f076051a4c98c3ef820a50209579ca6d6700" => :mojave
     sha256 "578a8d6a064d82e66cb057d4db754965abd0101e77b2e2d9a6552e317667ad4d" => :high_sierra
     sha256 "5b2995534c71e5cf5a73deaaf8be0578b667280a0b354145cd0743365993b475" => :sierra
+    sha256 "fcbbe36e0dc956266cc4e6306e7f91f741871c9cff2a4494d84c455bbd444348" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
