@@ -1,26 +1,23 @@
 class Mongodb < Formula
   desc "High-performance, schema-free, document-oriented database"
-  homepage "https://www.mongodb.org/"
-  url "https://fastdl.mongodb.org/src/mongodb-src-r4.0.3.tar.gz"
-  sha256 "fbbe840e62376fe850775e98eb10fdf40594a023ecf308abec6dcec44d2bce0c"
+  homepage "https://www.mongodb.com/"
+  url "https://fastdl.mongodb.org/src/mongodb-src-r4.0.4.tar.gz"
+  sha256 "02baada1c5665c77c58e068ac6e9d0b11371bcd89e1467896765a5e452e6cce3"
 
   bottle do
-    sha256 "e69d3b476cae2c11cc133e0ef14a6449738fa4adbaa47feacdccab5f3ec3d506" => :mojave
-    sha256 "3036bebd4570b76b12d6418ef70984e65310506add560345b8acafda1dd8298c" => :high_sierra
-    sha256 "a48d12fa04c7f3bb80d2d0c7febd653cc081b9a19d7e4431b0ed189f8e311e4f" => :sierra
+    cellar :any_skip_relocation
+    sha256 "59d7e70f21a49163a4ee352cee3aa7ca0399952de3abb57a9cbe085994c16851" => :mojave
+    sha256 "6334804a032beffa2b0947210e1440c2402e2b691004d36bc7353de114e11984" => :high_sierra
+    sha256 "0c8cc6140f945393d9276c8e180f42c8474f075fc373d46edbb6d31a3ef611be" => :sierra
   end
-
-  option "with-boost", "Compile using installed boost, not the version shipped with mongodb"
-  option "with-sasl", "Compile with SASL support"
 
   depends_on "go" => :build
   depends_on "pkg-config" => :build
   depends_on "scons" => :build
   depends_on :xcode => ["8.3.2", :build] if OS.mac?
   depends_on :macos => :mountain_lion
+  depends_on "openssl"
   depends_on "python@2"
-  depends_on "openssl" => :recommended
-  depends_on "boost" => :optional
 
   unless OS.mac?
     depends_on "pkg-config" => :build
@@ -72,22 +69,14 @@ class Mongodb < Formula
         s.gsub! "$(git rev-parse HEAD)", "homebrew"
       end
 
-      args = %w[]
-
-      if build.with? "openssl"
-        args << "ssl"
+      if OS.mac?
+        system "./build.sh"
+      else
         ENV["LIBRARY_PATH"] = Formula["openssl"].opt_lib
         ENV["CPATH"] = Formula["openssl"].opt_include
-      end
-
-      args << "sasl" if build.with? "sasl"
-
-      if OS.mac?
-        system "./build.sh", *args
-      else
         ENV["CGO_CPPFLAGS"] = "-I " + Formula["libpcap"].opt_include
         ENV["CGO_LDFLAGS"] = "-L " + Formula["libpcap"].opt_lib
-        system "bash", "./build.sh", *args
+        system "./build.sh", "ssl"
       end
     end
 
@@ -96,23 +85,21 @@ class Mongodb < Formula
     args = %W[
       --prefix=#{prefix}
       -j#{ENV.make_jobs}
+      CC=#{ENV.cc}
+      CXX=#{ENV.cxx}
+      --build-mongoreplay=true
+      --disable-warnings-as-errors
+      --use-new-tools
     ]
 
-    args << "CC=#{ENV.cc}"
-    args << "CXX=#{ENV.cxx}"
+    unless OS.mac?
+      args << "CCFLAGS=-mmacosx-version-min=#{MacOS.version}"
+      args << "LINKFLAGS=-mmacosx-version-min=#{MacOS.version}"
+    end
 
-    args << "CCFLAGS=-mmacosx-version-min=#{MacOS.version}"
-    args << "LINKFLAGS=-mmacosx-version-min=#{MacOS.version}"
-
-    args << "--use-sasl-client" if build.with? "sasl"
-    args << "--use-system-boost" if build.with? "boost"
-    args << "--use-new-tools"
-    args << "--build-mongoreplay=true"
-    args << "--disable-warnings-as-errors" if !OS.mac? || MacOS.version >= :yosemite
-
-    if build.with? "openssl"
+    unless OS.mac?
+      args << "--disable-warnings-as-errors"
       args << "--ssl"
-
       args << "CCFLAGS=-I#{Formula["openssl"].opt_include}"
       args << "LINKFLAGS=-L#{Formula["openssl"].opt_lib}"
     end
