@@ -9,6 +9,7 @@ class GitlabGem < Formula
     sha256 "86bb4655c199e0ef30357fea12f55905e8cb4551e26d7aacb6ff6cee2736ca18" => :mojave
     sha256 "88d9196f2a246869b85b52646bab110bbd58840ecb1c9a82425e28aa828e125c" => :high_sierra
     sha256 "e3ede5194dc45c86b0a5575d645c556bdfd55cab3064a4b768052e4a7f76a8b3" => :sierra
+    sha256 "2270f927c13e384b44e66c305f31a9705fa8fef9afb83b1c3d712b2d072a5ebb" => :x86_64_linux
   end
 
   depends_on "ruby" if MacOS.version <= :mountain_lion
