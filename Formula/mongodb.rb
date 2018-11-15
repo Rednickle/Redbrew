@@ -3,12 +3,12 @@ class Mongodb < Formula
   homepage "https://www.mongodb.com/"
   url "https://fastdl.mongodb.org/src/mongodb-src-r4.0.4.tar.gz"
   sha256 "02baada1c5665c77c58e068ac6e9d0b11371bcd89e1467896765a5e452e6cce3"
+  revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "59d7e70f21a49163a4ee352cee3aa7ca0399952de3abb57a9cbe085994c16851" => :mojave
-    sha256 "6334804a032beffa2b0947210e1440c2402e2b691004d36bc7353de114e11984" => :high_sierra
-    sha256 "0c8cc6140f945393d9276c8e180f42c8474f075fc373d46edbb6d31a3ef611be" => :sierra
+    sha256 "22fcbb5b68564be444fa816f540e481628d9eb883d15a1188b0cb308e6e84bff" => :mojave
+    sha256 "6a51bebf11f6e299c4f3353ccd8aa67b1d6dca120439fd110eb9fdf77528ff27" => :high_sierra
+    sha256 "5ae653a0cac4197fd8e9f92259f0375ab5b6d8a4470bd7857f2f8c853fc3a375" => :sierra
   end
 
   depends_on "go" => :build
@@ -69,6 +69,8 @@ class Mongodb < Formula
         s.gsub! "$(git rev-parse HEAD)", "homebrew"
       end
 
+      ENV["CPATH"] = Formula["openssl"].opt_include
+      ENV["LIBRARY_PATH"] = Formula["openssl"].opt_lib
       if OS.mac?
         system "./build.sh"
       else
@@ -78,6 +80,7 @@ class Mongodb < Formula
         ENV["CGO_LDFLAGS"] = "-L " + Formula["libpcap"].opt_lib
         system "./build.sh", "ssl"
       end
+      system "./build.sh", "ssl"
     end
 
     (buildpath/"src/mongo-tools").install Dir["src/mongo/gotools/bin/*"]
@@ -90,6 +93,9 @@ class Mongodb < Formula
       --build-mongoreplay=true
       --disable-warnings-as-errors
       --use-new-tools
+      --ssl
+      CCFLAGS=-I#{Formula["openssl"].opt_include}
+      LINKFLAGS=-L#{Formula["openssl"].opt_lib}
     ]
 
     unless OS.mac?
