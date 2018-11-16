@@ -1,18 +1,15 @@
 class Shc < Formula
   desc "Shell Script Compiler"
   homepage "https://neurobin.github.io/shc"
-  url "https://github.com/neurobin/shc/archive/3.9.6.tar.gz"
-  sha256 "da6a2a3ff4c356a61e086c616561bf681489993cab00c426bad0cfd703a68063"
+  url "https://github.com/neurobin/shc/archive/3.9.8.tar.gz"
+  sha256 "8b31e1f2ceef3404217b9578fa250a8a424f3eaf03359dd7951cd635c889ad79"
   head "https://github.com/neurobin/shc.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "447c100eff8a2ea169d4415344b3835dced439a91bc0ab322be01e97886ecc54" => :mojave
-    sha256 "733638c58c4638ae63dedbcd35ebef1bb20365c74978f7bdbb3059a7a1039e34" => :high_sierra
-    sha256 "f7c53fd5fa9c86057260ad66961406b4579738b30091d7ca6899eb5349013b0c" => :sierra
-    sha256 "c54ddaec872f8c3613c53f7b1653250f3a11ad6db789418f8921be96fff6e8a3" => :el_capitan
-    sha256 "0b40ee06c9a5db74e302be41adea362975bf86c9c5e6290da13a623341e4468d" => :yosemite
-    sha256 "6cdfa9e5a6d85c5363ccf1f938e733b4298369fd7d65c86afb91aa0254c4ada8" => :x86_64_linux # glibc 2.19
+    sha256 "38e25464d53ab0273dbe4f801247e2fe3b92c04a8884fe801f6f9551d8a26c5e" => :mojave
+    sha256 "64cf435c2c1e79ea37864167731828b712756e6f8069df009031be2337c9e435" => :high_sierra
+    sha256 "886bd89bb6c319c5caf2373e581dd6fa5ca11f6fb917b9e3c01ef486682f567a" => :sierra
   end
 
   def install

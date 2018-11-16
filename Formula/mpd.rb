@@ -1,25 +1,19 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
-  url "https://www.musicpd.org/download/mpd/0.20/mpd-0.20.21.tar.xz"
-  sha256 "8322764dc265c20f05c8c8fdfdd578b0722e74626bef56fcd8eebfb01acc58dc"
-  revision 1
+  url "https://www.musicpd.org/download/mpd/0.21/mpd-0.21.3.tar.xz"
+  sha256 "6cf60e644870c6063a008d833a6c876272b7679a400b83012ed209c15ce06e2a"
+  head "https://github.com/MusicPlayerDaemon/MPD.git"
 
   bottle do
-    rebuild 1
-    sha256 "6d4ef128843ca263b4b15ea3b70839d1f7385cc9cac8187056012a64a53c63b2" => :mojave
-    sha256 "cfeba0309eabc75bdf6c5a6f8273d4c65f6128b248c33b8a57985bddf3a66d25" => :high_sierra
-    sha256 "972db47dcce26f700802661dd6aae2a16cfefbe5a2e5bfd23ad395db97f8b23f" => :sierra
-    sha256 "619fe3fae8f6b7ea37cd2e2388c8990387db2b0025a825bf8d1e136c11d6ce2f" => :el_capitan
-  end
-
-  head do
-    url "https://github.com/MusicPlayerDaemon/MPD.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
+    sha256 "15bde28e93e4e7d1d53b680dfc39e70e5c87a128077adfa4078cc7ba7a999c31" => :mojave
+    sha256 "e5cee2636c913aa1e428d704077ee1c8808c5a1382a706fce34c8a3d5ab2cd92" => :high_sierra
+    sha256 "da7a135ea4e39e0dfb9f988e8511f3f19401c500f81f58b3832a62b5624574c8" => :sierra
   end
 
   depends_on "boost" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "expat"
   depends_on "faad2"
@@ -46,31 +40,26 @@ class Mpd < Formula
     # The build is fine with G++.
     ENV.libcxx
 
-    system "./autogen.sh" if build.head?
-
     args = %W[
-      --disable-debug
-      --disable-dependency-tracking
       --prefix=#{prefix}
       --sysconfdir=#{etc}
-      --disable-libwrap
-      --disable-mad
-      --disable-mpc
-      --disable-soundcloud
-      --enable-ao
-      --enable-bzip2
-      --enable-expat
-      --enable-ffmpeg
-      --enable-fluidsynth
-      --enable-osx
-      --enable-upnp
-      --enable-vorbis-encoder
+      -Dlibwrap=disabled
+      -Dmad=disabled
+      -Dmpcdec=disabled
+      -Dsoundcloud=disabled
+      -Dao=enabled
+      -Dbzip2=enabled
+      -Dexpat=enabled
+      -Dffmpeg=enabled
+      -Dfluidsynth=enabled
+      -Dupnp=enabled
+      -Dvorbisenc=enabled
     ]
 
-    system "./configure", *args
-    system "make"
+    system "meson", *args, "output/release", "."
+    system "ninja", "-C", "output/release"
     ENV.deparallelize # Directories are created in parallel, so let's not do that
-    system "make", "install"
+    system "ninja", "-C", "output/release", "install"
 
     (etc/"mpd").install "doc/mpdconf.example" => "mpd.conf"
   end
