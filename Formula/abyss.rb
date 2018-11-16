@@ -1,14 +1,13 @@
 class Abyss < Formula
   desc "Genome sequence assembler for short reads"
   homepage "http://www.bcgsc.ca/platform/bioinfo/software/abyss"
-  url "https://github.com/bcgsc/abyss/releases/download/2.1.3/abyss-2.1.3.tar.gz"
-  sha256 "23a3e6562b2fa6f0e970d2c452ef98a799ac9892c86a7207f42c7a6ae6df09ab"
+  url "https://github.com/bcgsc/abyss/releases/download/2.1.4/abyss-2.1.4.tar.gz"
+  sha256 "2145a1727556104d6a14db06a9c06f47b96c31cc5ac595ae9c92224349bdbcfc"
 
   bottle do
-    sha256 "610e245c999a566af5d3d552d8729bdb95e05792b381bbb0a0dbb459bbb3a6af" => :mojave
-    sha256 "28761a5c8f15f43c0d23bcecf3d18e9264be0aa531e3538b9131f08d350164d2" => :high_sierra
-    sha256 "5b7a30aa0a90d9224e780ac8023a67a49eba773cd3f083475a87571c8a3bc804" => :sierra
-    sha256 "23bca6111fb12e2a4b881daa7a010660370552fc90b9175b8a6bdaf3ca35e666" => :x86_64_linux
+    sha256 "8e6ea5b61adf547f7fe371892bda3d3cb8d09b5a659d75cc415b7734b7e18901" => :mojave
+    sha256 "669b55b3d4b8ec60101bd17a3288a6afe54d558fc9c45cd0a73cd75e55f027aa" => :high_sierra
+    sha256 "d6a05334fffcf0d456251082b294a15583a43031a02ec3ad4942de3006786c46" => :sierra
   end
 
   head do
@@ -32,6 +31,12 @@ class Abyss < Formula
   end
 
   def install
+    # Fix a compiler error. Remove with the next release of abyss.
+    # See https://github.com/bcgsc/abyss/commit/195f19bba03fec18d86cd931b34275222ba667fc
+    inreplace "lib/bloomfilter/BloomFilter.hpp",
+              'strncpy(header.magic, "BlOOMFXX", 8);',
+              'memcpy(header.magic, "BlOOMFXX", 8);'
+
     system "./autogen.sh" if build.head?
     system "./configure", "--enable-maxk=128",
                           "--prefix=#{prefix}",

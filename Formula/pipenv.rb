@@ -3,28 +3,26 @@ class Pipenv < Formula
 
   desc "Python dependency management tool"
   homepage "https://docs.pipenv.org/"
-  url "https://files.pythonhosted.org/packages/f9/f3/54e27a163defd13256dc38ec350eb041bab4be1b6d634a633d92b2180fe3/pipenv-2018.10.13.tar.gz"
-  sha256 "a785235bf2ddf65ea8a91531b3372471d9ad86036335dba8bd63f20c00a68e63"
-  revision 1
+  url "https://files.pythonhosted.org/packages/b6/8b/46fe3cb9f69491f2975ac987ea8f2f35d0dde8d1b83b6c57a5ed3bf7d873/pipenv-2018.11.14.tar.gz"
+  sha256 "5f760d35de14982353437442d0d2c474bee139ffd69c01148abc11509f6422da"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5dfbd52f4569b80823c5214ca362110537f84f37ea837234018cad2f8d553a83" => :mojave
-    sha256 "0ebc2a116f673adc1840e54f62640de13e524a391b437263ec8d7ef180917999" => :high_sierra
-    sha256 "1960cdb8d781f57b177f756eecda836a05a5be809f31f2d8d3173df4c0f1f5ea" => :sierra
-    sha256 "18720b91a48df51d6c59ee4269302678a9fffbccc6c447163a51a487e7874832" => :x86_64_linux
+    sha256 "9481525f03bbcc0973be651111d6500714dee3bd838ca8e99014e979cb02327a" => :mojave
+    sha256 "8b029014130e8a5108fe9cf6f2615838ab9dc2c284c75cfad62f2aaf8f6ade8c" => :high_sierra
+    sha256 "f996854aab13db998538c16fd0715ed9a4b1be325e7c3f19fbfd33804eb966ea" => :sierra
   end
 
   depends_on "python"
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/e1/0f/f8d5e939184547b3bdc6128551b831a62832713aa98c2ccdf8c47ecc7f17/certifi-2018.8.24.tar.gz"
-    sha256 "376690d6f16d32f9d1fe8932551d80b23e9d393a8578c5633a2ed39a64861638"
+    url "https://files.pythonhosted.org/packages/41/b6/4f0cefba47656583217acd6cd797bc2db1fede0d53090fdc28ad2c8e0716/certifi-2018.10.15.tar.gz"
+    sha256 "6d58c986d22b038c8c0df30d639f23a3e6d172a05c3583e766f4c0b785c0986a"
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/33/bc/fa0b5347139cd9564f0d44ebd2b147ac97c36b2403943dbee8a25fd74012/virtualenv-16.0.0.tar.gz"
-    sha256 "ca07b4c0b54e14a91af9f34d0919790b016923d157afda5efdde55c96718f752"
+    url "https://files.pythonhosted.org/packages/4e/8b/75469c270ac544265f0020aa7c4ea925c5284b23e445cf3aa8b99f662690/virtualenv-16.1.0.tar.gz"
+    sha256 "f899fafcd92e1150f40c8215328be38ff24b519cd95357fa6e78e006c7638208"
   end
 
   resource "virtualenv-clone" do

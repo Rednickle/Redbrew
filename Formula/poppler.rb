@@ -3,13 +3,13 @@ class Poppler < Formula
   homepage "https://poppler.freedesktop.org/"
   url "https://poppler.freedesktop.org/poppler-0.71.0.tar.xz"
   sha256 "badbecd2dddf63352fd85ec08a9c2ed122fdadacf2a34fcb4cc227c4d01f2cf9"
+  revision 1
   head "https://anongit.freedesktop.org/git/poppler/poppler.git"
 
   bottle do
-    sha256 "0af1d6237430046dddad77c909805e5509a3478b148b2e25f8d56e4f39cac616" => :mojave
-    sha256 "6247be8458aea7d9be59526406b3de0da9423dd2146e3bf53d5b92ad3abce8a8" => :high_sierra
-    sha256 "f3a4677b615b2aeef34c6706fe9c1db6d442f2b465d7559f8a8bff11c1f50057" => :sierra
-    sha256 "5b1ae3ad49916ddda97987f2f50d802793a7ae06e8d706c3995dae23374e1dd2" => :x86_64_linux
+    sha256 "306ad563af098497bd75f53d37ccdd2f0b8100fe1d8752310bcecf4f794760c5" => :mojave
+    sha256 "eb8f157afeb8d6d55c4ec1bcead3cc70b62d9a19d091c425c5ea9aec18847aea" => :high_sierra
+    sha256 "b8cff6d7773945250eab6a3e7174938b6d019c4907dc43b8b38a7fba343fd70c" => :sierra
   end
 
   option "with-qt", "Build Qt5 backend"
@@ -85,6 +85,12 @@ class Poppler < Formula
         macho.write!
       end
     end
+
+    # fix gobject-introspection support
+    # issue reported upstream as https://gitlab.freedesktop.org/poppler/poppler/issues/18
+    # patch attached there does not work though...
+    inreplace share/"gir-1.0/Poppler-0.18.gir", "@rpath", lib.to_s
+    system "g-ir-compiler", "--output=#{lib}/girepository-1.0/Poppler-0.18.typelib", share/"gir-1.0/Poppler-0.18.gir"
   end
 
   test do
