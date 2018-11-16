@@ -1,15 +1,14 @@
 class GitlabGem < Formula
   desc "Ruby client and CLI for GitLab API"
   homepage "https://github.com/NARKOZ/gitlab"
-  url "https://github.com/NARKOZ/gitlab/archive/v4.6.1.tar.gz"
-  sha256 "443be89075e5fac2ec0a1b0b92618995e8fc49518fc06022c7c6116769cdf408"
+  url "https://github.com/NARKOZ/gitlab/archive/v4.7.0.tar.gz"
+  sha256 "60a3fb5506344d2a5193482b6db860610e6655d8bf78e3c2bbc3cd4bc15e5004"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "86bb4655c199e0ef30357fea12f55905e8cb4551e26d7aacb6ff6cee2736ca18" => :mojave
-    sha256 "88d9196f2a246869b85b52646bab110bbd58840ecb1c9a82425e28aa828e125c" => :high_sierra
-    sha256 "e3ede5194dc45c86b0a5575d645c556bdfd55cab3064a4b768052e4a7f76a8b3" => :sierra
-    sha256 "2270f927c13e384b44e66c305f31a9705fa8fef9afb83b1c3d712b2d072a5ebb" => :x86_64_linux
+    sha256 "bacfbdc77aa44ff866ef3419ff5294f408ecb8fa5c8545d1a1dbab2ab79c2593" => :mojave
+    sha256 "89bb760275bbf2155808c35db23389e38e2afebf0e631da08c9f71448219676f" => :high_sierra
+    sha256 "db6d8c27284ba96c17238d89515fbaf36fb9598e12f291be7816bff1b9129e99" => :sierra
   end
 
   depends_on "ruby" if MacOS.version <= :mountain_lion
