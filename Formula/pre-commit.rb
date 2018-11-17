@@ -11,6 +11,7 @@ class PreCommit < Formula
     sha256 "07e0b0330e2f0e46d66d90a0e3d2b1f57a3c205ac457583ef5d6364a9401d7f0" => :mojave
     sha256 "c0b7a04609f85bec21a4d5860fbbdb78eab07a1cfd6a373dd35762d04f6ddbec" => :high_sierra
     sha256 "51b3395661c7d2ffe45ec08647c692f0d0475c9580e1d0da3deb947b2321c5f6" => :sierra
+    sha256 "ba532c580b5913c8a401653b8ce5ca91ce54803014ba1a35177dd20d3adb9666" => :x86_64_linux
   end
 
   depends_on "python"
