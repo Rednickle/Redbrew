@@ -9,6 +9,7 @@ class Libimagequant < Formula
     sha256 "c919e2e35b45ac254ef89f7814008e0853ebbb3c7667fd59faeba48053229381" => :mojave
     sha256 "6d9b45f1f14578e535629c34e4c00e02c17bb1c458497643862bc31ee1733482" => :high_sierra
     sha256 "6ac28acc45709423a85a8741ac36c4a54981de3545ca070c0672ab95aecf776a" => :sierra
+    sha256 "9f3b4a8d855c0ad4d6defe0531bca23677e78343aac321c230fc293ae3f02bb3" => :x86_64_linux
   end
 
   def install
