@@ -1,4 +1,3 @@
-# chamber: Build a bottle for Linuxbrew
 class Chamber < Formula
   desc "CLI for managing secrets through AWS SSM Parameter Store"
   homepage "https://github.com/segmentio/chamber"
