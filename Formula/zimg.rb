@@ -10,6 +10,7 @@ class Zimg < Formula
     sha256 "57afa33acbedd31fe42cf1aa48cda0682b985fcbff5536a2b65c0b75a9506879" => :mojave
     sha256 "34babb4d3249667e24b3ebc6306a389fc7d432b512383ceedd55518cbb7a5e56" => :high_sierra
     sha256 "243c9709bc0b5c0da6392443bfdddb82c30811557f8c344bf64459af05f5ba42" => :sierra
+    sha256 "917e01ae9bf52903389b6bcbc19a12acba9a4002d2c0153356201760b855952d" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
