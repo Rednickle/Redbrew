@@ -9,6 +9,7 @@ class UrdfdomHeaders < Formula
     sha256 "bddc8c1985d764bee36ee25db4b3c18fe45b8de0f113875a3085489f3cd50d1d" => :mojave
     sha256 "9757800f4153efd48e5d77b3548da9a4b854165376eed6d541897f120a3d7da5" => :high_sierra
     sha256 "9757800f4153efd48e5d77b3548da9a4b854165376eed6d541897f120a3d7da5" => :sierra
+    sha256 "9e943086793bfdb998477a8118fce55040d8da31a233012199823ceb7e26c1eb" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
