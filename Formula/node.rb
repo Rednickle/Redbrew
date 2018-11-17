@@ -9,6 +9,7 @@ class Node < Formula
     sha256 "2be7416ca01e609966f484df7e7a6ddf06066b27e3e20c3f2dba7560e969159c" => :mojave
     sha256 "ce0463e15575161b9a4ca7c672c74c5229ef4b58f15c01a1a4e2cca6a680c4f9" => :high_sierra
     sha256 "82bc6498263fe1503cde553690b7bbea3a5d83c675f196c1cce2b3b9d2985f9d" => :sierra
+    sha256 "b4b038fb85add3e74971e62fc0cb265afda24c7a361fb4d9f432d91f8a71fb7d" => :x86_64_linux
   end
 
   option "with-openssl@1.1", "Build against Homebrew's OpenSSL instead of the bundled OpenSSL"
