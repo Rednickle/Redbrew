@@ -9,6 +9,7 @@ class TerraformLandscape < Formula
     sha256 "fb0d51fd41b424d4c58074112820489959456ac12a09f3ae0abaa929c9c3301c" => :mojave
     sha256 "83cac2d38704559ac200d05fd0cfe8c5c1421aa8535303152c424884c6ba610a" => :high_sierra
     sha256 "0d2b365ef93dabedb031414254a9cfd797aed2fa903bd38120ab6dfbbb7a959b" => :sierra
+    sha256 "5233ced1df92d056ba7609896ac328fe28048c06d7a0bf1e6e917c4f5aa233df" => :x86_64_linux
   end
 
   depends_on "ruby" if MacOS.version <= :mountain_lion
