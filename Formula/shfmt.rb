@@ -1,16 +1,15 @@
 class Shfmt < Formula
   desc "Autoformat shell script source code"
   homepage "https://github.com/mvdan/sh"
-  url "https://github.com/mvdan/sh/archive/v2.6.0.tar.gz"
-  sha256 "d1a8e3b6a0c13fa7f91c41d6167611513cccd0acf130f659e6865597ef5f18b1"
+  url "https://github.com/mvdan/sh/archive/v2.6.1.tar.gz"
+  sha256 "faa1a40964744508b737a2c536f01e74e96162f30ac12f967656fa272d292c53"
   head "https://github.com/mvdan/sh.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "72b464f5c78a49c3f1f707dbc79ca6b0e476d02a247b9426e3f85704ed545df5" => :mojave
-    sha256 "cdfcf94dca01736d24f8c55b99f7feb8ff35a61017b99f708bec24a338569725" => :high_sierra
-    sha256 "81a3c1e27f878b79c1d8cb2bee5457fa648323a905f12e8c85b19e8466d9c772" => :sierra
-    sha256 "9c086d5de86f4caa1948be143a7ab07e3a101672e0314e12003129c490a5de78" => :x86_64_linux
+    sha256 "9b99e24282e65da9ad2221e2d07f42ed64bef0b2ad5b5fc7b9ed7124b8acf238" => :mojave
+    sha256 "381a97ded56d0bc6122961f66a4dfa830d4a27e953e2ff885be0750a4a4d94ef" => :high_sierra
+    sha256 "85787eb5a48f99283bd1afdb82daaca4d021aa0d47055e65a8846e1f83417040" => :sierra
   end
 
   depends_on "go" => :build
