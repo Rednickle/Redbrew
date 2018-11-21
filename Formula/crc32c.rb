@@ -10,6 +10,7 @@ class Crc32c < Formula
     sha256 "5d65f03fb8cd7aa5349daa78ac5d8a13a87dcd0e58edfdab98510be8d9569888" => :mojave
     sha256 "5a27559831f37f190ffef95e05fa093230c0ac3e46a17f33d18a775358edfd33" => :high_sierra
     sha256 "6c43bab5aed9edb9963dd6a92704291884d06472ac72550cdf4dcd9b49e6177e" => :sierra
+    sha256 "5d475ad3aa4301b8bd3c57c61194d58e4c92b28c5427ee2680e2746ed1299166" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
