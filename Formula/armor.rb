@@ -1,22 +1,21 @@
 class Armor < Formula
   desc "Uncomplicated, modern HTTP server"
   homepage "https://github.com/labstack/armor"
-  url "https://github.com/labstack/armor/archive/0.4.11.tar.gz"
-  sha256 "dd6e968d67625e9180bab0e20773ec142eb870550b8a5eaef2a7846fb55b86db"
+  url "https://github.com/labstack/armor/archive/v0.4.12.tar.gz"
+  sha256 "3c3c51539c2df1973e9a0fece88435ccf0bf1bd7d76c5a7905f6a446535bb5ce"
   head "https://github.com/labstack/armor.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b33151dd4c356859d9c861ed802f4a2a68281aa6acb31ac310b1db2bdeb419cc" => :mojave
-    sha256 "1eb6ccc128ce585652c5f1189cd7a9e93ee2a9bd064c64b3f70e67722976322b" => :high_sierra
-    sha256 "7b6376c03caba58a23de9a0027ab1272764a94bc6ed7b9caf879201837843697" => :sierra
-    sha256 "cbf3a72453a8585e3bd72b3738f01413b544442c8d635aa0994a99747b39d575" => :el_capitan
-    sha256 "3f678128a00b08851be69b105ea871ed7d2159aa01b4281bb4f95ed15c2bd35a" => :x86_64_linux
+    sha256 "6227d86ce602be4de83e7544e9e2a680828932c0bfadbbaafe553a9a8a31926e" => :mojave
+    sha256 "2b30128bcc5d21412b4c2f238c806308bf676d09b61395dd952ebd387f3cc917" => :high_sierra
+    sha256 "b5b925484fd1a7835d04e3d9b264d5a3ec600cecade6fcdf8caabb26e2d6f3a9" => :sierra
   end
 
   depends_on "go" => :build
 
   def install
+    ENV["GO111MODULE"] = "on"
     ENV["GOPATH"] = buildpath
     armorpath = buildpath/"src/github.com/labstack/armor"
     armorpath.install buildpath.children
@@ -34,7 +33,7 @@ class Armor < Formula
       end
       sleep 1
       output = shell_output("curl -sI http://localhost:8080")
-      assert_match /200 OK/m, output
+      assert_match(/200 OK/m, output)
     ensure
       Process.kill("HUP", pid)
     end
