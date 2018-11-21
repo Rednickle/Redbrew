@@ -1,15 +1,14 @@
 class Beagle < Formula
   desc "Evaluate the likelihood of sequence evolution on trees"
   homepage "https://github.com/beagle-dev/beagle-lib"
-  url "https://github.com/beagle-dev/beagle-lib/archive/v3.1.0.tar.gz"
-  sha256 "f680bdace45dffbb175688aa8bf679710e4e60d000bbf332860de757d4e1c411"
+  url "https://github.com/beagle-dev/beagle-lib/archive/v3.1.1.tar.gz"
+  sha256 "3ddb7f39863389816f6289f5da2fe921d0d4efe85dcf349fae3a2718cc14f0fb"
 
   bottle do
     cellar :any
-    sha256 "5f1ca5d2b95fb7a1873832457baf3f9770bdaf7ec963ca76d18665d55dd2b871" => :mojave
-    sha256 "56ecfcd71a3b4ef87d590107e0ae134f13b4dc4bc5336e90e8b13bc3f1cc84ef" => :high_sierra
-    sha256 "9f849589808dfc134724f590b32d1fbde770d7a19d600ddf23c59d545188f134" => :sierra
-    sha256 "3b616b3eecb456e35ec7e826130aa1091309712b3c099f4557db6ada59b26d57" => :x86_64_linux
+    sha256 "01cebcb9d380b19863a55799d1d6639da3de35d7268a4f51dd60aefc26980c26" => :mojave
+    sha256 "0c4a1f1d36005c0f137a368d407c8b8d2c9d06c14753ab2f139c1891fc6bd08b" => :high_sierra
+    sha256 "40623dd49ad45063e21f3928f3efcfb16ad17c523e2cf272d489faf2e20b4062" => :sierra
   end
 
   depends_on "autoconf" => :build
