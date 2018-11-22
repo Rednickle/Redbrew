@@ -9,6 +9,7 @@ class Graphicsmagick < Formula
     sha256 "6a897b2005fd451bcdcfa173d16b7bb79fd272bf873de5309de709166721820b" => :mojave
     sha256 "db7ab60e8c022c0dc2a18a7d8dae0f6b1cd083aad1c90b15abf0a64f231e959d" => :high_sierra
     sha256 "2a55a11637c14270380f5ea6a614603fdf7f27455569ffe85eab6cbcf5ff0e6e" => :sierra
+    sha256 "7cb6a73b45190ab7e060e49b087bf4153f4456508c435ec429d1665b5646eac5" => :x86_64_linux
   end
 
   option "with-perl", "Build PerlMagick; provides the Graphics::Magick module"
