@@ -9,6 +9,7 @@ class Uru < Formula
     sha256 "25c90f23ff4d5225d439f8783d25d440ee2b7fc6e8afdc5772914deab0ae3184" => :mojave
     sha256 "d6da062bd8e0d7134a9d98285344064a82329b138bd7e0ed14fbc01a27530079" => :high_sierra
     sha256 "fb1b6ac6bd09955f072e9b65e92cc992b6da4a14640694d8a830aaacad944518" => :sierra
+    sha256 "a59052d6214594f6fa64b0d36bd79b77c00e6493ff0b99686e7c00be404ee50b" => :x86_64_linux
   end
 
   depends_on "go" => :build
