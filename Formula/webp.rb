@@ -8,6 +8,7 @@ class Webp < Formula
     cellar :any
     sha256 "2c4121390441467ced55577aa10552ac3a5fbfe8deff280d487a61ff7bb2d3f8" => :mojave
     sha256 "516715778a85358459a7214b2d1bd64185642d8a3e974cdfbc2f122e24459b73" => :sierra
+    sha256 "c4771859caff76fce83315db36a46d75f3cab6a4bb864bf57474574457b57884" => :x86_64_linux
   end
 
   head do
