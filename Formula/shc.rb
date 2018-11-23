@@ -10,6 +10,7 @@ class Shc < Formula
     sha256 "f1f6fb1ef4f5f3017438b6a77506c5736a6ab2db30faaa00dbdeb45e4e8d1710" => :mojave
     sha256 "a6e168088060e10e7833309922139274a92e8940c6c81742a4ea9e09ea342b91" => :high_sierra
     sha256 "3c56f17da02fb9462783538cf46fb52e659906004c38c2bbd5c56579b987d837" => :sierra
+    sha256 "f6cedd1ad9925cf0c16fefbfdac36af8347e2517a97063688cff1960f64c4824" => :x86_64_linux
   end
 
   def install
