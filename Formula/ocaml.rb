@@ -14,10 +14,8 @@
 class Ocaml < Formula
   desc "General purpose programming language in the ML family"
   homepage "https://ocaml.org/"
-  url "https://caml.inria.fr/pub/distrib/ocaml-4.07/ocaml-4.07.0.tar.xz"
-  sha256 "f45bf720aadf5c6408400d5179b92ea7130b7e55e501a1768c2d136ef69f9f0f"
-  revision OS.mac? ? 1 : 2
-
+  url "https://caml.inria.fr/pub/distrib/ocaml-4.07/ocaml-4.07.1.tar.xz"
+  sha256 "dfe48b1da31da9c82d77612582fae74c80e8d1ac650e1c24f5ac9059e48307b8"
   head "https://github.com/ocaml/ocaml.git", :branch => "trunk"
 
   pour_bottle? do
@@ -30,11 +28,9 @@ class Ocaml < Formula
 
   bottle do
     cellar :any
-    sha256 "e570566296d4ebb49297d267aa01d46ef36cfcf2c4b88e57ac6eb8e1a2832423" => :mojave
-    sha256 "e662192a30ee7cc037f3665fa68680a35b00a4760c49fb12ccce01d61aa5a977" => :high_sierra
-    sha256 "ae0a24f0e8d52b1253d84703060bff3e1a3db657d882459936cde97c3834a357" => :sierra
-    sha256 "35d04c6e3b52a99b08e21ab0002992df2dd014a6ab53e857165893438591bf99" => :el_capitan
-    sha256 "be8e20363e12abca3dc243ce82817ed38829e5e0503d92d86b6a9644a8b7f438" => :x86_64_linux
+    sha256 "f8490faa0dc3814633cb2eb5f6c5af00e4e8996c867f485cca4844b460966868" => :mojave
+    sha256 "d18ce3b54b85ffe8a6ea32c6079fbdfcfdd4cda852b32919a87644ca2153e5b0" => :high_sierra
+    sha256 "6477940a49ea3a5d262a12e559a296511f5445c921ff3fdf304e0f039485b6a3" => :sierra
   end
 
   pour_bottle? do
@@ -49,11 +45,6 @@ class Ocaml < Formula
 
   depends_on :x11 => :optional
   depends_on "linuxbrew/xorg/xorg" if build.with?("x11") && !OS.mac?
-
-  # Doesn't apply cleanly so cherry-picked the necessary part of:
-  # https://github.com/ocaml/ocaml/commit/3e265f97ecd4252b911d4a328ad16026b4afdb26
-  # Fixes: https://caml.inria.fr/mantis/view.php?id=7824
-  patch :DATA
 
   def install
     ENV.deparallelize # Builds are not parallel-safe, esp. with many cores
@@ -74,18 +65,3 @@ class Ocaml < Formula
     assert_match HOMEBREW_PREFIX.to_s, shell_output("#{bin}/ocamlc -where")
   end
 end
-
-__END__
-diff --git a/typing/ctype.ml b/typing/ctype.ml
-index f24e46d15a2f77b685800e9d8096b083ae58087a..9f21bf2913164effb3acdf227904c5df3c28a370 100644
---- a/typing/ctype.ml
-+++ b/typing/ctype.ml
-@@ -4132,6 +4132,8 @@ and subtype_row env trace row1 row2 cstrs =
-   let row1 = row_repr row1 and row2 = row_repr row2 in
-   let r1, r2, pairs =
-     merge_row_fields row1.row_fields row2.row_fields in
-+  let r1 = if row2.row_closed then filter_row_fields false r1 else r1 in
-+  let r2 = if row1.row_closed then filter_row_fields false r2 else r2 in
-   let more1 = repr row1.row_more
-   and more2 = repr row2.row_more in
-   match more1.desc, more2.desc with
