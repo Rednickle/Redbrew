@@ -9,6 +9,7 @@ class AmazonEcsCli < Formula
     sha256 "2f060f0536e40fd51977fec2bd99570d92a3eef80bada0f910f9d3cf5d803727" => :mojave
     sha256 "a22c2804714ed7668b7f9924932f3d6c8939eb21369b34edde3bdb66124d9b37" => :high_sierra
     sha256 "e64c517cb79cd87a95b0c791293210dc4c29462073a0d79725f967264c4f8325" => :sierra
+    sha256 "5cf3f1678cbb290042a479f5c2b8228f64e74cbf9e513271066b06df8b0901a8" => :x86_64_linux
   end
 
   depends_on "go" => :build
