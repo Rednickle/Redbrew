@@ -13,6 +13,7 @@ class Awscli < Formula
     sha256 "85f04f34ee99a254c04062ece0630e6fe3186382c4c3a997fca25644637c96e1" => :mojave
     sha256 "cd16ab2b9bc639a6e046a7a3dc039bebe287400af4f6c74bdd12c48ecb558904" => :high_sierra
     sha256 "7ede5154cc43363f963ff34820a3aadda712ed51f78f02788096046a465479df" => :sierra
+    sha256 "504f61ef3733846614ab4d8311483a4042110c7d2fb77c418636d0a25e404c50" => :x86_64_linux
   end
 
   # Some AWS APIs require TLS1.2, which system Python doesn't have before High
