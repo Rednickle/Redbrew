@@ -8,6 +8,7 @@ class Augustus < Formula
     sha256 "2d7449f08dbf38ee7a46d51e2f17032221b0567e4a215e7d309602cee8724ce5" => :mojave
     sha256 "6df315ec1bad28e6708e8a99b533216de4c4049ef1e79680f4132e77209f77b5" => :high_sierra
     sha256 "020e9e8531aeaad48d06a96ca78eda64eae25e3737e69941f9069e6abd4e898d" => :sierra
+    sha256 "1402f191a8ea0b8eaab413af26bf31da2c4b4913e19aa21706d83aa80070b11d" => :x86_64_linux
   end
 
   depends_on "bamtools"
