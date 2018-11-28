@@ -21,24 +21,13 @@ class Openssl < Formula
   keg_only :provided_by_macos,
     "Apple has deprecated use of OpenSSL in favor of its own TLS and crypto libraries"
 
-  option "without-test", "Skip build-time tests (not recommended)"
-
-  deprecated_option "without-check" => "without-test"
-
-  resource "cacert" do
-    # homepage "http://curl.haxx.se/docs/caextract.html"
-    url "https://curl.haxx.se/ca/cacert-2017-01-18.pem"
-    mirror "http://cdn.rawgit.com/sjackman/e4066d2cb6b45fbb6d213e676cb109d0/raw/58964378cb5eefe96cba245ef863c57fb2b480e0/cacert-2017-01-18.pem"
-    sha256 "e62a07e61e5870effa81b430e1900778943c228bd7da1259dd6a955ee2262b47"
-  end
-
   depends_on "makedepend" => :build if OS.mac?
 
   def arch_args
     return {
-      :i386 => %w[linux-generic32],
+      :i386   => %w[linux-generic32],
       :x86_64 => %w[linux-x86_64],
-      :arm => %w[linux-armv4],
+      :arm    => %w[linux-armv4],
     } if OS.linux?
 
     {
@@ -80,7 +69,7 @@ class Openssl < Formula
     system "make", "depend"
     system "make"
     if which "cmp"
-      system "make", "test" if build.with?("test")
+      system "make", "test"
     else
       opoo "Skipping `make check` due to unavailable `cmp`"
     end
