@@ -29,6 +29,13 @@ class Openssl < Formula
     sha256 "86695b1be9225c3cf882d283f05c944e3aabbc1df6428a4424269a93e997dc65"
   end
 
+  resource "cacert" do
+    # homepage "http://curl.haxx.se/docs/caextract.html"
+    url "https://curl.haxx.se/ca/cacert-2017-01-18.pem"
+    mirror "http://cdn.rawgit.com/sjackman/e4066d2cb6b45fbb6d213e676cb109d0/raw/58964378cb5eefe96cba245ef863c57fb2b480e0/cacert-2017-01-18.pem"
+    sha256 "e62a07e61e5870effa81b430e1900778943c228bd7da1259dd6a955ee2262b47"
+  end unless OS.mac?
+
   # Use standard env on Snow Leopard to allow compilation fix below to work.
   env :std if MacOS.version == :snow_leopard
 
