@@ -10,6 +10,7 @@ class Protobuf < Formula
     sha256 "4911058695a87895088011bfa5e552233696106bffa819fa004c8646d29a557d" => :mojave
     sha256 "443091acba910e4baa043e4bf3296e7390655f8ddb3a07bd6805393d2c2e7823" => :high_sierra
     sha256 "d378bb15cb022247851efa2f0409feb9d73dd1030869736bbd72e9dba8d3aa96" => :sierra
+    sha256 "fd66c56ccd2d86e8f291fa12b54d9f398372cea2a8dcdcffbaa22e7dc15fce5c" => :x86_64_linux
   end
 
   option "without-python@2", "Build without python2 support"
