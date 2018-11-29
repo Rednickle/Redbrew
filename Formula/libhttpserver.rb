@@ -10,6 +10,7 @@ class Libhttpserver < Formula
     sha256 "584ce9e1f496db74be01e358e6a899348332355587d81224ba48b4b3cc16fb77" => :mojave
     sha256 "7d387aa6e0b0d1b12afab75b46975f93c844298fc932956f7c5d2bb650e1d706" => :high_sierra
     sha256 "0f7f6b7fae3400d0090e6fbef1dce0eaf810cbe66ee5c8a839ca6013c1bf2135" => :sierra
+    sha256 "07065c6babb590a5703982db63c679e3c202fc35bd4cb95341ca1394a346d40d" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
