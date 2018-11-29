@@ -9,6 +9,7 @@ class Libtcod < Formula
     sha256 "6376b266e1523c732e6465d50b988c8d7964e567f8ba27eeedb585217c1f1d87" => :mojave
     sha256 "40ec101abf6440dfcea154c4c57af89a0ec813cf99f810156e6bb53e27d22d14" => :high_sierra
     sha256 "ee03cac48e6b29dcf7c84860436ee61105fad31888d81791f4f519773e0d73b9" => :sierra
+    sha256 "47ab67e516fb2a9de6f78e27e8404e785f1f05e1709a5559dc45c418bfcde75f" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
