@@ -10,6 +10,7 @@ class GitStandup < Formula
     sha256 "bd18e5625605805f45473083ac6bf5c83009495575c09966884c00661d7a2682" => :mojave
     sha256 "c3a46d5566ecaa3af2acb0872e1f82a8063e4f3c0e23a2b2ff1604e676a478b5" => :high_sierra
     sha256 "c3a46d5566ecaa3af2acb0872e1f82a8063e4f3c0e23a2b2ff1604e676a478b5" => :sierra
+    sha256 "695955cc8e620e82a4985962e7419e61645dddaa4ea147cbb1d1948e7d8b3fa0" => :x86_64_linux
   end
 
   def install
