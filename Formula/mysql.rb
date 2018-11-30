@@ -9,6 +9,7 @@ class Mysql < Formula
     sha256 "b56609f349ecc52c1b0718b8882fe0c85774e02cd08dab68d4e749e95fac5289" => :mojave
     sha256 "d9a08d2ec153a122b069cfe82f5ff8445fe108969d33985a697290a01844950e" => :high_sierra
     sha256 "140885182eac70d95b65110534222a3e6cc4c64d31f8a44618af7f6f123c29ce" => :sierra
+    sha256 "0d771cb8ae7489a139bedf64d612467b95ae270e6931584ddb1d7404e5ec8b7a" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
