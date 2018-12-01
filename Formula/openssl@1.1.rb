@@ -11,6 +11,7 @@ class OpensslAT11 < Formula
     sha256 "802fef5cc7072a3dc6c1f15898d9f028d7bd32c659e93a354545e719f54a2456" => :mojave
     sha256 "29ff522cbd3509b4f881643d2dfdec78396d41f8858d7d308d59f2e3b1839aa1" => :high_sierra
     sha256 "af76397790ce9cb571a8e0bd1014a90a47ed1c05b5ee6727a2f6796ebdb95365" => :sierra
+    sha256 "c153b05e49ef98fa890dfead369799e7451d30b4361eb91d655c6adff86b2412" => :x86_64_linux
   end
 
   keg_only :versioned_formula
