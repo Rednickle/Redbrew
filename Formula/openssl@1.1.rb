@@ -1,18 +1,16 @@
 class OpensslAT11 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-1.1.1.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/openssl@1.1--1.1.1.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1.tar.gz"
-  sha256 "2836875a0f89c03d0fdf483941512613a50cfb421d6fd94b9f41d7279d586a3d"
+  url "https://www.openssl.org/source/openssl-1.1.1a.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/openssl@1.1--1.1.1a.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1a.tar.gz"
+  sha256 "fc20130f8b7cbd2fb918b2f14e2f429e109c31ddd0fb38fc5d71d9ffed3f9f41"
   version_scheme 1
 
   bottle do
-    sha256 "5d6cc9cf64cef8d08ef3a63725e58d1b9820596ec99e9b9f294cbb97aa07f4f0" => :mojave
-    sha256 "b5a051ce2892d64a208a6d7e919d9494a37a79030adf39e1439c79d634cf5e8f" => :high_sierra
-    sha256 "35f229571fba08b387086e6dc6a6494a3feabf2cf8270e90e10f10622a6165f5" => :sierra
-    sha256 "1156c16f82dc12920d98f62664110049734f8b26ec48d80ca6f4b9b5bfe8c78a" => :el_capitan
-    sha256 "28ebf42b28cea322e82d659c3fa93c86b31a4d14380c440995b6a359b2d507e7" => :x86_64_linux
+    sha256 "802fef5cc7072a3dc6c1f15898d9f028d7bd32c659e93a354545e719f54a2456" => :mojave
+    sha256 "29ff522cbd3509b4f881643d2dfdec78396d41f8858d7d308d59f2e3b1839aa1" => :high_sierra
+    sha256 "af76397790ce9cb571a8e0bd1014a90a47ed1c05b5ee6727a2f6796ebdb95365" => :sierra
   end
 
   keg_only :versioned_formula
