@@ -11,6 +11,7 @@ class Latex2html < Formula
     sha256 "921724f29095fc6b3d89a1ed379c330f4f5fab7c29c4665e418b00621aa17a05" => :mojave
     sha256 "1f53664898fb8df9884c207f5b5f7042e3c47069c4e48a519289251fe1c59f2a" => :high_sierra
     sha256 "f4863e230cbd2838bd135e6a806a1fccc0453f033b65e26906f5a164eede7fce" => :sierra
+    sha256 "e7c8dc06299644d7af0cdc9cdd6932c87a4c78c7f66954993560a06f2d6a99a2" => :x86_64_linux
   end
 
   depends_on "ghostscript"
