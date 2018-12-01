@@ -6,10 +6,11 @@ class Libspectre < Formula
   revision 7
 
   bottle do
-    cellar :any
+    cellar :any_skip_relocation
     sha256 "14d107a48c6f8bc78134eb5b7d36f89f17a0efd212c1331c4a5ccf2b6f158a12" => :mojave
     sha256 "52be82741ea6cbbc203f3d6c91c696a5ce286b6e6c48df0293585dd1ab904d6b" => :high_sierra
     sha256 "8cd6ea1b86def695138d1fadf32e6019719a4ec095a7aa3059fbed758e83d25c" => :sierra
+    sha256 "75d3c1be624e28d862b6ab0b88dbd22e1b40d8446f07268b13ccbda6fb881ea7" => :x86_64_linux
   end
 
   depends_on "ghostscript"
