@@ -3,12 +3,12 @@ class Php < Formula
   homepage "https://secure.php.net/"
   url "https://php.net/get/php-7.2.12.tar.xz/from/this/mirror"
   sha256 "989c04cc879ee71a5e1131db867f3c5102f1f7565f805e2bb8bde33f93147fe1"
+  revision 1
 
   bottle do
-    sha256 "1f9e923929ff5131498c885444ccb07cad685d04a07129fecfb32703dbda2f0f" => :mojave
-    sha256 "1fe625669a1d1245a5fa981f10cebfdd4d8fd3e861d1ef97bf06306a342c154d" => :high_sierra
-    sha256 "ba1c8f6af0bf9cae24fcee0ca36805f11907cc94ccd0ac98b53014c8dc83e834" => :sierra
-    sha256 "3160092ee925e018fc644d7cac5bd691098ea853ae065b1d1e0ac6d8fe2a7e5f" => :x86_64_linux
+    sha256 "8768971b2cf298be0c1b7b25fe3673f9e678338014cb3cce701e2691f0e21037" => :mojave
+    sha256 "0c1280360926b3d2622f75481bd9514fbaaf43ebe4b76bdada83687eba8981da" => :high_sierra
+    sha256 "987917ea2c47da29f578b18612ad0818887bd4f726a13540e7ea176c07850c41" => :sierra
   end
 
   depends_on "httpd" => [:build, :test]
@@ -18,7 +18,11 @@ class Php < Formula
   depends_on "argon2"
   depends_on "aspell"
   depends_on "autoconf"
-  depends_on "curl" if !OS.mac? || MacOS.version < :lion
+  if OS.mac?
+    depends_on "curl-openssl"
+  else
+    depends_on "curl"
+  end
   depends_on "freetds"
   depends_on "freetype"
   depends_on "gettext"
@@ -26,12 +30,11 @@ class Php < Formula
   depends_on "gmp"
   depends_on "icu4c"
   depends_on "jpeg"
-  depends_on "libiconv" if OS.mac? && DevelopmentTools.clang_build_version >= 1000
   depends_on "libpng"
   depends_on "libpq"
   depends_on "libsodium"
   depends_on "libzip"
-  depends_on "openldap" if !OS.mac? || DevelopmentTools.clang_build_version >= 1000
+  depends_on "openldap"
   depends_on "openssl"
   depends_on "pcre"
   depends_on "sqlite"
@@ -138,6 +141,7 @@ class Php < Formula
       --with-gd
       --with-gettext=#{Formula["gettext"].opt_prefix}
       --with-gmp=#{Formula["gmp"].opt_prefix}
+      --with-iconv#{headers_path}
       --with-icu-dir=#{Formula["icu4c"].opt_prefix}
       --with-jpeg-dir=#{Formula["jpeg"].opt_prefix}
       --with-kerberos#{headers_path}
@@ -166,11 +170,12 @@ class Php < Formula
     ]
 
     if OS.mac?
+      args << "--with-ldap=#{Formula["openldap"].opt_prefix}"
+      args << "--with-ldap-sasl#{headers_path}"
       args << "--enable-dtrace"
       args << "--with-zlib#{headers_path}"
       args << "--with-bz2#{headers_path}"
       args << "--with-ndbm#{headers_path}"
-      args << "--with-ldap-sasl#{headers_path}"
       args << "--with-libedit#{headers_path}"
       args << "--with-libxml-dir#{headers_path}"
       args << "--with-xsl#{headers_path}"
@@ -186,20 +191,10 @@ class Php < Formula
       args << "--without-gdbm"
     end
 
-    if !OS.mac? || MacOS.version < :lion
+    if OS.mac?
+      args << "--with-curl=#{Formula["curl-openssl"].opt_prefix}"
+    else
       args << "--with-curl=#{Formula["curl"].opt_prefix}"
-    else
-      args << "--with-curl#{headers_path}"
-    end
-
-    if !OS.mac? ||MacOS.sdk_path_if_needed
-      args << "--with-ldap=#{Formula["openldap"].opt_prefix}"
-    else
-      args << "--with-ldap"
-    end
-
-    if OS.mac? && MacOS.sdk_path_if_needed
-      args << "--with-iconv=#{Formula["libiconv"].opt_prefix}"
     end
 
     system "./configure", *args
@@ -369,11 +364,8 @@ class Php < Formula
       expected_output = /^Hello world!$/
       (testpath/"index.php").write <<~EOS
         <?php
-        echo 'Hello world!';
-      EOS
-      (testpath/"missingdotphp").write <<~EOS
-        <?php
-        echo 'Hello world!';
+        echo 'Hello world!' . PHP_EOL;
+        var_dump(ldap_connect());
       EOS
       main_config = <<~EOS
         Listen #{port}
@@ -453,7 +445,7 @@ end
 
 __END__
 diff --git a/acinclude.m4 b/acinclude.m4
-index 1deb50d2983c..d0e66c8b6344 100644
+index 168c465f8d..6c087d152f 100644
 --- a/acinclude.m4
 +++ b/acinclude.m4
 @@ -441,7 +441,11 @@ dnl
@@ -480,3 +472,37 @@ index 1deb50d2983c..d0e66c8b6344 100644
  ])
 
  dnl
+@@ -487,7 +491,11 @@ dnl add an include path.
+ dnl if before is 1, add in the beginning of INCLUDES.
+ dnl
+ AC_DEFUN([PHP_ADD_INCLUDE],[
+-  if test "$1" != "/usr/include"; then
++  case "$1" in
++  "/usr/include"[)] ;;
++  /Library/Developer/CommandLineTools/SDKs/*/usr/include[)] ;;
++  /Applications/Xcode*.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/*/usr/include[)] ;;
++  *[)]
+     PHP_EXPAND_PATH($1, ai_p)
+     PHP_RUN_ONCE(INCLUDEPATH, $ai_p, [
+       if test "$2"; then
+@@ -495,8 +503,8 @@ AC_DEFUN([PHP_ADD_INCLUDE],[
+       else
+         INCLUDES="$INCLUDES -I$ai_p"
+       fi
+-    ])
+-  fi
++    ]) ;;
++  esac
+ ])
+
+ dnl internal, don't use
+@@ -2411,7 +2419,8 @@ AC_DEFUN([PHP_SETUP_ICONV], [
+     fi
+
+     if test -f $ICONV_DIR/$PHP_LIBDIR/lib$iconv_lib_name.a ||
+-       test -f $ICONV_DIR/$PHP_LIBDIR/lib$iconv_lib_name.$SHLIB_SUFFIX_NAME
++       test -f $ICONV_DIR/$PHP_LIBDIR/lib$iconv_lib_name.$SHLIB_SUFFIX_NAME ||
++       test -f $ICONV_DIR/$PHP_LIBDIR/lib$iconv_lib_name.tbd
+     then
+       PHP_CHECK_LIBRARY($iconv_lib_name, libiconv, [
+         found_iconv=yes
