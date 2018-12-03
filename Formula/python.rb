@@ -6,10 +6,10 @@ class Python < Formula
   head "https://github.com/python/cpython.git"
 
   bottle do
-    sha256 "5cc9c4b87eb68c2b2f491cf907ee4517279bfc2c4e41c366ef994aebff7e9684" => :mojave
-    sha256 "be05e539d0c1bd13a838b76d3031de246579277fefde473887ec35fc70579787" => :high_sierra
-    sha256 "6b063aecaeb0d282caf03169788f4c985c79664c767511cebeeee44f76651ef0" => :sierra
-    sha256 "eb3560ba8b6a40b99e803faf6ddf6c2fd4399292ad05470a4ad1b78d787bf14f" => :x86_64_linux
+    rebuild 7
+    sha256 "c3419be58007ea4f11ea22c62bd85c327478b1c835ff7023295dffc137db9d62" => :mojave
+    sha256 "e3a2fd0a81b0c8fa44b813b7c47b53822cf9652a50fb88c4b8c889dd7239affa" => :high_sierra
+    sha256 "c57a54a020b48461b37a5c5367a89000d3615e095096d5d8d80b1b093446aade" => :sierra
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -108,11 +108,12 @@ class Python < Formula
     if OS.mac? && MacOS.sdk_path_if_needed
       # Help Python's build system (setuptools/pip) to build things on SDK-based systems
       # The setup.py looks at "-isysroot" to get the sysroot (and not at --sysroot)
-      cflags  << "-isysroot #{MacOS.sdk_path}"
+      cflags  << "-isysroot #{MacOS.sdk_path}" << "-I#{MacOS.sdk_path}/usr/include"
       ldflags << "-isysroot #{MacOS.sdk_path}"
-      if DevelopmentTools.clang_build_version < 1000
-        cflags  << "-I/usr/include" # find zlib
-      end
+      # For the Xlib.h, Python needs this header dir with the system Tk
+      # Yep, this needs the absolute path where zlib needed a path relative
+      # to the SDK.
+      cflags << "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
     end
     # Avoid linking to libgcc https://mail.python.org/pipermail/python-dev/2012-February/116205.html
     args << "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
@@ -335,7 +336,13 @@ class Python < Formula
   end
 
   def caveats
-    text = <<~EOS
+    if prefix.exist?
+      xy = (prefix/"Frameworks/Python.framework/Versions").children.min.basename.to_s
+    else
+      xy = version.to_s.slice(/(3\.\d)/) || "3.7"
+    end
+
+    <<~EOS
       Python has been installed as
         #{HOMEBREW_PREFIX}/bin/python3
 
@@ -353,16 +360,6 @@ class Python < Formula
 
       See: https://docs.brew.sh/Homebrew-and-Python
     EOS
-
-    # Tk warning only for 10.6
-    tk_caveats = <<~EOS
-
-      Apple's Tcl/Tk is not recommended for use with Python on Mac OS X 10.6.
-      For more information see: https://www.python.org/download/mac/tcltk/
-    EOS
-
-    text += tk_caveats if OS.mac? && !MacOS.version >= :lion
-    text
   end
 
   test do
@@ -372,6 +369,7 @@ class Python < Formula
     # Check if some other modules import. Then the linked libs are working.
     system "#{bin}/python#{xy}", "-c", "import tkinter; root = tkinter.Tk()" if OS.mac?
     system "#{bin}/python#{xy}", "-c", "import _gdbm"
+    system "#{bin}/python#{xy}", "-c", "import zlib"
     system bin/"pip3", "list", "--format=columns"
   end
 end
