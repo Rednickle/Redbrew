@@ -215,6 +215,14 @@ class Python < Formula
     end
   end
 
+  def xy
+    if OS.mac? && prefix.exist?
+      (prefix/"Frameworks/Python.framework/Versions").children.min.basename.to_s
+    else
+      version.to_s[/^\d\.\d/]
+    end
+  end
+
   def post_install
     ENV.delete "PYTHONPATH"
 
@@ -289,14 +297,6 @@ class Python < Formula
     EOS
   end
 
-  def xy
-    if OS.mac? && prefix.exist?
-      (prefix/"Frameworks/Python.framework/Versions").children.min.basename.to_s
-    else
-      version.to_s[/^\d\.\d/]
-    end
-  end
-
   def sitecustomize
     <<~EOS
       # This file is created by Homebrew and is executed on each python startup.
@@ -336,12 +336,6 @@ class Python < Formula
   end
 
   def caveats
-    if prefix.exist?
-      xy = (prefix/"Frameworks/Python.framework/Versions").children.min.basename.to_s
-    else
-      xy = version.to_s.slice(/(3\.\d)/) || "3.7"
-    end
-
     <<~EOS
       Python has been installed as
         #{HOMEBREW_PREFIX}/bin/python3
