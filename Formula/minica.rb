@@ -9,6 +9,7 @@ class Minica < Formula
     sha256 "b9e770340412c61c71cee5c4428fb43bc3204615c826f3a2daabca42869cea66" => :mojave
     sha256 "52bcdc795e10b9fffd91984fc50a17c68c658f409ff545c6d94e147f2adce66a" => :high_sierra
     sha256 "de8de2c3f4a630f159186701abd9badd6d8f086fabc47984af857d809c28e822" => :sierra
+    sha256 "35f8571029e19388d3300a5549b2dbfacc93d198589c9956a87c2784aa152a49" => :x86_64_linux
   end
 
   depends_on "go" => :build
