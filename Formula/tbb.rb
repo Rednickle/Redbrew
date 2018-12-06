@@ -1,15 +1,15 @@
 class Tbb < Formula
   desc "Rich and complete approach to parallelism in C++"
   homepage "https://www.threadingbuildingblocks.org/"
-  url "https://github.com/01org/tbb/archive/2019_U2.tar.gz"
-  version "2019_U2"
-  sha256 "1245aa394a92099e23ce2f60cdd50c90eb3ddcd61d86cae010ef2f1de61f32d9"
+  url "https://github.com/01org/tbb/archive/2019_U3.tar.gz"
+  version "2019_U3"
+  sha256 "b2244147bc8159cdd8f06a38afeb42f3237d3fc822555499d7ccfbd4b86f8ece"
 
   bottle do
-    sha256 "bf9b867475f7b7adacc2d89971ebbbe80f6a8f7fe14848d2e15e344a394bd5f8" => :mojave
-    sha256 "85f1d40fbada90d8ff49efdd59b07400794c921ced3810bdba102f5557727335" => :high_sierra
-    sha256 "486a7c358369dc96adb03f30ad931aaf091145e135f0098ca6677cd68fef9c1e" => :sierra
-    sha256 "5f6659be158af7c97e78a09215bbd8673e98e92174cd48971721fa5406c90298" => :x86_64_linux
+    cellar :any
+    sha256 "e71225b00b1600e1f5d6fb863b7e4ed2331d2f003966f7360cb2ceb5a5c62ca2" => :mojave
+    sha256 "65ab527434fae8d12d0945065ecf41ba37a5a6ebff179adceb60744a524816e1" => :high_sierra
+    sha256 "3df673cbf9c0d3b44866b5154e528e8f1a6d941a112bdccaa0b4951ae10077a1" => :sierra
   end
 
   depends_on "cmake" => :build
