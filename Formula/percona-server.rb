@@ -1,13 +1,13 @@
 class PerconaServer < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
-  url "https://www.percona.com/downloads/Percona-Server-5.7/Percona-Server-5.7.23-25/source/tarball/percona-server-5.7.23-25.tar.gz"
-  sha256 "2ced65c6889a2a53612dcf133a2aaa7b9087746494c6dc86b1656034ff445478"
+  url "https://www.percona.com/downloads/Percona-Server-5.7/Percona-Server-5.7.24-26/source/tarball/percona-server-5.7.24-26.tar.gz"
+  sha256 "edc7f5fa1e8699ce1f91aaff34cc9d4d34395a85cb21702907f67754bb094a12"
 
   bottle do
-    sha256 "bdb1ee7d734939e7b573e12c560b63db58c8d457ce7458b86bfb5381998c1b80" => :mojave
-    sha256 "587869ca47e8d276c7b4829e4545c352b0da3b8bf9820ff193566e22811232ff" => :high_sierra
-    sha256 "0a206a4843dc1bd227c1cc02992af8f8776d3aae13a9ccec9ccd276be1677157" => :sierra
+    sha256 "01f6974a168c79af93da9140ce756f6547e061ac92a97590cf83479dc32d9de6" => :mojave
+    sha256 "657fa456dfa99b1b8bb9852df861378b2ac3cbe2f123b89964c48fd701fa44bf" => :high_sierra
+    sha256 "2c377f9e407780fc3c672d4109dadc085f7dedf2c170a629baf82c832f0748b6" => :sierra
   end
 
   pour_bottle? do

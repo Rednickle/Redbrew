@@ -2,15 +2,14 @@ class Kustomize < Formula
   desc "Template-free customization of Kubernetes YAML manifests"
   homepage "https://github.com/kubernetes-sigs/kustomize"
   url "https://github.com/kubernetes-sigs/kustomize.git",
-      :tag      => "v1.0.10",
-      :revision => "383b3e798b7042f8b7431f93e440fb85631890a3"
+      :tag      => "v1.0.11",
+      :revision => "8f701a00417a812558a7b785e8354957afa469ae"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8413ec0b8fd4f9ee3bac2629b51fafdd5cf81a1cbbc2a19ec12b5bd08a0547c5" => :mojave
-    sha256 "07f52df1f41f4daf9a8e7b1c2925967ee50527f7f3fc09c4e44fa2c331fd82cd" => :high_sierra
-    sha256 "3ed58091ed7be69a7432f4e1049cac9b780fed064eeb083196b4f63b60f88d49" => :sierra
-    sha256 "c14fc373e919fbb1ca53b3bcac3876bdb4d223c222b87f193890c0f21f266f89" => :x86_64_linux
+    sha256 "bfb8ff7ddaa9d038da491acdb44235f607f428c39a80faa8d855afc303f24530" => :mojave
+    sha256 "0e27b2962f70aec8432ec69e4102f0c39c6ba11ade93221f10ae4b6833189c77" => :high_sierra
+    sha256 "af177ce8c7781711d8857fe987246a88a0f1d86bc42275d4940c6275a05e71be" => :sierra
   end
 
   depends_on "go" => :build

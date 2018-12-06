@@ -3,14 +3,14 @@ class V8 < Formula
   desc "Google's JavaScript engine"
   homepage "https://github.com/v8/v8/wiki"
   url "https://chromium.googlesource.com/chromium/tools/depot_tools.git",
-      :revision => "e28390cc438f6206082894048801aea07964f603"
-  version "7.0.276.38" # the version of the v8 checkout, not a depot_tools version
+      :revision => "f28ef9887ee23597d4a0b89d068f7b8e377fc876"
+  version "7.1.302.28" # the version of the v8 checkout, not a depot_tools version
 
   bottle do
     cellar :any
-    sha256 "774ddc05d6c5982d6b7741df347ee665628ed7188cccb78b72debddac50b47eb" => :mojave
-    sha256 "33ee55f68474766c4ca313757e6078074084d5524f3e3b76fcaaca2b07cab519" => :high_sierra
-    sha256 "c0a5c619380d26893dedb7e2912e500bdf2b915eeda6488a6200bdfc911e11c7" => :sierra
+    sha256 "cd882e5011ef37e84c957b1aaa8717618aae34204df08325f85ab11dd8d31409" => :mojave
+    sha256 "2a7ec6035b6d93fa17984de397a72900ff003dd53b1f788008ea45556fe9296a" => :high_sierra
+    sha256 "31e9d7558d573186a536d99b41fe001a63e6fdb06c4113a17afebc9dcdc9fc07" => :sierra
   end
 
   # depot_tools/GN require Python 2.7+
