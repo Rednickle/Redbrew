@@ -2,16 +2,16 @@
 class Macvim < Formula
   desc "GUI for vim, made for macOS"
   homepage "https://github.com/macvim-dev/macvim"
-  url "https://github.com/macvim-dev/macvim/archive/snapshot-151.tar.gz"
-  version "8.1-151"
-  sha256 "4752e150ac509f19540c0f292eda9bf435b8986138514ad2e1970cc82a2ba4fc"
-  revision 2
+  url "https://github.com/macvim-dev/macvim/archive/snapshot-152.tar.gz"
+  version "8.1-152"
+  sha256 "aa9998ce7a7dbf4364d3d83dfc495cf8cbc214b0341b8a8c4858e172ede5646b"
   head "https://github.com/macvim-dev/macvim.git"
 
   bottle do
-    sha256 "3b588aec4106e79d6f9798ba8b140f640511f8b09af8592b2a96ff688b8cce84" => :mojave
-    sha256 "19301c8c932a612beb36f3c526bd0cd23d1063e999d38d0b9836d133ef843ab8" => :high_sierra
-    sha256 "2ae52bf5b7350a43411586394d393a6493325d1fb74f803c77e275554b2b317e" => :sierra
+    cellar :any
+    sha256 "79d1a67e26fe8b51129127ee468508c0859e38afcc81bc98c10a5f9cf5312955" => :mojave
+    sha256 "094d4c8abb75b8960bbbbf1b45b20d274d7c02116b1614f28701d9965de1bfdf" => :high_sierra
+    sha256 "c369b5df59a31011d4801dc444094dd7fbf5cf288341376fd8d390ea0cf6ff75" => :sierra
   end
 
   depends_on :macos
