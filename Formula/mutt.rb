@@ -10,15 +10,13 @@
 class Mutt < Formula
   desc "Mongrel of mail user agents (part elm, pine, mush, mh, etc.)"
   homepage "http://www.mutt.org/"
-  url "https://bitbucket.org/mutt/mutt/downloads/mutt-1.10.1.tar.gz"
-  sha256 "734a3883158ec3d180cf6538d8bd7f685ce641d2cdef657aa0038f76e79a54a0"
+  url "https://bitbucket.org/mutt/mutt/downloads/mutt-1.11.1.tar.gz"
+  sha256 "705141013662e53b78e49ed545360281f30a09ddda908f4de733277a60b1db05"
 
   bottle do
-    sha256 "389639d2cfb581fbf101df8e0c9eecb255314f1be38864acc7bf2c1c9a2c4a11" => :mojave
-    sha256 "ba0ec065c7692ce00cbf5cc47cb4804253c6fd388b3cbdcea0a65a20ef1bc616" => :high_sierra
-    sha256 "34d1cd11dc3d60fd6ae0365b90e7ab03e73e16494c1b31ec853741984207a6b1" => :sierra
-    sha256 "56802f8c1f2646be1ee70e3ea3ad711546a8e359d6a24b27a506bab24a845809" => :el_capitan
-    sha256 "07e7cd4c16d870067025ce2f67c17088040cf485e1373cbe48bfebff2fb3e7e3" => :x86_64_linux
+    sha256 "cc81730a08426a73c58da6e76c91852eddc2a8a5eecfa48110959d7af0bb4ec7" => :mojave
+    sha256 "8d4627fa9074eb9d72f7653fd02d7c4c2f88a341955a3ce59437c4e3b93b11e4" => :high_sierra
+    sha256 "a608389b2a68f3e986e5487ad817e0b8688df96f02a799dd4440991eb20ca069" => :sierra
   end
 
   head do
@@ -29,16 +27,11 @@ class Mutt < Formula
     end
   end
 
-  option "with-s-lang", "Build against slang instead of ncurses"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "openssl"
   depends_on "tokyo-cabinet"
-  depends_on "gettext" => :optional
   depends_on "gpgme" => :optional
-  depends_on "libidn" => :optional
-  depends_on "s-lang" => :optional
   unless OS.mac?
     depends_on "bzip2"
     depends_on "zlib"
@@ -77,9 +70,7 @@ class Mutt < Formula
     # we're running as an unprivileged user)
     args << "--with-homespool=.mbox" unless user_admin
 
-    args << "--disable-nls" if build.without? "gettext"
     args << "--enable-gpgme" if build.with? "gpgme"
-    args << "--with-slang" if build.with? "s-lang"
 
     system "./prepare", *args
     system "make"
