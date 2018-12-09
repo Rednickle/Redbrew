@@ -1,15 +1,14 @@
 class Postgresql < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v10.6/postgresql-10.6.tar.bz2"
-  sha256 "68a8276f08bda8fbefe562faaf8831cb20664a7a1d3ffdbbcc5b83e08637624b"
+  url "https://ftp.postgresql.org/pub/source/v11.1/postgresql-11.1.tar.bz2"
+  sha256 "90815e812874831e9a4bf6e1136bf73bc2c5a0464ef142e2dfea40cda206db08"
   head "https://github.com/postgres/postgres.git"
 
   bottle do
-    sha256 "830a44d1e5f0091165d0ad0170e6ff898e41f9356ee9d10db3717bfcf3483f46" => :mojave
-    sha256 "29917eb3c8accf8329d59d8e494564a2e6e3481199ebd3083c9d257a458d1a0c" => :high_sierra
-    sha256 "273f9b31a2446547e9b8ae66331bd9d69522a798acfbb1ad0a2406ea69746a61" => :sierra
-    sha256 "8d80a110f570567255599584e7325480e20a04db293108272a7f39b5512ce1db" => :x86_64_linux
+    sha256 "d82e5ff0b8996cd40daba78d9279c94def44e653899084bda9f218c4bafc7253" => :mojave
+    sha256 "9c9f814e08bc7a28105e326a04271031c38dd8e0e5da3781434dcca9ceb364a5" => :high_sierra
+    sha256 "eacc5bd8eac9c6f77831346095393f6ed0361d1697f0fe071927e7c556ff1a86" => :sierra
   end
 
   option "with-python", "Enable PL/Python3"
@@ -77,31 +76,11 @@ class Postgresql < Formula
       end
     end
 
-    # As of Xcode/CLT 10.x the Perl headers were moved from /System
-    # to inside the SDK, so we need to use `-iwithsysroot` instead
-    # of `-I` to point to the correct location.
-    # https://www.postgresql.org/message-id/153558865647.1483.573481613491501077%40wrigleys.postgresql.org
-
     system "./configure", *args
     system "make"
-
-    dirs = %W[datadir=#{pkgshare} libdir=#{lib} pkglibdir=#{lib}/postgresql]
-
-    # Temporarily disable building/installing the documentation.
-    # Postgresql seems to "know" the build system has been altered and
-    # tries to regenerate the documentation when using `install-world`.
-    # This results in the build failing:
-    #  `ERROR: `osx' is missing on your system.`
-    # Attempting to fix that by adding a dependency on `open-sp` doesn't
-    # work and the build errors out on generating the documentation, so
-    # for now let's simply omit it so we can package Postgresql for Mojave.
-    if DevelopmentTools.clang_build_version >= 1000
-      system "make", "all"
-      system "make", "-C", "contrib", "install", "all", *dirs
-      system "make", "install", "all", *dirs
-    else
-      system "make", "install-world", *dirs
-    end
+    system "make", "install-world", "datadir=#{pkgshare}",
+                                    "libdir=#{lib}",
+                                    "pkglibdir=#{lib}/postgresql"
   end
 
   def post_install
