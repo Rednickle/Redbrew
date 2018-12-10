@@ -151,17 +151,16 @@ class Gcc < Formula
     languages << "d" if OS.mac? && build.head?
 
     pkgversion = "Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip
-    args = %W[
-      --prefix=#{prefix}
-      --disable-nls
-      --enable-checking=release
-      --enable-languages=#{languages.join(",")}
-      --program-suffix=-#{version_suffix}
-      --with-gmp=#{Formula["gmp"].opt_prefix}
-      --with-mpfr=#{Formula["mpfr"].opt_prefix}
-      --with-mpc=#{Formula["libmpc"].opt_prefix}
-      --with-pkgversion=#{pkgversion}
-      --with-bugurl=https://github.com/Homebrew/homebrew-core/issues
+    args += [
+      "--prefix=#{prefix}",
+      "--disable-nls",
+      "--enable-checking=release",
+      "--enable-languages=#{languages.join(",")}",
+      "--program-suffix=-#{version_suffix}",
+      "--with-gmp=#{Formula["gmp"].opt_prefix}",
+      "--with-mpfr=#{Formula["mpfr"].opt_prefix}",
+      "--with-mpc=#{Formula["libmpc"].opt_prefix}",
+      "--with-pkgversion=#{pkgversion}",
     ]
 
     # Xcode 10 dropped 32-bit support
