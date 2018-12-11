@@ -10,6 +10,7 @@ class GitArchiveAll < Formula
     sha256 "0897316f38dad6e50cc409e45cb3e6dbe04a9be236b95762dccd0f4c1d2d14e1" => :mojave
     sha256 "963bb86e6c3829d50bcd052d32a85038d816414ebbdb1c76fade74041278820d" => :high_sierra
     sha256 "963bb86e6c3829d50bcd052d32a85038d816414ebbdb1c76fade74041278820d" => :sierra
+    sha256 "060469d0572f23218014004e0aa08dd98ed1e09403c91967790cd878b2115af0" => :x86_64_linux
   end
 
   def install
