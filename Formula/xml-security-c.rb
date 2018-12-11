@@ -10,6 +10,7 @@ class XmlSecurityC < Formula
     sha256 "b2749de079a163a5e8c00850c3aaa459e772e615641c9fa4766d7352d836414a" => :mojave
     sha256 "ea397178085b69d9068c0d484443233f9450ed3493aa9ee5f769c37c6e422d8a" => :high_sierra
     sha256 "9e677246828b986d73457de275d9c6afe5dd2705aa01445d49a1c1b90e3245de" => :sierra
+    sha256 "7c4bfe0cfed083db639a0a465a138c278244da13059e692f32f58752854242d0" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
