@@ -11,6 +11,7 @@ class Sqliteodbc < Formula
     sha256 "a49afbd00eb6230ecf0a0a4573c961fe697ab6326998f2a894348d8509dc1c0d" => :mojave
     sha256 "6afd81a210f7a0f7b70e70d4d5b89a659c4cf2c9916d85ff65d89ef042bdba52" => :high_sierra
     sha256 "73755a497df2713b8f3cc9cd0f19df24aaab01f33bf001be3718c5f8318c784c" => :sierra
+    sha256 "1b34e2dc2a7fb806b0102f34e0128285f8f5842159b9ecb99dee8efa13ef1155" => :x86_64_linux
   end
 
   depends_on "sqlite"
