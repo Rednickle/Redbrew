@@ -11,6 +11,7 @@ class Kibana < Formula
     sha256 "1a26ab6ddf19ae242d688a047f27719614bff286ccaa452ccc19818c5bf2bfca" => :mojave
     sha256 "a72c2bda7ba03793b475ce1b4157f3582fbb11712f2e5809cfb97a358361b48d" => :high_sierra
     sha256 "cf54e3222f150fa2ca69237e13e61ffa113833b2306f36b0b9d872c2dc37ef95" => :sierra
+    sha256 "a4b7b54b29a17b2830a26ef37b3c874e078b136b9024d3109661a45f49af012a" => :x86_64_linux
   end
 
   resource "node" do
