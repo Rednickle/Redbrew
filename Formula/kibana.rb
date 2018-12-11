@@ -2,26 +2,20 @@ class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      :tag      => "v6.5.1",
-      :revision => "2ba5ab17f369e26e68edc4e35f0ece0391bdeb4c"
+      :tag      => "v6.5.2",
+      :revision => "1faf6571dad146d1d2a16aea76ef3c2336a486e8"
   head "https://github.com/elastic/kibana.git"
 
   bottle do
-    sha256 "2cf8f0448a5ccff72d532c98313c3f18b78f64653e7ad79458d92e3f628556da" => :mojave
-    sha256 "8cc203ca82b6af4a6e955e2c78e4a289b59e4e08efb1c07d73b695ce9d59ae2c" => :high_sierra
-    sha256 "a9463e55ce832579bfe84f973621d49ce8afc17f18759c7be222ac60cc6038bd" => :sierra
-    sha256 "f872e244a2e536ecfa6164b6b5eac32a6cd3e3c9ede36ec8495fb6998bf93a2c" => :x86_64_linux
+    cellar :any_skip_relocation
+    sha256 "1a26ab6ddf19ae242d688a047f27719614bff286ccaa452ccc19818c5bf2bfca" => :mojave
+    sha256 "a72c2bda7ba03793b475ce1b4157f3582fbb11712f2e5809cfb97a358361b48d" => :high_sierra
+    sha256 "cf54e3222f150fa2ca69237e13e61ffa113833b2306f36b0b9d872c2dc37ef95" => :sierra
   end
 
   resource "node" do
-    url "https://nodejs.org/dist/v8.11.4/node-v8.11.4.tar.xz"
-    sha256 "fbce7de6d96b0bcb0db0bf77f0e6ea999b6755e6930568aedaab06847552a609"
-
-    # Fix compilation with gcc 5.4-5.5
-    # https://github.com/Linuxbrew/homebrew-core/issues/9530
-    # https://github.com/nodejs/node/pull/19196
-    # Remove this patch after updating Node JS to >= v8.12
-    patch :DATA unless OS.mac?
+    url "https://nodejs.org/dist/v8.14.0/node-v8.14.0.tar.xz"
+    sha256 "8ce252913c9f6aaa9871f2d9661b6e54858dae2f0064bd3c624676edb09083c4"
   end
 
   resource "yarn" do
@@ -114,24 +108,3 @@ class Kibana < Formula
     assert_match /#{version}/, shell_output("#{bin}/kibana -V")
   end
 end
-
-__END__
---- a/src/node_crypto.cc
-+++ b/src/node_crypto.cc
-@@ -33,15 +33,15 @@
- #include "env-inl.h"
- #include "string_bytes.h"
- #include "util-inl.h"
- #include "v8.h"
-
- #include <algorithm>
-+#include <cmath>
- #include <errno.h>
- #include <limits.h>  // INT_MAX
--#include <math.h>
- #include <stdlib.h>
- #include <string.h>
- #include <vector>
-
- #define THROW_AND_RETURN_IF_NOT_STRING_OR_BUFFER(val, prefix)                  \
-   do {                                                                         \
