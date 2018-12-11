@@ -52,11 +52,6 @@ class Gcc < Formula
     satisfy { !OS.mac? || (MacOS::CLT.installed? && HOMEBREW_PREFIX.to_s == Homebrew::DEFAULT_PREFIX) }
   end
 
-  option "with-jit", "Build just-in-time compiler"
-  option "with-nls", "Build with native language support (localization)"
-  option "with-jit", "Build the jit compiler"
-  option "without-fortran", "Build without the gfortran compiler"
-
   unless OS.mac?
     depends_on "zlib"
     depends_on "binutils" if build.with? "glibc"
@@ -103,6 +98,7 @@ class Gcc < Formula
     args = []
 
     if OS.mac?
+      osmajor = `uname -r`.chomp
       args += [
         "--build=#{arch}-apple-darwin#{osmajor}",
         "--libdir=#{lib}/gcc/#{version_suffix}",
@@ -148,39 +144,24 @@ class Gcc < Formula
       end
     end
 
+    # Fix cc1: error while loading shared libraries: libisl.so.15
+    args << "--with-boot-ldflags=-static-libstdc++ -static-libgcc #{ENV["LDFLAGS"]}" unless OS.mac?
+
+    # D will be included in GCC 9
+    languages << "d" if OS.mac? && build.head?
+
+    pkgversion = "Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip
     args += [
       "--prefix=#{prefix}",
+      "--disable-nls",
+      "--enable-checking=release",
       "--enable-languages=#{languages.join(",")}",
-      # Make most executables versioned to avoid conflicts.
       "--program-suffix=-#{version_suffix}",
       "--with-gmp=#{Formula["gmp"].opt_prefix}",
       "--with-mpfr=#{Formula["mpfr"].opt_prefix}",
       "--with-mpc=#{Formula["libmpc"].opt_prefix}",
-      "--enable-stage1-checking",
-      "--enable-checking=release",
-      "--enable-lto",
-      # Use 'bootstrap-debug' build configuration to force stripping of object
-      # files prior to comparison during bootstrap (broken by Xcode 6.3).
-      "--with-build-config=bootstrap-debug",
-      "--disable-werror",
-      "--with-pkgversion=Homebrew #{name} #{pkg_version} #{build.used_options*" "}".strip,
+      "--with-pkgversion=#{pkgversion}",
     ]
-
-    # Fix cc1: error while loading shared libraries: libisl.so.15
-    args << "--with-boot-ldflags=-static-libstdc++ -static-libgcc #{ENV["LDFLAGS"]}" unless OS.mac?
-
-    # The pre-Mavericks toolchain requires the older DWARF-2 debugging data
-    # format to avoid failure during the stage 3 comparison of object files.
-    # See: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=45248
-    args << "--with-dwarf2" if OS.mac? && MacOS.version <= :mountain_lion
-
-    args << "--disable-nls" if build.without? "nls"
-
-    if build.with?("java") || build.with?("all-languages")
-      args << "--with-ecj-jar=#{Formula["ecj"].opt_share}/java/ecj.jar"
-    end
-
-    args << "--enable-host-shared" if build.with?("jit") || build.with?("all-languages")
 
     # Xcode 10 dropped 32-bit support
     args << "--disable-multilib" if DevelopmentTools.clang_build_version >= 1000
