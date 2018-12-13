@@ -3,30 +3,29 @@ class Dmd < Formula
   homepage "https://dlang.org/"
 
   stable do
-    url "https://github.com/dlang/dmd/archive/v2.083.0.tar.gz"
-    sha256 "29a983f3019a1c2be450e2086ed8216805848ecbb2a8aba683a13cf78413f8bc"
+    url "https://github.com/dlang/dmd/archive/v2.083.1.tar.gz"
+    sha256 "dc378ce068d72371fece540b4278a52ff02fdd15700eb0530fb5b68a123db47f"
 
     resource "druntime" do
-      url "https://github.com/dlang/druntime/archive/v2.083.0.tar.gz"
-      sha256 "33e357e709e582ec7356bc15ce8714959d2293a0e98d66b884441acf98756938"
+      url "https://github.com/dlang/druntime/archive/v2.083.1.tar.gz"
+      sha256 "4c81bb2e9397d9615887037354d1a7efbe1eed2721d48771cdd8970dda5f6c98"
     end
 
     resource "phobos" do
-      url "https://github.com/dlang/phobos/archive/v2.083.0.tar.gz"
-      sha256 "4a1d9fb88f46bd4db54addbf47443786cb2576071376e40c3a695a39e4f6c77e"
+      url "https://github.com/dlang/phobos/archive/v2.083.1.tar.gz"
+      sha256 "4a5f89c6911f8d208ed6a4b941d6ff9cc8ef708dab3e65c1d978dc372a999936"
     end
 
     resource "tools" do
-      url "https://github.com/dlang/tools/archive/v2.083.0.tar.gz"
-      sha256 "070d66c25d10cab58bdb744abfe4d4aeb2d3e4a425f94ccdd30d628f9498105a"
+      url "https://github.com/dlang/tools/archive/v2.083.1.tar.gz"
+      sha256 "78d90dcda6b82d3eda69c30fa2308a8c8f1a3bce574d637806ca1af3c7f65888"
     end
   end
 
   bottle do
-    sha256 "e325146a99540e69a87c12da1b777ffcc6b95621f6f66a1518c60a3706ef572b" => :mojave
-    sha256 "264514a063709e8719f4b0921d734ec379c3dd23555c791244cd7a4775634597" => :high_sierra
-    sha256 "f757c0cea995d31f82ccaa7e7470301b16563bc85c154d807ae39f7c4cbe162c" => :sierra
-    sha256 "7386aff9a9e8a16ce05144695daacc7f0c94a9383970c8e31c8e4838a23a752c" => :x86_64_linux
+    sha256 "863e17c209fc76743e91213eb0568ed32e996a3c489f15ebf856d203308dbfd7" => :mojave
+    sha256 "5675ba828166d04cf663c2aebbfb9059055c6cd58533e022b709ebdfb5eb75a3" => :high_sierra
+    sha256 "f2add4eb9517c974a9f51d0371291d2ff8e3b2c8cdbff8d610d7febd2dfee3bc" => :sierra
   end
 
   head do

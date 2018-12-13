@@ -2,15 +2,15 @@ class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/protocolbuffers/protobuf/"
   url "https://github.com/protocolbuffers/protobuf.git",
-      :tag      => "v3.6.1.1",
-      :revision => "046e8fb7483df4e4fba028b8e85f68241a08f7f4"
+      :tag      => "v3.6.1.3",
+      :revision => "66dc42d891a4fc8e9190c524fd67961688a37bbe"
   head "https://github.com/protocolbuffers/protobuf.git"
 
   bottle do
-    sha256 "4911058695a87895088011bfa5e552233696106bffa819fa004c8646d29a557d" => :mojave
-    sha256 "443091acba910e4baa043e4bf3296e7390655f8ddb3a07bd6805393d2c2e7823" => :high_sierra
-    sha256 "d378bb15cb022247851efa2f0409feb9d73dd1030869736bbd72e9dba8d3aa96" => :sierra
-    sha256 "fd66c56ccd2d86e8f291fa12b54d9f398372cea2a8dcdcffbaa22e7dc15fce5c" => :x86_64_linux
+    cellar :any
+    sha256 "f299e4a5e34e5795eb3d89ca0aaae018e476c17d92f98dd93eeebeb47dbb17c5" => :mojave
+    sha256 "d8f2a28e7e99f5046472992f41fe59c3344f2336435f21b6cfa57c433cf20fc8" => :high_sierra
+    sha256 "52eedfd81a251dbbc72d2ddbe78e1a54c651792bed0601b57c5ef31a53a6b62d" => :sierra
   end
 
   option "without-python@2", "Build without python2 support"
@@ -33,12 +33,6 @@ class Protobuf < Formula
     fails_with :gcc => "4"
     fails_with :gcc => "5"
     depends_on "gcc@6"
-  end
-
-  # Upstream PR from 3 Jul 2018 "Add Python 3.7 compatibility"
-  patch do
-    url "https://github.com/protocolbuffers/protobuf/pull/4862.patch?full_index=1"
-    sha256 "4b1fe1893c40cdcef531c31746ddd18759c9ce3564c89ddcc0ec934ea5dbf377"
   end
 
   needs :cxx11
