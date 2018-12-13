@@ -1,15 +1,13 @@
 class Nghttp2 < Formula
   desc "HTTP/2 C Library"
   homepage "https://nghttp2.org/"
-  url "https://github.com/nghttp2/nghttp2/releases/download/v1.35.0/nghttp2-1.35.0.tar.xz"
-  sha256 "23610ddd446bf1a9ae12905b0e7f283afd46249794868b7acd581e693900544c"
-  revision 1
+  url "https://github.com/nghttp2/nghttp2/releases/download/v1.35.1/nghttp2-1.35.1.tar.xz"
+  sha256 "9b7f5b09c3ca40a46118240bf476a5babf4bd93a1e4fde2337c308c4c5c3263a"
 
   bottle do
-    sha256 "e52ffb4ae9629f1f4693c96c2e6625b446a61a376a510fc20bb96845e58b3981" => :mojave
-    sha256 "95f791e06ed5fbe0eed90941bf6b6365eed1f21c000950c0cb094a79d702cf14" => :high_sierra
-    sha256 "f95664923bc9c6a935098128e9e459cb125005f73dcb06efcd2470d95d3e6166" => :sierra
-    sha256 "31e15b6a76c2a16634c585bc8fd60c7e916eca41883a6c4be27e203abd18224b" => :x86_64_linux
+    sha256 "3df6011e98f13af091fcc9e4c759d9e9662ee4d9a863d88284e17b461c94be92" => :mojave
+    sha256 "9c21365ecf3717afe8fda8307c8b80902d7b1f24275e45b8c8458ecc5e42560c" => :high_sierra
+    sha256 "cb7ca00e18e43bab469ae685713bf43bd56067cd8395ad0c5921a4c9343726b9" => :sierra
   end
 
   head do
@@ -37,8 +35,8 @@ class Nghttp2 < Formula
   depends_on "python" => :optional
 
   resource "Cython" do
-    url "https://files.pythonhosted.org/packages/f0/66/6309291b19b498b672817bd237caec787d1b18013ee659f17b1ec5844887/Cython-0.29.tar.gz"
-    sha256 "94916d1ede67682638d3cc0feb10648ff14dc51fb7a7f147f4fedce78eaaea97"
+    url "https://files.pythonhosted.org/packages/f0/f8/7f406aac4c6919d5a4ce16509bbe059cd256e9ad94bae5ccac14094b7c51/Cython-0.29.1.tar.gz"
+    sha256 "18ab7646985a97e02cee72e1ddba2e732d4931d4e1732494ff30c5aa084bfb97"
   end
 
   patch do
