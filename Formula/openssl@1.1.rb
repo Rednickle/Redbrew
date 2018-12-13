@@ -14,7 +14,8 @@ class OpensslAT11 < Formula
     sha256 "c153b05e49ef98fa890dfead369799e7451d30b4361eb91d655c6adff86b2412" => :x86_64_linux
   end
 
-  keg_only :versioned_formula
+  keg_only :provided_by_macos,
+    "openssl/libressl is provided by macOS so don't link an incompatible version"
 
   resource "cacert" do
     # homepage "http://curl.haxx.se/docs/caextract.html"
