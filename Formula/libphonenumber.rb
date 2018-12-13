@@ -9,6 +9,7 @@ class Libphonenumber < Formula
     sha256 "4d2187023aedf6fbe4909bb9483c02444473542c538ab95e88cf8c9badaf96fb" => :mojave
     sha256 "51189b644f520746f96418fe50171b2022a0fbeafbbc9e4b1674831309c3b82e" => :high_sierra
     sha256 "41ad833abb4a2d4c2cd45c420e2c9d3ad4409dafa6a7c25e889310381de17502" => :sierra
+    sha256 "b4cb5e9b56c1a2dd23ed3fc9ec7dcda660c2c979859037b3cfbbdee22a3707db" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
