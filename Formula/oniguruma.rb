@@ -9,6 +9,7 @@ class Oniguruma < Formula
     sha256 "1983059c2eae93f1e1ec1bdb65194c64b77182c444588c15085dcdf9095bac2a" => :mojave
     sha256 "5e39976b85f94f36dd7649e90c36d39a57d66bbf19cf827d0c610d09c21b7051" => :high_sierra
     sha256 "9ac5799494d065272c9bfaf40eeff57131d8e30142c95cba84e57e110a8b0de2" => :sierra
+    sha256 "8f17e0564a5aa38235cb5c1fb7c2d2186bbed236add95de81ddc28d8e2668f21" => :x86_64_linux
   end
 
   def install
