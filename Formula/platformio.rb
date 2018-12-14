@@ -3,27 +3,26 @@ class Platformio < Formula
 
   desc "Ecosystem for IoT development (Arduino and ARM mbed compatible)"
   homepage "https://platformio.org/"
-  url "https://files.pythonhosted.org/packages/e2/86/40bcb28480a03216ed2ab0d33b6a0edf2d2d8a3edec48da65faf4ea836d7/platformio-3.6.2.tar.gz"
-  sha256 "170ed679cb6d2b6895e4913893aefb0e08faea501fedce4250bdddd22e7df708"
+  url "https://files.pythonhosted.org/packages/8c/d0/99da2ec4a2f0f2ca3a6122a29c20a8157fcfffabce2e4227744f9cb3e5d6/platformio-3.6.3.tar.gz"
+  sha256 "5b339df778f846392e37b49d98a44ef561425ba811a1e51c2b2e1b4445e3ce03"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bdb18084a2a896b4dcc7c74d6d6b504689aaf79534b6bc6b62fcf1a907e43450" => :mojave
-    sha256 "f990fe4a8eefdf3a977cc6f0d51aafea1eb083c489d0cb8323c7a7ae659ca65f" => :high_sierra
-    sha256 "7778f23ff5aafe0ffe55b6ab60c50b51035590794998c18eda32bd579e4aa845" => :sierra
-    sha256 "22f1b29fe6301dc709d283e9bcc774abfd0211ec8c891a83650f713744e138d2" => :x86_64_linux
+    sha256 "f6672bce44fcb4512a3c85587573d36c5553b844c8f6be0129ff593e3ed6e517" => :mojave
+    sha256 "0b287bbbc021dd041b76d25c84728eada32d41e2c948552069818f784959d503" => :high_sierra
+    sha256 "097c18ade34fd2d4f86242b7978a564c75df380d573e96157680294a23f229da" => :sierra
   end
 
   depends_on "python@2" # does not support Python 3
 
   resource "bottle" do
-    url "https://files.pythonhosted.org/packages/eb/6f/e2fb85973ce0b8b612c082e43d70d7d034029658a8a73fb5c4ea56e621ee/bottle-0.12.14.tar.gz"
-    sha256 "484b7f6499f0039ace2efb0aaeb143b179c38f364c2c1c87213905118b2c500f"
+    url "https://files.pythonhosted.org/packages/38/6d/593c8338851a249c9981322bab2bcffade1101127dce27d4c682ed234558/bottle-0.12.15.tar.gz"
+    sha256 "b5529f8956682320b90f518041269784a37770d5fcc1ae6d70d288e9fc060fbc"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/41/b6/4f0cefba47656583217acd6cd797bc2db1fede0d53090fdc28ad2c8e0716/certifi-2018.10.15.tar.gz"
-    sha256 "6d58c986d22b038c8c0df30d639f23a3e6d172a05c3583e766f4c0b785c0986a"
+    url "https://files.pythonhosted.org/packages/55/54/3ce77783acba5979ce16674fc98b1920d00b01d337cfaaf5db22543505ed/certifi-2018.11.29.tar.gz"
+    sha256 "47f9c83ef4c0c621eaef743f133f09fa8a74a9b75f037e8624f83bd1b6626cb7"
   end
 
   resource "chardet" do
@@ -42,8 +41,8 @@ class Platformio < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/65/c4/80f97e9c9628f3cac9b98bfca0402ede54e0563b56482e3e6e45c43c4935/idna-2.7.tar.gz"
-    sha256 "684a38a6f903c1d71d6d5fac066b58d7768af4de2b832e426ec79c30daa94a16"
+    url "https://files.pythonhosted.org/packages/ad/13/eb56951b6f7950cadb579ca166e448ba77f9d24efc03edd7e55fa57d04b7/idna-2.8.tar.gz"
+    sha256 "c357b3f628cf53ae2c4c05627ecc484553142ca23264e593d327bcde5e9c3407"
   end
 
   resource "pyserial" do
@@ -52,8 +51,8 @@ class Platformio < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/40/35/298c36d839547b50822985a2cf0611b3b978a5ab7a5af5562b8ebe3e1369/requests-2.20.1.tar.gz"
-    sha256 "ea881206e59f41dbd0bd445437d792e43906703fff75ca8ff43ccdb11f33f263"
+    url "https://files.pythonhosted.org/packages/52/2c/514e4ac25da2b08ca5a464c50463682126385c4272c18193876e91f4bc38/requests-2.21.0.tar.gz"
+    sha256 "502a824f31acdacb3a35b6690b5fbf0bc41d63a24a45c4004352b0242707598e"
   end
 
   resource "semantic_version" do

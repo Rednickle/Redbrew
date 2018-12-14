@@ -12,12 +12,12 @@ class Mutt < Formula
   homepage "http://www.mutt.org/"
   url "https://bitbucket.org/mutt/mutt/downloads/mutt-1.11.1.tar.gz"
   sha256 "705141013662e53b78e49ed545360281f30a09ddda908f4de733277a60b1db05"
+  revision 1
 
   bottle do
-    sha256 "cc81730a08426a73c58da6e76c91852eddc2a8a5eecfa48110959d7af0bb4ec7" => :mojave
-    sha256 "8d4627fa9074eb9d72f7653fd02d7c4c2f88a341955a3ce59437c4e3b93b11e4" => :high_sierra
-    sha256 "a608389b2a68f3e986e5487ad817e0b8688df96f02a799dd4440991eb20ca069" => :sierra
-    sha256 "5aed072317f144787eb63713cafa8b80e3e236a1843e7a2c0f8b1eb8dc379654" => :x86_64_linux
+    sha256 "fbbfffe3341a5b0ab81a52275f675b27587024c1f72b998ebed8dbaf41b515ec" => :mojave
+    sha256 "1eb123e659cb6515bb933c51d4a95705f3e9a9f21eac9b681cfb13af95bd2653" => :high_sierra
+    sha256 "492f164d98be2b2c32a762bebc5a12214e2aebb375ae1435a06328bda19fdbe8" => :sierra
   end
 
   head do
@@ -44,11 +44,8 @@ class Mutt < Formula
     :because => "both install mmdf.5 and mbox.5 man pages"
 
   def install
-    begin
-      user_admin = Etc.getgrnam("admin").mem.include?(ENV["USER"])
-    rescue
-      user_admin = false
-    end
+    user_in_mail_group = Etc.getgrnam("mail").mem.include?(ENV["USER"])
+    effective_group = Etc.getgrgid(Process.egid).name
 
     args = %W[
       --disable-dependency-tracking
@@ -66,11 +63,6 @@ class Mutt < Formula
       --with-tokyocabinet
     ]
 
-    # This is just a trick to keep 'make install' from trying
-    # to chgrp the mutt_dotlock file (which we can't do if
-    # we're running as an unprivileged user)
-    args << "--with-homespool=.mbox" unless user_admin
-
     args << "--enable-gpgme" if build.with? "gpgme"
 
     system "./prepare", *args
@@ -79,15 +71,30 @@ class Mutt < Formula
     # This permits the `mutt_dotlock` file to be installed under a group
     # that isn't `mail`.
     # https://github.com/Homebrew/homebrew/issues/45400
-    if user_admin
-      inreplace "Makefile", /^DOTLOCK_GROUP =.*$/, "DOTLOCK_GROUP = admin"
+    unless user_in_mail_group
+      inreplace "Makefile", /^DOTLOCK_GROUP =.*$/, "DOTLOCK_GROUP = #{effective_group}"
     end
 
     system "make", "install"
     doc.install resource("html") if build.head?
   end
 
+  def caveats; <<~EOS
+    mutt_dotlock(1) has been installed, but does not have the permissions lock
+    spool files in /var/mail. To grant the necessary permissions, run
+
+      sudo chgrp mail #{bin}/mutt_dotlock
+      sudo chmod g+s #{bin}/mutt_dotlock
+
+    Alternatively, you may configure `spoolfile` in your .muttrc to a file inside
+    your home directory.
+  EOS
+  end
+
   test do
     system bin/"mutt", "-D"
+    touch "foo"
+    system bin/"mutt_dotlock", "foo"
+    system bin/"mutt_dotlock", "-u", "foo"
   end
 end
