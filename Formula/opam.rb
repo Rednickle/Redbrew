@@ -10,6 +10,7 @@ class Opam < Formula
     sha256 "40f80c1a90dc1bbe63cabf10979ba12353ad523a79d0162948eff886c5427fac" => :mojave
     sha256 "f76f5362a72ff5808931b7161074fb4de9335644c0442cbb941c70a2c2deeb03" => :high_sierra
     sha256 "904ffb1cc140dacf82d724028b341320cd9eb7b9e28d20846e5f5ecdd9deec45" => :sierra
+    sha256 "f055d9f9df4fea21dbecb33c398d392195d44336f77da3b39f5e571fc21a0773" => :x86_64_linux
   end
 
   depends_on "ocaml" => [:build, :test]
