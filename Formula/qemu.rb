@@ -1,15 +1,14 @@
 class Qemu < Formula
   desc "x86 and PowerPC Emulator"
   homepage "https://www.qemu.org/"
-  url "https://download.qemu.org/qemu-3.0.0.tar.xz"
-  sha256 "8d7af64fe8bd5ea5c3bdf17131a8b858491bcce1ee3839425a6d91fb821b5713"
+  url "https://download.qemu.org/qemu-3.1.0.tar.xz"
+  sha256 "6a0508df079a0a33c2487ca936a56c12122f105b8a96a44374704bef6c69abfc"
   head "https://git.qemu.org/git/qemu.git"
 
   bottle do
-    rebuild 1
-    sha256 "428badfaaeafdcdc6bb597bce42378318222616899b7104445ae36f3d34a718e" => :mojave
-    sha256 "64df0826fe065971a7f75d36f34c12cc3be5f5d587fea0f8adcd0a89c3d5ce86" => :high_sierra
-    sha256 "2c18accc41b6bb51118aa01e9cbb0651b472b1b5f0b8509911b78f2278f36f55" => :sierra
+    sha256 "c8702ae7c6d5306c6545c055f6d34236476b234d4ab6fb85a671f94e519da694" => :mojave
+    sha256 "8a8f3eb928890d30ec01626dd73e952f89cae9780d08b9cb1c825386aa33709e" => :high_sierra
+    sha256 "4506f3d8397c16c3280aba314de3817e1a794409ad6355e8397d423e0e105c06" => :sierra
   end
 
   deprecated_option "with-sdl" => "with-sdl2"
