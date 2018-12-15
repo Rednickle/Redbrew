@@ -9,6 +9,7 @@ class Xsimd < Formula
     sha256 "8320a8b27a49022994e6aa3e232dd4eac15959e480ab53b439bc29de2479e848" => :mojave
     sha256 "f247253fcfc8a4fdd582bb1142ca472472c0c5ebeb9c16bf738acccd830b53c3" => :high_sierra
     sha256 "f247253fcfc8a4fdd582bb1142ca472472c0c5ebeb9c16bf738acccd830b53c3" => :sierra
+    sha256 "4cc3e21db197f8c377fad8cfdbe175d30622691ba7e238a4ace50317301cc118" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
