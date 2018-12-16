@@ -9,6 +9,7 @@ class Bigloo < Formula
     sha256 "5280c1fda3fee7c25845f8e14294884fb1b4963ff8e016baba77990d2465aafd" => :mojave
     sha256 "fac0529651e08dd5ceff5d4a45babb7f86b196753de53fa2487a12f502f5e91e" => :high_sierra
     sha256 "f3db359b927e3ac6175aac63ca06515738358d9509a137adf4cf8dbbc4ead0ce" => :sierra
+    sha256 "dbb045bd0d5ca025a60c6c2ae318c52181d44082489f69a782c41b9af2053e7f" => :x86_64_linux
   end
 
   option "with-jvm", "Enable JVM support"
