@@ -10,6 +10,7 @@ class DnscryptWrapper < Formula
     sha256 "ae036441753501c0cee673228a38c0b54819f833c21ba82ed20f240eb741a27b" => :mojave
     sha256 "ec1c02b9ad1cfe0fd1c4797a651dd258e8ef37d1e2cf4ff00b84c637c0f563c8" => :high_sierra
     sha256 "6ff007984fdd69d9bee047dd1199176f79cd86be8593efcf861ef08b80cf32bd" => :sierra
+    sha256 "d4e26352219f0802b976845cc5c2b7e374d6aaee36a9dcd305a679016ca00f98" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
