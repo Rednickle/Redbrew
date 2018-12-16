@@ -11,6 +11,7 @@ class When < Formula
     sha256 "6d9163386a8a6648be9cbb9059d08d81fc87cd28503f7ae55883afb497990d68" => :mojave
     sha256 "07fe70f0124a3efbf0a2119ff407aa5089316e3504ca7b9eda7a38f619fff7ae" => :high_sierra
     sha256 "07fe70f0124a3efbf0a2119ff407aa5089316e3504ca7b9eda7a38f619fff7ae" => :sierra
+    sha256 "00075fc0e4c828fb843c004128ab9a2ea73bf8bcd5762876612a535dac623866" => :x86_64_linux
   end
 
   def install
