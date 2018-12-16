@@ -1,15 +1,14 @@
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
-  url "https://www.kernel.org/pub/software/scm/git/git-2.20.0.tar.xz"
-  sha256 "bc94735073e14b138a1290cc99af3c379d544f514c43f8ebde988fc50d0ad81f"
+  url "https://www.kernel.org/pub/software/scm/git/git-2.20.1.tar.xz"
+  sha256 "9d2e91e2faa2ea61ba0a70201d023b36f54d846314591a002c610ea2ab81c3e9"
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
-    sha256 "76596d7219afaee57798f67172d4e7e36808e1dead4f6a378ccb15b0ad1dbc38" => :mojave
-    sha256 "29353bfb7faf139d761de5800f4dad0a6599bde3d7629ba8a5c398fc305c52e8" => :high_sierra
-    sha256 "0d76f163e3e1807905d1c2b609560275ee6786e25ffd08ea40118083d3691232" => :sierra
-    sha256 "e9b7d13ed10eb5965b20951dbc57b99f40bffd623046f9ac96eeac7e639870d8" => :x86_64_linux
+    sha256 "e218e1de7c203862f4cff8ea32ef6cde6a2acb4ce72854554a18f21564bdc5d5" => :mojave
+    sha256 "ec1d73db085e2c7534836243d965a5b735e8ca0dcf1ff87cda4e3e483872ffc2" => :high_sierra
+    sha256 "5cb3678a9688489d77cc7b01c5fc66b6aef034a2ff342aa8e2f7e491a12275ea" => :sierra
   end
 
   depends_on "gettext"
@@ -40,13 +39,13 @@ class Git < Formula
   end
 
   resource "html" do
-    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.20.0.tar.xz"
-    sha256 "a9ad269dff3f8b03d9694308e82c2ea197ef59298d828e10e031bc18aae8913a"
+    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.20.1.tar.xz"
+    sha256 "18a00408437c6816e7c5396c8b96b38bf022f924852492a73dd3888ad2572ad7"
   end
 
   resource "man" do
-    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.20.0.tar.xz"
-    sha256 "79bdaa083528bc59b971131fec9b1ff1abbfcc943b4eb781ff4af5172b103690"
+    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.20.1.tar.xz"
+    sha256 "060acce347cfb712d0c7dfe7578c5291fde2d3d807917b2828c8aae3c90876ba"
   end
 
   def install
