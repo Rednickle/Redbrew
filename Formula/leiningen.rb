@@ -10,6 +10,7 @@ class Leiningen < Formula
     sha256 "2248b5d6cad9b54f2bdfa23167e8f9d6c0ed064930829aaea06c1fe615954c4b" => :mojave
     sha256 "08ae28f8244f0cb009b07ff81a89a37a6ac097933790f65182172a83fe3b2310" => :high_sierra
     sha256 "08ae28f8244f0cb009b07ff81a89a37a6ac097933790f65182172a83fe3b2310" => :sierra
+    sha256 "98f065819325cbdefdfadc2480fb3326b95bb5545d0df2016939e1890318b9b8" => :x86_64_linux
   end
 
   depends_on "openjdk" => :test unless OS.mac?
