@@ -9,6 +9,7 @@ class Grpc < Formula
     sha256 "8dff22d6238c31089b8ca51e572e36a9cb4bf9fc556c6aea656de8ccb724fd10" => :mojave
     sha256 "905ef59111a7fef094aa3391c451b2a71aa68eb9a3ae00e148560a787c8ba5af" => :high_sierra
     sha256 "2c73ad06745f8802f7baae1fbdeaac8c7bd51920a187c481d26e1de82b58deac" => :sierra
+    sha256 "d6b7a5f91bcaeadbe8b2af310f7ff593b5c4a4f6274b709275b3822c98f0809d" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
