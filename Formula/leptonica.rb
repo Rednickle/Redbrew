@@ -9,6 +9,7 @@ class Leptonica < Formula
     sha256 "43edf41dc303d9aa89e6b03663a81eab3a28c4cd5a319d064b6dae4c841a0553" => :mojave
     sha256 "06ef285a85c0797f177faaddc4f727526afb7757d6c673fb1a8eb29fc9b9ff23" => :high_sierra
     sha256 "d730eb3b285fb88fba5496157a5d26ee4d3460f5414b0aee811ea715d09e550f" => :sierra
+    sha256 "d4e79fde32cc51f9c2e15333f7dcbf6fb66d9428f45cc9a4f6f59a70f13efb6c" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
