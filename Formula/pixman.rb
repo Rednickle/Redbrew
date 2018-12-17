@@ -9,6 +9,7 @@ class Pixman < Formula
     sha256 "2102c5d59a61940603b8746cff968e3ee9aecf245c0682aa89f1b793547d5268" => :mojave
     sha256 "104afb27acd98d592fdc50df39236fa592772a297aa70fc145bdd3019c471b62" => :high_sierra
     sha256 "d793a8b455c39dd082f625c5cf7547eedca9aaa184a0629a580c7af28743589c" => :sierra
+    sha256 "a012a02bc4b9cfc6098e5e771021fed21a276a4336d03d4fde51e48301b2c3a9" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
