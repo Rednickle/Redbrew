@@ -10,6 +10,7 @@ class Catimg < Formula
     sha256 "d2a0ff1ae2c6f1946f162703cad1563c35ab93234758f7b18a268026b07040f6" => :mojave
     sha256 "db1ad25fc273bee78a2920f4fd5cec756c1d37a1e3a3bd1e88f95109dc88525c" => :high_sierra
     sha256 "77826c8737fe10c660d830cfd1f1effd26f4c5957b9f1a907ae70537bf4be2f7" => :sierra
+    sha256 "753ffe71739a539a713db940ed84915812d08969e255fa95b835a62af9187a60" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
