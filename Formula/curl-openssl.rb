@@ -1,14 +1,13 @@
 class CurlOpenssl < Formula
   desc "Get a file from an HTTP, HTTPS or FTP server"
   homepage "https://curl.haxx.se/"
-  url "https://curl.haxx.se/download/curl-7.62.0.tar.bz2"
-  mirror "http://curl.mirror.anstey.ca/curl-7.62.0.tar.bz2"
-  sha256 "7802c54076500be500b171fde786258579d60547a3a35b8c5a23d8c88e8f9620"
+  url "https://curl.haxx.se/download/curl-7.63.0.tar.bz2"
+  sha256 "9bab7ed4ecff77020a312d84cc5fb7eb02d58419d218f267477a724a17fd8dd8"
 
   bottle do
-    sha256 "112be7d63c2abdcd39ba9f9ddf240a8bb2960ab52b5393d7e3e01ad6df17b7c8" => :mojave
-    sha256 "4e259d94c1772d30bfd0cd5941e53b4fcf065995437366d3354b1deae323c3bb" => :high_sierra
-    sha256 "f4b877589a4882431bc9394e876472e96cab07815654e880648fc74b3ed54685" => :sierra
+    sha256 "84c070944750b1ab555478769569326a5af985de9242b64a4f59041cd51b4a3b" => :mojave
+    sha256 "d3cac8f1bd6593c58358e9e7c3b187182f9b7be5ed1edd4f372c4afb83eea052" => :high_sierra
+    sha256 "075a6eb711c03a18bd6a5a39ac537224e2cd3acec447b358015239d925547f72" => :sierra
   end
 
   keg_only :provided_by_macos
