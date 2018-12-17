@@ -8,6 +8,7 @@ class Openfortivpn < Formula
     sha256 "f90028421a138d158dbc999c801612c18439692f350a07f4212a2e52d7e2f0fd" => :mojave
     sha256 "45dfd4656767ecb047f26f26dea898dc223a8bdd57e9e747194ef519db124358" => :high_sierra
     sha256 "11c168aa5e680d933295cf0454787bcfc359c56ec474ee812a756032e0b7723d" => :sierra
+    sha256 "eb8cef73e7b9f0ced7134c7b3746b3d004756c6384df8943cf09283f939e1f11" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
