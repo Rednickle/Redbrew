@@ -10,6 +10,7 @@ class Octave < Formula
     sha256 "bfb57db4884645f00deab4ed773bd7f43bea2bb0e1a1264a320fbd0b296a7555" => :mojave
     sha256 "09dd37878da04ff9deee3120e0f5a9ae663f0cadb7701e568e8df30f8d0f9f63" => :high_sierra
     sha256 "4e47c8cbc4c69819e82c0acd4043b3e825581ff0948934de69b6054d48f3704b" => :sierra
+    sha256 "1322df6ec122d61080a940d6565b4484b2700a43d2b3bbdd00783f08254033dc" => :x86_64_linux
   end
 
   head do
