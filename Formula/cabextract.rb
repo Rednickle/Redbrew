@@ -9,6 +9,7 @@ class Cabextract < Formula
     sha256 "41b602b3d06f9414fd8d6b964b8735e345c133d51b2e12f52a1bc277083389b5" => :mojave
     sha256 "6f52b4c2e1debdcc2d5fa8d47c3678ec8dd703afc7c7b193596f1fe319eaa9cc" => :high_sierra
     sha256 "0fd78ce411d50aacad23db777441ae624977604036c2674b9eed24853ce13bca" => :sierra
+    sha256 "ec0285e5ed392400639a68695424384154282206bcd99cbd8950656a0aab3c0e" => :x86_64_linux
   end
 
   def install
