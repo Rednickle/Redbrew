@@ -10,6 +10,7 @@ class Libassuan < Formula
     sha256 "6c0dc97e55b5d2808d0a92811bda1d39ca551f91ef390113f9ce4000add4d652" => :mojave
     sha256 "14b3e1d30e73d458639f509d588188d12d4b552512a9f097bc50596c61c0f37b" => :high_sierra
     sha256 "9e3c840f03a517275a5f328e3ca3fd391651e6e3d23a0e22759fea39b4de31bc" => :sierra
+    sha256 "b68c9a2abe0ad97568499a6a51f3647330d38a4b991d9b7e5345f93cdfc5a1c7" => :x86_64_linux
   end
 
   depends_on "libgpg-error"
