@@ -15,8 +15,6 @@ class ThriftAT09 < Formula
 
   keg_only :versioned_formula
 
-  option "with-java", "Install Java binding"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "bison" => :build
@@ -25,15 +23,11 @@ class ThriftAT09 < Formula
   depends_on "boost"
   depends_on "openssl"
 
-  if build.with? "java"
-    depends_on "ant" => :build
-    depends_on :java => "1.8"
-  end
-
   def install
     args = %w[
       --without-erlang
       --without-haskell
+      --without-java
       --without-perl
       --without-php
       --without-php_extension
@@ -42,16 +36,10 @@ class ThriftAT09 < Formula
       --without-tests
     ]
 
-    args << "--without-java" if build.without? "java"
-
     ENV.cxx11 if MacOS.version >= :mavericks && ENV.compiler == :clang
 
     # Don't install extensions to /usr
     ENV["JAVA_PREFIX"] = pkgshare/"java"
-
-    # configure's version check breaks on ant >1.10 so just override it. This
-    # doesn't need guarding because of the --without-java flag used above.
-    inreplace "configure", 'ANT=""', "ANT=\"#{Formula["ant"].opt_bin}/ant\""
 
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",

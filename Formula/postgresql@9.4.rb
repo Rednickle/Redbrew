@@ -15,11 +15,8 @@ class PostgresqlAT94 < Formula
 
   keg_only :versioned_formula
 
-  deprecated_option "with-python" => "with-python@2"
-
   depends_on "openssl"
   depends_on "readline"
-  depends_on "python@2" => :optional
 
   unless OS.mac?
     depends_on "libxslt"
@@ -55,8 +52,6 @@ class PostgresqlAT94 < Formula
       --with-ldap
       --with-pam
     ] if OS.mac?
-
-    args << "--with-python" if build.with? "python@2"
 
     # The CLT is required to build tcl support on 10.7 and 10.8 because tclConfig.sh is not part of the SDK
     if MacOS.version >= :mavericks || MacOS::CLT.installed?
