@@ -44,12 +44,6 @@ class GccAT5 < Formula
     satisfy { !OS.mac? || MacOS::CLT.installed? }
   end
 
-  option "with-all-languages", "Enable all compilers and languages, except Ada"
-  option "with-nls", "Build with native language support (localization)"
-  option "with-profiled-build", "Make use of profile guided optimization when bootstrapping GCC"
-  option "with-jit", "Build the jit compiler"
-  option "without-fortran", "Build without the gfortran compiler"
-
   depends_on :maximum_macos => [:high_sierra, :build]
 
   depends_on "gmp"
@@ -71,13 +65,6 @@ class GccAT5 < Formula
     mirror "https://mirrorservice.org/sites/distfiles.macports.org/isl/isl-0.14.tar.bz2"
     sha256 "7e3c02ff52f8540f6a85534f54158968417fd676001651c8289c705bd0228f36"
   end
-
-  # Fix for libgccjit.so linkage on Darwin.
-  # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=64089
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/64fd2d52/gcc%405/5.4.0.patch"
-    sha256 "1e126048d9a6b29b0da04595ffba09c184d338fe963cf9db8d81b47222716bc4"
-  end if OS.mac?
 
   # Fix build with Xcode 9
   # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=82091
@@ -105,18 +92,8 @@ class GccAT5 < Formula
     # Build ISL 0.14 from source during bootstrap
     resource("isl").stage buildpath/"isl" if OS.mac?
 
-    if build.with? "all-languages"
-      # Everything but Ada, which requires a pre-existing GCC Ada compiler
-      # (gnat) to bootstrap. GCC 4.6.0 add go as a language option, but it is
-      # currently only compilable on Linux.
-      languages = %w[c c++ fortran objc obj-c++ jit]
-    else
-      # C, C++, ObjC compilers are always built
-      languages = %w[c c++ objc obj-c++]
-
-      languages << "fortran" if build.with? "fortran"
-      languages << "jit" if build.with? "jit"
-    end
+    # C, C++, ObjC and Fortran compilers are always built
+    languages = %w[c c++ fortran objc obj-c++]
 
     version_suffix = version.to_s.slice(/\d/)
 
@@ -185,10 +162,9 @@ class GccAT5 < Formula
       # A no-op unless --HEAD is built because in head warnings will
       # raise errors. But still a good idea to include.
       "--disable-werror",
+      "--disable-nls",
       "--with-pkgversion=Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip,
     ]
-
-    args << "--disable-nls" if build.without? "nls"
 
     # Fix Linux error: gnu/stubs-32.h: No such file or directory.
     if OS.mac? && MacOS.prefer_64_bit?
@@ -196,8 +172,6 @@ class GccAT5 < Formula
     else
       args << "--disable-multilib"
     end
-
-    args << "--enable-host-shared" if build.with?("jit") || build.with?("all-languages")
 
     # Ensure correct install names when linking against libgcc_s;
     # see discussion in https://github.com/Homebrew/homebrew/pull/34303
@@ -212,14 +186,7 @@ class GccAT5 < Formula
       end
 
       system "../configure", *args
-
-      if build.with? "profiled-build"
-        # Takes longer to build, may bug out. Provided for those who want to
-        # optimise all the way to 11.
-        system "make", "profiledbootstrap"
-      else
-        system "make", "bootstrap"
-      end
+      system "make", "bootstrap"
 
       # At this point `make check` could be invoked to run the testsuite. The
       # deja-gnu and autogen formulae must be installed in order to do this.
