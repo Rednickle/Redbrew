@@ -16,19 +16,6 @@ class BoostAT160 < Formula
 
   keg_only :versioned_formula
 
-  option "with-icu4c", "Build regexp engine with icu support"
-  option "without-single", "Disable building single-threading variant"
-  option "without-static", "Disable building static library variant"
-  option :cxx11
-
-  deprecated_option "with-icu" => "with-icu4c"
-
-  if build.cxx11?
-    depends_on "icu4c" => [:optional, "c++11"]
-  else
-    depends_on "icu4c" => :optional
-  end
-
   # Handle compile failure with boost/graph/adjacency_matrix.hpp
   # https://github.com/Homebrew/homebrew/pull/48262
   # https://svn.boost.org/trac/boost/ticket/11880
@@ -48,8 +35,6 @@ class BoostAT160 < Formula
     depends_on "zlib"
   end
 
-  needs :cxx11 if build.cxx11?
-
   def install
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["MAKEFLAGS"] = "-j4" if ENV["CIRCLECI"]
@@ -64,14 +49,11 @@ class BoostAT160 < Formula
     end
 
     # libdir should be set by --prefix but isn't
-    bootstrap_args = ["--prefix=#{prefix}", "--libdir=#{lib}"]
-
-    if build.with? "icu4c"
-      icu4c_prefix = Formula["icu4c"].opt_prefix
-      bootstrap_args << "--with-icu=#{icu4c_prefix}"
-    else
-      bootstrap_args << "--without-icu"
-    end
+    bootstrap_args = %W[
+      --prefix=#{prefix}
+      --libdir=#{lib}
+      --without-icu
+    ]
 
     # Handle libraries that will not be built.
     without_libraries = ["python", "mpi"]
@@ -83,34 +65,17 @@ class BoostAT160 < Formula
     bootstrap_args << "--without-libraries=#{without_libraries.join(",")}"
 
     # layout should be synchronized with boost-python
-    args = ["--prefix=#{prefix}",
-            "--libdir=#{lib}",
-            "-d2",
-            "-j#{ENV.make_jobs}",
-            "--layout=tagged",
-            "--user-config=user-config.jam",
-            "install"]
-
-    if build.with? "single"
-      args << "threading=multi,single"
-    else
-      args << "threading=multi"
-    end
-
-    if build.with? "static"
-      args << "link=shared,static"
-    else
-      args << "link=shared"
-    end
-
-    # Trunk starts using "clang++ -x c" to select C compiler which breaks C++11
-    # handling using ENV.cxx11. Using "cxxflags" and "linkflags" still works.
-    if build.cxx11?
-      args << "cxxflags=-std=c++11"
-      if ENV.compiler == :clang
-        args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++"
-      end
-    end
+    args = %W[
+      --prefix=#{prefix}
+      --libdir=#{lib}
+      -d2
+      -j#{ENV.make_jobs}
+      --layout=tagged
+      --user-config=user-config.jam
+      install
+      threading=multi,single
+      link=shared,static
+    ]
 
     # Fix error: bzlib.h: No such file or directory
     # and /usr/bin/ld: cannot find -lbz2
