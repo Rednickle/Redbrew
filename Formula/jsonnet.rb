@@ -10,6 +10,7 @@ class Jsonnet < Formula
     sha256 "e8f80003eeda0e6c021ef61e103a6925e46c73527a54672c9d529b4240cd7f43" => :mojave
     sha256 "692a24cecfb0b51c0031b08c1dc01b77c0ccc03761888b48e5d9e52f605aa46c" => :high_sierra
     sha256 "790202f72a1e5b63dc1b4fe6107111644d4a54b88cc95ccf11f4507b6efcf52d" => :sierra
+    sha256 "1e54a6cba4885edb493455b6fd7b56df028ddbd316d58856bbb4a5d694ac96c3" => :x86_64_linux
   end
 
   depends_on :macos => :mavericks
