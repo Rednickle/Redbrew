@@ -11,6 +11,7 @@ class Libav < Formula
     sha256 "2ba7f645ee21d7cf659e22d1088b5811b0fb94c5352c12f74bdf76e1b28ea4ae" => :mojave
     sha256 "2ed7f49968fc0dbfd20e2cc176438303ea4440486cb9160719ee8fa582e23a01" => :high_sierra
     sha256 "97188f142c5d4c358f191697c1d9b306594c7e8e0fa8f528e7cd398d9053fa6a" => :sierra
+    sha256 "5e2197ce0461886b1d4ca7f3dd195cc0e89b8be6656a08ba5e34bbfb7c9cbea0" => :x86_64_linux
   end
 
   option "with-openssl", "Enable SSL support"
