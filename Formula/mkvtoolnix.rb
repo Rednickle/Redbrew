@@ -3,12 +3,13 @@ class Mkvtoolnix < Formula
   homepage "https://mkvtoolnix.download/"
   url "https://mkvtoolnix.download/sources/mkvtoolnix-29.0.0.tar.xz"
   sha256 "54eb5f88fe3c9c7b5df77f80b0dfcac7695c19a8226f8ba52be8ad15ba0975d3"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "b6c8999dfb41a67970f9883975aba05a77f3aaccd8d830e3e88200b483ec2611" => :mojave
-    sha256 "e45b90f2c248a4a3696793faf21238655a8e0244aea4367b0f8df7c296eb31b0" => :high_sierra
-    sha256 "4c1e2666d68e3035f230c3da8fb94b374d9348fee404d600d70997496150addd" => :sierra
+    sha256 "09e29dd31108d98403b040e0111325bfcbc0ce3c769f4f6c2cced937c7dca351" => :mojave
+    sha256 "2474e21291e00e02e36664646b3d82fd5ee9353201a7c923f719d7027ce42a44" => :high_sierra
+    sha256 "0734d811efd73a8934e2b1ef26ca4cee9a219cc038b218637927c15ee2fabcc1" => :sierra
   end
 
   head do
@@ -29,7 +30,6 @@ class Mkvtoolnix < Formula
   depends_on "ruby" => :build if MacOS.version <= :mountain_lion || !OS.mac?
   depends_on "boost"
   depends_on "flac"
-  depends_on "fmt"
   depends_on "libebml"
   depends_on "libmagic"
   depends_on "libmatroska"
@@ -50,7 +50,7 @@ class Mkvtoolnix < Formula
 
     ENV.cxx11
 
-    features = %w[flac fmt libebml libmagic libmatroska libogg libvorbis]
+    features = %w[flac libebml libmagic libmatroska libogg libvorbis]
 
     extra_includes = ""
     extra_libs = ""
