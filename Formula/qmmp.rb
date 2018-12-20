@@ -3,12 +3,13 @@ class Qmmp < Formula
   homepage "http://qmmp.ylsoftware.com/"
   url "http://qmmp.ylsoftware.com/files/qmmp-1.2.4.tar.bz2"
   sha256 "224904f073e3921a080dca008e6c99e3d606f5442d1df08835cba000a069ae66"
+  revision 1
   head "http://svn.code.sf.net/p/qmmp-dev/code/branches/qmmp-1.2/"
 
   bottle do
-    sha256 "e8f99667d65835bdca131b967a1f49329431bc1665b92195349ece4938f8fdd4" => :mojave
-    sha256 "4ae653f15662ef557431588ec2a2174ec09185a9d6351a99c66690e7df6b6b29" => :high_sierra
-    sha256 "5e51e8e463d0dd9f4074d08ffb46f62862771d790cc4d5cab00fbdf276f3cb4e" => :sierra
+    sha256 "348c38d7751c5e3ccacea5f3956fb69655a0e67330435d25414fd54bc6b00e61" => :mojave
+    sha256 "7b418115b95bd46142a2d27e6d71e53277a6180ae8b57f27e8cf0c52c4f79091" => :high_sierra
+    sha256 "7af8ae81531c5d04e302eb2c7564ea8849cdfa9baba581b1545252c0c92934e0" => :sierra
   end
 
   depends_on "cmake" => :build
