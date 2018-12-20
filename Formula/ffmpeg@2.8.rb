@@ -9,6 +9,7 @@ class FfmpegAT28 < Formula
     sha256 "6e6ac30c4fb35f630d0cf34fc746047b44ae67de3b529cded1ad21ee012b6576" => :mojave
     sha256 "7241f4c1b83dbc84e4fd98b6022d071c89e51ce68c1f3825eb52d2dc41f6e629" => :high_sierra
     sha256 "cb7c8914935839055089fb551ae26cd19e8814601937a8c94e030e85b8f6a5f2" => :sierra
+    sha256 "f41aec583c073cb29cc481861aa18a387404a07ffa4381a4854f479b6deb71da" => :x86_64_linux
   end
 
   keg_only :versioned_formula
