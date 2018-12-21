@@ -1,14 +1,14 @@
 class Skopeo < Formula
   desc "Work with remote images registries"
   homepage "https://github.com/containers/skopeo"
-  url "https://github.com/containers/skopeo/archive/v0.1.32.tar.gz"
-  sha256 "fcb593d4fa4cb6cf8f1817d21f43a8051c1d8c759b857633d4b932361dbd93a7"
+  url "https://github.com/containers/skopeo/archive/v0.1.33.tar.gz"
+  sha256 "04cb5e00805d5203cf4f9eaee22e3f3c0e6f951004b837eea2d7aff0f5897f5a"
 
   bottle do
     cellar :any
-    sha256 "9c164ac9e4f689baeaa548ee7aad5c8504b3630c28561b17dd0a481146681bb9" => :mojave
-    sha256 "758598ce8947a1305146b9a3fafa5825efaa3d5f3e4509955f0df0768c087510" => :high_sierra
-    sha256 "e61ddf1b046bd8db6ca82dd5b4aff0807ea297504fd3d54118feb7a70eaa3532" => :sierra
+    sha256 "31a91d2d9844abe52912a91b864dab8d6989cb50962120c3661a3d6694dcd46f" => :mojave
+    sha256 "42a832c73b1bd148f95994f46ae0f264ef66197a081495ca40c5dbf220543d7d" => :high_sierra
+    sha256 "60217d28f054d6a9f617f4fade136d84f686319a1883282253978a5b01798803" => :sierra
   end
 
   depends_on "go" => :build
