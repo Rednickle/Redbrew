@@ -1,15 +1,14 @@
 class PassOtp < Formula
   desc "The Pass extension for managing one-time-password (OTP) tokens"
   homepage "https://github.com/tadfisher/pass-otp#readme"
-  url "https://github.com/tadfisher/pass-otp/releases/download/v1.1.1/pass-otp-1.1.1.tar.gz"
-  sha256 "edb3142ab81d70af4e6d1c7f13abebd7c349be474a3f9293d9648ee91b75b458"
+  url "https://github.com/tadfisher/pass-otp/releases/download/v1.2.0/pass-otp-1.2.0.tar.gz"
+  sha256 "5720a649267a240a4f7ba5a6445193481070049c1d08ba38b00d20fc551c3a67"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bc63fb7142bc11d6fcb3fd86691c520d322955ca18fa639610b4f8c741ec47a1" => :mojave
-    sha256 "fee46f4b49b58c1a689be63e16eaa813471bcd435b21c46519ac0a8af9f555c7" => :high_sierra
-    sha256 "fee46f4b49b58c1a689be63e16eaa813471bcd435b21c46519ac0a8af9f555c7" => :sierra
-    sha256 "98bf836ba88975f8118f22e90937a1000a5f6957a25dd7fbaa0d1bddc8432198" => :x86_64_linux
+    sha256 "74b97a3e1331e84067eee707a6242d30e9f215befc563e79b86102f6995ce374" => :mojave
+    sha256 "4b123f03ae8a1237e7b04731d3d39e66e9acf031924f757becf889c8b12f1efc" => :high_sierra
+    sha256 "4b123f03ae8a1237e7b04731d3d39e66e9acf031924f757becf889c8b12f1efc" => :sierra
   end
 
   depends_on "oath-toolkit"
