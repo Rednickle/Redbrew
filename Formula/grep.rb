@@ -1,16 +1,15 @@
 class Grep < Formula
   desc "GNU grep, egrep and fgrep"
   homepage "https://www.gnu.org/software/grep/"
-  url "https://ftp.gnu.org/gnu/grep/grep-3.2.tar.xz"
-  mirror "https://ftpmirror.gnu.org/grep/grep-3.2.tar.xz"
-  sha256 "8e6e1f05bf76c30f52605278d0ab06c322e7bfa69e3c193499a8fd2c2c31599c"
+  url "https://ftp.gnu.org/gnu/grep/grep-3.3.tar.xz"
+  mirror "https://ftpmirror.gnu.org/grep/grep-3.3.tar.xz"
+  sha256 "b960541c499619efd6afe1fa795402e4733c8e11ebf9fafccc0bb4bccdc5b514"
 
   bottle do
     cellar :any
-    sha256 "9605eb41929a11ec6e330c65b0a0ccef8c052607c9fde52061063fbfb90ad32a" => :mojave
-    sha256 "9c21150901667bd9f65a9b894abf076781580e60560d2f610da325b89f96dd96" => :high_sierra
-    sha256 "82abc832186859552a9ca620b0f0ddc28474988847338793e0fabcd2ac9ca130" => :sierra
-    sha256 "24412242143b9a701964c59d7622074fabcb329cbfa8a798b4ee73db0bd43961" => :x86_64_linux
+    sha256 "053f4c07a7601f2c4b4c4c8ec71cd380d9f6bbe19853c9486fffed54626a9968" => :mojave
+    sha256 "e3e994be6bbe0998b2132bd4887ece1e9ec1ab5995b40e00ab52f89fd4edf44b" => :high_sierra
+    sha256 "ccae999dfa982fcafd94f710c62887ee402fb7e45b422242c7f2b6d9ba4c8f4c" => :sierra
   end
 
   if OS.mac?
