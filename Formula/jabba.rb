@@ -10,6 +10,7 @@ class Jabba < Formula
     sha256 "799e49b05be61ad06b14ee0a8837242075e6eef8b7c8e045e94fde66894ce498" => :mojave
     sha256 "65ff5c790dcb3d072da11b5a550c15fc4baff76073187301d4d36e0278b32768" => :high_sierra
     sha256 "ea906d160c1214d58854b92c26c17ae761f2f308cb51090c94bbcb6b600263ca" => :sierra
+    sha256 "07a99c51f521784ec9104b079a9717b4f2ded86879b7638eef3d39b60a25e757" => :x86_64_linux
   end
 
   depends_on "glide" => :build
