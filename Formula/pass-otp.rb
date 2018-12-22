@@ -9,6 +9,7 @@ class PassOtp < Formula
     sha256 "bc63fb7142bc11d6fcb3fd86691c520d322955ca18fa639610b4f8c741ec47a1" => :mojave
     sha256 "fee46f4b49b58c1a689be63e16eaa813471bcd435b21c46519ac0a8af9f555c7" => :high_sierra
     sha256 "fee46f4b49b58c1a689be63e16eaa813471bcd435b21c46519ac0a8af9f555c7" => :sierra
+    sha256 "98bf836ba88975f8118f22e90937a1000a5f6957a25dd7fbaa0d1bddc8432198" => :x86_64_linux
   end
 
   depends_on "oath-toolkit"
