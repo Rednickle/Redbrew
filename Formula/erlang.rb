@@ -11,6 +11,7 @@ class Erlang < Formula
     sha256 "d7027324af0d199a475edc4488366815701f76a46a98018b1f6e92887f8b8201" => :mojave
     sha256 "e58f6e81d7bf8eb3374c93de674a4d91b3a51b007651a28b82bbdc11e60a5d87" => :high_sierra
     sha256 "6e0ccf38a93049f9dd8b9c6773a7ea40908dcf9884482a00619a4f1ebf42125a" => :sierra
+    sha256 "b093498eea26cf53db8eedf65983d05fd056bf8d8a1fb201a72316fdc05fdd9b" => :x86_64_linux
   end
 
   option "without-hipe", "Disable building hipe; fails on various macOS systems"
