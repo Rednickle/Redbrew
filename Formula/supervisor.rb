@@ -11,6 +11,7 @@ class Supervisor < Formula
     sha256 "a3ed3071d994b9b2d196fc578efa73df0f718b1987625d51dc557d2ab1ed13a1" => :mojave
     sha256 "3eaf8b83c15a57a21ad897c98c7aca0b585bb17da659ce9e49d221a1f2c23f09" => :high_sierra
     sha256 "980435fca59e5310dfda4e5d10892dab22fa9e11504428031c7f632be65aead2" => :sierra
+    sha256 "fe37c750d99ae255e70a5da2d5bc6d1714f729b85aa57c3cdc0ced628db2d43e" => :x86_64_linux
   end
 
   depends_on "python@2" # does not support Python 3
