@@ -9,6 +9,7 @@ class Libccd < Formula
     sha256 "05c8005ed028e5d5ca250aba9f3c69ece3af5766d91c68fa50fbcf78d139849d" => :mojave
     sha256 "3b0a74f46d98cc57ddbff8c4f37227e8c5f528905037f346bf17104ba17b71f7" => :high_sierra
     sha256 "63e2b6149dea77e8ece7a88f7f5f941d9606e9843bc46e4a48853858f6b4a7b3" => :sierra
+    sha256 "bb2a89f4099f351812d5d06e65dceb2b85b4da0bbb1d349e05d7151c67b5993b" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
