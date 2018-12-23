@@ -10,6 +10,7 @@ class Libmicrohttpd < Formula
     sha256 "80aa9fa5bb61720c650e1beaa633c6061279c444ca0fc122392cb4d5de9f1b71" => :mojave
     sha256 "f92b7fecd9a82f3f3a3ef80f878ad1114995b47a20e9b7fe0b1df8372427c331" => :high_sierra
     sha256 "e98e530fc45a8b3db33798216c4c30c151083320522a817fab3984790a82a5e5" => :sierra
+    sha256 "0e52a34e6dcf167e8948d516e493bf24252704ea1170e2408092b8a171e5456f" => :x86_64_linux
   end
 
   option "with-ssl", "Enable SSL support"
