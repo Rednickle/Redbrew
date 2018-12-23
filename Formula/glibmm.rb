@@ -27,11 +27,13 @@ class Glibmm < Formula
     # see https://bugzilla.gnome.org/show_bug.cgi?id=781947
     # Note that desktopappinfo.h is not installed on Linux
     # if these changes are made.
-    inreplace "gio/giomm/Makefile.in" do |s|
-      s.gsub! "OS_COCOA_TRUE", "OS_COCOA_TEMP"
-      s.gsub! "OS_COCOA_FALSE", "OS_COCOA_TRUE"
-      s.gsub! "OS_COCOA_TEMP", "OS_COCOA_FALSE"
-    end if OS.mac?
+    if OS.mac?
+      inreplace "gio/giomm/Makefile.in" do |s|
+        s.gsub! "OS_COCOA_TRUE", "OS_COCOA_TEMP"
+        s.gsub! "OS_COCOA_FALSE", "OS_COCOA_TRUE"
+        s.gsub! "OS_COCOA_TEMP", "OS_COCOA_FALSE"
+      end
+    end
 
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
