@@ -1,31 +1,22 @@
 class Ffmpeg2theora < Formula
   desc "Convert video files to Ogg Theora format"
   homepage "https://v2v.cc/~j/ffmpeg2theora/"
-  revision 3
-
-  stable do
-    url "https://v2v.cc/~j/ffmpeg2theora/downloads/ffmpeg2theora-0.30.tar.bz2"
-    sha256 "4f6464b444acab5d778e0a3359d836e0867a3dcec4ad8f1cdcf87cb711ccc6df"
-
-    depends_on "libkate" => :optional
-  end
+  url "https://v2v.cc/~j/ffmpeg2theora/downloads/ffmpeg2theora-0.30.tar.bz2"
+  sha256 "4f6464b444acab5d778e0a3359d836e0867a3dcec4ad8f1cdcf87cb711ccc6df"
+  revision 4
+  head "https://git.xiph.org/ffmpeg2theora.git"
 
   bottle do
     cellar :any
-    sha256 "b151520e1a7c211f7e488564a9293f4c1e80de0913ec2bac633d688b14ecf6f0" => :mojave
-    sha256 "a0caf912922e2a78d18af10724df81befd8f7e672dc5173cee4d0b29cd482257" => :high_sierra
-    sha256 "8759af5194f13281394af44330ef522186f6d68fc12e2036c235df4894be376c" => :sierra
-  end
-
-  head do
-    url "https://git.xiph.org/ffmpeg2theora.git"
-
-    depends_on "libkate" => :recommended
+    sha256 "110c82493cedbf7b5c1ba0840eb5a01d33ace587db01fc1ed4e9707073a21322" => :mojave
+    sha256 "5fb50e2d8436ef85aa47efca7494e0d25f43e46a1f66895d1457771a65b08f6b" => :high_sierra
+    sha256 "5bd541db8f60a4f6a432794c800c8a6fc68cd74e5a96ca6547bdfc5cc64e4b1f" => :sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "scons" => :build
   depends_on "ffmpeg"
+  depends_on "libkate"
   depends_on "libogg"
   depends_on "libvorbis"
   depends_on "theora"
