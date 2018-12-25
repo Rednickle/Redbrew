@@ -10,6 +10,7 @@ class WoboqCodebrowser < Formula
     sha256 "f8aa32aaefa2b3ed4c1d6867d0b4b1945429a09043c5a6649801a3cf62d99a10" => :mojave
     sha256 "6aca9d134daeb173b56d1d3b0122c21b461c119add8feca1c52bef0ad91c267d" => :high_sierra
     sha256 "6dccc1dbb8c14362b3df29dc93bdfa010ad5de7e734d99a34918f28dc9f8035c" => :sierra
+    sha256 "2e86d508ed3a5662665a29fccd7c837935aeed0f5a47d2eee802a1737283c9a0" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
