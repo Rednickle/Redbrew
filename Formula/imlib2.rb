@@ -12,15 +12,13 @@ class Imlib2 < Formula
     sha256 "c6f684a35257c2a244cc519714324ba42fc4bcac12fec6f71803e3af9b219d3b" => :x86_64_linux
   end
 
-  deprecated_option "without-x" => "without-x11"
-
   depends_on "pkg-config" => :build
   depends_on "freetype"
   depends_on "giflib"
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
-  depends_on :x11 => :recommended if OS.mac?
+  depends_on :x11 if OS.mac?
   depends_on "linuxbrew/xorg/xorg" unless OS.mac?
 
   def install
@@ -30,7 +28,6 @@ class Imlib2 < Formula
       --enable-amd64=no
       --without-id3
     ]
-    args << "--without-x" if build.without? "x11"
 
     system "./configure", *args
     system "make", "install"

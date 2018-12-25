@@ -14,20 +14,11 @@ class Erlang < Formula
     sha256 "b093498eea26cf53db8eedf65983d05fd056bf8d8a1fb201a72316fdc05fdd9b" => :x86_64_linux
   end
 
-  option "without-hipe", "Disable building hipe; fails on various macOS systems"
-  option "with-native-libs", "Enable native library compilation"
-  option "with-dirty-schedulers", "Enable experimental dirty schedulers"
-  option "with-java", "Build jinterface application"
-
-  deprecated_option "disable-hipe" => "without-hipe"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "openssl"
-  depends_on "wxmac" => :recommended # for GUI apps like observer
-  depends_on "fop" => :optional # enables building PDF docs
-  depends_on :java => :optional
+  depends_on "wxmac" # for GUI apps like observer
 
   depends_on "m4" => :build unless OS.mac?
 
@@ -48,8 +39,6 @@ class Erlang < Formula
     # other modules doesn't fail with an unintelligable error.
     %w[LIBS FLAGS AFLAGS ZFLAGS].each { |k| ENV.delete("ERL_#{k}") }
 
-    ENV["FOP"] = "#{HOMEBREW_PREFIX}/bin/fop" if build.with? "fop"
-
     # Do this if building from a checkout to generate configure
     system "./otp_build", "autoconf" if File.exist? "otp_build"
 
@@ -57,34 +46,21 @@ class Erlang < Formula
       --disable-debug
       --disable-silent-rules
       --prefix=#{prefix}
-      --enable-threads
-      --enable-sctp
       --enable-dynamic-ssl-lib
-      --with-ssl=#{Formula["openssl"].opt_prefix}
+      --enable-hipe
+      --enable-sctp
       --enable-shared-zlib
       --enable-smp-support
+      --enable-threads
+      --enable-wx
+      --with-ssl=#{Formula["openssl"].opt_prefix}
+      --without-javac
     ]
 
-    args << "--enable-darwin-64bit" if MacOS.prefer_64_bit? && OS.mac?
-    args << "--enable-native-libs" if build.with? "native-libs"
-    args << "--enable-dirty-schedulers" if build.with? "dirty-schedulers"
-    args << "--enable-wx" if build.with? "wxmac"
-    args << "--with-dynamic-trace=dtrace" if OS.mac? && MacOS::CLT.installed?
-    args << "--enable-kernel-poll" if MacOS.version > :el_capitan
-
-    if build.without? "hipe"
-      # HIPE doesn't strike me as that reliable on macOS
-      # https://syntatic.wordpress.com/2008/06/12/macports-erlang-bus-error-due-to-mac-os-x-1053-update/
-      # https://www.erlang.org/pipermail/erlang-patches/2008-September/000293.html
-      args << "--disable-hipe"
-    else
-      args << "--enable-hipe"
-    end
-
-    if build.with? "java"
-      args << "--with-javac"
-    else
-      args << "--without-javac"
+    if OS.mac?
+      args << "--enable-darwin-64bit" if MacOS.prefer_64_bit?
+      args << "--enable-kernel-poll" if MacOS.version > :el_capitan
+      args << "--with-dynamic-trace=dtrace" if MacOS::CLT.installed?
     end
 
     system "./configure", *args
