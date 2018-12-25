@@ -14,7 +14,7 @@ class Rbenv < Formula
     sha256 "256e15d2738ab5451127606b23ccb4794c0d196635b0fce4f688863459012712" => :x86_64_linux
   end
 
-  depends_on "ruby-build" => :recommended
+  depends_on "ruby-build"
   depends_on "ruby" => :test unless OS.mac?
 
   def install
