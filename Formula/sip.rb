@@ -15,11 +15,12 @@ class Sip < Formula
     sha256 "bfc550d853bdbdd3e7cb6ea38fcb364651d9e8a6e9607c91e26bea2faa3d53d4" => :x86_64_linux
   end
 
-  depends_on "python" => :recommended
-  depends_on "python@2" => :recommended
+  depends_on "python"
+  depends_on "python@2"
 
   def install
     ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
+    ENV.delete("SDKROOT") # Avoid picking up /Application/Xcode.app paths
 
     if build.head?
       # Link the Mercurial repository into the download directory so
@@ -29,14 +30,14 @@ class Sip < Formula
       system "python", "build.py", "prepare"
     end
 
-    Language::Python.each_python(build) do |python, version|
-      ENV.delete("SDKROOT") # Avoid picking up /Application/Xcode.app paths
-      system python, *["configure.py",
-                       ("--deployment-target=#{MacOS.version}" if OS.mac?),
-                       "--destdir=#{lib}/python#{version}/site-packages",
-                       "--bindir=#{bin}",
-                       "--incdir=#{include}",
-                       "--sipdir=#{HOMEBREW_PREFIX}/share/sip"].compact
+    ["python2", "python3"].each do |python|
+      version = Language::Python.major_minor_version python
+      system python, "configure.py",
+                     *("--deployment-target=#{MacOS.version}" if OS.mac?),
+                     "--destdir=#{lib}/python#{version}/site-packages",
+                     "--bindir=#{bin}",
+                     "--incdir=#{include}",
+                     "--sipdir=#{HOMEBREW_PREFIX}/share/sip"
       system "make"
       system "make", "install"
       system "make", "clean"
@@ -101,7 +102,9 @@ class Sip < Formula
                     "-o", "libtest.so", "test.cpp"
     end
     system bin/"sip", "-b", "test.build", "-c", ".", "test.sip"
-    Language::Python.each_python(build) do |python, version|
+
+    ["python2", "python3"].each do |python|
+      version = Language::Python.major_minor_version python
       ENV["PYTHONPATH"] = lib/"python#{version}/site-packages"
       system python, "generate.py"
       system "make", "-j1", "clean", "all"

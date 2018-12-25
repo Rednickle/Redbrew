@@ -3,6 +3,7 @@ class Z3 < Formula
   homepage "https://github.com/Z3Prover/z3"
   url "https://github.com/Z3Prover/z3/archive/z3-4.8.4.tar.gz"
   sha256 "5a18fe616c2a30b56e5b2f5b9f03f405cdf2435711517ff70b076a01396ef601"
+  revision 1
   head "https://github.com/Z3Prover/z3.git"
 
   bottle do
@@ -13,28 +14,22 @@ class Z3 < Formula
     sha256 "6e3c01d7e3d4c3292c8db9a30cb4616adacaffe937f549ed4808235821122a03" => :x86_64_linux
   end
 
-  option "without-python@2", "Build without python 2 support"
-
-  deprecated_option "with-python3" => "with-python"
-  deprecated_option "without-python" => "without-python@2"
-
-  depends_on "python@2" => :recommended
-  depends_on "python" => :optional
+  depends_on "python"
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["MAKEFLAGS"] = "-j4" if ENV["CIRCLECI"]
 
-    if build.without?("python") && build.without?("python@2")
-      odie "z3: --with-python must be specified when using --without-python@2"
-    end
+    xy = Language::Python.major_minor_version "python3"
+    system "python3", "scripts/mk_make.py",
+                      "--prefix=#{prefix}",
+                      "--python",
+                      "--pypkgdir=#{lib}/python#{xy}/site-packages",
+                      "--staticlib"
 
-    Language::Python.each_python(build) do |python, version|
-      system python, "scripts/mk_make.py", "--prefix=#{prefix}", "--python", "--pypkgdir=#{lib}/python#{version}/site-packages", "--staticlib"
-      cd "build" do
-        system "make"
-        system "make", "install"
-      end
+    cd "build" do
+      system "make"
+      system "make", "install"
     end
 
     # qprofdiff is not yet part of the source release (it will be as soon as a
