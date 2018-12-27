@@ -15,35 +15,9 @@ class Io < Formula
     sha256 "e02ceb772fa1bf54188af2d989f2e8a7e5a62ba89bd104bb4c51827fcb45a2b4" => :x86_64_linux
   end
 
-  option "without-addons", "Build without addons"
-
-  deprecated_option "with-python3" => "with-python"
-
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
 
-  if build.with? "addons"
-    depends_on "glib"
-    depends_on "cairo"
-    depends_on "gmp"
-    depends_on "jpeg"
-    depends_on "libevent"
-    depends_on "libffi"
-    depends_on "libogg"
-    depends_on "libpng"
-    depends_on "libsndfile"
-    depends_on "libtiff"
-    depends_on "libvorbis"
-    if OS.mac?
-      depends_on "ossp-uuid"
-    else
-      depends_on "util-linux" # for libuuid
-    end
-    depends_on "pcre"
-    depends_on "yajl"
-    depends_on "xz"
-    depends_on "python" => :optional
-  end
   depends_on "libxml2" unless OS.mac?
 
   def install
@@ -52,36 +26,15 @@ class Io < Formula
     # FSF GCC needs this to build the ObjC bridge
     ENV.append_to_cflags "-fobjc-exceptions"
 
-    if build.without? "addons"
-      # Turn off all add-ons in main cmake file
-      inreplace "CMakeLists.txt", "add_subdirectory(addons)",
-                                  "#add_subdirectory(addons)"
-    else
-      inreplace "addons/CMakeLists.txt" do |s|
-        if build.without? "python"
-          s.gsub! "add_subdirectory(Python)", "#add_subdirectory(Python)"
-        end
-
-        # Turn off specific add-ons that are not currently working
-
-        # Looks for deprecated Freetype header
-        s.gsub!(/(add_subdirectory\(Font\))/, '#\1')
-        # Builds against older version of memcached library
-        s.gsub!(/(add_subdirectory\(Memcached\))/, '#\1')
-      end
-    end
+    # Turn off all add-ons in main cmake file
+    inreplace "CMakeLists.txt", "add_subdirectory(addons)",
+                                "#add_subdirectory(addons)"
 
     mkdir "buildroot" do
       system "cmake", "..", "-DCMAKE_DISABLE_FIND_PACKAGE_ODE=ON",
                             "-DCMAKE_DISABLE_FIND_PACKAGE_Theora=ON",
                             *std_cmake_args
       system "make"
-      output = `./_build/binaries/io ../libs/iovm/tests/correctness/run.io`
-      if $CHILD_STATUS.exitstatus.nonzero?
-        opoo "Test suite not 100% successful:\n#{output}"
-      else
-        ohai "Test suite ran successfully:\n#{output}"
-      end
       system "make", "install"
     end
   end

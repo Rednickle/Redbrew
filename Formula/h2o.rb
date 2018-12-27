@@ -12,14 +12,9 @@ class H2o < Formula
     sha256 "91f62847f603055d0fbc6d406c4226b8e2bf344ace329a91d5e9e719591c0709" => :x86_64_linux
   end
 
-  option "with-libuv", "Build the H2O library in addition to the executable"
-  option "without-mruby", "Don't build the bundled statically-linked mruby"
-
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "openssl"
-  depends_on "libuv" => :optional
-  depends_on "wslay" => :optional
   depends_on "zlib" unless OS.mac?
 
   def install
@@ -27,18 +22,9 @@ class H2o < Formula
     # https://github.com/Homebrew/brew/pull/251
     ENV.delete("SDKROOT")
 
-    args = std_cmake_args
-    args << "-DWITH_BUNDLED_SSL=OFF"
-    args << "-DOPENSSL_ROOT_DIR=#{Formula["openssl"].opt_prefix}"
-    args << "-DWITH_MRUBY=OFF" if build.without? "mruby"
-
-    system "cmake", *args
-
-    if build.with? "libuv"
-      system "make", "libh2o"
-      lib.install "libh2o.a"
-    end
-
+    system "cmake", *std_cmake_args,
+                    "-DWITH_BUNDLED_SSL=OFF",
+                    "-DOPENSSL_ROOT_DIR=#{Formula["openssl"].opt_prefix}"
     system "make", "install"
 
     (etc/"h2o").mkpath

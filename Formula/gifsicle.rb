@@ -21,9 +21,6 @@ class Gifsicle < Formula
     depends_on "automake" => :build
   end
 
-  option "with-x11", "Install gifview"
-
-  depends_on :x11 => :optional
   depends_on "linuxbrew/xorg/xorg" unless OS.mac?
 
   conflicts_with "giflossy",
@@ -33,9 +30,8 @@ class Gifsicle < Formula
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
+      --disable-gifview
     ]
-
-    args << "--disable-gifview" if build.without? "x11"
 
     system "./bootstrap.sh" if build.head?
     system "./configure", *args

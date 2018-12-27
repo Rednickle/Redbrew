@@ -4,6 +4,7 @@ class Whois < Formula
   homepage "https://packages.debian.org/sid/whois"
   url "https://deb.debian.org/debian/pool/main/w/whois/whois_5.4.0.tar.xz"
   sha256 "3775ae0cfaa6dd8d886e5233c4826225cddcb88c99c2a08130d14e15fe58e378"
+  revision 1
   head "https://github.com/rfc1036/whois.git"
 
   bottle do
@@ -14,10 +15,8 @@ class Whois < Formula
     sha256 "26f59ea7bad718ec91908b0a62023d1f1687150116dd1c6c811bb0196eb53048" => :x86_64_linux
   end
 
-  option "with-libidn2", "Compile with IDN support"
-
-  depends_on "libidn2" => :optional
-  depends_on "pkg-config" => :build if build.with?("libidn2") || !OS.mac?
+  depends_on "pkg-config" => :build
+  depends_on "libidn2"
 
   def install
     ENV.append "LDFLAGS", "-L/usr/lib -liconv" if OS.mac?

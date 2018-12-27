@@ -13,12 +13,8 @@ class Flann < Formula
     sha256 "f6bf7096372eb9dc52ddb3fee2cceef07de63281777917005092ee88a7490b45" => :x86_64_linux
   end
 
-  deprecated_option "with-python" => "with-python@2"
-
   depends_on "cmake" => :build
   depends_on "hdf5"
-  depends_on "python@2" => :optional
-  depends_on "numpy" if build.with? "python@2"
 
   # Fix for Linux build: https://bugs.gentoo.org/652594
   # Not yet fixed upstream: https://github.com/mariusmuja/flann/issues/369
@@ -43,13 +39,7 @@ class Flann < Formula
   end
 
   def install
-    if build.with? "python@2"
-      pyarg = "-DBUILD_PYTHON_BINDINGS:BOOL=ON"
-    else
-      pyarg = "-DBUILD_PYTHON_BINDINGS:BOOL=OFF"
-    end
-
-    system "cmake", ".", *std_cmake_args, pyarg
+    system "cmake", ".", *std_cmake_args, "-DBUILD_PYTHON_BINDINGS:BOOL=OFF"
     system "make", "install"
   end
 
