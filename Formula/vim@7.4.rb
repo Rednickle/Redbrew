@@ -9,6 +9,7 @@ class VimAT74 < Formula
     sha256 "3c2de6f34efcc6f54ae4a167b84526d7958589e18d8314ca90e4b214dc3672b6" => :mojave
     sha256 "55991820871d5bb35c3377c418bb8905ec089827fbaeb9d2f26fc57f823f88d5" => :high_sierra
     sha256 "d325fa9c00688f90773d737c54cc2e2ff0eb0eba41c7d4ad625af863b0e4d2d0" => :sierra
+    sha256 "425e92daaa882849386cac2a2d2d337fc30aae08f87d109930add440b9b53905" => :x86_64_linux
   end
 
   keg_only :versioned_formula
