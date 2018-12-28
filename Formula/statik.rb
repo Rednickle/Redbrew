@@ -5,17 +5,17 @@ class Statik < Formula
   homepage "https://getstatik.com"
   url "https://github.com/thanethomson/statik/archive/v0.22.2.tar.gz"
   sha256 "27aeda86c40ba2a489d2d8e85b7b38200e8f5763310003294c135ab2cf09975b"
+  revision 1
   head "https://github.com/thanethomson/statik.git"
 
   bottle do
     cellar :any
-    sha256 "f63ddd46d7506175ff040aa6ae60d080f996fc6dd92394c8e7820837c924ab92" => :mojave
-    sha256 "c8ca1b31f4252495627088c1b8622b4d47e06de8e526ec7a4c52ee2dd2da74c7" => :high_sierra
-    sha256 "c8e963506f9f837f5c29ad79872d03eae07d1f318b284e816403f345d6acb4ad" => :sierra
-    sha256 "e67ac13116cded049ffb0ee0bb6dbcdcae1985eccc041135ef7ece009fbac2cd" => :x86_64_linux
+    sha256 "0b670112d5c2e9c8166c264ba33a5bd7c01e7cbcb99abe030f2c7923a6e09f5f" => :mojave
+    sha256 "06551895c3028af13b050ccc738afe4643ac782ca02dc9c9a0de68b04c5a8e5c" => :high_sierra
+    sha256 "44b40f63c9d8de054cb52ce509347eec87f2ac53afa613bb15d66f3c5b3317f7" => :sierra
   end
 
-  depends_on "python@2"
+  depends_on "python"
   unless OS.mac?
     # pkg-config helps setuptools find libffi
     depends_on "libffi"
@@ -25,7 +25,7 @@ class Statik < Formula
   conflicts_with "go-statik", :because => "both install `statik` binaries"
 
   def install
-    venv = virtualenv_create(libexec)
+    venv = virtualenv_create(libexec, "python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
                               "--ignore-installed", buildpath
     system libexec/"bin/pip", "uninstall", "-y", "statik"

@@ -3,19 +3,19 @@ class GobjectIntrospection < Formula
   homepage "https://wiki.gnome.org/Projects/GObjectIntrospection"
   url "https://download.gnome.org/sources/gobject-introspection/1.58/gobject-introspection-1.58.2.tar.xz"
   sha256 "2a5e0f69459af7ca4c41b8f4e19d9c80ddf877834bb0e7fdd420e2495ae2eda8"
+  revision 1
 
   bottle do
-    sha256 "857e1859bb7d22ffd0df3beb43adda587e3a393d8e632a3550b9282d27e103da" => :mojave
-    sha256 "a87158a6cca22cbb1770dfe33813de473e3cc0c675373d4e64b8c7c4f0b7b218" => :high_sierra
-    sha256 "99fe55b6f91df27d361c466e7d5722c7cc2b06f4062bb84c338f29eebd147552" => :sierra
-    sha256 "5dfd0840a25e96b736ed53ade396369369627e622e9d458e56f578a0857546ae" => :x86_64_linux
+    sha256 "a6beac9d34408e7c3b2f47fe6c32b5b7ee4b6a0830eed3220c98d5f08a66dfaf" => :mojave
+    sha256 "9e1b84d300574888afa48d17e8c141941eadc39b1c152c8ceeb6f3652616b628" => :high_sierra
+    sha256 "bfcbdf5408d6990606597bcc32c8b55c6e0d062af30cbf8100cfd200277aece0" => :sierra
   end
 
   depends_on "cairo"
   depends_on "glib"
   depends_on "libffi"
   depends_on "pkg-config"
-  depends_on "python@2"
+  depends_on "python"
 
   unless OS.mac?
     depends_on "bison"
@@ -36,7 +36,7 @@ class GobjectIntrospection < Formula
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--with-python=#{Formula["python@2"].opt_bin}/python2"
+                          "--with-python=#{Formula["python"].opt_bin}/python3"
     system "make"
     system "make", "install"
   end

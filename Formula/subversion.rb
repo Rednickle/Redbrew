@@ -4,12 +4,12 @@ class Subversion < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.11.0.tar.bz2"
   mirror "https://archive.apache.org/dist/subversion/subversion-1.11.0.tar.bz2"
   sha256 "87c44344b074ac2e9ed7ca9675fb1e5b197051c3deecfe5934e5f6aefbf83e56"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "c75742cfd2ac700aaa37e2763c3ed315b25954d619704cd1d967c689289e6faa" => :mojave
-    sha256 "5154323e50fb1a01818f8126df8d74885174c492185c05826dc79e8bca00c6d8" => :high_sierra
-    sha256 "6f754703257dff533f2ffc6c41c0a3a01376cdac20de48009ba8506a109a1b45" => :sierra
+    sha256 "e7bbcad66645e19497f86fc53ffbc6ab8565b9c00b27ded3ce768a7c8d5a37d2" => :mojave
+    sha256 "dccecc8c5673437a8b7001f31ef22af3e95915fd11d7fd63ecccbdd6ba321a25" => :high_sierra
+    sha256 "bd36436ffe7bc83dd96b4c44802413c838e04d80430df735fe7462a78e5ca0e2" => :sierra
   end
 
   head do
@@ -31,7 +31,8 @@ class Subversion < Formula
   depends_on "apr-util"
 
   # build against Homebrew versions of
-  # lz4, perl, sqlite and utf8proc for consistency
+  # gettext, lz4, perl, sqlite and utf8proc for consistency
+  depends_on "gettext"
   depends_on "lz4"
   depends_on "openssl" # For Serf
   depends_on "perl"
@@ -108,7 +109,6 @@ class Subversion < Formula
       --disable-debug
       --enable-optimize
       --disable-mod-activation
-      --disable-nls
       --disable-plaintext-password-storage
       --with-apr-util=#{Formula["apr-util"].opt_prefix}
       --with-apr=#{Formula["apr"].opt_prefix}
