@@ -50,7 +50,7 @@ class Subversion < Formula
   end
 
   # Other optional dependencies
-  depends_on :java => ["1.8", :optional]
+  depends_on :java => ["1.8+", :optional]
 
   # When building Perl or Ruby bindings, need to use a compiler that
   # recognizes GCC-style switches, since that's what the system languages
