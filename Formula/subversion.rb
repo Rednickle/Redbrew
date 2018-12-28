@@ -152,9 +152,16 @@ class Subversion < Formula
     perl_core = Pathname.new(archlib)/"CORE"
     onoe "'#{perl_core}' does not exist" unless perl_core.exist?
 
-    inreplace "Makefile" do |s|
-      s.change_make_var! "SWIG_PL_INCLUDES",
-        "$(SWIG_INCLUDES) #{"-arch #{MacOS.preferred_arch}" if OS.mac?} -g -pipe -fno-common #{"-DPERL_DARWIN" if OS.mac?} -fno-strict-aliasing -I#{HOMEBREW_PREFIX}/include -I#{perl_core}"
+    if OS.mac?
+      inreplace "Makefile" do |s|
+        s.change_make_var! "SWIG_PL_INCLUDES",
+          "$(SWIG_INCLUDES) -arch #{MacOS.preferred_arch} -g -pipe -fno-common -DPERL_DARWIN -fno-strict-aliasing -I#{HOMEBREW_PREFIX}/include -I#{perl_core}"
+      end
+    else
+      inreplace "Makefile" do |s|
+        s.change_make_var! "SWIG_PL_INCLUDES",
+          "$(SWIG_INCLUDES) -g -pipe -fno-common -fno-strict-aliasing -I#{HOMEBREW_PREFIX}/include -I#{perl_core}"
+      end
     end
     system "make", "swig-pl"
     system "make", "install-swig-pl"
