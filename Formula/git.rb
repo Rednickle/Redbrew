@@ -10,6 +10,7 @@ class Git < Formula
     sha256 "c41bba2442a795c6d94b24565865811826becd7e3dba0226fe0cab0990ee4bef" => :mojave
     sha256 "ecf0d2a4663634c7d29c068040a4ded253d8b5e042a2eb4db005c16d221d8275" => :high_sierra
     sha256 "04b5b0d7bed4a7d2a952f7afbd7df4d93805dd9957047d31344c8bb12d614cc7" => :sierra
+    sha256 "ad4fba6f8c31334e284c4e8790998aefbd274df1e36acbcb850c66c8378a89a9" => :x86_64_linux
   end
 
   depends_on "gettext"
