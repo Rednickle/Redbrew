@@ -10,6 +10,7 @@ class Gzip < Formula
     sha256 "9391f27b1cf04c20abb2320ba55e1f8ac186db22b7c07bf51ebccfab073f85dd" => :mojave
     sha256 "d639fe5a95eb7c0e12aa1577ca9b230cdbbd31b0ef51794d57415f9a9fa68f08" => :high_sierra
     sha256 "bfd50566283402c72d15cd87670a3fd8ea122ebbaf583bc8cfafc552340ecf70" => :sierra
+    sha256 "bb1f268ebdd22f0920bcee62522058f34c28b3b85f69ad084ab7a3e9b78d9d08" => :x86_64_linux
   end
 
   def install
