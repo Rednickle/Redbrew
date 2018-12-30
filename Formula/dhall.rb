@@ -13,6 +13,7 @@ class Dhall < Formula
     sha256 "1df23a4a22b87e8c9ad7672cd3b0726d6ea4c4f949a5ac08bb0a07c8dfa1f45f" => :mojave
     sha256 "4136059711c99078328454e09e96de7f23384893880c20db3e9ecfc5b4b9e657" => :high_sierra
     sha256 "4f49604823c40e758442b965c57f8d656c2fa442857d9e698196b2d3165edd9f" => :sierra
+    sha256 "06746a93fd368ae314f552057ecbb02dd2150322d87a07ac73898e778ace8bc9" => :x86_64_linux
   end
 
   depends_on "cabal-install" => :build
