@@ -240,7 +240,7 @@ class Llvm < Formula
       system "cmake", "-G", "Unix Makefiles", "..", *(std_cmake_args + args)
       system "make"
       system "make", "install"
-      system "make", "install-xcode-toolchain"
+      system "make", "install-xcode-toolchain" if OS.mac?
     end
 
     (share/"clang/tools").install Dir["tools/clang/tools/scan-{build,view}"]
