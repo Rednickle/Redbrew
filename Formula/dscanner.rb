@@ -11,6 +11,7 @@ class Dscanner < Formula
     sha256 "b3553bc82dbf0730fd847d12358886a7991f2922d4973742cf06b7cfea8d3f6d" => :mojave
     sha256 "18048d735a5b5b742c50386fe787ada697aaecbbfee198f369cb68565d1f11cc" => :high_sierra
     sha256 "f6907427563b4ef09eb4650a4013c2effc3b4010ab499ef285ef8a95bbe75d82" => :sierra
+    sha256 "0dec1b7cd7c6d1b5da07d989cff177cc0fe57d9c02ae99a8a812ef3949563540" => :x86_64_linux
   end
 
   depends_on "dmd" => :build
