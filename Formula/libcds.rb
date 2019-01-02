@@ -9,6 +9,7 @@ class Libcds < Formula
     sha256 "ed2baad62fe26da2891255221ee90a8d69f84214431dce923dd7c55aafa39668" => :mojave
     sha256 "9723b22f7a6e84ef208226241ed3b19dd02b4c9aed9c01284f55bd9b825e216e" => :high_sierra
     sha256 "fdc30046c9f96c04d7c52d43e948d2e238fb93eee5514101a0dd0ca4de3f2b32" => :sierra
+    sha256 "b5a0a5736b8e861007eafef586e64429d476593bf7d7336fde6918fc1c27e689" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
