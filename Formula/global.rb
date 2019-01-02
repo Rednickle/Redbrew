@@ -9,6 +9,7 @@ class Global < Formula
     sha256 "a7c38baeddffcd462c81d75f880a883e197256b942157e26850223b9cad2494b" => :mojave
     sha256 "437111cf310d59b8834b4ed82455a88177ea53c23bf34eb92ffd31c40d77f62f" => :high_sierra
     sha256 "1239020a37f617c1f128a54d2be7b25bbc328772113e77d9d0522f4d4e07a86a" => :sierra
+    sha256 "61188462f4201979254e7c906c819737b9bdfd2133d4b43815fe33ef48ce4fcf" => :x86_64_linux
   end
 
   head do
