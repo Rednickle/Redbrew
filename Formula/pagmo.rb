@@ -9,6 +9,7 @@ class Pagmo < Formula
     sha256 "11a158a55b100b182c49807d68d5400ca55d98011535b4d923f1ee232f58a9b0" => :mojave
     sha256 "2c8e09c8e42c16f36f4c5b4fa82b465402fd6b50e5c55e9b4befdae04636a5fc" => :high_sierra
     sha256 "2c8e09c8e42c16f36f4c5b4fa82b465402fd6b50e5c55e9b4befdae04636a5fc" => :sierra
+    sha256 "332e3d96d1c4820eb67499712d42010f8870f1b5c144d836af75ec30fe202370" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
