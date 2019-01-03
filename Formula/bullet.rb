@@ -1,18 +1,15 @@
 class Bullet < Formula
   desc "Physics SDK"
   homepage "https://bulletphysics.org/"
-  url "https://github.com/bulletphysics/bullet3/archive/2.87.tar.gz"
-  sha256 "438c151c48840fe3f902ec260d9496f8beb26dba4b17769a4a53212903935f95"
-  revision 1
+  url "https://github.com/bulletphysics/bullet3/archive/2.88.tar.gz"
+  sha256 "21c135775527754fc2929db1db5144e92ad0218ae72840a9f162acb467a7bbf9"
   head "https://github.com/bulletphysics/bullet3.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "5284036f39c7469ba84bbee409fc2b82de37073649c3d872c192731b216a9df0" => :mojave
-    sha256 "e7cdf082554cd6e320f756c051a418816799d52a920c9192068ac6637bb6f5d5" => :high_sierra
-    sha256 "bfea29b63b6eadaf0181fa3a1baee1e9513a2b43b9603fcf996201164ebec049" => :sierra
-    sha256 "bbfbb3e003a87ab11977846ba1c70fe0a90ab1af54cc880dfc73bb1a5ebff5f8" => :x86_64_linux
+    sha256 "441f12cab157a05a69e5a7de426296b096fef0b88d0ebf386ce15503e114814d" => :mojave
+    sha256 "febfaa699309bb100f9614fce6bdcbdf9f8521be10d2885bf5ad42073c351c4f" => :high_sierra
+    sha256 "cfcaf1990cc8f2fd8ebc8ecf93b10a448c51e6991eca5fab599c9c913e1d94e0" => :sierra
   end
 
   depends_on "cmake" => :build
