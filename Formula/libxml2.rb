@@ -4,13 +4,13 @@ class Libxml2 < Formula
   url "http://xmlsoft.org/sources/libxml2-2.9.8.tar.gz"
   mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/libxml2/libxml2-2.9.8.tar.gz"
   sha256 "0b74e51595654f958148759cfef0993114ddccccbb6f31aee018f3558e8e2732"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "95f2c24465082719001e68aceb17fea3be376d9e636a578b59f6c47db01370ea" => :mojave
-    sha256 "0ac1537873a1ffc9aea9c01b05bafa8ad94df7abd275b8ceed719ce11b08615d" => :high_sierra
-    sha256 "649c48cc1142a0c1febb96fa710327d1a5544b7edd9b7da20bb9597b5d3f2140" => :sierra
-    sha256 "b3114d681b6821c0ee55f2ff1ce889deab678d04b6ebf7d07588cf58af9c3f95" => :x86_64_linux
+    sha256 "eca15b7e4bc1f27f5519ffaa55c1af18185e466025ba494452337ce9e9c87332" => :mojave
+    sha256 "4460ecfc312b9aa9ddb2c870695c0d7aa0173ef86d8155b6f6dab4949c7d785a" => :high_sierra
+    sha256 "121ad4f9b13372fcf9e1e1ce0f806545266db04151fcd1cd12179365d4430dcb" => :sierra
   end
 
   head do
@@ -24,7 +24,7 @@ class Libxml2 < Formula
 
   keg_only :provided_by_macos
 
-  depends_on "python@2"
+  depends_on "python"
   depends_on "zlib" unless OS.mac?
 
   def install
@@ -44,7 +44,7 @@ class Libxml2 < Formula
       # We need to insert our include dir first
       inreplace "setup.py", "includes_dir = [",
         "includes_dir = ['#{include}', '#{OS.mac? ? MacOS.sdk_path/"usr" : HOMEBREW_PREFIX}/include',"
-      system *(OS.mac? ? "python" : "python2"), "setup.py", "install", "--prefix=#{prefix}"
+      system "python3", "setup.py", "install", "--prefix=#{prefix}"
     end
   end
 
@@ -66,7 +66,8 @@ class Libxml2 < Formula
     system ENV.cc, *args
     system "./test"
 
-    ENV.prepend_path "PYTHONPATH", lib/"python2.7/site-packages"
-    system "python2.7", "-c", "import libxml2"
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_path "PYTHONPATH", lib/"python#{xy}/site-packages"
+    system "python3", "-c", "import libxml2"
   end
 end
