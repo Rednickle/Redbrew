@@ -10,6 +10,7 @@ class Hydra < Formula
     sha256 "dc025662292dff699b05e525ca4e19ce9b62385eeec20fa2597e2bbfdb2c3d10" => :mojave
     sha256 "6c1d497320f91e0a366278b5186f21b5337bdd24760cb82c8225f34746ff8cf8" => :high_sierra
     sha256 "0d92b2dcac84f0dfbb12b0a26c7213a4bc1e9742ab93e061cef02958cd8fd2ef" => :sierra
+    sha256 "0efba3b580fba5506265e28b15bd38075e4da8c07e4daa4dafb778fa2597e70b" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
