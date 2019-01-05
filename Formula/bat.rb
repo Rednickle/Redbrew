@@ -11,7 +11,6 @@ class Bat < Formula
     sha256 "56627e472f1e29311ae658bd8ac29e87560266823435c973f362a300e4595ac3" => :x86_64_linux
   end
 
-  depends_on "cmake" => :build
   depends_on "rust" => :build
   depends_on "zlib" unless OS.mac?
 
