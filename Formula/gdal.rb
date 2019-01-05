@@ -3,11 +3,12 @@ class Gdal < Formula
   homepage "https://www.gdal.org/"
   url "https://download.osgeo.org/gdal/2.3.2/gdal-2.3.2.tar.xz"
   sha256 "3f6d78fe8807d1d6afb7bed27394f19467840a82bc36d65e66316fa0aa9d32a4"
+  revision 1
 
   bottle do
-    sha256 "97c2b47f65141cc67949dc49fc7fdd0972e34d9ac9b21b7c14b27816220facc3" => :mojave
-    sha256 "c5d1c451b34740f1759a66d6b1af4a159ded520309d6613c73e7d9d4040e392d" => :sierra
-    sha256 "e80a4e6692525d5c8e942796ab874dad43b3cae17b905a1d912ab2350682e18a" => :x86_64_linux
+    sha256 "ebbc746cb4435d866407f5dfb10006419ede9bdc89763494030672d6bc0bd0be" => :mojave
+    sha256 "7d38eb31800ec8cd7d36f0e1e59cdbb7f4d1a8eb37e06d5471068a4edc5c75e4" => :high_sierra
+    sha256 "7e034c48988dd4bbd30f54ab10cdaaf46584625df0ab31b560be5986ea9f07bc" => :sierra
   end
 
   head do
@@ -19,6 +20,7 @@ class Gdal < Formula
 
   deprecated_option "complete" => "with-complete"
 
+  depends_on "expat"
   depends_on "freexl"
   depends_on "geos"
   depends_on "giflib"
@@ -89,6 +91,7 @@ class Gdal < Formula
       "--with-pcraster=internal",
 
       # Homebrew backends
+      "--with-expat=#{Formula["expat"].prefix}",
       "--with-freexl=#{Formula["freexl"].opt_prefix}",
       "--with-geos=#{Formula["geos"].opt_prefix}/bin/geos-config",
       "--with-geotiff=#{Formula["libgeotiff"].opt_prefix}",
@@ -116,10 +119,13 @@ class Gdal < Formula
       "--without-ruby",
     ]
 
+    if OS.mac?
+      args << "--with-curl=/usr/bin/curl-config"
+    end
+
     unless OS.mac?
       args << "--with-curl=#{Formula["curl"].opt_bin}/curl-config"
       args << "--with-libz=#{Formula["zlib"].opt_prefix}"
-      args << "--with-expat=#{Formula["expat"].opt_prefix}"
     end
 
     # Optional Homebrew packages supporting additional formats

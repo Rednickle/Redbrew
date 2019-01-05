@@ -1,16 +1,15 @@
 class GnuTar < Formula
   desc "GNU version of the tar archiving utility"
   homepage "https://www.gnu.org/software/tar/"
-  url "https://ftp.gnu.org/gnu/tar/tar-1.30.tar.gz"
-  mirror "https://ftpmirror.gnu.org/tar/tar-1.30.tar.gz"
-  sha256 "4725cc2c2f5a274b12b39d1f78b3545ec9ebb06a6e48e8845e1995ac8513b088"
+  url "https://ftp.gnu.org/gnu/tar/tar-1.31.tar.gz"
+  mirror "https://ftpmirror.gnu.org/tar/tar-1.31.tar.gz"
+  sha256 "b471be6cb68fd13c4878297d856aebd50551646f4e3074906b1a74549c40d5a2"
 
   bottle do
-    sha256 "2a112e5b1a9c895ef51cb85d5ae0f02c9804ada9e9f55cbd8f698ec63b51c69b" => :mojave
-    sha256 "ad87e1488b6d1a2db804c348abf05143b6b7310402c7928f725305c295599708" => :high_sierra
-    sha256 "5a04574acb1ff235b2509e70cb207e6379a8c83191986131bba52717c328fc1b" => :sierra
-    sha256 "1a559b78e6f1a6594b18a9ba2aa2e9828af2736aacc4aec07911fe7638e80e68" => :el_capitan
-    sha256 "0a3faa9909699e720cce5322ce865792ac03c9602e350e413f2ac8ab3eca09a5" => :x86_64_linux
+    cellar :any_skip_relocation
+    sha256 "d3fb271fd666fda245f9c985fbfb392092ba3e39d18d10cbd390a13526c6f9ae" => :mojave
+    sha256 "21a8c7069bbc823aa9aff058f2d5a89d47869bb618069475adefd7d2b7aee1a6" => :high_sierra
+    sha256 "d902cc77855ce1961df899987681677d022a73045a66cf3b4a3ffbade900021b" => :sierra
   end
 
   head do
