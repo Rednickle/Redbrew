@@ -8,6 +8,7 @@ class Smartmontools < Formula
     sha256 "eeb9c234d61a85547f6e5f169966f5afd5cb5c31a9f17d758910bdd855d711c4" => :mojave
     sha256 "e77726b986b056d7b58112e965c399861d41a568193c45b9862d7ef5f04ed479" => :high_sierra
     sha256 "74c52c197fbfef3715fe6ed1dc787756cb7185932958005f738c2ce142579a48" => :sierra
+    sha256 "5c67ed4c6d93c598a6a82c17f0364dd6051643a87286d6f002f2437a09368646" => :x86_64_linux
   end
 
   def install
