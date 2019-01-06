@@ -26,8 +26,6 @@ class Coreutils < Formula
     depends_on "gperf" => :build unless OS.mac?
   end
 
-  depends_on "gmp" => :optional
-
   conflicts_with "ganglia", :because => "both install `gstat` binaries"
   conflicts_with "gegl", :because => "both install `gcut` binaries"
   conflicts_with "idutils", :because => "both install `gid` and `gid.1`"
@@ -53,8 +51,8 @@ class Coreutils < Formula
     args = %W[
       --prefix=#{prefix}
       --program-prefix=g
+      --without-gmp
     ]
-    args << "--without-gmp" if build.without? "gmp"
     system "./configure", *args
     system "make", "install"
 
