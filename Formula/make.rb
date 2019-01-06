@@ -14,46 +14,34 @@ class Make < Formula
     sha256 "f2836e9268128edc4d415440f74d7415fa187b2fdc450bd20efa26c060206cb6" => :x86_64_linux
   end
 
-  if OS.mac?
-    option "with-default-names", "Don't prepend 'g' to the binaries"
-  else
-    option "without-default-names", "Prepend 'g' to the binaries"
-  end
-
   def install
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
     ]
 
-    args << "--program-prefix=g" if build.without? "default-names"
-
+    args << "--program-prefix=g" if OS.mac?
     system "./configure", *args
     system "make", "install"
 
-    if build.without? "default-names"
+    if OS.mac?
       (libexec/"gnubin").install_symlink bin/"gmake" =>"make"
       (libexec/"gnuman/man1").install_symlink man1/"gmake.1" => "make.1"
     end
   end
 
-  def caveats
-    if build.without? "default-names"
-      <<~EOS
-        All commands have been installed with the prefix 'g'.
-        If you do not want the prefix, install using the "with-default-names" option.
+  def caveats; <<~EOS
+    GNU "make" has been installed as "gmake".
+    If you need to use it as "make", you can add a "gnubin" directory
+    to your PATH from your bashrc like:
 
-        If you need to use these commands with their normal names, you
-        can add a "gnubin" directory to your PATH from your bashrc like:
+        PATH="#{opt_libexec}/gnubin:$PATH"
 
-            PATH="#{opt_libexec}/gnubin:$PATH"
+    Additionally, you can access its man page with normal name if you add
+    the "gnuman" directory to your MANPATH from your bashrc as well:
 
-        Additionally, you can access their man pages with normal names if you add
-        the "gnuman" directory to your MANPATH from your bashrc as well:
-
-            MANPATH="#{opt_libexec}/gnuman:$MANPATH"
-      EOS
-    end
+        MANPATH="#{opt_libexec}/gnuman:$MANPATH"
+  EOS
   end
 
   test do
@@ -62,9 +50,7 @@ class Make < Formula
       \t@echo Homebrew
     EOS
 
-    cmd = build.with?("default-names") ? "make" : "gmake"
-
-    assert_equal "Homebrew\n",
-      shell_output("#{bin}/#{cmd}")
+    assert_equal "Homebrew\n", shell_output("#{bin}/gmake")
+    assert_equal "Homebrew\n", shell_output("#{opt_libexec}/gnubin/make")
   end
 end

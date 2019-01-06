@@ -12,55 +12,45 @@ class GnuSed < Formula
     sha256 "f01292e35b8c9f5a885152ef445c599a75625f095f67eeac9757b34f0334e727" => :x86_64_linux
   end
 
-  if OS.mac?
-    option "with-default-names", "Don't prepend 'g' to the binaries"
-  else
-    option "without-default-names", "Prepend 'g' to the binaries"
-  end
-
-  deprecated_option "default-names" => "with-default-names"
-
   conflicts_with "ssed", :because => "both install share/info/sed.info"
 
   def install
-    args = ["--prefix=#{prefix}", "--disable-dependency-tracking"]
-    args << "--without-selinux" if OS.linux?
-    args << "--program-prefix=g" if build.without? "default-names"
+    args = %W[
+      --prefix=#{prefix}
+      --disable-dependency-tracking
+    ]
 
+    args << "--program-prefix=g" if OS.mac?
+    args << "--without-selinux" unless OS.mac?
     system "./configure", *args
     system "make", "install"
 
-    if build.without? "default-names"
+    if OS.mac?
       (libexec/"gnubin").install_symlink bin/"gsed" =>"sed"
       (libexec/"gnuman/man1").install_symlink man1/"gsed.1" => "sed.1"
-    else
-      bin.install_symlink "sed" => "gsed"
     end
   end
 
-  def caveats
-    if build.without? "default-names" then <<~EOS
-      The command has been installed with the prefix "g".
-      If you do not want the prefix, install using the "with-default-names" option.
+  def caveats; <<~EOS
+    GNU "sed" has been installed as "gsed".
+    If you need to use it as "sed", you can add a "gnubin" directory
+    to your PATH from your bashrc like:
 
-      If you need to use these commands with their normal names, you
-      can add a "gnubin" directory to your PATH from your bashrc like:
         PATH="#{opt_libexec}/gnubin:$PATH"
 
-      Additionally, you can access their man pages with normal names if you add
-      the "gnuman" directory to your MANPATH from your bashrc as well:
+    Additionally, you can access its man page with normal name if you add
+    the "gnuman" directory to your MANPATH from your bashrc as well:
+
         MANPATH="#{opt_libexec}/gnuman:$MANPATH"
-    EOS
-    end
+  EOS
   end
 
   test do
     (testpath/"test.txt").write "Hello world!"
-    if build.with? "default-names"
-      system "#{bin}/sed", "-i", "s/world/World/g", "test.txt"
-    else
-      system "#{bin}/gsed", "-i", "s/world/World/g", "test.txt"
-    end
+    system "#{bin}/gsed", "-i", "s/world/World/g", "test.txt"
+    assert_match /Hello World!/, File.read("test.txt")
+
+    system "#{opt_libexec}/gnubin/sed", "-i", "s/world/World/g", "test.txt"
     assert_match /Hello World!/, File.read("test.txt")
   end
 end

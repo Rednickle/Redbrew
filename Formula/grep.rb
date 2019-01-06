@@ -13,13 +13,6 @@ class Grep < Formula
     sha256 "8141acac35cbf59a7bc65849ef7c6b9b60aaa2de117dc753c8c06d49d4106cec" => :x86_64_linux
   end
 
-  if OS.mac?
-    option "with-default-names", "Don't prepend 'g' to the binaries"
-  else
-    option "without-default-names", "Prepend 'g' to the binaries"
-  end
-  deprecated_option "default-names" => "with-default-names"
-
   depends_on "pkg-config" => :build
   depends_on "pcre"
 
@@ -33,45 +26,37 @@ class Grep < Formula
       --with-packager=Homebrew
     ]
 
-    args << "--program-prefix=g" if build.without? "default-names"
-
+    args << "--program-prefix=g" if OS.mac?
     system "./configure", *args
     system "make"
     system "make", "install"
 
-    if build.without? "default-names"
-      (libexec/"gnubin").install_symlink bin/"ggrep" => "grep"
-      (libexec/"gnubin").install_symlink bin/"gegrep" => "egrep"
-      (libexec/"gnubin").install_symlink bin/"gfgrep" => "fgrep"
-
-      (libexec/"gnuman/man1").install_symlink man1/"ggrep.1" => "grep.1"
-      (libexec/"gnuman/man1").install_symlink man1/"gegrep.1" => "egrep.1"
-      (libexec/"gnuman/man1").install_symlink man1/"gfgrep.1" => "fgrep.1"
+    %w[grep egrep fgrep].each do |prog|
+      (libexec/"gnubin").install_symlink bin/"g#{prog}" => prog
+      (libexec/"gnuman/man1").install_symlink man1/"g#{prog}.1" => "#{prog}.1"
     end
   end
 
-  def caveats
-    if build.without? "default-names" then <<~EOS
-      The command has been installed with the prefix "g".
-      If you do not want the prefix, install using the "with-default-names"
-      option.
+  def caveats; <<~EOS
+    All commands have been installed with the prefix "g".
+    If you need to use these commands with their normal names, you
+    can add a "gnubin" directory to your PATH from your bashrc like:
+      PATH="#{opt_libexec}/gnubin:$PATH"
 
-      If you need to use these commands with their normal names, you
-      can add a "gnubin" directory to your PATH from your bashrc like:
-        PATH="#{opt_libexec}/gnubin:$PATH"
-
-      Additionally, you can access their man pages with normal names if you add
-      the "gnuman" directory to your MANPATH from your bashrc as well:
-        MANPATH="#{opt_libexec}/gnuman:$MANPATH"
-    EOS
-    end
+    Additionally, you can access their man pages with normal names if you add
+    the "gnuman" directory to your MANPATH from your bashrc as well:
+      MANPATH="#{opt_libexec}/gnuman:$MANPATH"
+  EOS
   end
 
   test do
     text_file = testpath/"file.txt"
     text_file.write "This line should be matched"
-    cmd = build.with?("default-names") ? "grep" : "ggrep"
-    grepped = shell_output("#{bin}/#{cmd} match #{text_file}")
+
+    grepped = shell_output("#{bin}/ggrep match #{text_file}")
+    assert_match "should be matched", grepped
+
+    grepped = shell_output("#{opt_libexec}/gnubin/grep match #{text_file}")
     assert_match "should be matched", grepped
   end
 end
