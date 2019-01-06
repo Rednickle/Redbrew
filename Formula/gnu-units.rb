@@ -12,32 +12,40 @@ class GnuUnits < Formula
     sha256 "1006731c4af0d3893c8e2ba94f411f25c5b3aff5ca040b2de5658a87ef230552" => :x86_64_linux
   end
 
-  if OS.mac?
-    option "with-default-names", "Don't prepend 'g' to the binaries"
-  else
-    option "without-default-names", "Prepend 'g' to the binaries"
-  end
-
-  deprecated_option "default-names" => "with-default-names"
-
   depends_on "readline"
 
   def install
-    args = ["--prefix=#{prefix}", "--with-installed-readline"]
-    args << "--program-prefix=g" if build.without? "default-names"
+    args = %W[
+      --prefix=#{prefix}
+      --with-installed-readline
+    ]
 
+    args << "--program-prefix=g" if OS.mac?
     system "./configure", *args
     system "make", "install"
 
-    if build.without? "default-names"
+    if OS.mac?
       (libexec/"gnubin").install_symlink bin/"gunits" => "units"
       (libexec/"gnubin").install_symlink bin/"gunits_cur" => "units_cur"
       (libexec/"gnuman/man1").install_symlink man1/"gunits.1" => "units.1"
     end
   end
 
+  def caveats; <<~EOS
+    All commands have been installed with the prefix "g".
+    If you need to use these commands with their normal names, you
+    can add a "gnubin" directory to your PATH from your bashrc like:
+      PATH="#{opt_libexec}/gnubin:$PATH"
+
+    Additionally, you can access their man pages with normal names if you add
+    the "gnuman" directory to your MANPATH from your bashrc as well:
+      MANPATH="#{opt_libexec}/gnuman:$MANPATH"
+  EOS
+  end
+
   test do
     units = OS.mac? ? "gunits" : "units"
     assert_equal "* 18288", shell_output("#{bin}/#{units} '600 feet' 'cm' -1").strip
+    assert_equal "* 18288", shell_output("#{opt_libexec}/gnubin/units '600 feet' 'cm' -1").strip
   end
 end

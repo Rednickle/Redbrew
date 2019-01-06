@@ -14,14 +14,6 @@ class GnuIndent < Formula
     sha256 "5c9257ab10d92825e5738c0e9128876b89265095077fcde7187eee98cbe92980" => :x86_64_linux
   end
 
-  if OS.mac?
-    option "with-default-names", "Don't prepend 'g' to the binaries"
-  else
-    option "without-default-names", "Prepend 'g' to the binaries"
-  end
-
-  deprecated_option "default-names" => "with-default-names"
-
   depends_on "gettext"
   # Fix WARNING: 'makeinfo' is missing on your system.
   depends_on "texinfo" => :build unless OS.mac?
@@ -34,15 +26,28 @@ class GnuIndent < Formula
       --mandir=#{man}
     ]
 
-    args << "--program-prefix=g" if build.without? "default-names"
-
+    args << "--program-prefix=g"
     system "./configure", *args
     system "make", "install"
 
-    if build.without? "default-names"
+    if OS.mac?
       (libexec/"gnubin").install_symlink bin/"gindent" => "indent"
       (libexec/"gnuman/man1").install_symlink man1/"gindent.1" => "indent.1"
     end
+  end
+
+  def caveats; <<~EOS
+    GNU "indent" has been installed as "gindent".
+    If you need to use it as "indent", you can add a "gnubin" directory
+    to your PATH from your bashrc like:
+
+        PATH="#{opt_libexec}/gnubin:$PATH"
+
+    Additionally, you can access its man page with normal name if you add
+    the "gnuman" directory to your MANPATH from your bashrc as well:
+
+        MANPATH="#{opt_libexec}/gnuman:$MANPATH"
+  EOS
   end
 
   test do
