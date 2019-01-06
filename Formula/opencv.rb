@@ -1,15 +1,13 @@
 class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
-  url "https://github.com/opencv/opencv/archive/3.4.5.tar.gz"
-  sha256 "0c57d9dd6d30cbffe68a09b03f4bebe773ee44dc8ff5cd6eaeb7f4d5ef3b428e"
-  revision 1
+  url "https://github.com/opencv/opencv/archive/4.0.1.tar.gz"
+  sha256 "7b86a0ee804244e0c407321f895b15e4a7162e9c5c0d2efc85f1cadec4011af4"
 
   bottle do
-    sha256 "1d5b539888b6163e9e8b5e6944bafdfec126cae714a0f14dc914af6f810975dd" => :mojave
-    sha256 "d8b90363d87d13279244a656d925460a180279c0adba63ac8f3b5d5025af7797" => :high_sierra
-    sha256 "fb3067a4371739a462d832f29d3c23a5445a1b201f93ffae0a8db9fbb6560d49" => :sierra
-    sha256 "82c9f2fa1d4f87f17d03edd03918b9904b0e8528fde0d34a6b89c4d94074e486" => :x86_64_linux
+    sha256 "73f03c0b70646230276817b41cb8b3901008cffd88350309b008d19285e4a7cf" => :mojave
+    sha256 "5c384dfe3fc7bfa405aac1e25dfc384afb2084030153b195c24581ddac1d39ec" => :high_sierra
+    sha256 "8fb8cf21b549e1f603fc108fd8fee886501a377692feb27f703a629217b47dc0" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -27,8 +25,8 @@ class Opencv < Formula
   depends_on "openblas" unless OS.mac?
 
   resource "contrib" do
-    url "https://github.com/opencv/opencv_contrib/archive/3.4.5.tar.gz"
-    sha256 "8f73d029887c726fed89c69a2b0fcb1d098099fcd81c1070e1af3b452669fbe2"
+    url "https://github.com/opencv/opencv_contrib/archive/4.0.1.tar.gz"
+    sha256 "0d8acbad4b7074cfaafd906a7419c23629179d5e98894714402090b192ef8237"
   end
 
   needs :cxx11
@@ -69,6 +67,7 @@ class Opencv < Formula
       -DBUILD_opencv_text=OFF
       -DOPENCV_ENABLE_NONFREE=ON
       -DOPENCV_EXTRA_MODULES_PATH=#{buildpath}/opencv_contrib/modules
+      -DOPENCV_GENERATE_PKGCONFIG=ON
       -DWITH_1394=OFF
       -DWITH_CUDA=OFF
       -DWITH_EIGEN=ON
@@ -110,14 +109,15 @@ class Opencv < Formula
 
   test do
     (testpath/"test.cpp").write <<~EOS
-      #include <opencv/cv.h>
+      #include <opencv2/opencv.hpp>
       #include <iostream>
       int main() {
         std::cout << CV_VERSION << std::endl;
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-o", "test"
+    system ENV.cxx, "-std=c++11", "test.cpp", "-I#{include}/opencv4",
+                    "-o", "test"
     assert_equal `./test`.strip, version.to_s
 
     ["python2.7", "python3"].each do |python|
