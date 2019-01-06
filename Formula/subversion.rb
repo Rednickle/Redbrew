@@ -96,7 +96,7 @@ class Subversion < Formula
         ZLIB=#{Formula["zlib"].opt_prefix}
       ]
       scons(*args)
-      scons "install"
+      system "scons", "install"
     end
 
     if build.with? "java"

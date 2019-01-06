@@ -98,19 +98,7 @@ class Mongodb < Formula
       LINKFLAGS=-L#{Formula["openssl"].opt_lib}
     ]
 
-    unless OS.mac?
-      args << "CCFLAGS=-mmacosx-version-min=#{MacOS.version}"
-      args << "LINKFLAGS=-mmacosx-version-min=#{MacOS.version}"
-    end
-
-    unless OS.mac?
-      args << "--disable-warnings-as-errors"
-      args << "--ssl"
-      args << "CCFLAGS=-I#{Formula["openssl"].opt_include}"
-      args << "LINKFLAGS=-L#{Formula["openssl"].opt_lib}"
-    end
-
-    scons "install", *args
+    system "scons", "install", *args
 
     (buildpath/"mongod.conf").write mongodb_conf
     etc.install "mongod.conf"
