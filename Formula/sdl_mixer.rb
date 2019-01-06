@@ -19,9 +19,6 @@ class SdlMixer < Formula
   depends_on "libogg"
   depends_on "libvorbis"
   depends_on "sdl"
-  depends_on "flac" => :optional
-  depends_on "fluid-synth" => :optional
-  depends_on "smpeg" => :optional
 
   # Source file for sdl_mixer example
   resource "playwave" do
@@ -39,10 +36,6 @@ class SdlMixer < Formula
       --disable-music-ogg-shared
       --disable-music-mod-shared
     ]
-
-    args << "--disable-music-fluidsynth-shared" if build.with? "fluid-synth"
-    args << "--disable-music-flac-shared" if build.with? "flac"
-    args << "--disable-music-mp3-shared" if build.with? "smpeg"
 
     system "./configure", *args
     system "make", "install"

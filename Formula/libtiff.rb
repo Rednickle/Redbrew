@@ -13,10 +13,7 @@ class Libtiff < Formula
     sha256 "4249b949ad551f16f7fcba0f0a32e61254045a806d2f966d7df6fd0837caef8d" => :x86_64_linux
   end
 
-  option "with-xz", "Include support for LZMA compression"
-
   depends_on "jpeg"
-  depends_on "xz" => :optional
   depends_on "zlib" unless OS.mac?
 
   # Patches are taken from latest Fedora package, which is currently
@@ -25,18 +22,13 @@ class Libtiff < Formula
 
   def install
     args = %W[
-      --disable-dependency-tracking
       --prefix=#{prefix}
-      --without-x
+      --disable-dependency-tracking
+      --disable-lzma
       --with-jpeg-include-dir=#{Formula["jpeg"].opt_include}
       --with-jpeg-lib-dir=#{Formula["jpeg"].opt_lib}
+      --without-x
     ]
-    if build.with? "xz"
-      args << "--with-lzma-include-dir=#{Formula["xz"].opt_include}"
-      args << "--with-lzma-lib-dir=#{Formula["xz"].opt_lib}"
-    else
-      args << "--disable-lzma"
-    end
     system "./configure", *args
     system "make", "install"
   end
