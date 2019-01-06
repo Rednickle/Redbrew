@@ -9,6 +9,7 @@ class Libxslt < Formula
     sha256 "a6c28e88fbe71e5f7abbe82a6bbf32f24521db80681e6e5ee5b81d8b76f1ce68" => :mojave
     sha256 "8cb68d6240eec4cd125d4fae45cc9cfe10de65c4c7b848424dd815a3a90749e5" => :high_sierra
     sha256 "8db02fe625d3129ceec2c4e8f9e8972f3307ffee199f6919a5e1af4e50444bec" => :sierra
+    sha256 "095c7354cfe10b35a77172a53cadb01fc87d7a6586d60eb22f33f81eb7dba396" => :x86_64_linux
   end
 
   head do
