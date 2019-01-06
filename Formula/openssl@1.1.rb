@@ -54,14 +54,11 @@ class OpensslAT11 < Formula
       ENV["PERL"] = Formula["perl"].opt_bin/"perl"
     end
 
-    if MacOS.prefer_64_bit? && OS.mac?
-      arch_args = %w[darwin64-x86_64-cc enable-ec_nistp_64_gcc_128]
-    elsif MacOS.prefer_64_bit? && OS.linux?
+    unless OS.mac?
       arch_args = %w[linux-x86_64]
-    elsif OS.mac?
-      arch_args = %w[darwin-i386-cc]
-    elsif OS.linux?
-      arch_args = %w[linux-generic32]
+    end
+    if OS.mac?
+      arch_args = %w[darwin64-x86_64-cc enable-ec_nistp_64_gcc_128]
     end
 
     ENV.deparallelize

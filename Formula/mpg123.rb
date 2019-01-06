@@ -18,15 +18,8 @@ class Mpg123 < Formula
       --disable-dependency-tracking
       --prefix=#{prefix}
       --with-module-suffix=.so
+      --with-cpu=x86-64
     ]
-    args << "--with-default-audio=coreaudio" if OS.mac?
-
-    if MacOS.prefer_64_bit?
-      args << "--with-cpu=x86-64"
-    else
-      args << "--with-cpu=sse_alone"
-    end
-
     system "./configure", *args
     system "make", "install"
   end
