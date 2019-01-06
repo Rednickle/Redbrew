@@ -22,7 +22,6 @@ class GdkPixbuf < Formula
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
-  depends_on "jasper" => :optional
   depends_on "shared-mime-info" unless OS.mac?
 
   patch do
@@ -74,8 +73,6 @@ class GdkPixbuf < Formula
     ]
 
     args << "--libdir=#{lib}" unless OS.mac?
-
-    args << "-Djasper=true" if build.with?("jasper")
 
     ENV["DESTDIR"] = "/"
     mkdir "build" do

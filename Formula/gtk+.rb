@@ -31,7 +31,6 @@ class Gtkx < Formula
   depends_on "gdk-pixbuf"
   depends_on "hicolor-icon-theme"
   depends_on "pango"
-  depends_on "jasper" => :optional
   unless OS.mac?
     depends_on "cairo"
     depends_on "linuxbrew/xorg/libxinerama"
