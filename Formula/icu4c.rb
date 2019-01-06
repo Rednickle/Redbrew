@@ -17,12 +17,14 @@ class Icu4c < Formula
   keg_only :provided_by_macos, "macOS provides libicucore.dylib (but nothing else)"
 
   def install
-    # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j24" if ENV["CIRCLECI"]
+    args = %W[
+      --prefix=#{prefix}
+      --disable-samples
+      --disable-tests
+      --enable-static
+    ]
 
-    args = %W[--prefix=#{prefix} --disable-samples --disable-tests --enable-static]
-    args << "--with-library-bits=64" if MacOS.prefer_64_bit?
-
+    args << "--with-library-bits=64" if OS.mac?
     cd "source" do
       system "./configure", *args
       system "make"
