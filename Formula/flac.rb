@@ -38,9 +38,6 @@ class Flac < Formula
       --prefix=#{prefix}
       --enable-static
     ]
-
-    args << "--disable-asm-optimizations" if Hardware::CPU.is_32_bit?
-
     system "./autogen.sh" if build.head?
     system "./configure", *args
     system "make", "install"

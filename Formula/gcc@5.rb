@@ -1,22 +1,6 @@
 require "os/linux/glibc"
 
 class GccAT5 < Formula
-  def arch
-    if Hardware::CPU.type == :intel
-      if MacOS.prefer_64_bit?
-        "x86_64"
-      else
-        "i686"
-      end
-    elsif Hardware::CPU.type == :ppc
-      if MacOS.prefer_64_bit?
-        "powerpc64"
-      else
-        "powerpc"
-      end
-    end
-  end
-
   def osmajor
     `uname -r`.chomp
   end
@@ -102,17 +86,28 @@ class GccAT5 < Formula
     # to prevent their build.
     ENV["gcc_cv_prog_makeinfo_modern"] = "no"
 
-    args = []
+    osmajor = `uname -r`.chomp
+    args = [
+      "--prefix=#{prefix}",
+      "--libdir=#{lib}/gcc/#{version_suffix}",
+      "--enable-languages=#{languages.join(",")}",
+      # Make most executables versioned to avoid conflicts.
+      "--program-suffix=-#{version_suffix}",
+      "--with-gmp=#{Formula["gmp"].opt_prefix}",
+      "--with-mpfr=#{Formula["mpfr"].opt_prefix}",
+      "--with-mpc=#{Formula["libmpc"].opt_prefix}",
+      "--enable-stage1-checking",
+      "--enable-checking=release",
+      "--enable-lto",
+      "--enable-plugin",
+      # A no-op unless --HEAD is built because in head warnings will
+      # raise errors. But still a good idea to include.
+      "--disable-werror",
+      "--disable-nls",
+      "--with-pkgversion=Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip,
+    ]
 
-    if OS.mac?
-      osmajor = `uname -r`.chomp
-      args += [
-        "--build=#{arch}-apple-darwin#{osmajor}",
-        "--with-system-zlib",
-        "--enable-libstdcxx-time=yes",
-        "--with-bugurl=https://github.com/Homebrew/homebrew-core/issues",
-      ]
-    else
+    unless OS.mac?
       args += [
         "--with-isl=#{Formula["isl@0.18"].opt_prefix}",
         "--with-bugurl=https://github.com/Linuxbrew/homebrew-core/issues",
@@ -146,32 +141,19 @@ class GccAT5 < Formula
       end
     end
 
-    args += [
-      "--prefix=#{prefix}",
-      "--libdir=#{lib}/gcc/#{version_suffix}",
-      "--enable-languages=#{languages.join(",")}",
-      # Make most executables versioned to avoid conflicts.
-      "--program-suffix=-#{version_suffix}",
-      "--with-gmp=#{Formula["gmp"].opt_prefix}",
-      "--with-mpfr=#{Formula["mpfr"].opt_prefix}",
-      "--with-mpc=#{Formula["libmpc"].opt_prefix}",
-      "--enable-stage1-checking",
-      "--enable-checking=release",
-      "--enable-lto",
-      "--enable-plugin",
-      # A no-op unless --HEAD is built because in head warnings will
-      # raise errors. But still a good idea to include.
-      "--disable-werror",
-      "--disable-nls",
-      "--with-pkgversion=Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip,
-    ]
-
     # Fix Linux error: gnu/stubs-32.h: No such file or directory.
-    if OS.mac? && MacOS.prefer_64_bit?
+    if OS.mac?
+      args << "--with-bugurl=https://github.com/Homebrew/homebrew-core/issues"
       args << "--enable-multilib"
+      args << "--build=x86_64-apple-darwin#{osmajor}"
     else
       args << "--disable-multilib"
     end
+
+    # The pre-Mavericks toolchain requires the older DWARF-2 debugging data
+    # format to avoid failure during the stage 3 comparison of object files.
+    # See: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=45248
+    args << "--with-dwarf2" if MacOS.version <= :mountain_lion
 
     # Ensure correct install names when linking against libgcc_s;
     # see discussion in https://github.com/Homebrew/homebrew/pull/34303

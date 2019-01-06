@@ -79,8 +79,10 @@ class ErlangAT18 < Formula
       --without-javac
     ]
 
-    args << "--enable-darwin-64bit" if OS.mac? && MacOS.prefer_64_bit?
-    args << "--with-dynamic-trace=dtrace" if OS.mac? && MacOS::CLT.installed?
+    if OS.mac?
+      args << "--enable-darwin-64bit"
+      args << "--with-dynamic-trace=dtrace" if MacOS::CLT.installed?
+    end
 
     system "./configure", *args
     system "make"

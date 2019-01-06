@@ -1,20 +1,4 @@
 class GccAT49 < Formula
-  def arch
-    if Hardware::CPU.type == :intel
-      if MacOS.prefer_64_bit?
-        "x86_64"
-      else
-        "i686"
-      end
-    elsif Hardware::CPU.type == :ppc
-      if MacOS.prefer_64_bit?
-        "powerpc64"
-      else
-        "powerpc"
-      end
-    end
-  end
-
   def osmajor
     `uname -r`.chomp
   end
@@ -152,7 +136,8 @@ class GccAT49 < Formula
       "--disable-nls",
     ]
 
-    if OS.mac? && MacOS.prefer_64_bit?
+    if OS.mac?
+      args << "--build=x86_64-apple-darwin#{osmajor}"
       args << "--enable-multilib"
     else
       args << "--disable-multilib"
