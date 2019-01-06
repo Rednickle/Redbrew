@@ -3,14 +3,12 @@ class Numpy < Formula
   homepage "https://www.numpy.org/"
   url "https://files.pythonhosted.org/packages/2d/80/1809de155bad674b494248bcfca0e49eb4c5d8bee58f26fe7a0dd45029e2/numpy-1.15.4.zip"
   sha256 "3d734559db35aa3697dadcea492a423118c5c55d176da2f3be9c98d4803fc2a7"
-  revision 1
+  revision 2
 
   bottle do
-    rebuild 1
-    sha256 "a88ce3c4db443a71487c554f60460e4de47109a4fe7e7893f9d2fc1d21e6ee38" => :mojave
-    sha256 "603ffe080f688b37c17960d721ffe1449a7b58147ad4d516422f7156c092b545" => :high_sierra
-    sha256 "e6e77c177c547d5b078481572a1884339ba6b5f68e1b760a9f5fe02c36ac2ae4" => :sierra
-    sha256 "c726b81a0ebea5831794f7d08b6bc0bfbef2c7f3d3d004a1ec3c696ac4584f0d" => :x86_64_linux
+    sha256 "c17f0792cbaef597c2046b4b1cf4163c71c48d5a4bf4a02a8bbda6dc18873cee" => :mojave
+    sha256 "d7e1f3b29f14a8e4f8467dba9476322a8ceee3dcdabb3597c67395f8b32b3131" => :high_sierra
+    sha256 "3e31a959f7d0bc0ce31c642390b97aba708f1e6f83771a7b66915f44cd5a788f" => :sierra
   end
 
   head do
