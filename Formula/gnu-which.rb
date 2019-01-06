@@ -16,29 +16,38 @@ class GnuWhich < Formula
     sha256 "f4e5a8ba87eef9b0f6b7474f56c3e5ac678c4f8b6157f7d6f1124cb1817a310b" => :x86_64_linux
   end
 
-  if OS.mac?
-    option "with-default-names", "Don't prepend 'g' to the binaries"
-  else
-    option "without-default-names", "Prepend 'g' to the binaries"
-  end
-
-  deprecated_option "default-names" => "with-default-names"
-
   def install
-    args = ["--prefix=#{prefix}", "--disable-dependency-tracking"]
-    args << "--program-prefix=g" if build.without? "default-names"
+    args = %W[
+      --prefix=#{prefix}
+      --disable-dependency-tracking
+    ]
 
+    args << "--program-prefix=g" if OS.mac?
     system "./configure", *args
     system "make", "install"
 
-    if build.without? "default-names"
+    if OS.mac?
       (libexec/"gnubin").install_symlink bin/"gwhich" => "which"
       (libexec/"gnuman/man1").install_symlink man1/"gwhich.1" => "which.1"
     end
   end
 
+  def caveats; <<~EOS
+    GNU "which" has been installed as "gwhich".
+    If you need to use it as "which", you can add a "gnubin" directory
+    to your PATH from your bashrc like:
+
+        PATH="#{opt_libexec}/gnubin:$PATH"
+
+    Additionally, you can access its man page with normal name if you add
+    the "gnuman" directory to your MANPATH from your bashrc as well:
+
+        MANPATH="#{opt_libexec}/gnuman:$MANPATH"
+  EOS
+  end
+
   test do
-    which = build.with?("default-names") ? "which" : "gwhich"
-    system bin/which, "make"
+    system "#{bin}/gwhich", "gcc"
+    system "#{opt_libexec}/gnubin/which", "gcc"
   end
 end
