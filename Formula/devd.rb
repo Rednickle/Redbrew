@@ -18,7 +18,7 @@ class Devd < Formula
 
   def install
     ENV["GOOS"] = OS.mac? ? "darwin" : "linux"
-    ENV["GOARCH"] = MacOS.prefer_64_bit? ? "amd64" : "386"
+    ENV["GOARCH"] = "amd64"
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/cortesi/devd").install buildpath.children
     cd "src/github.com/cortesi/devd" do
