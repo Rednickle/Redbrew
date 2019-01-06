@@ -3,12 +3,12 @@ class R < Formula
   homepage "https://www.r-project.org/"
   url "https://cran.r-project.org/src/base/R-3/R-3.5.2.tar.gz"
   sha256 "e53d8c3cf20f2b8d7a9c1631b6f6a22874506fb392034758b3bb341c586c5b62"
+  revision 1
 
   bottle do
-    sha256 "08120ed5b37e5cf4b067e03ba8cd90bd03c6c4af66d20ab96be3abe2658a4a63" => :mojave
-    sha256 "406e19fb1c47097b3e4f9f36cc9f6bb211dc268aa2fb5603bfe814c11bbdf657" => :high_sierra
-    sha256 "25a1bfde0afffc6e186e60a2959c2d9aba89147c4f338ba5499c04d35bbfecb7" => :sierra
-    sha256 "39a097ad80285cbb8aeaffd21fb4b6f256c80ebc4de174f95f68bf25e3d0bce0" => :x86_64_linux
+    sha256 "fdb0d7c09fe57f64360fa1cfc00efeb1d744db92cf7f210cbd8087df9ae7d563" => :mojave
+    sha256 "2d197e3ad00b72a63d254ed43d98602cff6501142a42759097c2527964a8cc91" => :high_sierra
+    sha256 "9af374ab39270621340a45e5b35a201931780cbdb2b67d865320ed84f6a4d4e1" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -16,11 +16,10 @@ class R < Formula
   depends_on "gettext"
   depends_on "jpeg"
   depends_on "libpng"
+  depends_on "openblas"
   depends_on "pcre"
   depends_on "readline"
   depends_on "xz"
-  depends_on :java => :optional
-  depends_on "openblas" => :optional
 
   unless OS.mac?
     depends_on "cairo" => :recommended
@@ -50,6 +49,8 @@ class R < Formula
       "--enable-memory-profiling",
       "--with-lapack",
       "--enable-R-shlib",
+      "--disable-java",
+      "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas",
     ]
 
     # don't remember Homebrew's sed shim
@@ -63,24 +64,6 @@ class R < Formula
       # If LDFLAGS contains any -L options, configure sets LD_LIBRARY_PATH to
       # search those directories. Remove -LHOMEBREW_PREFIX/lib from LDFLAGS.
       ENV.remove "LDFLAGS", "-L#{HOMEBREW_PREFIX}/lib"
-    elsif OS.mac?
-      args << "--without-cairo"
-      args << "--with-aqua"
-      args << "--without-x"
-    end
-
-    if build.with? "openblas"
-      args << "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas"
-      ENV.append "LDFLAGS", "-L#{Formula["openblas"].opt_lib}"
-    elsif OS.mac?
-      args << "--with-blas=-framework Accelerate"
-      ENV.append_to_cflags "-D__ACCELERATE__" if ENV.compiler != :clang
-    end
-
-    if build.with? "java"
-      args << "--enable-java"
-    else
-      args << "--disable-java"
     end
 
     # Help CRAN packages find gettext and readline
