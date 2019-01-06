@@ -24,20 +24,22 @@ class Gcc < Formula
     sha256 "530cea139d82fe542b358961130c69cfde8b3d14556370b65823d2f91f0ced87"
   end
 
-  stable do
-    url "https://ftp.gnu.org/gnu/gcc/gcc-8.2.0/gcc-8.2.0.tar.xz"
-    mirror "https://ftpmirror.gnu.org/gcc/gcc-8.2.0/gcc-8.2.0.tar.xz"
-    sha256 "196c3c04ba2613f893283977e6011b2345d1cd1af9abeac58e916b1aab3e0080"
+  if OS.mac?
+    stable do
+      url "https://ftp.gnu.org/gnu/gcc/gcc-8.2.0/gcc-8.2.0.tar.xz"
+      mirror "https://ftpmirror.gnu.org/gcc/gcc-8.2.0/gcc-8.2.0.tar.xz"
+      sha256 "196c3c04ba2613f893283977e6011b2345d1cd1af9abeac58e916b1aab3e0080"
 
-    # isl 0.20 compatibility
-    # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=86724
-    patch :DATA
-  end if OS.mac?
+      # isl 0.20 compatibility
+      # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=86724
+      patch :DATA
+    end
+  end
 
   # gcc is designed to be portable.
   bottle do
     cellar :any
-    rebuild OS.mac? ? 1 : 3
+    rebuild 2
     sha256 "5d0b4c4bd26b4fe71f4a67fd25a740e9627684b01af9a87807fd5697c804e5ab" => :mojave
     sha256 "436ea3d1fa051a99129eb8bebae429bfb7a217af871c580cdaf4099b4688151b" => :high_sierra
     sha256 "3925eaf2b53b52d4f2a63477167519bdc58f79348500b108517e0e88e8eff0c1" => :sierra
