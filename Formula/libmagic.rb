@@ -12,10 +12,6 @@ class Libmagic < Formula
     sha256 "f4718aefac2014dc4a75209d4131e8be221e20ab55470c05c8ce9229c0da5b2f" => :x86_64_linux
   end
 
-  deprecated_option "with-python" => "with-python@2"
-
-  depends_on "python@2" => :optional
-
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
@@ -23,13 +19,7 @@ class Libmagic < Formula
                           "--enable-fsect-man5",
                           "--enable-static"
     system "make", "install"
-    (share+"misc/magic").install Dir["magic/Magdir/*"]
-
-    if build.with? "python@2"
-      cd "python" do
-        system "python", *Language::Python.setup_install_args(prefix)
-      end
-    end
+    (share/"misc/magic").install Dir["magic/Magdir/*"]
 
     # Don't dupe this system utility
     rm bin/"file"

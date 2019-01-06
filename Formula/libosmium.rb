@@ -14,11 +14,6 @@ class Libosmium < Formula
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
-  depends_on "doxygen" => :optional
-  depends_on "expat" => :optional
-  depends_on "gdal" => :optional
-  depends_on "google-sparsehash" => :optional
-  depends_on "proj" => :optional
   depends_on "expat" unless OS.mac?
 
   resource "protozero" do
