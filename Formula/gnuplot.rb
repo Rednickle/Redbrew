@@ -1,14 +1,13 @@
 class Gnuplot < Formula
   desc "Command-driven, interactive function plotting"
   homepage "http://www.gnuplot.info/"
-  url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.2.5/gnuplot-5.2.5.tar.gz"
-  sha256 "039db2cce62ddcfd31a6696fe576f4224b3bc3f919e66191dfe2cdb058475caa"
+  url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.2.6/gnuplot-5.2.6.tar.gz"
+  sha256 "35dd8f013139e31b3028fac280ee12d4b1346d9bb5c501586d1b5a04ae7a94ee"
 
   bottle do
-    sha256 "eaf80b9ce3cf64e57e005af62067e526d57755ef26b3ee0596581f2caf070692" => :mojave
-    sha256 "1faefa9ab294f7e29d977c3a3d2234ac2ae3cfb414a1987d8bfb287e445ef6ba" => :high_sierra
-    sha256 "b6e37f6657837216d5214e96ad4d2024e5b38ec12f12aac0ea1c97b9d06ee10e" => :sierra
-    sha256 "9cb01c9ca6aed1a0f61fbf05205615303e8dceba9bd94ad1019a595f61994cae" => :x86_64_linux
+    sha256 "86c78806b071060b545283eea0547c84fadc08c1f7626a52dcd361dfb80fda63" => :mojave
+    sha256 "ee505debad4624cc99ec87a968702cc58fa21af27c478b57212f9975e2c7ba5f" => :high_sierra
+    sha256 "f2df5c8013d01082a9683ab763c792bb5b5b9511e8282c9199b05eb0c71d16c1" => :sierra
   end
 
   head do
@@ -29,6 +28,7 @@ class Gnuplot < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gd"
+  depends_on "libcerf"
   depends_on "lua"
   depends_on "pango"
   depends_on "readline"
@@ -38,11 +38,6 @@ class Gnuplot < Formula
   depends_on "linuxbrew/xorg/xorg" if build.with?("x11") && !OS.mac?
 
   needs :cxx11 if build.with? "qt"
-
-  resource "libcerf" do
-    url "https://www.mirrorservice.org/sites/distfiles.macports.org/libcerf/libcerf-1.5.tgz"
-    sha256 "e36dc147e7fff81143074a21550c259b5aac1b99fc314fc0ae33294231ca5c86"
-  end
 
   def install
     # Qt5 requires c++11 (and the other backends do not care)
@@ -55,15 +50,6 @@ class Gnuplot < Formula
       ENV.prepend "CPPFLAGS", "-F/Library/Frameworks"
       ENV.prepend "LDFLAGS", "-F/Library/Frameworks"
     end
-
-    # gnuplot is not yet compatible with More recent libcerf:
-    # https://sourceforge.net/p/gnuplot/bugs/2077/
-    # In next release, we can remove this and depend on the libcerf formula.
-    resource("libcerf").stage do
-      system "./configure", "--prefix=#{buildpath}/libcerf", "--enable-static", "--disable-shared"
-      system "make", "install"
-    end
-    ENV.prepend_path "PKG_CONFIG_PATH", buildpath/"libcerf/lib/pkgconfig"
 
     args = %W[
       --disable-dependency-tracking
