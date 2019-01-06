@@ -14,12 +14,6 @@ class Inetutils < Formula
     sha256 "92a36071d070e040bf5740e5d3b375b5755c79062c9efcef91f0ba83c38d87a9" => :x86_64_linux
   end
 
-  if OS.mac?
-    option "with-default-names", "Don't prepend 'g' to the binaries"
-  else
-    option "without-default-names", "Prepend 'g' to the binaries"
-  end
-
   depends_on "libidn"
 
   def noshadow
@@ -36,12 +30,12 @@ class Inetutils < Formula
       --prefix=#{prefix}
       --with-idn
     ]
-    args << "--program-prefix=g" if build.without? "default-names"
 
+    args << "--program-prefix=g" if OS.mac?
     system "./configure", *args
     system "make", "install"
 
-    if build.without? "default-names"
+    if OS.mac?
       # Binaries not shadowing macOS utils symlinked without 'g' prefix
       noshadow.each do |cmd|
         bin.install_symlink "g#{cmd}" => cmd
@@ -59,23 +53,21 @@ class Inetutils < Formula
     end
   end
 
-  def caveats
-    if build.without? "default-names" then <<~EOS
-      The following commands have been installed with the prefix 'g'.
+  def caveats; <<~EOS
+    The following commands have been installed with the prefix 'g'.
 
-          #{noshadow.sort.join("\n    ")}
+        #{noshadow.sort.join("\n    ")}
 
-      If you really need to use these commands with their normal names, you
-      can add a "gnubin" directory to your PATH from your bashrc like:
+    If you really need to use these commands with their normal names, you
+    can add a "gnubin" directory to your PATH from your bashrc like:
 
-          PATH="#{opt_libexec}/gnubin:$PATH"
+        PATH="#{opt_libexec}/gnubin:$PATH"
 
-      Additionally, you can access their man pages with normal names if you add
-      the "gnuman" directory to your MANPATH from your bashrc as well:
+    Additionally, you can access their man pages with normal names if you add
+    the "gnuman" directory to your MANPATH from your bashrc as well:
 
-          MANPATH="#{opt_libexec}/gnuman:$MANPATH"
-    EOS
-    end
+        MANPATH="#{opt_libexec}/gnuman:$MANPATH"
+  EOS
   end
 
   test do

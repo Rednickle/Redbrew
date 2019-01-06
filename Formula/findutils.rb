@@ -14,14 +14,6 @@ class Findutils < Formula
     sha256 "dd4a2e64a94370d964f2521de013b2a56bbc2e2a321e95aef83aa3d95a1fe648" => :x86_64_linux
   end
 
-  if OS.mac?
-    option "with-default-names", "Don't prepend 'g' to the binaries"
-  else
-    option "without-default-names", "Prepend 'g' to the binaries"
-  end
-
-  deprecated_option "default-names" => "with-default-names"
-
   def install
     # Work around unremovable, nested dirs bug that affects lots of
     # GNU projects. See:
@@ -37,22 +29,21 @@ class Findutils < Formula
       --disable-dependency-tracking
       --disable-debug
     ]
-    args << "--program-prefix=g" if build.without? "default-names"
 
+    args << "--program-prefix=g" if OS.mac?
     system "./configure", *args
     system "make", "install"
 
-    # https://savannah.gnu.org/bugs/index.php?46846
-    # https://github.com/Homebrew/homebrew/issues/47791
-    updatedb = (build.with?("default-names") ? "updatedb" : "gupdatedb")
-    (libexec/"bin").install bin/updatedb
-    (bin/updatedb).write <<~EOS
-      #!/bin/sh
-      export LC_ALL='C'
-      exec "#{libexec}/bin/#{updatedb}" "$@"
-    EOS
+    if OS.mac?
+      # https://savannah.gnu.org/bugs/index.php?46846
+      # https://github.com/Homebrew/homebrew/issues/47791
+      (libexec/"bin").install bin/"gupdatedb"
+      (bin/"gupdatedb").write <<~EOS
+        #!/bin/sh
+        export LC_ALL='C'
+        exec "#{libexec}/bin/gupdatedb" "$@"
+      EOS
 
-    if build.without? "default-names"
       [[prefix, bin], [share, man/"*"]].each do |base, path|
         Dir[path/"g*"].each do |p|
           f = Pathname.new(p)
@@ -67,28 +58,21 @@ class Findutils < Formula
     (var/"locate").mkpath
   end
 
-  def caveats
-    if build.without? "default-names"
-      <<~EOS
-        All commands have been installed with the prefix 'g'.
-        If you do not want the prefix, install using the "with-default-names" option.
+  def caveats; <<~EOS
+    All commands have been installed with the prefix "g".
+    If you need to use these commands with their normal names, you
+    can add a "gnubin" directory to your PATH from your bashrc like:
+      PATH="#{opt_libexec}/gnubin:$PATH"
 
-        If you need to use these commands with their normal names, you
-        can add a "gnubin" directory to your PATH from your bashrc like:
-
-            PATH="#{opt_libexec}/gnubin:$PATH"
-
-        Additionally, you can access their man pages with normal names if you add
-        the "gnuman" directory to your MANPATH from your bashrc as well:
-
-            MANPATH="#{opt_libexec}/gnuman:$MANPATH"
-      EOS
-    end
+    Additionally, you can access their man pages with normal names if you add
+    the "gnuman" directory to your MANPATH from your bashrc as well:
+      MANPATH="#{opt_libexec}/gnuman:$MANPATH"
+  EOS
   end
 
   test do
-    find = (build.with?("default-names") ? "find" : "gfind")
     touch "HOMEBREW"
-    assert_match "HOMEBREW", shell_output("#{bin}/#{find} .")
+    assert_match "HOMEBREW", shell_output("#{bin}/gfind .")
+    assert_match "HOMEBREW", shell_output("#{opt_libexec}/gnubin/find .")
   end
 end
