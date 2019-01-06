@@ -4,6 +4,7 @@ class Less < Formula
   url "https://ftp.gnu.org/gnu/less/less-530.tar.gz"
   mirror "https://ftpmirror.gnu.org/less/less-530.tar.gz"
   sha256 "503f91ab0af4846f34f0444ab71c4b286123f0044a4964f1ae781486c617f2e2"
+  revision 1
 
   bottle do
     sha256 "6e0881558623d909107e5ebfab32772d164a772863b54cebec8144352ce66ccf" => :mojave
@@ -13,13 +14,11 @@ class Less < Formula
     sha256 "0e7a208c9ca5aabee9780e4027ad89b13af613c328da62ab112b09eb437e4aae" => :x86_64_linux
   end
 
-  depends_on "pcre" => :optional
+  depends_on "pcre"
   depends_on "ncurses" unless OS.mac?
 
   def install
-    args = ["--prefix=#{prefix}"]
-    args << "--with-regex=pcre" if build.with? "pcre"
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}", "--with-regex=pcre"
     system "make", "install"
   end
 

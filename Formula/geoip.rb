@@ -13,8 +13,6 @@ class Geoip < Formula
     sha256 "2b99161be39b8b2fe4efb091cd736ad59501d21f6a8ee256f9e58a1188649c42" => :x86_64_linux
   end
 
-  depends_on "geoipupdate" => :optional
-
   resource "database" do
     url "https://src.fedoraproject.org/lookaside/pkgs/GeoIP/GeoIP.dat.gz/4bc1e8280fe2db0adc3fe48663b8926e/GeoIP.dat.gz"
     sha256 "7fd7e4829aaaae2677a7975eeecd170134195e5b7e6fc7d30bf3caf34db41bcd"
