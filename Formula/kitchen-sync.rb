@@ -3,28 +3,28 @@ class KitchenSync < Formula
   homepage "https://github.com/willbryant/kitchen_sync"
   url "https://github.com/willbryant/kitchen_sync/archive/1.9.tar.gz"
   sha256 "9e2dd1200a8bc0711bb69b9f0aa1e4aa6a3c0f7661f418f2b0db02fee0ec1059"
+  revision 1
   head "https://github.com/willbryant/kitchen_sync.git"
 
   bottle do
     cellar :any
-    sha256 "8d9899bdc33c72aa5a75b5c1be48dcdaa19bddf5676f8861e032d4f94fe1740b" => :mojave
-    sha256 "0a08dfdc51586d7b36ce4ae0f9e9856bf4b52ac35689444096f0d41a211a8d37" => :high_sierra
-    sha256 "14640cda3cad294f6ca88c623dd77ff2d950a0f92a63bb87ede33140de60d30b" => :sierra
-    sha256 "a6293230bf45165b97eb47eb1bbd9edf6ccb76bc4c822ba89ef89d0fda135fc4" => :x86_64_linux
+    sha256 "e18c51dc84339926a8dc65858a37b11492b527037150fd741a7af199ad380f49" => :mojave
+    sha256 "e4dd529bdecc3f5eb6424aac50e44ac1846600161280395c90da291a23c838dd" => :high_sierra
+    sha256 "e649faa42de8df4272de7c48539d8ad8ceca1dcb7f8bfefbf3bedf761da06127" => :sierra
   end
 
   depends_on "cmake" => :build
-  depends_on "pkg-config" => :build
-  depends_on "boost"
+  depends_on "libpq"
   depends_on "mysql-client"
-  depends_on "yaml-cpp"
 
-  needs :cxx11
+  needs :cxx14
 
   def install
-    ENV.cxx11
     system "cmake", ".",
                     "-DMySQL_INCLUDE_DIR=#{Formula["mysql-client"].opt_include}/mysql",
+                    "-DMySQL_LIBRARY_DIR=#{Formula["mysql-client"].opt_lib}",
+                    "-DPostgreSQL_INCLUDE_DIR=#{Formula["libpq"].opt_include}",
+                    "-DPostgreSQL_LIBRARY_DIR=#{Formula["libpq"].opt_lib}",
                     *std_cmake_args
 
     system "make", "install"
