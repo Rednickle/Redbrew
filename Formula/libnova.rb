@@ -5,10 +5,11 @@ class Libnova < Formula
   sha256 "7c5aa33e45a3e7118d77df05af7341e61784284f1e8d0d965307f1663f415bb1"
 
   bottle do
-    cellar :any
+    cellar :any_skip_relocation
     sha256 "2bcc962108ffee6fafeae45e5b9eb8f6b233bd2aaa0163f6c89e2f77ddc6eb3f" => :mojave
     sha256 "08345c100121f219e199a833563b8f35d17e5368b93e3711377cc20acd0dce99" => :high_sierra
     sha256 "1ef1a9898b97967ba9cabdf002ddcc4b398976f0c9bb7c826f7980ffaef87dd4" => :sierra
+    sha256 "4712e1ff2877eaeb4da0ea6de97201c6cf2bf77e648d67afcfee00ee22eafcd1" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
