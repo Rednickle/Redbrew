@@ -10,6 +10,7 @@ class Libpsl < Formula
     sha256 "42a57365960939d5f4b7f944d530ae22d2f316143e269021554edcf297fa5850" => :mojave
     sha256 "ce7f00eaebb1e0300c841f5d6a6ef6e86b40ba6003ed07302d4c773c6ee6733a" => :high_sierra
     sha256 "c7c5f3f20391cfa17f0461e48a8cf3a74e2d9ea7b69b82fdfcb2085443677ffe" => :sierra
+    sha256 "f93dc105735f0cc8243bed12a56447ab92c0275b835f719d1ed221ba2a23cccc" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
