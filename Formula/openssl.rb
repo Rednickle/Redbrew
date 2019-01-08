@@ -37,14 +37,13 @@ class Openssl < Formula
   env :std if MacOS.version == :snow_leopard
 
   def arch_args
-    unless OS.mac?
-      %w[linux-x86_64]
-    end
     if OS.mac?
       %w[
         darwin64-x86_64-cc
         enable-ec_nistp_64_gcc_128
       ]
+    else
+      %w[linux-x86_64]
     end
   end
 
