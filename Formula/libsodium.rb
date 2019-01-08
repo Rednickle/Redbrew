@@ -9,6 +9,7 @@ class Libsodium < Formula
     sha256 "ac5455ed23e8e62db7ab5c96786ae21060f01074256f5d785a0f0d5dd6a9e1c6" => :mojave
     sha256 "dceca36893073a2f24f4f256d4ff98ea4b80eb44de89a706c70c69c15d5c7bae" => :high_sierra
     sha256 "b6dbce55089f4c5405272a163b98f981be44076514de098c65a1a074024d81e3" => :sierra
+    sha256 "a0acd844e522104b1a3335af90d403ce7e24fb94bfa0f621fbd30f4361499fe5" => :x86_64_linux
   end
 
   head do
