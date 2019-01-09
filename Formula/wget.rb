@@ -4,13 +4,12 @@ class Wget < Formula
   url "https://ftp.gnu.org/gnu/wget/wget-1.20.1.tar.gz"
   mirror "https://ftpmirror.gnu.org/wget/wget-1.20.1.tar.gz"
   sha256 "b783b390cb571c837b392857945f5a1f00ec6b043177cc42abb8ee1b542ee1b3"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "cf0015a7ddf079f83c5938b8724cb1a45472be5eddffd917fbb9d398f2c33873" => :mojave
-    sha256 "bec2cf88b421a1d2759111054f98df21caa6602282897f81473c18b9c14ed0e4" => :high_sierra
-    sha256 "39383f48327c93865b7f199e306f8f9e0e3051235a2f432e1e65493780df58df" => :sierra
-    sha256 "3b6b9bd00c3d0ca00df30911dc8e8825ae00f4c606c8b96bbd84adaaec16d1ad" => :x86_64_linux
+    sha256 "55391a9d887a73b73ce4572876b2887fd6a8059a5f23dc1ec6d2522224be21ce" => :mojave
+    sha256 "43424a93c4209fd6699c782307071999850c1b03f52b5654ec061d709b1f6f2f" => :high_sierra
+    sha256 "bfa299d95e3667ff902c9aeeaa1217dc288f9b374996382f914393a718a5534c" => :sierra
   end
 
   head do
@@ -34,7 +33,9 @@ class Wget < Formula
                           "--sysconfdir=#{etc}",
                           "--with-ssl=openssl",
                           "--with-libssl-prefix=#{Formula["openssl"].opt_prefix}",
-                          "--disable-debug"
+                          "--disable-debug",
+                          "--disable-pcre",
+                          "--disable-pcre2"
     system "make", "install"
   end
 
