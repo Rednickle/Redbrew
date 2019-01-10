@@ -3,21 +3,20 @@ class Sox < Formula
   homepage "https://sox.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/sox/sox/14.4.2/sox-14.4.2.tar.gz"
   sha256 "b45f598643ffbd8e363ff24d61166ccec4836fea6d3888881b8df53e3bb55f6c"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "e0e0c4d0d52410e04179c4cdca1cd09c46451a282af6ebe7b8840e6b9aac4268" => :mojave
-    sha256 "5ba02bdd4b170dc35d5472399a705a13e2711e2e84af79c98b2b484e4acd05cc" => :high_sierra
-    sha256 "e7bd73d3b1f15ef439b2cba3cddaa74e3fad91747f2be1f66a551d6db1a61c49" => :sierra
-    sha256 "87a4cf98e014b42c9ff3b074496673f9fce5c622fc7c3854a6906083755bbcf6" => :x86_64_linux
+    sha256 "4906207f83bd0f4ea1a67d040891711e9a9e8830216e451072f2957ca566b83d" => :mojave
+    sha256 "c0bb4ba7ec922d9a8c71c2ba84e28c66c67e4fdeae970011ea45e937f43c18bd" => :high_sierra
+    sha256 "dc8c294bb96c0b7ebc3ade73476c6031664bb8e81a32ece87ce84f815deeced5" => :sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "flac"
   depends_on "lame"
   depends_on "libpng"
+  depends_on "libsndfile"
   depends_on "libvorbis"
   depends_on "mad"
   depends_on "opusfile"
