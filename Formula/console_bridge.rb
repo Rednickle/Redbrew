@@ -9,6 +9,7 @@ class ConsoleBridge < Formula
     sha256 "7308ed00a95eb83e3abdb0f703e087233bd3a784ff346c04f722711e7cf479ce" => :mojave
     sha256 "e6db9b8748f57fc7e3e1ac8aabbc2b5e2fd90cc32c7430cf8da1bb4080457c30" => :high_sierra
     sha256 "758bcbd74e20a5917c1e167579561919cb6aa8cb1a2a184d4c223319c919d9d4" => :sierra
+    sha256 "40a7ebc83361265529be21af1bfc681d15513f03491726c16a1099e386316ede" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
