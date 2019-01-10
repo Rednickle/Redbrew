@@ -14,6 +14,7 @@ class Sipsak < Formula
     sha256 "873d8cd50cce684ad55abbdf834157b4464c70877de9d1c37ad3c4ec9aaf6e10" => :yosemite
     sha256 "d70729739fcfe770fdfa997dc33cd04370a6cd2f6916e63adfed60473c4bfc55" => :mavericks
     sha256 "09d0961004d525dfc5f81bfe111884b401a09993fd83ff2f426016feb99607d4" => :mountain_lion
+    sha256 "acdea05144f3739a6b93effc6a8616dc2b93e8f2c60be49f0abb3538d4fce98e" => :x86_64_linux
   end
 
   depends_on "openssl"
