@@ -5,12 +5,11 @@ class Mono < Formula
   sha256 "91aa3e8a12aaf94760a092866abc5c5f1f437ecd0a97bedfff857c439aa7a87f"
 
   bottle do
-    sha256 "103ef04b636d095f21f4447d7e835dcfc17279c7eb4bc19cdea1535099b830b2" => :mojave
-    sha256 "44434e90915ed9849886e568a2434f484e3dda5adfd5f5a07c3f77eb421b1fde" => :high_sierra
-    sha256 "9b5c5dfae0a67c324ff9cfaf9723f52d913006116f26dc1b88459d8da82f82f0" => :sierra
+    rebuild 1
+    sha256 "9eafd6e0b93f4c2b93b1ea57c42f3282f052db3ac712f31465564ba76faea936" => :mojave
+    sha256 "e0b8d7a241aba9e236af9626006cf8a8c0a7c7a0eaeb764e5d7e28d4da4d82e8" => :high_sierra
+    sha256 "3e09a75b4dac30fc56cec97e3127b3c047f7613fd259f68c08444806cf7e8e7a" => :sierra
   end
-
-  option "without-fsharp", "Build without support for the F# language."
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
@@ -75,20 +74,16 @@ class Mono < Formula
     end
 
     # Finally build and install fsharp as well
-    if build.with? "fsharp"
-      resource("fsharp").stage do
-        ENV.prepend_path "PKG_CONFIG_PATH", lib/"pkgconfig"
-        system "make"
-        system "make", "install"
-      end
+    resource("fsharp").stage do
+      ENV.prepend_path "PKG_CONFIG_PATH", lib/"pkgconfig"
+      system "make"
+      system "make", "install"
     end
   end
 
   def caveats; <<~EOS
     To use the assemblies from other formulae you need to set:
       export MONO_GAC_PREFIX="#{HOMEBREW_PREFIX}"
-    Note that the 'mono' formula now includes F#. If you have
-    the 'fsharp' formula installed, remove it with 'brew uninstall fsharp'.
   EOS
   end
 
@@ -124,42 +119,40 @@ class Mono < Formula
     EOS
     system bin/"xbuild", "test.csproj"
 
-    if build.with? "fsharp"
-      # Test that fsharpi is working
-      ENV.prepend_path "PATH", bin
-      (testpath/"test.fsx").write <<~EOS
-        printfn "#{test_str}"; 0
-      EOS
-      output = pipe_output("#{bin}/fsharpi test.fsx")
-      assert_match test_str, output
+    # Test that fsharpi is working
+    ENV.prepend_path "PATH", bin
+    (testpath/"test.fsx").write <<~EOS
+      printfn "#{test_str}"; 0
+    EOS
+    output = pipe_output("#{bin}/fsharpi test.fsx")
+    assert_match test_str, output
 
-      # Tests that xbuild is able to execute fsc.exe
-      (testpath/"test.fsproj").write <<~EOS
-        <?xml version="1.0" encoding="utf-8"?>
-        <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-          <PropertyGroup>
-            <ProductVersion>8.0.30703</ProductVersion>
-            <SchemaVersion>2.0</SchemaVersion>
-            <ProjectGuid>{B6AB4EF3-8F60-41A1-AB0C-851A6DEB169E}</ProjectGuid>
-            <OutputType>Exe</OutputType>
-            <FSharpTargetsPath>$(MSBuildExtensionsPath32)\\Microsoft\\VisualStudio\\v$(VisualStudioVersion)\\FSharp\\Microsoft.FSharp.Targets</FSharpTargetsPath>
-          </PropertyGroup>
-          <Import Project="$(FSharpTargetsPath)" Condition="Exists('$(FSharpTargetsPath)')" />
-          <ItemGroup>
-            <Compile Include="Main.fs" />
-          </ItemGroup>
-          <ItemGroup>
-            <Reference Include="mscorlib" />
-            <Reference Include="System" />
-            <Reference Include="FSharp.Core" />
-          </ItemGroup>
-        </Project>
-      EOS
-      (testpath/"Main.fs").write <<~EOS
-        [<EntryPoint>]
-        let main _ = printfn "#{test_str}"; 0
-      EOS
-      system bin/"xbuild", "test.fsproj"
-    end
+    # Tests that xbuild is able to execute fsc.exe
+    (testpath/"test.fsproj").write <<~EOS
+      <?xml version="1.0" encoding="utf-8"?>
+      <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+        <PropertyGroup>
+          <ProductVersion>8.0.30703</ProductVersion>
+          <SchemaVersion>2.0</SchemaVersion>
+          <ProjectGuid>{B6AB4EF3-8F60-41A1-AB0C-851A6DEB169E}</ProjectGuid>
+          <OutputType>Exe</OutputType>
+          <FSharpTargetsPath>$(MSBuildExtensionsPath32)\\Microsoft\\VisualStudio\\v$(VisualStudioVersion)\\FSharp\\Microsoft.FSharp.Targets</FSharpTargetsPath>
+        </PropertyGroup>
+        <Import Project="$(FSharpTargetsPath)" Condition="Exists('$(FSharpTargetsPath)')" />
+        <ItemGroup>
+          <Compile Include="Main.fs" />
+        </ItemGroup>
+        <ItemGroup>
+          <Reference Include="mscorlib" />
+          <Reference Include="System" />
+          <Reference Include="FSharp.Core" />
+        </ItemGroup>
+      </Project>
+    EOS
+    (testpath/"Main.fs").write <<~EOS
+      [<EntryPoint>]
+      let main _ = printfn "#{test_str}"; 0
+    EOS
+    system bin/"xbuild", "test.fsproj"
   end
 end
