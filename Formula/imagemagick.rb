@@ -7,27 +7,26 @@ class Imagemagick < Formula
   url "https://dl.bintray.com/homebrew/mirror/ImageMagick-7.0.8-23.tar.xz"
   mirror "https://www.imagemagick.org/download/ImageMagick-7.0.8-23.tar.xz"
   sha256 "e535ef9c0e7e5961a9907a13475ffc4c0d7b84a2788484910337bcdb30498656"
+  revision 1
   head "https://github.com/ImageMagick/ImageMagick.git"
 
   bottle do
-    sha256 "da7899272691f86163f9bbe11221b372dd199b76320d620604b89172d36541c9" => :mojave
-    sha256 "3ae33bd390922b06e49b460e4030a4200f5c8958bc224502be1264c089454124" => :high_sierra
-    sha256 "dfb5614993120610ab620bdf67e16b3846dec3f88fb4756ffb0fea90b972b913" => :sierra
-    sha256 "2e47502b1c7e9b13d67748b8aeee67bbaef29a3a02c50471807cfbb2a55aa798" => :x86_64_linux
+    sha256 "3f334e7564b68fc577815d27e7b9ed680de156f0fa2f0b7349df84df3db93f65" => :mojave
+    sha256 "0c4cde95593eb9280fcbfb2469e641ec7ed79b0ac7f9add6316a316a49218010" => :high_sierra
+    sha256 "268d7a5ba387992a19500b5b30aa21dd52415a1d0ee9584f37e78f315243a1cd" => :sierra
   end
 
   option "with-fftw", "Compile with FFTW support"
-  option "with-hdri", "Compile with HDRI support"
   option "with-libheif", "Compile with HEIF support"
   option "with-perl", "Compile with PerlMagick"
 
-  deprecated_option "enable-hdri" => "with-hdri"
   deprecated_option "with-libde265" => "with-libheif"
 
   depends_on "pkg-config" => :build
 
   depends_on "freetype"
   depends_on "jpeg"
+  depends_on "libomp"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "libtool"
@@ -61,19 +60,21 @@ class Imagemagick < Formula
       --disable-dependency-tracking
       --disable-silent-rules
       --disable-opencl
-      --disable-openmp
       --enable-shared
       --enable-static
       --with-freetype=yes
       --with-modules
       --with-openjp2
       --with-webp=yes
+      --enable-openmp
+      ac_cv_prog_c_openmp=-Xpreprocessor\ -fopenmp
+      ac_cv_prog_cxx_openmp=-Xpreprocessor\ -fopenmp
+      LDFLAGS=-lomp
     ]
 
     args << "--without-gslib" if build.without? "ghostscript"
     args << "--with-perl" << "--with-perl-options='PREFIX=#{prefix}'" if build.with? "perl"
     args << "--with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts" if build.without? "ghostscript"
-    args << "--enable-hdri=yes" if build.with? "hdri"
     args << "--without-fftw" if build.without? "fftw"
     args << "--without-pango" if build.without? "pango"
     args << "--with-rsvg" if build.with? "librsvg"
