@@ -9,6 +9,7 @@ class Jid < Formula
     sha256 "fe863d058029cd05bfbab6e4cb4c047bacf083e384107bae392cd19f98fa838f" => :mojave
     sha256 "b56ab5691802bef1c9208bceb5033c7c0189039d51cbba8d76340bc6201a0a5c" => :high_sierra
     sha256 "26f30466774f05ac96a24d8a3210d36bbf2c17fbce36734beca7a6e91afa7e34" => :sierra
+    sha256 "bd7c9f51e5d0a19456f1d4639068ce68d0e91188561c588398599e9833231082" => :x86_64_linux
   end
 
   depends_on "go" => :build
