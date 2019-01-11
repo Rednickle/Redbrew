@@ -10,6 +10,7 @@ class Perl < Formula
     sha256 "6f9c6519a6c95eb3212abde423688fa01d3d56be0c424f9e6e8bed7b59dfe014" => :mojave
     sha256 "b04e2b8a5158c6405558e8408d901c7c1899eda8950202f1dfddd6efd7cfa043" => :high_sierra
     sha256 "8099f37b2521864a095eb06dc5cde02805421a78ddda95fafe3fc538a3ef3553" => :sierra
+    sha256 "2a890d0a8475dabb2d0789547b5f6c9872a744dc6df178be7033a799bf3880f4" => :x86_64_linux
   end
 
   unless OS.mac?
