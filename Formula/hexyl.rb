@@ -9,6 +9,7 @@ class Hexyl < Formula
     sha256 "3c43d2d80a90c12a02f19865f2557f52075363f629019b02107b2b568b284824" => :mojave
     sha256 "2063e6061c019ad0ff3d63941f77d6ceb3dde296e429afa6dc52b518d2629b26" => :high_sierra
     sha256 "fc7908fc3e4641fbf494b103abbcac6014a9c8a0b00fc7097719d06acc28f066" => :sierra
+    sha256 "62b040c8d6c2a958132184962ff2f98ddddd936e890c597bcd1a2fd7b93f0fe9" => :x86_64_linux
   end
 
   depends_on "rust" => :build
