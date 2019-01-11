@@ -11,6 +11,7 @@ class Tcpdump < Formula
     sha256 "20cff571e2451cfb42455f57bfea31826908b292de526cf81f48186f3a8b61c8" => :mojave
     sha256 "83d5be5d91524f71b9c9c82e38881546397007e6fed48d5524765a59ac91917e" => :high_sierra
     sha256 "5369f6103ea0a3ad291cbc1ee695f0ad0922cf83a709543daad41ef7fda6e01b" => :sierra
+    sha256 "823d398f338206cac0f3febb4b519a1bf8c6d9e2ce8ec0c43ff3f29e2c73b3e6" => :x86_64_linux
   end
 
   depends_on "libpcap"
