@@ -105,7 +105,13 @@ class Octave < Formula
       --with-sndfile
     ]
 
-    args << "--without-qt" if build.without? "qt"
+    if build.with? "qt"
+      # Stuff for Qt 5.12 compatibility
+      # https://savannah.gnu.org/bugs/?55187
+      ENV["QCOLLECTIONGENERATOR"]="qhelpgenerator"
+    else
+      args << "--without-qt"
+    end
 
     system "./bootstrap" if build.head?
     system "./configure", *args

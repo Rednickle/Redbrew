@@ -3,13 +3,13 @@ class Glances < Formula
   homepage "https://nicolargo.github.io/glances/"
   url "https://github.com/nicolargo/glances/archive/v3.0.2.tar.gz"
   sha256 "76a793a8e0fbdce11ad7fb35000695fdb70750f937db41f820881692d5b0a29c"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8f44395cc8877e4199d86a92dda5e5c7ccecccf1f2ff0e8bc1eee2fc181d9f50" => :mojave
-    sha256 "151f9f55d7c93b65e2ba6c2e3f3c06532714454240a30ff7cb52b60106da7064" => :high_sierra
-    sha256 "2add753cf4012a42947989d47dffce297f7cceac84a14c332bb1805766b0d22e" => :sierra
+    sha256 "cb9bfa0bf0df0f2b996bdd0d5daca7cfb869a369bac84d27d77f6a56adc7ff64" => :mojave
+    sha256 "8188244e1732f617ab8592deabb850b7bd17f8648eb0dca613755e9fb653fc37" => :high_sierra
+    sha256 "19db250fd6296987ae96419867e1152ab0acfb8801f3d928b2ca9a982557cbc4" => :sierra
   end
 
   depends_on "python"
@@ -42,6 +42,11 @@ class Glances < Formula
   resource "CouchDB" do
     url "https://files.pythonhosted.org/packages/7c/c8/f94a107eca0c178e5d74c705dad1a5205c0f580840bd1b155cd8a258cb7c/CouchDB-1.2.tar.gz"
     sha256 "1386a1a43f25bed3667e3b805222054940d674fa1967fa48e9d2012a18630ab7"
+  end
+
+  resource "docker" do
+    url "https://files.pythonhosted.org/packages/42/e1/784ec7b36b9b1592055b4c6f36f9cebfc320427cf56b8a9051f613d343f7/docker-3.7.0.tar.gz"
+    sha256 "2840ffb9dc3ef6d00876bde476690278ab13fa1f8ba9127ef855ac33d00c3152"
   end
 
   resource "elasticsearch" do
