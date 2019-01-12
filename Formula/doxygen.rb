@@ -8,10 +8,10 @@ class Doxygen < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2ca215c26200d5e12735c306dead7fef458613d94857b28f7e425929f8dd65dd" => :mojave
-    sha256 "11c0ec6f8ad45c65904f085aea930f4ddc7c6d6a507610e63fed8ceb0c81735b" => :high_sierra
-    sha256 "ef99a58a814f6d022b19d34e4f1498ca9a12682ba8a7938147813888f4bbec45" => :sierra
-    sha256 "356ca35b8ae591886ae123f5fa1671c8552c0b224f544254994de016b1edf919" => :x86_64_linux
+    rebuild 1
+    sha256 "e5d8d60c9304b0146866fbe1edc0096d54fbd979fadf2fb8eed352548a3875f4" => :mojave
+    sha256 "eee7e8c42fff656c3b335f5f8393a9ce7113eff535eff05e8f876ae7b40d083c" => :high_sierra
+    sha256 "a086e334ee3b24456e87a2806cadc35e42d1dcb10ee94c5a1c091b4f5c9d434c" => :sierra
   end
 
   option "with-graphviz", "Build with dot command support from Graphviz."
@@ -30,6 +30,13 @@ class Doxygen < Formula
   unless OS.mac?
     depends_on "bison"
     depends_on "flex"
+  end
+
+  # Fix build breakage for 1.8.15 and CMake 3.13
+  # https://github.com/Homebrew/homebrew-core/issues/35815
+  patch do
+    url "https://github.com/doxygen/doxygen/commit/889eab308b564c4deba4ef58a3f134a309e3e9d1.diff?full_index=1"
+    sha256 "ba4f9251e2057aa4da3ae025f8c5f97ea11bf26065a3f0e3b313b9acdad0b938"
   end
 
   def install

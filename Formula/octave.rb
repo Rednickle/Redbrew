@@ -98,7 +98,6 @@ class Octave < Formula
       --enable-shared
       --disable-static
       --disable-docs
-      --without-osmesa
       --with-hdf5-includedir=#{Formula["hdf5"].opt_include}
       --with-hdf5-libdir=#{Formula["hdf5"].opt_lib}
       --with-x=no
