@@ -2,17 +2,15 @@ class Moreutils < Formula
   desc "Collection of tools that nobody wrote when UNIX was young"
   homepage "https://joeyh.name/code/moreutils/"
   url "https://git.joeyh.name/git/moreutils.git",
-      :tag      => "0.62",
-      :revision => "06b5970631ffbf151893bd3e1e7f03fb76aad4c0"
+      :tag      => "0.63",
+      :revision => "aeddd0f4caa9d10aaa691040773fa4764e12ff46"
   head "https://git.joeyh.name/git/moreutils.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "060544e89b1434167caed439b54c0851ed72358bcdeb71ab69202ada4ddc9240" => :mojave
-    sha256 "9ddae132c36dec3a9d9e30181dfe7e63ca860d80d9136f99927fdae05f1af5c7" => :high_sierra
-    sha256 "3efc2f2f6e9783e48a0da1aad20b47943f25e5447ec1b16b3f135a1c0b74cea6" => :sierra
-    sha256 "2d56cc3f58c423c179c139f2b7cf510898bfeeaef1802f39dead1151e934cb8b" => :x86_64_linux
+    sha256 "a3d5a342bf079998b52d172f0f5e8b066b256145e2eb3ded393a0e6e2680b573" => :mojave
+    sha256 "3731c1304a72a7a0486891bf592cd82b7422d0c37cadeb00b6f633e62f20aa35" => :high_sierra
+    sha256 "fac2ba67a62889ff07edb8257e0d13aa96143a7421521ffdf3e0cf685a1cdc1e" => :sierra
   end
 
   depends_on "docbook-xsl" => :build
