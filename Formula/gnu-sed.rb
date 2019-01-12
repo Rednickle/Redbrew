@@ -30,6 +30,8 @@ class GnuSed < Formula
       (libexec/"gnubin").install_symlink bin/"gsed" =>"sed"
       (libexec/"gnuman/man1").install_symlink man1/"gsed.1" => "sed.1"
     end
+
+    libexec.install_symlink "gnuman" => "man"
   end
 
   def caveats
@@ -39,12 +41,7 @@ class GnuSed < Formula
       If you need to use it as "sed", you can add a "gnubin" directory
       to your PATH from your bashrc like:
 
-          PATH="#{opt_libexec}/gnubin:$PATH"
-
-      Additionally, you can access its man page with normal name if you add
-      the "gnuman" directory to your MANPATH from your bashrc as well:
-
-          MANPATH="#{opt_libexec}/gnuman:$MANPATH"
+        PATH="#{opt_libexec}/gnubin:$PATH"
     EOS
   end
 
