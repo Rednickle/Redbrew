@@ -20,7 +20,7 @@ class Volatility < Formula
 
   depends_on "freetype"
   depends_on "jpeg"
-  depends_on "python@2"
+  depends_on "python@2" # does not support Python 3
   depends_on "yara"
   depends_on "gmp" unless OS.mac? # for pycrypto
 
