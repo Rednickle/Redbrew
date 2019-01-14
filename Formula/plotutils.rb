@@ -20,7 +20,6 @@ class Plotutils < Formula
   end
 
   depends_on "libpng"
-  depends_on :x11 => :optional
   depends_on "linuxbrew/xorg/xorg" unless OS.mac?
 
   def install
@@ -34,8 +33,6 @@ class Plotutils < Formula
       --prefix=#{prefix}
       --enable-libplotter
     ]
-
-    args << "--with-x" if build.with? "x11"
 
     system "./configure", *args
     system "make"

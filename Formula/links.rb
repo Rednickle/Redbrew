@@ -18,7 +18,6 @@ class Links < Formula
   depends_on "librsvg"
   depends_on "libtiff"
   depends_on "openssl"
-  depends_on :x11 => :optional
   depends_on "linuxbrew/xorg/xorg" unless OS.mac?
 
   def install
@@ -30,8 +29,6 @@ class Links < Formula
       --with-ssl=#{Formula["openssl"].opt_prefix}
       --without-lzma
     ]
-
-    args << "--enable-graphics" if build.with? "x11"
 
     system "./configure", *args
     system "make", "install"
