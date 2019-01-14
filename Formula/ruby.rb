@@ -201,13 +201,15 @@ class Ruby < Formula
   EOS
   end
 
-  def caveats; <<~EOS
+  def caveats
+    return unless OS.mac?
+    <<~EOS
     By default, binaries installed by gem will be placed into:
       #{rubygems_bindir}
 
     You may want to add this to your PATH.
-  EOS
-  end if OS.mac?
+    EOS
+  end
 
   test do
     hello_text = shell_output("#{bin}/ruby -e 'puts :hello'")
