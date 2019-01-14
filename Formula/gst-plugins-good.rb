@@ -50,7 +50,6 @@ class GstPluginsGood < Formula
   depends_on "libcaca" => :optional
   depends_on "libdv" => :optional
   depends_on "pulseaudio" => :optional
-  depends_on :x11 => :optional
 
   def install
     args = %W[
@@ -61,15 +60,10 @@ class GstPluginsGood < Formula
       --disable-debug
       --disable-dependency-tracking
       --disable-silent-rules
+      --disable-x
     ]
 
     args << "--enable-gtk3" if build.with? "gtk+3"
-
-    if build.with? "x11"
-      args << "--with-x"
-    else
-      args << "--disable-x"
-    end
 
     # This plugin causes hangs on Snow Leopard (and possibly other versions?)
     # Upstream says it hasn't "been actively tested in a long time";

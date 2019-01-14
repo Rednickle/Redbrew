@@ -25,7 +25,6 @@ class Graphicsmagick < Formula
   depends_on "libwmf" => :optional
   depends_on "little-cms2" => :optional
   depends_on "webp" => :optional
-  depends_on :x11 => :optional
   unless OS.mac?
     depends_on "bzip2"
     depends_on "libxml2"
@@ -39,19 +38,19 @@ class Graphicsmagick < Formula
     args = %W[
       --prefix=#{prefix}
       --disable-dependency-tracking
-      --enable-shared
-      --disable-static
-      --with-modules
-      --without-lzma
       --disable-openmp
+      --disable-static
+      --enable-shared
+      --with-modules
       --with-quantum-depth=16
+      --without-lzma
+      --without-x
     ]
 
     args << "--without-gslib" if build.without? "ghostscript"
     args << "--with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts" if build.without? "ghostscript"
     args << "--with-perl" if build.with? "perl"
     args << "--with-webp=no" if build.without? "webp"
-    args << "--without-x" if build.without? "x11"
     args << "--without-lcms2" if build.without? "little-cms2"
     args << "--without-wmf" if build.without? "libwmf"
 
