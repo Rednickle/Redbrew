@@ -1,14 +1,15 @@
 class Carla < Formula
   desc "Audio plugin host supporting LADSPA, LV2, VST2/3, SF2 and more"
   homepage "https://kxstudio.linuxaudio.org/Applications:Carla"
-  url "https://github.com/falkTX/Carla/archive/v1.9.12.tar.gz"
-  sha256 "f4711cb857ea5c409b4602ab2254956d4f24311ed292048f9013163c953e0f30"
+  url "https://github.com/falkTX/Carla/archive/v1.9.13.tar.gz"
+  sha256 "cc6639dd23b22279f8ab1ae9b51e71d5480b86112c475110daa68cf68fb8cf63"
   head "https://github.com/falkTX/Carla.git"
 
   bottle do
-    sha256 "b58bb67d7296dde12f72e1acd0b577974629ca1181b8598cddd8dc1febb38706" => :mojave
-    sha256 "5894be46ea05fb86e31c401cbc05a789bcd4d9007bd19ac10bb6eb4f41bb49b2" => :high_sierra
-    sha256 "1f80475093e48c1fdd3f4c3c21b3e797f25064f6c501d279e6108ef3962fe471" => :sierra
+    cellar :any
+    sha256 "b8bf3cb55de8af9005d8b982df36f55698107b2ff5022909003793a3421d9633" => :mojave
+    sha256 "a5350b1b6d4c6e560ee71f8621f80e4550e54c3cb9f59915a55d5767a0706860" => :high_sierra
+    sha256 "30494098b93d0b5c6497d2c4a677096bea711a8c05dfd2d8c779c7a92a088b99" => :sierra
   end
 
   depends_on "pkg-config" => :build
