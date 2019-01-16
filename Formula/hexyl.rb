@@ -1,15 +1,14 @@
 class Hexyl < Formula
   desc "Command-line hex viewer"
   homepage "https://github.com/sharkdp/hexyl"
-  url "https://github.com/sharkdp/hexyl/archive/v0.3.1.tar.gz"
-  sha256 "c0dec617cf2723dda349d365de6c3e916ce61e56eb2695b72bcead2df90953cb"
+  url "https://github.com/sharkdp/hexyl/archive/v0.4.0.tar.gz"
+  sha256 "7450d8e0d382a9f78c5fa6de562359749586824d74c708c983da5a9c032bfd43"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3c43d2d80a90c12a02f19865f2557f52075363f629019b02107b2b568b284824" => :mojave
-    sha256 "2063e6061c019ad0ff3d63941f77d6ceb3dde296e429afa6dc52b518d2629b26" => :high_sierra
-    sha256 "fc7908fc3e4641fbf494b103abbcac6014a9c8a0b00fc7097719d06acc28f066" => :sierra
-    sha256 "62b040c8d6c2a958132184962ff2f98ddddd936e890c597bcd1a2fd7b93f0fe9" => :x86_64_linux
+    sha256 "e05935d8bb534362f8f0c695084550dd39cac6b53506131e16b5e41ee8121dc8" => :mojave
+    sha256 "a39ed75bc657df2dd48d78a4404619ecfc3920921e5668bd50e78125809696bb" => :high_sierra
+    sha256 "af20c59d4422118f40dfcb768d458c43ed9eff46c3e0fa11e589cbafe0cd1331" => :sierra
   end
 
   depends_on "rust" => :build
