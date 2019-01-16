@@ -6,18 +6,18 @@ class TclTk < Formula
   version "8.6.8"
   revision 1 unless OS.mac?
   sha256 "c43cb0c1518ce42b00e7c8f6eaddd5195c53a98f94adc717234a65cbcfd3f96a"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "120f17e162aa5e7351d59a97dc068055b421892ebb6226734349ee759ca42754" => :mojave
-    sha256 "869c7dd3f4e4cd25dca3cda9f0ff8350af08c3ba18ebcc60b661ca8df58ba8a5" => :high_sierra
-    sha256 "d7ff69ed715709d44eaff72bca96099ad2815091fcd97358ad5aaa5239bf06b8" => :sierra
-    sha256 "37f645dc0fe9e4899bbafeeb14c0bdce8c3a08d70675905875f93c68294b0ddc" => :x86_64_linux
+    sha256 "9b698ba74f8d97ea25123df88775fa486a05bbe18b1744ff7a6bf7f1cd30aaa3" => :mojave
+    sha256 "c591a13ec04ad772639d28f3090aa76b9f410c67189c31abcbdbe9ae29472d65" => :high_sierra
+    sha256 "166f4816291851777a321e27b5d8f19322e218f682ca0881dbdfec15e7af7980" => :sierra
   end
 
   keg_only :provided_by_macos,
     "tk installs some X11 headers and macOS provides an (older) Tcl/Tk"
 
+  depends_on "openssl"
   unless OS.mac?
     depends_on "linuxbrew/xorg/xorg"
     depends_on "pkg-config" => :build
@@ -26,6 +26,11 @@ class TclTk < Formula
   resource "tcllib" do
     url "https://downloads.sourceforge.net/project/tcllib/tcllib/1.18/tcllib-1.18.tar.gz"
     sha256 "72667ecbbd41af740157ee346db77734d1245b41dffc13ac80ca678dd3ccb515"
+  end
+
+  resource "tcltls" do
+    url "https://core.tcl.tk/tcltls/uv/tcltls-1.7.16.tar.gz"
+    sha256 "6845000732bedf764e78c234cee646f95bb68df34e590c39434ab8edd6f5b9af"
   end
 
   resource "tk" do
@@ -76,6 +81,11 @@ class TclTk < Formula
 
     resource("tcllib").stage do
       system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
+      system "make", "install"
+    end
+
+    resource("tcltls").stage do
+      system "./configure", "--with-ssl=openssl", "--with-openssl-dir=#{Formula["openssl"].opt_prefix}", "--prefix=#{prefix}", "--mandir=#{man}"
       system "make", "install"
     end
   end
