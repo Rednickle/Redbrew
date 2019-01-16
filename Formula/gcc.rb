@@ -9,10 +9,6 @@ class Gcc < Formula
     end
   end
 
-  def osmajor
-    `uname -r`.chomp
-  end
-
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
   revision 4 unless OS.mac?
@@ -147,9 +143,6 @@ class Gcc < Formula
 
     # Fix cc1: error while loading shared libraries: libisl.so.15
     args << "--with-boot-ldflags=-static-libstdc++ -static-libgcc #{ENV["LDFLAGS"]}" unless OS.mac?
-
-    # D will be included in GCC 9
-    languages << "d" if OS.mac? && build.head?
 
     pkgversion = "Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip
     args += [
