@@ -10,6 +10,7 @@ class Gnatsd < Formula
     sha256 "d02e1ef6f2a79bf5305a56173f3339366a711e2e50ce973a9a25fd70b6e073dc" => :mojave
     sha256 "1a3dacb00e6caa3f828557444eb0f5e2e0c4dac1e833b1c0824e894de35c4f6c" => :high_sierra
     sha256 "01e8ec71e94262c00e30bfd80523caf2fb3b0fe859de05d5bfdd7ba6c0ccbc0a" => :sierra
+    sha256 "e5383a740b3ed6fcbf4245eb528b66d2d567f3707b0d6f7de4605aacec4fe64d" => :x86_64_linux
   end
 
   depends_on "go" => :build
