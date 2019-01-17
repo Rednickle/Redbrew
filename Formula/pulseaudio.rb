@@ -28,7 +28,6 @@ class Pulseaudio < Formula
   depends_on "libtool"
   depends_on "openssl"
   depends_on "speexdsp"
-  depends_on "glib" => :optional
 
   unless OS.mac?
     depends_on "m4" => :build

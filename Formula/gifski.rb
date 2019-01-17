@@ -12,18 +12,11 @@ class Gifski < Formula
     sha256 "35b1d0d7a50801b7c55d0124565420c6edb37f95b3dd17128dbb9003c6ac4645" => :x86_64_linux
   end
 
-  option "with-openmp", "Enable OpenMP multithreading"
-
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on "gcc" if build.with? "openmp"
-
-  fails_with :clang if build.with? "openmp"
 
   def install
-    args = []
-    args << "--features=openmp" if build.with? "openmp"
-    system "cargo", "install", "--root", prefix, "--path", ".", *args
+    system "cargo", "install", "--root", prefix, "--path", "."
   end
 
   test do

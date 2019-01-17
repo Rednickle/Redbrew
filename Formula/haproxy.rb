@@ -14,7 +14,6 @@ class Haproxy < Formula
 
   depends_on "openssl"
   depends_on "pcre"
-  depends_on "lua" => :optional
 
   def install
     args = %W[
@@ -27,14 +26,6 @@ class Haproxy < Formula
       ADDLIB=-lcrypto
     ]
     args << "USE_KQUEUE=1" if OS.mac?
-
-    if build.with?("lua")
-      lua = Formula["lua"]
-      args << "USE_LUA=1"
-      args << "LUA_LIB=#{lua.opt_lib}"
-      args << "LUA_INC=#{lua.opt_include}/lua"
-      args << "LUA_LD_FLAGS=-L#{lua.opt_lib}"
-    end
 
     # We build generic since the Makefile.osx doesn't appear to work
     system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}", "LDFLAGS=#{ENV.ldflags}", *args
