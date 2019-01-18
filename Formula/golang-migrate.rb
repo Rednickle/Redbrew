@@ -9,6 +9,7 @@ class GolangMigrate < Formula
     sha256 "bd7893fc3c44b1f910ecd649c4ac44cf12db2ce1f9987aef37eabbe27a2f418a" => :mojave
     sha256 "09d2d19328a2677a7add78f156916ae18c105967c2f484b88688859fb20d1fbe" => :high_sierra
     sha256 "2b3f40c091f3d30fef384985e27b3c7755f6a85e914e2f80ff7699a1a1c77f3f" => :sierra
+    sha256 "a8d40ee8e6a92f3916a3c955c934116d9402f8f0fc5be4b56fb247ade30ef739" => :x86_64_linux
   end
 
   depends_on "go" => :build
