@@ -7,25 +7,16 @@ class Sqlite < Formula
   revision 1
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
-    sha256 "3c3c5bc633ab464bbe346161740b94551a31a384c3e2d4c4e3f5e515f43a3765" => :x86_64_linux
+    rebuild 1
+    sha256 "816f6edb6484d8debb47aa1ed780119ce43776991c972553bfbe722542a5993b" => :mojave
+    sha256 "67933444aa339dac87f197188c868914e8302b35c6e0ba2584e2e36ee9ba4f56" => :high_sierra
+    sha256 "309664c5f5fc9f1ab41284f2e9fa7355bd87bd8c691e8e9bd771bf1d0314a35d" => :sierra
   end
 
   keg_only :provided_by_macos, "macOS provides an older sqlite3"
 
-  option "with-fts", "Enable the FTS3 module"
-  option "with-fts5", "Enable the FTS5 module (experimental)"
-  option "with-functions", "Enable more math and string functions for SQL queries"
-  option "with-json1", "Enable the JSON1 extension"
-
   depends_on "readline"
-
-  resource "functions" do
-    url "https://sqlite.org/contrib/download/extension-functions.c?get=25"
-    version "2010-02-06"
-    sha256 "991b40fe8b2799edc215f7260b890f14a833512c9d9896aa080891330ffe4052"
-  end
 
   def install
     # Fix error: sqlite3.o: No such file or directory
@@ -37,9 +28,6 @@ class Sqlite < Formula
     # applications. Set to 250000 (Same value used in Debian and Ubuntu).
     ENV.append "CPPFLAGS", "-DSQLITE_MAX_VARIABLE_NUMBER=250000"
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_RTREE=1"
-    ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_FTS3=1 -DSQLITE_ENABLE_FTS3_PARENTHESIS=1" if build.with? "fts"
-    ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_FTS5=1" if build.with? "fts5"
-    ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_JSON1=1" if build.with? "json1"
 
     args = %W[
       --prefix=#{prefix}
@@ -51,41 +39,10 @@ class Sqlite < Formula
 
     system "./configure", *args
     system "make", "install"
-
-    if build.with? "functions"
-      buildpath.install resource("functions")
-      system ENV.cc, "-fno-common",
-                     "-dynamiclib",
-                     "extension-functions.c",
-                     "-o", "libsqlitefunctions.dylib",
-                     *ENV.cflags.to_s.split
-      lib.install "libsqlitefunctions.dylib"
-    end
   end
 
   def caveats
     s = ""
-    if build.with? "functions"
-      s += <<~EOS
-        Usage instructions for applications calling the sqlite3 API functions:
-
-          In your application, call sqlite3_enable_load_extension(db,1) to
-          allow loading external libraries.  Then load the library libsqlitefunctions
-          using sqlite3_load_extension; the third argument should be 0.
-          See https://sqlite.org/loadext.html.
-          Select statements may now use these functions, as in
-          SELECT cos(radians(inclination)) FROM satsum WHERE satnum = 25544;
-
-        Usage instructions for the sqlite3 program:
-
-          If the program is built so that loading extensions is permitted,
-          the following will work:
-           sqlite> SELECT load_extension('#{lib}/libsqlitefunctions.dylib');
-           sqlite> select cos(radians(45));
-           0.707106781186548
-      EOS
-    end
-
     user_history = "~/.sqlite_history"
     user_history_path = File.expand_path(user_history)
     if File.exist?(user_history_path) && File.read(user_history_path).include?("\\040")

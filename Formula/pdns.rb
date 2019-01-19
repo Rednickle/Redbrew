@@ -6,11 +6,10 @@ class Pdns < Formula
   revision 1 unless OS.mac?
 
   bottle do
-    sha256 "bc1a65731abdae414d570226baba57f4c36b1052422d2382f40a8c53536eb5aa" => :mojave
-    sha256 "1c11ec28d719c51ef467f008f4237873317f03feb414d29a220cc4207552ff95" => :high_sierra
-    sha256 "bfc38558f2e8c7a2e76e7757ed7a89d1c384fd25bcd9ca8882153dc73f61be4b" => :sierra
-    sha256 "33926c7c32351853246ffbaef636fcc24dfd8516afead31e84f3a151daba9816" => :el_capitan
-    sha256 "92f435fe9a5eba65403b6e8722bfaec8b15e8a67a8bf66ad36d2d6b1dcbf22a4" => :x86_64_linux
+    rebuild 1
+    sha256 "fcb6c47b7c0b57871044885ac05892ef86f5345b632455b4a97fd9149c6b67b6" => :mojave
+    sha256 "7fedb7d0e28c28b5b9dce56a2fa16d0a0a3b9f834a6e6ee677b34b927c555335" => :high_sierra
+    sha256 "f65bed6241a54a701a627f195761d99ccde3507e02c33c0b74db4801130a6b81" => :sierra
   end
 
   head do
@@ -22,18 +21,11 @@ class Pdns < Formula
     depends_on "ragel"
   end
 
-  option "with-postgresql", "Enable the PostgreSQL backend"
-  option "with-remote", "enable the Remote backend"
-
-  deprecated_option "pgsql" => "with-postgresql"
-  deprecated_option "with-pgsql" => "with-postgresql"
-
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "lua"
   depends_on "openssl"
   depends_on "sqlite"
-  depends_on "postgresql" => :optional
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
@@ -48,21 +40,11 @@ class Pdns < Formula
       --with-lua
       --with-openssl=#{Formula["openssl"].opt_prefix}
       --with-sqlite3
+      --with-modules=gsqlite3
     ]
-
-    # Include the PostgreSQL backend if requested
-    if build.with? "postgresql"
-      args << "--with-modules=gsqlite3 gpgsql"
-    elsif build.with? "remote"
-      args << "--with-modules=gsqlite3 remote"
-    else
-      # SQLite3 backend only is the default
-      args << "--with-modules=gsqlite3"
-    end
 
     system "./bootstrap" if build.head?
     system "./configure", *args
-
     system "make", "install"
   end
 
