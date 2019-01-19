@@ -11,17 +11,11 @@ class Imagemagick < Formula
   head "https://github.com/ImageMagick/ImageMagick.git"
 
   bottle do
-    sha256 "3f334e7564b68fc577815d27e7b9ed680de156f0fa2f0b7349df84df3db93f65" => :mojave
-    sha256 "0c4cde95593eb9280fcbfb2469e641ec7ed79b0ac7f9add6316a316a49218010" => :high_sierra
-    sha256 "268d7a5ba387992a19500b5b30aa21dd52415a1d0ee9584f37e78f315243a1cd" => :sierra
-    sha256 "7bfa8f0da4243d577fe02ecbca8a5e12c1bccb5179dc26942aa7dfdf791220a5" => :x86_64_linux
+    rebuild 1
+    sha256 "679e88c6fddea2b45f03a945179642b25fb3bff79096fe866a7a39fafbfc7934" => :mojave
+    sha256 "344bfa130be6f8f5e57d6ecb9090156f6d8f09dabd1cd9d19f86a74983b2b96f" => :high_sierra
+    sha256 "4705de464d25d449fa841a22f5aedb9deca2a71d80b21b60bc7ad9dedb28515b" => :sierra
   end
-
-  option "with-fftw", "Compile with FFTW support"
-  option "with-libheif", "Compile with HEIF support"
-  option "with-perl", "Compile with PerlMagick"
-
-  deprecated_option "with-libde265" => "with-libheif"
 
   depends_on "pkg-config" => :build
 
@@ -35,19 +29,6 @@ class Imagemagick < Formula
   depends_on "openjpeg"
   depends_on "webp"
   depends_on "xz"
-
-  depends_on "fftw" => :optional
-  depends_on "fontconfig" => :optional
-  depends_on "ghostscript" => :optional
-  depends_on "libheif" => :optional
-  depends_on "liblqr" => :optional
-  depends_on "librsvg" => :optional
-  depends_on "libwmf" => :optional
-  depends_on "little-cms" => :optional
-  depends_on "openexr" => :optional
-  depends_on "pango" => :optional
-  depends_on "perl" => :optional
-  depends_on :x11 => :optional
 
   depends_on "bzip2" unless OS.mac?
   depends_on "linuxbrew/xorg/xorg" unless OS.mac?
@@ -67,34 +48,22 @@ class Imagemagick < Formula
       --with-modules
       --with-openjp2
       --with-webp=yes
+      --without-gslib
+      --with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts
+      --without-fftw
+      --without-pango
+      --without-x
+      --without-wmf
       --enable-openmp
       ac_cv_prog_c_openmp=-Xpreprocessor\ -fopenmp
       ac_cv_prog_cxx_openmp=-Xpreprocessor\ -fopenmp
       LDFLAGS=-lomp
     ]
 
-    args << "--without-gslib" if build.without? "ghostscript"
-    args << "--with-perl" << "--with-perl-options='PREFIX=#{prefix}'" if build.with? "perl"
-    args << "--with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts" if build.without? "ghostscript"
-    args << "--without-fftw" if build.without? "fftw"
-    args << "--without-pango" if build.without? "pango"
-    args << "--with-rsvg" if build.with? "librsvg"
-    args << "--without-x" if build.without? "x11"
-    args << "--with-fontconfig=yes" if build.with? "fontconfig"
-    args << "--without-wmf" if build.without? "libwmf"
-
     # versioned stuff in main tree is pointless for us
     inreplace "configure", "${PACKAGE_NAME}-${PACKAGE_VERSION}", "${PACKAGE_NAME}"
     system "./configure", *args
     system "make", "install"
-  end
-
-  def caveats
-    s = <<~EOS
-      For full Perl support you may need to adjust your PERL5LIB variable:
-        export PERL5LIB="#{HOMEBREW_PREFIX}/lib/perl5/site_perl":$PERL5LIB
-    EOS
-    s if build.with? "perl"
   end
 
   test do
