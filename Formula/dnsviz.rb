@@ -12,6 +12,7 @@ class Dnsviz < Formula
     sha256 "aad7a8e4c5908badd46f5450efbf420c2270ff2455f2d8e440e65ea67064e73e" => :mojave
     sha256 "f4ac015b79e1329a97501daa011570de89cf10ccfaff6c711336515efc11b406" => :high_sierra
     sha256 "33cb4ee29142ae28d442e37dc4df4cb0c659a1734ad83777682b909d008151ca" => :sierra
+    sha256 "9f7d06466b919e8a4a927949b29f18c17e97bd3545927ce205a02d5d906ec2ae" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
