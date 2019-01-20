@@ -94,7 +94,7 @@ class Subversion < Formula
         APU=#{Formula["apr-util"].opt_prefix}
         ZLIB=#{Formula["zlib"].opt_prefix}
       ]
-      scons(*args)
+      system "scons", *args
       system "scons", "install"
     end
 
