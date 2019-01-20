@@ -7,12 +7,13 @@ class Mpv < Formula
   head "https://github.com/mpv-player/mpv.git"
 
   bottle do
-    sha256 "4b15a57a979f20ae92bbd26a16b7f2f466263200c57b0f165651b8d42a083894" => :mojave
-    sha256 "79db69bf884b91c481e7b2c987f71674d200354f1e78e62d545c3d886d6700f3" => :high_sierra
-    sha256 "697fdbdb8313c795528cc7b161fc1b65c15799cdbbca5b3e972fb52f41374458" => :sierra
-    sha256 "07ac3d037660b72d21a1b5259c9bdd58eafb5d91392f0fbeddf66907902a3dd5" => :x86_64_linux
+    rebuild 1
+    sha256 "a7e67ef6a0e0b71320164167e14c9a1ce0d237a9ff822012372c2315ea08b159" => :mojave
+    sha256 "11cc6bad21c68054d6ea85fc0b91ba5e4f945107b93855c3a54933ceb81651ff" => :high_sierra
+    sha256 "30eacc0d71f4f3ee3be680aadc0a1426f3f8f8dd166e3198e3b475ae26bb0f22" => :sierra
   end
 
+  depends_on "docutils" => :build
   depends_on "pkg-config" => :build
   depends_on "python" => :build
 
@@ -26,11 +27,6 @@ class Mpv < Formula
   depends_on "vapoursynth"
   depends_on "youtube-dl"
 
-  resource "docutils" do
-    url "https://files.pythonhosted.org/packages/84/f4/5771e41fdf52aabebbadecc9381d11dea0fa34e4759b4071244fa094804c/docutils-0.14.tar.gz"
-    sha256 "51e64ef2ebfb29cae1faa133b3710143496eca21c530f3f71424d77687764274"
-  end
-
   def install
     # Fix ld relocation error
     ENV.append_to_cflags "-fPIC" unless OS.mac?
@@ -39,13 +35,6 @@ class Mpv < Formula
     # or getdefaultlocale in docutils. Force the default c/posix locale since
     # that's good enough for building the manpage.
     ENV["LC_ALL"] = "C"
-
-    xy = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python#{xy}/site-packages"
-    resource("docutils").stage do
-      system "python3", *Language::Python.setup_install_args(buildpath/"vendor")
-    end
-    ENV.prepend_path "PATH", buildpath/"vendor/bin"
 
     args = %W[
       --prefix=#{prefix}
