@@ -9,6 +9,7 @@ class Entityx < Formula
     sha256 "5d2b3d80d9be39b08b61003fe0f8c30bf8aec792636b78e475fbbbb55d3e01a7" => :mojave
     sha256 "b015609cd7e4ad7154e846a34e91627a605983ab3e3f1767df5ccf7e46cc9d10" => :high_sierra
     sha256 "d0ecde656ac88f1f312d69894a32330827cd52ac64a7e20d1357a0a9bbe8d596" => :sierra
+    sha256 "be45260984e492cd4f3fa0e0a7e3ab576e574ef210c47cb518745e885bc7d8c4" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
