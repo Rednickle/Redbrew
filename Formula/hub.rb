@@ -1,15 +1,15 @@
 class Hub < Formula
   desc "Add GitHub support to git on the command-line"
   homepage "https://hub.github.com/"
-  url "https://github.com/github/hub/archive/v2.7.0.tar.gz"
-  sha256 "58d131c32404c963b06bcc067bda14317bc22be26187026a91960aecda324bf4"
+  url "https://github.com/github/hub/archive/v2.7.1.tar.gz"
+  sha256 "83fac8b47b2f56da1e7366688df4bd0eeb5fa20bde5d3de39792ea1cc1d15cd4"
   head "https://github.com/github/hub.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fb550899ba3aa031b74e3bb98fd1ed6e05592bc6af107923e4de9a2904d6f9bf" => :mojave
-    sha256 "3e1ae8c16f7155704ec84b948e3ea3ec77eda9cb8042829e991bcc1397f7bed2" => :high_sierra
-    sha256 "cfd054beb1f03e0ead7f0bf5f6f2d3cc583a0c773f664b07f443f2575ac4dbb9" => :sierra
+    sha256 "4b0e49df68b45b892549264c605cf16541e2c25a02351980a2893619cc915b23" => :mojave
+    sha256 "3c82fa2b5081e5b35870055a6a465be36884ccf4a5b92e23b3a36433346d0182" => :high_sierra
+    sha256 "9473b772485a2c4a7e4f23c64eafcd4afab3b53e847c49beff926111a43b2f01" => :sierra
   end
 
   depends_on "go" => :build
@@ -30,7 +30,7 @@ class Hub < Formula
       begin
         deleted = ENV.delete "SDKROOT"
         ENV["GEM_HOME"] = buildpath/"gem_home"
-        system "gem", "install", "bundler"
+        system "gem", "install", "bundler:1.16.0"
         ENV.prepend_path "PATH", buildpath/"gem_home/bin"
         system "make", "man-pages"
       ensure
