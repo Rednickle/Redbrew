@@ -12,14 +12,12 @@ class Bigloo < Formula
     sha256 "dbb045bd0d5ca025a60c6c2ae318c52181d44082489f69a782c41b9af2053e7f" => :x86_64_linux
   end
 
-  option "with-jvm", "Enable JVM support"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
+  depends_on "gmp"
   depends_on "openssl"
-  depends_on "gmp" => :recommended
 
   fails_with :clang do
     build 500
@@ -42,11 +40,8 @@ class Bigloo < Formula
       --disable-mpg123
       --disable-flac
       --disable-srfi27
+      --jvm=yes
     ]
-
-    args << "--os-macosx" if OS.mac?
-    args << "--jvm=yes" if build.with? "jvm"
-    args << "--no-gmp" if build.without? "gmp"
 
     system "./configure", *args
 

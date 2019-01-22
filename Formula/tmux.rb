@@ -21,7 +21,6 @@ class Tmux < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libevent"
-  depends_on "utf8proc" => :optional
   depends_on "ncurses" unless OS.mac?
 
   resource "completion" do
@@ -37,8 +36,6 @@ class Tmux < Formula
       --prefix=#{prefix}
       --sysconfdir=#{etc}
     ]
-
-    args << "--enable-utf8proc" if build.with?("utf8proc")
 
     ENV.append "LDFLAGS", "-lresolv"
     system "./configure", *args
