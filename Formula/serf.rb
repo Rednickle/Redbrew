@@ -27,9 +27,8 @@ class Serf < Formula
     (gopath/"src/github.com/hashicorp/serf").install contents
 
     ENV["GOPATH"] = gopath
-    arch = MacOS.prefer_64_bit? ? "amd64" : "386"
-    ENV["XC_ARCH"] = arch
     ENV["XC_OS"] = OS.mac? ? "darwin" : "linux"
+    ENV["XC_ARCH"] = "amd64"
 
     (gopath/"bin").mkpath
 

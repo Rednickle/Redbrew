@@ -23,11 +23,7 @@ class Teleport < Formula
 
   def install
     ENV["GOOS"] = OS.mac? ? "darwin" : "linux"
-    if OS.mac?
-      ENV["GOARCH"] = MacOS.prefer_64_bit? ? "amd64" : "386"
-    else
-      ENV["GOARCH"] = "amd64"
-    end
+    ENV["GOARCH"] = "amd64"
     ENV["GOPATH"] = buildpath
     ENV["GOROOT"] = Formula["go"].opt_libexec
 
