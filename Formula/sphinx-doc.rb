@@ -132,13 +132,6 @@ class SphinxDoc < Formula
     virtualenv_install_with_resources
   end
 
-  def post_install
-    return if OS.mac?
-    python = HOMEBREW_PREFIX/"bin/python"
-    python = "/usr/bin/env python" unless python.executable?
-    inreplace Dir[libexec/"bin/*"], %r{^#!.*bin/python$}, "#!#{python}"
-  end
-
   test do
     system bin/"sphinx-quickstart", "-pPorject", "-aAuthor", "-v1.0", "-q", testpath
     system bin/"sphinx-build", testpath, testpath/"build"
