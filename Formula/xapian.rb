@@ -19,8 +19,10 @@ class Xapian < Formula
   deprecated_option "ruby" => "with-ruby"
 
   depends_on "ruby" => :optional if MacOS.version <= :sierra
-  depends_on "util-linux" if OS.linux? # for libuuid
-  depends_on "zlib" unless OS.mac?
+  unless OS.mac?
+    depends_on "util-linux" # for libuuid
+    depends_on "zlib"
+  end
 
   skip_clean :la
 
