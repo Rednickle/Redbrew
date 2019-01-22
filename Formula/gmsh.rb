@@ -13,14 +13,12 @@ class Gmsh < Formula
     sha256 "68d7b180a51289bfe61eb1182a00cd1b51adfd32f4df475941e4081194499735" => :x86_64_linux
   end
 
-  option "with-opencascade", "Build with opencascade support"
-
   depends_on "cmake" => :build
+  depends_on "cairo"
+  depends_on "fltk"
   depends_on "gcc" # for gfortran
   depends_on "open-mpi"
-  depends_on "fltk" => :optional
-  depends_on "cairo" if build.with? "fltk"
-  depends_on "opencascade" => :optional
+  depends_on "opencascade"
 
   def install
     args = std_cmake_args + %W[
@@ -34,16 +32,10 @@ class Gmsh < Formula
       -DENABLE_NATIVE_FILE_CHOOSER=ON
       -DENABLE_PETSC=OFF
       -DENABLE_SLEPC=OFF
+      -DENABLE_OCC=ON
     ]
 
-    if build.with? "opencascade"
-      ENV["CASROOT"] = Formula["opencascade"].opt_prefix
-      args << "-DENABLE_OCC=ON"
-    else
-      args << "-DENABLE_OCC=OFF"
-    end
-
-    args << "-DENABLE_FLTK=OFF" if build.without? "fltk"
+    ENV["CASROOT"] = Formula["opencascade"].opt_prefix
 
     mkdir "build" do
       system "cmake", "..", *args
@@ -54,10 +46,6 @@ class Gmsh < Formula
       mkdir_p libexec
       mv bin/"onelab.py", libexec
     end
-  end
-
-  def caveats
-    "To use onelab.py set your PYTHONDIR to #{libexec}"
   end
 
   test do

@@ -22,12 +22,9 @@ class Irssi < Formula
     depends_on "lynx" => :build
   end
 
-  option "with-dante", "Build with SOCKS support"
-
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "openssl"
-  depends_on "dante" => :optional
   depends_on "perl" unless OS.mac? || build.without?("perl") # for libperl.so
 
   def install
@@ -38,8 +35,8 @@ class Irssi < Formula
       --with-bot
       --with-proxy
       --enable-true-color
-      --with-socks=#{build.with?("dante") ? "yes" : "no"}
       --with-ncurses=#{OS.mac? ? MacOS.sdk_path/"usr" : Formula["ncurses"].prefix}
+      --with-socks=no
       --with-perl=yes
       --with-perl-lib=#{lib}/perl5/site_perl
     ]

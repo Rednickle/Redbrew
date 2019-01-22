@@ -30,9 +30,9 @@ class Mutt < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "gpgme"
   depends_on "openssl"
   depends_on "tokyo-cabinet"
-  depends_on "gpgme" => :optional
   unless OS.mac?
     depends_on "bzip2"
     depends_on "zlib"
@@ -61,9 +61,8 @@ class Mutt < Formula
       #{OS.mac? ? "--with-sasl" : "--with-sasl2"}
       --with-ssl=#{Formula["openssl"].opt_prefix}
       --with-tokyocabinet
+      --enable-gpgme
     ]
-
-    args << "--enable-gpgme" if build.with? "gpgme"
 
     system "./prepare", *args
     system "make"
