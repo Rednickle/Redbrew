@@ -17,9 +17,6 @@ class Plplot < Formula
   depends_on "freetype"
   depends_on "gcc" # for gfortran
   depends_on "pango"
-  depends_on :java => :optional
-  depends_on :x11 => :optional
-  depends_on "linuxbrew/xorg/xorg" if build.with?("x11") && !OS.mac?
 
   def install
     args = std_cmake_args + %w[
@@ -35,9 +32,9 @@ class Plplot < Formula
       -DPLD_wxwidgets=OFF
       -DENABLE_wxwidgets=OFF
       -DENABLE_DYNDRIVERS=OFF
+      -DENABLE_java=OFF
+      -DPLD_xwin=OFF
     ]
-    args << "-DENABLE_java=OFF" if build.without? "java"
-    args << "-DPLD_xwin=OFF" if build.without? "x11"
 
     mkdir "plplot-build" do
       system "cmake", "..", *args
