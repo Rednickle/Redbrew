@@ -1,15 +1,17 @@
 class SphinxDoc < Formula
+  include Language::Python::Virtualenv
+
   desc "Tool to create intelligent and beautiful documentation"
   homepage "https://www.sphinx-doc.org/"
   url "https://files.pythonhosted.org/packages/4d/ed/4595274b5c9ce53a768cc0804ef65fd6282c956b93919a969e98d53894e4/Sphinx-1.8.3.tar.gz"
   sha256 "c4cb17ba44acffae3d3209646b6baec1e215cad3065e852c68cc569d4df1b9f8"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "46545d0ac35892a1802b44fd62a132b76c4d461030a638f20c0c74d7412ffb67" => :mojave
-    sha256 "ea6ada61350915aa711ed1cf646d8a33c75ae2b161637150933f67ea9bb7c5cb" => :high_sierra
-    sha256 "8aaa9e542afadc4acc243376d57e3b5799958c931f28772f01627e7ec1e10ce3" => :sierra
-    sha256 "2d8b9ef3f58a7a25eafb056da2e8f7dfb5f3565ee93edc2dfd62a36dbdb53bc1" => :x86_64_linux
+    sha256 "820fd07cc8514660e8d21d49c155f78cd19a193ec502fd31c30e05da5ea60f1b" => :mojave
+    sha256 "daceab23e40b5c8d2df289d1fb9f03d99b0a6efe407507f1322401a219abcd39" => :high_sierra
+    sha256 "467c040e00822dc6bd0cc2d7c0c8d70db7873310fc987778ab3a23462b8d5496" => :sierra
   end
 
   keg_only <<~EOS
@@ -17,14 +19,9 @@ class SphinxDoc < Formula
     Users are advised to use `pip` to install sphinx-doc
   EOS
 
-  depends_on "python@2" if OS.mac? && MacOS.version <= :snow_leopard || !OS.mac?
+  depends_on "python"
 
-  # generated from sphinx, setuptools, numpydoc and python-docs-theme
-  resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/37/1b/b25507861991beeade31473868463dad0e58b1978c209de27384ae541b0b/setuptools-40.6.3.zip"
-    sha256 "3b474dad69c49f0d2d86696b68105f3a6f195f7ab655af12ef9a9c326d2b08f8"
-  end
-
+  # generated from sphinx, numpydoc and python-docs-theme
   resource "alabaster" do
     url "https://files.pythonhosted.org/packages/cc/b4/ed8dcb0d67d5cfb7f83c4d5463a7614cb1d078ad7ae890c9143edebbf072/alabaster-0.7.12.tar.gz"
     sha256 "a661d72d58e6ea8a57f7a86e37d86716863ee5e92788398526d58b26a4e4dc02"
@@ -131,18 +128,7 @@ class SphinxDoc < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-    resources.each do |r|
-      r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   def post_install
@@ -156,6 +142,5 @@ class SphinxDoc < Formula
     system bin/"sphinx-quickstart", "-pPorject", "-aAuthor", "-v1.0", "-q", testpath
     system bin/"sphinx-build", testpath, testpath/"build"
     assert_predicate testpath/"build/index.html", :exist?
-    assert_predicate libexec/"vendor/lib/python2.7/site-packages/python_docs_theme", :exist?
   end
 end

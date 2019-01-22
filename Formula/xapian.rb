@@ -7,20 +7,16 @@ class Xapian < Formula
 
   bottle do
     cellar :any
-    sha256 "72404e4891d872f5e80d4af61f6692c62457673ae888c89190c0c13de022ead6" => :mojave
-    sha256 "088f14bc829dbafed8e02666e7f6a276c7013c6b04d0e3eb0a9602c2605aaec8" => :high_sierra
-    sha256 "95e3a0b7950ef9b51ed0c385f9431f1f99a883fef3790de851fca3ea741e051b" => :sierra
-    sha256 "1ee62f239e87de8a4ba26c7f74eaefff7ec4841e83a01dbcf14d4a2c712781c0" => :el_capitan
-    sha256 "26b537e0808f3a0243c41cd191ff2e0abe42b511c44c0ecc7532ce4525082a95" => :x86_64_linux
+    rebuild 1
+    sha256 "424ac432e892cfc455f6fcd8ae7608b44d76d39a73361b3b56d143ac30921b8c" => :mojave
+    sha256 "32e3b96b619d8f39e6f2d5a32fb0f9b9fb0e1378fcfdbb2a163eb549798e10e1" => :high_sierra
+    sha256 "adfbefe2380111b93f1ebce01311bf8a1d07f91715e90b33134457604772d41d" => :sierra
   end
 
   option "with-ruby", "Ruby bindings"
 
   deprecated_option "ruby" => "with-ruby"
-  deprecated_option "with-python" => "with-python@2"
 
-  depends_on "python@2" => :optional
-  depends_on "sphinx-doc" => :build if build.with? "python@2"
   depends_on "ruby" => :optional if MacOS.version <= :sierra
   depends_on "util-linux" if OS.linux? # for libuuid
   depends_on "zlib" unless OS.mac?
@@ -38,7 +34,7 @@ class Xapian < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
 
-    if build.with?("ruby") || build.with?("python@2")
+    if build.with?("ruby")
       resource("bindings").stage do
         ENV["XAPIAN_CONFIG"] = bin/"xapian-config"
 
@@ -51,21 +47,6 @@ class Xapian < Formula
           ruby_site = lib/"ruby/site_ruby"
           ENV["RUBY_LIB"] = ENV["RUBY_LIB_ARCH"] = ruby_site
           args << "--with-ruby"
-        end
-
-        if build.with? "python@2"
-          # https://github.com/Homebrew/homebrew-core/issues/2422
-          ENV.delete("PYTHONDONTWRITEBYTECODE")
-
-          (lib/"python2.7/site-packages").mkpath
-          ENV["PYTHON_LIB"] = lib/"python2.7/site-packages"
-
-          ENV.append_path "PYTHONPATH",
-                          Formula["sphinx-doc"].opt_libexec/"lib/python2.7/site-packages"
-          ENV.append_path "PYTHONPATH",
-                          Formula["sphinx-doc"].opt_libexec/"vendor/lib/python2.7/site-packages"
-
-          args << "--with-python"
         end
 
         system "./configure", *args
