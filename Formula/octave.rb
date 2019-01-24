@@ -7,9 +7,10 @@ class Octave < Formula
   revision 5
 
   bottle do
-    sha256 "759d5548d0fbb6e83f37affd74c70f8c85f683baa190dfb1c3c2f69f6a355efa" => :mojave
-    sha256 "053f08c583e5fb75a1a86712a4b716c511b53e66d90a60df16e301658a7f8507" => :high_sierra
-    sha256 "278e13c04b70b4aee3d396fc0ea020d7f87285418484cbd6eca50a6a0f475dea" => :sierra
+    rebuild 1
+    sha256 "b28615ae5e36a3d3202256305cba518f39de19bebb6a9635f8acfe868c67a3aa" => :mojave
+    sha256 "266fbf84557ec6c4d9d672143ced419d29af3b83827aba7df191bc567ba13ba1" => :high_sierra
+    sha256 "7af138a36e98c7adbb8ab2a7dc6e39dd60f28ae2b1524d8b5ff433958304af34" => :sierra
   end
 
   head do
@@ -47,6 +48,7 @@ class Octave < Formula
   depends_on "pstoedit"
   depends_on "qhull"
   depends_on "qrupdate"
+  depends_on "qt"
   depends_on "readline"
   depends_on "suite-sparse"
   depends_on "sundials"
@@ -57,8 +59,6 @@ class Octave < Formula
     depends_on "curl"
     depends_on "openblas" => :recommended
   end
-
-  depends_on "qt" => :optional
 
   # Dependencies use Fortran, leading to spurious messages about GCC
   cxxstdlib_check :skip
@@ -78,15 +78,15 @@ class Octave < Formula
     # Default configuration passes all linker flags to mkoctfile, to be
     # inserted into every oct/mex build. This is unnecessary and can cause
     # cause linking problems.
-    inreplace "src/mkoctfile.in.cc", /%OCTAVE_CONF_OCT(AVE)?_LINK_(DEPS|OPTS)%/, '""'
+    inreplace "src/mkoctfile.in.cc",
+              /%OCTAVE_CONF_OCT(AVE)?_LINK_(DEPS|OPTS)%/,
+              '""'
 
     blas_args = []
-    if build.with? "openblas"
-      blas_args << "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas"
-    elsif build.with? "veclibfort"
+    if OS.mac?
       blas_args << "--with-blas=-L#{Formula["veclibfort"].opt_lib} -lvecLibFort"
     else
-      blas_args << "--with-blas=-lblas -llapack"
+      blas_args << "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas"
     end
 
     args = *blas_args + %W[
@@ -104,13 +104,9 @@ class Octave < Formula
       --with-sndfile
     ]
 
-    if build.with? "qt"
-      # Stuff for Qt 5.12 compatibility
-      # https://savannah.gnu.org/bugs/?55187
-      ENV["QCOLLECTIONGENERATOR"]="qhelpgenerator"
-    else
-      args << "--without-qt"
-    end
+    # Qt 5.12 compatibility
+    # https://savannah.gnu.org/bugs/?55187
+    ENV["QCOLLECTIONGENERATOR"] = "qhelpgenerator"
 
     system "./bootstrap" if build.head?
     system "./configure", *args
