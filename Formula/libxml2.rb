@@ -1,17 +1,15 @@
 class Libxml2 < Formula
   desc "GNOME XML library"
   homepage "http://xmlsoft.org/"
-  url "http://xmlsoft.org/sources/libxml2-2.9.8.tar.gz"
-  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/libxml2/libxml2-2.9.8.tar.gz"
-  sha256 "0b74e51595654f958148759cfef0993114ddccccbb6f31aee018f3558e8e2732"
-  revision 1
+  url "http://xmlsoft.org/sources/libxml2-2.9.9.tar.gz"
+  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/libxml2/libxml2-2.9.9.tar.gz"
+  sha256 "94fb70890143e3c6549f265cee93ec064c80a84c42ad0f23e85ee1fd6540a871"
 
   bottle do
     cellar :any
-    sha256 "eca15b7e4bc1f27f5519ffaa55c1af18185e466025ba494452337ce9e9c87332" => :mojave
-    sha256 "4460ecfc312b9aa9ddb2c870695c0d7aa0173ef86d8155b6f6dab4949c7d785a" => :high_sierra
-    sha256 "121ad4f9b13372fcf9e1e1ce0f806545266db04151fcd1cd12179365d4430dcb" => :sierra
-    sha256 "1badb0ab81f61d2bcd98433b135e72984a425449e3a6ef6ff2ff188ca6c69cd0" => :x86_64_linux
+    sha256 "0652401614760f51378b0ee03ee98f425e8f62ee37c8a7021565eac0a8dd2f8e" => :mojave
+    sha256 "ed5c0a834eec377cc7243562c1dd9e3f8771fc8df3641a2f979168f92243dc47" => :high_sierra
+    sha256 "9838bb2c1fd20dce01951b3dc3f772c6ecb466e9df51e354d75442853d38f345" => :sierra
   end
 
   head do
