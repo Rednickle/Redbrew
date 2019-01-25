@@ -40,8 +40,6 @@ class Emscripten < Formula
   depends_on "python@2"
   depends_on "yuicompressor"
 
-  needs :cxx11
-
   def install
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["MAKEFLAGS"] = "-j2" if ENV["CIRCLECI"]

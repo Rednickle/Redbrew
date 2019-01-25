@@ -11,8 +11,6 @@ class Fswatch < Formula
     sha256 "bff1f34b6757e0be00671d0e0c3b5d44f506243db338115da4d07e5a114b772e" => :x86_64_linux
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     system "./configure", "--prefix=#{prefix}",

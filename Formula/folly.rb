@@ -36,8 +36,6 @@ class Folly < Formula
   # https://github.com/facebook/folly/pull/445
   fails_with :gcc => "6"
 
-  needs :cxx11
-
   def install
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]

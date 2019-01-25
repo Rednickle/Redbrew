@@ -16,8 +16,6 @@ class Capnp < Formula
 
   depends_on "cmake" => :build
 
-  needs :cxx14
-
   def install
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]
