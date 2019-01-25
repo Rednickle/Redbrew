@@ -30,10 +30,8 @@ class LlvmAT6 < Formula
     depends_on "ncurses"
     depends_on "libxml2"
     depends_on "zlib"
-    needs :cxx11
+    depends_on "python@2"
   end
-
-  depends_on "python@2" if OS.mac? || MacOS.version <= :snow_leopard
 
   resource "clang" do
     url "https://releases.llvm.org/6.0.1/cfe-6.0.1.src.tar.xz"

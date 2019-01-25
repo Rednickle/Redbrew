@@ -122,7 +122,7 @@ class Llvm < Formula
 
   # https://llvm.org/docs/GettingStarted.html#requirement
   depends_on "cmake" => :build
-  depends_on :xcode => :build
+  depends_on :xcode => :build if OS.mac?
   depends_on "libffi"
 
   unless OS.mac?
@@ -134,13 +134,9 @@ class Llvm < Formula
     depends_on "ncurses"
     depends_on "libxml2"
     depends_on "zlib"
-    needs :cxx11
+    depends_on "python@2"
 
     conflicts_with "clang-format", :because => "both install `clang-format` binaries"
-  end
-
-  if !OS.mac? || MacOS.version <= :snow_leopard
-    depends_on "python@2"
   end
 
   def install

@@ -77,10 +77,8 @@ class LlvmAT5 < Formula
     depends_on "libxml2"
     depends_on "python" if build.with?("python") || build.with?("lldb")
     depends_on "zlib"
-    needs :cxx11
+    depends_on "python@2"
   end
-
-  depends_on "python@2" if !OS.mac? || MacOS.version <= :snow_leopard
 
   resource "clang" do
     url "https://releases.llvm.org/5.0.2/cfe-5.0.2.src.tar.xz"

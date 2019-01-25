@@ -14,7 +14,6 @@ class Libnet < Formula
     sha256 "4203e91b8334689591d1dcec4e2f11625b035dbef078dd7f63121dbf3959e69b" => :yosemite
     sha256 "fd35c44586c926e10d9cb616e2b33594cb553329735ff2fe9130adfa8ccf17da" => :mavericks
     sha256 "bf07a44723b7f278ab8157582689742800444287ef76ef6d4131b495a7953b3a" => :x86_64_linux # glibc 2.19
-    sha256 "fb6a96f3af1521fa09982657342381cee8a681efe4f90cf50626a0a8a720c967" => :mountain_lion
   end
 
   depends_on "autoconf" => :build
