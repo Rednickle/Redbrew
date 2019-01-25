@@ -30,8 +30,7 @@ class Bitcoin < Formula
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["MAKEFLAGS"] = "-j1 -l1.0" if ENV["CIRCLECI"]
 
-    if MacOS.version == :el_capitan && MacOS::Xcode.installed? &&
-       MacOS::Xcode.version >= "8.0"
+    if MacOS.version == :el_capitan && MacOS::Xcode.version >= "8.0"
       ENV.delete("SDKROOT")
     end
 
