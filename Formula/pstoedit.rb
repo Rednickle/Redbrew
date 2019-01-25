@@ -16,7 +16,6 @@ class Pstoedit < Formula
   depends_on "ghostscript"
   depends_on "imagemagick"
   depends_on "plotutils"
-  depends_on "xz" if MacOS.version < :mavericks
 
   needs :cxx11 unless OS.mac?
 
