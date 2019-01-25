@@ -15,9 +15,6 @@ class Wxmac < Formula
     sha256 "9db7e24b014fd7549f9c30346307342173422b0d937d9346af3d6dba73a07e33" => :x86_64_linux
   end
 
-  option "with-stl", "use standard C++ classes for everything"
-  option "with-static", "build static libraries"
-
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
@@ -55,15 +52,6 @@ class Wxmac < Formula
       # This is the default option, but be explicit
       "--disable-monolithic",
     ]
-
-    if OS.mac?
-      args << "--with-osx_cocoa"
-      # Set with-macosx-version-min to avoid configure defaulting to 10.5
-      args << "--with-macosx-version-min=#{MacOS.version}"
-    end
-
-    args << "--enable-stl" if build.with? "stl"
-    args << (build.with?("static") ? "--disable-shared" : "--enable-shared")
 
     system "./configure", *args
     system "make", "install"
