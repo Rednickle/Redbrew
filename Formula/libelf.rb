@@ -13,7 +13,6 @@ class Libelf < Formula
     sha256 "a06b058c7e401942f442f573b63aa2cdd548b45d38b02b7af92393c67093f56e" => :el_capitan
     sha256 "3b4ea9ab20228d9e912f80a330b6d6d093f9bb65a712208c83cd49bdcc4fc9ea" => :yosemite
     sha256 "eded3b774d412e533f37bc6d5dc133859141653ce953a0d4cbf4a950dda633f6" => :mavericks
-    sha256 "d803c689354640948ae3699672d8172b770fdd8a63ba1d84e93131f394822bd5" => :mountain_lion
     sha256 "7bf880eee47f3426bf118683c699ef1b533e8a1d2f76908e481c53e6c93bb5eb" => :x86_64_linux # glibc 2.19
   end
 
