@@ -14,7 +14,6 @@ class ChromeCli < Formula
   end
 
   depends_on :xcode => :build if OS.mac?
-  depends_on :macos => :mountain_lion
 
   def install
     # Release builds

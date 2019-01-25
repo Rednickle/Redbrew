@@ -29,11 +29,7 @@ class Cmake < Formula
     # Reduce memory usage below 4 GB for Circle CI.
     ENV.deparallelize if ENV["CIRCLECI"]
 
-    ENV.cxx11 if MacOS.version < :mavericks
-
-    # Avoid the following compiler error:
-    # SecKeychain.h:102:46: error: shift expression '(1853123693 << 8)' overflows
-    ENV.append_to_cflags "-fpermissive" if MacOS.version <= :lion
+    ENV.cxx11 unless OS.mac?
 
     args = %W[
       --prefix=#{prefix}
