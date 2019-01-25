@@ -21,8 +21,6 @@ class Ibex < Formula
     depends_on "zlib"
   end
 
-  needs :cxx11
-
   def install
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["MAKEFLAGS"] = "-j2" if ENV["CIRCLECI"]

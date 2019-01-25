@@ -33,8 +33,6 @@ class Mkvtoolnix < Formula
   depends_on "libvorbis"
   depends_on "libxslt" => :build unless OS.mac? # for xsltproc
 
-  needs :cxx11
-
   def install
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["MAKEFLAGS"] = "-j4" if ENV["CIRCLECI"]

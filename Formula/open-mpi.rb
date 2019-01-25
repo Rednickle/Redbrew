@@ -24,8 +24,6 @@ class OpenMpi < Formula
 
   conflicts_with "mpich", :because => "both install MPI compiler wrappers"
 
-  needs :cxx11
-
   def install
     # Fix libopen-pal.so: undefined reference to `__atomic_compare_exchange_16'
     ENV["HOMEBREW_OPTFLAGS"] = "" if !OS.mac? && build.bottle?

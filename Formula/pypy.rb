@@ -28,9 +28,6 @@ class Pypy < Formula
     depends_on "zlib"
   end
 
-  # https://bugs.launchpad.net/ubuntu/+source/gcc-4.2/+bug/187391
-  fails_with :gcc_4_2
-
   resource "bootstrap" do
     if OS.mac?
       url "https://bitbucket.org/pypy/pypy/downloads/pypy2-v6.0.0-osx64.tar.bz2"

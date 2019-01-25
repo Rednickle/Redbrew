@@ -15,14 +15,6 @@ class KyotoCabinet < Formula
     sha256 "cdc3a0be11cfdf4e81c6568cf595c31b88c511a612f6711bf14ed696a2f66244" => :x86_64_linux
   end
 
-  fails_with :clang do
-    build 421
-    cause <<~EOS
-      Kyoto-cabinet relies on GCC atomic intrinsics, but Clang does not
-      implement them for non-integer types.
-    EOS
-  end
-
   patch :DATA if MacOS.version >= :mavericks && !OS.mac?
 
   def install

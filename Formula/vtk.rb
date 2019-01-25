@@ -34,8 +34,6 @@ class Vtk < Formula
     depends_on "linuxbrew/xorg/xorg"
   end
 
-  needs :cxx11
-
   def install
     args = std_cmake_args + %W[
       -DBUILD_SHARED_LIBS=ON

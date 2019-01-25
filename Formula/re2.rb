@@ -14,8 +14,6 @@ class Re2 < Formula
     sha256 "abeaa82f51489fdd54edeebc33d8a5f1f1756c7742b6f2d7ed88f44843843d10" => :x86_64_linux
   end
 
-  needs :cxx11
-
   def install
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]

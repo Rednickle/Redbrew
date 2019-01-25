@@ -28,8 +28,6 @@ class Mosh < Formula
     depends_on "openssl"
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 

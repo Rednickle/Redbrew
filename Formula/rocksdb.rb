@@ -26,8 +26,6 @@ class Rocksdb < Formula
   end
   depends_on CIRequirement
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     ENV["PORTABLE"] = "1" if build.bottle?

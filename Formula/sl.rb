@@ -16,10 +16,6 @@ class Sl < Formula
     sha256 "4496112f89e9706de41635e99f28775a8366b0e4daa7a9d46d2ba4f28a3b971c" => :x86_64_linux # glibc 2.19
   end
 
-  fails_with :clang do
-    build 318
-  end
-
   depends_on "ncurses" unless OS.mac?
 
   def install

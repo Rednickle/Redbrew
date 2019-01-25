@@ -33,8 +33,6 @@ class Libdap < Formula
     depends_on "util-linux" # for libuuid
   end
 
-  needs :cxx11 if MacOS.version < :mavericks
-
   def install
     # Otherwise, "make check" fails
     ENV.cxx11 if MacOS.version < :mavericks

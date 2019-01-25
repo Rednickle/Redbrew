@@ -21,8 +21,6 @@ class Gtkmm < Formula
   depends_on "libsigc++"
   depends_on "pangomm"
 
-  needs :cxx11
-
   def install
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["MAKEFLAGS"] = "-j8" if ENV["CIRCLECI"]

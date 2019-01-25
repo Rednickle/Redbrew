@@ -29,8 +29,6 @@ class Ldc < Formula
     end
   end
 
-  needs :cxx11
-
   def install
     # Fix the error:
     # CMakeFiles/LDCShared.dir/build.make:68: recipe for target 'dmd2/id.h' failed

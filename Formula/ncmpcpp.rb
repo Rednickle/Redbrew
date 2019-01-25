@@ -28,8 +28,6 @@ class Ncmpcpp < Formula
   depends_on "readline"
   depends_on "taglib"
 
-  needs :cxx11
-
   def install
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["MAKEFLAGS"] = "-j6" if ENV["CIRCLECI"]

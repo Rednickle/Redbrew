@@ -45,11 +45,6 @@ class Pulseaudio < Formula
     end
   end
 
-  fails_with :clang do
-    build 421
-    cause "error: thread-local storage is unsupported for the current target"
-  end
-
   def install
     unless OS.mac?
       ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"

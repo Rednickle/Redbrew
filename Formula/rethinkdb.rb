@@ -18,11 +18,6 @@ class Rethinkdb < Formula
   depends_on "openssl"
   depends_on "curl" unless OS.mac?
 
-  fails_with :gcc do
-    build 5666 # GCC 4.2.1
-    cause "RethinkDB uses C++0x"
-  end
-
   # Fix error with Xcode 9, patch merged upstream:
   # https://github.com/rethinkdb/rethinkdb/pull/6450
   if DevelopmentTools.clang_build_version >= 900

@@ -42,10 +42,6 @@ class Mongodb < Formula
     sha256 "4027c5f6127a6267a435201981ba156de91ad0d1d98e9ddc2aa173453453492d"
   end
 
-  needs :cxx11
-
-  fails_with :gcc => "4.8"
-
   def install
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["HOMEBREW_MAKE_JOBS"] = "6" if ENV["CIRCLECI"]

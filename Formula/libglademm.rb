@@ -17,8 +17,6 @@ class Libglademm < Formula
   depends_on "gtkmm"
   depends_on "libglade"
 
-  needs :cxx11
-
   def install
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["MAKEFLAGS"] = "-j16" if ENV["CIRCLECI"]

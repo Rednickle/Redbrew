@@ -17,14 +17,6 @@ class Zile < Formula
   depends_on "help2man" => :build
   depends_on "pkg-config" => :build
   depends_on "bdw-gc"
-
-  fails_with :gcc do
-    cause "src/funcs.c:1128: error: #pragma GCC diagnostic not allowed inside functions"
-  end
-
-  depends_on "help2man" => :build
-  depends_on "pkg-config" => :build
-  depends_on "bdw-gc"
   depends_on "ncurses" unless OS.mac?
 
   def install

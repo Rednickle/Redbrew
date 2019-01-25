@@ -12,8 +12,6 @@ class Libsigcxx < Formula
     sha256 "6d3be332f0342b0db478234dad41c133f2a3aaef45d7388ee125094026f2441f" => :x86_64_linux
   end
 
-  needs :cxx11
-
   depends_on "m4" => :build unless OS.mac?
 
   def install

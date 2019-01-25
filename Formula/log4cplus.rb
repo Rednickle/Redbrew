@@ -13,8 +13,6 @@ class Log4cplus < Formula
     sha256 "7900f4da5b41dd37345e324cf15a129695983875d453fa5ef738882210ec7b0d" => :x86_64_linux
   end
 
-  needs :cxx11
-
   def install
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["MAKEFLAGS"] = "-j12" if ENV["CIRCLECI"]

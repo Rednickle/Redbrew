@@ -30,9 +30,6 @@ class Pypy3 < Formula
     depends_on "zlib"
   end
 
-  # https://bugs.launchpad.net/ubuntu/+source/gcc-4.2/+bug/187391
-  fails_with :gcc_4_2
-
   # packaging depends on pyparsing
   resource "pyparsing" do
     url "https://files.pythonhosted.org/packages/3c/ec/a94f8cf7274ea60b5413df054f82a8980523efd712ec55a59e7c3357cf7c/pyparsing-2.2.0.tar.gz"

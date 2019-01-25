@@ -16,8 +16,6 @@ class MongoCxxDriver < Formula
   depends_on "cmake" => :build
   depends_on "mongo-c-driver"
 
-  needs :cxx11
-
   def install
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["MAKEFLAGS"] = "-j4" if ENV["CIRCLECI"]

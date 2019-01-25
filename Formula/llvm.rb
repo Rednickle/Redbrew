@@ -143,12 +143,6 @@ class Llvm < Formula
     depends_on "python@2"
   end
 
-  # According to the official llvm readme, GCC 4.7+ is required
-  fails_with :gcc_4_2
-  ("4.3".."4.6").each do |n|
-    fails_with :gcc => n
-  end
-
   def install
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["MAKEFLAGS"] = "-j2 -l2.0" if ENV["CIRCLECI"]

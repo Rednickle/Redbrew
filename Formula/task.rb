@@ -18,8 +18,6 @@ class Task < Formula
   depends_on "gnutls"
   depends_on "util-linux" unless OS.mac? # for libuuid
 
-  needs :cxx11
-
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"

@@ -23,8 +23,6 @@ class Pdnsrec < Formula
     cause "incomplete C++11 support"
   end
 
-  needs :cxx11
-
   def install
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["MAKEFLAGS"] = "-j4" if ENV["CIRCLECI"]

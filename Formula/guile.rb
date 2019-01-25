@@ -32,11 +32,6 @@ class Guile < Formula
   depends_on "readline"
   depends_on "gperf" unless OS.mac?
 
-  fails_with :clang do
-    build 211
-    cause "Segfaults during compilation"
-  end
-
   def install
     system "./autogen.sh" unless build.stable?
     system "./configure", "--disable-dependency-tracking",

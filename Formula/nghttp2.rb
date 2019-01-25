@@ -35,16 +35,13 @@ class Nghttp2 < Formula
     sha256 "18ab7646985a97e02cee72e1ddba2e732d4931d4e1732494ff30c5aa084bfb97"
   end
 
-  patch do
-    # Fix: shrpx_api_downstream_connection.cc:57:3: error: array must be initialized with a brace-enclosed initializer
-    url "https://gist.githubusercontent.com/iMichka/5dda45fbad3e70f52a6b4e7dfd382969/raw/19797e17926922bdd1ef21a47e162d8be8e2ca65/nghttp2?full_index=1"
-    sha256 "0759d448d4b419911c12fa7d5cbf1df2d6d41835c9077bf3accf9eac58f24f12"
+  unless OS.mac?
+    patch do
+      # Fix: shrpx_api_downstream_connection.cc:57:3: error: array must be initialized with a brace-enclosed initializer
+      url "https://gist.githubusercontent.com/iMichka/5dda45fbad3e70f52a6b4e7dfd382969/raw/19797e17926922bdd1ef21a47e162d8be8e2ca65/nghttp2?full_index=1"
+      sha256 "0759d448d4b419911c12fa7d5cbf1df2d6d41835c9077bf3accf9eac58f24f12"
+    end
   end
-
-  # https://github.com/tatsuhiro-t/nghttp2/issues/125
-  # Upstream requested the issue closed and for users to use gcc instead.
-  # Given this will actually build with Clang with cxx11, just use that.
-  needs :cxx11
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.

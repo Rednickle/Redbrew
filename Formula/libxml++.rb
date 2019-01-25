@@ -20,8 +20,6 @@ class Libxmlxx < Formula
   depends_on "glibmm"
   depends_on "libxml2" unless OS.mac?
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
