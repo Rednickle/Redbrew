@@ -13,8 +13,6 @@ class MingwW64 < Formula
     sha256 "d21ca296a4f2b26913b748cb760b88a0fa4ee349d1aa5a69e1e54f15e186b745" => :x86_64_linux
   end
 
-  option "without-posix", "Compile without posix thread model support"
-
   # Apple's makeinfo is old and has bugs
   depends_on "texinfo" => :build
 
@@ -91,12 +89,8 @@ class MingwW64 < Formula
         --with-mpc=#{Formula["libmpc"].opt_prefix}
         --with-isl=#{Formula["isl"].opt_prefix}
         --disable-multilib
+        --enable-threads=posix
       ]
-      if build.with? "posix"
-        args << "--enable-threads=posix"
-      else
-        args << "--enable-threads=win32"
-      end
 
       mkdir "#{buildpath}/gcc/build-#{arch}" do
         system "../configure", *args

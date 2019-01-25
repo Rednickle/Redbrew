@@ -9,13 +9,10 @@ class Graphviz < Formula
   revision 1 unless OS.mac?
 
   bottle do
-    rebuild 1
-    sha256 "668c64749620f556cf7d26ac96088005b4439acd9488be4c640fdc9cfe66d563" => :mojave
-    sha256 "b592ce51c2a929c3da82e96ec856571ebfc54cf4dac90c2924cd3845078d7082" => :high_sierra
-    sha256 "41b5811054f03978db12525919540fe41e073fb2c20e899247ed9c2a191f7a66" => :sierra
-    sha256 "cab27f92a59d543e2f2c1494c28c7563a4c2d7e0dce4c4fbc22587db91cafc5b" => :el_capitan
-    sha256 "6bd4c01e724cfc965871e1aad9a4fb2a6afef90a1e254d81e2fe33a997f50aaa" => :yosemite
-    sha256 "8cb0957981d2fc4966eb9e553e001991a4cf8fa018fd76f8e725fcf305c4392c" => :x86_64_linux
+    rebuild 2
+    sha256 "554a0f729bf393301fb3fd796d771a63c51871d6aaf498a7af6c7f98a64979bd" => :mojave
+    sha256 "769e9c92c5e08e803b54d2940df74aeb7202e5bc5019eb602d36116ea7cddcf3" => :high_sierra
+    sha256 "4267fe0d22373837bc22dfca35e8a925ed660e3b403b76af791a30fc074130c9" => :sierra
   end
 
   head do
@@ -26,24 +23,11 @@ class Graphviz < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-app", "Build GraphViz.app (requires full XCode install)"
-  option "with-gts", "Build with GNU GTS support (required by prism)"
-  if OS.mac?
-    option "with-pango", "Build with Pango/Cairo for alternate PDF output"
-  else
-    option "without-pango", "Build without Pango/Cairo to disable PDF output"
-  end
-
-  deprecated_option "with-pangocairo" => "with-pango"
-
   depends_on "pkg-config" => :build
-  depends_on :xcode => :build if OS.mac? && build.with?("app")
   depends_on "gd"
+  depends_on "gts"
   depends_on "libpng"
   depends_on "libtool"
-  depends_on "gts" => :optional
-  depends_on "librsvg" => :optional
-  depends_on "pango" => :optional
 
   def install
     # Only needed when using superenv, which causes qfrexp and qldexp to be
@@ -69,10 +53,8 @@ class Graphviz < Formula
       --without-freetype2
       --without-qt
       --without-x
+      --with-gts
     ]
-    args << "--with-gts" if build.with? "gts"
-    args << "--without-pangocairo" if build.without? "pango"
-    args << "--without-rsvg" if build.without? "librsvg"
 
     if build.head?
       system "./autogen.sh", *args
@@ -80,14 +62,6 @@ class Graphviz < Formula
       system "./configure", *args
     end
     system "make", "install"
-
-    if build.with? "app"
-      cd "macosx" do
-        xcodebuild "SDKROOT=#{MacOS.sdk_path}", "-configuration", "Release", "SYMROOT=build", "PREFIX=#{prefix}",
-                   "ONLY_ACTIVE_ARCH=YES", "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
-      end
-      prefix.install "macosx/build/Release/Graphviz.app"
-    end
 
     (bin/"gvmap.sh").unlink
   end
