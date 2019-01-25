@@ -20,8 +20,6 @@ class BoostPython3 < Formula
     sha256 "a4a433b3a264dbc9aa9c7c241e87c0358a503ea6394f8737df1683c7c9a102ac"
   end
 
-  needs :cxx11
-
   def install
     # Reduce memory usage below 4 GB for Circle CI.
     jobs = OS.mac? ? ENV.make_jobs : 4

@@ -18,8 +18,6 @@ class Atkmm < Formula
   depends_on "atk"
   depends_on "glibmm"
 
-  needs :cxx11
-
   def install
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["MAKEFLAGS"] = "-j6" if ENV["CIRCLECI"]

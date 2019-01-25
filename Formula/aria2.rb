@@ -21,8 +21,6 @@ class Aria2 < Formula
     depends_on "zlib"
   end
 
-  needs :cxx14
-
   def install
     # Fix "error: use of undeclared identifier 'make_unique'"
     # Reported upstream 15 May 2018 https://github.com/aria2/aria2/issues/1198

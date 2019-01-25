@@ -16,8 +16,6 @@ class BoostPython < Formula
   depends_on "boost"
   depends_on "python@2" => :recommended unless OS.mac?
 
-  needs :cxx11
-
   def install
     # Reduce memory usage below 4 GB for Circle CI.
     jobs = OS.mac? ? ENV.make_jobs : 4

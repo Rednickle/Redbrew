@@ -13,8 +13,6 @@ class Bedops < Formula
     sha256 "f28eefb696b7f4fcd5d19cc3536976a45ca840bcc054468ca088a590dd626e73" => :x86_64_linux
   end
 
-  needs :cxx11
-
   def install
     system "make"
     system "make", "install", "BINDIR=#{bin}"
