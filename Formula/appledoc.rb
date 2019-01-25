@@ -15,7 +15,6 @@ class Appledoc < Formula
   end
 
   depends_on :xcode => :build if OS.mac?
-  depends_on :macos => :lion
   depends_on :macos
 
   def install

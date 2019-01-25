@@ -18,7 +18,6 @@ class Avian < Formula
   end
 
   depends_on :java => "1.8"
-  depends_on :macos => :lion if OS.mac?
   depends_on "zlib" unless OS.mac?
 
   def install
