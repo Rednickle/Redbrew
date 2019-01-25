@@ -3,9 +3,9 @@ class Go < Formula
   homepage "https://golang.org"
 
   stable do
-    url "https://dl.google.com/go/go1.11.4.src.tar.gz"
-    mirror "https://fossies.org/linux/misc/go1.11.4.src.tar.gz"
-    sha256 "4cfd42720a6b1e79a8024895fa6607b69972e8e32446df76d6ce79801bbadb15"
+    url "https://dl.google.com/go/go1.11.5.src.tar.gz"
+    mirror "https://fossies.org/linux/misc/go1.11.5.src.tar.gz"
+    sha256 "bc1ef02bb1668835db1390a2e478dcbccb5dd16911691af9d75184bbe5aa943e"
 
     go_version = version.to_s.split(".")[0..1].join(".")
     resource "gotools" do
@@ -15,11 +15,9 @@ class Go < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 "f902a6a33d40032a242dbeda22011dd138552a474f41690cc1495e09a670467e" => :mojave
-    sha256 "6d7daf0b0133b59b8030a48102e5ce4d7e7244dcf1ef40fb7179547990edb1e3" => :high_sierra
-    sha256 "f6ed59e8465a20b00153069d62a3b9bcdd00b0eceaeedacbbf8ff0d6c4a65283" => :sierra
-    sha256 "aa3ad295139ad05916bac26a64d4af92d8ab4bf7ae4c9c0ea1bc3bb4e16e2f37" => :x86_64_linux
+    sha256 "d67c2cf910dc40efa48b5c5f96c0fbf2012310bea4c39227d257c3f3e108c93b" => :mojave
+    sha256 "81de7cb46a2dcc5dd6248c53daac11dc6123ebaa9a03071d6cf4d578f7e26016" => :high_sierra
+    sha256 "6b3c580ad568f04cbaf3eb2dca9f4ce3bb11e071f7340b172a8a2ade2555ded4" => :sierra
   end
 
   head do
@@ -50,6 +48,11 @@ class Go < Formula
       chmod "+x", Dir.glob("src/debug/dwarf/testdata/*.elf")
       chmod "+x", Dir.glob("src/debug/elf/testdata/*-exec")
     end
+    # Temporary workaround for garbage folders which were included in the 1.11.5 release tarball
+    mv Dir.glob("go/*"), "./"
+    rm_rf "go"
+    rm_rf "gocache"
+    rm_rf "tmp"
 
     (buildpath/"gobootstrap").install resource("gobootstrap")
     ENV["GOROOT_BOOTSTRAP"] = buildpath/"gobootstrap"
