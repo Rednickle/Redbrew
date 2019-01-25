@@ -13,7 +13,7 @@ class TerraformLandscape < Formula
     sha256 "c85f595c1fafe1ef9aa129ec894495c5297eb62fee9e6ac29ff234f22508b049" => :x86_64_linux
   end
 
-  depends_on "ruby" if !OS.mac? || MacOS.version <= :mountain_lion
+  depends_on "ruby" unless OS.mac?
 
   resource "colorize" do
     url "https://rubygems.org/gems/colorize-0.8.1.gem"
