@@ -6,10 +6,10 @@ class VimAT74 < Formula
   revision 18
 
   bottle do
-    sha256 "18867439556347ed829fc7bef2865f957bd8785b0ac44629e687cdedb6b624ba" => :mojave
-    sha256 "d6b2ef5343bb627902044c1b7308247313a01c4423e66218748bd33d836ceda0" => :high_sierra
-    sha256 "4f7321b2f4a244b305c78666aefe4c45a3cb832f75b67d60b26f180f4e5391f6" => :sierra
-    sha256 "cc6f1dbd75c1f44edc5bfdf801b5eea9fe8777637f5bebb588112ab1f3906204" => :x86_64_linux
+    rebuild 1
+    sha256 "07e17ac1f0297aa4687246f4be0bdfe2bb2519d572bb241e2b140144c5d83c00" => :mojave
+    sha256 "3ed0f2eba1e8c9b93772de5fb8d605e1a532d0452c69fb2209ded1c81fd66762" => :high_sierra
+    sha256 "88c7c348586082d8ab79fbd20332d9dc652a181c74e16957333eaacac2f7ab73" => :sierra
   end
 
   keg_only :versioned_formula
@@ -30,7 +30,7 @@ class VimAT74 < Formula
 
     # https://github.com/Homebrew/homebrew-core/pull/1046
     ENV.delete("SDKROOT")
-    ENV["LUA_PREFIX"] = HOMEBREW_PREFIX if build.with?("lua") || build.with?("luajit")
+    ENV["LUA_PREFIX"] = HOMEBREW_PREFIX
 
     # vim doesn't require any Python package, unset PYTHONPATH.
     ENV.delete("PYTHONPATH")
@@ -62,25 +62,16 @@ class VimAT74 < Formula
     # statically-linked interpreters like ruby
     # https://github.com/vim/vim/issues/114
     system "make", "install", "prefix=#{prefix}", "STRIP=#{which "true"}"
-    bin.install_symlink "vim" => "vi" if build.with? "override-system-vi"
+    bin.install_symlink "vim" => "vi"
   end
 
   test do
-    if OS.mac? && build.with?("python@2")
-      (testpath/"commands.vim").write <<~EOS
-        :python import vim; vim.current.buffer[0] = 'hello world'
-        :wq
-      EOS
-      system bin/"vim", "-T", "dumb", "-s", "commands.vim", "test.txt"
-      assert_equal "hello world", File.read("test.txt").chomp
-    elsif build.with? "python"
-      (testpath/"commands.vim").write <<~EOS
-        :python3 import vim; vim.current.buffer[0] = 'hello python3'
-        :wq
-      EOS
-      system bin/"vim", "-T", "dumb", "-s", "commands.vim", "test.txt"
-      assert_equal "hello python3", File.read("test.txt").chomp
-    end
+    (testpath/"commands.vim").write <<~EOS
+      :python3 import vim; vim.current.buffer[0] = 'hello python3'
+      :wq
+    EOS
+    system bin/"vim", "-T", "dumb", "-s", "commands.vim", "test.txt"
+    assert_equal "hello python3", File.read("test.txt").chomp
   end
 end
 
