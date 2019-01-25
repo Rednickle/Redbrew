@@ -7,9 +7,10 @@ class Couchdb < Formula
   revision 8
 
   bottle do
-    sha256 "81a9ef09e872ead7a3ae847f57f6cd01f4e7e46384c456b1cf4162cf7eecab42" => :mojave
-    sha256 "726a7e2329d938f0d64552a2b5c724fc665b5de8b1d046c9fdbd270cf941ba44" => :high_sierra
-    sha256 "3b5ed55595f163362f6a583a13fae6353c79b2cf9e66f0d35bcf7e5f13a38613" => :sierra
+    rebuild 1
+    sha256 "b07fcba0c273c81d43b6df6b96b923e14f18d2a5175aa657e699acd123bd3162" => :mojave
+    sha256 "66d4b5aa4f6e8f94a2bebb255b3d43051d3a1fa798f04356f6bb713a83c0711d" => :high_sierra
+    sha256 "c5257e44b71b803c685f855cabbd435d860b7478a89ac330b11f2d8580759f4c" => :sierra
   end
 
   head do
@@ -26,6 +27,11 @@ class Couchdb < Formula
   depends_on "erlang@19"
   depends_on "icu4c"
   depends_on "spidermonkey"
+
+  # Allow overwriting old configuration with new symlinks.
+  link_overwrite "etc/couchdb/default.ini"
+  link_overwrite "etc/couchdb/local.ini"
+  link_overwrite "etc/logrotate.d/couchdb"
 
   def install
     # CouchDB >=1.3.0 supports vendor names and versioning
@@ -44,7 +50,7 @@ class Couchdb < Formula
 
     system "./configure", "--prefix=#{prefix}",
                           "--localstatedir=#{var}",
-                          "--sysconfdir=#{etc}",
+                          "--sysconfdir=#{prefix}/etc",
                           "--disable-init",
                           "--with-erlang=#{Formula["erlang@19"].opt_lib}/erlang/usr/include",
                           "--with-js-include=#{HOMEBREW_PREFIX}/include/js",
@@ -61,21 +67,6 @@ class Couchdb < Formula
     (var/"lib/couchdb").mkpath
     (var/"log/couchdb").mkpath
     (var/"run/couchdb").mkpath
-    # default.ini is owned by CouchDB and marked not user-editable
-    # and must be overwritten to ensure correct operation.
-    if (etc/"couchdb/default.ini.default").exist?
-      # but take a backup just in case the user didn't read the warning.
-      mv etc/"couchdb/default.ini", etc/"couchdb/default.ini.old"
-      mv etc/"couchdb/default.ini.default", etc/"couchdb/default.ini"
-    end
-  end
-
-  def caveats; <<~EOS
-    To test CouchDB run:
-        curl http://127.0.0.1:5984/
-    The reply should look like:
-        {"couchdb":"Welcome","uuid":"....","version":"#{version}","vendor":{"version":"#{version}-1","name":"Homebrew"}}
-  EOS
   end
 
   plist_options :manual => "couchdb"
@@ -107,7 +98,7 @@ class Couchdb < Formula
     (testpath/"var/lib/couchdb").mkpath
     (testpath/"var/log/couchdb").mkpath
     (testpath/"var/run/couchdb").mkpath
-    cp_r etc/"couchdb", testpath
+    cp_r prefix/"etc/couchdb", testpath
     inreplace "#{testpath}/couchdb/default.ini", "/usr/local/var", testpath/"var"
 
     pid = fork do
