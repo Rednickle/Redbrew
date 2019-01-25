@@ -18,7 +18,7 @@ class Mongodb < Formula
   depends_on "pkg-config" => :build
   depends_on "scons" => :build
   depends_on :xcode => ["8.3.2", :build] if OS.mac?
-  depends_on :macos => :mountain_lion
+
   depends_on "openssl"
   depends_on "python@2"
 
@@ -45,8 +45,6 @@ class Mongodb < Formula
   def install
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["HOMEBREW_MAKE_JOBS"] = "6" if ENV["CIRCLECI"]
-
-    ENV.cxx11 if MacOS.version < :mavericks
 
     ENV.libcxx
 

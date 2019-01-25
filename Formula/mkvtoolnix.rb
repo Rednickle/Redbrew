@@ -22,7 +22,6 @@ class Mkvtoolnix < Formula
   depends_on "fmt" => :build
   depends_on "pkg-config" => :build
   depends_on "pugixml" => :build
-  depends_on "ruby" => :build if MacOS.version <= :mountain_lion || !OS.mac?
   depends_on "boost"
   depends_on "flac"
   depends_on "gettext"
@@ -32,6 +31,7 @@ class Mkvtoolnix < Formula
   depends_on "libogg"
   depends_on "libvorbis"
   depends_on "libxslt" => :build unless OS.mac? # for xsltproc
+  depends_on "ruby" => :build unless OS.mac?
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
