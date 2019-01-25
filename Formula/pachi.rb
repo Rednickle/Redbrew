@@ -16,7 +16,7 @@ class Pachi < Formula
     sha256 "f22a1dd92a3f8f64dc1bfcd71ce7b366ee0a86ff311f609b9dff2eb45cdf203c" => :x86_64_linux # glibc 2.19
   end
 
-  fails_with :clang if MacOS.version <= :mavericks
+  fails_with :clang if MacOS.version == :mavericks
 
   resource "patterns" do
     url "https://sainet-dist.s3.amazonaws.com/pachi_patterns.zip"

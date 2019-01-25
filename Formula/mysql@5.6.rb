@@ -15,9 +15,11 @@ class MysqlAT56 < Formula
   keg_only :versioned_formula
 
   depends_on "cmake" => :build
-  depends_on "pidof" unless MacOS.version >= :mountain_lion || !OS.mac?
   depends_on "openssl"
-  depends_on "libedit" unless OS.mac?
+  unless Os.mac?
+    depends_on "libedit"
+    depends_on "pidof"
+  end
 
   def datadir
     var/"mysql"

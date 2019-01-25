@@ -17,17 +17,14 @@ class OpensslAT11 < Formula
   keg_only :provided_by_macos,
     "openssl/libressl is provided by macOS so don't link an incompatible version"
 
-  resource "cacert" do
-    # homepage "http://curl.haxx.se/docs/caextract.html"
-    url "https://curl.haxx.se/ca/cacert-2017-01-18.pem"
-    mirror "http://cdn.rawgit.com/sjackman/e4066d2cb6b45fbb6d213e676cb109d0/raw/58964378cb5eefe96cba245ef863c57fb2b480e0/cacert-2017-01-18.pem"
-    sha256 "e62a07e61e5870effa81b430e1900778943c228bd7da1259dd6a955ee2262b47"
-  end unless OS.mac?
-
-  # Only needs 5.10 to run, but needs >5.13.4 to run the testsuite.
-  # https://github.com/openssl/openssl/blob/4b16fa791d3ad8/README.PERL
-  # The MacOS ML tag is same hack as the way we handle most :python deps.
-  depends_on "perl" if MacOS.version <= :mountain_lion
+  unless OS.mac?
+    resource "cacert" do
+      # homepage "http://curl.haxx.se/docs/caextract.html"
+      url "https://curl.haxx.se/ca/cacert-2017-01-18.pem"
+      mirror "http://cdn.rawgit.com/sjackman/e4066d2cb6b45fbb6d213e676cb109d0/raw/58964378cb5eefe96cba245ef863c57fb2b480e0/cacert-2017-01-18.pem"
+      sha256 "e62a07e61e5870effa81b430e1900778943c228bd7da1259dd6a955ee2262b47"
+    end
+  end
 
   # SSLv2 died with 1.1.0, so no-ssl2 no longer required.
   # SSLv3 & zlib are off by default with 1.1.0 but this may not
