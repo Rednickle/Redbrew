@@ -16,7 +16,7 @@ class MysqlAT56 < Formula
 
   depends_on "cmake" => :build
   depends_on "openssl"
-  unless Os.mac?
+  unless OS.mac?
     depends_on "libedit"
     depends_on "pidof"
   end
