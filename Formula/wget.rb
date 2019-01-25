@@ -23,7 +23,6 @@ class Wget < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "pod2man" => :build if OS.mac? && MacOS.version <= :snow_leopard
   depends_on "libidn2"
   depends_on "openssl"
   depends_on "util-linux" if OS.linux? # for libuuid

@@ -14,8 +14,6 @@ class Unixodbc < Formula
 
   depends_on "libtool"
 
-  keg_only "shadows system iODBC header files" if OS.mac? && MacOS.version < :mavericks
-
   conflicts_with "virtuoso", :because => "Both install `isql` binaries."
 
   depends_on "libtool" unless OS.mac?

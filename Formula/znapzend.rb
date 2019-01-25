@@ -14,7 +14,7 @@ class Znapzend < Formula
     sha256 "2f13a3e8262bc87ef8df19b778c26370d624283b067379b6eea354607858e84c" => :x86_64_linux
   end
 
-  depends_on "perl" if MacOS.version <= :mavericks
+  depends_on "perl" if MacOS.version == :mavericks
 
   def install
     system "./configure", "--disable-silent-rules",
