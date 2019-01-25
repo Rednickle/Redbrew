@@ -123,11 +123,6 @@ class GccAT6 < Formula
     # Fix Linux error: gnu/stubs-32.h: No such file or directory.
     args << "--disable-multilib" unless OS.mac?
 
-    # The pre-Mavericks toolchain requires the older DWARF-2 debugging data
-    # format to avoid failure during the stage 3 comparison of object files.
-    # See: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=45248
-    args << "--with-dwarf2" if OS.mac? && MacOS.version <= :mountain_lion
-
     # Xcode 10 dropped 32-bit support
     args << "--disable-multilib" if OS.mac? && DevelopmentTools.clang_build_version >= 1000
 

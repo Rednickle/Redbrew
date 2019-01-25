@@ -15,8 +15,6 @@ class GoAT19 < Formula
 
   keg_only :versioned_formula
 
-  depends_on :macos => :mountain_lion if OS.mac?
-
   resource "gotools" do
     url "https://go.googlesource.com/tools.git",
         :branch => "release-branch.go1.9"

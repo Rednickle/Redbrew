@@ -14,7 +14,7 @@ class GnupgAT14 < Formula
     sha256 "6903320fde85f5a381381d906ad3fda31ad8f036056b0f48b7a2dd9e40f1c0bf" => :x86_64_linux
   end
 
-  depends_on "curl" if MacOS.version <= :mavericks
+  depends_on "curl" if MacOS.version == :mavericks
 
   def install
     args = %W[
