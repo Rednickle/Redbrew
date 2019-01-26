@@ -22,12 +22,6 @@ class Swift < Formula
 
   depends_on "icu4c" unless OS.mac?
 
-  # According to the official llvm readme, GCC 4.7+ is required
-  fails_with :gcc_4_2
-  ("4.3".."4.6").each do |n|
-    fails_with :gcc => n
-  end
-
   # This formula is expected to have broken/missing linkage to
   # both UIKit.framework and AssetsLibrary.framework. This is
   # simply due to the nature of Swift's SDK Overlays.
