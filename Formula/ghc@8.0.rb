@@ -25,7 +25,7 @@ class GhcAT80 < Formula
   option "without-docs", "Do not build documentation (including man page)"
   deprecated_option "tests" => "with-test"
   deprecated_option "with-tests" => "with-test"
-on
+
   depends_on "sphinx-doc" => :build if build.with? "docs"
 
   unless OS.mac?
