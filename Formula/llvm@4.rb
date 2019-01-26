@@ -33,7 +33,6 @@ class LlvmAT4 < Formula
     depends_on "libxml2"
     depends_on "python" if build.with?("python") || build.with?("lldb")
     depends_on "zlib"
-    needs :cxx11
   end
 
   resource "clang" do
