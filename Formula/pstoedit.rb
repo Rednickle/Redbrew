@@ -17,8 +17,6 @@ class Pstoedit < Formula
   depends_on "imagemagick"
   depends_on "plotutils"
 
-  needs :cxx11 unless OS.mac?
-
   def install
     ENV.cxx11 unless OS.mac?
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
