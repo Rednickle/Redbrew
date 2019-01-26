@@ -4,15 +4,14 @@ class Bower < Formula
   desc "Package manager for the web"
   homepage "https://bower.io/"
   # Use Github tarball to avoid bowers npm 4+ incompatible bundled dep usage
-  url "https://github.com/bower/bower/archive/v1.8.7.tar.gz"
-  sha256 "1935db25df5796c5ea8b71bf1a0e740c3c71397a5eb9d1d7e07bb24dba3e9e0f"
+  url "https://github.com/bower/bower/archive/v1.8.8.tar.gz"
+  sha256 "3faf6c6ba0f96a8ee7ca7329911e683131198cbdd9a25ee4976b46f90357d481"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3b68e3317ee8d103693a9782152bb933a47ecd17a2a463dd7551e30c142d1280" => :mojave
-    sha256 "3f84d1611116dbf28a68ac3dca79ba9c346b533da631066b8f3d48777074a765" => :high_sierra
-    sha256 "bcfe567e0ed7cb3181fc35d5fcbbed408157ff341918283e7b73ed39eb9f20ce" => :sierra
-    sha256 "303c68a942eaf6148fb5c8ad6e1c95ce999d16fd967b2291ae1fb6a0dfa26c25" => :x86_64_linux
+    sha256 "82494967ba46ded634fb761e4fb166ab1d27605ba7514c4248ada0a00b1ce0cd" => :mojave
+    sha256 "077291dbebb25e070a3387fb9e38f3400a35d1551fbf97936643061be4d522b3" => :high_sierra
+    sha256 "2a5689573d8841a0ce8be340aea74f0585c3537340f9d53746fefd21cada43f5" => :sierra
   end
 
   depends_on "node"
