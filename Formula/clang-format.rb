@@ -46,7 +46,6 @@ class ClangFormat < Formula
     depends_on "ncurses"
     depends_on "libxml2"
     depends_on "zlib"
-    needs :cxx11
   end
 
   def install
