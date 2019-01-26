@@ -13,8 +13,6 @@ class Muparser < Formula
     sha256 "3b18faba41e1b2c9bf3e4ef4cc78c2f1920a62e3046805c1d840776dc4169013" => :x86_64_linux
   end
 
-  needs :cxx11 unless OS.mac?
-
   def install
     ENV.cxx11 unless OS.mac?
     system "./configure", "--disable-debug",
