@@ -8,8 +8,8 @@ class Rust < Formula
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          :tag      => "0.32.0",
-          :revision => "339d9f9c8f400010df3282ae5582bf3a0f739004"
+          :tag      => "0.33.0",
+          :revision => "8610973aaf48615ba7dc9a38a9a2795ba6f36a31"
     end
 
     resource "racer" do
@@ -23,7 +23,10 @@ class Rust < Formula
   bottle do
     root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
-    sha256 "6bc4e5e9b5b57f3b1eaaba7959fb0b245601a9135a6f43c33827ed9b31b279eb" => :x86_64_linux
+    rebuild 1
+    sha256 "45f65397d37790f9359595eb10e38c12ffd2032c7b961d5aeee2b38ea4e21ca1" => :mojave
+    sha256 "742649151ddd435184927a69cbc4a59b06bc40bd2b85206737efc16cca3eb229" => :high_sierra
+    sha256 "6a37b5828827a1ae6307e702f7ea558bff187e15f682ff471766056f5735acfd" => :sierra
   end
 
   head do
