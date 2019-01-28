@@ -184,21 +184,15 @@ class Gcc < Formula
 
       system "../configure", *args
 
-      make_args = []
       # Use -headerpad_max_install_names in the build,
       # otherwise updated load commands won't fit in the Mach-O header.
       # This is needed because `gcc` avoids the superenv shim.
-      if build.bottle?
-        make_args << "BOOT_LDFLAGS=-Wl,-headerpad_max_install_names"
-      end
-
-      system "make", *make_args
+      system "make", "install"
       system "make", OS.mac? ? "install" : "install-strip"
 
       if build.with?("fortran") || build.with?("all-languages")
         bin.install_symlink bin/"gfortran-#{version_suffix}" => "gfortran"
       end
-
       unless OS.mac?
         # Create cpp, gcc and g++ symlinks
         bin.install_symlink "cpp-#{version_suffix}" => "cpp"
