@@ -55,7 +55,7 @@ class ProtobufAT26 < Formula
            "--prefix=#{prefix}",
            "--with-zlib"
     system "make"
-    system "make", "check" if build.bottle?
+    system "make", "check"
     system "make", "install"
 
     # Install editor support and examples

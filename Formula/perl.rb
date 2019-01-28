@@ -57,7 +57,7 @@ class Perl < Formula
     system "make"
     # On Linux (in travis / docker container), the op/getppid.t fails too, disable the tests:
     # https://rt.perl.org/Public/Bug/Display.html?id=130143
-    system "make", "test" if build.bottle? && OS.mac?
+    system "make", "test" if OS.mac?
 
     # Remove the symlink so the library actually gets installed.
     rm lib/"perl5/#{version}/darwin-thread-multi-2level/CORE/libperl.dylib" if OS.mac?
