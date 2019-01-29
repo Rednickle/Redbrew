@@ -7,6 +7,7 @@ class Openssl < Formula
   url "https://www.openssl.org/source/openssl-1.0.2q.tar.gz"
   mirror "https://dl.bintray.com/homebrew/mirror/openssl--1.0.2q.tar.gz"
   mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.0.2q.tar.gz"
+  mirror "http://artfiles.org/openssl.org/source/openssl-1.0.2q.tar.gz"
   sha256 "5744cfcbcec2b1b48629f7354203bc1e5e9b5466998bbccc5b5fcde3b18eb684"
   revision 2 unless OS.mac?
 
