@@ -9,6 +9,7 @@ class GnupgPkcs11Scd < Formula
     sha256 "99a4910d7fc7e0a7a101b66f4634aef44d61233327b720eef13612fef9406f22" => :mojave
     sha256 "a226b2072da2340d2acda61cfd0e4be867d90646fe4a0d5816ff0f4c593907b0" => :high_sierra
     sha256 "28a6407547621148fcb957b4c16da177e8a346383b0102ee7352650672b44021" => :sierra
+    sha256 "44bd991ea4a1e51ec513d6c4f7d65a484eff1343721dc5827226f5e9cef79ce1" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
