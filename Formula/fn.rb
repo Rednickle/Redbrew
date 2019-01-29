@@ -9,6 +9,7 @@ class Fn < Formula
     sha256 "a663cf9a30c970458753f1fe0d7dc5e7d02ffa3762d6e8cc0bdae087b4a55982" => :mojave
     sha256 "d7a68fbd671e0887d338c47803ab93cdadd0b2749ad90ee2661cfacfac92df28" => :high_sierra
     sha256 "b57cd3a2d9550d9e8c9b5bd882a2d0bed609555a6a5240c15feac8e3c834cc90" => :sierra
+    sha256 "3e8ab288f2c5f6f7e557a5f06778a8e62a84e54128a7d449e2692cc3db7c8d9c" => :x86_64_linux
   end
 
   depends_on "dep" => :build
