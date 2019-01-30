@@ -54,7 +54,7 @@ class PostgresqlAT96 < Formula
 
     # The CLT is required to build Tcl support on 10.7 and 10.8 because
     # tclConfig.sh is not part of the SDK
-    if OS.mac? && (MacOS.version >= :mavericks || MacOS::CLT.installed?)
+    if OS.mac?
       args << "--with-tcl"
       if File.exist?("#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework/tclConfig.sh")
         args << "--with-tclconfig=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
