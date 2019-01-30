@@ -15,7 +15,7 @@ class KyotoCabinet < Formula
     sha256 "cdc3a0be11cfdf4e81c6568cf595c31b88c511a612f6711bf14ed696a2f66244" => :x86_64_linux
   end
 
-  patch :DATA if MacOS.version >= :mavericks && !OS.mac?
+  patch :DATA
 
   def install
     system "./configure", "--disable-debug", "--prefix=#{prefix}", *("--disable-zlib" unless OS.mac?)

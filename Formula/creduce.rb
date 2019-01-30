@@ -19,8 +19,6 @@ class Creduce < Formula
   depends_on "delta"
   depends_on "llvm"
 
-  depends_on :macos => :mavericks
-
   unless OS.mac?
     resource "URI::Escape" do
       url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/URI-1.72.tar.gz"
