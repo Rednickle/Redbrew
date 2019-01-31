@@ -9,6 +9,7 @@ class Gnutls < Formula
     sha256 "7507da89370f72be8fb22d1932524295231904a2a180ff0bfc4a14d3bd496e31" => :mojave
     sha256 "3bdf1fbe152231ba3a9cd19445c242cfb14140fa942a1df03af5c69754e09225" => :high_sierra
     sha256 "6dec32c6b29e69d051edd1220bc040cb01911cd20220687dd09bf6e76317b42a" => :sierra
+    sha256 "6404cffde2c9cd16df3404965881a3078a94e75966c9790c08de4e3254532d0d" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
