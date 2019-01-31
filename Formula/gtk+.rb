@@ -13,6 +13,7 @@ class Gtkx < Formula
     sha256 "b2c76a73e300405cdd6700cc4434d5e7598e9a14714689a5f094aa8a61e3e008" => :mojave
     sha256 "782c3ac4ef704173cf271de80c4f9146a7e444952ed5813f3e0624f1ff343ea3" => :high_sierra
     sha256 "9656f083501048e9eb3bde4539520d005cadc04ee242cca78a7e6c349950bdde" => :sierra
+    sha256 "2eeb66fe9c5fca66f7bd674402ac9538ec48a64823c440d1599920e742e39221" => :x86_64_linux
   end
 
   head do
