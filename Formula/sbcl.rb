@@ -8,6 +8,7 @@ class Sbcl < Formula
     sha256 "31066966985cbccd5d0590c42f5ce64fafda3651c48f858f0c8e2d743b61a132" => :mojave
     sha256 "14502b4f8e3e8ddd092a224e02ee5f861426bbe565a70ae6d7adcb34f024dac1" => :high_sierra
     sha256 "c134554d9cd9890861133cc4605c88007d0bcffa881ca8900d81710e86261533" => :sierra
+    sha256 "a3497b1c48ed00915acb8608f08bf531f467c8c6ba42eb83ab59142f51748f86" => :x86_64_linux
   end
 
   depends_on "zlib" unless OS.mac?
