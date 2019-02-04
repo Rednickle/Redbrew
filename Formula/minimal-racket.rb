@@ -1,15 +1,14 @@
 class MinimalRacket < Formula
   desc "Modern programming language in the Lisp/Scheme family"
   homepage "https://racket-lang.org/"
-  url "https://mirror.racket-lang.org/installers/7.1/racket-minimal-7.1-src-builtpkgs.tgz"
-  sha256 "efa918564e9e74a4019dcd6408f0873a4e0835dd77d09109dff2c6512aefb4b8"
+  url "https://mirror.racket-lang.org/installers/7.2/racket-minimal-7.2-src-builtpkgs.tgz"
+  sha256 "dd75401824b877964b70d8b475b05f424721f72015f41d5ae6c508b60dab3ad5"
 
   bottle do
     cellar :any
-    sha256 "e71c7b62a02120db3e02666b069585ecf6e144a02730d4f480fe6de59ee4628c" => :mojave
-    sha256 "485e5964015df87542f80859794f59829a2f4b0ca738c31ce0323699258dca8d" => :high_sierra
-    sha256 "74e5b14760d7a6b3f47a714213ec4153413399b66abc259ebc59006c4deb694a" => :sierra
-    sha256 "fdebe9491f37bd45e20f61ebb52b216f19d6a1bce301169b0c751ca1fb632371" => :x86_64_linux
+    sha256 "ab2fab8e8e2363ed71b7720d82642993a1aaac3ba2dc50155da932b2f990224f" => :mojave
+    sha256 "fbd8113cd50ee9bb0621ff1a0b23f8f9863c5ecebb548a7b09a9ad338d5f25c3" => :high_sierra
+    sha256 "4820d0e8e2b784d65aa1f512e96e8f64746a25f07e04c0a2a5970cbb241213b6" => :sierra
   end
 
   depends_on "libffi" unless OS.mac?
