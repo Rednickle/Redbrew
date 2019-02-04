@@ -9,6 +9,7 @@ class Kakoune < Formula
     sha256 "898cd671f9407a36f4f0a039113251fcb0c18839415b25067de7b823cbcf7122" => :mojave
     sha256 "a5992a3e250758a4026927218c78b387cc7054de11353f59c28278f2236a8e17" => :high_sierra
     sha256 "225f222b1abe79c31cfaebf60756eef4f47d79a365e75c03261e143f21ea52af" => :sierra
+    sha256 "4fea09c7d4c0aa964e0ff16b3b2fbd1df72df14c78f76a09931da3826184f218" => :x86_64_linux
   end
 
   depends_on "asciidoc" => :build
