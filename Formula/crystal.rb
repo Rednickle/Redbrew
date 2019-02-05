@@ -34,13 +34,13 @@ class Crystal < Formula
 
   depends_on "libatomic_ops" => :build # for building bdw-gc
   depends_on "bdw-gc"
+  depends_on CIRequirement
   depends_on "gmp" # std uses it but it's not linked
   depends_on "libevent"
   depends_on "libyaml"
   depends_on "llvm@6"
   depends_on "pcre"
   depends_on "pkg-config" # @[Link] will use pkg-config if available
-  depends_on CIRequirement
 
   resource "boot" do
     if OS.mac?
