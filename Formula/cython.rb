@@ -1,15 +1,14 @@
 class Cython < Formula
   desc "Compiler for writing C extensions for the Python language"
   homepage "https://cython.org/"
-  url "https://files.pythonhosted.org/packages/02/24/f73045afb049295b34ac55aaf6ea1592604cda3749632a22e563e66604a3/Cython-0.29.3.tar.gz"
-  sha256 "d687fb1cd9df28c1515666174c62e54bd894a6a6d0862f89705063cd47739f83"
+  url "https://files.pythonhosted.org/packages/cf/e2/03af631ca4a2cf7bc392dd8785c7cc427bff3af4bf5864cdde734f80d052/Cython-0.29.4.tar.gz"
+  sha256 "d1ee3d39c73a094ae5b6e2f9263ae0dc61af1b549a0869ade8c3c30325ed9f26"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c3923063e47ef8b9f3e495f8898b082a80c58034d713df24acca2ff7f25cf91d" => :mojave
-    sha256 "648f84c8d3226e1da1c5bed6d95d9de62c25a3a752f3be20e36366179faa6114" => :high_sierra
-    sha256 "69fc5ad0d96f5661e43eff9537ad4af18ed9bfaf805e6e61f805c574ead273ae" => :sierra
-    sha256 "af9e652984fc4352a39f077066e342a00468319a12163ae7e7fe37acb2035dd4" => :x86_64_linux
+    sha256 "a7494be3e94822d287bf3c66d066248d8f5d3c14d2594a402f4b6dbcc81f03b2" => :mojave
+    sha256 "8715410ef3645a4e20323a9f1d324e69f7ca7d99596cb486660c1d1b9e717f54" => :high_sierra
+    sha256 "8936e7896f71ed692041a82acf59b00c717d49f89c47d18ea684ba9677230bc1" => :sierra
   end
 
   keg_only <<~EOS
