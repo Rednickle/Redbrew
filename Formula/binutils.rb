@@ -7,7 +7,7 @@ class Binutils < Formula
 
   # binutils is portable.
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
+    cellar :any
     sha256 "ef7ed4e1f676ba42a72928a6925febf3a95d73424986f8ebb8d4b458923004b1" => :x86_64_linux
   end
 
@@ -16,11 +16,7 @@ class Binutils < Formula
              "because Apple provides the same tools and binutils is poorly supported on macOS"
   end
 
-  unless OS.mac?
-    option "without-gold", "Do not build the gold linker"
-
-    depends_on "zlib" => :recommended unless OS.mac?
-  end
+  depends_on "zlib" unless OS.mac?
 
   def install
     system "./configure", "--disable-debug",
@@ -34,16 +30,18 @@ class Binutils < Formula
                           "--enable-interwork",
                           "--enable-multilib",
                           "--enable-64-bit-bfd",
-                          ("--enable-gold" if build.with? "gold"),
+                          ("--enable-gold" unless OS.mac?),
                           ("--enable-plugins" unless OS.mac?),
                           "--enable-targets=all"
     system "make"
     system "make", "install"
-    bin.install_symlink "ld.gold" => "gold" if build.with? "gold"
+    bin.install_symlink "ld.gold" => "gold" unless OS.mac?
 
-    Dir["#{bin}/*"].each do |f|
-      bin.install_symlink f => "g" + File.basename(f)
-    end if OS.mac?
+    if OS.mac?
+      Dir["#{bin}/*"].each do |f|
+        bin.install_symlink f => "g" + File.basename(f)
+      end
+    end
 
     # Reduce the size of the bottle.
     system "strip", *Dir[bin/"*", lib/"*.a"] unless OS.mac?
