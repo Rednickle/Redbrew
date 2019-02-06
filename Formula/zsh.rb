@@ -4,13 +4,12 @@ class Zsh < Formula
   url "https://downloads.sourceforge.net/project/zsh/zsh/5.7/zsh-5.7.tar.xz"
   mirror "https://www.zsh.org/pub/zsh-5.7.tar.xz"
   sha256 "7807b290b361d9fa1e4c2dfafc78cb7e976e7015652e235889c6eff7468bd613"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "704757d9e92b55847dfc1442461121ff03efeeeb80a1ac3e81ed60cf04a20444" => :mojave
-    sha256 "a2b87d988cdb6cc1459c8e1886c2d33ce9f5c17acd6198b5752574fee7b9ea1b" => :high_sierra
-    sha256 "4497077b11c9ff6499f8b6104f688520cda11adcf4fd36f170e39cdde5919979" => :sierra
-    sha256 "27659aa49fc5be4cc44c0cfe8a0d91fd7b2c3ac56fd3d26575d8c337bbf51b0a" => :x86_64_linux
+    sha256 "2fdc2099668bbfc5391fd0218c16caf984e6b8a081e59638bd4538fa4db7e687" => :mojave
+    sha256 "e117be46f39045a7a64580fe81180f6f6ca4f62ffba02bdc6d0f38122d38950e" => :high_sierra
+    sha256 "18424486070c287ee9703bd17688bfc611475044c7418f5df91c2864e2305e67" => :sierra
   end
 
   head do
@@ -19,6 +18,7 @@ class Zsh < Formula
   end
 
   depends_on "ncurses"
+  depends_on "pcre"
   depends_on "texinfo" unless OS.mac?
 
   resource "htmldoc" do
@@ -46,6 +46,7 @@ class Zsh < Formula
                           "--enable-cap",
                           "--enable-maildir-support",
                           "--enable-multibyte",
+                          "--enable-pcre",
                           "--enable-zsh-secure-free",
                           "--enable-unicode9",
                           "--enable-etcdir=/etc",
