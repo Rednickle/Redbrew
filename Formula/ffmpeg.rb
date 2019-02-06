@@ -74,10 +74,11 @@ class Ffmpeg < Formula
       --enable-libopencore-amrwb
       --enable-librtmp
       --enable-libspeex
-      --enable-videotoolbox
       --disable-libjack
       --disable-indev=jack
     ]
+
+    args << "--enable-videotoolbox" if OS.mac?
 
     system "./configure", *args
     system "make", "install"
