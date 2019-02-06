@@ -9,6 +9,7 @@ class Safe < Formula
     sha256 "cc0ba1efffe682de39f15d4564cacbd6150a21aea05829cc1d7758fdab07f004" => :mojave
     sha256 "5bfc8eb225573e39180516d1f252f1a5a695fb4c80da7bcbcedb0e112fa023ae" => :high_sierra
     sha256 "e2d03a5b45a8c59d5f4a7d75d739520dc2193e31d88e4bec5a7c2a27fa93bbb3" => :sierra
+    sha256 "f8e2ab0bfbfaa20fe3dc7d09a2433f8d6b4ec314c051a92e712b98a95640c9b3" => :x86_64_linux
   end
 
   depends_on "go" => :build
