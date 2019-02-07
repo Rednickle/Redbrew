@@ -10,6 +10,7 @@ class Devd < Formula
     sha256 "14f2c29b4bd17afe84568daa6800e9500438c28b02b7bc83f2a76252bb79099b" => :mojave
     sha256 "64faee99fcec04c2d603610f169900a1379bd5961be352745078c38dfc5cdb17" => :high_sierra
     sha256 "3023d0d25dbca5e3790fbf42c6f093d8241970700bbb4d6ca7b516c23ff25d77" => :sierra
+    sha256 "cf7feb1788c8c5e2bb634a0ec5b44e0a1c53b185c6b0f4d268647b273730e61e" => :x86_64_linux
   end
 
   depends_on "go" => :build
