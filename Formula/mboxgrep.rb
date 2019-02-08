@@ -12,6 +12,7 @@ class Mboxgrep < Formula
     sha256 "ecc1d1a83a7ffbc3414feb24c970b89509737f7d1de5c0d8dbd71ba55e008220" => :el_capitan
     sha256 "08cbb574005db6e34cc191ae4f46670ca35af252e4e6bbc2041a92e32397bc49" => :yosemite
     sha256 "bb5cefa83e2fb8b37dac858f3119aedb338b29e0eb2715cbff08b4644689ad86" => :mavericks
+    sha256 "5b5c75cfd31e9b04128b119778189ee919afdef8f7a05702a78480e59d535737" => :x86_64_linux
   end
 
   depends_on "pcre"
