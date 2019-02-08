@@ -11,6 +11,7 @@ class Jinja2Cli < Formula
     sha256 "34211b3c0dd4cd265c4f48fff89af75ebeeb2c8e8af6fb0d1b7efda1dd3d5a21" => :mojave
     sha256 "e9df149e4f974b5a54d6591332d205bc706a2115601691ae7fa6d358e7e74291" => :high_sierra
     sha256 "cbd8c8763e194f661b58550e2d3602d21f70e8957a338d5f29982b312acbfe25" => :sierra
+    sha256 "a9cbe4bcd55e29579a18e986241a392b6129aaffb0188edefeac6a5dba037487" => :x86_64_linux
   end
 
   depends_on "python"
