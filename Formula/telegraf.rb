@@ -10,6 +10,7 @@ class Telegraf < Formula
     sha256 "8bc1f57cbd6181dc149c7c384ad2bd442e83547b4e6a801a83a04fe00258ce99" => :mojave
     sha256 "1384adae571439da8c954db4c288c466611330802f0e11c09f4e4384aebb4498" => :high_sierra
     sha256 "f7d34165fe8094ca93580409ac6354c073cb5e61df66f677faa9e92cb8805ebf" => :sierra
+    sha256 "9ca06fef4df834387679efa8e9c1474339faeb8c4cfe382d7b381af36d8dee83" => :x86_64_linux
   end
 
   depends_on "dep" => :build
