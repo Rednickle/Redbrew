@@ -2,26 +2,25 @@ class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      :tag      => "v6.5.4",
-      :revision => "2d4c9c3fd9afd81ded3ac2e686bc1f7204078f14"
+      :tag      => "v6.6.0",
+      :revision => "bbbacb03feb9f0de46be449c431bc03dcd15c002"
   head "https://github.com/elastic/kibana.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b3831c6f6f2ecb5208d5b09290c38fae4ef265f39f459d225233eff9ecfc340e" => :mojave
-    sha256 "b574c3450a1eabf0ea1e5f225b562386753eb74a9c04296d41b51ecdbaf86419" => :high_sierra
-    sha256 "101bb42677e25f8e9a998036034317c1cb5658d4b72db2de2e757caaf68c3b87" => :sierra
-    sha256 "61a8522b9a1cf2666379f7834334224ec01e2558084b3ada0ad1ba426507fb1a" => :x86_64_linux
+    sha256 "201b91e98a22e523372e89cd139cd9b14157ab86c2e52d14ce03cb4756b78122" => :mojave
+    sha256 "d5cdf8d0389717269839b28353cd72ffd467340b65a38d54fac45bb9ee18c333" => :high_sierra
+    sha256 "ab668f97b659c38e20a72256921f5238c6b5929bcf04b4449dd4d7b4f6a5417e" => :sierra
   end
 
   resource "node" do
-    url "https://nodejs.org/dist/v8.14.0/node-v8.14.0.tar.xz"
-    sha256 "8ce252913c9f6aaa9871f2d9661b6e54858dae2f0064bd3c624676edb09083c4"
+    url "https://nodejs.org/dist/v10.14.1/node-v10.14.1.tar.xz"
+    sha256 "3def67bf1679e0606af4eb3d7ce3c0a3fe4548f2d0a87320d43a30e2207ab034"
   end
 
   resource "yarn" do
-    url "https://yarnpkg.com/downloads/1.12.3/yarn-v1.12.3.tar.gz"
-    sha256 "02cd4b589ec22c4bdbd2bc5ebbfd99c5e99b07242ad68a539cb37896b93a24f2"
+    url "https://yarnpkg.com/downloads/1.13.0/yarn-v1.13.0.tar.gz"
+    sha256 "125d40ebf621ebb08e3f66a618bd2cc5cd77fa317a312900a1ab4360ed38bf14"
   end
 
   unless OS.mac?
@@ -40,6 +39,7 @@ class Kibana < Formula
 
     # remove non open source files
     rm_rf "x-pack"
+    inreplace "package.json", /"x-pack":.*/, ""
 
     # patch build to not try to read tsconfig.json's from the removed x-pack folder
     inreplace "src/dev/typescript/projects.ts" do |s|
