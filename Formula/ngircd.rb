@@ -9,6 +9,7 @@ class Ngircd < Formula
     sha256 "d73567d2f8a5282f0043b9ae86bc3742f3a31769c6659b05f5e689648f9f7c53" => :mojave
     sha256 "74c6d973c3a1ace3f1337732099cec0969731796f5e4f2edeb53cd216b3243c8" => :high_sierra
     sha256 "c7e2df47d407ffae865897036c0cb825d6b0105b0a85ded05c0deafbeade3d28" => :sierra
+    sha256 "5c3e3014769413b07601093e5ad06b5fac0cac7e26bf5eb5b9fe654a86eba9b4" => :x86_64_linux
   end
 
   depends_on "libident"
