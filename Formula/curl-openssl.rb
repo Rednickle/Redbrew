@@ -8,6 +8,7 @@ class CurlOpenssl < Formula
     sha256 "97d32ac24c5a62f93c832fcb881ade6fc8a895e36bf1af0837b535216dce16f3" => :mojave
     sha256 "bd020df28b99355990348b6f0312f5b8af65febceff0e4f4ab8ac6fff9caf3ba" => :high_sierra
     sha256 "bbc385ef19240944c7efa57df51b9c7384cf88e2515153044b554124cd56dd7f" => :sierra
+    sha256 "9737892c702c72574198e599bfb2fb196088a1922639ce4d0888e12d680b2fdf" => :x86_64_linux
   end
 
   head do
