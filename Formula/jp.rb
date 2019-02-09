@@ -9,6 +9,7 @@ class Jp < Formula
     sha256 "53127a663b20c7c0ac893d991330ca862a6eaa8f235586019e1b8ac33159bcf3" => :mojave
     sha256 "51045489ba9e8790a83a2a366709bd941d3a9e7c190f6c184bcf308b888496b3" => :high_sierra
     sha256 "b75e4ab3a48e2212babba26a4258645ae55eefa50a9ccac463991b05ce4c08d6" => :sierra
+    sha256 "bffd300b5cd7bc53cfba69c3ea387fc2bafccf612cf3630e7646a9c67f360cf1" => :x86_64_linux
   end
 
   depends_on "go" => :build
