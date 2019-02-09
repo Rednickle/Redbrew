@@ -3,14 +3,13 @@ class Ffmpeg < Formula
   homepage "https://ffmpeg.org/"
   url "https://ffmpeg.org/releases/ffmpeg-4.1.tar.xz"
   sha256 "a38ec4d026efb58506a99ad5cd23d5a9793b4bf415f2c4c2e9c1bb444acd1994"
-  revision 5
+  revision 6
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
-    rebuild 1
-    sha256 "2ddcdf6d1a06694eaf262c8a06a2d919eeb3047984e77449761a9c7834b7135b" => :mojave
-    sha256 "6d04eca21b46264566102aaeae2d030776f71bc75a2587c8a5b9600e7b9c711b" => :high_sierra
-    sha256 "bacf852c966847ef0a54e6c4a8e5e78920f898c6e734b68be07f3f6815fa1a3d" => :sierra
+    sha256 "e6b29531887a2aa5ce2f3c62b174fce3feab6d0cdead3f89dd50e7d899f5c3b4" => :mojave
+    sha256 "5196fe1120f78cb700a879dccc3141f9d22796b8e85c791276a4f3f457b02e88" => :high_sierra
+    sha256 "2751c716de041e7e3606d791a797ef7edd8e6e435a5d631648a41b83f54470a0" => :sierra
   end
 
   depends_on "nasm" => :build
@@ -24,6 +23,7 @@ class Ffmpeg < Formula
   depends_on "lame"
   depends_on "libass"
   depends_on "libbluray"
+  depends_on "libsoxr"
   depends_on "libvorbis"
   depends_on "libvpx"
   depends_on "opencore-amr"
@@ -84,6 +84,8 @@ class Ffmpeg < Formula
       --enable-libspeex
       --disable-libjack
       --disable-indev=jack
+      --enable-libaom
+      --enable-libsoxr
     ]
 
     args << "--enable-videotoolbox" if OS.mac?
