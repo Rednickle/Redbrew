@@ -4,16 +4,15 @@ class Awscli < Formula
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
   # awscli should only be updated every 10 releases on multiples of 10
-  url "https://github.com/aws/aws-cli/archive/1.16.90.tar.gz"
-  sha256 "664f363be839e6ef15d98e343a15a405b6869cf2524cd923846451afb9158ad5"
+  url "https://github.com/aws/aws-cli/archive/1.16.100.tar.gz"
+  sha256 "b2625b913670c789d7a0b8d8377d08df72c61c48aed55a1e4ece750766e5cdfd"
   head "https://github.com/aws/aws-cli.git", :branch => "develop"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8ca5567d57f64fbfeb10416700ed297772d4a32bf078ed46746d20f249bca9ac" => :mojave
-    sha256 "59ab3361e1dc9da20f02a7d01e8aeaec67c47be46340e8c57ca24251ecc072ff" => :high_sierra
-    sha256 "b583300e73abd5f9c087fb142d98b30cfdbcc3011d762130ca78e95b6f997659" => :sierra
-    sha256 "839d4da65f42404833bde04aea1f1dc94fb5902613e76589cf604811552a6c81" => :x86_64_linux
+    sha256 "7c791f69042fc4d1f32a70a59b4b6d13027f17f01acefc5d8573370fa40e6f82" => :mojave
+    sha256 "c7dfb7c2646879b3f463efe81461c9cb7710c15f5dc07ce699f026c89b376ac2" => :high_sierra
+    sha256 "9cb7935de4dcb4428291058a8ecd67d048e7dd6526405606febb21bb11c5fe8d" => :sierra
   end
 
   # Some AWS APIs require TLS1.2, which system Python doesn't have before High
