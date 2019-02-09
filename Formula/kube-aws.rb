@@ -11,6 +11,7 @@ class KubeAws < Formula
     sha256 "6b048c872c17fce2a11fcb6a0935363f83ccea515623d579c6b0a44315f6cbe8" => :mojave
     sha256 "57b9ac7f0359d13138e7721131023199545f1eab296921b1dca5c363df2b6395" => :high_sierra
     sha256 "a0e3ae85e6430684b0e3c5d6ccc439e375be99e835240fb5ca8a0a273abe5666" => :sierra
+    sha256 "f24e6e33743621b6f7e123bf052ceb79cf326e72366737e6b132450a05a360cb" => :x86_64_linux
   end
 
   depends_on "go" => :build
