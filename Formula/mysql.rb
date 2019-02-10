@@ -1,13 +1,13 @@
 class Mysql < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/8.0/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.13.tar.gz"
-  sha256 "61f97906050c2a0cc008be347f70c2c6612425c85342466f549088c570b35ff4"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.14.tar.gz"
+  sha256 "afc608989a120c204524dcf107af23a41b3665e900fd0f17080705bbf2c13de0"
 
   bottle do
-    sha256 "aaf5322a68c54d31ef2322023238da09529c11eaad75b69cdaa99aeb0fab44bf" => :mojave
-    sha256 "ae08167bb19f4c5bd3ec23866d58051188bdb3d995df6b83851743450ca8d0ff" => :high_sierra
-    sha256 "d52428740c64660b100efa772acc135e3bb567efb342750add3a9dbb3e4932b8" => :sierra
+    sha256 "0ffd6c233bd37777b2c21675ba0fba0bbe34d9f4866b3e972f9339ef97c37136" => :mojave
+    sha256 "4e0f548874fd226d83e042c30a7291d819be50e92d0f2459a49128ddeff398c3" => :high_sierra
+    sha256 "81e76f2e36da8f1948a137d659bcbb84e9ee93c9921918e42aac2e87f3c6e989" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -53,6 +53,7 @@ class Mysql < Formula
 
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
     args = %W[
+      -DFORCE_INSOURCE_BUILD=1
       -DCOMPILATION_COMMENT=Homebrew
       -DDEFAULT_CHARSET=utf8mb4
       -DDEFAULT_COLLATION=utf8mb4_general_ci
