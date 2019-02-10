@@ -3,13 +3,12 @@ class Htop < Formula
   homepage "https://hisham.hm/htop/"
   url "https://hisham.hm/htop/releases/2.2.0/htop-2.2.0.tar.gz"
   sha256 "d9d6826f10ce3887950d709b53ee1d8c1849a70fa38e91d5896ad8cbc6ba3c57"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "668d7b889f1f15adf76efad7324688dc63f0529862cde70b11597cebbaeb4406" => :mojave
-    sha256 "07cd259ed88e88ad7d1acbc92916dd3c6a069fdbbd65953de7838fd0d9ba0183" => :high_sierra
-    sha256 "2e8c58bd5c46192178af2c31e8c7f97118ef09d301b2d3c402e08562d6927844" => :sierra
-    sha256 "533552a44ff01840d3482240d8e53a0a1c3c2368da44e7f87e7b36abc4b26bd7" => :x86_64_linux
+    sha256 "77aa302765353b4085dcad52356d3264183e06310dda8d5bac64642299ea2902" => :mojave
+    sha256 "0ebfb655b91566ba31f8effc94d642a43305ff95bdc9b30b46fadc132e2ced0c" => :high_sierra
+    sha256 "ed93b86f011de155c5d261b8c9cc9cb81fd0017667bf3ebe26ee090716bcd650" => :sierra
   end
 
   head do
@@ -21,10 +20,8 @@ class Htop < Formula
   end
 
   depends_on "pkg-config" => :build
-  unless OS.mac?
-    depends_on "python@2" => :build
-    depends_on "ncurses"
-  end
+  depends_on "ncurses" # enables mouse scroll
+  depends_on "python@2" => :build unless OS.mac?
 
   def install
     system "./autogen.sh" if build.head?
