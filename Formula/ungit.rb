@@ -11,6 +11,7 @@ class Ungit < Formula
     sha256 "d3c7afb82fb3c32af9a0fff94e04d9706be96e4b631a9880a42e161164f1e112" => :mojave
     sha256 "d639e5e39e74fc5cc06b23b35b4c69be33b74fa098f29552f7f781a434c89ffa" => :high_sierra
     sha256 "118ae206c3a4dd88bbd3ae08b856d6ae581532a0f3d0cf0723224b76dcdba455" => :sierra
+    sha256 "9bca8c8cb6b9b62dfb7a39594ff587766c023afb30f1965a3ba7d1437a9abbfb" => :x86_64_linux
   end
 
   depends_on "node"
