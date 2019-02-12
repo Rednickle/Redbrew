@@ -22,7 +22,7 @@ class Graphite2 < Formula
   end
 
   def install
-    system "cmake", *std_cmake_args
+    system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
 
