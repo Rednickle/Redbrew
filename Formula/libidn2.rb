@@ -1,15 +1,14 @@
 class Libidn2 < Formula
   desc "International domain name library (IDNA2008, Punycode and TR46)"
   homepage "https://www.gnu.org/software/libidn/#libidn2"
-  url "https://ftp.gnu.org/gnu/libidn/libidn2-2.1.1.tar.gz"
-  mirror "https://ftpmirror.gnu.org/libidn/libidn2-2.1.1.tar.gz"
-  sha256 "95416080329298a13269e13175041b530cec3d98b54cafae9424b8dfd22078b1"
+  url "https://ftp.gnu.org/gnu/libidn/libidn2-2.1.1a.tar.gz"
+  mirror "https://ftpmirror.gnu.org/libidn/libidn2-2.1.1a.tar.gz"
+  sha256 "57666bcf6ecf54230d7bac95c392379561954b57a673903aed4d3336b3048b72"
 
   bottle do
-    sha256 "55c28ef52807f483fb4907528478c6f9ecb9e9b2fb0da7fcfc41b82e6521a5ac" => :mojave
-    sha256 "40e078a0b5164cdddede2de59accd4ab807a118479f9bbe5452a6be61c993be1" => :high_sierra
-    sha256 "e64e20552e7ed8d1fb53bd408ba33221e5b5962d738048479de3a9e5bda11024" => :sierra
-    sha256 "52884f25a413cbd21b6e57402d44a2d00dee4b1b0f5dd6cf38c2f77c096e92da" => :x86_64_linux
+    sha256 "375378c094e99ec8da0cf14d5cf8e70bca64ac594e2c0728c961be3999f9f190" => :mojave
+    sha256 "cfd16003972857e45c78dc430a3a6bc0c796443bc9719ada9a8d6aaa968a1c8a" => :high_sierra
+    sha256 "fb471fcee9c5c9f527cd77e9a5e3c42a9532c12dd6211d65f2780988cd1bb630" => :sierra
   end
 
   head do
