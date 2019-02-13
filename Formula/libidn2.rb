@@ -9,6 +9,7 @@ class Libidn2 < Formula
     sha256 "375378c094e99ec8da0cf14d5cf8e70bca64ac594e2c0728c961be3999f9f190" => :mojave
     sha256 "cfd16003972857e45c78dc430a3a6bc0c796443bc9719ada9a8d6aaa968a1c8a" => :high_sierra
     sha256 "fb471fcee9c5c9f527cd77e9a5e3c42a9532c12dd6211d65f2780988cd1bb630" => :sierra
+    sha256 "3187a6ded57e9e6f889984d6486aad823e918ceea2b01810ec6b1b6398fa2f1e" => :x86_64_linux
   end
 
   head do
