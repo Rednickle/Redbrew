@@ -9,6 +9,7 @@ class Urdfdom < Formula
     sha256 "263f8b75de2465c83b527ea27fe6fdc2687d14571114f575c433a3316f2b9524" => :mojave
     sha256 "736c863207d6de888b32645de4a68a32776e0011d115ca51feb98bf066e9493f" => :high_sierra
     sha256 "fe30973514c5c9f9a6484b98ae3b36ae98fc5b0bfdadf7d8cfcd889391f68a72" => :sierra
+    sha256 "9035597d20d0ebabd71748a188ec4c2325e6de420b8776934e61f292a2d2a456" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
