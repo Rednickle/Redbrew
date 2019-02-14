@@ -9,6 +9,7 @@ class Cppcheck < Formula
     sha256 "459379b27b56d2d21e66a73b971f5f95a95cc40a05bfea06584b59600ee606f4" => :mojave
     sha256 "ac488840fa1fbb9e4413f0720a23ef262884805d42712f922e83ff0cae0b279f" => :high_sierra
     sha256 "76f7886607cb555fc93e61032b5d56b84ddb9e40b5d61920bbfb1e98e876ed49" => :sierra
+    sha256 "76a99094068e2f3ceb9acdb3e06607a32dcd55b501061de161a96b96e3950038" => :x86_64_linux
   end
 
   depends_on "pcre"
