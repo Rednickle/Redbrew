@@ -8,11 +8,10 @@ class Gmp < Formula
 
   bottle do
     cellar :any
-    sha256 "6802f7bc775422af1438c8004bd4fe31614cc83e52fb4091f5f53fb14562e503" => :mojave
-    sha256 "8372dcd88e36997d7aacaffb555709348cc2c57703608b3471cbd71f5054f9ed" => :high_sierra
-    sha256 "087052cc1b49f5e0c42f5bd54f463f7fca7f7c73f00856c576706112bbe2a4c1" => :sierra
-    sha256 "d8f9b3e4da4241dc5996f318df44d99a45db1bcce84a4ce814e8a8912d4cdaef" => :el_capitan
-    sha256 "bbe7a837bc882cfb9a79c7e0f11130787058f19c5739ffe83e660dd88587d9b9" => :x86_64_linux
+    rebuild 1
+    sha256 "84f74594086bccc53bdb141f4d06d7847680374e255ebe016654da1e47db2dfc" => :mojave
+    sha256 "a536c51149806b73b2e1178be94300832b6b151455006bc7f2a32b9dc493c7a3" => :high_sierra
+    sha256 "ada22a8bbfe8532d71f2b565e00b1643beaf72bff6b36064cbad0cd7436e4948" => :sierra
   end
 
   depends_on "m4" => :build unless OS.mac?
@@ -22,9 +21,9 @@ class Gmp < Formula
     args = %W[--prefix=#{prefix} --enable-cxx --with-pic]
 
     if OS.mac?
-      args << "--build=core2-apple-darwin#{`uname -r`.to_i}" if build.bottle?
+      args << "--build=#{Hardware.oldest_cpu}-apple-darwin#{`uname -r`.to_i}"
     else
-      args << "--build=core2-linux-gnu" if build.bottle?
+      args << "--build=core2-linux-gnu"
       args << "ABI=32" if Hardware::CPU.intel? && Hardware::CPU.is_32_bit?
     end
 
