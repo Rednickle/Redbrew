@@ -1,16 +1,15 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v11.9.0/node-v11.9.0.tar.gz"
-  sha256 "d7f3d73d443f52c1c689fe88b9e55c35401b2207d251dc47b2d6a86a6d95758b"
+  url "https://nodejs.org/dist/v11.10.0/node-v11.10.0.tar.gz"
+  sha256 "45835c210955cd05cab259e664cc19a6f2748dbda6bc9e13edc9a2e8cc498770"
   head "https://github.com/nodejs/node.git"
 
   bottle do
     cellar :any
-    sha256 "9969d2272028f966f9557aa189f564b0514be29859968893463c1fb2d928843a" => :mojave
-    sha256 "532ba64fc21ed0585bc8a73f3ad0ae7b234b1e52f74d33d88f1c5e641cae311a" => :high_sierra
-    sha256 "59880842584100c41ea0bc9d414d0038ba8e106bb2a53608eef3ae6cff1e9bca" => :sierra
-    sha256 "2a14a693d5e441a2d0a343ac79e176da3e26987322f308ff9d5987ed93669caf" => :x86_64_linux
+    sha256 "a62bde073d072476eae333e69a78d262de3305798d67662398580e7b248fbf10" => :mojave
+    sha256 "57378866a3a3fe73239b3415a70198d00199c7d69cc92736bb27914623b4be57" => :high_sierra
+    sha256 "2b49f5592f83ea5fcb45bcc65a65b43a0b700e2a831bca943be9143460171056" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -20,8 +19,8 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-6.5.0.tgz"
-    sha256 "b0c25f9610085da20921e7eec6ddcecef7fc5ffa6c1b2ddd4007edd5e8414eb2"
+    url "https://registry.npmjs.org/npm/-/npm-6.7.0.tgz"
+    sha256 "6ce036f070fe8fe602577fd80c103c3d7684077b0f567fdc8792c9ec65d35685"
   end
 
   def install
