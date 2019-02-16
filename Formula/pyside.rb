@@ -1,13 +1,13 @@
 class Pyside < Formula
   desc "Official Python bindings for Qt"
   homepage "https://wiki.qt.io/Qt_for_Python"
-  url "https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.12.0-src/pyside-setup-everywhere-src-5.12.0.tar.xz"
-  sha256 "890149628a6c722343d6498a9f7e1906ce3c10edcaef0cc53cd682c1798bef51"
+  url "https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.12.1-src/pyside-setup-everywhere-src-5.12.1.tar.xz"
+  sha256 "6e26b6240b97558b8bf3c97810e950ef4121a03a1ebdecfb649992a505f18059"
 
   bottle do
-    sha256 "054b6d47901926ccdcc7e536f64b4fe5940a4a3cc66eb9cd8fa79dfa1c2b2ffc" => :mojave
-    sha256 "74fc47c6048c551f75c13271c3b7ab1ea1eebbdffa03e42f06c7a9aeac4b483b" => :high_sierra
-    sha256 "7169bf742fe0d4717ab7d647feb0ab9f7014525bfb75a47d63fbd470e244e7c7" => :sierra
+    sha256 "e7fe88572d06f3466c7292847c31ba8597b2708d5785c63e18353bd9143a7738" => :mojave
+    sha256 "6a26cc11e5ac8fdad247545ca6da90f0aed371480647c84de0332085f2d4734f" => :high_sierra
+    sha256 "f597396d4f95f91c9262c8dc0a7e7f4d01ec6912db8bdff1af5e6b2baa91394b" => :sierra
   end
 
   depends_on "cmake" => [:build, :test]
@@ -62,8 +62,8 @@ class Pyside < Formula
       ].each { |mod| system python, "-c", "import PySide2.Qt#{mod}" }
     end
     ["python", "python@2"].each do |python|
-      if python == "python"
-        ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
+      if python == "python@2"
+        ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin"
       end
       system "cmake", "-H#{pkgshare}/samplebinding",
                       "-B.",
@@ -72,6 +72,7 @@ class Pyside < Formula
                       "-DCMAKE_BUILD_TYPE=Release"
       system "make"
       system "make", "clean"
+      rm "CMakeCache.txt"
     end
   end
 end
