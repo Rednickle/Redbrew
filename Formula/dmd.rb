@@ -23,9 +23,11 @@ class Dmd < Formula
   end
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles"
     sha256 "316092a9a666807ee556e5a7bb875b5513781839230660c6ee5db8ec64a11875" => :mojave
     sha256 "418371f9db99797409094c09fd23559a58f3ee5a9e152eb5bfc22a3a55a5d45f" => :high_sierra
     sha256 "579e87a7ab5ce58a870f3f5e311124414f185e0f307bac278bd999221ed1660c" => :sierra
+    sha256 "59c9c5530a93a82ae4097f59ea2206c3c2bfd046a0c567cd71f3eb45c1239049" => :x86_64_linux
   end
 
   head do
