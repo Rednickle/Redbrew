@@ -7,10 +7,10 @@ class Passenger < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "1206345ad70f7998f79b49a626c016e2b98e1e35be44688f6d87a3647d861279" => :mojave
-    sha256 "9b293f6dddc2328b3ef8aa7832216404a46c9f6477f3ea4cbb4685b2ae56a6d1" => :high_sierra
-    sha256 "bfd2b214a935f1ffe3cd873820de3457037fe0d6f160e42c06390746e730fddd" => :sierra
+    rebuild 2
+    sha256 "3b5e444fe0ac01be904a4f08d5c24e32f04eea2f73dff333a06dc6cfd765e30b" => :mojave
+    sha256 "83e9714af4d118daaf04d2601fceaee8b6254ab82f84abf6a7584a7e7e987ba3" => :high_sierra
+    sha256 "e5ac3df781538eaa706dabd46d237e09d6a6db84a0cc7331d0d8c6b83080dddd" => :sierra
   end
 
   # to build nginx module
@@ -37,16 +37,13 @@ class Passenger < Formula
     nginx_addon_dir = `./bin/passenger-config about nginx-addon-dir`.strip
 
     mkdir "nginx" do
-      system "tar", "-xf", "#{Formula["nginx"].opt_share}/src/src.tar.xz", "--strip-components", "1"
-      args = (Formula["nginx"].opt_share/"src/configure_args.txt").read.split("\n")
+      system "tar", "-xf", "#{Formula["nginx"].opt_pkgshare}/src/src.tar.xz", "--strip-components", "1"
+      args = (Formula["nginx"].opt_pkgshare/"src/configure_args.txt").read.split("\n")
       args << "--add-dynamic-module=#{nginx_addon_dir}"
 
       system "./configure", *args
-
       system "make"
-
-      (libexec/"buildout/nginx_dynamic/").mkpath
-      cp "objs/ngx_http_passenger_module.so", libexec/"buildout/nginx_dynamic/"
+      (libexec/"modules").install "objs/ngx_http_passenger_module.so"
     end
 
     (libexec/"download_cache").mkpath
@@ -93,7 +90,7 @@ class Passenger < Formula
     To activate Phusion Passenger for Nginx, run:
       brew install nginx
     And add the following to #{etc}/nginx/nginx.conf at the top scope (outside http{}):
-      load_module #{opt_libexec}/buildout/nginx_dynamic/ngx_http_passenger_module.so;
+      load_module #{opt_libexec}/modules/ngx_http_passenger_module.so;
     And add the following to #{etc}/nginx/nginx.conf in the http scope:
       passenger_root #{opt_libexec}/src/ruby_supportlib/phusion_passenger/locations.ini;
       passenger_ruby /usr/bin/ruby;
@@ -110,7 +107,7 @@ class Passenger < Formula
     assert_equal "#{libexec}/src/ruby_supportlib", ruby_libdir
 
     (testpath/"nginx.conf").write <<~EOS
-      load_module #{opt_libexec}/buildout/nginx_dynamic/ngx_http_passenger_module.so;
+      load_module #{opt_libexec}/modules/ngx_http_passenger_module.so;
       worker_processes 4;
       error_log #{testpath}/error.log;
       pid #{testpath}/nginx.pid;
