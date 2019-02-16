@@ -8,10 +8,10 @@ class Kustomize < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1e68c6e2c149ee16acababbfd675eedec2447af3036dc26dd111354a3c64cdaa" => :mojave
-    sha256 "d5d03a7c6b55c1a8c7cdfcb78caaa34273f7a0e38334bc109d40069b6428eb07" => :high_sierra
-    sha256 "14426a1904e5e60f1fdbb873f203ab41e653f76fa2adb225ffde669f893125a0" => :sierra
-    sha256 "b919e2be88b1582a5db18515252bb5904a1c7971dd44a161c90b7b14d6d331e5" => :x86_64_linux
+    rebuild 1
+    sha256 "db78fbfff835e28008e5854134c06826bbe324dcf7a18d576fbe71202009b0c6" => :mojave
+    sha256 "bf58a993c871de4661840ed3e14f54fb209c7d5e13f54f1416a550b090386ceb" => :high_sierra
+    sha256 "ae7033541f451104d58dd597362f32e75ffb6d7c196ac0bf66e9c835d72ed94a" => :sierra
   end
 
   depends_on "go" => :build
@@ -26,8 +26,9 @@ class Kustomize < Formula
     dir.install buildpath.children - [buildpath/".brew_home"]
     cd dir do
       ldflags = %W[
-        -s -X sigs.k8s.io/kustomize/pkg/commands.kustomizeVersion=#{tag}
-        -X sigs.k8s.io/kustomize/pkg/commands.gitCommit=#{revision}
+        -s -X sigs.k8s.io/kustomize/pkg/commands/misc.kustomizeVersion=#{tag}
+        -X sigs.k8s.io/kustomize/pkg/commands/misc.gitCommit=#{revision}
+        -X sigs.k8s.io/kustomize/pkg/commands/misc.buildDate=#{Time.now.iso8601}
       ]
       system "go", "install", "-ldflags", ldflags.join(" ")
       bin.install buildpath/"bin/kustomize"
@@ -36,7 +37,7 @@ class Kustomize < Formula
   end
 
   test do
-    assert_match "KustomizeVersion:", shell_output("#{bin}/kustomize version")
+    assert_match "KustomizeVersion:v#{version}", shell_output("#{bin}/kustomize version")
 
     (testpath/"kustomization.yaml").write <<~EOS
       resources:

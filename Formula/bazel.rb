@@ -8,12 +8,13 @@ class Bazel < Formula
   homepage "https://bazel.build/"
   url "https://github.com/bazelbuild/bazel/releases/download/0.22.0/bazel-0.22.0-dist.zip"
   sha256 "6860a226c8123770b122189636fb0c156c6e5c9027b5b245ac3b2315b7b55641"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "84d26821f6cbc1b7a68fc3892101174a8ef0df30df8173912c22db9910222a2f" => :mojave
-    sha256 "804cefe10084d6a382892e9b1e461ed3779a128cf406da366867ff769252d4e9" => :high_sierra
-    sha256 "42362d88106d47f7358813540fe11d97be44b3e5d11d004b2e0f4dada83d0390" => :sierra
+    sha256 "36d594b71ab010c6b28fe6b3470ccc5623cce7b8eca1197ec914e3378e4f1420" => :mojave
+    sha256 "4c6bc36e50b25fbf63c07d7192aabf596a2be7b3df39310636f3ac5e69817f3e" => :high_sierra
+    sha256 "47ee1cc2a98454185c2710802b48883ed7a9c1ea57f61fb9634be8248816f088" => :sierra
   end
 
   depends_on :java => "1.8"
@@ -40,7 +41,7 @@ class Bazel < Formula
              "scripts:bash_completion"
 
       bin.install "scripts/packages/bazel.sh" => "bazel"
-      bin.install "output/bazel" => "bazel-real"
+      (libexec/"bin").install "output/bazel" => "bazel-real"
       bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
 
       bash_completion.install "bazel-bin/scripts/bazel-complete.bash"
