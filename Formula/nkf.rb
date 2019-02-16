@@ -6,10 +6,12 @@ class Nkf < Formula
   sha256 "d1a7df435847a79f2f33a92388bca1d90d1b837b1b56523dcafc4695165bad44"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "85183c457daaecd9a3ce59cea556189ad0131c6134d77e7890643a3fb75e3965" => :mojave
     sha256 "9af47f293d4531c8d7ec5a81bd041349773f982b9710edca03eb3eb59b02a8b5" => :high_sierra
     sha256 "8d908ee97c34e85ed85c268c895e143d57c7afdd9bc232a75b690067281765fc" => :sierra
+    sha256 "b7933d88c02d33188891fb70619bd807cc18658b6d7823d3e48894df27725d9b" => :x86_64_linux
   end
 
   def install
