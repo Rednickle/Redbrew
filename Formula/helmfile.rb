@@ -5,10 +5,12 @@ class Helmfile < Formula
   sha256 "a912e26e6a2fc09b3fec862319831b2437373860c4bf77508928b22ceee46492"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "23ba5b18bc93fc698e2d4af7308d5bb10a6a467039019510407f4ba6c707e866" => :mojave
     sha256 "e28986c7ea6fbde33b36773e54b3b535fd6532fc627ca8e38086daedc6b009e9" => :high_sierra
     sha256 "bd233af84878f4860edd94b6fac267cff588f3a46006535682ff2467cf95f73d" => :sierra
+    sha256 "6b798ea4fc6bcca2dda0bc0772454dbeb4e30bca0875e57afe4b516f6915e9a5" => :x86_64_linux
   end
 
   depends_on "go" => :build
