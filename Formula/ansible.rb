@@ -8,10 +8,12 @@ class Ansible < Formula
   head "https://github.com/ansible/ansible.git", :branch => "devel"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "64629e87b50bfbf24899da6e24c20c44463996ad233edbe6a9aaac5496c718a6" => :mojave
     sha256 "67abc0f684e4d34894126bfb0ec18ca1ca13e6a7753bcb7ae5897569292fcb61" => :high_sierra
     sha256 "3afd4726b3a26ebed43a9ab787a0a77ae0ac87da83c6a1fb15e3bbe3bea8057e" => :sierra
+    sha256 "2bfb95cb15dad15e46000a2abced88beabd3e92c61787656d4f0ecb372e25a55" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
