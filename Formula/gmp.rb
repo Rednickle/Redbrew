@@ -7,11 +7,13 @@ class Gmp < Formula
   revision 2
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     rebuild 1
     sha256 "84f74594086bccc53bdb141f4d06d7847680374e255ebe016654da1e47db2dfc" => :mojave
     sha256 "a536c51149806b73b2e1178be94300832b6b151455006bc7f2a32b9dc493c7a3" => :high_sierra
     sha256 "ada22a8bbfe8532d71f2b565e00b1643beaf72bff6b36064cbad0cd7436e4948" => :sierra
+    sha256 "09d722e6321b67257e80f08b7c69202b5898189ccd81677adcdc714faaa86e3b" => :x86_64_linux
   end
 
   depends_on "m4" => :build unless OS.mac?
