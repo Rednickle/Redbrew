@@ -5,9 +5,11 @@ class MariadbAT100 < Formula
   sha256 "022620ebeb4fb3744d101e72443ec55b4585e7d9a3d8c92aa846bc30e6808ac1"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles"
     sha256 "a7f0c2b6a8331ec16fd99041ca36a21b2d549f8348bbf5741243f79b81c47891" => :mojave
     sha256 "a583dc308eda30c397b5254a7c2bb1d89607081daac6c272e515e74e1899d3d2" => :high_sierra
     sha256 "31510d6ab60ab73fafc8e079303e755d1a10a0860104236a7a4a84dce8062224" => :sierra
+    sha256 "cd22ab33e057caadfad6f850f662bb41da7ab3ff894b5643196f1eb5886a3244" => :x86_64_linux
   end
 
   keg_only :versioned_formula
