@@ -5,9 +5,11 @@ class Squid < Formula
   sha256 "553edf76d6ee9a1627af9c2be7be850c14cd6836170b3d6c1393fd700d44ccc5"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles"
     sha256 "dc48028ff57b2a850792a9009bfc0d10acdebdeb6153680df1bc659f10c25718" => :mojave
     sha256 "4c10e05a05409468cb46c3f488d943ba5e50213928a53b4324d46502f8f8ec83" => :high_sierra
     sha256 "954bc51b342e278f3192fc136694414d035a39f322e94f1afa8d04ab528b4549" => :sierra
+    sha256 "06ad31b953a2166fd2310eead53081151b165f8c32e09558f5c642b60192fcb3" => :x86_64_linux
   end
 
   head do
