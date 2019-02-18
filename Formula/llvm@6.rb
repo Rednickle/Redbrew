@@ -7,7 +7,10 @@ class LlvmAT6 < Formula
 
   bottle do
     cellar :any
-    sha256 "1f7270b3054164c41a3bf10aca6283743b33f1e81c391de62a39e06615a1926d" => :x86_64_linux
+    rebuild 1
+    sha256 "bdb6b04ed9307ad89a7bb5058d5b28d1fda5954983f705b971ceb3dce85158b0" => :mojave
+    sha256 "c505f682a55e9b00657927071e7f3450b8e1ec93cc854e9ec3249dfaf376a24c" => :high_sierra
+    sha256 "4513258d2dcdbfcf676ec48402a5d48a7705543fc06c8016cc9e9a71b187466b" => :sierra
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -37,10 +40,12 @@ class LlvmAT6 < Formula
     url "https://releases.llvm.org/6.0.1/cfe-6.0.1.src.tar.xz"
     sha256 "7c243f1485bddfdfedada3cd402ff4792ea82362ff91fbdac2dae67c6026b667"
 
-    patch do
-      url "https://github.com/xu-cheng/clang/commit/83c39729df671c06b003e2638a2d5600a8a2278c.patch?full_index=1"
-      sha256 "c8a038fb648278d9951d03a437723d5a55abc64346668566b707d555ae5997a6"
-    end unless OS.mac?
+    unless OS.mac?
+      patch do
+        url "https://github.com/xu-cheng/clang/commit/83c39729df671c06b003e2638a2d5600a8a2278c.patch?full_index=1"
+        sha256 "c8a038fb648278d9951d03a437723d5a55abc64346668566b707d555ae5997a6"
+      end
+    end
   end
 
   resource "clang-extra-tools" do
@@ -53,10 +58,12 @@ class LlvmAT6 < Formula
     sha256 "f4cd1e15e7d5cb708f9931d4844524e4904867240c306b06a4287b22ac1c99b9"
   end
 
-  resource "libcxx" do
-    url "https://releases.llvm.org/6.0.1/libcxx-6.0.1.src.tar.xz"
-    sha256 "7654fbc810a03860e6f01a54c2297a0b9efb04c0b9aa0409251d9bdb3726fc67"
-  end if OS.mac?
+  if OS.mac?
+    resource "libcxx" do
+      url "https://releases.llvm.org/6.0.1/libcxx-6.0.1.src.tar.xz"
+      sha256 "7654fbc810a03860e6f01a54c2297a0b9efb04c0b9aa0409251d9bdb3726fc67"
+    end
+  end
 
   resource "libunwind" do
     url "https://releases.llvm.org/6.0.1/libunwind-6.0.1.src.tar.xz"
@@ -84,10 +91,12 @@ class LlvmAT6 < Formula
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
-  pour_bottle? do
-    reason "The bottle needs the Xcode CLT to be installed."
-    satisfy { MacOS::CLT.installed? }
-  end if OS.mac?
+  if OS.mac?
+    pour_bottle? do
+      reason "The bottle needs the Xcode CLT to be installed."
+      satisfy { MacOS::CLT.installed? }
+    end
+  end
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
@@ -145,9 +154,13 @@ class LlvmAT6 < Formula
       system "make", "install-xcode-toolchain" if OS.mac?
     end
 
-    (share/"clang/tools").install Dir["tools/clang/tools/scan-{build,view}"]
     (share/"cmake").install "cmake/modules"
-    inreplace "#{share}/clang/tools/scan-build/bin/scan-build", "$RealBin/bin/clang", "#{bin}/clang"
+    (share/"clang/tools").install Dir["tools/clang/tools/scan-{build,view}"]
+
+    # scan-build is in Perl, so the @ in our path needs to be escaped
+    inreplace "#{share}/clang/tools/scan-build/bin/scan-build",
+              "$RealBin/bin/clang", "#{bin}/clang".gsub("@", "\\@")
+
     bin.install_symlink share/"clang/tools/scan-build/bin/scan-build", share/"clang/tools/scan-view/bin/scan-view"
     man1.install_symlink share/"clang/tools/scan-build/man/scan-build.1"
 
