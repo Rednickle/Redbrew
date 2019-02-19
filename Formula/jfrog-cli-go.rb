@@ -5,10 +5,12 @@ class JfrogCliGo < Formula
   sha256 "d8c0dfc47dfec08bf92e35bbaf21844503c30aa772ca8fbc3acafa73aa8582ec"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "4051a923ec044fa5f21cb78c7b6bdf95007a969f427dae5986fad3fcedab8d95" => :mojave
     sha256 "4d3abf41c0c60d08fcd8ffd844e5b904239f3cef3b58dab521e1f9efdc30ba81" => :high_sierra
     sha256 "498818bf0d440ba9aa5a3515afe98310fc2342ac6da8c0d5da2a639cba98b990" => :sierra
+    sha256 "b2bada2dd88474ebdc88beeb7fdc70f038c4281306a4ff798ba6391509f3d3b6" => :x86_64_linux
   end
 
   depends_on "go" => :build
