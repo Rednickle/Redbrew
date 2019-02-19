@@ -8,10 +8,12 @@ class Fonttools < Formula
   head "https://github.com/fonttools/fonttools.git"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "cb9a3f0516ec5f72349411ec5d7c9bf8589a8b3b72d0450a86105beec402a9a3" => :mojave
     sha256 "45954f4cbdaecbd6370ed1733ff262a61f15b292e6919584d6b83cb09c4001de" => :high_sierra
     sha256 "404d6fd4e3ddd02962f74c6b25894cc6749646a02ea17ff3dfddfafb77efd810" => :sierra
+    sha256 "216d70c3f659f4de18b1cfb8918805c57d7c0987cd96dbabd8022e37cedd8570" => :x86_64_linux
   end
 
   depends_on "python"
