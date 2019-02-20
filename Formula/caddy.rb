@@ -6,10 +6,12 @@ class Caddy < Formula
   head "https://github.com/mholt/caddy.git"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "97a8a27c5a61d5f183256902e9f9a64e1af3242a95cc45871395da0525500e3c" => :mojave
     sha256 "6642526ce6bd1937b961a2493ceb617391d053a17ec3ca051c7c17065db80de3" => :high_sierra
     sha256 "73cad2bde3a3c48e9204d44d4737e61048ea23da2e0cd767578068325b25851c" => :sierra
+    sha256 "091d01ed087766f691a9d0d3708b25d764dbd8f3040f0cc597f4e13a1c4c70c5" => :x86_64_linux
   end
 
   depends_on "go" => :build
