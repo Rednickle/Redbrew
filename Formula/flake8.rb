@@ -8,10 +8,12 @@ class Flake8 < Formula
   head "https://gitlab.com/PyCQA/flake8.git", :shallow => false
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "b2a2a1252190b9d17890a6447463615ccc8907b7bc339bc80a9c2a078d7db750" => :mojave
     sha256 "1a921c2099df067fe9f396b4f3d62fac2c8b53d35949b8fcbc612301e5029b54" => :high_sierra
     sha256 "9b9b91739ef3de95038f005eeecaf3a55f164b3e1326a24db0e1343ee591ee84" => :sierra
+    sha256 "5d4918287144066eda7e5a748918461283c79054fa1c10169fc401042c9cf126" => :x86_64_linux
   end
 
   depends_on "python"
