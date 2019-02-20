@@ -5,10 +5,12 @@ class Links < Formula
   sha256 "678cc1ab347cc90732b1925a11db7fbe12ce883fcca631f91696453a83819057"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "eaa37994f1e8b6c4b940e2d9ef8bb54e87ad78a9abf2e2318f3b876793b18e7c" => :mojave
     sha256 "8a2c300d607c3ded56d50d7c953ec9b574de9d734701ab4399cce3a472c95996" => :high_sierra
     sha256 "d069f957d246521cafefeabc64104504f286a8634e97731f729ab6592acd47dd" => :sierra
+    sha256 "9a026ae16f4dc5b24205433e2d88f841c2c07559ad8e3f7da52d4930d1d1dbb4" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
