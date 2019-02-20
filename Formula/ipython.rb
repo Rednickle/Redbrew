@@ -8,10 +8,12 @@ class Ipython < Formula
   head "https://github.com/ipython/ipython.git"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "28335840d1f490ab7035f76a051a3968f1684d863b472682af073b42f83ba2ca" => :mojave
     sha256 "fc44245fa14d79ae30a64f3fb0f46e751cfafb322629eeb22ffe5cb658427234" => :high_sierra
     sha256 "112df583c8b02e5d3c1afb56ee61e32cb22a66d8d3aaff8dc22c27e5744a3096" => :sierra
+    sha256 "a019213452bbca63592f21975904d6f345de9a2b38b4d8605c70d4489722ef7d" => :x86_64_linux
   end
 
   depends_on "python"
