@@ -7,10 +7,12 @@ class Eslint < Formula
   sha256 "baf2b774138c02750af31e552ea60d9a655da90f9f0645ad0ba435c75d932760"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "d587a17d48a447ae83d2ba6f043cc3f69ea55c8c05c460234d7cadc302345c20" => :mojave
     sha256 "a77bb1eb37d82955c79c05d939936b056b41f67ef15e53414d4055be573f33a2" => :high_sierra
     sha256 "e95753cb96c26da920bad966c7e9de5975c0ec7af5b3e156fc36501ba4350801" => :sierra
+    sha256 "8fdbd2020c923c15ec785dbd0ba45a5aa6b8755b9f06dc9c3142519a8bd4df63" => :x86_64_linux
   end
 
   depends_on "node"
