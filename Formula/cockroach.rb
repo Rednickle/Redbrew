@@ -7,10 +7,12 @@ class Cockroach < Formula
   head "https://github.com/cockroachdb/cockroach.git"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "83c9371766f1cb9431d6e39cf7dd803a43de02f4a8ff7db27d0a1200c4a790fc" => :mojave
     sha256 "836a94224b0cec5739fa0510f57ca57a4fe166a82004c87eb63868f628ac5536" => :high_sierra
     sha256 "aa84f03bf8917754983b839a284b0f271cd1844aaf2e29eb239ea258df68a7fe" => :sierra
+    sha256 "fdbb1bba706b540458e6d6798a0023bd46338ff68d2cbab23356d02ae45ba993" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
