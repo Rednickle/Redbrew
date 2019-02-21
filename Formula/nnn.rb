@@ -6,11 +6,13 @@ class Nnn < Formula
   head "https://github.com/jarun/nnn.git"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     rebuild 1
     sha256 "022a321a9236783c244d432098155f4c3b70254f99e4d47da1fcfeeb28807a96" => :mojave
     sha256 "76bcd2254eb8d30931a35ce504b706c4dc13d62e5bad084953339d2558590dcb" => :high_sierra
     sha256 "e35a80a3f4aa494dcb40af44fee012e0613ef77772a6a7650e1842afff17074b" => :sierra
+    sha256 "ac231ac104b1fbff9b6d86dfadc4d0249e5e3c1b987b4d4529d7cb87bdd6e089" => :x86_64_linux
   end
 
   depends_on "readline"
