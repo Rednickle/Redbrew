@@ -5,10 +5,12 @@ class Opa < Formula
   sha256 "0913283232fa6a8ebcae22e37821b2991e4fe246adbe24fc9f1e7a55dfbabe82"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "b833cffa7721b8b3a38f7775eb304de2efe34ab183d34aa92c05f45015a80c5d" => :mojave
     sha256 "60259f0e22fbf47a0d7e0b512af9286fa0da74a062473836e4253164e564976b" => :high_sierra
     sha256 "2b7f64e42f8ff2d368ff37b56ef05350286d71b40ae4208df5cf826d6a018b64" => :sierra
+    sha256 "b46d13cdd5329db17ede859620d5d1a98da4c6bf52896cf161043aa83b4bdd13" => :x86_64_linux
   end
 
   depends_on "go" => :build
