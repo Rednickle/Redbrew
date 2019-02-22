@@ -2,22 +2,20 @@ class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      :tag      => "v6.6.0",
-      :revision => "bbbacb03feb9f0de46be449c431bc03dcd15c002"
-  revision 1
+      :tag      => "v6.6.1",
+      :revision => "c0c81857d435f499ec2514d9a4823e3dc87021bd"
   head "https://github.com/elastic/kibana.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a7bea959f131f7cd05613bf661fd00f6cb5a6cfc6d7e437b99bb7546c4e7038c" => :mojave
-    sha256 "96c302e6abf7f318d6d3b910cf44a40479ed894a316426b979e5fa6b55f3b4de" => :high_sierra
-    sha256 "ba1fe861b4bfa541fcb59bfa01a31826682732bf328c511588ea6d23f63c7878" => :sierra
-    sha256 "74680d0454747451322d944ff5878a877bc2a799ff356d9b1a4fae34c68fd285" => :x86_64_linux
+    sha256 "b81118c51f28c1e81f7d7f5c8f877cd99dbe326097a708a0cc8e74846f97e5c6" => :mojave
+    sha256 "464f75ac0c65ce73ae63cdda6bbc8ec2f75954d0ce69a6a6eb231c4cdfb4a37f" => :high_sierra
+    sha256 "45c0c5ba49ea0156e4d35de48cd3640c3f60a8fea5add218b563f3adf13f20ef" => :sierra
   end
 
   resource "node" do
-    url "https://nodejs.org/dist/v10.14.1/node-v10.14.1.tar.xz"
-    sha256 "3def67bf1679e0606af4eb3d7ce3c0a3fe4548f2d0a87320d43a30e2207ab034"
+    url "https://nodejs.org/dist/v10.15.1/node-v10.15.1.tar.xz"
+    sha256 "1a55f7b9fb80442182d9e1eba4fca4dac3c781cdcb25d6be37b24d253f61c858"
   end
 
   resource "yarn" do
