@@ -45,12 +45,12 @@ class Inetutils < Formula
       # man pages into libexec/gnuman
       bin.find.each do |path|
         next unless File.executable?(path) && !File.directory?(path)
+
         cmd = path.basename.to_s.sub(/^g/, "")
         (libexec/"gnubin").install_symlink bin/"g#{cmd}" => cmd
         (libexec/"gnuman"/"man1").install_symlink man1/"g#{cmd}.1" => "#{cmd}.1"
       end
     end
-
     libexec.install_symlink "gnuman" => "man"
   end
 
