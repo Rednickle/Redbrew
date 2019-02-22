@@ -7,10 +7,12 @@ class Kibana < Formula
   head "https://github.com/elastic/kibana.git"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "b81118c51f28c1e81f7d7f5c8f877cd99dbe326097a708a0cc8e74846f97e5c6" => :mojave
     sha256 "464f75ac0c65ce73ae63cdda6bbc8ec2f75954d0ce69a6a6eb231c4cdfb4a37f" => :high_sierra
     sha256 "45c0c5ba49ea0156e4d35de48cd3640c3f60a8fea5add218b563f3adf13f20ef" => :sierra
+    sha256 "8633c2908529c38b83285fac74e9c248f97b8beff2d9f60b11208ed6947640e3" => :x86_64_linux
   end
 
   resource "node" do
