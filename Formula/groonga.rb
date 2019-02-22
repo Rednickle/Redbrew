@@ -5,9 +5,11 @@ class Groonga < Formula
   sha256 "c5d592e74a4f27fafdf636cf7fd7124a04b7b055cdb79d593b694c0ecd2686e7"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles"
     sha256 "0752b27e2bfe8d0e5d4da4f4133cc7260f3b2e80891b92c00d8b548ac86dd139" => :mojave
     sha256 "bae2f7f9100ba28165b5de7be512d21bab42eda371bf44c85351f861f9346f5f" => :high_sierra
     sha256 "08993714d930c438bcc727228469f0bda47c2e78690619763916f380234b621a" => :sierra
+    sha256 "df9f7d101d129ea2d3ba77281a0ce4baab9abd02a47b36db4bb4dd167e752e0a" => :x86_64_linux
   end
 
   head do
