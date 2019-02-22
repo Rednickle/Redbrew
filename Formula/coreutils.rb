@@ -99,6 +99,7 @@ class Coreutils < Formula
     filenames = []
     dir.find do |path|
       next if path.directory? || path.basename.to_s == ".DS_Store"
+
       filenames << path.basename.to_s.sub(/^g/, "")
     end
     filenames.sort
