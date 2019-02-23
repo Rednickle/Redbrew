@@ -1,43 +1,38 @@
 class Step < Formula
   desc "Crypto and x509 Swiss-Army-Knife"
   homepage "https://smallstep.com"
-  url "https://github.com/smallstep/cli/archive/v0.8.5.tar.gz"
-  sha256 "b809c4638ffd6d0c3e1bff66d87d9fbea186783735544492c34f35fe1e9f9d79"
+  url "https://github.com/smallstep/cli/archive/v0.8.6.tar.gz"
+  sha256 "8eb5099550d510b24ba1e5a53ccd4141e545286274c6abceb712be702d428820"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a5976c545ee6fa5f12fdecc780b8103efff45f609e10a9b661cb2e7dc92b05a4" => :mojave
-    sha256 "b872743868eff23841652da84122397d7f62917e61df68acd12431c75ff60a86" => :high_sierra
-    sha256 "ff3738f3f91a3b376a38a01f4408769e9717ada11d19b1bde876836d5117eae3" => :sierra
-    sha256 "592c545d8095aca39a3530e80938c6f5b5d40d6b1fc96259ef32739fbedd3655" => :x86_64_linux
+    sha256 "278bd608a1516c2874199af1f6dbee2c30ed8007ebdf54ea8253e522fdb1902f" => :mojave
+    sha256 "d4c1cf6b288d2a1bcd59b51f2dd5b62ecf01702b01ed3146519cbec9e0ec137b" => :high_sierra
+    sha256 "e1d1b16a7ce450b4389fa3e5cc73fc9944431c4c6da1c70144157b18333f67d3" => :sierra
   end
 
   depends_on "dep" => :build
   depends_on "go" => :build
 
   resource "certificates" do
-    url "https://github.com/smallstep/certificates/archive/v0.8.4.tar.gz"
-    sha256 "1dbfe1887f1d75d3020d75afcdcfdc846236b15d9f91ae6982229876f170978f"
+    url "https://github.com/smallstep/certificates/archive/v0.8.5.tar.gz"
+    sha256 "dc2b007247baeaa020a626813aea2b15fc2eb7f970cf0002a4b421fdf3ab294f"
   end
 
   def install
     ENV["GOPATH"] = buildpath
-    contents = Dir["{*,.git,.gitignore}"]
-    (buildpath/"src/github.com/smallstep/cli").install contents
-
+    (buildpath/"src/github.com/smallstep/cli").install buildpath.children
     cd "src/github.com/smallstep/cli" do
       system "make", "build"
       bin.install "bin/step" => "step"
       bash_completion.install "autocomplete/bash_autocomplete" => "step"
+      zsh_completion.install "autocomplete/zsh_autocomplete" => "_step"
     end
 
-    resource("certificates").stage do
-      contents = Dir["{*,.git,.gitignore}"]
-      (buildpath/"src/github.com/smallstep/certificates").install contents
-      cd "#{buildpath}/src/github.com/smallstep/certificates" do
-        system "make", "build"
-        bin.install "bin/step-ca" => "step-ca"
-      end
+    resource("certificates").stage "#{buildpath}/src/github.com/smallstep/certificates"
+    cd "#{buildpath}/src/github.com/smallstep/certificates" do
+      system "make", "build"
+      bin.install "bin/step-ca" => "step-ca"
     end
   end
 
