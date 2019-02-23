@@ -3,17 +3,16 @@ class Ansible < Formula
 
   desc "Automate deployment, configuration, and upgrading"
   homepage "https://www.ansible.com/"
-  url "https://releases.ansible.com/ansible/ansible-2.7.7.tar.gz"
-  sha256 "040cc936f959b947800ffaa5f940d2508aaa41f899efe56b47a7442c89689150"
+  url "https://releases.ansible.com/ansible/ansible-2.7.8.tar.gz"
+  sha256 "3d67db258b492f3c8828c68dcb92438e67cb5b20c12924089eafdc0ada3edd87"
   head "https://github.com/ansible/ansible.git", :branch => "devel"
 
   bottle do
     root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
-    sha256 "64629e87b50bfbf24899da6e24c20c44463996ad233edbe6a9aaac5496c718a6" => :mojave
-    sha256 "67abc0f684e4d34894126bfb0ec18ca1ca13e6a7753bcb7ae5897569292fcb61" => :high_sierra
-    sha256 "3afd4726b3a26ebed43a9ab787a0a77ae0ac87da83c6a1fb15e3bbe3bea8057e" => :sierra
-    sha256 "2bfb95cb15dad15e46000a2abced88beabd3e92c61787656d4f0ecb372e25a55" => :x86_64_linux
+    sha256 "6c21a7daea38ba6c96833ca5fc72085241eec80d3299546daf19c296a164b30b" => :mojave
+    sha256 "3a30870df58219da9a728ecae0d519b80ba75e961c8ada07a151f9db1c4ffbdb" => :high_sierra
+    sha256 "73c2251dc78e910eca176fc040854c407f141d1c242525d2de7444d03c3dfde0" => :sierra
   end
 
   depends_on "pkg-config" => :build
