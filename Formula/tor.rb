@@ -6,9 +6,11 @@ class Tor < Formula
   sha256 "d5c56603942a8927670f50a4a469fb909e29d3571fdd013389d567e57abc0b47"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles"
     sha256 "fd1f5c7aa141aebb3d6885641fd4de721c43264a654172db05f698413307bc55" => :mojave
     sha256 "71c152e925b7f9c600c54bad67e6bd4efbd9faee13c084150a2ea33a3188edd3" => :high_sierra
     sha256 "6e1252d94f3a531b3265f5f5cf3012b67b1d3c198707017cc356714d025a85d8" => :sierra
+    sha256 "25e79b0136fa3eda6ed930d3624825d96a689e814530afc72ba86e65ae565519" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
