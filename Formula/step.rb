@@ -5,10 +5,12 @@ class Step < Formula
   sha256 "8eb5099550d510b24ba1e5a53ccd4141e545286274c6abceb712be702d428820"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "278bd608a1516c2874199af1f6dbee2c30ed8007ebdf54ea8253e522fdb1902f" => :mojave
     sha256 "d4c1cf6b288d2a1bcd59b51f2dd5b62ecf01702b01ed3146519cbec9e0ec137b" => :high_sierra
     sha256 "e1d1b16a7ce450b4389fa3e5cc73fc9944431c4c6da1c70144157b18333f67d3" => :sierra
+    sha256 "9066872f442e3c81ce1aa828a0aae5b949f540d321dc25ea18b683666156027c" => :x86_64_linux
   end
 
   depends_on "dep" => :build
