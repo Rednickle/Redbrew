@@ -1,22 +1,22 @@
 class Libpulsar < Formula
   desc "Apache Pulsar C++ library"
   homepage "https://pulsar.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=pulsar/pulsar-2.2.1/apache-pulsar-2.2.1-src.tar.gz"
-  sha256 "3a365368f0d7beba091ba3a6d0f703dcc77545c8b454e5e33b72c1a29905232e"
+  url "https://www.apache.org/dyn/closer.cgi?path=pulsar/pulsar-2.3.0/apache-pulsar-2.3.0-src.tar.gz"
+  sha256 "ac182c83f2fff03e8242cb9f9540d5ae2a32e3b9b382a2340f139dfa0bfb0a28"
 
   bottle do
     cellar :any
-    sha256 "63b0d3fcf20e333a2fe5d60fddd103de2597156e1339aa7450d157341de19dbf" => :mojave
-    sha256 "58d7ece9b66f7ec7b7a3874e721fba493b7b18f0dfc2b5e12202d45c1a36c527" => :high_sierra
-    sha256 "a4fb175e3280ca1f3e40befdf8568e3f43191c093bafe90aa30d743ce6ef5dc1" => :sierra
+    sha256 "5ad00ae41e7e75b95e3d7aedebb3926d3a047a12a6aefc52bc747ce560582df2" => :mojave
+    sha256 "af052cedcf7f38de93ea47897d2fb7ae82ae3442338ed622838a4c4208fafcde" => :high_sierra
+    sha256 "5dce47989a8d0c99840a6385e939de39a3f905d4ad64edd2c8da73eb12e78e75" => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "boost"
-  depends_on "jsoncpp"
   depends_on "openssl"
   depends_on "protobuf"
+  depends_on "zstd"
 
   def install
     cd "pulsar-client-cpp" do
@@ -40,7 +40,7 @@ class Libpulsar < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cc", "-I#{Formula["boost"].include}", "-L#{lib}", "-lpulsar", "-o", "test"
+    system ENV.cxx, "test.cc", "-L#{lib}", "-lpulsar", "-o", "test"
     system "./test"
   end
 end
