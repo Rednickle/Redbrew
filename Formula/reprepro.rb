@@ -5,10 +5,12 @@ class Reprepro < Formula
   sha256 "5a5404114b43a2d4ca1f8960228b1db32c41fb55de1996f62bc1b36001f3fab4"
 
   bottle do
-    cellar :any
+    root_url "https://linuxbrew.bintray.com/bottles"
+    cellar :any_skip_relocation
     sha256 "0c031982eeb209bb7df512a9d80fbe90eea9bb1f1dfabe5239b99bd33807aa03" => :mojave
     sha256 "c1d32f22872c366dec7849f15b3a4c53787b7406e97df68545f150ce9f98ae98" => :high_sierra
     sha256 "5b0c6328f2cec66382e9202561e28b44ad61a03ad4b4f987d56467d523f00cfe" => :sierra
+    sha256 "ac1c2ac280a2d8118e4e2088b995e9202acad25e7487089bf3ee81c645183fad" => :x86_64_linux
   end
 
   depends_on "berkeley-db@4"
