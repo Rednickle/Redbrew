@@ -5,10 +5,12 @@ class Cocoapods < Formula
   sha256 "482fbb5c89d1c7c4456f9c1aba3b6ee41cfe74f8ea389a4d3a0b0415d30cda40"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "17bfedd7fbc1e1846ff92bf8524a8e19a0dba884db1454323c5caf28e2ff5235" => :mojave
     sha256 "a8bf9d17ede7e5a30a44e432c812667b806ddbb0f601cb7b411cd197caa982b5" => :high_sierra
     sha256 "6a6cbb4bb332db759cbfffed409c1d5bc93b7edff8bd99bb308fa98350ffeba7" => :sierra
+    sha256 "0b5a0b9e0c1e6e4c711cee5efe2adae3573f56338e47c10cf12a77f26abe85fa" => :x86_64_linux
   end
 
   depends_on "ruby" if MacOS.version <= :sierra
