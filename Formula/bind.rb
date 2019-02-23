@@ -7,9 +7,11 @@ class Bind < Formula
   head "https://gitlab.isc.org/isc-projects/bind9.git"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles"
     sha256 "abc9f41d387cd83be3b26534fc95b0dc0faa01a6fad2210a3d1d139f7e1a64a7" => :mojave
     sha256 "de0d68d306776ce03d9ee1ffd3cd4a014ff2301f8a2787da6b0343d89a85c3eb" => :high_sierra
     sha256 "92d2c30c4b1725223074f23e801285db72254a271b887325921f1b24eac30579" => :sierra
+    sha256 "7b1adb81eecaee18bc5ec67ce4ad8411bd8c0d81383625b8fb638bf157691822" => :x86_64_linux
   end
 
   depends_on "json-c"
