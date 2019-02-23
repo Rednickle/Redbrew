@@ -5,9 +5,11 @@ class Mariadb < Formula
   sha256 "b2aa857ef5b84f85a7ea60a1eac7b34c0ca5151c71a0d44ce2d7fb028d71459a"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles"
     sha256 "fa9e8188f3ccede84c889e60adb0bf113c7ba1998e6e858a6c8d5f3a47d2881a" => :mojave
     sha256 "4831441cce22c1c0f3eb96036d2dca8cc07c1ae3418fc6520f97da661646b1db" => :high_sierra
     sha256 "914732f57b3f7c9bcdd5c4bc3fc44fe0d1e64db77a6b96df85caf3803ccb502c" => :sierra
+    sha256 "e44aa2e13a4388988221edd5af80f7e83ca55f2d98fe6a787d6ccd8a81b1ec18" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
