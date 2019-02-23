@@ -6,10 +6,12 @@ class Yara < Formula
   head "https://github.com/VirusTotal/yara.git"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "ac12e1278c753e1a79cb3fdd4fad8df6c01026c0aa159089182a65dd688ca483" => :mojave
     sha256 "ed092caa3603842d4f9daa48a36d173d79504ef6e22b7af85b8576dc75fca55f" => :high_sierra
     sha256 "03f2077af95ec05e06bb09c704089e6c4c63fffcd06437fda01bcd2fea0d97d9" => :sierra
+    sha256 "543b661d11458c591ad1bc273cb7d1651e1ee87a0dd184b8589f65269bfb66c4" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
