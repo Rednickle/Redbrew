@@ -5,9 +5,11 @@ class Profanity < Formula
   sha256 "51b0932924a391656423af0d85f14dde049ac1e94214f948849d37df1c2759c4"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles"
     sha256 "6c5d08457285bf82bf9a0b40dd98d0fbf69b558c7e53d53cfb4a23df7f698fe5" => :mojave
     sha256 "ecea4e8185066366a4474c0d2e001bc308ffcd11f2e6c03d3620c1eea1e214e3" => :high_sierra
     sha256 "cfddb383475bd23916318bbb433133a7e5c8d7ad84a19d002013e88bcdce0af2" => :sierra
+    sha256 "b334c45b0c8a8e90eb4e94b2bbf8408fce0a7ac6a7e39b1ae2daccc8c8698a28" => :x86_64_linux
   end
 
   head do
