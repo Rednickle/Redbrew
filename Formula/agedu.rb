@@ -7,10 +7,12 @@ class Agedu < Formula
   head "https://git.tartarus.org/simon/agedu.git"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "5396979e91e666e508f42292185a535ce7c05e2ab58cc737bd71cfa8a8075098" => :mojave
     sha256 "a2870dd2c261fb6b0b2e8f4737e3e78766ee81bfd4d91f5d866382ce926150d7" => :high_sierra
     sha256 "8faf747600ba2be25a29493dd51df0ff9faf9186c695db0472bad8bf28303575" => :sierra
+    sha256 "94d7ec75788aca18bcf6a1b29f273a408248ef96f67716eed9a0276d98fdd5ec" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
