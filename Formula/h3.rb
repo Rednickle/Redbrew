@@ -5,10 +5,12 @@ class H3 < Formula
   sha256 "c6ff7bb9d93e25e5133f8c79c515407994349ad1606d0fd7f9f4e90592c1bd7c"
 
   bottle do
-    cellar :any
+    root_url "https://linuxbrew.bintray.com/bottles"
+    cellar :any_skip_relocation
     sha256 "d6b222684aa002d2299354eac1afbf84864ae0180f767b67fef6adbe63a80bfc" => :mojave
     sha256 "aedb21b22ef839267946e2ca37ec13eea92bac2519390e9e98f4151ff16a1070" => :high_sierra
     sha256 "6a32d2da626b73de95d0625f7d2f1cdeef78229d7aae35e4a71554a3a8001f53" => :sierra
+    sha256 "43f3467c571da9a4f5fdaf956f6cdf79ac141aba8bcf57cbe017e6e5f914184e" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
