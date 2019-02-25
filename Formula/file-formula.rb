@@ -1,4 +1,3 @@
-# file-formula: Build a bottle for Linuxbrew
 # "File" is a reserved class name
 class FileFormula < Formula
   desc "Utility to determine file types"
@@ -8,7 +7,6 @@ class FileFormula < Formula
   head "https://github.com/file/file.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "b26d1dc9e339e8f8c238ee25baf66f7b5153696662ff23cec1fb0a3e61e9844e" => :mojave
     sha256 "9a479081d4805d2bc22190f9ae388a138fbb33696796b60e63638759ee1845e4" => :high_sierra
