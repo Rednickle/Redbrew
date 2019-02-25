@@ -6,10 +6,12 @@ class AmqpCpp < Formula
   head "https://github.com/CopernicaMarketingSoftware/AMQP-CPP.git"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "e85df9f4ba93296155f037f551e2d77141c9630cd14eed3a3c151fd2bc7df9d6" => :mojave
     sha256 "b9975e464e1116233e2d2dcdf97971a53e5d117f06e910b133ef59205f6e5ed6" => :high_sierra
     sha256 "1f217794de557f20327a6b819965f9e5215adb41665c6d2caf4c0f8df90d9a76" => :sierra
+    sha256 "63ca04355b64b92460a58bfcd6501661127ef1faa42dceaa8e46e1c370f14515" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
