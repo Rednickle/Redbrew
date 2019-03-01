@@ -6,10 +6,12 @@ class Asio < Formula
   head "https://github.com/chriskohlhoff/asio.git"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
     sha256 "dafc1e63f716ff0117f0676c711e8946b7044e09847014fb8bec168ca04ec32f" => :mojave
     sha256 "ef5f33e16009ed897a3e70190312830be84df11c59ce3c45c2e1542f3054877d" => :high_sierra
     sha256 "32d870c762f699501ecdc7191888244e6aafca964f25b1690bb52d58793fe073" => :sierra
+    sha256 "e16fa6456440c8ddbd67965c37473b247a4ba4dc78dde68bc874dcc2b006845c" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
