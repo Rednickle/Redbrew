@@ -6,9 +6,11 @@ class ArmLinuxGnueabihfBinutils < Formula
   sha256 "9b0d97b3d30df184d302bced12f976aa1e5fbf4b0be696cdebc6cca30411a46e"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles"
     sha256 "ce0dcfa1e43603353f9961b4f0a4d7be8410311c0a26c94eeb5fb4b9300631f2" => :mojave
     sha256 "5f8b6709262fc2a62dec89d1b8b3c4f85ff1c20916e7c33a9be6b87205b6f285" => :high_sierra
     sha256 "a884754782026786a2f4b2a440110ba1da07c3ffa61849706277e2550b353e79" => :sierra
+    sha256 "b1ed078e42dcb65cc951b1c7b3b87747de76be1f6f13e87e4cd3cb39d7c12191" => :x86_64_linux
   end
 
   def install
