@@ -1,15 +1,15 @@
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases"
   homepage "https://grafana.com"
-  url "https://github.com/grafana/grafana/archive/v5.4.3.tar.gz"
-  sha256 "c4d2a4723cfd7e5943e42786548ea2ccbc08cd1be80b5f447ef7309d9bd91527"
+  url "https://github.com/grafana/grafana/archive/v6.0.0.tar.gz"
+  sha256 "3c98b8236b51ec93d5678b11c7de9cd76c3134bd47b17c22bec51bfa7edf37cd"
   head "https://github.com/grafana/grafana.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9c021c1dc01bbe5ff2950a5ba26a611a8333710f282775e6f422d210d8dc5907" => :mojave
-    sha256 "2dce4c8198575880eb62b5b3974222cb43b8bbf4dacecda1099ace202994ab52" => :high_sierra
-    sha256 "3b88406a381d145ec3324aadd4b20b1ce76b8a3e1798a4accd85d6b88dc41d1f" => :sierra
+    sha256 "d5081b40215b4ec0db456a5fb97b3fc06d6b74c40505c766ac78b12974f62dbc" => :mojave
+    sha256 "25b9f33f49f2d0ed4fd9f0c4e49b6c65c130514c9bf132d56120bb54ec2f8cb2" => :high_sierra
+    sha256 "08801950dfeea022138a71a6c57e2767ec5725dd60b9f8592bbf10b8f1544c02" => :sierra
   end
 
   depends_on "go" => :build
@@ -52,7 +52,7 @@ class Grafana < Formula
     (var/"lib/grafana/plugins").mkpath
   end
 
-  plist_options :manual => "grafana-server --config=#{HOMEBREW_PREFIX}/etc/grafana/grafana.ini --homepath #{HOMEBREW_PREFIX}/share/grafana cfg:default.paths.logs=#{HOMEBREW_PREFIX}/var/log/grafana cfg:default.paths.data=#{HOMEBREW_PREFIX}/var/lib/grafana cfg:default.paths.plugins=#{HOMEBREW_PREFIX}/var/lib/grafana/plugins"
+  plist_options :manual => "grafana-server --config=#{HOMEBREW_PREFIX}/etc/grafana/grafana.ini --homepath #{HOMEBREW_PREFIX}/share/grafana --packaging=brew cfg:default.paths.logs=#{HOMEBREW_PREFIX}/var/log/grafana cfg:default.paths.data=#{HOMEBREW_PREFIX}/var/lib/grafana cfg:default.paths.plugins=#{HOMEBREW_PREFIX}/var/lib/grafana/plugins"
 
   def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
@@ -73,6 +73,7 @@ class Grafana < Formula
           <string>#{etc}/grafana/grafana.ini</string>
           <string>--homepath</string>
           <string>#{opt_pkgshare}</string>
+          <string>--packaging=brew</string>
           <string>cfg:default.paths.logs=#{var}/log/grafana</string>
           <string>cfg:default.paths.data=#{var}/lib/grafana</string>
           <string>cfg:default.paths.plugins=#{var}/lib/grafana/plugins</string>
