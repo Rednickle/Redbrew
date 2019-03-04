@@ -1,16 +1,15 @@
 class Unrar < Formula
   desc "Extract, view, and test RAR archives"
   homepage "https://www.rarlab.com/"
-  url "https://www.rarlab.com/rar/unrarsrc-5.7.2.tar.gz"
-  sha256 "46dd410ba57652e972a6c601e7500d01d0ca3257661577466c2cbf6f843cb13a"
+  url "https://www.rarlab.com/rar/unrarsrc-5.7.3.tar.gz"
+  sha256 "40e856b78374f258d8a1f5f02c02f828c5392a0118c9300fd169a300b520a444"
 
   bottle do
     root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
-    sha256 "ef0c1d0d810b03ff0b60c00aefb441bf5363c47ccff0c7e9953a0626aa1371a3" => :mojave
-    sha256 "f3ac040a97c7102491bc39948b0f561f07dbf576790cd00747cdee36b89c85b6" => :high_sierra
-    sha256 "9de661e1cb1ca7cef58bb95758a7d0e802a82b008a69b6c15d01ed797a927abe" => :sierra
-    sha256 "c5318fa16946d6a2fa027e5426168dd7b06142b181b9d512ab47f458c6d0f5b4" => :x86_64_linux
+    sha256 "a4704a400be43f1191910865d3acb2e5c7bc7ff788e8c71288d3b5a5dc5ad1c8" => :mojave
+    sha256 "44482ce5470fa5587b515a5f6dc1eb2050a1cace540f58750becd417b00c6847" => :high_sierra
+    sha256 "f789f169e845c270243f17bca5ccaf05892b35aae539dbbdadb57da234fc0204" => :sierra
   end
 
   def install
