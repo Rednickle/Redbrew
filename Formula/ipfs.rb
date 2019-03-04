@@ -15,9 +15,6 @@ class Ipfs < Formula
   end
 
   depends_on "go" => :build
-  depends_on "godep" => :build
-  depends_on "gx"
-  depends_on "gx-go"
 
   def install
     ENV["GOPATH"] = buildpath
@@ -48,6 +45,6 @@ class Ipfs < Formula
   end
 
   test do
-    system bin/"ipfs", "version"
+    assert_match "initializing IPFS node", shell_output(bin/"ipfs init")
   end
 end
