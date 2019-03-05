@@ -1,23 +1,34 @@
 class Bind < Formula
   desc "Implementation of the DNS protocols"
   homepage "https://www.isc.org/downloads/bind/"
-  url "https://ftp.isc.org/isc/bind9/9.12.3-P4/bind-9.12.3-P4.tar.gz"
-  version "9.12.3-P4"
-  sha256 "d1014453c62623e42323fd83fc89444c12ae6b707fd586466959a052fe21f206"
+  url "https://ftp.isc.org/isc/bind9/9.12.4/bind-9.12.4.tar.gz"
+  sha256 "81bf24b2b86f7288ccf727aff59f1d752cc3e9de30a7480d24d67736256a0d53"
   head "https://gitlab.isc.org/isc-projects/bind9.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
-    sha256 "abc9f41d387cd83be3b26534fc95b0dc0faa01a6fad2210a3d1d139f7e1a64a7" => :mojave
-    sha256 "de0d68d306776ce03d9ee1ffd3cd4a014ff2301f8a2787da6b0343d89a85c3eb" => :high_sierra
-    sha256 "92d2c30c4b1725223074f23e801285db72254a271b887325921f1b24eac30579" => :sierra
-    sha256 "7b1adb81eecaee18bc5ec67ce4ad8411bd8c0d81383625b8fb638bf157691822" => :x86_64_linux
+    sha256 "d82db03a139392f57129bd79b1ea2539976d78474e12783672a938beb52ade6a" => :mojave
+    sha256 "a5fdca7936ef8bd8b4bc816529b9410d366c077969e4719c44044094ba5d59e0" => :high_sierra
+    sha256 "a772621d02fa39eed580232b8b769414e946168e40d096cf03853fb3f0cb79d0" => :sierra
   end
 
   depends_on "json-c"
   depends_on "openssl"
+  depends_on "python"
+
+  resource "ply" do
+    url "https://files.pythonhosted.org/packages/e5/69/882ee5c9d017149285cab114ebeab373308ef0f874fcdac9beb90e0ac4da/ply-3.11.tar.gz"
+    sha256 "00c7c1aaa88358b9c765b6d3000c6eec0ba42abca5351b095321aef446081da3"
+  end
 
   def install
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
+    resources.each do |r|
+      r.stage do
+        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
+      end
+    end
+
     # Fix "configure: error: xml2-config returns badness"
     if MacOS.version == :sierra || MacOS.version == :el_capitan
       ENV["SDKROOT"] = MacOS.sdk_path
