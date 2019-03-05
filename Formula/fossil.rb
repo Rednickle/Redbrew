@@ -14,6 +14,7 @@ class Fossil < Formula
   end
 
   depends_on "openssl"
+  depends_on "zlib" unless OS.mac?
 
   def install
     args = [
@@ -24,7 +25,7 @@ class Fossil < Formula
       "--disable-fusefs",
     ]
 
-    if MacOS.sdk_path_if_needed
+    if OS.mac? && MacOS.sdk_path_if_needed
       args << "--with-tcl=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
     else
       args << "--with-tcl-stubs"
@@ -36,6 +37,9 @@ class Fossil < Formula
   end
 
   test do
-    system "#{bin}/fossil", "init", "test"
+    # fix for CircleCI, where fossil cannot detect the user it is
+    # running as
+    args = %w[-A alice] unless ENV["USER"]
+    system "#{bin}/fossil", "init", *args, "test"
   end
 end
