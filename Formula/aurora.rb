@@ -1,5 +1,3 @@
-require "language/go"
-
 class Aurora < Formula
   desc "Beanstalkd queue server console"
   homepage "https://xuri.me/aurora"
@@ -9,36 +7,24 @@ class Aurora < Formula
   bottle do
     root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
-    sha256 "71f54ab698f0164d6e1c2385591969da6056130db87a83283623a630ecb41fb0" => :mojave
-    sha256 "8ed6f1aee6ea5c74e39dd26969c355df0c43651b5b16d6f49d45b00331696fb0" => :high_sierra
-    sha256 "4d59e71f583edb221cb1b85102612778fdc186cefbcdb4ff3df9619d7082eae1" => :sierra
-    sha256 "55c70db87f4770ec8f29b8167cffb6b7288b00e5eb9749580259a02c48895fe1" => :x86_64_linux
+    rebuild 1
+    sha256 "3d0f318def46f1bed3f7e16af66c2d1eddb6fdb305dd68d797d3c6cdbf99c13f" => :mojave
+    sha256 "a72311fee8cf640e75bc319da7eb7c11f686620d23353d90b64852f28154d664" => :high_sierra
+    sha256 "3d29b1168384d9ecf88333ea6bd25e00091904d039cf980c23d77de342350054" => :sierra
   end
 
   depends_on "go" => :build
 
-  go_resource "github.com/BurntSushi/toml" do
-    url "https://github.com/BurntSushi/toml.git",
-        :revision => "a368813c5e648fee92e5f6c30e3944ff9d5e8895"
-  end
-
-  go_resource "github.com/rakyll/statik" do
-    url "https://github.com/rakyll/statik.git",
-        :revision => "89fe3459b5c829c32e89bdff9c43f18aad728f2f"
-  end
-
-  go_resource "github.com/xuri/aurora" do
-    url "https://github.com/xuri/aurora.git",
-        :revision => "9e064410954b74d18192cbd5b5ed09ef68da3b8e"
-  end
-
   def install
+    ENV["GO111MODULE"] = "on"
     ENV["GOPATH"] = buildpath
-    Language::Go.stage_deps resources, buildpath/"src"
-    (buildpath/"src/github.com/xuri").mkpath
-    ln_s buildpath, "src/github.com/xuri/aurora"
-    rm buildpath/"go.mod"
-    system "go", "build", "-o", bin/"aurora"
+    aurorapath = buildpath/"src/github.com/xuri/aurora"
+    aurorapath.install buildpath.children
+
+    cd aurorapath do
+      system "go", "build", "-o", bin/"aurora"
+      prefix.install_metafiles
+    end
   end
 
   test do
