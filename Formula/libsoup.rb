@@ -24,10 +24,6 @@ class Libsoup < Formula
     depends_on "python@2" => :build
   end
 
-  def install
-    # Needed by intltool (xml::parser)
-    ENV.prepend_path "PERL5LIB", "#{Formula["intltool"].libexec}/lib/perl5" unless OS.mac?
-
   # submitted upstream as https://gitlab.gnome.org/GNOME/libsoup/merge_requests/49
   patch :DATA
 
@@ -81,6 +77,7 @@ class Libsoup < Formula
     system "./test"
   end
 end
+
 __END__
 diff --git a/libsoup/meson.build b/libsoup/meson.build
 index 5f2a215..92b615f 100644
