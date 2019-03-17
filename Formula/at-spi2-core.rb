@@ -4,6 +4,7 @@ class AtSpi2Core < Formula
   url "https://download.gnome.org/sources/at-spi2-core/2.30/at-spi2-core-2.30.1.tar.xz"
   sha256 "856f1f8f1bf0482a1bc275b18b9f28815d346bc4175004d37e175a1a0e50ca48"
   revision 1
+  # tag "linuxbrew"
 
   bottle do
     sha256 "500ac594025a42f969e6166771f551abf0be27afbc0de2048bf0d65e763ee9b4" => :mojave
@@ -20,17 +21,15 @@ class AtSpi2Core < Formula
   depends_on "dbus"
   depends_on "gettext"
   depends_on "glib"
-  unless OS.mac?
-    depends_on "linuxbrew/xorg/xorgproto"
-    depends_on "linuxbrew/xorg/libx11"
-    depends_on "linuxbrew/xorg/libxtst"
-  end
+  depends_on "linuxbrew/xorg/xorgproto"
+  depends_on "linuxbrew/xorg/libx11"
+  depends_on "linuxbrew/xorg/libxtst"
 
   def install
     ENV.refurbish_args
 
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", ".."
+      system "meson", "--prefix=#{prefix}", "--libdir=#{lib}", ".."
       system "ninja"
       system "ninja", "install"
     end
