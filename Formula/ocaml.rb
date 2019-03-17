@@ -18,14 +18,6 @@ class Ocaml < Formula
   sha256 "dfe48b1da31da9c82d77612582fae74c80e8d1ac650e1c24f5ac9059e48307b8"
   head "https://github.com/ocaml/ocaml.git", :branch => "trunk"
 
-  pour_bottle? do
-    # The ocaml compilers embed prefix information in weird ways that the default
-    # brew detection doesn't find, and so needs to be explicitly blacklisted.
-    default_prefix = OS.linux? ? "/home/linuxbrew/.linuxbrew" : "/usr/local"
-    reason "The bottle needs to be installed into #{default_prefix}."
-    satisfy { HOMEBREW_PREFIX.to_s == default_prefix }
-  end
-
   bottle do
     cellar :any
     sha256 "f8490faa0dc3814633cb2eb5f6c5af00e4e8996c867f485cca4844b460966868" => :mojave
@@ -37,8 +29,9 @@ class Ocaml < Formula
   pour_bottle? do
     # The ocaml compilers embed prefix information in weird ways that the default
     # brew detection doesn't find, and so needs to be explicitly blacklisted.
-    reason "The bottle needs to be installed into /usr/local."
-    satisfy { HOMEBREW_PREFIX.to_s == "/usr/local" }
+    default_prefix = OS.linux? ? "/home/linuxbrew/.linuxbrew" : "/usr/local"
+    reason "The bottle needs to be installed into #{default_prefix}."
+    satisfy { HOMEBREW_PREFIX.to_s == default_prefix }
   end
 
   def install
