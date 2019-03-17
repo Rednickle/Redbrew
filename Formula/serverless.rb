@@ -3,16 +3,15 @@ require "language/node"
 class Serverless < Formula
   desc "Build applications with serverless architectures"
   homepage "https://serverless.com"
-  url "https://registry.npmjs.org/serverless/-/serverless-1.38.0.tgz"
-  sha256 "bb17098cc2d1e58965908eeff2c3c914260fcdd2ee3cb80ec3863b4ace29825f"
+  url "https://registry.npmjs.org/serverless/-/serverless-1.39.0.tgz"
+  sha256 "cb404813af4acb6531861efc46de2b10a661627bab35da78522e704410d2db5e"
 
   bottle do
     root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
-    sha256 "1c364867dc80cb32d9bdae37fa6220ecc79905f69d9efb2f3d4b819043aba9a6" => :mojave
-    sha256 "2953cebf4c420a3ac6f69ce6f8347145a2197e26693faf0c8f06408cb08efcb0" => :high_sierra
-    sha256 "a5e501ef0a59876b6d1834204cb9458c8c6e05060d509b9d35dc8e44ae16ddea" => :sierra
-    sha256 "551494579df2611cee607cbf20729e8ee3e17cc78e3b283205a2408f82316b32" => :x86_64_linux
+    sha256 "cd4daa1088825a521c5afaf1547b28ad0106bc1e6af4cd7062da02a9b7c8e5ba" => :mojave
+    sha256 "6910feb3477538640bc7d33eb240f800542d7b9f7f3c21ae4b584630ecae0122" => :high_sierra
+    sha256 "1906432872021ed23207eb341ca00479d06f0fda01750a5b490e2932b088f1f5" => :sierra
   end
 
   depends_on "node"
