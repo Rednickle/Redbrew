@@ -3,6 +3,7 @@ class AtSpi2Atk < Formula
   homepage "https://wiki.linuxfoundation.org/accessibility/"
   url "https://download.gnome.org/sources/at-spi2-atk/2.30/at-spi2-atk-2.30.1.tar.xz"
   sha256 "8b48ea5902a2b3e333ab21a2602e531e86bffbb8e58708b2a8a8dfa5d325bd6f"
+  # tag "linuxbrew"
 
   bottle do
     cellar :any
@@ -17,13 +18,13 @@ class AtSpi2Atk < Formula
   depends_on "python" => :build
   depends_on "at-spi2-core"
   depends_on "atk"
-  depends_on "libxml2" unless OS.mac?
+  depends_on "libxml2"
 
   def install
     ENV.refurbish_args
 
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", *("--libdir=#{lib}" unless OS.mac?), ".."
+      system "meson", "--prefix=#{prefix}", "--libdir=#{lib}", ".."
       system "ninja"
       system "ninja", "install"
     end
