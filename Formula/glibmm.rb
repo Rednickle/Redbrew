@@ -1,15 +1,14 @@
 class Glibmm < Formula
   desc "C++ interface to glib"
   homepage "https://www.gtkmm.org/"
-  url "https://download.gnome.org/sources/glibmm/2.58/glibmm-2.58.0.tar.xz"
-  sha256 "d34189237b99e88228e6f557f7d6e62f767fe356f395a244f5ad0e486254b645"
+  url "https://download.gnome.org/sources/glibmm/2.58/glibmm-2.58.1.tar.xz"
+  sha256 "6e5fe03bdf1e220eeffd543e017fd2fb15bcec9235f0ffd50674aff9362a85f0"
 
   bottle do
     cellar :any
-    sha256 "367935fed103058ab13149602dae4240d4be0716c002903393dd598ea8b37b0e" => :mojave
-    sha256 "10fabb2143c1b8333738b90b283f7619b6e4aa70f5cd7f06f704e2bdc21d9668" => :high_sierra
-    sha256 "38f36fb0615c809b605a3611124334679bb166a2c56c31535636ed28f8a4063f" => :sierra
-    sha256 "732cef730a8a93450d225f2813175a326517285329f5eb2fd6ddc37adf8b78f9" => :x86_64_linux
+    sha256 "53f25847c421d3d56383031d69808c9d78488a2097968a8e7f446b367cd0bea5" => :mojave
+    sha256 "5682d288f3f9f471919f2a3efb6483200b3eef3a21ae30668f0016104a82d5b3" => :high_sierra
+    sha256 "6874494fefa0d272fe9a19c0148653c0cf50598f77b45be5680ed201fc885d0e" => :sierra
   end
 
   depends_on "pkg-config" => :build
