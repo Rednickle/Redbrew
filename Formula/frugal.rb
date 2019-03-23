@@ -1,16 +1,15 @@
 class Frugal < Formula
   desc "Cross language code generator for creating scalable microservices"
   homepage "https://github.com/Workiva/frugal"
-  url "https://github.com/Workiva/frugal/archive/3.0.0.tar.gz"
-  sha256 "ad1f1473ef07341c6bb4905774afb2864bd2a7c8164cec8319f6d581d9bbfc9e"
+  url "https://github.com/Workiva/frugal/archive/3.1.0.tar.gz"
+  sha256 "314e08e0e1516d434e5112a657d7222de355e725731831d520b521333acb6f16"
 
   bottle do
     root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
-    sha256 "553730e9fd529179839a9f01973dd35777886561df06e9ec8034b10b74b8ae0c" => :mojave
-    sha256 "aba166816c43941f8b3fd8b04ea39a69b102e3977741686b8fc4a44af323b8ff" => :high_sierra
-    sha256 "5a23895b848a0012b3f38d0384a54412ea2f5b3ec105d478e55e6c00d115be0b" => :sierra
-    sha256 "9df008e3d06b266d3205c34182bc3748b117426f4c7dac64f1c74cf5df3e58b5" => :x86_64_linux
+    sha256 "fa0a409b76f203e416ebe8163c344238085634ca16cb7aea986726c7c01485fc" => :mojave
+    sha256 "94a4ea45c10c9bec668a739fbd461850bb482a21b72f76775a9f6f044ac50390" => :high_sierra
+    sha256 "dce7014f557f021da1a763ff294ceb0f0f0b9fc74f09075b44e5bf9228e8c341" => :sierra
   end
 
   depends_on "glide" => :build
