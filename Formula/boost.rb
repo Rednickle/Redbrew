@@ -1,14 +1,15 @@
 class Boost < Formula
   desc "Collection of portable C++ source libraries"
   homepage "https://www.boost.org/"
-  url "https://dl.bintray.com/boostorg/release/1.68.0/source/boost_1_68_0.tar.bz2"
-  sha256 "7f6130bc3cf65f56a618888ce9d5ea704fa10b462be126ad053e80e553d6d8b7"
-  revision 1
+  url "https://dl.bintray.com/boostorg/release/1.69.0/source/boost_1_69_0.tar.bz2"
+  sha256 "8f32d4617390d1c2d16f26a27ab60d97807b35440d45891fa340fc2648b04406"
   head "https://github.com/boostorg/boost.git"
 
   bottle do
     cellar :any
-    sha256 "1ebd3dc1511f026b9adf385486f5157635b848945dcc9a619f123c51cd371949" => :x86_64_linux
+    sha256 "ffd50072d4f4f59c5e0d55e2bc44430bb38d2272279ce4bc944b784915138c42" => :mojave
+    sha256 "d11d9cf367df6ec274385fea0cafc9d484a2036e19437ae9a67b82da75979a6a" => :high_sierra
+    sha256 "35809d731353341b017e78dc21d396b4a05cc8c3f7cb86abbd98e22af092ffef" => :sierra
   end
 
   depends_on "icu4c" if OS.mac?
@@ -58,7 +59,7 @@ class Boost < Formula
       --libdir=#{lib}
       -d2
       -j#{ENV.make_jobs}
-      --layout=tagged
+      --layout=tagged-1.66
       --user-config=user-config.jam
       -sNO_LZMA=1
       install
@@ -115,7 +116,7 @@ class Boost < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-std=c++1y", "-L#{lib}", "-lboost_system", "-o", "test"
+    system ENV.cxx, "test.cpp", "-std=c++14", "-stdlib=libc++", "-o", "test"
     system "./test"
   end
 end
