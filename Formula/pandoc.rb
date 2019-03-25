@@ -10,11 +10,10 @@ class Pandoc < Formula
   head "https://github.com/jgm/pandoc.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
-    sha256 "09a6770c5334f02e944de90f28f896ca69f4f3b14b16511d4e0ad2804c9d92db" => :mojave
-    sha256 "4ec0d9409dcd1d6c290f2622187d91dd10442d83d9af3087ba9f966e13e918b5" => :high_sierra
-    sha256 "fee5331725b9cd2195280c6491e8b94d49894654e6fc7771f1b6559163bf376a" => :sierra
-    sha256 "0ba170af7360eeedce8e4d1f3703afd0da04d5cf4dc3e7369752ab2b761792ad" => :x86_64_linux
+    rebuild 1
+    sha256 "9b72d0209f028c8f14ca8a078f838898b65fc188d9f65d0267e50f864050f663" => :mojave
+    sha256 "cd0e7ba4201a3fefa90dae0ec70e66dd427a4d5104de749e56bed0ea28e3af8f" => :high_sierra
+    sha256 "81f9bc5ce14964ff46fc2cb6afa624a3105258e4c3cb5eae635525c4b860aac7" => :sierra
   end
 
   depends_on "cabal-install" => :build
@@ -29,6 +28,7 @@ class Pandoc < Formula
       install_cabal_package
     end
     (bash_completion/"pandoc").write `#{bin}/pandoc --bash-completion`
+    man1.install "man/pandoc.1"
   end
 
   test do
