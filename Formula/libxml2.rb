@@ -57,7 +57,6 @@ class Libxml2 < Formula
     system "make", "install"
 
     cd "python" do
-      ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin" unless OS.mac?
       # We need to insert our include dir first
       inreplace "setup.py", "includes_dir = [",
         "includes_dir = ['#{include}', '#{OS.mac? ? MacOS.sdk_path/"usr" : HOMEBREW_PREFIX}/include',"
