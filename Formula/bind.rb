@@ -3,12 +3,13 @@ class Bind < Formula
   homepage "https://www.isc.org/downloads/bind/"
   url "https://ftp.isc.org/isc/bind9/9.14.0/bind-9.14.0.tar.gz"
   sha256 "4edd459830bb97f749e25a5d42a2a4a093d7800e9962fca4300996cf7ea680af"
+  revision 1
   head "https://gitlab.isc.org/isc-projects/bind9.git"
 
   bottle do
-    sha256 "ae9fed4f15cb00226045a916cad94120f0ba280e4e1d0b22c2ddcef212b6990b" => :mojave
-    sha256 "ba1158ddd52f1bcfb406b42ab3a54f5b18a9fc21b155532e9d7a8070709df5c9" => :high_sierra
-    sha256 "e9c328d4b38ce7c9baec9ee932329defb10445dd6579df152a0cb24368142b50" => :sierra
+    sha256 "f9eeedcbbaa8bb70eadfd3a7135b5bace7eeeae34f047d1ed3572b6e4d273819" => :mojave
+    sha256 "b64b3c21b6b1e14d0453e1ee5978c6c698aa09fdebb9ac507a3cd04ed1b22f7f" => :high_sierra
+    sha256 "0bd499c8f49fe709966f6053aa97adb34ae722daf5e597022b37dd9ec3ffe4f0" => :sierra
   end
 
   depends_on "json-c"
@@ -41,7 +42,8 @@ class Bind < Formula
                           "--enable-threads",
                           "--enable-ipv6",
                           "--with-openssl=#{Formula["openssl"].opt_prefix}",
-                          "--with-libjson=#{Formula["json-c"].opt_prefix}"
+                          "--with-libjson=#{Formula["json-c"].opt_prefix}",
+                          "--with-python=#{Formula["python"].opt_bin}/python3"
 
     # From the bind9 README: "Do not use a parallel "make"
     ENV.deparallelize
