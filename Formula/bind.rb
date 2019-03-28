@@ -3,13 +3,13 @@ class Bind < Formula
   homepage "https://www.isc.org/downloads/bind/"
   url "https://ftp.isc.org/isc/bind9/9.14.0/bind-9.14.0.tar.gz"
   sha256 "4edd459830bb97f749e25a5d42a2a4a093d7800e9962fca4300996cf7ea680af"
-  revision 1
+  revision 2
   head "https://gitlab.isc.org/isc-projects/bind9.git"
 
   bottle do
-    sha256 "f9eeedcbbaa8bb70eadfd3a7135b5bace7eeeae34f047d1ed3572b6e4d273819" => :mojave
-    sha256 "b64b3c21b6b1e14d0453e1ee5978c6c698aa09fdebb9ac507a3cd04ed1b22f7f" => :high_sierra
-    sha256 "0bd499c8f49fe709966f6053aa97adb34ae722daf5e597022b37dd9ec3ffe4f0" => :sierra
+    sha256 "1b7ad271b1f695274c6878ece7b1682059c5eb2575f71eb6b7c994bb38a48728" => :mojave
+    sha256 "c7508b7b1cd9539ddb99e1d0ded6d6a2b86bcaa731b36244ca7f05aab22a2de6" => :high_sierra
+    sha256 "d2a70204d7a9eb7bf84ad9eabd2c2f78b298019c729a3547039551e1b801634e" => :sierra
   end
 
   depends_on "json-c"
@@ -23,7 +23,8 @@ class Bind < Formula
 
   def install
     xy = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
+    vendor_site_packages = libexec/"vendor/lib/python#{xy}/site-packages"
+    ENV.prepend_create_path "PYTHONPATH", vendor_site_packages
     resources.each do |r|
       r.stage do
         system "python3", *Language::Python.setup_install_args(libexec/"vendor")
@@ -43,7 +44,8 @@ class Bind < Formula
                           "--enable-ipv6",
                           "--with-openssl=#{Formula["openssl"].opt_prefix}",
                           "--with-libjson=#{Formula["json-c"].opt_prefix}",
-                          "--with-python=#{Formula["python"].opt_bin}/python3"
+                          "--with-python=#{Formula["python"].opt_bin}/python3",
+                          "--with-python-install-dir=#{vendor_site_packages}"
 
     # From the bind9 README: "Do not use a parallel "make"
     ENV.deparallelize
