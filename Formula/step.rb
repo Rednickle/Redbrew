@@ -1,24 +1,23 @@
 class Step < Formula
   desc "Crypto and x509 Swiss-Army-Knife"
   homepage "https://smallstep.com"
-  url "https://github.com/smallstep/cli/archive/v0.8.6.tar.gz"
-  sha256 "8eb5099550d510b24ba1e5a53ccd4141e545286274c6abceb712be702d428820"
+  url "https://github.com/smallstep/cli/archive/v0.9.0.tar.gz"
+  sha256 "0a0497535b80c4357e5412ce41c691567c24e42dc0513ade3ae341b6981627b3"
 
   bottle do
     root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
-    sha256 "278bd608a1516c2874199af1f6dbee2c30ed8007ebdf54ea8253e522fdb1902f" => :mojave
-    sha256 "d4c1cf6b288d2a1bcd59b51f2dd5b62ecf01702b01ed3146519cbec9e0ec137b" => :high_sierra
-    sha256 "e1d1b16a7ce450b4389fa3e5cc73fc9944431c4c6da1c70144157b18333f67d3" => :sierra
-    sha256 "9066872f442e3c81ce1aa828a0aae5b949f540d321dc25ea18b683666156027c" => :x86_64_linux
+    sha256 "a92a46ee780227a57d01a77fd91615210db04fc948780e827ad27c40acd09fed" => :mojave
+    sha256 "c06d0d72977187b0dd488c7bc96427d0b9ad5dd8a17bb6187caa7693a673fa33" => :high_sierra
+    sha256 "5577986726e1a5f0d1901cfac90f721f1af754061b6b22fad7cb2d81c541fc08" => :sierra
   end
 
   depends_on "dep" => :build
   depends_on "go" => :build
 
   resource "certificates" do
-    url "https://github.com/smallstep/certificates/archive/v0.8.5.tar.gz"
-    sha256 "dc2b007247baeaa020a626813aea2b15fc2eb7f970cf0002a4b421fdf3ab294f"
+    url "https://github.com/smallstep/certificates/archive/v0.9.0.tar.gz"
+    sha256 "426475d286ea52679e0fed425a3da683b0f12b94b23274cc4f373bf75e6a0469"
   end
 
   def install
