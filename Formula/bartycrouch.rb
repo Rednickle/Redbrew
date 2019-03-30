@@ -12,6 +12,7 @@ class Bartycrouch < Formula
   end
 
   depends_on :xcode => ["10.2", :build] if OS.mac?
+  depends_on :macos
 
   def install
     system "make", "install", "prefix=#{prefix}"
