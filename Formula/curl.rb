@@ -6,6 +6,7 @@ class Curl < Formula
   sha256 "4cc7c738b35250d0680f29e93e0820c4cb40035f43514ea3ec8d60322d41a45d"
 
   bottle do
+    cellar :any
     root_url "https://linuxbrew.bintray.com/bottles"
     sha256 "78f8672e9458cf3ed13f1695269e8554148fb5bd74a668123970a5faf46b6d46" => :mojave
     sha256 "df8ce79cb806192943d07b93ab0bfa9c18f938261f733ce0eaefb73c17c78949" => :high_sierra
