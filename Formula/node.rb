@@ -1,17 +1,16 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v11.12.0/node-v11.12.0.tar.gz"
-  sha256 "7d408dcd485f7193ab37e1f36d0a38676d5dbc9c91329c775e5afe6c687393b8"
+  url "https://nodejs.org/dist/v11.13.0/node-v11.13.0.tar.gz"
+  sha256 "4c29d24de0e6d2bdf7fbac6d37938696a124501d3710b7f6ecdadb0ef5925fb2"
   head "https://github.com/nodejs/node.git"
 
   bottle do
     root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
-    sha256 "054c08a67e39a3c8926b51fbe6052b6946bd29d010556961f4da8c9766b23584" => :mojave
-    sha256 "ced2c338cae5acc5d3cd3c62811fbaf2695cf02f733e848a73e25422546834ab" => :high_sierra
-    sha256 "bc601a7b533be1a4876d3339c86d65c6d058e291b1329170ca82fd00ba7ae02f" => :sierra
-    sha256 "5cc54d9f2d6a075e4282e0e9af2485bedc50219f222e9027ff9fb46a6945bfa3" => :x86_64_linux
+    sha256 "96fd92020658cc286badcc9c786d130d00a0258d048430641a0513b4417cf289" => :mojave
+    sha256 "1eca839ab08cc078be42cd5d09a9e45635430f058f1ef6c9775ba3c3fa783bbd" => :high_sierra
+    sha256 "09116c304dca074394c1a754099c269b9b4a0fe746b4689287c998942dcaf61b" => :sierra
   end
 
   depends_on "pkg-config" => :build
