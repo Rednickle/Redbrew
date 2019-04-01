@@ -1,13 +1,13 @@
 class Dovecot < Formula
   desc "IMAP/POP3 server"
   homepage "https://dovecot.org/"
-  url "https://dovecot.org/releases/2.3/dovecot-2.3.5.tar.gz"
-  sha256 "bfe112ec6d11f7d6c6f7f0440e3b6e2c840c15cec1e99466b5495765d54aaaff"
+  url "https://www.dovecot.org/releases/2.3/dovecot-2.3.5.1.tar.gz"
+  sha256 "d78f9d479e3b2caa808160f86bfec1c9c7b46344d8b14b88f5fa9bbbf8c7c33f"
 
   bottle do
-    sha256 "c3fee2ed24d66594cac2938ea810350578da4f6dab4b4b2554fbca3ef2edd68a" => :mojave
-    sha256 "e232ca77c36a484443956f00cb723d986dd10a8aa8c2551beb09450f87d263b5" => :high_sierra
-    sha256 "2efb46f9a0bd7e6013f2b5574f1e121d4d2322ea0bfa8ffa66cddef3290a1853" => :sierra
+    sha256 "8e8b2cbf26ef7760b20a012247ccd495cfcb28312776f5889c261ed93409d74e" => :mojave
+    sha256 "e80b3088c9bb8081bdd39fcd269cb68353f356bb0520f97d787ab621bf35ae43" => :high_sierra
+    sha256 "d9fd6d64dc1910ea166801939754e8dce929f2f645d12f148cc1eb98978600fb" => :sierra
   end
 
   depends_on "openssl"
