@@ -1,15 +1,13 @@
 class Freetds < Formula
   desc "Libraries to talk to Microsoft SQL Server and Sybase databases"
   homepage "http://www.freetds.org/"
-  url "http://www.freetds.org/files/stable/freetds-1.1.3.tar.gz"
-  sha256 "bd08d2b7e6b7819fec611f02ff5b48a53298d46f733385f12e83289c017f2d1c"
+  url "http://www.freetds.org/files/stable/freetds-1.1.4.tar.gz"
+  sha256 "e59b7111001b95de77412b5ca8ec45fae240d7273f874e42fafbd8e1083b5556"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
-    sha256 "66ce6291c83495f7372ae00559eccc8044c19d61642f5f02a375c22e63ac88d5" => :mojave
-    sha256 "79172589792275fd0ae469364a01b8ffc617080687a6523f1401c210d122cb08" => :high_sierra
-    sha256 "d1d7e4eb2fe06e76e8b257770477969b70d4bc3159bd1d08b8c759ca1affdfac" => :sierra
-    sha256 "9e8f054f035cff860ca2b478489af47a98812c420143ca293971659d585f1f88" => :x86_64_linux
+    sha256 "d512bb67c8126eed281c3be01ac0e3cb2ba88042b884a2724aa5aefb63ee2b03" => :mojave
+    sha256 "b1f7dff8f3bcb5643d28b9dc553a95549a9d767c98bfa69bda7ce2e71509041a" => :high_sierra
+    sha256 "a4fddd9728600ba9914b840ffc536f412e5af9e68854449d4a53ffcfd8be57a4" => :sierra
   end
 
   head do
