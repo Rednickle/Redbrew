@@ -8,11 +8,10 @@ class Nginx < Formula
   head "https://hg.nginx.org/nginx/", :using => :hg
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
-    sha256 "1b68590c497addb64921e15cacc2e1448794d7319a0fcc851fc5ce96e424c46f" => :mojave
-    sha256 "6923766e35e8971d01e63927d41b1d30e0c20397cc25b90f90dec17bccf6ac7b" => :high_sierra
-    sha256 "c5fbdaaae98b9e156ba504663c5b2796e5b915425a70dca7ec73a4914284fb3e" => :sierra
-    sha256 "40bb72e8bacdcc13b5ffa5d345875c874ad5221e783cdba2ed4b42aa8f9ac665" => :x86_64_linux
+    rebuild 1
+    sha256 "4ce8352d57aed86d9d0a1aba8a92dfddf08571e1fbdff63b614bfda8fa4039ac" => :mojave
+    sha256 "26268914ca57498d5441796e91f60fde917f3dcd36d2392631139caf234630d6" => :high_sierra
+    sha256 "0c9641af36fe58fc1e92f32e9a4ce770c7d7d4a465927695764515f0c76fbf99" => :sierra
   end
 
   depends_on "openssl"
@@ -51,6 +50,7 @@ class Nginx < Formula
       --http-scgi-temp-path=#{var}/run/nginx/scgi_temp
       --http-log-path=#{var}/log/nginx/access.log
       --error-log-path=#{var}/log/nginx/error.log
+      --with-compat
       --with-debug
       --with-http_addition_module
       --with-http_auth_request_module
