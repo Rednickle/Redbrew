@@ -1,17 +1,14 @@
 class Uhd < Formula
   desc "Hardware driver for all USRP devices"
   homepage "https://files.ettus.com/manual/"
-  url "https://github.com/EttusResearch/uhd/archive/v3.13.1.0.tar.gz"
-  sha256 "16fb265b9611ff51ea229058824661c04db935cf88fde17af9cb66a8b9299bd5"
-  revision 1
+  url "https://github.com/EttusResearch/uhd/archive/v3.14.0.0.tar.gz"
+  sha256 "612bcc4e857e126c2e1ace98618816209665b20c4136c9e987c67511661715df"
   head "https://github.com/EttusResearch/uhd.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
-    sha256 "019e463662322a2468f01524cda377e75f3071ffe57fff7a08011877a3415a01" => :mojave
-    sha256 "0b377e3732cdbf3c60bdccc61d4cf9fe35ef9db8523c8112f635037a40dbaa06" => :high_sierra
-    sha256 "0a939217bd4b1d772df4c75c5651b49bb01557102eac56695e6d9bd925df280c" => :sierra
-    sha256 "1fcafbceb930eb7d448508bbb4a7b34c9b24823d304720a08c7e88a0eec823c2" => :x86_64_linux
+    sha256 "3eacbff6e35b276dda53c2bee7cd46cab690258c2d723ff7dac89df2f8d99c83" => :mojave
+    sha256 "ed187800f2255414f237d93cfc3852433ebc17d6920c18ece82d03f3e37ef865" => :high_sierra
+    sha256 "dec154f562fa22f2aecedb86ff836d7e8e8713eb06f5073be8805c1fe9c83f1c" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -23,12 +20,6 @@ class Uhd < Formula
   resource "Mako" do
     url "https://files.pythonhosted.org/packages/eb/f3/67579bb486517c0d49547f9697e36582cd19dafb5df9e687ed8e22de57fa/Mako-1.0.7.tar.gz"
     sha256 "4e02fde57bd4abb5ec400181e4c314f56ac3e49ba4fb8b0d50bba18cb27d25ae"
-  end
-
-  # fix build for boost 1.69
-  patch do
-    url "https://github.com/EttusResearch/uhd/commit/5c012cad7858cadcaa85ec295080f3c8b21fdee0.patch?full_index=1"
-    sha256 "30192c65d63a45bc1510cf65d0538da5e3d2e74fe247588eda18058196da3863"
   end
 
   def install
