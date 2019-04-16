@@ -3,13 +3,13 @@ class Rust < Formula
   homepage "https://www.rust-lang.org/"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.33.0-src.tar.gz"
-    sha256 "5a01a8d7e65126f6079042831385e77485fa5c014bf217e9f3e4aff36a485d94"
+    url "https://static.rust-lang.org/dist/rustc-1.34.0-src.tar.gz"
+    sha256 "7ac85acffd79dd3a7c44305d9eaabd1f1e7116e2e6e11e770e4bf5f92c0f1f59"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          :tag      => "0.34.0",
-          :revision => "f099fe94b66f0a2f80370be8f2d3db2a55b97050"
+          :tag      => "0.35.0",
+          :revision => "6789d8a0a54a96d95365c4e1fb01d47a5eed9937"
     end
 
     resource "racer" do
@@ -23,11 +23,9 @@ class Rust < Formula
   bottle do
     root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
-    rebuild 1
-    sha256 "4061bd9640258ff2d50228b419b8016a1b347fc0eaf80d493170dc436c02c292" => :mojave
-    sha256 "5cd48c60b52d3c92e224f03e919c72a1282c926ae8ac4dc76a772dacb00c222b" => :high_sierra
-    sha256 "4d2cf000ff7f615a6d8ce1712d9895724d4a0af24f83ead797dd3a1a13261d14" => :sierra
-    sha256 "5a9288c35eb6b94b65b173e0391cec005c2c4dce547b84ef77b8e0e2c19f90b4" => :x86_64_linux
+    sha256 "37c163dc9c93d68b60c71e94633b36a04e057ea9d6db940fda860fc53a8589cf" => :mojave
+    sha256 "bf495f983f2b1b36c971bc8488dbef6e81d2763f95d6bebbcb4c9b53bde5a46f" => :high_sierra
+    sha256 "62fee342ec38bcb8db8bcf43f7b52f8e3b74e26326b802df31661f21f8344684" => :sierra
   end
 
   head do
@@ -57,12 +55,12 @@ class Rust < Formula
   resource "cargobootstrap" do
     if OS.mac?
       # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
-      url "https://static.rust-lang.org/dist/2019-01-17/cargo-0.33.0-x86_64-apple-darwin.tar.gz"
-      sha256 "25cf75479da383d2307e1d6204e915f628ec3f1c185b124f57839cfd622f54b1"
+      url "https://static.rust-lang.org/dist/2019-02-28/cargo-0.34.0-x86_64-apple-darwin.tar.gz"
+      sha256 "5349b04cd783942d39be3223629efbf0325de04ee72751c4a1a1388e858caac6"
     elsif OS.linux?
       # From: https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
-      url "https://static.rust-lang.org/dist/2019-01-17/cargo-0.33.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "9dd7f79a0ab882ed7c892731514a4aed6435f7bc8a20381a8346b471c8a14209"
+      url "https://static.rust-lang.org/dist/2019-02-28/cargo-0.34.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "4795ae5ca3bb8c7c83ca338676bb02b670efa1eb474e346284b629dc872bcce8"
     end
   end
 
@@ -116,7 +114,7 @@ class Rust < Formula
     end
 
     # Remove any binary files; as Homebrew will run ranlib on them and barf.
-    rm_rf Dir["src/{llvm,llvm-emscripten,test,librustdoc,etc/snapshot.pyc}"]
+    rm_rf Dir["src/{llvm-project,llvm-emscripten,test,librustdoc,etc/snapshot.pyc}"]
     (pkgshare/"rust_src").install Dir["src/*"]
 
     rm_rf prefix/"lib/rustlib/uninstall.sh"
