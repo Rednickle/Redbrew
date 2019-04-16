@@ -5,16 +5,15 @@ class Taskell < Formula
 
   desc "Command-line Kanban board/task manager with support for Trello"
   homepage "https://taskell.app"
-  url "https://github.com/smallhadroncollider/taskell/archive/1.4.1.tar.gz"
-  sha256 "2cbf1b762d2f519cdfaf10edd6fb7f984ededbd80cb1d9b5fd01e036250e1bdd"
+  url "https://github.com/smallhadroncollider/taskell/archive/1.4.2.tar.gz"
+  sha256 "3f5457f0a20bb9d4d68abdf676e71163f681cde5e707ba29f0a09ed26a76377d"
 
   bottle do
     root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
-    sha256 "56dacd9606d6f3020ccb7b10f0ab0a7579ff7d6a2aa19f2214b6db97e37b8670" => :mojave
-    sha256 "68a1ca216931427ee8c60b31c41461c5af64aab42936a9681714aa6b8dea29d6" => :high_sierra
-    sha256 "05b2816ed0148d4360d2d294ac18c304f20f4e573cb2ba035e7c4a6f9740035a" => :sierra
-    sha256 "46d999ecb7fd8bd304e0f2370a659ff77da852a0dfaeab7fcced42f04964934a" => :x86_64_linux
+    sha256 "ed76d25e8962de2c8f79d8682400420fed2cc6c8c6c6159c4eeb2e1b2864feb9" => :mojave
+    sha256 "3f3114ae21c2e0693a685785498469a184b42f717a6b7ec25ab3f7bcc3c0b24d" => :high_sierra
+    sha256 "5487a58e2e18c2f80a525fc8da9d3b5ef7a13b14118806b37a01213411b1022e" => :sierra
   end
 
   depends_on "cabal-install" => :build
