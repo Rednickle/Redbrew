@@ -65,6 +65,11 @@ class GitlabRunner < Formula
           <string>gitlab-runner</string>
           <string>--syslog</string>
         </array>
+        <key>EnvironmentVariables</key>
+          <dict>
+            <key>PATH</key>
+            <string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+        </dict>
       </dict>
     </plist>
   EOS
