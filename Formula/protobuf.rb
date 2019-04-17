@@ -7,18 +7,17 @@ class Protobuf < Formula
   head "https://github.com/protocolbuffers/protobuf.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
-    sha256 "b6a876e0bd12e30c7a51ab6ac60d2c085672e52b35a8db5ce023b05f59022abc" => :mojave
-    sha256 "abf825b2544adef9e3c9dec15faa02ca4a58116061428a420bb8edcfb67af61d" => :high_sierra
-    sha256 "0f76af3912824f2cc6c13542671d8f8ea4df497e6cd6073dcbc11f10ac3b8a04" => :sierra
-    sha256 "76c1b012363eab53b150e2ff43aff8bfcc6a3fc344f22930bcd86bff1e33850d" => :x86_64_linux
+    rebuild 1
+    sha256 "410f34fc3240dc94c16bf74e3317b56d987acddc361228c03e6b10e8373588fb" => :mojave
+    sha256 "cb0e47a0eaa45e5237eab16fec5cc1efb00c531d51484aefceb9a19d6c686f61" => :high_sierra
+    sha256 "8caa4610c0d140dc509c61ee3c10e2457f3b5240ee53ee88bbb32d185b4a216c" => :sierra
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "python"
-  depends_on "python@2"
+  depends_on "python" => [:build, :test]
+  depends_on "python@2" => [:build, :test]
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"

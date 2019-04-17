@@ -2,28 +2,29 @@ class Pulumi < Formula
   desc "Cloud native development platform"
   homepage "https://pulumi.io/"
   url "https://github.com/pulumi/pulumi.git",
-      :tag      => "v0.17.5",
-      :revision => "44292747d46095df426165975e195ddaaae3c552"
+      :tag      => "v0.17.6",
+      :revision => "2532ce0527b4e4a1b289c1fccf2eea42edd00d3b"
 
   bottle do
     root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
-    sha256 "f40c6f58074a6aae1c8724b57f33aed0450491aaa94873f8f0feafe30133af4b" => :mojave
-    sha256 "2edb6d986aa72998f134a8040aa3d82a0656f1769c9070d58683732c1bc55811" => :high_sierra
-    sha256 "97d61b8cf955079b96820bad05669461249232565930efaa97565632fb6f3ac0" => :sierra
-    sha256 "e54332a12a4522feba7ef1d3269556bd4461c1715a95a9279fe366f8472c3b0b" => :x86_64_linux
+    sha256 "aae96d7d5496a63fb4736cf26d878f8eb2951427b1a841dff3ba8ed9553f8201" => :mojave
+    sha256 "374a494c6e70c965e343607ea1efa06112340f68ddf4ee371d4a39f819426651" => :high_sierra
+    sha256 "9666b03d37f84abf857c082be9d4d7d84909dad455b1f1fdfaabf356cc6662e9" => :sierra
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "on"
+    ENV["GOPROXY"] = "https://gocenter.io"
+
     dir = buildpath/"src/github.com/pulumi/pulumi"
     dir.install buildpath.children
 
     cd dir do
-      system "dep", "ensure", "-vendor-only"
+      system "go", "mod", "vendor"
       system "make", "dist"
       bin.install Dir["#{buildpath}/bin/*"]
       prefix.install_metafiles
