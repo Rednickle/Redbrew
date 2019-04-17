@@ -3,11 +3,12 @@ class Opencv < Formula
   homepage "https://opencv.org/"
   url "https://github.com/opencv/opencv/archive/4.1.0.tar.gz"
   sha256 "8f6e4ab393d81d72caae6e78bd0fd6956117ec9f006fba55fcdb88caf62989b7"
+  revision 1
 
   bottle do
-    sha256 "f7783a1f2e99c5bbe358e73a087e871e518e34b72761f5f99d7de042dbeacba0" => :mojave
-    sha256 "d003d4bcd8d3038e38f1446e83270e912628342c68ff257a2c481c2a4f5f6165" => :high_sierra
-    sha256 "2ebd51e12222d60c5724fe8a9b04fbfae9d9311ee9af192f39c5fd48d22a7782" => :sierra
+    sha256 "e480ec68ccb914da357f8c3b799552fdfbfe38e24a75a2c091b28382e1801f70" => :mojave
+    sha256 "b1e6aa6491c192384f163505702dc227dbd182e00a21b370f50e3c5b74cea7de" => :high_sierra
+    sha256 "e2b359e6062e5614e3a6758e51f9768cc99f5c034ab6d1ffa116765b10781f14" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -32,7 +33,7 @@ class Opencv < Formula
 
   patch do
     url "https://github.com/opencv/opencv/pull/14308.patch?full_index=1"
-    sha256 "9de405097cbafeadf0b980083edf1ff6b1a18e452bffea2b88a235c36677a1f8"
+    sha256 "c48a6a769f364e6f61bc99cf47a6e664c85246c9fcd4a201afc408158fc4f1ef"
   end
 
   def install
