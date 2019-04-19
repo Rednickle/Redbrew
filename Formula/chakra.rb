@@ -3,12 +3,13 @@ class Chakra < Formula
   homepage "https://github.com/Microsoft/ChakraCore"
   url "https://github.com/Microsoft/ChakraCore/archive/v1.11.7.tar.gz"
   sha256 "3655a73dea56ed8aa11428f0564408fd7140140ed1de49bafcfec220253252d9"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "35f1254b31fb83ae9a0a3b0a4b65f31202df3d1a3c930f8ef492b655978a458a" => :mojave
-    sha256 "d08439664c47cbf3df27ab3a6f0d1f11b9eee11b88a8551c88408d62f7c452be" => :high_sierra
-    sha256 "1fb6274f2d470bbb085347957cf25bf18ed696ce8c38f1754276fc573220772d" => :sierra
+    sha256 "63b122da03feb9cb02feeb95b6d84c75df06f4a3095e9a359afca6e46d9ea311" => :mojave
+    sha256 "1027235beb492b5f9e370f68396bc0e11df4159cebcd70a230cce5f5684b7399" => :high_sierra
+    sha256 "a626827f2e56e07ecb2820d9c4eab4c90c0e5d01166b3adc68ba259e037dc8fb" => :sierra
   end
 
   depends_on "cmake" => :build

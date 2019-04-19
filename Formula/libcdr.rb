@@ -3,14 +3,13 @@ class Libcdr < Formula
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libcdr"
   url "https://dev-www.libreoffice.org/src/libcdr/libcdr-0.1.4.tar.xz"
   sha256 "e7a7e8b00a3df5798110024d7061fe9d1c3330277d2e4fa9213294f966a4a66d"
-  revision 5
+  revision 6
 
   bottle do
     cellar :any
-    sha256 "b63f7fac692b74414a2cfd969aa94588b045670410498e2e6a70b30b93a9ff86" => :mojave
-    sha256 "2fb5cbb2d220b32b8c939d766ad3176ea81e90fea8ae77edceaf46a36188726c" => :high_sierra
-    sha256 "8b949db079ea7f9f4657d1cc6355843062580831b5dd0b408cb51747c25e3535" => :sierra
-    sha256 "9a32f512cad5c66a2611ab50a93085322f6bbe8803a654fcfb06c31b1febca51" => :x86_64_linux
+    sha256 "147c5b5fe253d9c96f113e68712508c98cea69fe8247178b7fc055b95b63bbd1" => :mojave
+    sha256 "79a6e391b298c963de1b416e4370ff21aa78ff29481800bc7b54dcbfbef2da6a" => :high_sierra
+    sha256 "b2655d493d9ff07a3c454719c1be946e217f54f7f59c42e4a4c5cdeb7b4327a6" => :sierra
   end
 
   depends_on "cppunit" => :build
