@@ -3,17 +3,21 @@ class Csound < Formula
   homepage "https://csound.com"
   url "https://github.com/csound/csound/archive/6.12.2.tar.gz"
   sha256 "39f4872b896eb1cbbf596fcacc0f2122fd3e5ebbb5cec14a81b4207d6b8630ff"
+  revision 1
 
   bottle do
-    sha256 "c61580b06971b50952504c4c7ec913998531c1dc253f9f187d2a643ab92d3d55" => :mojave
-    sha256 "8663be5e850243c2fdd345d26741657d261903922784bdfba449a6b9c356bfbc" => :high_sierra
-    sha256 "4cee30249722264ebaca435af3798a2bffa3a88095212e6699e16fc811c03418" => :sierra
+    sha256 "90be0b3b8bd7e174b9e08eac56a9e76780e95be8f1a0025fb82e75eff67e741b" => :mojave
+    sha256 "f97c2e61a573ddeb770f0718ffe28167deba0358c58f2c96c5d45351f0d4a6e7" => :high_sierra
+    sha256 "c7ffe61743dadae44f72e1d1707637d17da2721e6134b443964e3a76091e62a7" => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on "fltk"
   depends_on "liblo"
+  depends_on "libsamplerate"
   depends_on "libsndfile"
+  depends_on "portaudio"
+  depends_on "portmidi"
   depends_on "stk"
 
   def install
@@ -56,6 +60,13 @@ class Csound < Formula
 
     ENV["OPCODE6DIR64"] = "#{HOMEBREW_PREFIX}/Frameworks/CsoundLib64.framework/Resources/Opcodes64"
     ENV["RAWWAVE_PATH"] = "#{HOMEBREW_PREFIX}/share/stk/rawwaves"
-    system "#{bin}/csound", "test.orc", "test.sco"
+
+    require "open3"
+    stdout, stderr, status = Open3.capture3("#{bin}/csound test.orc test.sco")
+
+    assert_equal true, status.success?
+    assert_equal "hello, world\n", stdout
+    assert_match /^rtaudio:/, stderr
+    assert_match /^rtmidi:/, stderr
   end
 end
