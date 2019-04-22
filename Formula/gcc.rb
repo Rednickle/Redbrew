@@ -11,30 +11,26 @@ class Gcc < Formula
 
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-  revision 4 unless OS.mac?
+  revision OS.mac? ? 1 : 4
   head "https://gcc.gnu.org/git/gcc.git" if OS.mac?
 
-  unless OS.mac?
+  if OS.mac?
+    url "https://ftp.gnu.org/gnu/gcc/gcc-8.3.0/gcc-8.3.0.tar.xz"
+    mirror "https://ftpmirror.gnu.org/gcc/gcc-8.3.0/gcc-8.3.0.tar.xz"
+    sha256 "64baadfe6cc0f4947a84cb12d7f0dfaf45bb58b7e92461639596c21e02d97d2c"
+  else
     url "https://ftp.gnu.org/gnu/gcc/gcc-5.5.0/gcc-5.5.0.tar.xz"
     mirror "https://ftpmirror.gnu.org/gcc/gcc-5.5.0/gcc-5.5.0.tar.xz"
     sha256 "530cea139d82fe542b358961130c69cfde8b3d14556370b65823d2f91f0ced87"
-  end
-
-  if OS.mac?
-    stable do
-      url "https://ftp.gnu.org/gnu/gcc/gcc-8.3.0/gcc-8.3.0.tar.xz"
-      mirror "https://ftpmirror.gnu.org/gcc/gcc-8.3.0/gcc-8.3.0.tar.xz"
-      sha256 "64baadfe6cc0f4947a84cb12d7f0dfaf45bb58b7e92461639596c21e02d97d2c"
-    end
   end
 
   # gcc is designed to be portable.
   bottle do
     cellar :any
     rebuild 2
-    sha256 "1b11086a7e1732cb6077a2e96889ab847226308a76cb5acfaacec98a5c76567f" => :mojave
-    sha256 "c0695cd4808438b1eb3c98ed2c96f8f8806c920fce739ac4acf42789c9aede67" => :high_sierra
-    sha256 "49843c479e2ac3464d9022c916d109a7c0f89e7a5a6046f934c0b18e25aa54e4" => :sierra
+    sha256 "3a8d6a86c2ae4593ed5520b875fad3f2ebc9a30a1677d2fc1e6a6271ac88776b" => :mojave
+    sha256 "4dedbb6d2bcef7eaf6fd30ceaf594eb5a9c73650119e488d61035abaeab5a146" => :high_sierra
+    sha256 "69b367c9dfee83dd62aff1e0b9814404df40c68b6bc43b3a4f87d1331562ea41" => :sierra
     sha256 "406111bf6c70681f2acbf39bb2462da0a15e1522d01bd909abed43556dff50ca" => :x86_64_linux
   end
 
@@ -58,6 +54,17 @@ class Gcc < Formula
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
+
+  # Patch for Xcode bug, taken from https://gcc.gnu.org/bugzilla/show_bug.cgi?id=89864#c43
+  # This should be removed in the next release of GCC; this is an xcode bug, but
+  # this patch is a work around committed to trunk and planned to backport to
+  # 6, 7, 8 branches
+  if OS.mac?
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/gcc/8.3.0-xcode-bug-_Atomic-fix.patch"
+      sha256 "33ee92bf678586357ee8ab9d2faddf807e671ad37b97afdd102d5d153d03ca84"
+    end
+  end
 
   def version_suffix
     if build.head?
