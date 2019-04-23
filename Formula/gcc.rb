@@ -89,6 +89,7 @@ class Gcc < Formula
     else
       # C, C++, ObjC compilers are always built
       languages = %w[c c++ objc obj-c++]
+    end
 
     args = []
 
