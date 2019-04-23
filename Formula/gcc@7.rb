@@ -6,13 +6,13 @@ class GccAT7 < Formula
   url "https://ftp.gnu.org/gnu/gcc/gcc-7.4.0/gcc-7.4.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-7.4.0/gcc-7.4.0.tar.xz"
   sha256 "eddde28d04f334aec1604456e536416549e9b1aa137fc69204e65eb0c009fe51"
+  revision 1
 
   # gcc is designed to be portable.
   bottle do
-    sha256 "28647ff0add287c71766bca5256251a8024df615bac3165fafce28bdc2a7f2b6" => :mojave
-    sha256 "6966a74ba19fbb9f72d9587d19fa492b5a8f44e90b0d491303884b0bf579e5d0" => :high_sierra
-    sha256 "eb8d6e1902b8820e45e2ef17ae77fe2dd462d3edf3cd53792d6931d5b9b7fe85" => :sierra
-    sha256 "1b9ab7de97fbc1f44f2e5f31ea230f68e730d2f6712b2b86618beb6bb015154e" => :x86_64_linux
+    sha256 "cd5d87c8c2451bf96d4aec02cc47b5cadc5a46432ddaec22ea4321ecda1d99a1" => :mojave
+    sha256 "d2126c63833617aa07a5341e11d6bbf3a82c675a8053ed21f8d6c2310b3de3e7" => :high_sierra
+    sha256 "b954c76edc8cd3d506e67322d3ce6c27ee8ce585c82d60adf7bcf8b056858c62" => :sierra
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -35,6 +35,16 @@ class GccAT7 < Formula
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
+
+  # Patch for Xcode bug, taken from https://gcc.gnu.org/bugzilla/show_bug.cgi?id=89864#c43
+  # This should be removed in the next release of GCC if fixed by apple; this is an xcode bug,
+  # but this patch is a work around committed to GCC trunk
+  if OS.mac? && MacOS::Xcode.version >= "10.2"
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/gcc%407/gcc7-xcode10.2.patch"
+      sha256 "873f791d249467bd4187f2994b08a924774d39311af93b61c827e066434181fe"
+    end
+  end
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.

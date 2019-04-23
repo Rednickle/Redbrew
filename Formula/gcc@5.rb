@@ -10,14 +10,13 @@ class GccAT5 < Formula
   url "https://ftp.gnu.org/gnu/gcc/gcc-5.5.0/gcc-5.5.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-5.5.0/gcc-5.5.0.tar.xz"
   sha256 "530cea139d82fe542b358961130c69cfde8b3d14556370b65823d2f91f0ced87"
-  revision OS.mac? ? 2 : 3
+  revision 3
 
   # gcc is designed to be portable.
   bottle do
     cellar :any
-    sha256 "3cef0d77229769d75a85b545be64ea74fdca7fe99b78a08025d9523dae2db4c1" => :high_sierra
-    sha256 "831b722a88b94d2663883ede5b301173055ccd68cb2cd8f6231aae79fb7a5910" => :sierra
-    sha256 "b900bb57ad020106cfc83d07c6579611b9c7083ce004ee03ce1a2d099e4e2378" => :el_capitan
+    sha256 "112039ed5d8e890730c62c275fcab77f65ab9ac9be324dad3f4b0eada4b39434" => :high_sierra
+    sha256 "726ec47a02e3d92c1d031a26b7578e8ed019cd7f748359c8232332f1f0cf5e45" => :sierra
     sha256 "97bce0daec95df10eed7c749b7ea178ca7c03aae81227131d5a833d4a05bd7c1" => :x86_64_linux
   end
 
@@ -66,6 +65,16 @@ class GccAT5 < Formula
     patch do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/413cfac6/gcc%405/10.13_headers.patch"
       sha256 "94aaec20c8c7bfd3c41ef8fb7725bd524b1c0392d11a411742303a3465d18d09"
+    end
+  end
+
+  # Patch for Xcode bug, taken from https://gcc.gnu.org/bugzilla/show_bug.cgi?id=89864#c43
+  # This should be removed in the next release of GCC if fixed by apple; this is an xcode bug,
+  # but this patch is a work around committed to GCC trunk
+  if OS.mac? && MacOS::Xcode.version >= "10.2"
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/gcc%405/gcc5-xcode10.2.patch"
+      sha256 "6834bec30c54ab1cae645679e908713102f376ea0fc2ee993b3c19995832fe56"
     end
   end
 
