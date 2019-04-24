@@ -1,17 +1,15 @@
 class NodeAT8 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v8.15.1/node-v8.15.1.tar.xz"
-  sha256 "6b6486a3f452624941f6e11dd5f878c298d43e9c21b5f43ca1721dc7ce25add1"
-  revision 1
+  url "https://nodejs.org/dist/v8.16.0/node-v8.16.0.tar.xz"
+  sha256 "3515e8e01568a5dc4dff3d91a76ebc6724f5fa2fbb58b4b0c5da7b178a2f7340"
 
   bottle do
     root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
-    sha256 "9a84e3874906f558d4c5519b8665d151156acb0f7a50c430d06a4f10f1451ad2" => :mojave
-    sha256 "bf0b596758df3d21378caba24bbf82cd5bf8d1958f20c8ecac6d9dffffdeb387" => :high_sierra
-    sha256 "52d4233c121286a33a118ce133f393acda90e00cc9ab7b3a1c557340cfecd66c" => :sierra
-    sha256 "4c69fbf8d68ea4effd165baea2faf57f705dbd228af00c2aed4bc4d3ad828816" => :x86_64_linux
+    sha256 "db34802888005a1fea191c94506db90a0f9e9cafa977b67646f1c7d1c8410cd5" => :mojave
+    sha256 "2a2843b99c78bf29e693c71cec059683c524cfe6faca4cc1771610288d07c017" => :high_sierra
+    sha256 "f2c7b5e6d499a0859c6bb4abe1320266e9fb726492050406a555c9762f5bbacd" => :sierra
   end
 
   keg_only :versioned_formula
