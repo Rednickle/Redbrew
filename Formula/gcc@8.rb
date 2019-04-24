@@ -7,11 +7,11 @@ class GccAT8 < Formula
   mirror "https://ftpmirror.gnu.org/gcc/gcc-8.2.0/gcc-8.2.0.tar.xz"
   sha256 "196c3c04ba2613f893283977e6011b2345d1cd1af9abeac58e916b1aab3e0080"
   head "svn://gcc.gnu.org/svn/gcc/trunk"
+  revision 1
 
   # gcc is designed to be portable.
   bottle do
     cellar :any
-    sha256 "8bc71b1fb13011c5d96251325ce0e1a6919a5c4d925bb015c27281f532693237" => :x86_64_linux
   end
 
   option "with-jit", "Build just-in-time compiler"
