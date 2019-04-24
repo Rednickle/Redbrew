@@ -10,6 +10,7 @@ class GccAT7 < Formula
 
   # gcc is designed to be portable.
   bottle do
+    cellar :any
     root_url "https://linuxbrew.bintray.com/bottles"
     sha256 "cd0ab374ef92a1688ccf2e6cf6c275c64e99b05ef1e7b145e3ef56569cc2f2e6" => :mojave
     sha256 "5a47d91428176dfb4b77bcddc24844a0ae31dd0cd8347913e10eb753e0b7df61" => :high_sierra
