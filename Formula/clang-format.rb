@@ -1,14 +1,14 @@
 class ClangFormat < Formula
   desc "Formatting tools for C, C++, Obj-C, Java, JavaScript, TypeScript"
   homepage "https://clang.llvm.org/docs/ClangFormat.html"
-  version "2018-12-18"
+  version "2019-01-18"
 
   stable do
     depends_on "subversion" => :build
-    url "https://llvm.org/svn/llvm-project/llvm/tags/google/stable/2018-12-18/", :using => :svn
+    url "https://llvm.org/svn/llvm-project/llvm/tags/google/stable/2019-01-18/", :using => :svn
 
     resource "clang" do
-      url "https://llvm.org/svn/llvm-project/cfe/tags/google/stable/2018-12-18/", :using => :svn
+      url "https://llvm.org/svn/llvm-project/cfe/tags/google/stable/2019-01-18/", :using => :svn
     end
 
     resource "libcxx" do
@@ -20,7 +20,9 @@ class ClangFormat < Formula
   bottle do
     root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
-    sha256 "298226130764e2350f53f1921a52dac9c6260af08be293655e0421214496c78c" => :x86_64_linux
+    sha256 "e21e425f294cb6daf81dce2de430401dbc00369fc7cc2c3ff76770eee50b149f" => :mojave
+    sha256 "2937b78b833fa1ad75a170e31d90fda274b400bad21e509797fe1d6fa95812fd" => :high_sierra
+    sha256 "d88400e9a753ad87ff398d0a9d270110d39d34129894c109f1f1612394b2d942" => :sierra
   end
 
   head do
