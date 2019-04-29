@@ -3,13 +3,12 @@ class Evince < Formula
   homepage "https://wiki.gnome.org/Apps/Evince"
   url "https://download.gnome.org/sources/evince/3.30/evince-3.30.2.tar.xz"
   sha256 "a95bbdeb452c9cc910bba751e7c782ce60ffe7972c461bccbe8bbcdb8ca5f24c"
-  revision 1
+  revision 2
 
   bottle do
-    rebuild 1
-    sha256 "f8783fb27eff92fb8dad8e41c3b390e0d48130cd594ceb7bda678f9ab56cd644" => :mojave
-    sha256 "3dc38a9e552f6a1076e6818c940430fae18c924d4fadb1e4cdaa422b11bfa8ca" => :high_sierra
-    sha256 "934f3f5a7fffe3e0a40864ab06e4bfaa83d57196b625e744a9b8944cd2a2c0c5" => :sierra
+    sha256 "47f74e9d5ea7d016b8d8eb13f0ac8d5879b08254d7831ff6aa81685b117e6c23" => :mojave
+    sha256 "18cacf368d603f4b15fe26a38bf468c4ca979206b226a609ca7091a99463e80a" => :high_sierra
+    sha256 "7d7fea09c433f50734de80cbd63bb719196fd45ec0b3e651857d5f1d57b5b54e" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
@@ -21,6 +20,7 @@ class Evince < Formula
   depends_on "gspell"
   depends_on "gtk+3"
   depends_on "hicolor-icon-theme"
+  depends_on "libarchive"
   depends_on "libsecret"
   depends_on "libspectre"
   depends_on "libxml2"
@@ -34,6 +34,11 @@ class Evince < Formula
     # Fix build failure "ar: illegal option -- D"
     # Reported 15 Sep 2017 https://bugzilla.gnome.org/show_bug.cgi?id=787709
     inreplace "configure", "AR_FLAGS=crD", "AR_FLAGS=r"
+
+    # Add MacOS mime-types to the list of supported comic book archive mime-types
+    # Submitted upstream at https://gitlab.gnome.org/GNOME/evince/merge_requests/157
+    inreplace "configure", "COMICS_MIME_TYPES=\"",
+      "COMICS_MIME_TYPES=\"application/x-rar;application/zip;application/x-cb7;application/x-7z-comperssed;application/x-tar;"
 
     # forces use of gtk3-update-icon-cache instead of gtk-update-icon-cache. No bugreport should
     # be filed for this since it only occurs because Homebrew renames gtk+3's gtk-update-icon-cache
