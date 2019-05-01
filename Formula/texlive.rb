@@ -2,20 +2,13 @@ class Texlive < Formula
   desc "TeX Live is a free software distribution for the TeX typesetting system"
   homepage "https://www.tug.org/texlive/"
   url "http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz"
-  version "20181114"
-  sha256 "11be3bedb0e33ddcb05e1e60a24f3e99f294981fb13e3dddb641a996d147d26f"
+  version "20190406"
+  sha256 "c7742ea5b0bc22fe2742e9fa2bf9aeb8ff88175722fcfb2b72c00a29c06e2fc9"
   # tag "linuxbrew"
 
   bottle do
     cellar :any
-    sha256 "6299db8b6593b4c0281991c2f1d93c309bc38c1bc982d6cb50c97e072de98143" => :x86_64_linux
   end
-
-  option "with-full", "install everything"
-  option "with-medium", "install small + more packages and languages"
-  option "with-small", "install basic + xetex, metapost, a few languages [default]"
-  option "with-basic", "install plain and latex"
-  option "with-minimal", "install plain only"
 
   depends_on "wget" => :build
   depends_on "fontconfig"
@@ -30,18 +23,27 @@ class Texlive < Formula
   depends_on "perl"
 
   def install
-    scheme = %w[full medium small basic minimal].find do |x|
-      build.with? x
-    end || "small"
-
     ohai "Downloading and installing TeX Live. This will take a few minutes."
     ENV["TEXLIVE_INSTALL_PREFIX"] = libexec
-    system "./install-tl", "-scheme", scheme, "-portable", "-profile", "/dev/null"
+    system "./install-tl", "-scheme", "small", "-portable", "-profile", "/dev/null"
 
     man1.install Dir[libexec/"texmf-dist/doc/man/man1/*"]
     man5.install Dir[libexec/"texmf-dist/doc/man/man5/*"]
     rm Dir[libexec/"bin/*/man"]
     bin.install_symlink Dir[libexec/"bin/*/*"]
+  end
+
+  def caveats; <<~EOS
+    The small (~500 MB) distribution (scheme-small) is installed by default.
+    You may install a larger (medium or full) scheme using one of:
+
+        tlmgr install scheme-medium # 1.5 GB
+        tlmgr install scheme-full # 6 GB
+
+    For additional information use command:
+
+        tlmgr info schemes
+  EOS
   end
 
   test do
