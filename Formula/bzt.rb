@@ -3,15 +3,15 @@ class Bzt < Formula
 
   desc "BlazeMeter Taurus"
   homepage "https://gettaurus.org/"
-  url "https://files.pythonhosted.org/packages/source/b/bzt/bzt-1.13.5.tar.gz"
-  sha256 "3b19f007e40961241f6bc084cd44f45a3875cdf51a8e967c9cf4a7c7ed62185e"
+  url "https://files.pythonhosted.org/packages/source/b/bzt/bzt-1.13.6.tar.gz"
+  sha256 "08215e1fb363decc23ec0889825808c224db2cf25612367374382ec795f07b88"
   head "https://github.com/Blazemeter/taurus.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fff8250d1dd1562bc4226bbb9687cb0e56d2a6af45ae6287c5ddb1c70a864ef1" => :mojave
-    sha256 "07ef5ce7bd21dc2bae441f4bc2c4dfdd3f31a148452fe362fdc6d92005a3f734" => :high_sierra
-    sha256 "27b3616736ff40a8ec5720132d55756e9abc5a77eb02845b3245db8f7868d965" => :sierra
+    sha256 "ab32c64e5c23b35fc6cfa9fb3789688382b0b7eb0bfaae5872d8467a44722758" => :mojave
+    sha256 "b1a7e19837f779c6fd5006a94eae18056b994b9da3f8682b1662b0e9e8df6f8c" => :high_sierra
+    sha256 "b9b8f8cd871ece988976a8eb000e6f5c92aebb69480f7a53d8094bf2ff72f2d0" => :sierra
   end
 
   depends_on "python"
@@ -222,8 +222,8 @@ class Bzt < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/fd/fa/b21f4f03176463a6cccdb612a5ff71b927e5224e83483012747c12fc5d62/urllib3-1.24.2.tar.gz"
-    sha256 "9a247273df709c4fedb38c711e44292304f73f39ab01beda9f6b9fc375669ac3"
+    url "https://files.pythonhosted.org/packages/8a/3c/1bb7ef6c435dea026f06ed9f3ba16aa93f9f4f5d3857a51a35dfa00882f1/urllib3-1.24.3.tar.gz"
+    sha256 "2393a695cd12afedd0dcb26fe5d50d0cf248e5a66f75dbd89a3d4eb333a61af4"
   end
 
   resource "urwid" do

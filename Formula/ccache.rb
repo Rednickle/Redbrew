@@ -1,16 +1,15 @@
 class Ccache < Formula
   desc "Object-file caching compiler wrapper"
   homepage "https://ccache.dev/"
-  url "https://github.com/ccache/ccache/releases/download/v3.7/ccache-3.7.tar.xz"
-  sha256 "409f38bec6161288749a499c82060c99a551c3aced406827e28d183e9c070575"
+  url "https://github.com/ccache/ccache/releases/download/v3.7.1/ccache-3.7.1.tar.xz"
+  sha256 "66fc121a2a33968f9ec428e02f48ff4b8896fbabb759e9c09352267014dcbe65"
 
   bottle do
     root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
-    sha256 "cf499db9b589b9251fc8187a48786438e52b46c95bd4af073e99aa9d558fd678" => :mojave
-    sha256 "c5a3b27b7ee1094888c4099e1c78eebc2aa9efe84bcb9761fb026ed66cea8b0a" => :high_sierra
-    sha256 "6a304ed5b13c44111272d4d1e4694cac744d7a921cf1c02172b5284a744d0688" => :sierra
-    sha256 "de97cd085f1b3a7b4c22fa458499fa266ff85d7d02328125fbfdf7f311afd278" => :x86_64_linux
+    sha256 "758092cb544e543094c6db931631112660f817112df869ac44fd82a604921aeb" => :mojave
+    sha256 "db4b6e2637ede1d12536544b7dc3f6c36549c1fad7cfca481a103b88cff134ae" => :high_sierra
+    sha256 "b41e0434efa91fa46caae563d5866fcfee17915c52a8983b8c898d59a5646440" => :sierra
   end
 
   head do
