@@ -1,14 +1,15 @@
 class Bitcoin < Formula
   desc "Decentralized, peer to peer payment network"
   homepage "https://bitcoin.org/"
-  url "https://bitcoin.org/bin/bitcoin-core-0.17.1/bitcoin-0.17.1.tar.gz"
-  sha256 "3e564fb5cf832f39e930e19c83ea53e09cfe6f93a663294ed83a32e194bda42a"
-  revision 1
+  url "https://bitcoin.org/bin/bitcoin-core-0.18.0/bitcoin-0.18.0.tar.gz"
+  sha256 "5e4e6890e07b620a93fdb24605dae2bb53e8435b2a93d37558e1db1913df405f"
 
   bottle do
     root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
-    sha256 "84927769d1db60e189d056e7ac9a5eba9ad9b14d1e2cf4ab86d821aef9f308e3" => :x86_64_linux
+    sha256 "8b448d5f75f4349aabc0cb323286c5fd9b61b22cde3b3def6b22b726004607a8" => :mojave
+    sha256 "c6956068db25e14642eebed9d3ff389550b0ebde12a6f22d5071a136a4b1f39c" => :high_sierra
+    sha256 "24408fbc9c2d5118e55fb628fc0e1872fc9e9afa1b5f02c6e7848b21e29e476e" => :sierra
   end
 
   head do
