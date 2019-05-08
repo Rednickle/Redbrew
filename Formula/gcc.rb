@@ -28,9 +28,9 @@ class Gcc < Formula
   bottle do
     cellar :any
     rebuild 2
-    sha256 "78b5b3a98b82f7c89263c5d972a11f01d87a78f70842d889ae9698be57e68f94" => :mojave
-    sha256 "092330ee694a9026ac90f2e69d9b92f4c2f9a3b767ba9bc52744a8d1fdfa0b22" => :high_sierra
-    sha256 "11c79eb32b576804f63ec0c5931b50bc77b61302c7a9d3ef3a5f2d620772ef36" => :sierra
+    sha256 "1af51e1a8c5394297c13b85548203a84279a2e24e6ab982fb299c526bdde3079" => :mojave
+    sha256 "be85387a2c7c9313da23e258013ff6de215cf1f0cb997b2edf72fb1af725d72f" => :high_sierra
+    sha256 "ca1bf59a0726ea16f4fe22ad98532e4ac0171bbb518154929d71d7f2032657ee" => :sierra
     sha256 "406111bf6c70681f2acbf39bb2462da0a15e1522d01bd909abed43556dff50ca" => :x86_64_linux
   end
 
