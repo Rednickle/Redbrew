@@ -14,6 +14,12 @@ class GccAT8 < Formula
     sha256 "1b26207147f8aeac071f2a774da23452da7ab47ec7d6f63c7ab8ea61525db6da" => :x86_64_linux
   end
 
+  bottle do
+    sha256 "b1e150c72b4c3b7f3493371d71cdb668f691bfee2e998e5b0bf570eed28254d6" => :mojave
+    sha256 "9fe980d09d28fa000058afc02efc5b3e1b2d27a636608d337c6d777f8a3e5f24" => :high_sierra
+    sha256 "a62506316b82ad0298e13d94921086117536ddf1d72de571a9fcd8d0fa1823ef" => :sierra
+  end
+
   # The bottles are built on systems with the CLT installed, and do not work
   # out of the box on Xcode-only systems due to an incorrect sysroot.
   pour_bottle? do
