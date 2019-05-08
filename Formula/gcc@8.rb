@@ -3,10 +3,9 @@ require "os/linux/glibc"
 class GccAT8 < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-  url "https://ftp.gnu.org/gnu/gcc/gcc-8.2.0/gcc-8.2.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gcc/gcc-8.2.0/gcc-8.2.0.tar.xz"
-  sha256 "196c3c04ba2613f893283977e6011b2345d1cd1af9abeac58e916b1aab3e0080"
-  revision 1
+  url "https://ftp.gnu.org/gnu/gcc/gcc-8.3.0/gcc-8.3.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gcc/gcc-8.3.0/gcc-8.3.0.tar.xz"
+  sha256 "64baadfe6cc0f4947a84cb12d7f0dfaf45bb58b7e92461639596c21e02d97d2c"
   head "svn://gcc.gnu.org/svn/gcc/trunk"
 
   # gcc is designed to be portable.
@@ -35,14 +34,6 @@ class GccAT8 < Formula
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
 
-  def version_suffix
-    if build.head?
-      "HEAD"
-    else
-      version.to_s.slice(/\d/)
-    end
-  end
-
   # isl 0.20 compatibility
   # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=86724
   patch :DATA
@@ -54,14 +45,18 @@ class GccAT8 < Formula
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
 
+    version_suffix = version.to_s.slice(/\d/)
+
+    # Even when suffixes are appended, the info pages conflict when
+    # install-info is run so pretend we have an outdated makeinfo
+    # to prevent their build.
+    ENV["gcc_cv_prog_makeinfo_modern"] = "no"
+
     # We avoiding building:
     #  - Ada, which requires a pre-existing GCC Ada compiler to bootstrap
     #  - Go, currently not supported on macOS
     #  - BRIG
     languages = %w[c c++ objc obj-c++ fortran]
-
-    # JIT compiler is off by default, enabling it has performance cost
-    languages << "jit" if build.with? "jit"
 
     args = []
 
@@ -136,9 +131,7 @@ class GccAT8 < Formula
       make_args = []
       # Use -headerpad_max_install_names in the build,
       # otherwise lto1 load commands cannot be edited on El Capitan
-      if MacOS.version == :el_capitan
-        make_args << "BOOT_LDFLAGS=-Wl,-headerpad_max_install_names"
-      end
+      make_args << "BOOT_LDFLAGS=-Wl,-headerpad_max_install_names" if OS.mac?
 
       system "make", *make_args
       system "make", OS.mac? ? "install" : "install-strip"
@@ -161,7 +154,7 @@ class GccAT8 < Formula
 
   def post_install
     unless OS.mac?
-      gcc = bin/"gcc-#{version_suffix}"
+      gcc = bin/"gcc-8"
       libgcc = Pathname.new(Utils.popen_read(gcc, "-print-libgcc-file-name")).parent
       raise "command failed: #{gcc} -print-libgcc-file-name" if $CHILD_STATUS.exitstatus.nonzero?
 
@@ -243,7 +236,7 @@ class GccAT8 < Formula
         return 0;
       }
     EOS
-    system "#{bin}/gcc-#{version_suffix}", "-o", "hello-c", "hello-c.c"
+    system "#{bin}/gcc-8", "-o", "hello-c", "hello-c.c"
     assert_equal "Hello, world!\n", `./hello-c`
 
     (testpath/"hello-cc.cc").write <<~EOS
@@ -254,7 +247,7 @@ class GccAT8 < Formula
         return 0;
       }
     EOS
-    system "#{bin}/g++-#{version_suffix}", "-o", "hello-cc", "hello-cc.cc"
+    system "#{bin}/g++-8", "-o", "hello-cc", "hello-cc.cc"
     assert_equal "Hello, world!\n", `./hello-cc`
 
     (testpath/"test.f90").write <<~EOS
@@ -268,7 +261,7 @@ class GccAT8 < Formula
       write(*,"(A)") "Done"
       end
     EOS
-    system "#{bin}/gfortran-#{version_suffix}", "-o", "test", "test.f90"
+    system "#{bin}/gfortran-8", "-o", "test", "test.f90"
     assert_equal "Done\n", `./test`
   end
 end
