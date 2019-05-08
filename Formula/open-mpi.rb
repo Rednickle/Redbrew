@@ -3,6 +3,7 @@ class OpenMpi < Formula
   homepage "https://www.open-mpi.org/"
   url "https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.1.tar.bz2"
   sha256 "cce7b6d20522849301727f81282201d609553103ac0b09162cf28d102efb9709"
+  revision 1
 
   bottle do
     root_url "https://linuxbrew.bintray.com/bottles"
