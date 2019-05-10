@@ -3,14 +3,14 @@ class R < Formula
   homepage "https://www.r-project.org/"
   url "https://cran.r-project.org/src/base/R-3/R-3.6.0.tar.gz"
   sha256 "36fcac3e452666158e62459c6fc810adc247c7109ed71c5b6c3ad5fc2bf57509"
-  revision 3
+  revision OS.mac? ? 2 : 3
 
   bottle do
     root_url "https://linuxbrew.bintray.com/bottles"
     sha256 "97a94e973e7e47203e0892f175c6da61e4ec210e17472458067c04a0f605c59b" => :mojave
     sha256 "e214d025cc499062c8f7eafdcb8cd82b75dcef7aa2b3d181bf0d87f7eb506bde" => :high_sierra
     sha256 "345978973e9d942bfd23d1ba583ced2cfde65aff52fc8a400ea74b278aa5ca58" => :sierra
-    sha256 "31397e6f40268d2ab10630f7d66a6234065eb65fb14b3e3a9ea0ae553c7c9916" => :x86_64_linux
+    sha256 "005f31dbb18d2413e0a0db481528f7dbe631214481cc55262a5f98a4e772efa9" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
@@ -26,8 +26,8 @@ class R < Formula
   unless OS.mac?
     depends_on "cairo"
     depends_on "curl"
-    depends_on "linuxbrew/xorg/xorg"
     depends_on "pango"
+    depends_on "linuxbrew/xorg/xorg"
   end
 
   # needed to preserve executable permissions on files without shebangs
