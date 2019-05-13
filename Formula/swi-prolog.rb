@@ -3,15 +3,13 @@ class SwiProlog < Formula
   homepage "http://www.swi-prolog.org/"
   url "http://www.swi-prolog.org/download/stable/src/swipl-8.0.2.tar.gz"
   sha256 "abb81b55ac5f2c90997c0005b1f15b74ed046638b64e784840a139fe21d0a735"
-  revision 1 unless OS.mac?
+  revision OS.mac? ? 1 : 2 unless OS.mac?
   head "https://github.com/SWI-Prolog/swipl-devel.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
-    sha256 "1cec5efa06e469a67a7701fa8bc08f320f95ec766f494c305453301a5f8335e6" => :mojave
-    sha256 "824e9a80488a9f91f2bab57653baa6794be59c049bdbab464bd8d00510b1147f" => :high_sierra
-    sha256 "29f73701075df1cd1bedd01b13fe085d23c74c87285ab12116e1f68554bcfe1b" => :sierra
-    sha256 "204f08ad46e38d6e4ed4de4a3d95de6c3983b62cdd1202be172cdd86791140a6" => :x86_64_linux
+    sha256 "3c2f9fd145c39173b04d1b90679079831e6d372e0c6e54d891f96b99dc2a4bf9" => :mojave
+    sha256 "cdf03ec44361238c35cd12d71f409cd1b15dbe63ee53a66bd3e8049eee5dbb91" => :high_sierra
+    sha256 "40c07a6edfc19c6180c5ea74424932c6845405199382e8fffedfeb300f493d10" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -22,8 +20,6 @@ class SwiProlog < Formula
   depends_on "libarchive"
   depends_on "libyaml"
   depends_on "openssl"
-  # ossp-uuid conflicts with util-linux
-  depends_on "ossp-uuid" if OS.mac?
   depends_on "pcre"
   depends_on "readline"
   depends_on "unixodbc"
