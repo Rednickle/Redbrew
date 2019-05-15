@@ -11,23 +11,15 @@ class Patchelf < Formula
     sha256 "2504614537c2837d9668389349586730c38b93a632175e1cf80568b0650eb5aa" => :sierra
   end
 
-  head do
-    url "https://github.com/NixOS/patchelf.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-  end
-
-  option "without-static-libstdc++", "Link libstdc++ dynamically"
-
   resource "hellworld" do
     url "http://timelessname.com/elfbin/helloworld.tar.gz"
     sha256 "d8c1e93f13e0b7d8fc13ce75d5b089f4d4cec15dad91d08d94a166822d749459"
   end
 
   def install
-    system "./bootstrap.sh" if build.head?
     system "./configure", "--prefix=#{prefix}",
-      *("CXXFLAGS=-static-libgcc -static-libstdc++" if build.with?("static-libstdc++")),
+      "-static-libgcc",
+      "-static-libstdc++",
       "--disable-debug",
       "--disable-dependency-tracking",
       "--disable-silent-rules"
