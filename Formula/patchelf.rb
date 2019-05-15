@@ -17,7 +17,6 @@ class Patchelf < Formula
     depends_on "automake" => :build
   end
 
-  option "with-static", "Link statically"
   option "without-static-libstdc++", "Link libstdc++ dynamically"
 
   resource "hellworld" do
@@ -28,9 +27,7 @@ class Patchelf < Formula
   def install
     system "./bootstrap.sh" if build.head?
     system "./configure", "--prefix=#{prefix}",
-      if build.with?("static") then "CXXFLAGS=-static"
-      elsif build.with?("static-libstdc++") then "CXXFLAGS=-static-libgcc -static-libstdc++"
-      end,
+      *("CXXFLAGS=-static-libgcc -static-libstdc++" if build.with?("static-libstdc++")),
       "--disable-debug",
       "--disable-dependency-tracking",
       "--disable-silent-rules"
