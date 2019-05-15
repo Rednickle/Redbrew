@@ -18,8 +18,7 @@ class Patchelf < Formula
 
   def install
     system "./configure", "--prefix=#{prefix}",
-      "-static-libgcc",
-      "-static-libstdc++",
+      "CXXFLAGS=-static-libgcc -static-libstdc++",
       "--disable-debug",
       "--disable-dependency-tracking",
       "--disable-silent-rules"
