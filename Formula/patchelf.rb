@@ -26,11 +26,6 @@ class Patchelf < Formula
   end
 
   def install
-    # Fixes error: cannot find section
-    # See https://github.com/NixOS/patchelf/pull/95
-    inreplace "src/patchelf.cc",
-      "string sectionName = getSectionName(shdr);",
-      'string sectionName = getSectionName(shdr); if (sectionName == "") continue;'
     system "./bootstrap.sh" if build.head?
     system "./configure", "--prefix=#{prefix}",
       if build.with?("static") then "CXXFLAGS=-static"
