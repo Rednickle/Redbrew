@@ -3,7 +3,7 @@ class Superlu < Formula
   homepage "https://crd-legacy.lbl.gov/~xiaoye/SuperLU/"
   url "https://crd-legacy.lbl.gov/~xiaoye/SuperLU/superlu_5.2.1.tar.gz"
   sha256 "28fb66d6107ee66248d5cf508c79de03d0621852a0ddeba7301801d3d859f463"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any_skip_relocation
@@ -15,8 +15,8 @@ class Superlu < Formula
     sha256 "f1efa4e63f39d6914f473b310681bbcd2b171e5f279cd48bc8013e6dd2a7f751" => :x86_64_linux
   end
 
-  depends_on "veclibfort" if OS.mac?
-  depends_on "openblas" unless OS.mac?
+  depends_on "gcc"
+  depends_on "openblas"
 
   def install
     ENV.deparallelize
@@ -25,9 +25,12 @@ class Superlu < Formula
     args = ["SuperLUroot=#{buildpath}",
             "SUPERLULIB=$(SuperLUroot)/lib/libsuperlu.a",
             "CC=#{ENV.cc}",
-            "BLASLIB=-L#{Formula["veclibfort"].opt_lib} -lvecLibFort"]
+            "BLASLIB=-L#{Formula["openblas"].opt_lib} -lopenblas"]
 
     system "make", "lib", *args
+    cd "EXAMPLE" do
+      system "make", *args
+    end
     lib.install Dir["lib/*"]
     (include/"superlu").install Dir["SRC/*.h"]
     doc.install Dir["Doc/*"]
@@ -38,13 +41,9 @@ class Superlu < Formula
   end
 
   test do
-    if OS.mac?
-      args = ["-L#{Formula["veclibfort"].opt_lib}", "-lvecLibFort"]
-    else
-      args = ["-L#{Formula["openblas"].opt_lib}", "-lopenblas"]
-    end
     system ENV.cc, pkgshare/"dlinsol.c", "-o", "test",
-                   "-I#{include}/superlu", "-L#{lib}", "-lsuperlu", *args
+                   "-I#{include}/superlu", "-L#{lib}", "-lsuperlu",
+                   "-L#{Formula["openblas"].opt_lib}", "-lopenblas"
     assert_match "No of nonzeros in L+U = 11886",
                  shell_output("./test < #{pkgshare}/g20.rua")
   end
