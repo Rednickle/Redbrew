@@ -1,15 +1,15 @@
 class Kops < Formula
   desc "Production Grade K8s Installation, Upgrades, and Management"
   homepage "https://github.com/kubernetes/kops"
-  url "https://github.com/kubernetes/kops/archive/1.12.0.tar.gz"
-  sha256 "50e0f32a2bb64af942bc2da10444d7f3360ea503fa8fa4e5332d276cbb5b9355"
+  url "https://github.com/kubernetes/kops/archive/1.12.1.tar.gz"
+  sha256 "0ea72a28fedfc2ed6b2bcda4ad02d4fc9d4548c47b9011c4526da95f8b7a3d71"
   head "https://github.com/kubernetes/kops.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d120fb1e2d416c3efd3732d70efa355d2769b256594572290228d50895fdfa3e" => :mojave
-    sha256 "107548437944143df247ef0d8c1bca5036cbe8de51623929b6d64083cf93e706" => :high_sierra
-    sha256 "9a33ccdf3a45873fb153497ab05468d91d3c785124a9b0015987af73216b3ed6" => :sierra
+    sha256 "862c5f6648646840c75172e2f9f701cb590b04df03c38716b5ab0edc61625130" => :mojave
+    sha256 "9e53f38c9dc376574797e1e7e5c015472385d1fccc31d5a1f5fa502ef8281593" => :high_sierra
+    sha256 "dfbf818c1225b5ff9e92c6888d13a94dcee74a52680e496f5f4d5fe60552dbdd" => :sierra
   end
 
   depends_on "go" => :build

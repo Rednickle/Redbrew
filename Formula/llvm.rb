@@ -3,6 +3,7 @@ require "os/linux/glibc"
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
+  revision 1
 
   stable do
     url "https://releases.llvm.org/8.0.0/llvm-8.0.0.src.tar.xz"
@@ -67,11 +68,9 @@ class Llvm < Formula
   bottle do
     root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
-    rebuild 1
-    sha256 "6a44cd91d7e3b01fef214c31e736c77cfb681d2d0e6e576ab725c8071858a36d" => :mojave
-    sha256 "d92a2a8b0066e2b70190d59cc980a12a2362b56f9100c7ef4051dc08e762c52e" => :high_sierra
-    sha256 "168806783f260662a1bb126f300c21060fbf24d01424fd8e64cc5c54e2c81b9c" => :sierra
-    sha256 "47ba2940345aa497762273314ea3ff7d46769c94cce5098af794d11c339a86d7" => :x86_64_linux
+    sha256 "14029e4108b81fc79afbf125b06075876586fb943af62e1a174ded1786b32192" => :mojave
+    sha256 "efce74f9e72bc5f894e40daccd3b7cbeec6e7dc56bb1669d6ac3cbe1f3cfa7fb" => :high_sierra
+    sha256 "aacfcce16427fbfd164291a540c807e960335ee4977a73dfa2159a593c3cb4df" => :sierra
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -203,6 +202,7 @@ class Llvm < Formula
       -DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}
       -DLLDB_USE_SYSTEM_DEBUGSERVER=ON
       -DLLDB_DISABLE_PYTHON=1
+      -DLIBOMP_INSTALL_ALIASES=OFF
     ]
     if OS.mac?
       args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=ON"
