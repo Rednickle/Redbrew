@@ -234,10 +234,6 @@ class Llvm < Formula
     (lib/"python2.7/site-packages").install buildpath/"tools/clang/bindings/python/clang"
 
     unless OS.mac?
-      # Remove conflicting libraries.
-      # libgomp.so conflicts with gcc.
-      rm lib/"libgomp.so"
-
       # Strip executables/libraries/object files to reduce their size
       system("strip", "--strip-unneeded", "--preserve-dates", *(Dir[bin/"**/*", lib/"**/*"]).select do |f|
         f = Pathname.new(f)
