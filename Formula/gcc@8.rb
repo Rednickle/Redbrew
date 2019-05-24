@@ -7,12 +7,11 @@ class GccAT8 < Formula
   url "https://ftp.gnu.org/gnu/gcc/gcc-8.3.0/gcc-8.3.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-8.3.0/gcc-8.3.0.tar.xz"
   sha256 "64baadfe6cc0f4947a84cb12d7f0dfaf45bb58b7e92461639596c21e02d97d2c"
+  revision 1 unless OS.mac?
 
   # gcc is designed to be portable.
   bottle do
-    cellar :any
     root_url "https://linuxbrew.bintray.com/bottles"
-    sha256 "78ba36c509cbec01d6a85185bbee03a80efa1002d2e59613b5029ba334a7f716" => :x86_64_linux
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -101,6 +100,8 @@ class GccAT8 < Formula
     args += [
       "--prefix=#{prefix}",
       "--libdir=#{lib}/gcc/#{version_suffix}",
+      "--enable-checking=release",
+      "--disable-nls",
       "--enable-languages=#{languages.join(",")}",
       # Make most executables versioned to avoid conflicts.
       "--program-suffix=-#{version_suffix}",
@@ -108,7 +109,6 @@ class GccAT8 < Formula
       "--with-mpfr=#{Formula["mpfr"].opt_prefix}",
       "--with-mpc=#{Formula["libmpc"].opt_prefix}",
       "--with-isl=#{Formula["isl"].opt_prefix}",
-      "--enable-checking=release",
       "--with-pkgversion=Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip,
     ]
 
