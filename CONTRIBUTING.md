@@ -6,7 +6,7 @@ Patches to fix issues particular to Linux should not affect the behaviour of the
 
 # Contributing to Homebrew
 
-First time contributing to Homebrew? Read our [Code of Conduct](https://github.com/Homebrew/brew/blob/master/CODE_OF_CONDUCT.md#code-of-conduct).
+First time contributing to Homebrew? Read our [Code of Conduct](https://github.com/Homebrew/.github/blob/master/CODE_OF_CONDUCT.md#code-of-conduct).
 
 ### To report a bug
 

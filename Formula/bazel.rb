@@ -6,14 +6,14 @@ end
 class Bazel < Formula
   desc "Google's own build tool"
   homepage "https://bazel.build/"
-  url "https://github.com/bazelbuild/bazel/releases/download/0.25.2/bazel-0.25.2-dist.zip"
-  sha256 "7456032199852c043e6c5b3e4c71dd8089c1158f72ec554e6ec1c77007f0ab51"
+  url "https://github.com/bazelbuild/bazel/releases/download/0.25.3/bazel-0.25.3-dist.zip"
+  sha256 "23eafd3e439bc71baba9c592b52cb742dabc8640a13b9da1751fec090a2dda99"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5ee9ce1b744174fb08f4ef8daf1ae3c6fbd1e6ca543c6d7ff5e9d3180f8f7e50" => :mojave
-    sha256 "b364321c99fc6d935d1f3bf5da911273082d081f31d84ff89504ecb13e3db61c" => :high_sierra
-    sha256 "05dc83ae5174025b30f95995eb7e02b09f9f82794dc795576dc778e3390e640c" => :sierra
+    sha256 "6dfbcc45552485b4049df205a66e09cd35059371e54150e00a061af856bd1ad5" => :mojave
+    sha256 "fa5d1802e412631f16c76ae70c7e2115705a141cd017e4a5a0e481ec0ccd7337" => :high_sierra
+    sha256 "159a2faa3c97126960f4a4b1ad7384ec93ac6caa2f847813a873c949f1b60442" => :sierra
   end
 
   depends_on CIRequirement
