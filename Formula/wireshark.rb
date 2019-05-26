@@ -21,6 +21,10 @@ class Wireshark < Formula
   depends_on "libssh"
   depends_on "lua@5.1"
   depends_on "nghttp2"
+  unless OS.mac?
+    depends_on "bison" => :build
+    depends_on "flex" => :build
+  end
 
   def install
     args = std_cmake_args + %W[
