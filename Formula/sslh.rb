@@ -1,4 +1,3 @@
-# sslh: Build a bottle for Linuxbrew
 class Sslh < Formula
   desc "Forward connections based on first data packet sent by client"
   homepage "https://www.rutschle.net/tech/sslh.shtml"
