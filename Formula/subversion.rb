@@ -4,13 +4,12 @@ class Subversion < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.12.0.tar.bz2"
   mirror "https://archive.apache.org/dist/subversion/subversion-1.12.0.tar.bz2"
   sha256 "7fae7c73d8a007c107c0ae5eb372bc0bb013dbfe966fcd5c59cd5a195a5e2edf"
+  revision 1
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
-    sha256 "9fd5dbe51db910462158ec335367ad051e808e8e09915a1dee090bab4483bd6e" => :mojave
-    sha256 "d93fbb37e55fd694e79d049b544be3cf48e0c0a69199447377eb027496b66a54" => :high_sierra
-    sha256 "9e905cca66cfca6706e0b0d06aef3c1515cbefd1b7e43f91d9c35d650cd8664b" => :sierra
-    sha256 "5e9c6844d540b71a0594227b5e92d01adb69b8b5ac712a5d39645015e419cf1b" => :x86_64_linux
+    sha256 "e9aa187f22a4db8b88eef90e7fe1523de21ed8e5eff183152832f8f84c245384" => :mojave
+    sha256 "85830600b228b817b8b1a47338c96765b4919afe872c9490214e720a80a9d719" => :high_sierra
+    sha256 "439d6a49537e1cf391010139a066830ee85cfa3f55911b6a25f977b76ec86610" => :sierra
   end
 
   head do
