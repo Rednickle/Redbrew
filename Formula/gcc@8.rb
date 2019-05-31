@@ -1,4 +1,3 @@
-# gcc@8: Build a bottle for Linuxbrew
 require "os/linux/glibc"
 
 class GccAT8 < Formula
@@ -11,6 +10,7 @@ class GccAT8 < Formula
 
   # gcc is designed to be portable.
   bottle do
+    cellar: any
     sha256 "f538bbad44b2bc0a68234432af130e9f963bfc2a5219626b8f8c9dbf8ceca4ee" => :x86_64_linux
   end
 
