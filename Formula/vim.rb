@@ -2,16 +2,14 @@ class Vim < Formula
   desc "Vi 'workalike' with many additional features"
   homepage "https://www.vim.org/"
   # vim should only be updated every 50 releases on multiples of 50
-  url "https://github.com/vim/vim/archive/v8.1.1400.tar.gz"
-  sha256 "164d73c453614a54193afab847aca78cbc7a45976ed3d8f20fa3acb617e1d320"
-  revision 2
+  url "https://github.com/vim/vim/archive/v8.1.1450.tar.gz"
+  sha256 "bf7837109b37d4426fd575a8f04e11f6485fabb072b799811cf868e400720490"
   head "https://github.com/vim/vim.git"
 
   bottle do
-    sha256 "37ecb4156f6def9cb8e883e59420a7c0579202d8fd0ab8d0341ecbe8fa8737b9" => :mojave
-    sha256 "e876181c2fb603314898c7b8e3cde1f8ba1ea66aac85a8d848d4f22f5281f75f" => :high_sierra
-    sha256 "e47f32e61a91111350588d448ebe4ec252e6d2d79ddefc94c1d558f9e3b85e19" => :sierra
-    sha256 "f91e1c944216590b56c09d040aa57d8f87640147379ec2ad4c00547fd95a8333" => :x86_64_linux
+    sha256 "b7cd7dab738d3d5498f8a72f7e3c9627ae6161596a94886d89e72ed01de315a6" => :mojave
+    sha256 "750d179a438c309579ea72da2fef84f1ca2a44cd9545b564274c0943afcb9a6b" => :high_sierra
+    sha256 "17924da962841501cef9a71b822d9d4bd89a4e6325f8f02f401a7ae56f05e8a8" => :sierra
   end
 
   depends_on "gettext"
