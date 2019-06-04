@@ -56,7 +56,6 @@ class Isync < Formula
         <array>
           <string>#{opt_bin}/mbsync</string>
           <string>-a</string>
-          <string>Periodic</string>
         </array>
         <key>StartInterval</key>
         <integer>300</integer>
