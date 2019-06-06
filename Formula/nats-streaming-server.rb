@@ -1,26 +1,30 @@
 class NatsStreamingServer < Formula
   desc "Lightweight cloud messaging system"
   homepage "https://nats.io"
-  url "https://github.com/nats-io/nats-streaming-server/archive/v0.14.3.tar.gz"
-  sha256 "30d8c68a72bb14274cbc54050d65a0d7ca2b2b5c9948f68a7c307d974ad129e1"
+  url "https://github.com/nats-io/nats-streaming-server/archive/v0.15.0.tar.gz"
+  sha256 "102fb5499e51144e48d38b72cd064287874b08379b8806ae2c86b644cff62850"
   head "https://github.com/nats-io/nats-streaming-server.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "facfe36b99b04c499239dddbb3ebc9d7298f09000aee8e89c4ac654d5e2b5340" => :mojave
-    sha256 "00ed98e445930586d5790be2b949b6cd173941a0dff113da4f12b08f646a66d8" => :high_sierra
-    sha256 "7f2894a6ad28db43c98aa48d0df76c9632b305670ba8b28dbbfa26aae6b61f61" => :sierra
-    sha256 "f9f6798c460b627b763558dda24d611e5ebcb3bc1fa5ad565085092f51d9b764" => :x86_64_linux
+    sha256 "ee6dd6b1bef11441efbddc49a4d2a868fd58f3ff8ed0ff1c3a861abf52a621b9" => :mojave
+    sha256 "155922f1d7b5eda7780021ae418d1c5dc12f5be54453d79ddbebc10d351e47ea" => :high_sierra
+    sha256 "e02ec67d3eccc9633ad6a8f846b5fcf10dfe0c185f924f87f32bb11f99863ef6" => :sierra
   end
 
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    mkdir_p "src/github.com/nats-io"
-    ln_s buildpath, "src/github.com/nats-io/nats-streaming-server"
-    buildfile = buildpath/"src/github.com/nats-io/nats-streaming-server/nats-streaming-server.go"
-    system "go", "build", "-v", "-o", bin/"nats-streaming-server", buildfile
+    ENV["GO111MODULE"] = "on"
+
+    dir = buildpath/"src/github.com/nats-io/nats-streaming-server"
+    dir.install buildpath.children
+
+    cd dir do
+      system "go", "build", "-o", bin/"nats-streaming-server"
+      prefix.install_metafiles
+    end
   end
 
   plist_options :manual => "nats-streaming-server"
