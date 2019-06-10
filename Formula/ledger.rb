@@ -1,15 +1,16 @@
-# ledger: Build a bottle for Linuxbrew
 class Ledger < Formula
   desc "Command-line, double-entry accounting tool"
   homepage "https://ledger-cli.org/"
   url "https://github.com/ledger/ledger/archive/v3.1.3.tar.gz"
   sha256 "b248c91d65c7a101b9d6226025f2b4bf3dabe94c0c49ab6d51ce84a22a39622b"
+  revision 1
   head "https://github.com/ledger/ledger.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
-    sha256 "7136c04485382b8d9272cbb9f12a4c1780f1520c56b451908d93bf41a57c5c62" => :x86_64_linux
+    sha256 "475f900dc75447cd051934b33eba933ffa4ad9a8d095600d3e39b3bbea0995eb" => :mojave
+    sha256 "3f57545bdc6d73ec191f5f6cb34f9dd362b40f7c3217e15f3cb21149438745a6" => :high_sierra
+    sha256 "5aa613f6b42bc0f158564b63691783664d3f3de6e7fdf44e06e1848879b7f4d1" => :sierra
   end
 
   depends_on "cmake" => :build

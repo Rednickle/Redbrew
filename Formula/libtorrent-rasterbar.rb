@@ -3,12 +3,13 @@ class LibtorrentRasterbar < Formula
   homepage "https://www.libtorrent.org/"
   url "https://github.com/arvidn/libtorrent/releases/download/libtorrent_1_2_0/libtorrent-rasterbar-1.2.0.tar.gz"
   sha256 "428eefcf6a603abc0dc87e423dbd60caa00795ece07696b65f8ee8bceaa37c30"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "f5b1d1b4c6561fe52d013577c82e5f17aaac4a21f276cac548eb147f04024d67" => :mojave
-    sha256 "a4ec8a99c7d9b5cdc2eed416ea098e537afe253604cb4812d27bd99e97b5f4de" => :high_sierra
-    sha256 "e0ac8e90b53a1eae9c0f48754258d912eb039b053b0cb2c7ca9ba579f5ae2ee6" => :sierra
+    sha256 "ff71a030b51e5adbbbf2bae945ca41c433c821e4bd5a92aff5c5b9a4fb33b028" => :mojave
+    sha256 "563ff0f190b7ddbaa3c4752f157c8315b3447bb28706d54510a68905006f30ce" => :high_sierra
+    sha256 "ef8cc205f769ee38de45a2f67a0da2f9b60c9f8c3603414164fce2a3500bad99" => :sierra
   end
 
   head do
@@ -23,6 +24,12 @@ class LibtorrentRasterbar < Formula
   depends_on "boost-python3"
   depends_on "openssl"
   depends_on "python"
+
+  # Upstream commit for Boost 1.70.0
+  patch do
+    url "https://github.com/arvidn/libtorrent/commit/76c27949.diff?full_index=1"
+    sha256 "c44db22b3eabcefc8e2ace5d8e0d39364c1a8a49dbee3d3f2223bee13395921a"
+  end
 
   def install
     args = %W[
