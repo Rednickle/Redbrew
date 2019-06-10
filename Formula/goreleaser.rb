@@ -1,24 +1,30 @@
 class Goreleaser < Formula
   desc "Deliver Go binaries as fast and easily as possible"
   homepage "https://goreleaser.com/"
-  url "https://github.com/goreleaser/goreleaser/archive/v0.107.0.tar.gz"
-  sha256 "254dd8fc5c2055048d382c0107f0d9d3d2b4b361c6e18691eac373e380d2cdca"
+  url "https://github.com/goreleaser/goreleaser.git",
+      :tag      => "v0.109.0",
+      :revision => "7ee486fc9b58171e70eec99ecdbeac4c99cc82d0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b2238678decd3237868caefd21c4b3849b0109b60d165839d17d1a16361fdea7" => :mojave
-    sha256 "6f97eee9fa9227f65bd64545a860319f4e6e2f43ee63c038e30fabe6b638a9b3" => :high_sierra
-    sha256 "0b70f0a3c35758a803fec463177b46a20438aeb263dba35b829f2b5c354b0f3f" => :sierra
-    sha256 "5eaafcced2b37089ae58e1ce70cc0d8784b81fd0e660054ad47d363a2220abb6" => :x86_64_linux
+    sha256 "c6113fcecd7bb129c406f6662d33a54e99b4d6f30cf77ae10fdf0e94a69cab27" => :mojave
+    sha256 "dc41b30dc63916c59c62ca91b7ab2b889489929305624015ad47fdddd3afde97" => :high_sierra
+    sha256 "cf9532e3c19697ef91bf206fe84b21aaee4fc0b0e31c94270fd000b0534156ac" => :sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
-    (buildpath/"src/github.com/goreleaser/goreleaser").install buildpath.children
-    cd "src/github.com/goreleaser/goreleaser" do
-      system "go", "build", "-ldflags", "-X main.version=#{version}",
+    ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "on"
+
+    dir = buildpath/"src/github.com/goreleaser/goreleaser"
+    dir.install buildpath.children
+
+    cd dir do
+      system "go", "mod", "vendor"
+      system "go", "build", "-ldflags",
+                   "-s -w -X main.version=#{version} -X main.commit=#{stable.specs[:revision]} -X main.builtBy=homebrew",
                    "-o", bin/"goreleaser"
       prefix.install_metafiles
     end
