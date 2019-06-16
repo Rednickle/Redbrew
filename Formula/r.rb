@@ -6,11 +6,10 @@ class R < Formula
   revision OS.mac? ? 2 : 3
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
-    sha256 "97a94e973e7e47203e0892f175c6da61e4ec210e17472458067c04a0f605c59b" => :mojave
-    sha256 "e214d025cc499062c8f7eafdcb8cd82b75dcef7aa2b3d181bf0d87f7eb506bde" => :high_sierra
-    sha256 "345978973e9d942bfd23d1ba583ced2cfde65aff52fc8a400ea74b278aa5ca58" => :sierra
-    sha256 "005f31dbb18d2413e0a0db481528f7dbe631214481cc55262a5f98a4e772efa9" => :x86_64_linux
+    rebuild 1
+    sha256 "e81c392cfd2ba46cb457a0fc0bfd1205d5f61f9a2485a3041dbb61080f9552d4" => :mojave
+    sha256 "a7d2fce5d1bace2775caaa9ebf92523fff607a6ecffa63a002bcc04d0975173d" => :high_sierra
+    sha256 "02a0d60aeaf6a4dd872a0b4360c2557e1d7709edbadd2b40feff6716be5cc0d7" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -34,9 +33,9 @@ class R < Formula
   skip_clean "lib/R/bin"
 
   resource "gss" do
-    url "https://cloud.r-project.org/src/contrib/gss_2.1-9.tar.gz", :using => :nounzip
-    mirror "https://mirror.las.iastate.edu/CRAN/src/contrib/gss_2.1-9.tar.gz"
-    sha256 "2961fe61c1d3bb3fe7b8e1070d6fb1dfc5d71e0c6e8a6b7c46ff6b42867c4cf3"
+    url "https://cloud.r-project.org/src/contrib/gss_2.1-10.tar.gz", :using => :nounzip
+    mirror "https://mirror.las.iastate.edu/CRAN/src/contrib/gss_2.1-10.tar.gz"
+    sha256 "26c47ecae6a9b7854a1b531c09f869cf8b813462bd8093e3618e1091ace61ee2"
   end
 
   def install
