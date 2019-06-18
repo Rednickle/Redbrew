@@ -4,7 +4,7 @@ class Profanity < Formula
   url "http://www.profanity.im/profanity-0.6.0.tar.gz"
   # checksum change reported upstream at https://github.com/profanity-im/profanity/issues/1094
   sha256 "f1b2773b79eb294297686f3913e9489c20effae5e3a335c8956db18f6ee2f660"
-  revision 1
+  revision 2
 
   bottle do
     root_url "https://linuxbrew.bintray.com/bottles"

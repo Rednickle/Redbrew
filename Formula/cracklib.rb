@@ -3,6 +3,7 @@ class Cracklib < Formula
   homepage "https://github.com/cracklib/cracklib"
   url "https://github.com/cracklib/cracklib/releases/download/v2.9.7/cracklib-2.9.7.tar.bz2"
   sha256 "fe82098509e4d60377b998662facf058dc405864a8947956718857dbb4bc35e6"
+  revision 1
 
   bottle do
     sha256 "5ec5d327b820cae5b28440d88557669c83b6035adde41858c753a822df203bff" => :mojave

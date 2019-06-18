@@ -3,6 +3,7 @@ class Nano < Formula
   homepage "https://www.nano-editor.org/"
   url "https://www.nano-editor.org/dist/v4/nano-4.2.tar.gz"
   sha256 "c06e456890a93e7a61317a938c70caacaa2bfd6161a52b2731df83875ebbcf80"
+  revision 1
 
   bottle do
     sha256 "efb8ab8d0e3f69ed4206bca0882d1d6ae0f43329487f11ab4b9babd538c82a2f" => :x86_64_linux
