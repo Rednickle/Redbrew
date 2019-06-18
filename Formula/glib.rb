@@ -59,9 +59,9 @@ class Glib < Formula
   # `pkg-config --libs glib-2.0` includes -lintl, and gettext itself does not
   # have a pkgconfig file, so we add gettext lib and include paths here.
   gettext = Formula["gettext"].opt_prefix
-  lintl = OS.mac? ? " -lintl ": ""
+  lintl = OS.mac? ? " -lintl": ""
   inreplace lib+"pkgconfig/glib-2.0.pc" do |s|
-    s.gsub! "Libs:#{lintl}-L${libdir} -lglib-2.0",
+    s.gsub! "Libs:#{lintl} -L${libdir} -lglib-2.0",
             "Libs: -L${libdir} -lglib-2.0 -L#{gettext}/lib#{lintl}"
     s.gsub! "Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include",
             "Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include -I#{gettext}/include"
