@@ -12,6 +12,9 @@ class ManDb < Formula
   end
 
   depends_on "pkg-config" => :build
+  uses_from_macos "groff"
+  uses_from_macos "gdbm"
+  uses_from_macos "zlib"
 
   resource "libpipeline" do
     url "https://download.savannah.gnu.org/releases/libpipeline/libpipeline-1.5.1.tar.gz"
@@ -20,6 +23,7 @@ class ManDb < Formula
 
   def install
     resource("libpipeline").stage do
+      ENV.append_to_cflags "-fPIC" unless OS.mac?
       system "./configure",
         "--disable-dependency-tracking",
         "--disable-silent-rules",
@@ -28,6 +32,7 @@ class ManDb < Formula
         "--disable-shared"
       system "make"
       system "make", "install"
+      ENV.remove_from_cflags "-fPIC" unless OS.mac?
     end
 
     ENV["libpipeline_CFLAGS"] = "-I#{buildpath}/libpipeline/include"
@@ -53,7 +58,7 @@ class ManDb < Formula
 
     # NB: Remove once man-db 2.8.6 is released
     # https://git.savannah.gnu.org/cgit/man-db.git/commit/?id=056e8c7c012b00261133259d6438ff8303a8c36c
-    ENV.append_to_cflags "-Wl,-flat_namespace,-undefined,suppress"
+    ENV.append_to_cflags "-Wl,-flat_namespace,-undefined,suppress" if OS.mac?
 
     system "make", "CFLAGS=#{ENV.cflags}"
     system "make", "install"
@@ -95,7 +100,12 @@ class ManDb < Formula
   test do
     ENV["PAGER"] = "cat"
     output = shell_output("#{bin}/gman true")
-    assert_match "BSD General Commands Manual", output
-    assert_match "The true utility always returns with exit code zero", output
+    if OS.mac?
+      assert_match "BSD General Commands Manual", output
+      assert_match "The true utility always returns with exit code zero", output
+    else
+      assert_match "true - do nothing, successfully", output
+      assert_match "GNU coreutils online help: <http://www.gnu.org/software/coreutils/", output
+    end
   end
 end
