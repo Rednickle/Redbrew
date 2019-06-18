@@ -4,6 +4,7 @@ class Istioctl < Formula
   url "https://github.com/istio/istio.git",
       :tag      => "1.2.2",
       :revision => "cd4a148f37dc386986d6a6d899778849e686beea"
+  revision 1 unless OS.mac?
 
   bottle do
     cellar :any_skip_relocation
@@ -20,7 +21,11 @@ class Istioctl < Formula
     ENV["ISTIO_VERSION"] = version.to_s
 
     srcpath = buildpath/"src/istio.io/istio"
-    outpath = buildpath/"out/darwin_amd64/release"
+    if OS.mac?
+      outpath = buildpath/"out/darwin_amd64/release"
+    else
+      outpath = buildpath/"out/linux_amd64/release"
+    end
     srcpath.install buildpath.children
 
     cd srcpath do
