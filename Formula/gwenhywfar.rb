@@ -16,13 +16,14 @@ class Gwenhywfar < Formula
   depends_on "gnutls"
   depends_on "libgcrypt"
   depends_on "openssl"
+  depends_on "qt" unless OS.mac?
 
   def install
+    args = %W[--disable-debug --disable-dependency-tracking --prefix=#{prefix}]
+    args << (OS.mac? ? "--with-guis=cocoa" : "--with-guis=qt5")
+
     system "autoreconf", "-fiv" if build.head?
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          *("--with-guis=cocoa" if OS.mac?)
+    system "./configure", *args
     system "make", "install"
   end
 
