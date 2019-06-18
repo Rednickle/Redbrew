@@ -3,6 +3,7 @@ class Atk < Formula
   homepage "https://library.gnome.org/devel/atk/"
   url "https://download.gnome.org/sources/atk/2.32/atk-2.32.0.tar.xz"
   sha256 "cb41feda7fe4ef0daa024471438ea0219592baf7c291347e5a858bb64e4091cc"
+  revision 1
 
   bottle do
     root_url "https://linuxbrew.bintray.com/bottles"

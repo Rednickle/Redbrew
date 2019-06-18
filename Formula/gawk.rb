@@ -4,6 +4,7 @@ class Gawk < Formula
   url "https://ftp.gnu.org/gnu/gawk/gawk-5.0.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gawk/gawk-5.0.0.tar.xz"
   sha256 "50f091ed0eb485ad87dbb620d773a3e2c31a27f75f5e008f7bf065055f024406"
+  revision 1
 
   bottle do
     root_url "https://linuxbrew.bintray.com/bottles"

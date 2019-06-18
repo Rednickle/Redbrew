@@ -3,6 +3,7 @@ class Gegl < Formula
   homepage "https://www.gegl.org/"
   url "https://download.gimp.org/pub/gegl/0.4/gegl-0.4.16.tar.bz2"
   sha256 "0112df690301d9eb993cc48965fc71b7751c9021a4f4ee08fcae366c326b5e5a"
+  revision 1
 
   bottle do
     root_url "https://linuxbrew.bintray.com/bottles"
