@@ -3,6 +3,7 @@ class GstPluginsBase < Formula
   homepage "https://gstreamer.freedesktop.org/"
   url "https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.16.0.tar.xz"
   sha256 "4093aa7b51e28fb24dfd603893fead8d1b7782f088b05ed0f22a21ef176fb5ae"
+  revision 1
 
   bottle do
     root_url "https://linuxbrew.bintray.com/bottles"

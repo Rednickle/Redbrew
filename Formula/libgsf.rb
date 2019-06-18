@@ -3,6 +3,7 @@ class Libgsf < Formula
   homepage "https://developer.gnome.org/gsf/"
   url "https://download.gnome.org/sources/libgsf/1.14/libgsf-1.14.46.tar.xz"
   sha256 "ea36959b1421fc8e72caa222f30ec3234d0ed95990e2bf28943a85f33eadad2d"
+  revision 1
 
   bottle do
     root_url "https://linuxbrew.bintray.com/bottles"

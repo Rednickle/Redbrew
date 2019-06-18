@@ -3,6 +3,7 @@ class Libsecret < Formula
   homepage "https://wiki.gnome.org/Projects/Libsecret"
   url "https://download.gnome.org/sources/libsecret/0.18/libsecret-0.18.8.tar.xz"
   sha256 "3bfa889d260e0dbabcf5b9967f2aae12edcd2ddc9adc365de7a5cc840c311d15"
+  revision 1
 
   bottle do
     root_url "https://linuxbrew.bintray.com/bottles"

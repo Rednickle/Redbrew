@@ -3,6 +3,7 @@ class Librsvg < Formula
   homepage "https://wiki.gnome.org/Projects/LibRsvg"
   url "https://download.gnome.org/sources/librsvg/2.44/librsvg-2.44.14.tar.xz"
   sha256 "6a85a7868639cdd4aa064245cc8e9d864dad8b8e9a4a8031bb09a4796bc4e303"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation

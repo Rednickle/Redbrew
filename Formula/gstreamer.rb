@@ -3,6 +3,7 @@ class Gstreamer < Formula
   homepage "https://gstreamer.freedesktop.org/"
   url "https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.16.0.tar.xz"
   sha256 "0e8e2f7118be437cba879353970cf83c2acced825ecb9275ba05d9186ef07c00"
+  revision 1
 
   bottle do
     root_url "https://linuxbrew.bintray.com/bottles"

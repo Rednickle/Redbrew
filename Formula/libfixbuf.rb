@@ -3,6 +3,7 @@ class Libfixbuf < Formula
   homepage "https://tools.netsa.cert.org/fixbuf/"
   url "https://tools.netsa.cert.org/releases/libfixbuf-2.3.1.tar.gz"
   sha256 "2ba7877c5b09c120a20eb320d5d9e2ac93520c8308624eac3064aaece239bad3"
+  revision 1
 
   bottle do
     root_url "https://linuxbrew.bintray.com/bottles"
