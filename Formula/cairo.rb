@@ -3,13 +3,12 @@ class Cairo < Formula
   homepage "https://cairographics.org/"
   url "https://cairographics.org/releases/cairo-1.16.0.tar.xz"
   sha256 "5e7b29b3f113ef870d1e3ecf8adf21f923396401604bda16d44be45e66052331"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "163ee9334a7cfd0430546345b42c48c1241ec6f662bcb53166899b0b29f5e01a" => :mojave
-    sha256 "cdfc4922055c9fe92487ac48fdb7d4b7a182f9f06826405e0bd6bc1acf64d538" => :high_sierra
-    sha256 "704a151cbd8d5cd7331f9996882e068ce429438c45269dff3632e308578dc593" => :sierra
-    sha256 "a78a5a371b8ff004914b852f35dab02462aec95cf06ba6eb09b22df8224863ca" => :x86_64_linux
+    sha256 "fcda779381271541f623470a74b8b0164f1e83c9154b7b7f4ed23038aac3f5d6" => :mojave
+    sha256 "e9d0d9800f39390a379a2a8b86ab2222c6e21b03fe8b08a3ca6c493c2577255d" => :high_sierra
+    sha256 "77b1e651611de729ee08eb29037b8909e67603f3ab420a54ece1a893d4d449f5" => :sierra
   end
 
   head do
@@ -24,6 +23,7 @@ class Cairo < Formula
   depends_on "freetype"
   depends_on "glib"
   depends_on "libpng"
+  depends_on "lzo"
   depends_on "pixman"
   unless OS.mac?
     depends_on "zlib"
