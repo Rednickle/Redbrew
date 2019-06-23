@@ -2,16 +2,14 @@ class Rtags < Formula
   desc "Source code cross-referencer like ctags with a clang frontend"
   homepage "https://github.com/Andersbakken/rtags"
   url "https://github.com/Andersbakken/rtags.git",
-      :tag      => "v2.31",
-      :revision => "fe31db984968d323653da238b0c403951cd1d704"
+      :tag      => "v2.32",
+      :revision => "e88455ee2ed933df2f286ede5a53c596f03fb71a"
   head "https://github.com/Andersbakken/rtags.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
-    sha256 "874e7dd3359da340f3c416dabe86ec3cdc99202b5744ac06fbe853027bc068d1" => :mojave
-    sha256 "ddb3ecb3d051a98beeee74f9944d77ac38570a044c443b667df37e08902e4312" => :high_sierra
-    sha256 "c598ded163ce492b22ab64511b913f92f75ad7126ad2ba00899af96ca12f77b1" => :sierra
-    sha256 "acdb47a527b07b21fe564fbc17fb2f15d36be5e804076fff0d945d689e4a3d74" => :x86_64_linux
+    sha256 "1edfe398c91dc0f7f23cc87c37b58de0ce760e266635f00f754ba7c8514043be" => :mojave
+    sha256 "db8b5e0da2926a9c9c18bd2a54698e0eaad92e2e672968c15d4136e60233df26" => :high_sierra
+    sha256 "90271bd22d1642a6533b9a202ba0c6f9b55e230300d5a997047cad6491d245c5" => :sierra
   end
 
   depends_on "cmake" => :build

@@ -14,10 +14,8 @@ class Parallel < Formula
     sha256 "39f460e83d4288a876ee9b6420f68e3c00873daa3d3d885cf9eaa5bc9b7274f5" => :x86_64_linux
   end
 
-  if Tab.for_name("moreutils").with?("parallel")
-    conflicts_with "moreutils",
-      :because => "both install a `parallel` executable."
-  end
+  conflicts_with "moreutils",
+    :because => "both install a `parallel` executable."
 
   def install
     system "./configure", "--prefix=#{prefix}"
