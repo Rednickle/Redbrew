@@ -8,8 +8,8 @@ class Agda < Formula
   revision 1 unless OS.mac?
 
   stable do
-    url "https://hackage.haskell.org/package/Agda-2.6.0/Agda-2.6.0.tar.gz"
-    sha256 "bf71bc634a9fe40d717aae76b5b160dfd13a06365615e7822043e5d476c06fb8"
+    url "https://hackage.haskell.org/package/Agda-2.6.0.1/Agda-2.6.0.1.tar.gz"
+    sha256 "7bb88a9cd4a556259907ccc71d54e2acc9d3e9ce05486ffdc83f721c7c06c0e8"
 
     resource "stdlib" do
       url "https://github.com/agda/agda-stdlib.git",
@@ -19,11 +19,9 @@ class Agda < Formula
   end
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
-    sha256 "33438627ea54c158323b499f5cff0acb0fcdb1498ed46709254182d3926c99a8" => :mojave
-    sha256 "8e41acf29ecb3319d8ef00b77de952cfccafef87bf705bc32c1837073ce62acb" => :high_sierra
-    sha256 "a49f81d7e0f49023a23067d0e496e2a387258d91820f23838f2ef804bea86714" => :sierra
-    sha256 "cf80a2f7ae8947c8c7ec362bea17b08d3ce211a6682912a39c66e88d3d1ef0f7" => :x86_64_linux
+    sha256 "2242488b489bab93900cc477d8ec29f39730c963f4792608abd9c6ad7aca2527" => :mojave
+    sha256 "4e9b23b72fafdab0da1278ece9cec725a45c3ca107ab5b7623971b7eda497404" => :high_sierra
+    sha256 "9500f95942f583183b2cfec2469b810cd3cfd121350132a9d23bc9d83d530104" => :sierra
   end
 
   head do
