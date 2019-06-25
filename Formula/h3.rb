@@ -1,15 +1,14 @@
 class H3 < Formula
   desc "Hexagonal hierarchical geospatial indexing system"
   homepage "https://uber.github.io/h3/"
-  url "https://github.com/uber/h3/archive/v3.4.3.tar.gz"
-  sha256 "92fad4467e0af343dbf3d003da09bd2df6a1350f46fcc569ca33648593d78f25"
+  url "https://github.com/uber/h3/archive/v3.4.4.tar.gz"
+  sha256 "9cc84d472bd1352af5bf645ba8087392ca9cbc5abb4f64094a11ee44c675082a"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9cd1586815a262bea8824259fd798a666d663ae55ffcb296aabce7ce88edc5da" => :mojave
-    sha256 "3ba50df38ac5776ff06f46c39e4161bb0a41802f2b4207d4c13a34dab2a850e5" => :high_sierra
-    sha256 "ed8cb040305b7a87a7283e9298b8c30d6562d8342795dc7a70442c3ebf72628a" => :sierra
-    sha256 "78d2072925e037fdf75f1fdbf96e433ca80275754859ea956ca38ba8eb846b46" => :x86_64_linux
+    sha256 "e9b15fa66f8e00bccc736e16d8826d892b8f063a22b4f843d77e9a414ac59fa9" => :mojave
+    sha256 "0ca81a5f775f7db015c8810f5ba41600ab750cce909dbb95a162fa66c75f6ce8" => :high_sierra
+    sha256 "96b45bc089d9a784575659704c06fa38f5bef322dca3f7528e2afbc20c9120c9" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -22,7 +21,7 @@ class H3 < Formula
   end
 
   test do
-    result = pipe_output("#{bin}/geoToH3 10", "40.689167 -74.044444")
+    result = pipe_output("#{bin}/geoToH3 -r 10 --lat 40.689167 --lon -74.044444")
     assert_equal "8a2a1072b59ffff", result.chomp
   end
 end

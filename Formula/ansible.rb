@@ -5,14 +5,14 @@ class Ansible < Formula
   homepage "https://www.ansible.com/"
   url "https://releases.ansible.com/ansible/ansible-2.8.1.tar.gz"
   sha256 "e1d51d3a88e21238f9e7a49b2b17a49e76c13880242b936ac8a37aee4fe84445"
+  revision 1
   head "https://github.com/ansible/ansible.git", :branch => "devel"
 
   bottle do
     cellar :any
-    sha256 "a9d653b056e1c83a7b7f41718db93dc1e1af54cae20006a9b699266d436d9b4e" => :mojave
-    sha256 "b0f3b8584adc29dfdbf443a5364caf13c312d8cc5a1c3821ff9558f535126c35" => :high_sierra
-    sha256 "3b7be1f2bbf1885d482dbf81734399a16d3e0eb03a4a032728c9fe028843d5ed" => :sierra
-    sha256 "8be8423a24ecbf995152820f9690c2c2e97c3db872cdc35ff77c645867599d98" => :x86_64_linux
+    sha256 "6a434eac66285fc2845508ec13576c2e4a3d1670f90afe8befffbc9851420a06" => :mojave
+    sha256 "f7c1132972bbf482ffc2ca17fe3edce2781a38c1931cdfd402516e5e50750068" => :high_sierra
+    sha256 "1d23244a1354ca5a9f29d15d3c12e7d96b29acd29e6a1d2f7e2e482dd7cbfdcd" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -44,6 +44,7 @@ class Ansible < Formula
   #   dnspython (DNS Lookup - dig)
   #   pysphere (VMware vSphere support)
   #   python-consul (Consul support)
+  #   requests-credssp (CredSSP support for windows hosts)
 
   ### setup_requires dependencies
   resource "pbr" do
@@ -446,6 +447,11 @@ class Ansible < Formula
   resource "requests_ntlm" do
     url "https://files.pythonhosted.org/packages/3e/02/6b31dfc8334caeea446a2ac3aea5b8e197710e0b8ad3c3035f7c79e792a8/requests_ntlm-1.1.0.tar.gz"
     sha256 "9189c92e8c61ae91402a64b972c4802b2457ce6a799d658256ebf084d5c7eb71"
+  end
+
+  resource "requests-credssp" do
+    url "https://files.pythonhosted.org/packages/cf/7d/2b1443c24e97f176c10361c9c38f7552e8c721d57ba2d7338d501c4a6be8/requests-credssp-1.0.2.tar.gz"
+    sha256 "b1fe2c42eb7258d4a754a9ad31344ad31a68375a87a10384e6519cdc0edfa546"
   end
 
   resource "requestsexceptions" do
