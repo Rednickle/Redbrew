@@ -1,16 +1,13 @@
-# irssi: Build a bottle for Linuxbrew
 class Irssi < Formula
   desc "Modular IRC client"
   homepage "https://irssi.org/"
-  url "https://github.com/irssi/irssi/releases/download/1.1.1/irssi-1.1.1.tar.xz"
-  sha256 "784807e7a1ba25212347f03e4287cff9d0659f076edfb2c6b20928021d75a1bf"
-  revision 1
+  url "https://github.com/irssi/irssi/releases/download/1.2.0/irssi-1.2.0.tar.xz"
+  sha256 "1643fca1d8b35e5a5d7b715c9c889e1e9cdb7e578e06487901ea959e6ab3ebe5"
 
   bottle do
-    sha256 "ca5e86cee8f481f3a442ee91030236c16346f47dffe880526e4e6f1058cadb68" => :mojave
-    sha256 "0657e4d22b2265a3862d3ca53b0c822403cb6a23b70f49c148fb068483629320" => :high_sierra
-    sha256 "8fdd719eb442ac3e2c2ebcd097bd606682661b7830b116559f4c55164dbe6a68" => :sierra
-    sha256 "d3346796625ea9e6a19a35ea2f414d86e25df4b0d238c55b507cc193a0d8f48d" => :x86_64_linux
+    sha256 "bcc1f0f13f33161ec3ac039cec7df341636a4923da58a292d924df9fb540face" => :mojave
+    sha256 "d0143dc3131ad05473157945903e05890819b8faad0a5dba7fa63334b6c4c6fe" => :high_sierra
+    sha256 "3cb81c8c608243eb6f8639a06b03bd2e7e7007e72ddce310b9914351112bc398" => :sierra
   end
 
   head do
@@ -27,6 +24,8 @@ class Irssi < Formula
   depends_on "perl" unless OS.mac? || build.without?("perl") # for libperl.so
 
   def install
+    ENV.delete "HOMEBREW_SDKROOT" if MacOS.version == :high_sierra
+
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
@@ -45,9 +44,6 @@ class Irssi < Formula
       system "./autogen.sh", *args
     end
 
-    # https://github.com/irssi/irssi/pull/927
-    inreplace "configure", "^DUIfm", "^DUIifm"
-
     system "./configure", *args
     # "make" and "make install" must be done separately on some systems
     system "make"
@@ -63,6 +59,8 @@ class Irssi < Formula
     # This is not how you'd use Perl with Irssi but it is enough to be
     # sure the Perl element didn't fail to compile, which is needed
     # because upstream treats Perl build failures as non-fatal.
+    # To debug a Perl problem copy the following test at the end of the install
+    # block to surface the relevant information from the build warnings.
     ENV["PERL5LIB"] = lib/"perl5/site_perl"
     system "perl", "-e", "use Irssi"
   end
