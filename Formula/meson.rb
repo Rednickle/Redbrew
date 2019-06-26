@@ -1,28 +1,15 @@
 class Meson < Formula
   desc "Fast and user friendly build system"
   homepage "https://mesonbuild.com/"
+  url "https://github.com/mesonbuild/meson/releases/download/0.51.0/meson-0.51.0.tar.gz"
+  sha256 "2f75fdf6d586d3595c03a07afcd0eaae11f68dd33fea5906a434d22a409ed63f"
   head "https://github.com/mesonbuild/meson.git"
-
-  stable do
-    url "https://github.com/mesonbuild/meson/releases/download/0.50.1/meson-0.50.1.tar.gz"
-    sha256 "f68f56d60c80a77df8fc08fa1016bc5831605d4717b622c96212573271e14ecc"
-
-    # Fixes support for Xcode 11.
-    # Backported from https://github.com/mesonbuild/meson/commit/b28e76f6bf6898a7de01f5dd103d5ad7c54bea45
-    # Should be in the next release.
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/bd45b828dc74b33b35a89dc02dd1f556064d227f/meson/xcode_11.patch"
-      sha256 "7b03f81036478d234d94aa8731d7248007408e56917b07d083f1c4db9bb48c8b"
-    end
-  end
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "ca178fb13cb8a3152875fb98c572e7a1f436ab97e408667479fcccb28cd9a815" => :mojave
-    sha256 "ca178fb13cb8a3152875fb98c572e7a1f436ab97e408667479fcccb28cd9a815" => :high_sierra
-    sha256 "ef9198b9fb068aa7f805fcb7a2de846c71390c495d4cbc07c6d9c50366811441" => :sierra
-    sha256 "5af01738e8860b4d00d5ad10cfb808c1678bfa9a85e39ad65340b21a278c16b3" => :x86_64_linux
+    sha256 "7fd6bb7dedb95162aca637f4c8c97463b3c14895698120ce15cd24844d39fed0" => :mojave
+    sha256 "7fd6bb7dedb95162aca637f4c8c97463b3c14895698120ce15cd24844d39fed0" => :high_sierra
+    sha256 "85147f9668c946ab6db2f30016a65e08ad8478f6b1bacf3e5936465c290eef55" => :sierra
   end
 
   depends_on "ninja"
