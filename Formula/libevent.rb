@@ -32,6 +32,7 @@ class Libevent < Formula
     system "make", "install"
     system "make", "doxygen"
     man3.install Dir["doxygen/man/man3/*.3"]
+    doc.install Dir["doxygen/html/*"]
   end
 
   test do
