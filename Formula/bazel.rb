@@ -1,24 +1,19 @@
-class CIRequirement < Requirement
-  fatal true
-  satisfy { ENV["CIRCLECI"].nil? && ENV["TRAVIS"].nil? }
-end
-
 class Bazel < Formula
   desc "Google's own build tool"
   homepage "https://bazel.build/"
-  url "https://github.com/bazelbuild/bazel/releases/download/0.26.1/bazel-0.26.1-dist.zip"
-  sha256 "c0e94f8f818759f3f67af798c38683520c540f469cb41aea8f5e5a0e43f11600"
+  url "https://github.com/bazelbuild/bazel/releases/download/0.27.0/bazel-0.27.0-dist.zip"
+  sha256 "c3080d3b959ac08502ad5c84a51608c291accb1481baad88a628bbf79b30c67a"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f17ee6fbf30904385f27009e779402a72b36466af6d4c2a08bfc1068c1a6085f" => :mojave
-    sha256 "45999bf26c8a4f0e8903714031c8338baaf4cb837e3adda8f55618e2d736ff33" => :high_sierra
-    sha256 "0b6417bfde134a0d72ae446458293cc82a1829ccb7ebfae01be5e9cfbdd803d3" => :sierra
+    sha256 "53f002d3a285f67e1516b7e1d918ff4526564f23c331075cc53dd18eb756b172" => :mojave
+    sha256 "35e1bb09589cf11bc0d851eed596d31ec13c53baf68ac9d43892fa81141127d1" => :high_sierra
+    sha256 "682fc8a7f96414dc91eaa8940dda7411ece61d4f72da509bcbec7878891f5d1e" => :sierra
   end
 
-  depends_on CIRequirement
+  depends_on "python" => :build
   depends_on :java => "1.8"
-  depends_on :macos => :yosemite
+  depends_on :macos => :yosemite if OS.mac?
 
   def install
     ENV["EMBED_LABEL"] = "#{version}-homebrew"

@@ -1,16 +1,15 @@
 class Hub < Formula
   desc "Add GitHub support to git on the command-line"
   homepage "https://hub.github.com/"
-  url "https://github.com/github/hub/archive/v2.12.0.tar.gz"
-  sha256 "937e0ea3ba6dcc8030889d987313efa4da27b6c54ed20fb40fbf5ff9df4c3780"
+  url "https://github.com/github/hub/archive/v2.12.1.tar.gz"
+  sha256 "315114e46bbf583e23341e171c8e1a5efdbe96c04868ff0b343cf367f65f67a0"
   head "https://github.com/github/hub.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6ccecb218ad8807cce2109d881f8d047d824c9ad09731523af067cd140dd0920" => :mojave
-    sha256 "b1480c8de56ffea13694671327d17b1366b56f025434390909484b05c74836f6" => :high_sierra
-    sha256 "6d176af6a6dac59b274fb9c00a5b95fba35a670d3b45eaa922682ff5256f71a3" => :sierra
-    sha256 "e92b28fa7c4d0d695b38aa711e5a49adef7e9413544ee9212d4e944219f52936" => :x86_64_linux
+    sha256 "382da345a9c86a1ad4a02e223759b556b7f6b7fbb21343d7502809f59aced7c4" => :mojave
+    sha256 "4f0044e585f97ea334a329bbc40b4976fc71de7c6d78bc5962fbaffbe8b3e81f" => :high_sierra
+    sha256 "c2f47c4decfee2a4c410cab3f8f2d1234aa2f1e69acb0307e625a9a4edf7b773" => :sierra
   end
 
   depends_on "go" => :build
