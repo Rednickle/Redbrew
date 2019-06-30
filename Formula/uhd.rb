@@ -1,16 +1,14 @@
 class Uhd < Formula
   desc "Hardware driver for all USRP devices"
   homepage "https://files.ettus.com/manual/"
-  url "https://github.com/EttusResearch/uhd/archive/v3.14.0.0.tar.gz"
-  sha256 "612bcc4e857e126c2e1ace98618816209665b20c4136c9e987c67511661715df"
-  revision 1
+  url "https://github.com/EttusResearch/uhd/archive/v3.14.1.0.tar.gz"
+  sha256 "8fc1ad70d80f7f69a30c957fee218ef8767cfd5a0ee4f0830e506f2b22e5b923"
   head "https://github.com/EttusResearch/uhd.git"
 
   bottle do
-    sha256 "15571aae1178160273c3a308e70cd701ecb7f77ae1ca79a7a54252098979f9c4" => :mojave
-    sha256 "4e949556c55a874d52e039ee1bcada2f61482ffc7d99eb17f54b0f1db93d6af2" => :high_sierra
-    sha256 "a8201e5fcd76f434863f8b67b8e74e80d4c34db0add402d9d97d3945cbc5af13" => :sierra
-    sha256 "cc81e72311f0d102468cfd46570109c98b4b8743ac5f21bb5d51cc6fef786486" => :x86_64_linux
+    sha256 "fd131dbc43c309c4f1ec23c6c7940c31eb60f0e6ff05d1a0ad65aa03d0630ce3" => :mojave
+    sha256 "0aa1e0de9fbff3ed4068342542e49e90c5d5ed85107d67235a8c083c645ddb6a" => :high_sierra
+    sha256 "449cf96866e67ec63207dbcc4d67d2d5b87282511ceada9a2fcb22974d512908" => :sierra
   end
 
   depends_on "cmake" => :build
