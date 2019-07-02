@@ -5,7 +5,7 @@ class Agda < Formula
 
   desc "Dependently typed functional programming language"
   homepage "https://wiki.portal.chalmers.se/agda/"
-  revision if OS.mac? 1 : 2
+  revision OS.mac? ? 1 : 2
 
   stable do
     url "https://hackage.haskell.org/package/Agda-2.6.0.1/Agda-2.6.0.1.tar.gz"
