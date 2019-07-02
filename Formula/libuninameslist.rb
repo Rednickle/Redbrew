@@ -1,16 +1,14 @@
 class Libuninameslist < Formula
   desc "Library of Unicode names and annotation data"
   homepage "https://github.com/fontforge/libuninameslist"
-  url "https://github.com/fontforge/libuninameslist/releases/download/20190305/libuninameslist-dist-20190305.tar.gz"
-  sha256 "98dbc9b4185f85c7b9f8e099c8c56341a6ecc41e594bff54b22f6ecfde128de7"
+  url "https://github.com/fontforge/libuninameslist/releases/download/20190701/libuninameslist-dist-20190701.tar.gz"
+  sha256 "168b0d0877f275c1622fd075e6a1d072c52113dcf5da530536a2f2803ebb89a1"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
-    sha256 "ba55ae3ceca9253f6e4fa9030652dc918b1c2a527356b913a66c8bd3234596ec" => :mojave
-    sha256 "510029411344ac2f58c485e14ad640eb92dff84b88c8b8d58b9578b81ab2b2d2" => :high_sierra
-    sha256 "4c30d7f3afa2bfeaf0e315a701944e5b8185a2dbc2e655ce52c76ee1cb6b8151" => :sierra
-    sha256 "dec6b6d7a30c5e2bcd6cf4b989ee957302073a6de9417f75d8bdd51f4fbdf341" => :x86_64_linux
+    sha256 "e74e645c00f59f1e570f82516c537a2bbfa9c55817687bca5a71390f7ada12dd" => :mojave
+    sha256 "52274b73bc63e0cf06e394b08595e644e5ac1d220da90e00e6fbde18c1459dc1" => :high_sierra
+    sha256 "4a77333f42e0c1acff273a95a750ba5800a9376cf7d1954c2761b93b95901329" => :sierra
   end
 
   head do

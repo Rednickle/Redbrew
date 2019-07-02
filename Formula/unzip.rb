@@ -4,15 +4,13 @@ class Unzip < Formula
   url "https://downloads.sourceforge.net/project/infozip/UnZip%206.x%20%28latest%29/UnZip%206.0/unzip60.tar.gz"
   version "6.0"
   sha256 "036d96991646d0449ed0aa952e4fbe21b476ce994abc276e49d30e686708bd37"
-  revision 4
+  revision 5
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "aa8fb7ece322cd484921335cd9eee11b9a269b5ef1bccaaa24930495212fa35e" => :mojave
-    sha256 "48456d6169e415f64fad6620331f70d1f5c2561db27319dab07db4f31f7af44d" => :high_sierra
-    sha256 "8299c2c00a35962a94b3c4a160fa6b718807d354e3a8538782161071943560b1" => :sierra
-    sha256 "e21d950833b401220355ff124aec8f73e0c70447953673249f2fa8f14a218b49" => :x86_64_linux
+    sha256 "fb885bc3523609b17d0558b44b345f2e86fc0dfba3f3954d0dfd1d9126bcd554" => :mojave
+    sha256 "29cdc76b3bcfd65e657bb97852abdb974e7cca1ae5b79a60333eb8a762c001a6" => :high_sierra
+    sha256 "98352007308f516e0a93f0725293ed0e8b52ccbd03ee1bcc0ead5f345972dae4" => :sierra
   end
 
   keg_only :provided_by_macos
@@ -45,6 +43,7 @@ class Unzip < Formula
       patches/18-cve-2014-9913-unzip-buffer-overflow.patch
       patches/19-cve-2016-9844-zipinfo-buffer-overflow.patch
       patches/20-cve-2018-1000035-unzip-buffer-overflow.patch
+      patches/21-fix-warning-messages-on-big-files.patch
     ]
   end
 
