@@ -1,8 +1,3 @@
-class CIRequirement < Requirement
-  fatal true
-  satisfy { ENV["CIRCLECI"].nil? && ENV["TRAVIS"].nil? }
-end
-
 class AwsSdkCpp < Formula
   desc "AWS SDK for C++"
   homepage "https://github.com/aws/aws-sdk-cpp"
@@ -20,7 +15,6 @@ class AwsSdkCpp < Formula
 
   depends_on "cmake" => :build
   uses_from_macos "curl"
-  depends_on CIRequirement
 
   def install
     mkdir "build" do

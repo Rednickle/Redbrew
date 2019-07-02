@@ -14,13 +14,6 @@ class Chezscheme < Formula
   depends_on :x11 => :build
   uses_from_macos "ncurses"
 
-  # Fixes bashism in makefiles/installsh
-  # Remove on next release
-  patch do
-    url "https://github.com/cisco/ChezScheme/commit/6be137e5b76c6a8472e311a69743a403adc757f5.diff"
-    sha256 "098611b16ed92993cc0c31ec8510bd26c81dee38b807c3707abb646b220b5ce0"
-  end unless OS.mac?
-
   def install
     # dyld: lazy symbol binding failed: Symbol not found: _clock_gettime
     # Reported 20 Feb 2017 https://github.com/cisco/ChezScheme/issues/146

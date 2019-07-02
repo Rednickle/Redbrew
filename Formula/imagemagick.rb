@@ -17,7 +17,6 @@ class Imagemagick < Formula
   end
 
   depends_on "pkg-config" => :build
-
   depends_on "freetype"
   depends_on "jpeg"
   depends_on "libheif"
@@ -30,6 +29,8 @@ class Imagemagick < Formula
   depends_on "openjpeg"
   depends_on "webp"
   depends_on "xz"
+  uses_from_macos "bzip2"
+  uses_from_macos "libxml2"
 
   uses_from_macos "bzip2"
   uses_from_macos "linuxbrew/xorg/xorg"

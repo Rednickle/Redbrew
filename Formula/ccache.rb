@@ -13,6 +13,8 @@ class Ccache < Formula
     sha256 "975afd41be80d8dd7124bb618b57f55281d3dcd6feb22df6d7e2ff1497103593" => :x86_64_linux
   end
 
+  uses_from_macos "zlib"
+
   head do
     url "https://github.com/ccache/ccache.git"
 

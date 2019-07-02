@@ -24,7 +24,6 @@ class Collectd < Formula
   depends_on "net-snmp"
   depends_on "riemann-client"
   uses_from_macos "perl"
-  depends_on "riemann-client"
 
   def install
     args = %W[
