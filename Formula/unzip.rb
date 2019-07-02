@@ -7,12 +7,11 @@ class Unzip < Formula
   revision 4
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
-    sha256 "06aeb3114e2a030970f0d05424e9f2b2f845a2a5643065f173ba6a70e99970a3" => :mojave
-    sha256 "0e76c4b9f38e8de22409e666894400b95340271144e44bd408975a8d0100b942" => :high_sierra
-    sha256 "5445d1be98f82d7d4d4a01f930790d0745c845cdbf1a7ea23d07f7fc295d6f90" => :sierra
-    sha256 "af7c92535b17ee6fa9eda85f07381292e784ade07e1ef60054209aecd6e0e794" => :x86_64_linux
+    rebuild 1
+    sha256 "aa8fb7ece322cd484921335cd9eee11b9a269b5ef1bccaaa24930495212fa35e" => :mojave
+    sha256 "48456d6169e415f64fad6620331f70d1f5c2561db27319dab07db4f31f7af44d" => :high_sierra
+    sha256 "8299c2c00a35962a94b3c4a160fa6b718807d354e3a8538782161071943560b1" => :sierra
   end
 
   keg_only :provided_by_macos
@@ -22,8 +21,8 @@ class Unzip < Formula
   # Upstream is unmaintained so we use the Debian patchset:
   # https://packages.debian.org/sid/unzip
   patch do
-    url "https://deb.debian.org/debian/pool/main/u/unzip/unzip_6.0-22.debian.tar.xz"
-    sha256 "f3c80c1e3917d59cb2fe72f0431159c919f2df7fc96f5b539c91cc96fc02ecfa"
+    url "https://deb.debian.org/debian/pool/main/u/unzip/unzip_6.0-23.debian.tar.xz"
+    sha256 "c8b5d256aca6b24b36e92270856b6947401bd4107c883b78a6fcf8afec6f54aa"
     apply %w[
       patches/01-manpages-in-section-1-not-in-section-1l.patch
       patches/02-this-is-debian-unzip.patch
