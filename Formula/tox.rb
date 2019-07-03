@@ -3,15 +3,14 @@ class Tox < Formula
 
   desc "Generic Python virtualenv management and test command-line tool"
   homepage "https://tox.readthedocs.org/"
-  url "https://files.pythonhosted.org/packages/d1/92/eee81660d319463bff05233f8fa316c99e13414af276744250265c354139/tox-3.12.1.tar.gz"
-  sha256 "f87fd33892a2df0950e5e034def9468988b8d008c7e9416be665fcc0dd45b14f"
+  url "https://files.pythonhosted.org/packages/b1/6a/34536b8d39b1b4df5a933fe9a9db858e86a732c14de5f2775a47a889c09d/tox-3.13.0.tar.gz"
+  sha256 "66d9ccf81b383ab1edc1619410223eec0e046178304728797a850302092ed975"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c07d4ba65cb634a1d91c4d0b4d4031c61a5d68810d9f37b48349e94f4f840744" => :mojave
-    sha256 "c806a5c286e875cb3ab6d749b868a9482097b02a8dba32cfd9386dc341286972" => :high_sierra
-    sha256 "e06628ab3f85dfbd7bc362c4d04d029e26cd32d2b233834401eca1ab31175095" => :sierra
-    sha256 "83503a11aef4b7384286609e7110720ce556f0255a3c1a65ca954ee421bb5f12" => :x86_64_linux
+    sha256 "657f212a4e2355baff34bda5978e55f2bfcff566ea8eda13dda7f234ab581883" => :mojave
+    sha256 "9cdcc55fc545e45c4a2cd4f1b16724539b5b10dfee78f16516d4fa6455c45c7e" => :high_sierra
+    sha256 "671ea6933263a0a693e976ead1e6f3741580691fdc92a85134d9d26554ce2e42" => :sierra
   end
 
   depends_on "python"
@@ -22,8 +21,13 @@ class Tox < Formula
   end
 
   resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/0e/e0/9b28879fb8e2b7062279ef50b489a9e3b49d850df068d90571a4881905ee/importlib_metadata-0.17.tar.gz"
-    sha256 "a9f185022cfa69e9ca5f7eabfd5a58b689894cb78a11e3c8c89398a8ccbb8e7f"
+    url "https://files.pythonhosted.org/packages/fd/5c/9caf9fe3d92afc3c0296c97b0fd72cacfcaf20e8b2c42306840914e052fa/importlib_metadata-0.18.tar.gz"
+    sha256 "cb6ee23b46173539939964df59d3d72c3e0c1b5d54b84f1d8a7e912fe43612db"
+  end
+
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/16/51/d72654dbbaa4a4ffbf7cb0ecd7d12222979e0a660bf3f42acc47550bf098/packaging-19.0.tar.gz"
+    sha256 "0c98a5d0be38ed775798ece1b9727178c4469d9c3b4ada66e8e6b7849f8732af"
   end
 
   resource "pluggy" do
@@ -34,6 +38,11 @@ class Tox < Formula
   resource "py" do
     url "https://files.pythonhosted.org/packages/f1/5a/87ca5909f400a2de1561f1648883af74345fe96349f34f737cdfc94eba8c/py-1.8.0.tar.gz"
     sha256 "dc639b046a6e2cff5bbe40194ad65936d6ba360b52b3c3fe1d08a82dd50b5e53"
+  end
+
+  resource "pyparsing" do
+    url "https://files.pythonhosted.org/packages/5d/3a/24d275393f493004aeb15a1beae2b4a3043526e8b692b65b4a9341450ebe/pyparsing-2.4.0.tar.gz"
+    sha256 "1873c03321fc118f4e9746baf201ff990ceb915f433f23b395f5580d1840cb2a"
   end
 
   resource "six" do
@@ -47,8 +56,8 @@ class Tox < Formula
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/53/c0/c7819f0bb2cf83e1b4b0d96c901b85191f598a7b534d297c2ef6dc80e2d3/virtualenv-16.6.0.tar.gz"
-    sha256 "99acaf1e35c7ccf9763db9ba2accbca2f4254d61d1912c5ee364f9cc4a8942a0"
+    url "https://files.pythonhosted.org/packages/37/27/706af3ee62032933a3217454609c50a5325a6bd9c2c2f495b58c456ba286/virtualenv-16.6.1.tar.gz"
+    sha256 "b7335cddd9260a3dd214b73a2521ffc09647bde3e9457fcca31dc3be3999d04a"
   end
 
   resource "zipp" do
