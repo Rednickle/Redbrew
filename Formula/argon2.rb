@@ -3,20 +3,20 @@ class Argon2 < Formula
   homepage "https://github.com/P-H-C/phc-winner-argon2"
   url "https://github.com/P-H-C/phc-winner-argon2/archive/20190702.tar.gz"
   sha256 "daf972a89577f8772602bf2eb38b6a3dd3d922bf5724d45e7f9589b5e830442c"
+  revision 1
   head "https://github.com/P-H-C/phc-winner-argon2.git"
 
   bottle do
     cellar :any
-    sha256 "da0c88fc168a19ebaf26d4f1289b88ef35bc837412846d5bbd144ed22dee4059" => :mojave
-    sha256 "7edff048989954edc68bc53d37d447a868dd5cc2c9f32af6644a839b0ab65659" => :high_sierra
-    sha256 "a19f433693c3e3778a9163c36bb8296725ae2a8dd1cdd2f69d0d63f7e05383ef" => :sierra
-    sha256 "1a789b8d69fce4bbf4838d9240cf0c0b071457c6597c58ac038a1b273cacdbaf" => :x86_64_linux
+    sha256 "a76192a41826619fc399e7f6de5e6cb1c8a5fbe6bea4f2c1554daa830fa0e296" => :mojave
+    sha256 "830016982e60870f50b3f6fc9a215d8cc4bda6061595f4883f7c11ab19ecba39" => :high_sierra
+    sha256 "21889ac6ed40c792f1b372b5aa0d6b3be1be86577a4c1b06b08569124d2d0da2" => :sierra
   end
 
   def install
-    system "make"
+    system "make", "PREFIX=#{prefix}", "ARGON2_VERSION=#{version}"
     system "make", "test"
-    system "make", "install", "PREFIX=#{prefix}"
+    system "make", "install", "PREFIX=#{prefix}", "ARGON2_VERSION=#{version}"
     doc.install "argon2-specs.pdf"
   end
 
