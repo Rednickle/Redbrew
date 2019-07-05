@@ -20,6 +20,7 @@ class Snapcraft < Formula
   depends_on "python"
   depends_on "squashfs"
   depends_on "xdelta"
+  depends_on "libffi" unless OS.mac?
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/15/d4/2f888fc463d516ff7bf2379a4e9a552fef7f22a94147655d9b1097108248/certifi-2018.1.18.tar.gz"
@@ -176,7 +177,29 @@ class Snapcraft < Formula
     sha256 "cc44da8e1145637334317feebd728bd869a35285b93cbb4cca2577da7e62db4f"
   end
 
+  unless OS.mac?
+    resource "sphinx" do
+      url "https://files.pythonhosted.org/packages/89/1e/64c77163706556b647f99d67b42fced9d39ae6b1b86673965a2cd28037b5/Sphinx-2.1.2.tar.gz"
+      sha256 "f9a79e746b87921cabc3baa375199c6076d1270cee53915dbd24fdbeaaacc427"
+    end
+
+    resource "distutils-extra" do
+      url "https://deb.debian.org/debian/pool/main/p/python-distutils-extra/python-distutils-extra_2.38.orig.tar.gz"
+      sha256 "3d100d5d3492f40b3e7a6a4500f71290bfa91e2c50dc31ba8e3ff9b5d82ca153"
+    end
+
+    resource "python-apt" do
+      url "https://salsa.debian.org/apt-team/python-apt/-/archive/1.9.0/python-apt-1.9.0.tar.gz"
+      sha256 "6b0bdff48600266fcac1bebd57f04d6241dae32781396217612369421f5d0519"
+    end
+  end
+
   def install
+    unless OS.mac?
+      libffi = Formula["libffi"]
+      ENV.prepend "CPPFLAGS", "-I#{libffi.lib}/libffi-#{libffi.version}/include"
+    end
+
     virtualenv_install_with_resources
   end
 
