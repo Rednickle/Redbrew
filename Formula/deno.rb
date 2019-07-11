@@ -2,14 +2,14 @@ class Deno < Formula
   desc "Command-line JavaScript / TypeScript engine"
   homepage "https://deno.land/"
   url "https://github.com/denoland/deno.git",
-    :tag      => "v0.10.0",
-    :revision => "c56df45355c8e68eabbfa62021e7ca7484115c0b"
+    :tag      => "v0.11.0",
+    :revision => "92ac616708cb067a1b895283913c5ecd25c6d873"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "71fd3db3ed4b2e466c419fa943334463ea93442948320199149dbae829a6af3e" => :mojave
-    sha256 "9bb71c7166da2844b75a51391413530bfd2b0bf57351207e1245220cf6a03362" => :high_sierra
-    sha256 "aa4d94c0be47a94610a060e35904db41e574221d0bf7ce65dc49832f1eada50f" => :sierra
+    sha256 "1c2ec17b5f94065611bdf28436d4613ca7b89ce2b1d6a8c6934c67333218e57c" => :mojave
+    sha256 "d73259475baac1dd202eb63450581f448344761dd31f84ef615317b27d50dabd" => :high_sierra
+    sha256 "9fc6b5f7c5295481eb26e95c2e860f7a194df58b0b2dff36d133f61d28dd508c" => :sierra
   end
 
   depends_on "llvm" => :build
@@ -46,6 +46,12 @@ class Deno < Formula
     system "python", "tools/build.py", "--release"
 
     bin.install "target/release/deno"
+
+    # Install bash and zsh completion
+    output = Utils.popen_read("#{bin}/deno completions bash")
+    (bash_completion/"deno").write output
+    output = Utils.popen_read("#{bin}/deno completions zsh")
+    (zsh_completion/"_deno").write output
   end
 
   test do

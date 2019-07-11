@@ -3,9 +3,9 @@ class Go < Formula
   homepage "https://golang.org"
 
   stable do
-    url "https://dl.google.com/go/go1.12.6.src.tar.gz"
-    mirror "https://fossies.org/linux/misc/go1.12.6.src.tar.gz"
-    sha256 "c96c5ccc7455638ae1a8b7498a030fe653731c8391c5f8e79590bce72f92b4ca"
+    url "https://dl.google.com/go/go1.12.7.src.tar.gz"
+    mirror "https://fossies.org/linux/misc/go1.12.7.src.tar.gz"
+    sha256 "95e8447d6f04b8d6a62de1726defbb20ab203208ee167ed15f83d7978ce43b13"
 
     go_version = version.to_s.split(".")[0..1].join(".")
     resource "gotools" do
@@ -15,11 +15,9 @@ class Go < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 "5f1d8b917ac235ddd2c26526047a945e1cc103b531ebd5657c13e2681c027288" => :mojave
-    sha256 "97c3b9448b5f597593b0405166e127da3ac25b62b60ac3458d459577b527b478" => :high_sierra
-    sha256 "e56f6d6285412561bcd26920dd3097a81eb148f2fffb108e168112320bf1cfd2" => :sierra
-    sha256 "00bb96dbd7908adc3d11452ea62604992855534ac0d7c631d01b561a585f7f45" => :x86_64_linux
+    sha256 "928077a68d8e259606b9be2d21e17f66c4b530ffc79cb7797ecac65bd6d01272" => :mojave
+    sha256 "5c213b1f724f744b401d8e61e6f44a018f749b78fea69b62374409df6ded2db4" => :high_sierra
+    sha256 "66d2555e97854cbeb7ec1e4d0c92bf699530a519378a6bf7765b2cc8b72c9282" => :sierra
   end
 
   head do
@@ -42,24 +40,6 @@ class Go < Formula
       sha256 "702ad90f705365227e902b42d91dd1a40e48ca7f67a2f4b2fd052aaa4295cd95"
     end
     version "1.7"
-  end
-
-  # Prevents Go from building malformed binaries. Fixed upstream, should
-  # be in a future release.
-  # https://github.com/golang/go/issues/32673
-  patch do
-    url "https://github.com/golang/go/commit/26954bde4443c4bfbfe7608f35584b6b810f3f2c.patch?full_index=1"
-    sha256 "25a361bd4aa1155be06e2239c1974aa9c59f971210f19e16a3b7b576b9d4f677"
-  end
-
-  patch do
-    url "https://github.com/golang/go/commit/0fe1986a72ea578390d4909988a1d7cb3a687544.patch?full_index=1"
-    sha256 "320c11208313fc74e0bba7f323791416e5316451b109c440f56be361df8306ea"
-  end
-
-  patch do
-    url "https://github.com/golang/go/commit/3f1422c799edb143303c86c0e875d44c3612df64.patch?full_index=1"
-    sha256 "d071f0415cd2712cbed373682c4a84661147df1aabf38bbc0f3179532a988a4f"
   end
 
   def install

@@ -4,14 +4,14 @@ require "json"
 class Webpack < Formula
   desc "Bundler for JavaScript and friends"
   homepage "https://webpack.js.org/"
-  url "https://registry.npmjs.org/webpack/-/webpack-4.35.2.tgz"
-  sha256 "8d234567cd3adf8dba3e5a25aa50aa344cabff741c2712bedb26001741e0f6a8"
+  url "https://registry.npmjs.org/webpack/-/webpack-4.35.3.tgz"
+  sha256 "1da882b55d5712c2e17c7039a34b3d6977310a149279b099f66c713ab79a7b94"
   head "https://github.com/webpack/webpack.git"
 
   bottle do
-    sha256 "8f6d87267e930a217304400640bb3be65b8cecb3eb96b01c294b4719a60a40c7" => :mojave
-    sha256 "63ccb4b3f224aa625241b8703f489bbf72f9a0495104c392e2fdfa112c30f136" => :high_sierra
-    sha256 "a5f67c7f9d02ecfe524f6e67709c2b10553b064a38c425e09eb6799104552aae" => :sierra
+    sha256 "a315fdee6ea7b52f0c9ddb7c888264422339b7ad57036f25f1fc30743f882391" => :mojave
+    sha256 "8128342740c54d3febe9caca910bb2423845f6b66b15168a43b54bf532072855" => :high_sierra
+    sha256 "2c95bca88e81976654b5a5e5d66aa0ef83be0166752b0a36c8f1a96caf4da791" => :sierra
   end
 
   depends_on "node"
