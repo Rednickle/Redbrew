@@ -1,17 +1,14 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-4.1.3.tar.xz"
-  sha256 "0c3020452880581a8face91595b239198078645e7d7184273b8bcc7758beb63d"
-  revision 1
+  url "https://ffmpeg.org/releases/ffmpeg-4.1.4.tar.xz"
+  sha256 "f1f049a82fcfbf156564e73a3935d7e750891fab2abf302e735104fd4050a7e1"
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles"
-    sha256 "ddfb58dd5432eed657d9ecda3b4c2f06eb523815e9e7f339b1f05d1048f89d40" => :mojave
-    sha256 "41dd2796b2c3136faf6d5b20e1f7774db2c21a916c1b9d752e1ea4c92ff32f22" => :high_sierra
-    sha256 "3904c3b313c0a53349b2bd3a0e27b503b5448f81b319c313ee48ef80492bf5dd" => :sierra
-    sha256 "5d2c6aaac516bb38b9f1a1e9f7d259f59a3073b164ca3feb87adc4ad10a14f3e" => :x86_64_linux
+    sha256 "6e0d85d0c85af45ba88e402478812b4865c611910bbc10e6b4a10f4b577710d8" => :mojave
+    sha256 "5c9c93c5957da218683642b3aca8e22e3c89cdca7ffc41807ef20cddf7ac3b40" => :high_sierra
+    sha256 "c06ec4da88e2638775c14616441e8e3e5f5e5c057886a5a2a58f38e5808b35a0" => :sierra
   end
 
   depends_on "nasm" => :build
@@ -55,7 +52,6 @@ class Ffmpeg < Formula
       --enable-shared
       --enable-pthreads
       --enable-version3
-      --enable-hardcoded-tables
       --enable-avresample
       --cc=#{ENV.cc}
       --host-cflags=#{ENV.cflags}
