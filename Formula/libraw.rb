@@ -1,15 +1,14 @@
 class Libraw < Formula
   desc "Library for reading RAW files from digital photo cameras"
   homepage "https://www.libraw.org/"
-  url "https://www.libraw.org/data/LibRaw-0.19.2.tar.gz"
-  sha256 "400d47969292291d297873a06fb0535ccce70728117463927ddd9452aa849644"
+  url "https://www.libraw.org/data/LibRaw-0.19.3.tar.gz"
+  sha256 "fd96d6188b8539e0724c89cfa9de392eb28ea71db117ef0661846d76cdc24177"
 
   bottle do
     cellar :any
-    sha256 "0abbb192dbe6464e84b81009ecf957748ea4cb00a721eb0157d08c2325c67a43" => :mojave
-    sha256 "a35af2fb6335b0a6d2ec6a99b112e6677df436f9cd074894ea4a1c26ac27b16b" => :high_sierra
-    sha256 "16dd714a8cc2609f4edd4bc881a2d8e7b37379df5867b365ae4d8a02b120bbcd" => :sierra
-    sha256 "2bedd40464648fe488b1b34e53c8a239cb898973792e40996a31593302593f95" => :x86_64_linux
+    sha256 "85274ac527a0892101ee9d678b4d60f2c973e1a55636708913b802351a80aecc" => :mojave
+    sha256 "5fd2e5aa959a90363994397710ca4b271637d966c3250265a44d5245b47a2bcc" => :high_sierra
+    sha256 "859d4b6e1bb5de0b72274b6658b8531be8a90a59b7d61151870aef66fe4d8b66" => :sierra
   end
 
   depends_on "pkg-config" => :build
