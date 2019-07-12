@@ -1,17 +1,15 @@
 class Jsoncpp < Formula
   desc "Library for interacting with JSON"
   homepage "https://github.com/open-source-parsers/jsoncpp"
-  url "https://github.com/open-source-parsers/jsoncpp/archive/1.8.4.tar.gz"
-  sha256 "c49deac9e0933bcb7044f08516861a2d560988540b23de2ac1ad443b219afdb6"
+  url "https://github.com/open-source-parsers/jsoncpp/archive/1.9.0.tar.gz"
+  sha256 "bdd3ba9ed1f110b3eb57474d9094e90ab239b93b4803b4f9b1722c281e85a4ac"
   head "https://github.com/open-source-parsers/jsoncpp.git"
 
   bottle do
     cellar :any
-    sha256 "0bf833c715e66967808c601fa1566c25175fadd1d12715c2e72ccd3eac699337" => :mojave
-    sha256 "107e81382b6927dd4310a5accef1c2fb48ad616a8a8f838ba31d20d4ce855a2a" => :high_sierra
-    sha256 "9d15d02676d08bbcd0352f1aef7bba03206438aa50c5ed86358f45e9ef1534bf" => :sierra
-    sha256 "ea9882112cc77b4500803dfb5043c846de7dc9d584f007978d05863f6a8611cb" => :el_capitan
-    sha256 "dda215258ca8da7d67f49b73deb2558c1ab7accf19cf42d02ce34cfdf6ff5e4d" => :x86_64_linux
+    sha256 "8d6ea20868bdc6413885decdf8aea1650bf75b6b7241087971c1eb9bf3b6fb14" => :mojave
+    sha256 "bf4d4348fcb4190064473bbe40885339ccdcdb28c2ffc4f01942f770d754c320" => :high_sierra
+    sha256 "f5ccbb17eb6a6595a531443776ec1d29d739dbe7cb84425c9faf1c1b8ad713e7" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -33,12 +31,15 @@ class Jsoncpp < Formula
     (testpath/"test.cpp").write <<~EOS
       #include <json/json.h>
       int main() {
-        Json::Value root;
-        Json::Reader reader;
-        return reader.parse("[1, 2, 3]", root) ? 0: 1;
+          Json::Value root;
+          Json::CharReaderBuilder builder;
+          std::string errs;
+          std::istringstream stream1;
+          stream1.str("[1, 2, 3]");
+          return Json::parseFromStream(builder, stream1, &root, &errs) ? 0: 1;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-o", "test",
+    system ENV.cxx, "-std=c++11", testpath/"test.cpp", "-o", "test",
                   "-I#{include}/jsoncpp",
                   "-L#{lib}",
                   "-ljsoncpp"

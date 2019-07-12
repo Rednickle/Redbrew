@@ -3,13 +3,13 @@ class Libsbol < Formula
   homepage "https://synbiodex.github.io/libSBOL"
   url "https://github.com/SynBioDex/libSBOL/archive/v2.3.0.0.tar.gz"
   sha256 "a8092390b5df1d3dc8df7b403ec4757c55039ccec40ca8088150e27a4a00c41b"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "974ce842996ac65fcb31874389e0659451fe6cabc06a1b3c679e6fff9a2a27a0" => :mojave
-    sha256 "ee8e8a563435076bdee91fafe19832750ec91f25d0a32d727cdb505d7c437c3a" => :high_sierra
-    sha256 "cfe93d1e977048c7502a5aa1b43514deca305dc66451aafb386f68a304c12492" => :sierra
-    sha256 "61efb175a5ae38717e9f939c172e9a249e9138bfa3531e71471d6314c7b61b16" => :el_capitan
+    sha256 "5682ee6c2d4dc49ea2d0baefadc21d97a747b9a51fbd1487579facf7bd094e94" => :mojave
+    sha256 "d1f0a5ba8104d6cd0a9970d61b81b8176fdf8645fa3dae9823ec80a08b34ede9" => :high_sierra
+    sha256 "4e129d64504a45e054a2fab16c6398189c091e7bf00432fccf776986d322fd87" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -40,8 +40,10 @@ class Libsbol < Formula
     system ENV.cxx, "test.cpp", "-o", "test", "-std=c++11",
                     "-I/System/Library/Frameworks/Python.framework/Headers",
                     "-I#{Formula["raptor"].opt_include}/raptor2",
-                    "-I#{include}", "-L#{lib}", "-ljsoncpp", "-lcurl",
-                    "-lraptor2", "-lsbol"
+                    "-I#{include}", "-L#{lib}",
+                    "-L#{Formula["jsoncpp"].opt_lib}",
+                    "-L#{Formula["raptor"].opt_lib}",
+                    "-ljsoncpp", "-lcurl", "-lraptor2", "-lsbol"
     system "./test"
   end
 end
