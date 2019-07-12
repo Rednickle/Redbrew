@@ -3,11 +3,12 @@ class Mono < Formula
   homepage "https://www.mono-project.com/"
   url "https://download.mono-project.com/sources/mono/mono-5.20.1.19.tar.bz2"
   sha256 "0574b61efb9bfc3364211d03d87a12c91dc7b03e8d6242cd4d8d953ef145d468"
+  revision 1
 
   bottle do
-    sha256 "08e012d25c888d0b0f40ef7757ba929ad48421c8ba5c8f4f66dc7d0d15c6f49d" => :mojave
-    sha256 "da81cb09be8a4b53c9b9e297ae23836c7818feb9ba919dbc02e333e820ea85bc" => :high_sierra
-    sha256 "bbacf1812a2f1d55ab6c15784c813554882af83d0a95211c4a4cbf948f7d0541" => :sierra
+    sha256 "f2e144d29177bf476757ea3e2aae2620e0779fc7683796a1c3ad5321d9a67090" => :mojave
+    sha256 "ac68ce33876998c1c444688d7aaa412547b14e2674fbebc3fd851762d02d0829" => :high_sierra
+    sha256 "0442dd6a82b37411dd84f135a8a8d07c2961ba8db718e4665d938ce95808bbde" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -46,10 +47,8 @@ class Mono < Formula
 
   def install
     system "./configure", "--prefix=#{prefix}",
-                          "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--enable-nls=no",
-                          *("--build=x86_64-apple-darwin" if OS.mac?)
+                          "--enable-nls=no"
     system "make"
     system "make", "install"
     # mono-gdb.py and mono-sgen-gdb.py are meant to be loaded by gdb, not to be
