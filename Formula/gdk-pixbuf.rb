@@ -3,17 +3,20 @@ class GdkPixbuf < Formula
   homepage "https://gtk.org"
   url "https://download.gnome.org/sources/gdk-pixbuf/2.38/gdk-pixbuf-2.38.1.tar.xz"
   sha256 "f19ff836ba991031610dcc53774e8ca436160f7d981867c8c3a37acfe493ab3a"
-  revision OS.mac? ? 1 : 2
+  revision OS.mac? ? 1 : 3
 
   bottle do
     sha256 "183c810ede98f4732b2fcbe781670c4f4c5d9e75f4530975864abb524c1911dd" => :mojave
     sha256 "f7d10a967373df44ce4e0ca18965428f1404513195f1403e7964511b2e091d57" => :high_sierra
     sha256 "6c98ec526d0c3fbee49f46339d9997e7aeba93a55a655d1b521f93c26ab16c98" => :sierra
-    sha256 "0882442f332204470cc791c04486f3bc50405c83bee25d8dab8aa7e3cd4e45a2" => :x86_64_linux
   end
 
   depends_on "gobject-introspection" => :build
-  depends_on "meson" => :build
+  if OS.mac?
+    depends_on "meson" => :build
+  else
+    depends_on "meson-internal" => :build
+  end
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "python" => :build
@@ -55,7 +58,11 @@ class GdkPixbuf < Formula
 
     ENV["DESTDIR"] = "/"
     mkdir "build" do
-      system "meson", *args, ".."
+      if OS.mac?
+        system "meson", *args, ".."
+      else
+        system "#{Formula["meson-internal"].bin}/meson", *args, ".."
+      end
       system "ninja", "-v"
       system "ninja", "install"
     end
