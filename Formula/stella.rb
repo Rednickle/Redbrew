@@ -35,6 +35,7 @@ class Stella < Formula
           s.gsub! /(LIBRARY_SEARCH_PATHS) = ("\$\(LIBRARY_SEARCH_PATHS\)");/,
                   "\\1 = (#{sdl2.opt_lib}, #{libpng.opt_lib}, \\2);"
           s.gsub! /(OTHER_LDFLAGS) = "((-\w+)*)"/, '\1 = "-lSDL2 -lpng \2"'
+        end
       end
     end
     system "./configure", "--prefix=#{prefix}",
