@@ -3,13 +3,13 @@ class Ffmpeg < Formula
   homepage "https://ffmpeg.org/"
   url "https://ffmpeg.org/releases/ffmpeg-4.1.4.tar.xz"
   sha256 "f1f049a82fcfbf156564e73a3935d7e750891fab2abf302e735104fd4050a7e1"
+  revision 1
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
-    sha256 "6e0d85d0c85af45ba88e402478812b4865c611910bbc10e6b4a10f4b577710d8" => :mojave
-    sha256 "5c9c93c5957da218683642b3aca8e22e3c89cdca7ffc41807ef20cddf7ac3b40" => :high_sierra
-    sha256 "c06ec4da88e2638775c14616441e8e3e5f5e5c057886a5a2a58f38e5808b35a0" => :sierra
-    sha256 "fd44d4e4d2ac6cba63bda39f968cf43da965356b034d7ded676ed4353b50652a" => :x86_64_linux
+    sha256 "1fff696effdf5cdea3feb1b2d022018c6dfe47b71de640a46adc4631cdeccf1e" => :mojave
+    sha256 "d8e05c780e5e97dd8c4502e7cd31d0dc1d9e21734c22674deadab07609255339" => :high_sierra
+    sha256 "df8763246c89635363a965811f322e8fa253dc3a39f0b5812024f3a79027ff7a" => :sierra
   end
 
   depends_on "nasm" => :build
