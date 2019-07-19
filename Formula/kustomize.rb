@@ -2,15 +2,15 @@ class Kustomize < Formula
   desc "Template-free customization of Kubernetes YAML manifests"
   homepage "https://github.com/kubernetes-sigs/kustomize"
   url "https://github.com/kubernetes-sigs/kustomize.git",
-      :tag      => "v3.0.2",
-      :revision => "aa2313c2825a7712b12309c1cd7798f371a0bb18"
+      :tag      => "3.0.3",
+      :revision => "30b378a9244d757c1cda31b95694fabd6cbdb8e1"
   head "https://github.com/kubernetes-sigs/kustomize.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "02bf820f389fbe121b43e094fcdc75b69a6426d7419519eb5d02fde320767d99" => :mojave
-    sha256 "826822195a990807abc5114f9df3a6f8edb88fab6cd742b245f38bddbe841149" => :high_sierra
-    sha256 "238ae6fb878b34ccf1633e6af4e4c2f4081e7ceaa91f3f0ab9d76e39319bfaa0" => :sierra
+    sha256 "f39c04c44003ed9f067867593c005ac7bb1f671aa50678f60b181df6f6ad8c4d" => :mojave
+    sha256 "30384d61f8315c3bc79d4602d39312599d89bc35e2f8abbd857d4837ae177604" => :high_sierra
+    sha256 "c0cdd9e828aa047235f9909657f725a69003e45ca841b75934278a5ef4d7258e" => :sierra
   end
 
   depends_on "go" => :build
@@ -40,7 +40,7 @@ class Kustomize < Formula
     (testpath/"kustomization.yaml").write <<~EOS
       resources:
       - service.yaml
-      patches:
+      patchesStrategicMerge:
       - patch.yaml
     EOS
     (testpath/"patch.yaml").write <<~EOS

@@ -1,16 +1,14 @@
 class Gpgme < Formula
   desc "Library access to GnuPG"
   homepage "https://www.gnupg.org/related_software/gpgme/"
-  url "https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.13.0.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gpgme/gpgme-1.13.0.tar.bz2"
-  sha256 "d4b23e47a9e784a63e029338cce0464a82ce0ae4af852886afda410f9e39c630"
-  revision 1
+  url "https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.13.1.tar.bz2"
+  sha256 "c4e30b227682374c23cddc7fdb9324a99694d907e79242a25a4deeedb393be46"
 
   bottle do
     cellar :any
-    sha256 "bed4b8e9812a1d284b08ef2ad119b878d15890df993260eb763d885cc8d06e57" => :mojave
-    sha256 "00b1378847f4af823f953cf0a44d2739abdc5727c9dcf43c9a332e9b99f8fa17" => :high_sierra
-    sha256 "84d4d210a828e93794ee4cb846b6d6589f777657fc1437c4f0fe1db4f71a807d" => :sierra
+    sha256 "efd801521786032763050f3cc89117359b59d351792202d0785dd6fb86e87f3a" => :mojave
+    sha256 "f487ac8f1d921b559bf2472cae7939f980c31baee10674ecc6a245473f936c5a" => :high_sierra
+    sha256 "e25704cd86fc95fc9e630c0631729eb8315d8c7d27dc45abd0b08fd6d2d6937f" => :sierra
   end
 
   depends_on "doxygen" => :build

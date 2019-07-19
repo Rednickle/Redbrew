@@ -1,16 +1,14 @@
 class Nim < Formula
   desc "Statically typed compiled systems programming language"
   homepage "https://nim-lang.org/"
-  url "https://nim-lang.org/download/nim-0.20.0.tar.xz"
-  sha256 "51f479b831e87b9539f7264082bb6a64641802b54d2691b3c6e68ac7e2699a90"
-  revision 1
+  url "https://nim-lang.org/download/nim-0.20.2.tar.xz"
+  sha256 "e1fa5c7e762a45535d82a961f88a6fc82e343985b780c3674081810e028d2b5e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7d741d1407a03878484b4108afb828177c221dc80161b4ca99f321928b6ff685" => :mojave
-    sha256 "10096d865d035eefde2a1ce3408ee1d35ee426f74a89ba4aa0b690fe228d79c7" => :high_sierra
-    sha256 "c80dcbd42ffeaa0b066e29fe6598a578f3e0963340f84a1a464dbf54e7e72d15" => :sierra
-    sha256 "e3db4a3f70ad1962282ce629d5f15611c5b1571f9df5316225d7fbeac805c181" => :x86_64_linux
+    sha256 "99dc7109355f188aeeb3fcafd364d8737de184dbe31894bc136272e5624f3aaa" => :mojave
+    sha256 "52ece02a2308fbd9584f1a960f28fd888f9f4cb8b482824dc120c9a0d61b556a" => :high_sierra
+    sha256 "92379c9a9554e93f90228bfba8d1e0eabecf85bed4d3e3a7cd43b2a81d5363c6" => :sierra
   end
 
   head do
