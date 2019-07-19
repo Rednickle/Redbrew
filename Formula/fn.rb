@@ -1,15 +1,15 @@
 class Fn < Formula
   desc "Command-line tool for the fn project"
   homepage "https://fnproject.io"
-  url "https://github.com/fnproject/cli/archive/0.5.83.tar.gz"
-  sha256 "3b6075ac3cb0af48d90fa0c4aa9b950493156eb4d4f6337e10c05dd0ec630ecd"
+  url "https://github.com/fnproject/cli/archive/0.5.84.tar.gz"
+  sha256 "143d836ffea499f0e98fc0c5c7da4b3a81e89545ba0be31ddbb03462b591e9d9"
 
   bottle do
     root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
-    sha256 "7b47dfba5554142157daa64a7b64f4945a9a95ce055dc5db669918a2f265b57c" => :mojave
-    sha256 "dcce8beb0a0ba54ee309dba1f8eeddfa0100f45880400b3e227ebaef7e4c1c36" => :high_sierra
-    sha256 "cfffcadc9ec536363287808fbc373baa9e8ff61d2832dd0e7e9d6250162f1a1a" => :sierra
+    sha256 "ee39d6e3fafe7dee15e53355eea0675483ed5273299d98ca52d0946a2ce3d69c" => :mojave
+    sha256 "12efcbda739f6012e603b304d898dc92c36adfc66abb5f000fb4a7f244c8217c" => :high_sierra
+    sha256 "992da7f4ad218926a37ba03608ab21b3cab21a27c2dfdd40648999a072942e7a" => :sierra
   end
 
   depends_on "go" => :build
