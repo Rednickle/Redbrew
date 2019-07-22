@@ -1,16 +1,14 @@
 class GoAT111 < Formula
   desc "Go programming environment (1.11)"
   homepage "https://golang.org"
-  url "https://dl.google.com/go/go1.11.6.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.11.6.src.tar.gz"
-  sha256 "a96da1425dcbec094736033a8a416316547f8100ab4b72c31d4824d761d3e133"
+  url "https://dl.google.com/go/go1.11.12.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.11.12.src.tar.gz"
+  sha256 "6d7a5ba05476609a7614af3292f29c3be06327503c1f1fdc02ef417870fd6926"
 
   bottle do
-    rebuild 2
-    sha256 "7d444e90e02df64ca6763686ec4d5f101b6773e63ad29a3d21b396fcbe2a52e5" => :mojave
-    sha256 "4c4f77da4340781b2b950be37d612fa2ba45b41d8999ecb76166da80e11622a2" => :high_sierra
-    sha256 "65f35010e6ad1cf6fbf642e8cbac49b9d24e82d2fa8d3d78e0ade383a5000699" => :sierra
-    sha256 "ba6e22fcd9fcaf1d42e40681b4b6174273b6de704c7a8eba2320cb05a50c9048" => :x86_64_linux
+    sha256 "0d2c34a780571dc482b680f9a081306ffe23d62fb1eea46355953cd1e70d9b91" => :mojave
+    sha256 "4dde34b89438e93c26c8ea2c191162ee3e000310d49443c3558b52d38a75909d" => :high_sierra
+    sha256 "5bcc430e0d8f2dd79f9fa4325c099aa9fe63f48e58ddd6255587a854eade0f9f" => :sierra
   end
 
   keg_only :versioned_formula
@@ -32,24 +30,6 @@ class GoAT111 < Formula
       sha256 "702ad90f705365227e902b42d91dd1a40e48ca7f67a2f4b2fd052aaa4295cd95"
     end
     version "1.7"
-  end
-
-  # Prevents Go from building malformed binaries. Fixed upstream, should
-  # be in a future release.
-  # https://github.com/golang/go/issues/32673
-  patch do
-    url "https://github.com/golang/go/commit/26954bde4443c4bfbfe7608f35584b6b810f3f2c.patch?full_index=1"
-    sha256 "25a361bd4aa1155be06e2239c1974aa9c59f971210f19e16a3b7b576b9d4f677"
-  end
-
-  patch do
-    url "https://github.com/golang/go/commit/0fe1986a72ea578390d4909988a1d7cb3a687544.patch?full_index=1"
-    sha256 "320c11208313fc74e0bba7f323791416e5316451b109c440f56be361df8306ea"
-  end
-
-  patch do
-    url "https://github.com/golang/go/commit/3f1422c799edb143303c86c0e875d44c3612df64.patch?full_index=1"
-    sha256 "d071f0415cd2712cbed373682c4a84661147df1aabf38bbc0f3179532a988a4f"
   end
 
   def install
