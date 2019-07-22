@@ -1,22 +1,22 @@
 class Quickjs < Formula
   desc "Small and embeddable JavaScript engine"
   homepage "https://bellard.org/quickjs/"
-  url "https://bellard.org/quickjs/quickjs-2019-07-09.tar.xz"
-  sha256 "350c1cd9dd318ad75e15c9991121c80b85c2ef873716a8900f811554017cd564"
+  url "https://bellard.org/quickjs/quickjs-2019-07-21.tar.xz"
+  sha256 "a906bed24c57dc9501b84a5bb4514f7eac58db82b721116ec5abe868490e53cc"
 
   bottle do
-    sha256 "989215f264fc3240904342524457b923da278d6edd53e8fb44dad1f370b4e64f" => :mojave
-    sha256 "0f472d5f083df02c3516f42c43333f09fd6e2734da64ce7a4ae027a7e4dc808f" => :high_sierra
-    sha256 "3fbf3dfc902c9e68415088325ec7ec6f16e1c69204b3cd3432046d6bed14896e" => :sierra
+    sha256 "291f80952057e91b0e8a9bb449bc9e947e81586979fab12ab64144d9619c18d5" => :mojave
+    sha256 "f64371e9eaf20c2c0cead535c58019bb0c3c647a01cbbe25d8bb9f392630a1ab" => :high_sierra
+    sha256 "a151d816d4799c254fd87ccc8f3576f169bad84298333a98a48d1e429f69a51b" => :sierra
   end
 
   def install
-    system "make", "install", "prefix=#{prefix}"
+    system "make", "install", "prefix=#{prefix}", "CONFIG_M32="
   end
 
   test do
-    output = shell_output("#{bin}/qjs -e 'console.log(\"hello\");'").strip
-    assert_equal "hello", output
+    output = shell_output("#{bin}/qjs --eval 'const js=\"JS\"; console.log(`Q${js}${(7 + 35)}`);'").strip
+    assert_match /^QJS42/, output
 
     path = testpath/"test.js"
     path.write "console.log('hello');"
