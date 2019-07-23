@@ -8,10 +8,10 @@ class SphinxDoc < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d81f64ebb8c8508cef16a3d6b495b08675cfcd115d00b01370f88a2de7010001" => :mojave
-    sha256 "638277bad82c40e9596bbe967408b4adff56fb870951cd55a017129330a2947a" => :high_sierra
-    sha256 "5f942cb42d709479f026b2bb4f2a602fdc0b17135da7f7839c4d328d506c2374" => :sierra
-    sha256 "fbeedf67d40407487e0d70211a08ec956523e7c111113f0ec1c4ed34ee047a9b" => :x86_64_linux
+    rebuild 1
+    sha256 "3b8e5f0b6771f43869a6f30b24fe981b31bbac947e98f6742467e80afa480d8a" => :mojave
+    sha256 "d4871fe725cb2c3addd07850b0cf8251439636f011c0c076e3a6c196666ad4ad" => :high_sierra
+    sha256 "453be9e1fbb5fda85daa1bc37195268c740b6554d6a261c6748c98d3bd5f1364" => :sierra
   end
 
   keg_only <<~EOS
@@ -140,11 +140,6 @@ class SphinxDoc < Formula
   resource "sphinxcontrib-serializinghtml" do
     url "https://files.pythonhosted.org/packages/cd/cc/fd7d17cfae18e5a92564bb899bc05e13260d7a633f3cffdaad4e5f3ce46a/sphinxcontrib-serializinghtml-1.1.3.tar.gz"
     sha256 "c0efb33f8052c04fd7a26c0a07f1678e8512e0faec19f4aa8f2473a8b81d5227"
-  end
-
-  resource "typing" do
-    url "https://files.pythonhosted.org/packages/bf/9b/2bf84e841575b633d8d91ad923e198a415e3901f228715524689495b4317/typing-3.6.6.tar.gz"
-    sha256 "4027c5f6127a6267a435201981ba156de91ad0d1d98e9ddc2aa173453453492d"
   end
 
   resource "urllib3" do
