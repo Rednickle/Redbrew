@@ -3,16 +3,15 @@ class Conan < Formula
 
   desc "Distributed, open source, package manager for C/C++"
   homepage "https://github.com/conan-io/conan"
-  url "https://github.com/conan-io/conan/archive/1.17.0.tar.gz"
-  sha256 "12a26202cb3d2f6f5cfafb6cf0ee8a2940d1b507aff73fbe66e7ffe94f5003db"
+  url "https://github.com/conan-io/conan/archive/1.17.1.tar.gz"
+  sha256 "3cfd55092f2580106774e81006b2bff24b531dd504973ca9f3f8b2883e5653ea"
   head "https://github.com/conan-io/conan.git"
 
   bottle do
     cellar :any
-    sha256 "f1d2f4c1979beb4ef6f2211f58ee9023e2967ba6502f45c4375f9a4a47290d0d" => :mojave
-    sha256 "4b29a412169b54c4cb74ae25982b4fa51077bd66b04bf72adfe7f4e9f290fb5e" => :high_sierra
-    sha256 "075d7d095c15c4939d75e0fc2744ddc713edc0092402b0777b9d80bebb645ef7" => :sierra
-    sha256 "b1086136789c0c4eb886f19b17c64fc6b8852d81c2a1080584dfe07d79748721" => :x86_64_linux
+    sha256 "d78f5834ab14b1f3ff6203d2515ed44032296c99e78fe77f85accdb3d5d33df1" => :mojave
+    sha256 "a61058adefd9848fd05248da21ac91257cd5a2e67eda535dee26491a192a9685" => :high_sierra
+    sha256 "b0ecf754bfb68652d43f99c0f1aca4189b3807df7488000df2eaa60aac4906c6" => :sierra
   end
 
   depends_on "pkg-config" => :build
