@@ -3,17 +3,16 @@ class Mackup < Formula
 
   desc "Keep your Mac's application settings in sync"
   homepage "https://github.com/lra/mackup"
-  url "https://github.com/lra/mackup/archive/0.8.24.tar.gz"
-  sha256 "2da9bdd60e0be3724d58c6874b573fe8f4ef5438cb209201607f093a016b73d5"
+  url "https://github.com/lra/mackup/archive/0.8.25.tar.gz"
+  sha256 "13e68bde2dee8033a292d820a724d42bcb9e0ba21a7844111a95b440d3b1903b"
   head "https://github.com/lra/mackup.git"
 
   bottle do
     root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any_skip_relocation
-    sha256 "75d05ae40d68151a05c113c7887280d343fee356e0cb3f76b546c92073203119" => :mojave
-    sha256 "79ed8709ce02d8b3d94e139d21a4b6726e434d52df3f9142ea7e45bea47c42b0" => :high_sierra
-    sha256 "5b7c88fc3fe73913350e5c4486f3e529ec0b1d6f9e782ded7bbe4d0868fd1b4a" => :sierra
-    sha256 "c34f1732562db8206c2c86fd6f56b73d37e4c2c2ae20d39cde1bb5d7e15f31e5" => :x86_64_linux
+    sha256 "3444d96ca42acf04638c1832d9de753579a45c86dadf8e169c672d50a85175e9" => :mojave
+    sha256 "7b5db8c9278c9bf0331b85bb261f872d8ed5d1437d6a35634dadbaacf8a610f7" => :high_sierra
+    sha256 "06f90066989a272610942b6a44a67a77afb2b53f6d3762cb333e6390782f213d" => :sierra
   end
 
   depends_on "python"
@@ -24,8 +23,8 @@ class Mackup < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
-    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
+    url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
+    sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
   end
 
   def install
