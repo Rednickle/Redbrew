@@ -1,14 +1,14 @@
 class Kubeseal < Formula
   desc "Kubernetes controller and tool for one-way encrypted Secrets"
   homepage "https://github.com/bitnami-labs/sealed-secrets"
-  url "https://github.com/bitnami-labs/sealed-secrets/archive/v0.8.0.tar.gz"
-  sha256 "7f66b393b152da7000707f87560bea2ecba68ba53fed642b31fc334cbec13a3b"
+  url "https://github.com/bitnami-labs/sealed-secrets/archive/v0.8.1.tar.gz"
+  sha256 "b6d71defe7ec8dd619c3e3b2ea39c892b75ed475aa6faeae4885993e307e7922"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ca231b98000ec3219277cfdd47c2d578d22256ce70f3ed04fd8382623484a7ac" => :mojave
-    sha256 "640b932fc0fe8413fe3fc19a315c81e41e31a42ec2882b451cc7ff6ab3181734" => :high_sierra
-    sha256 "ba1eca77b8017222e8dac3e6527706e61fa028d7ea97422e28e6793aeafc3f2a" => :sierra
+    sha256 "482f557b305c7b1fd04c88669cbc0554dd2efc977102e768db8568a3749e8cab" => :mojave
+    sha256 "273c76c618cc8edc4d1b3d0ff368db14a0dcc508c1b290884791c40a3d6477b0" => :high_sierra
+    sha256 "51ad37b12b4d322e3052a0a28d5185c860cde82641c3636e25cec3a8c8a374ac" => :sierra
   end
 
   depends_on "go" => :build
