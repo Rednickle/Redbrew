@@ -1,16 +1,15 @@
 class Memcached < Formula
   desc "High performance, distributed memory object caching system"
   homepage "https://memcached.org/"
-  url "https://www.memcached.org/files/memcached-1.5.14.tar.gz"
-  sha256 "9c5bdf29a780fb6c6f7c9eaaeeda0583efdf663193758c3e316c969a510af2a9"
+  url "https://www.memcached.org/files/memcached-1.5.16.tar.gz"
+  sha256 "45a22c890dc1edb27db567fb4c9c25b91bfd578477c08c5fb10dca93cc62cc5a"
 
   bottle do
     root_url "https://linuxbrew.bintray.com/bottles"
     cellar :any
-    sha256 "ad92429279c21a55ebf3c3715d1ffd051fae10fb171f38d68b9d9829a1ecb4da" => :mojave
-    sha256 "8e523a5bab95585ebcb29bcdbe4ce3aeff11ad80b5c286bef8e81454a65ee6d3" => :high_sierra
-    sha256 "7e8473396ca5431a2ff6d0360728d667b02d1be8e9e5c11d47e79bc14453a223" => :sierra
-    sha256 "6f372b305bd0f7d309620275d45473aa2e00c29400b2a75758487fc4434634ff" => :x86_64_linux
+    sha256 "5deff247a1bbbdecd0e22ed534a4de8d57fc5a9d5c7dde08763a366c8783b54a" => :mojave
+    sha256 "ef7043afc7f9af67793fb428e00ad392bbd5bc028821974dfc09349215a3aa2a" => :high_sierra
+    sha256 "4089234077cad271e86e0dbc7c18d7ce0276c47e4fa6d926002d33909e817927" => :sierra
   end
 
   depends_on "libevent"
