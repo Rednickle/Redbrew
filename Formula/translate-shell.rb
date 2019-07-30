@@ -15,6 +15,7 @@ class TranslateShell < Formula
   depends_on "fribidi"
   depends_on "gawk"
   depends_on "rlwrap"
+  depends_on "util-linux" unless OS.mac?
 
   def install
     system "make"
