@@ -12,6 +12,7 @@ class Gsoap < Formula
 
   depends_on "autoconf" => :build
   depends_on "openssl"
+  uses_from_macos "zlib"
   unless OS.mac?
     depends_on "bison"
     depends_on "flex"
