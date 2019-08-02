@@ -2,16 +2,15 @@ class Minio < Formula
   desc "Amazon S3 compatible object storage server"
   homepage "https://github.com/minio/minio"
   url "https://github.com/minio/minio.git",
-      :tag      => "RELEASE.2019-07-24T02-02-23Z",
-      :revision => "3e3fbdf8e6e5e889232eb7afc0b27ac054adfda0"
-  version "20190724020223"
+      :tag      => "RELEASE.2019-07-31T18-57-56Z",
+      :revision => "123cccaed1a303cb159fbed01eced44bc2a3197e"
+  version "20190731185756"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "26d28373aa3ed6088babb649382c1fc3eb33df5a5fe058f72092545191faebd8" => :mojave
-    sha256 "d4af7e5d4f13ba8ee163c9c14059446b2ece15526eb49620a9bc48da9d634e58" => :high_sierra
-    sha256 "9d4394ff52414504bb312d85863b4f1f20fefb617c14e8c68cbc04b802f98de9" => :sierra
-    sha256 "4e733ba4d9632ca52a5f07140aa5ae78567d05dfa323e06aab3d1658135e190f" => :x86_64_linux
+    sha256 "02d3768d6895f6d8892fdf4fc26fb48a0bfb226b249104e8d824d70df9bf3230" => :mojave
+    sha256 "1d50e1f1f7cf0e7d7ff0a830d8b2c3fa2c7266477c462ac00eedfc4e7214ef8b" => :high_sierra
+    sha256 "8e0f11067a96bf259335ca54828c7fed774b7202430fdad7344755bbd54c146a" => :sierra
   end
 
   depends_on "go" => :build
