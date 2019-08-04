@@ -3,17 +3,16 @@ class AzureCli < Formula
 
   desc "Microsoft Azure CLI 2.0"
   homepage "https://docs.microsoft.com/cli/azure/overview"
-  url "https://codeload.github.com/Azure/azure-cli/legacy.tar.gz/0317304991945c18773853f969ea8b8828643732"
-  version "2.0.69"
-  sha256 "3ee55bd1d1ca54cccc708d38e1d28bee68b92a548144b3d2041b9f69a4a068e6"
+  url "https://codeload.github.com/Azure/azure-cli/legacy.tar.gz/7c3e10ea0922d59a902520684f29274e94a164b5"
+  version "2.0.70"
+  sha256 "b1f0e3ae9d773fdc63eb5c1f432ed5b3894d9a273e4ef001b176628df8aedc2d"
   head "https://github.com/Azure/azure-cli.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6a3875d9699437e084e07c69e93f3feac14a13a610bc2492299701b52202122e" => :mojave
-    sha256 "4c185ab202053db6a8a6044d87c3f54bc53a0e2ce5f13804099a5f2a4c1277fc" => :high_sierra
-    sha256 "b37d81b8d1f37d20873c8ef15fbae0f847e71c5aae6de263698cb697bac97428" => :sierra
-    sha256 "c7ad44260e2651cfeb3ac26f9ae6f45d9f46e634b0a15d4f67282106b5574316" => :x86_64_linux
+    sha256 "5835f1da919d7a38fe3199c45496c1a020514381716d0c39e93b6487acfdc144" => :mojave
+    sha256 "39aa18da5509277ef19ff8936e90084684aa73285cc546c262cd061ce7ba3170" => :high_sierra
+    sha256 "341abb4a72222b0b9e0153598884ed830efb438cab39030bb7fdecad85a98435" => :sierra
   end
 
   depends_on "openssl"
@@ -136,8 +135,8 @@ class AzureCli < Formula
   end
 
   resource "azure-mgmt-compute" do
-    url "https://files.pythonhosted.org/packages/43/8e/ec7c9e5857359f5316d6b6ec2e78f0b392979ceb480e917a8cd8cc2f7d59/azure-mgmt-compute-5.0.0.zip"
-    sha256 "bc200f100da77c0c910cc9e4db103d4c3f9e052222aa400630b608e410bbbefd"
+    url "https://files.pythonhosted.org/packages/4a/a1/a3500837b1891c7523a76c8458d317201293b7c1cd697a555097aec33bc0/azure-mgmt-compute-6.0.0.zip"
+    sha256 "603e9172b722d6b6f200891f3012946b6b8e13621352183003c48f11efee3fc9"
   end
 
   resource "azure-mgmt-consumption" do
@@ -286,8 +285,8 @@ class AzureCli < Formula
   end
 
   resource "azure-mgmt-netapp" do
-    url "https://files.pythonhosted.org/packages/a6/3e/e3b6303ed7b3c35b0606a6489c263894bd070d08d6a81b259b779b7227b4/azure-mgmt-netapp-0.4.0.zip"
-    sha256 "3fd4b43a03a3745bd88224f49eae696befdd61574e31a7bf1438ded85af34a52"
+    url "https://files.pythonhosted.org/packages/76/1d/cbdd7af05ef9c345c470b9ea6574f47eca55f4c2e7277c180c821797bbff/azure-mgmt-netapp-0.5.0.zip"
+    sha256 "cd1c15c18a52bb5297243719b2c2881a3f3817c6bc37fb1d06f7dae3e75df4f2"
   end
 
   resource "azure-mgmt-network" do
@@ -531,18 +530,18 @@ class AzureCli < Formula
   end
 
   resource "pbr" do
-    url "https://files.pythonhosted.org/packages/a4/f4/e0bc4f0310465df47da56df4bd4d46907e62fc430f9afccd69644e150d52/pbr-5.4.0.tar.gz"
-    sha256 "36ebd78196e8c9588c972f5571230a059ff83783fabbbbedecc07be263ccd7e6"
+    url "https://files.pythonhosted.org/packages/57/12/570e15363115131bda127d8c6a63ccd0a040acc4a09856d9679596e69888/pbr-5.4.1.tar.gz"
+    sha256 "0ca44dc9fd3b04a22297c2a91082d8df2894862e8f4c86a49dac69eae9e85ca0"
   end
 
   resource "portalocker" do
-    url "https://files.pythonhosted.org/packages/64/9f/cdf0db3a74307d9a000ec049f34a122c889f25224518d516519a2d8a7fba/portalocker-1.4.0.tar.gz"
-    sha256 "3fb35648a9e03f267e54c6186513abbd1cdd321c305502545a3550eea8b2923f"
+    url "https://files.pythonhosted.org/packages/f8/81/daafc3a912dd428b1e6ced73f89772b6c85570b51b2d898bba65c8242986/portalocker-1.5.0.tar.gz"
+    sha256 "d9af6b298554286a05b9fd361289fe8a86b2b0f41a82cd93b147155bd398c523"
   end
 
   resource "prompt_toolkit" do
-    url "https://files.pythonhosted.org/packages/f1/03/bb36771dc9fa7553ac4bdc639a9ecdf6fda0ff4176faf940d97e3c16e41d/prompt_toolkit-1.0.16.tar.gz"
-    sha256 "c1cedd626e08b8ee830ee65897de754113ff3f3035880030c08b01674d85c5b4"
+    url "https://files.pythonhosted.org/packages/94/a0/57dc47115621d9b3fcc589848cdbcbb6c4c130186e8fc4c4704766a7a699/prompt_toolkit-2.0.9.tar.gz"
+    sha256 "2519ad1d8038fd5fc8e770362237ad0364d16a7650fb5724af6997ed5515e3c1"
   end
 
   resource "psutil" do
