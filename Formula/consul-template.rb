@@ -2,16 +2,15 @@ class ConsulTemplate < Formula
   desc "Generic template rendering and notifications with Consul"
   homepage "https://github.com/hashicorp/consul-template"
   url "https://github.com/hashicorp/consul-template.git",
-      :tag      => "v0.20.0",
-      :revision => "9a0f301b69d841c32f36b78008afb2dee8a9c40b"
+      :tag      => "v0.20.1",
+      :revision => "668c77b30f6ddcb5c80856dbec6f16b86f1b7023"
   head "https://github.com/hashicorp/consul-template.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7559cba6cb21be7511ef392022525f592a357598093f1169b90a6e5305b14ba9" => :mojave
-    sha256 "06faa71caea243c485c42cc7e5401b973462ae191bb3a5fd89527a6dcaa0beec" => :high_sierra
-    sha256 "f5d28452d05955eb0a95206be5d2252f6e4c25438c6a57d7d854f7a1d8242a3d" => :sierra
-    sha256 "2e9386326dc2408ba275338a909b805f8525213cdc32d76f4d54b26d3d1c2967" => :x86_64_linux
+    sha256 "fe5380c1104a607b3970058432c75a798999bf63afa588db28428e84e933701e" => :mojave
+    sha256 "c809f774afb8305d1a581b7a2869cf42ca311370cf233a3b13b0988ee9a0afe8" => :high_sierra
+    sha256 "f181d44f0d605373b0bf1b6452fa0b6f5a7157355808ba3023ec5dc39c8944f1" => :sierra
   end
 
   depends_on "go" => :build

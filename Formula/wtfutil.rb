@@ -2,14 +2,14 @@ class Wtfutil < Formula
   desc "The personal information dashboard for your terminal"
   homepage "https://wtfutil.com"
   url "https://github.com/wtfutil/wtf.git",
-    :tag      => "v0.19.0",
-    :revision => "31fb0208d0de6ac27ade7fa0f4f14bf8b8d77e8b"
+    :tag      => "v0.19.1",
+    :revision => "45da40e4c9ffe35a3c0501f580edc8a5182c9546"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5927d8b5b9db61af28f03b2f8524ee3b83d760907d7f4ba30de4657f30f329a4" => :mojave
-    sha256 "33e969bdbfbe25920ee5a6604a411917639182a4a72bcbb2ba82d269090a43ce" => :high_sierra
-    sha256 "ec16a65458c2247a235f066220fc10764ece2aaf30e35101c5c7ddac093a28a2" => :sierra
+    sha256 "b2861f35be5715ead8879fdcd075f8ddbf109485026b6cf6f820061daa926bc7" => :mojave
+    sha256 "5df2d7ebd53d0770dc24c90fb800987863688a26426e1290a33a365d75427896" => :high_sierra
+    sha256 "ac3b99c16c2034ece2e68445b4f7be8426cc162578dad7f2a9042aea9366001a" => :sierra
   end
 
   depends_on "go" => :build
