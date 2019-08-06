@@ -3,8 +3,8 @@ class Crystal < Formula
   homepage "https://crystal-lang.org/"
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/0.29.0.tar.gz"
-    sha256 "c2265b2a904ded282751f59a3bd0367072058eee1cf51ebe0af03a572f8e19b9"
+    url "https://github.com/crystal-lang/crystal/archive/0.30.0.tar.gz"
+    sha256 "fc884970089e382344540676a9c5aa4f369c9a0f45d1858e079b4ce26878164a"
 
     resource "shards" do
       url "https://github.com/crystal-lang/shards/archive/v0.8.1.tar.gz"
@@ -13,10 +13,9 @@ class Crystal < Formula
   end
 
   bottle do
-    sha256 "87ad47db7f211cc64fa79a847f23ef3850da2792f8c4d673b0c16fca9be769ce" => :mojave
-    sha256 "cfa194da34d0cf847f6d3ce19603e7d8f8502c3cf93ec6975df59247f2f1e252" => :high_sierra
-    sha256 "50982b8eee0c4ee85539e0cddd51425a54572af1bf50b7ac7dcf691bb62c0996" => :sierra
-    sha256 "a229e4fa19cd183e3ec2372e4e7b37fee386c7dd89c979b8b73e63209e684456" => :x86_64_linux
+    sha256 "5d7671dcca978752ac7ac98af0ae59bf83fc8e0a6c0f32b53237a6503ad838c3" => :mojave
+    sha256 "d7b80a23bac412d1afe337333a2487f258466d8f53061becef6bedceccc49500" => :high_sierra
+    sha256 "3fe13bbfbd2a5e50bd8ec536c0c263a25542923494344a6304f85febc90608f8" => :sierra
   end
 
   head do
@@ -35,7 +34,7 @@ class Crystal < Formula
   depends_on "gmp" # std uses it but it's not linked
   depends_on "libevent"
   depends_on "libyaml"
-  depends_on "llvm@6"
+  depends_on "llvm"
   depends_on "pcre"
   depends_on "pkg-config" # @[Link] will use pkg-config if available
 
@@ -52,15 +51,15 @@ class Crystal < Formula
   end
 
   resource "boot" do
-    if OS.mac?
-      url "https://github.com/crystal-lang/crystal/releases/download/0.28.0/crystal-0.20.0-1-darwin-x86_64.tar.gz"
-      version "0.28.0-1"
-      sha256 "f3ba24c297a99382d749344f319947f807da03371240e373d5c3d13117d4a113"
-    else
-      url "https://github.com/crystal-lang/crystal/releases/download/0.28.0/crystal-0.28.0-1-linux-x86_64.tar.gz"
-      version "0.28.0-1"
-      sha256 "0ae13581b0d30740f232c9a29e444184121fc263b22c01d2c94290660860982e"
-    end
+  if OS.mac?
+    url "https://github.com/crystal-lang/crystal/releases/download/0.29.0/crystal-0.29.0-1-darwin-x86_64.tar.gz"
+    version "0.29.0-1"
+    sha256 "6de700d88dc0486c0d56e4d5c6852dc675256aa6f2c571ed8e4b15e0fc72a0b9"
+  else
+    url "https://github.com/crystal-lang/crystal/releases/download/0.29.0/crystal-0.29.0-1-linux-x86_64.tar.gz"
+    version "0.29.0-1"
+    sha256 "cad27db08542947e788e7c06fc00691c05ba678cedf20ecf9baa8cee741233f3"
+  end
   end
 
   def install
@@ -99,6 +98,9 @@ class Crystal < Formula
     # Build shards
     resource("shards").stage do
       system buildpath/"bin/crystal", "build", "-o", buildpath/".build/shards", "src/shards.cr"
+
+      man1.install "man/shards.1"
+      man5.install "man/shard.yml.5"
     end
 
     bin.install ".build/shards"
@@ -108,6 +110,8 @@ class Crystal < Formula
 
     bash_completion.install "etc/completion.bash" => "crystal"
     zsh_completion.install "etc/completion.zsh" => "_crystal"
+
+    man1.install "man/crystal.1"
   end
 
   test do
