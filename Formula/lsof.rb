@@ -33,7 +33,7 @@ class Lsof < Formula
 
     system "make"
     bin.install "lsof"
-    man8.install "Lsof.8"
+    man8.install OS.mac? ? "lsof.8" : "Lsof.8"
     prefix.install_metafiles
   end
 
