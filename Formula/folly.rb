@@ -1,14 +1,14 @@
 class Folly < Formula
   desc "Collection of reusable C++ library artifacts developed at Facebook"
   homepage "https://github.com/facebook/folly"
-  url "https://github.com/facebook/folly/archive/v2019.07.22.00.tar.gz"
-  sha256 "0d895a10ea297fc8b1a95b6f64b882de6556a0f7ba92f239ea46f0a60944f647"
+  url "https://github.com/facebook/folly/archive/v2019.07.29.00.tar.gz"
+  sha256 "7496e5641ebbae3c7a64d4ae3cbbf78a0bd14f91844a1755d28f9fb5e0d3537b"
   head "https://github.com/facebook/folly.git"
 
   bottle do
     cellar :any
-    sha256 "d485490cf90118fd7c277557e92c4667e9b77b2ae4f2c1c3d9bf624cc606ea05" => :mojave
-    sha256 "706c100b1686986b33b339e20d6982018c507bcb1c868314e2f8fb6554608772" => :high_sierra
+    sha256 "b520a24c2969fd56b67787f1ca9f847bcf726cd3cd4cf3cb4d48b7333dec8de1" => :mojave
+    sha256 "9cdb813947e8739cc5ca89f3dfd1dfe0575700c9950ab64e21d9a8301edf9ae0" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -29,10 +29,6 @@ class Folly < Formula
   depends_on "zstd"
 
   uses_from_macos "python"
-
-  # Known issue upstream. They're working on it:
-  # https://github.com/facebook/folly/pull/445
-  fails_with :gcc => "6"
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
