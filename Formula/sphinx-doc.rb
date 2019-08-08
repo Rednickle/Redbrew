@@ -5,14 +5,13 @@ class SphinxDoc < Formula
   homepage "https://www.sphinx-doc.org/"
   url "https://files.pythonhosted.org/packages/89/1e/64c77163706556b647f99d67b42fced9d39ae6b1b86673965a2cd28037b5/Sphinx-2.1.2.tar.gz"
   sha256 "f9a79e746b87921cabc3baa375199c6076d1270cee53915dbd24fdbeaaacc427"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "3b8e5f0b6771f43869a6f30b24fe981b31bbac947e98f6742467e80afa480d8a" => :mojave
-    sha256 "d4871fe725cb2c3addd07850b0cf8251439636f011c0c076e3a6c196666ad4ad" => :high_sierra
-    sha256 "453be9e1fbb5fda85daa1bc37195268c740b6554d6a261c6748c98d3bd5f1364" => :sierra
-    sha256 "f694c8d9778e2c72a993546433528b2c86422579db87a8795c08592b89c9d91e" => :x86_64_linux
+    sha256 "e4bd825fb464c545a58e8e0c8f1b6cea3ec362a77080bdea1f0fd3008da07f76" => :mojave
+    sha256 "df928bcfb18b5b587161aa3ed476d2a3ce3701e032fb89bd001ea5e460fda892" => :high_sierra
+    sha256 "a681c31b072a2372e991251e23efe5476c6bcbdd7dce75a55f53d33571111557" => :sierra
   end
 
   keg_only <<~EOS
