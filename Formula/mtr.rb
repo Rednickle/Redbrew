@@ -3,18 +3,25 @@ class Mtr < Formula
   homepage "https://www.bitwizard.nl/mtr/"
   url "https://github.com/traviscross/mtr/archive/v0.93.tar.gz"
   sha256 "3a1ab330104ddee3135af3cfa567b9608001c5deecbf200c08b545ed6d7a4c8f"
+  revision 1
   head "https://github.com/traviscross/mtr.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b137ed40e6196bb62c8b2be59f28af343158d3e519f90df68e67d02b36e77e62" => :mojave
-    sha256 "b5ca93ad60fb8c02abf439ce6de67209aa4bee842b609cd30e99ecd19fae2589" => :high_sierra
-    sha256 "9dc3aed9968b410bb895471a9f8630e4685c9c70ab606f64d97b70ca8772fadd" => :sierra
+    sha256 "897b799ceac2677da540387c4015d4f520f59bf9965bcf1b5b1e9dd706bf3778" => :mojave
+    sha256 "b0348961fef4e2b805434587d69cd6f2caecc3ed2c21873211635e6a875a4562" => :high_sierra
+    sha256 "cffaaf2cacad93387e7f32bcbb38e8dd1be2d2615774baa96ed320021e564011" => :sierra
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
+
+  # Pull request submitted upstream as https://github.com/traviscross/mtr/pull/315
+  patch do
+    url "https://github.com/traviscross/mtr/pull/315.patch?full_index=1"
+    sha256 "c67b455198d4ad8269de56464366ed2bbbc5b363ceda0285ee84be40e4893668"
+  end
 
   def install
     # We need to add this because nameserver8_compat.h has been removed in Snow Leopard
