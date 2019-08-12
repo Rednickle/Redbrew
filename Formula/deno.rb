@@ -2,14 +2,14 @@ class Deno < Formula
   desc "Command-line JavaScript / TypeScript engine"
   homepage "https://deno.land/"
   url "https://github.com/denoland/deno.git",
-    :tag      => "v0.13.0",
-    :revision => "b3541c38f5672ffb4a29d66dca19d88b9ecae478"
+    :tag      => "v0.14.0",
+    :revision => "83d5362f1d7d8589b862de57912135067a8278c7"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b0ec5a18967803acadf7b5e48bb02268e37dc466e0fa80d92af568da84c6e210" => :mojave
-    sha256 "0decb234791298d5a08cce79aff592e742d10eb686a3939f823521def7cb0b72" => :high_sierra
-    sha256 "3b6874432be793886b424bc1b0c2608dacb8f47c93c03b4f0fa569411e725190" => :sierra
+    sha256 "8e2e967422d2c8b24ac4d4d4742d80e99355cd019954b57d3ff3f5fffa085765" => :mojave
+    sha256 "ffb56f0d5b484fe0efdb2d837e18adfd12d38f23c35322c3ab0dac2c2b7fa7f9" => :high_sierra
+    sha256 "dc19254bace232ee1d6986d9f8c052f90849d146cdcc704b8562670357566dcf" => :sierra
   end
 
   depends_on "llvm" => :build
@@ -38,6 +38,7 @@ class Deno < Formula
     ENV["DENO_BUILD_ARGS"] = %W[
       clang_base_path="#{Formula["llvm"].prefix}"
       clang_use_chrome_plugins=false
+      mac_deployment_target="#{MacOS.version}"
     ].join(" ")
     ENV["DENO_NINJA_PATH"] = Formula["ninja"].bin/"ninja"
     ENV["DENO_GN_PATH"] = buildpath/"gn/out/gn"
