@@ -6,14 +6,15 @@ class Opencv < Formula
   revision 3
 
   bottle do
-    sha256 "03b04a88235b9af479b3232f709862d407424db16989db8e9d04faf9aebf41a4" => :mojave
-    sha256 "5d1aa3f632e427f5bd98c5041a7b156d70fab186a988163caf05355f441eab83" => :high_sierra
-    sha256 "5204d6f98f0d4fc482e2e0bd62e7d75f6d6cd52b1430f549985f756bb43fd01c" => :sierra
-    sha256 "7d7af30ed4c6deb8ac373b2e8d534547272687378c1a306bda92a52e987123c8" => :x86_64_linux
+    rebuild 1
+    sha256 "3b03d5c7d9b03287656626a937189e998572f21c04227803fc37a8f81eeeeadb" => :mojave
+    sha256 "d06107193fe9439d2d407d59526882cca2622cf0c6290bd68ad13de7b8ce3693" => :high_sierra
+    sha256 "0013841f9a126c8b45ca4f7101e91b321f2741f37517f8dc455652de5cbe1516" => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "ceres-solver"
   depends_on "eigen"
   depends_on "ffmpeg"
   depends_on "glog"
