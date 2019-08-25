@@ -1,16 +1,18 @@
-class Protobuf < Formula
+class ProtobufAT37 < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/protocolbuffers/protobuf/"
   url "https://github.com/protocolbuffers/protobuf.git",
-      :tag      => "v3.9.1",
-      :revision => "655310ca192a6e3a050e0ca0b7084a2968072260"
-  head "https://github.com/protocolbuffers/protobuf.git"
+      :tag      => "v3.7.1",
+      :revision => "6973c3a5041636c1d8dc5f7f6c8c1f3c15bc63d6"
 
   bottle do
-    sha256 "b0b095847f08949cc9777188f6ee0883ea987b2a7bf6c10899da5127d6cbc1ef" => :mojave
-    sha256 "db34146f742af2300e66626be56766c7af2efe56057b6d19f0310f25f26e7ab7" => :high_sierra
-    sha256 "5e357d762a171fbb5e77af6b244823da4d8c1d54286568103c5f8a729ab97cb6" => :sierra
+    cellar :any
+    sha256 "1f70d592ce075a0df8d0dedb054d66cc52c0b943ffe37f8e098c582a493b67c0" => :mojave
+    sha256 "71e32bb6962208745b80f93015e42d71529ec6dae4e0eecf3ab9ab4d03d143e7" => :high_sierra
+    sha256 "50ffdb0ccc43278d4e93aa375bec8b6fa4aabcc9ece84ba85b605ff124f26650" => :sierra
   end
+
+  keg_only :versioned_formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -21,12 +23,6 @@ class Protobuf < Formula
   resource "six" do
     url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
     sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
-  end
-
-  unless OS.mac?
-    fails_with :gcc => "4"
-    fails_with :gcc => "5"
-    depends_on "gcc@6"
   end
 
   def install

@@ -8,10 +8,10 @@ class Etcd < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "97a67c313f2f7929d0ead34ad7e4c68817d7e900a7e6c4f42e198ed891f94f9d" => :mojave
-    sha256 "65f24030be6eb743d63ecac7f37383f350aa8b76fdd088e14ce81aef4ddd3434" => :high_sierra
-    sha256 "b7d7223b85c04c9e2833640888e1a61d2b6546447e993238bc5e9e386413f6e6" => :sierra
-    sha256 "96c7de6b22224cfe1b093dfe2da296972ef1d5c8b3664accb6dd0b874f236b38" => :x86_64_linux
+    rebuild 1
+    sha256 "d7392e41874580ea26cccda6130072f8c360f2f4e6871042e20b9e7484b85214" => :mojave
+    sha256 "4854e5c3bf7a4a4954b790113b926f6d5236807393fe275fccda37c4535d7f95" => :high_sierra
+    sha256 "aac21ebafe3c042aebb31f832c7909ecfa54e5123e0fbafb261a173556c4aea4" => :sierra
   end
 
   depends_on "go" => :build
@@ -25,7 +25,7 @@ class Etcd < Formula
 
     cd dir do
       system "go", "build", "-ldflags", "-X main.version=#{version}", "-o", bin/"etcd"
-      system "go", "build", "-ldflags", "-X main.version=#{version}", "-o", bin/"etcdctl"
+      system "go", "build", "-ldflags", "-X main.version=#{version}", "-o", bin/"etcdctl", "etcdctl/main.go"
       prefix.install_metafiles
     end
   end
@@ -58,6 +58,8 @@ class Etcd < Formula
   end
 
   test do
+    ENV["ETCDCTL_API"] = "3"
+
     begin
       test_string = "Hello from brew test!"
       etcd_pid = fork do
@@ -70,6 +72,9 @@ class Etcd < Formula
       curl_output = shell_output("curl --silent -L #{etcd_uri}")
       response_hash = JSON.parse(curl_output)
       assert_match(test_string, response_hash.fetch("node").fetch("value"))
+
+      assert_equal "OK\n", shell_output("#{bin}/etcdctl put foo bar")
+      assert_equal "foo\nbar\n", shell_output("#{bin}/etcdctl get foo 2>&1")
     ensure
       # clean up the etcd process before we leave
       Process.kill("HUP", etcd_pid)
