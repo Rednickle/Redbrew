@@ -1,15 +1,14 @@
 class Opa < Formula
   desc "Open source, general-purpose policy engine"
   homepage "https://www.openpolicyagent.org"
-  url "https://github.com/open-policy-agent/opa/archive/v0.13.3.tar.gz"
-  sha256 "1288c2687b5b8fd106dca78df96be7b022322b3465a384a0c7545748969cdd5c"
+  url "https://github.com/open-policy-agent/opa/archive/v0.13.4.tar.gz"
+  sha256 "2723956c283d88e55f99893f2c9dee48dad0e6f96d81b4f8ca7c28a52ef1a8cc"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "739a12287279ed4d5765b2573b33f383e64a264b36d8dfd784006c490d74f2f4" => :mojave
-    sha256 "6807cc9a6df74306ef978716fa7f3929151c1aafb1e47c7d59267c44facb1089" => :high_sierra
-    sha256 "42deabb98be39ced00d89dc6a32590c71cad4994fe39a720b4d56b2507d9b532" => :sierra
-    sha256 "00dc145cb83a6e6001dbfa68333d753ffe22255cf90fbdcc5227ced172c938d0" => :x86_64_linux
+    sha256 "092068ff7d0bc10221d755f2430566e6159f7f90420364777711e8850758a59e" => :mojave
+    sha256 "27a0ee6dc895c6096651e02fb9eff11b4d2025522b9516dba00f1f4164a34d84" => :high_sierra
+    sha256 "cbc573e81ea9be57104fdc842068490ac0fa92a0ef8ac62f5e4d3c103a28bd40" => :sierra
   end
 
   depends_on "go" => :build
