@@ -3,18 +3,19 @@ class Libpulsar < Formula
   homepage "https://pulsar.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=pulsar/pulsar-2.4.0/apache-pulsar-2.4.0-src.tar.gz"
   sha256 "b4666cade20f7e7c01b9050813a3975d4e0fba36f0ab058e39e41b30e029dc05"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "8364ac27872db23b3793ad5fbb360d062e90b281f3d67b3777207b1db5311530" => :mojave
-    sha256 "06a9ae40b3a1128f3dd4fd1e16426b7313e46d4cb31111b252600e90837c25ee" => :high_sierra
-    sha256 "8de61a6470b719f5f491977674d3ae2e18c08452c556abe3a1b70bd43af79bb1" => :sierra
+    sha256 "caf6afe837d6f6c5c12bf8a151733c538792160cf859422f6f9438b9bb1cf582" => :mojave
+    sha256 "7bb8fcabdcea63038d5c2428f9a40e479fd188fc024641c990ca9c5ffaafb968" => :high_sierra
+    sha256 "117ff4ae42dcc8ba857e67cdf60b8c2c70c637d7b107a70628c0701d2e5d0810" => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "boost"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "protobuf"
   depends_on "zstd"
 
