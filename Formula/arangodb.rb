@@ -3,18 +3,19 @@ class Arangodb < Formula
   homepage "https://www.arangodb.com/"
   url "https://download.arangodb.com/Source/ArangoDB-3.5.0.tar.gz"
   sha256 "b81e30da4249f72b8daa88584cd05388c86ab12eb3185f6558a774e8db5dc9ab"
+  revision 1
   head "https://github.com/arangodb/arangodb.git", :branch => "devel"
 
   bottle do
-    sha256 "a631dcd7c37b7f05d5339eea94d1459b8d5e531505ae7e62eb7359b49f2d0075" => :mojave
-    sha256 "374f0949052276cdb4e6318dc181ea3af64b2d0cb0eaf9e41132c6d618e4340d" => :high_sierra
-    sha256 "0c0e225a155a9cba74cfdb4f59fe406846042ad2a9c67cf55e08d20650701421" => :sierra
+    sha256 "c5f3e3fbe5d695597bf20a95e8c2ffdb6e8b74bee6ef3fd7989555ac8f9d718b" => :mojave
+    sha256 "e8053c9157efe620fe7d2660993ac7f929a9a914e2a5bc758f52d5c80de9fe84" => :high_sierra
+    sha256 "431fb46ca96833c6c097b3e132a3210afb8bc954d2106a823099731733bcc220" => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on "go" => :build
   depends_on :macos => :yosemite
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   # see https://gcc.gnu.org/bugzilla/show_bug.cgi?id=87665
   fails_with :gcc => "7"
