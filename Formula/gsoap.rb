@@ -3,16 +3,16 @@ class Gsoap < Formula
   homepage "https://www.genivia.com/products.html"
   url "https://downloads.sourceforge.net/project/gsoap2/gsoap-2.8/gsoap_2.8.89.zip"
   sha256 "d9b10ca2611b00932fab98cbf67b514ddad24f22cbbda91d9d68ea45821c54f2"
+  revision 1
 
   bottle do
-    sha256 "c3ff1fa1f2475b6d2be36e5a1458e8afe9a97fdf8b01136e924279710ac00fd3" => :mojave
-    sha256 "c85976b801fa1ccb75de89bd517d0f715251c069426389cd104935adb2f97dc2" => :high_sierra
-    sha256 "ebe95e814107ac48dc3174ed5eeba69097413619a9842937bd637b4f904b3a38" => :sierra
-    sha256 "d949b570b2c90469bc6e44e3787c3ba88fd20a442748fce128e063118a7016f4" => :x86_64_linux
+    sha256 "57b1ed5d8d8b6f38db767f957b75dd05bacb1c168da6f75f2202e9995580bede" => :mojave
+    sha256 "4dc18439df3f8f79ecac7eb2438d8937f9f6c5919bdd383b945660c8a398c2c7" => :high_sierra
+    sha256 "95d559743a7f807d298908e69517d9c2e11d1c3aa12282712b4b73ac41e12fb7" => :sierra
   end
 
   depends_on "autoconf" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   uses_from_macos "zlib"
   unless OS.mac?
     depends_on "bison"
