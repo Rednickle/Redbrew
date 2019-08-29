@@ -14,8 +14,12 @@ class OpensslAT11 < Formula
     sha256 "768ad6aacc72e69e5f88910a0ac474bd13ac0a324d28f5fffb5a0b929e54e877" => :x86_64_linux
   end
 
-  keg_only :provided_by_macos,
-    "openssl/libressl is provided by macOS so don't link an incompatible version"
+  if OS.mac?
+    keg_only :provided_by_macos,
+      "openssl/libressl is provided by macOS so don't link an incompatible version"
+  else
+    keg_only :versioned_formula
+  end
 
   unless OS.mac?
     resource "cacert" do
