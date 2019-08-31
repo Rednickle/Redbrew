@@ -1,15 +1,15 @@
 class Zim < Formula
   desc "Graphical text editor used to maintain a collection of wiki pages"
   homepage "https://zim-wiki.org/"
-  url "https://github.com/jaap-karssenberg/zim-desktop-wiki/archive/0.71.1.tar.gz"
-  sha256 "ff100188a0b7204b415394d849b91954970449ee81fc99e4aea49b347a0a2112"
+  url "https://github.com/jaap-karssenberg/zim-desktop-wiki/archive/0.72.0.tar.gz"
+  sha256 "6d619613d6f5d25ddabd03a07629be0bfcd58bfeeb7314497dc04d1aeb7c6d67"
   head "https://github.com/jaap-karssenberg/zim-desktop-wiki.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e764946bb090836984660210b0bfaee1fcca2d38bcec56f06b10df15bd067c40" => :mojave
-    sha256 "e764946bb090836984660210b0bfaee1fcca2d38bcec56f06b10df15bd067c40" => :high_sierra
-    sha256 "ca0b8cb859f7f3c39af5b2fda1ae4d5a5c85aa4c82aad41b92639cb436985b16" => :sierra
+    sha256 "d15dba72d0277b50719b88e945a0faae2704fbfffdad8c8d55dd589ab48e5c86" => :mojave
+    sha256 "d15dba72d0277b50719b88e945a0faae2704fbfffdad8c8d55dd589ab48e5c86" => :high_sierra
+    sha256 "47dd25d3ebafa28fb4620f2b015a1a7bd7e1f3e60078e5f73e000613daa26b07" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -39,6 +39,9 @@ class Zim < Formula
   end
 
   test do
+    ENV["LC_ALL"] = "en_US.UTF-8"
+    ENV["LANG"] = "en_US.UTF-8"
+
     system "#{bin}/zim", "--version"
   end
 end

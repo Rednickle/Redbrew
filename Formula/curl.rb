@@ -7,10 +7,10 @@ class Curl < Formula
 
   bottle do
     cellar :any
-    sha256 "01b10eeb5cab3098b1fdc3c5a0a7379b676fceac2e34514829a7b4267f437f06" => :mojave
-    sha256 "ae322d8e7706e0d5db7d192ba1c206123cfcfaf873b943fe51488f39f3d7d363" => :high_sierra
-    sha256 "94fd774f43b19aae56e3e3ed5c97fa12364a4bfdb96db8fb264990e422dc4281" => :sierra
-    sha256 "77ec462f79bc38fbdec676f26692bc01dc46b8abdf27234630ce90891e345f9d" => :x86_64_linux
+    rebuild 1
+    sha256 "f3bf8b9b2c412443791bbdca478e2a5324b002410de5b6102bcb62fda8185f8c" => :mojave
+    sha256 "8698f7a4ff9be6cadcc2d4beaab1bf2fcedba19be45e6049adeb31b9c47cbabe" => :high_sierra
+    sha256 "38e3e964db95da742033904b357157f74a009c581d34e03e5dc334d982a75631" => :sierra
   end
 
   pour_bottle? do
@@ -40,6 +40,7 @@ class Curl < Formula
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
+      --with-secure-transport
     ]
 
     if OS.mac?
