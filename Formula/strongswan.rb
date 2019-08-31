@@ -3,11 +3,12 @@ class Strongswan < Formula
   homepage "https://www.strongswan.org"
   url "https://download.strongswan.org/strongswan-5.8.0.tar.bz2"
   sha256 "15b1e10c7dd6253ab5d791fe9b9cb84624e24c118aecd9b90251b4e60daa0933"
+  revision 1
 
   bottle do
-    sha256 "b7ecdc25dcb364981e83f6aed2d115f054d61321ebe6c7c61754456fe0744302" => :mojave
-    sha256 "bf050912991b312ff534cb38a5507a69154c76bb1a4c959dbaeb3d11f8d1a5eb" => :high_sierra
-    sha256 "4614d547317a13c48a9cfccd0a8ff4aa097c6122ae5262e21f91d9e4b934d7d1" => :sierra
+    sha256 "13387a63301212ee6416c0f6e54a99c91a02068af406300a00152c612242359c" => :mojave
+    sha256 "950acab59aca281664a3927683f10d6b15b3bf42b5219160211c7916eeddc7ca" => :high_sierra
+    sha256 "5694a70292d7e8447dcfa494928fe6bc74f010d6ec81b12f40011dc5797e749f" => :sierra
   end
 
   head do
@@ -21,7 +22,7 @@ class Strongswan < Formula
     depends_on "pkg-config" => :build
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     args = %W[
