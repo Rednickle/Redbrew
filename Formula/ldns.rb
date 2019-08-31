@@ -15,7 +15,6 @@ class Ldns < Formula
   depends_on "swig" => :build
   depends_on "openssl@1.1"
   uses_from_macos "python@2"
-  end
 
   def install
     args = %W[
