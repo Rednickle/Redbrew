@@ -3,12 +3,12 @@ class Irssi < Formula
   homepage "https://irssi.org/"
   url "https://github.com/irssi/irssi/releases/download/1.2.1/irssi-1.2.1.tar.xz"
   sha256 "5466a1ed9612cfa707d9a37d60b29d027b4ac7d83c74ceb1a410e2b59edba92c"
+  revision 1
 
   bottle do
-    sha256 "7e5b4748f6cbf3cd92f5981aff4ac68bbea75cab1ff4ba8a102774053ec82d41" => :mojave
-    sha256 "d74dccec46a3cbab24126dc7f3be346b05caa50bdf492e9196a0fda15ad0a2fa" => :high_sierra
-    sha256 "70d8c2802625e36774aba6762d31adae082eef57e690dd0e1feb4f836a6fb5fc" => :sierra
-    sha256 "3328c999821afeccb61b5b7d605f468c810c88cdcd5765a2212d1a12ee883798" => :x86_64_linux
+    sha256 "515d731ba57b70dd50db71e6f58527d5540afb94c7ecc6ed28f0b779fd1242ee" => :mojave
+    sha256 "7ea476cbdff2b6cd379e4ebb31c9c77f4a6b09c32b1875996eb6fc252092f8b9" => :high_sierra
+    sha256 "0c1e08b5493df96f1d793c09110552ee6fca7c7ebff7a9a37ec2d93db16d2cd1" => :sierra
   end
 
   head do
@@ -21,7 +21,7 @@ class Irssi < Formula
 
   depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   uses_from_macos "perl"
 
   def install
