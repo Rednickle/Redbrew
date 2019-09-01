@@ -1,6 +1,8 @@
 # Linuxbrew Core
 Core formulae for the Homebrew package manager.
 
+[![Join us on https://discourse.brew.sh](https://img.shields.io/badge/Discourse-forum-blue.svg)](https://discourse.brew.sh)
+
 ## How do I install these formulae?
 
 Just `brew install <formula>`. This is the default tap for Homebrew and is installed by default.
