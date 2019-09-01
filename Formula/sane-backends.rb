@@ -19,13 +19,12 @@ class SaneBackends < Formula
   depends_on "libusb"
   depends_on "net-snmp"
   depends_on "openssl@1.1"
-  depends_on "pkg-config" => :build
   uses_from_macos "libpng"
 
   def install
     # malloc lives in malloc/malloc.h instead of just malloc.h on macOS.
     # Merge request opened upstream: https://gitlab.com/sane-project/backends/merge_requests/90
-    inreplace "backend/ricoh2_buffer.c", "#include <malloc.h>", "#include <malloc/malloc.h>"
+    inreplace "backend/ricoh2_buffer.c", "#include <malloc.h>", "#include <malloc/malloc.h>" if OS.mac?
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
