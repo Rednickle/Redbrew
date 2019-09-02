@@ -1,14 +1,14 @@
 class Tunnel < Formula
   desc "Expose local servers to the internet securely"
   homepage "https://tunnel.labstack.com/docs"
-  url "https://github.com/labstack/tunnel-client/archive/v0.3.4.tar.gz"
-  sha256 "4a0d6030e12bba77cb0f1fe9e39b641347377e9f4898bf4c8407336f602c4056"
+  url "https://github.com/labstack/tunnel-client/archive/v0.4.0.tar.gz"
+  sha256 "a428133da9d20aafd17fa3a3f067a0ad9add62852a5e76a8c6c9f675730c86d6"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cb59b08714760f8c0700df546de4211f881769fadafd31fc1df3ba173b9ecddf" => :mojave
-    sha256 "60f4fe537955f4290bfad66fe86280291adbd930663317e8ec95af5703eb715b" => :high_sierra
-    sha256 "542b9b72465f423656d687534af0b25c468f62c97d0531e34d15abb533cd51d9" => :sierra
+    sha256 "81b8c2c231b0cd3a06f836e4fba62e6e8341e7448431651290edceefb7d303fd" => :mojave
+    sha256 "9634b95dc5f24f376578a55e840ad1649b2618991e13de3d9d4a8bb71c7fdc5e" => :high_sierra
+    sha256 "0c3c314358b83b398433665eab7cdc05e11b4fc74c183fd2b9461c70f551f666" => :sierra
   end
 
   depends_on "go" => :build
@@ -19,8 +19,6 @@ class Tunnel < Formula
   end
 
   test do
-    system bin/"tunnel", "start", "8080"
-    system bin/"tunnel", "kill"
-    assert_predicate testpath/".tunnel/daemon.log", :exist?
+    system bin/"tunnel", "ping"
   end
 end
