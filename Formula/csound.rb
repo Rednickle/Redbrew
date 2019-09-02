@@ -3,17 +3,18 @@ class Csound < Formula
   homepage "https://csound.com"
   url "https://github.com/csound/csound/archive/6.13.0.tar.gz"
   sha256 "183beeb3b720bfeab6cc8af12fbec0bf9fef2727684ac79289fd12d0dfee728b"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "4a0fa1f8ec2917537b85cda49a81f13bbb1bf06315e7087a113695a200193928" => :mojave
-    sha256 "d93d96c20dad0262733005467dec26780a30c0feda98b63dd45715ae2736e0dd" => :high_sierra
-    sha256 "915e0516480fcdaf2dfe0d2ae636b7249fc68740e928d525bda3adbb4b2c0722" => :sierra
+    sha256 "cf136af722d787200955b6e5f11843532f2a1fcbbbe9d056a85b3d1f7e398d9f" => :mojave
+    sha256 "446b57c6fb04a9542ece0ecc1c18b4c2b0e2347883e8ef45585d04a899ebe150" => :high_sierra
+    sha256 "1f7c709c564459d9ef691754cd225b0732ccd18d19857b61733623fdc47609f7" => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on "python" => [:build, :test]
   depends_on "fltk"
+  depends_on "fluid-synth"
   depends_on "liblo"
   depends_on "libsamplerate"
   depends_on "libsndfile"
@@ -27,7 +28,6 @@ class Csound < Formula
 
   def install
     args = std_cmake_args + %W[
-      -DBUILD_FLUID_OPCODES=OFF
       -DBUILD_JAVA_INTERFACE=OFF
       -DBUILD_LUA_INTERFACE=OFF
       -DBUILD_PYTHON_INTERFACE=OFF
@@ -60,6 +60,7 @@ class Csound < Formula
     (testpath/"test.orc").write <<~EOS
       0dbfs = 1
       FLrun
+      giFluidEngineNumber fluidEngine
       pyinit
       instr 1
           pyruni "from __future__ import print_function; print('hello, world')"
