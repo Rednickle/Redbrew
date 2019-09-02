@@ -3,15 +3,16 @@ class Csound < Formula
   homepage "https://csound.com"
   url "https://github.com/csound/csound/archive/6.13.0.tar.gz"
   sha256 "183beeb3b720bfeab6cc8af12fbec0bf9fef2727684ac79289fd12d0dfee728b"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "cf136af722d787200955b6e5f11843532f2a1fcbbbe9d056a85b3d1f7e398d9f" => :mojave
-    sha256 "446b57c6fb04a9542ece0ecc1c18b4c2b0e2347883e8ef45585d04a899ebe150" => :high_sierra
-    sha256 "1f7c709c564459d9ef691754cd225b0732ccd18d19857b61733623fdc47609f7" => :sierra
+    sha256 "958c93d41713bb2fc943c22f22c1ad947a72336b27a1ee41afb9426e0696b565" => :mojave
+    sha256 "38b015ba5e8732bee33f98ff66e07b6e7ee3568a9290c242eb011b385858e898" => :high_sierra
+    sha256 "6a88a566ec1b7c713bea00065dd666445286f451c5709a58a0cdda461cb46fb7" => :sierra
   end
 
   depends_on "cmake" => :build
+  depends_on "eigen" => :build
   depends_on "python" => [:build, :test]
   depends_on "fltk"
   depends_on "fluid-synth"
@@ -60,12 +61,13 @@ class Csound < Formula
     (testpath/"test.orc").write <<~EOS
       0dbfs = 1
       FLrun
-      giFluidEngineNumber fluidEngine
+      gi_fluidEngineNumber fluidEngine
       pyinit
       instr 1
+          a_, a_, a_ chuap 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
           pyruni "from __future__ import print_function; print('hello, world')"
-          aSignal STKPlucked 440, 1
-          out aSignal
+          a_signal STKPlucked 440, 1
+          out a_signal
       endin
     EOS
 
