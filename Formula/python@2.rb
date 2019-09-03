@@ -3,11 +3,13 @@ class PythonAT2 < Formula
   homepage "https://www.python.org/"
   url "https://www.python.org/ftp/python/2.7.16/Python-2.7.16.tar.xz"
   sha256 "f222ef602647eecb6853681156d32de4450a2c39f4de93bd5b20235f2e660ed7"
+  revision 1
   head "https://github.com/python/cpython.git", :branch => "2.7"
 
   bottle do
-    rebuild 3
-    sha256 "df7b4c37f703122b0689808d7d66dc99dbf693d7bdcc1bc924a1a3b2053495eb" => :x86_64_linux
+    sha256 "7e40affe699334a2e0bd8fdb19eb142aab5dedfccb62a0d2c47915f7cf25bafd" => :mojave
+    sha256 "a217d207fe021caf3244ffc79a41026f469ff6299d8a7210bb241fc121421584" => :high_sierra
+    sha256 "58f98be1c91883ed02b8f77b1c0eda6c22743fb6743df221e82e93807cf21ac0" => :sierra
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -23,7 +25,7 @@ class PythonAT2 < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gdbm"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "readline"
   depends_on "sqlite"
   unless OS.mac?
@@ -133,7 +135,7 @@ class PythonAT2 < Formula
     inreplace "setup.py" do |s|
       s.gsub! "do_readline = self.compiler.find_library_file(lib_dirs, 'readline')",
               "do_readline = '#{Formula["readline"].opt_lib}/libhistory.dylib'"
-      s.gsub! "/usr/local/ssl", Formula["openssl"].opt_prefix
+      s.gsub! "/usr/local/ssl", Formula["openssl@1.1"].opt_prefix
     end
 
     inreplace "setup.py" do |s|
@@ -245,9 +247,9 @@ class PythonAT2 < Formula
     end
 
     # Help distutils find brewed stuff when building extensions
-    include_dirs = [HOMEBREW_PREFIX/"include", Formula["openssl"].opt_include,
+    include_dirs = [HOMEBREW_PREFIX/"include", Formula["openssl@1.1"].opt_include,
                     Formula["sqlite"].opt_include]
-    library_dirs = [HOMEBREW_PREFIX/"lib", Formula["openssl"].opt_lib,
+    library_dirs = [HOMEBREW_PREFIX/"lib", Formula["openssl@1.1"].opt_lib,
                     Formula["sqlite"].opt_lib]
 
     cfg = lib_cellar/"distutils/distutils.cfg"
