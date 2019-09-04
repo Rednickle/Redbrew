@@ -9,15 +9,14 @@ class Davix < Formula
 
   bottle do
     cellar :any
-    sha256 "ff71336ee9cb90a7de9efe97a1c852198b33c93dd62efe8249a99464cac47fc5" => :mojave
-    sha256 "92370c9413f7d3061116f294da3431c0615dce0bfb21c0be5c7bdba5111dcdf4" => :high_sierra
-    sha256 "6541ea196d445421246b6c95b6da8fc15f1ed900b5bf4b7604c5bd5d70d7a9ae" => :sierra
-    sha256 "c9de5efe764bdbf75638e75578e4191a13d8fa3e39838488c56b2f245e55f22b" => :x86_64_linux
+    rebuild 1
+    sha256 "a9f7096a10ef3e97e7aa35e501234945d3b6a6f18650a9cc5749cc1e7c7ec5cf" => :mojave
+    sha256 "9ff00e42da12068f8218c2e640115274fd8af64e731f7a24ab14a7018323e0fe" => :high_sierra
+    sha256 "10c32646773a837326bc2a4f8671fee3e5a0ea972dc5d39592286dd829711107" => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
-  depends_on "python@2" => :build
   depends_on "openssl"
   unless OS.mac?
     depends_on "libxml2"

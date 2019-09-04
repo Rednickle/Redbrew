@@ -5,12 +5,13 @@ class Ocrmypdf < Formula
   homepage "https://github.com/jbarlow83/OCRmyPDF"
   url "https://files.pythonhosted.org/packages/16/0f/5af3907242637275b1d2fa739055db9902db6bca011adaeb77f94aa92857/ocrmypdf-9.0.1.tar.gz"
   sha256 "1c125eb5b078658777a824d6831e483ce95f51287f18926c03d58f00df8c2610"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "9fde93acd6a00bea9416a4c94879f242892f113dbd8c22a78ae45e7345e7153c" => :mojave
-    sha256 "6f0bf5b35c6977c27713ea5ec8764a8bdc7f797e5f2b4944b5fdf9b0f930ee0b" => :high_sierra
-    sha256 "6a15369eecb8b9d6b34c5c5c100e3dde78f08ff6b8e62d5adca2bb406efec9bf" => :sierra
+    sha256 "54c2abe588c92bad65ae781ffeaf74a924381132636e3818f160fac7dbb9894c" => :mojave
+    sha256 "774f33061d5705cbf4a244d41e1ca40a84da5b5464bf5168e33d884f6aa507eb" => :high_sierra
+    sha256 "ab4878403e636a576d13400f1a179aa2e78b75e74cd72850e37ec166e0fd46a2" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -54,8 +55,8 @@ class Ocrmypdf < Formula
   end
 
   resource "pikepdf" do
-    url "https://files.pythonhosted.org/packages/f3/de/db85c30a809718d835e7cc4b43eeb9ff31f3ce9c4d1d53aea704cb5887e8/pikepdf-1.6.1.tar.gz"
-    sha256 "918f48c1226f05f620eb8685545f192181f242621408ddbee4758dd3c1f9473f"
+    url "https://files.pythonhosted.org/packages/fa/6d/92c192646d473b3a4aaa9eed1f1da0af7fcbe86a71bc8d8e816b90be00b6/pikepdf-1.6.3.tar.gz"
+    sha256 "550bb6d09f037732c51397dbcf8b1326cbb96b33060ca7a7c1a13674dde4ded9"
   end
 
   resource "Pillow" do
@@ -69,8 +70,8 @@ class Ocrmypdf < Formula
   end
 
   resource "pycryptodome" do
-    url "https://files.pythonhosted.org/packages/e2/7b/12f76a8bd427ebc54f24a0df6fd776fda48087d6a9a32ae0dbc3341dac3f/pycryptodome-3.8.2.tar.gz"
-    sha256 "5bc40f8aa7ba8ca7f833ad2477b9d84e1bfd2630b22a46d9bbd221982f8c3ac0"
+    url "https://files.pythonhosted.org/packages/b6/41/d3749c0caa860041eb6b0832c7087253d59cb5af8bb303a8d4b6daa74014/pycryptodome-3.9.0.tar.gz"
+    sha256 "dbeb08ad850056747aa7d5f33273b7ce0b9a77910604a1be7b7a6f2ef076213f"
   end
 
   resource "reportlab" do
@@ -89,8 +90,8 @@ class Ocrmypdf < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/f2/6e/b66335fed60fdba9f730f1c23682c78667282243995b63a14f033dae5701/tqdm-4.34.0.tar.gz"
-    sha256 "ebc205051d79b49989140f5f6c73ec23fce5f590cbc4d9cd6e4c47f168fa0f10"
+    url "https://files.pythonhosted.org/packages/d0/10/54a72929d8b042965180f01cbf0701b5377c5cce0148c552807d195d8d0b/tqdm-4.35.0.tar.gz"
+    sha256 "1be3e4e3198f2d0e47b928e9d9a8ec1b63525db29095cec1467f4c5a4ea8ebf9"
   end
 
   def install
