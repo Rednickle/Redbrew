@@ -1,15 +1,13 @@
 class Irssi < Formula
   desc "Modular IRC client"
   homepage "https://irssi.org/"
-  url "https://github.com/irssi/irssi/releases/download/1.2.1/irssi-1.2.1.tar.xz"
-  sha256 "5466a1ed9612cfa707d9a37d60b29d027b4ac7d83c74ceb1a410e2b59edba92c"
-  revision 1
+  url "https://github.com/irssi/irssi/releases/download/1.2.2/irssi-1.2.2.tar.xz"
+  sha256 "6727060c918568ba2ff4295ad736128dba0b995d7b20491bca11f593bd857578"
 
   bottle do
-    sha256 "515d731ba57b70dd50db71e6f58527d5540afb94c7ecc6ed28f0b779fd1242ee" => :mojave
-    sha256 "7ea476cbdff2b6cd379e4ebb31c9c77f4a6b09c32b1875996eb6fc252092f8b9" => :high_sierra
-    sha256 "0c1e08b5493df96f1d793c09110552ee6fca7c7ebff7a9a37ec2d93db16d2cd1" => :sierra
-    sha256 "35ddad74648e918da0564b2ab470ef25132e686dc5d060a56b0ebee2221b5c79" => :x86_64_linux
+    sha256 "c8dda1f1cd62fc666406f3db68a9a34cd16ce4acce1082db45d7b575af5860be" => :mojave
+    sha256 "de978c2c68c4254d5fea004006201743cfcf686c76a56cba62ab72a7bf0d9936" => :high_sierra
+    sha256 "b0ea780071ba74669e4f31db648ca4b5de95d3372cb0fc73d41a90e2b6c6947a" => :sierra
   end
 
   head do

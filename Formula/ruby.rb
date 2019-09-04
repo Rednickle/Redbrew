@@ -3,12 +3,12 @@ class Ruby < Formula
   homepage "https://www.ruby-lang.org/"
   url "https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.4.tar.xz"
   sha256 "df593cd4c017de19adf5d0154b8391bb057cef1b72ecdd4a8ee30d3235c65f09"
+  revision 1
 
   bottle do
-    sha256 "7a99f669b62f0a3eb5888afde49732ac33f11c7a0d020bac9a573e87e2533291" => :mojave
-    sha256 "4dc63f014eeafc9544fe13bf68234572d83f1aa5cb4abaaa58eb43fe33349615" => :high_sierra
-    sha256 "2bd47fbfb56d88f8bd0bbfb59793181b272a96e747da08869f49f36298ed8d37" => :sierra
-    sha256 "9da5214a9343dc6672d7a86ec407ac55a287aec4589a3616a73273ec682c35de" => :x86_64_linux
+    sha256 "994a7b53cb210d2c8ad9901beb6acec803fab41e9d99ff2814714e5e484a3322" => :mojave
+    sha256 "0b632a77db24ea0a119bd4a5e9bb7dcacef4b7e73910159dd342216ca9081660" => :high_sierra
+    sha256 "511f71bf454ebc2dc214634fbfd0886ba8f5fe52dceb152bf429a15d725e6ac0" => :sierra
   end
 
   head do
@@ -20,7 +20,7 @@ class Ruby < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libyaml"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "readline"
   uses_from_macos "zlib"
 
@@ -57,7 +57,7 @@ class Ruby < Formula
 
     system "autoconf" if build.head?
 
-    paths = %w[libyaml openssl readline].map { |f| Formula[f].opt_prefix }
+    paths = %w[libyaml openssl@1.1 readline].map { |f| Formula[f].opt_prefix }
     args = %W[
       --prefix=#{prefix}
       --enable-shared

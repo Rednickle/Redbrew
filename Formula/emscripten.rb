@@ -1,6 +1,7 @@
 class Emscripten < Formula
   desc "LLVM bytecode to JavaScript compiler"
   homepage "https://kripken.github.io/emscripten-site/"
+  revision 1
 
   stable do
     url "https://github.com/emscripten-core/emscripten/archive/1.38.42.tar.gz"
@@ -19,10 +20,9 @@ class Emscripten < Formula
 
   bottle do
     cellar :any
-    sha256 "63c8da858bbe31b2bd05de6bdb04c927a086b918145121e7e9c1abc2de6403ac" => :mojave
-    sha256 "2d7c0e10aab8085e4b762e27484d824437e72e46e91bec8682b56025d1580d5a" => :high_sierra
-    sha256 "465e24c9b0bcdfa92cfdd849fe27d3bf17232c9325d8d2704de4ade6aaf9e1ca" => :sierra
-    sha256 "87d0c6fb50bc49ed849323a3bf29a24de3ac5a2a5f2fb1b6154bcad2aa8f499f" => :x86_64_linux
+    sha256 "5656868253b6e951d14f867e4774dac829c3f77b0084dfc2da0fb8d1db55d633" => :mojave
+    sha256 "28a7604f4172a745abcd45d74381be426daad67be58d8dea95105aeaf5206d82" => :high_sierra
+    sha256 "e10fb143ed1d67ec0e6297d9df4afdfc4204bcf1a323429026e2b04235dd954c" => :sierra
   end
 
   head do
@@ -39,17 +39,11 @@ class Emscripten < Formula
 
   depends_on "cmake" => :build
   depends_on "node"
-  depends_on "python@2"
+  depends_on "python"
   depends_on "yuicompressor"
 
   def install
     ENV.cxx11
-    # rewrite hardcoded paths from system python to homebrew python
-    python2_shebangs = `grep --recursive --files-with-matches ^#!/usr/bin/python #{buildpath}`
-    python2_shebang_files = python2_shebangs.lines.sort.uniq
-    python2_shebang_files.map! { |f| Pathname(f.chomp) }
-    python2_shebang_files.reject! &:symlink?
-    inreplace python2_shebang_files, %r{^#!/usr/bin/python2?$}, "#!#{Formula["python@2"].opt_bin}/python2"
 
     # All files from the repository are required as emscripten is a collection
     # of scripts which need to be installed in the same layout as in the Git
