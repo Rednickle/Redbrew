@@ -3,13 +3,12 @@ class Ruby < Formula
   homepage "https://www.ruby-lang.org/"
   url "https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.4.tar.xz"
   sha256 "df593cd4c017de19adf5d0154b8391bb057cef1b72ecdd4a8ee30d3235c65f09"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "994a7b53cb210d2c8ad9901beb6acec803fab41e9d99ff2814714e5e484a3322" => :mojave
-    sha256 "0b632a77db24ea0a119bd4a5e9bb7dcacef4b7e73910159dd342216ca9081660" => :high_sierra
-    sha256 "511f71bf454ebc2dc214634fbfd0886ba8f5fe52dceb152bf429a15d725e6ac0" => :sierra
-    sha256 "9dfa56c67143d969753b1cbeb3c36df0365592b09017318518f3f5cf409f205e" => :x86_64_linux
+    sha256 "77bed3b9c96c9ece896a92d93c42e4b1e4f1b307bfd3803a8a48b2f44bca7383" => :mojave
+    sha256 "130eecb8561af78e5c5291d00b30eb0a620808300be537448a17c46cd5b13ec9" => :high_sierra
+    sha256 "69ae584b1a7213f9a148617dd602facc20c8f40f2a651ca80cc3f37537558d4a" => :sierra
   end
 
   head do
@@ -66,6 +65,7 @@ class Ruby < Formula
       --with-sitedir=#{HOMEBREW_PREFIX}/lib/ruby/site_ruby
       --with-vendordir=#{HOMEBREW_PREFIX}/lib/ruby/vendor_ruby
       --with-opt-dir=#{paths.join(":")}
+      --without-gmp
     ]
     args << "--disable-dtrace" if OS.mac? && !MacOS::CLT.installed?
 
