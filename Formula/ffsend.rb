@@ -3,22 +3,22 @@ class Ffsend < Formula
   homepage "https://gitlab.com/timvisee/ffsend"
   url "https://github.com/timvisee/ffsend/archive/v0.2.50.tar.gz"
   sha256 "1fe6ea615f116060c9d4147250a3c5774527e98e3dadc089afdec51a0883163e"
+  revision 1
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "6cf0ae6d9625a786bb5d9e3c3e6ee37d825c4c7b9261abdc37c16b94c582bf57" => :mojave
-    sha256 "e128bf0040e6f9e69e139c6d24378b3a7bff87188d73214b8ccfd185462d51be" => :high_sierra
-    sha256 "461cbca1722730dbb8ff1401bdf98f354a67162788e1fd6c948c2630d5b3cc53" => :sierra
+    sha256 "7e278a866e3310a3120de6cdfb5a97f9f6659cf6332554dafb6f087c1c30c4b4" => :mojave
+    sha256 "efd32aa29008ea421c9a8de5d6c872d377b689f009188ae7f081c9e9f9762ae3" => :high_sierra
+    sha256 "e1b8826b435b1dbddee70dd7f98b6e0dbf16065d38623a6dc5f6383fddcce176" => :sierra
   end
 
   depends_on "rust" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
     # https://docs.rs/openssl/0.10.19/openssl/#manual
-    ENV["OPENSSL_DIR"] = Formula["openssl"].opt_prefix
+    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
 
     system "cargo", "install", "--root", prefix, "--path", "."
 
