@@ -18,7 +18,7 @@ class ErlangAT19 < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "openssl"
+  depends_on "openssl" # no OpenSSL 1.1 support
   depends_on "wxmac"
   depends_on "m4" => :build unless OS.mac?
 
