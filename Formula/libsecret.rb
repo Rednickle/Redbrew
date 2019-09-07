@@ -1,14 +1,13 @@
 class Libsecret < Formula
   desc "Library for storing/retrieving passwords and other secrets"
   homepage "https://wiki.gnome.org/Projects/Libsecret"
-  url "https://download.gnome.org/sources/libsecret/0.19/libsecret-0.19.0.tar.xz"
-  sha256 "8049b09a4e737911aa647e50aee3d06b5db7aa902608ca43a0dd10d83e1d67f9"
+  url "https://download.gnome.org/sources/libsecret/0.19/libsecret-0.19.1.tar.xz"
+  sha256 "8583e10179456ae2c83075d95455f156dc08db6278b32bf4bd61819335a30e3a"
 
   bottle do
-    sha256 "d820f4d77a163ac2fe6c6a23aeaeb12e6aced8f79eb2882738669fd8b7ad6e27" => :mojave
-    sha256 "f3a33327e5c4f5085668cb591133f1fdcc4c1064f741676953193faef58df2a0" => :high_sierra
-    sha256 "5731564f005574715d6386daf9e90bf3be92a482c47021a55b318dcf0274978d" => :sierra
-    sha256 "e49bbbbba1fa315b8d787b446656f5d3351c112b3d13b52ea4452e213c31e746" => :x86_64_linux
+    sha256 "a21ea46864771587b62b617532eb0b05ee834344ba7df4ad847972546038f934" => :mojave
+    sha256 "57d690a5f575228e66e666e5ba3e1367ba55e6a9cbf288158e70396588f8d1f1" => :high_sierra
+    sha256 "75dfd997940eff3f732760f0a654d4030d3a644d49a134f2fc27b823292859cf" => :sierra
   end
 
   depends_on "docbook-xsl" => :build
