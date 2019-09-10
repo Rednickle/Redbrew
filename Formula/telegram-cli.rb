@@ -32,6 +32,7 @@ class TelegramCli < Formula
   end
 
   # Patch for OpenSSL 1.1 compatibility
+  # Refreshed for linux
   patch :DATA
 
   def install
@@ -55,10 +56,11 @@ class TelegramCli < Formula
   end
 end
 __END__
-diff -pur a/tgl/mtproto-client.c b/tgl/mtproto-client.c
---- a/tgl/mtproto-client.c	2019-09-07 14:58:12.000000000 +0200
-+++ b/tgl/mtproto-client.c	2019-09-07 15:04:34.000000000 +0200
-@@ -143,7 +143,9 @@ static int decrypt_buffer[ENCRYPT_BUFFER
+diff --git a/tgl/mtproto-client.c b/tgl/mtproto-client.c
+index 075decc..0f6c3f2 100644
+--- a/tgl/mtproto-client.c
++++ b/tgl/mtproto-client.c
+@@ -143,7 +143,9 @@ static int decrypt_buffer[ENCRYPT_BUFFER_INTS];
 
  static int encrypt_packet_buffer (struct tgl_state *TLS, struct tgl_dc *DC) {
    RSA *key = TLS->rsa_key_loaded[DC->rsa_key_idx];
@@ -69,10 +71,11 @@ diff -pur a/tgl/mtproto-client.c b/tgl/mtproto-client.c
  }
 
  static int encrypt_packet_buffer_aes_unauth (const char server_nonce[16], const char hidden_client_nonce[32]) {
-diff -pur a/tgl/mtproto-common.c b/tgl/mtproto-common.c
---- a/tgl/mtproto-common.c	2019-09-07 14:58:12.000000000 +0200
-+++ b/tgl/mtproto-common.c	2019-09-07 15:10:53.000000000 +0200
-@@ -178,10 +178,12 @@ int tgl_serialize_bignum (BIGNUM *b, cha
+diff --git a/tgl/mtproto-common.c b/tgl/mtproto-common.c
+index f3b6582..daafda0 100644
+--- a/tgl/mtproto-common.c
++++ b/tgl/mtproto-common.c
+@@ -178,10 +178,12 @@ int tgl_serialize_bignum (BIGNUM *b, char *buffer, int maxlen) {
  long long tgl_do_compute_rsa_key_fingerprint (RSA *key) {
    static char tempbuff[4096];
    static unsigned char sha[20];
@@ -88,7 +91,7 @@ diff -pur a/tgl/mtproto-common.c b/tgl/mtproto-common.c
    assert (l2 > 0 && l1 + l2 <= 4096);
    SHA1 ((unsigned char *)tempbuff, l1 + l2, sha);
    return *(long long *)(sha + 12);
-@@ -258,21 +260,21 @@ int tgl_pad_rsa_encrypt (struct tgl_stat
+@@ -258,21 +260,21 @@ int tgl_pad_rsa_encrypt (struct tgl_state *TLS, char *from, int from_len, char *
    assert (size >= chunks * 256);
    assert (RAND_pseudo_bytes ((unsigned char *) from + from_len, pad) >= 0);
    int i;
@@ -119,7 +122,7 @@ diff -pur a/tgl/mtproto-common.c b/tgl/mtproto-common.c
    return chunks * 256;
  }
 
-@@ -285,26 +287,26 @@ int tgl_pad_rsa_decrypt (struct tgl_stat
+@@ -285,26 +287,26 @@ int tgl_pad_rsa_decrypt (struct tgl_state *TLS, char *from, int from_len, char *
    assert (bits >= 2041 && bits <= 2048);
    assert (size >= chunks * 255);
    int i;
