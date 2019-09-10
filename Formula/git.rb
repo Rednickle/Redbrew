@@ -3,6 +3,7 @@ class Git < Formula
   homepage "https://git-scm.com"
   url "https://www.kernel.org/pub/software/scm/git/git-2.23.0.tar.xz"
   sha256 "234fa05b6839e92dc300b2dd78c92ec9c0c8d439f65e1d430a7034f60af16067"
+  revision 1
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
@@ -15,17 +16,10 @@ class Git < Formula
   depends_on "gettext"
   depends_on "pcre2"
 
-  if OS.mac?
-    if MacOS.version < :yosemite
-      depends_on "openssl"
-      depends_on "curl"
-    end
-  end
-
-  unless OS.mac?
+  if !OS.mac? || MacOS.version < :yosemite
+    depends_on "openssl@1.1"
     depends_on "curl"
     depends_on "expat"
-    depends_on "openssl"
     depends_on "zlib"
   end
 
@@ -82,7 +76,7 @@ class Git < Formula
     args << "NO_TCLTK=1" if build.without? "tcl-tk"
 
     if !OS.mac? && MacOS.version < :yosemite
-      openssl_prefix = Formula["openssl"].opt_prefix
+      openssl_prefix = Formula["openssl@1.1"].opt_prefix
       args += %W[NO_APPLE_COMMON_CRYPTO=1 OPENSSLDIR=#{openssl_prefix}]
     else
       args += %w[NO_OPENSSL=1 APPLE_COMMON_CRYPTO=1]

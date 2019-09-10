@@ -18,7 +18,7 @@ class Davix < Formula
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   unless OS.mac?
     depends_on "libxml2"
     depends_on "util-linux" # for libuuid

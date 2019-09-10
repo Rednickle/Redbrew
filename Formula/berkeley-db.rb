@@ -5,6 +5,7 @@ class BerkeleyDb < Formula
   url "https://dl.bintray.com/homebrew/mirror/berkeley-db-18.1.32.tar.gz"
   mirror "https://fossies.org/linux/misc/db-18.1.32.tar.gz"
   sha256 "fa1fe7de9ba91ad472c25d026f931802597c29f28ae951960685cde487c8d654"
+  revision 1
 
   bottle do
     cellar :any
@@ -14,7 +15,7 @@ class BerkeleyDb < Formula
     sha256 "9fd2719ad1503f88ae72073f94d535864c371aa8e5d0d8b1f6026c716b23ff77" => :x86_64_linux
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # BerkeleyDB dislikes parallel builds
