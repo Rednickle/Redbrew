@@ -1,15 +1,14 @@
 class Helmfile < Formula
   desc "Deploy Kubernetes Helm Charts"
   homepage "https://github.com/roboll/helmfile"
-  url "https://github.com/roboll/helmfile/archive/v0.83.0.tar.gz"
-  sha256 "859202104e1a5cb01c69a971c0b131764154139a224bc4082fd7e789cf05ec11"
+  url "https://github.com/roboll/helmfile/archive/v0.83.1.tar.gz"
+  sha256 "c464aadac0df69dcb304847f469cd61b6dc29a40b7f72d2fd6b63e26ca9c29d8"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "de756acebafb2492185b8ca54a6b38bb38194e79751423662c77194d2d19d083" => :mojave
-    sha256 "262185e3190c81470de80f79d3e6bbd94610196c8990f54aabc8df69a678b6ae" => :high_sierra
-    sha256 "048e3a20a63c03545c0a822f9c0a1cacb97f1e23aecf15b396cbcfe0379eba9e" => :sierra
-    sha256 "c5c496b37a9370dfee356fb95169a5a3c808ecb8ce20080d0d34561169c5ed37" => :x86_64_linux
+    sha256 "ec97eca67d198c264fd410bd9e8bcd24e6ad5319906d9bf37427913d88eca314" => :mojave
+    sha256 "5d9c848f8b4e501aa68b1152b22d5e4bdcb09cbed403a65df7eadc662ca5f40a" => :high_sierra
+    sha256 "f0b5aea5a312add44f21abf853b24196977e61d49fdd1ba85762e2883dd992e1" => :sierra
   end
 
   depends_on "go" => :build

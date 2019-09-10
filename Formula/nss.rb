@@ -3,21 +3,14 @@ class Nss < Formula
   homepage "https://developer.mozilla.org/docs/NSS"
   url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_46_RTM/src/nss-3.46.tar.gz"
   sha256 "6b699649d285602ba258a4b0957cb841eafc94eff5735a9da8da0adbb9a10cef"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "337d701f18f0493ee3f3b5ddb53a041438ea1429747e7ef3604f6b19d90dee33" => :mojave
-    sha256 "f1d570fd77ab0f27b255e43cb75c7907de8d1f103ef6b78bdc609f7f9d027eb4" => :high_sierra
-    sha256 "0bb073e2c3ef371bf83e8a1f3ca12b1e67676e25701fd0eb3fad147200c46377" => :sierra
-    sha256 "a4ebb42908c5eee0609b65eed55712a717ecfec0f8624d7b2ec0de2468a6e5a6" => :x86_64_linux
+    sha256 "d695d9640c058b292d1d109345d840f51ea6c18f894500750178e8c0f8c27264" => :mojave
+    sha256 "5bdba8a61eb2e7899e50070372367357a52868ba91d13a1797235994142bdb45" => :high_sierra
+    sha256 "a9102f547a4bc47346caa3b598e626f951d4bc71f8c3f2eb4b3116ac151fc341" => :sierra
   end
-
-  keg_only <<~EOS
-    Firefox can pick this up instead of the built-in library, resulting in
-    random crashes without meaningful explanation.
-
-    Please see https://bugzilla.mozilla.org/show_bug.cgi?id=1142646 for details
-  EOS
 
   depends_on "nspr"
   unless OS.mac?
