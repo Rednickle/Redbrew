@@ -19,7 +19,7 @@ class Neko < Formula
   depends_on "pkg-config" => :build
   depends_on "bdw-gc"
   depends_on "mbedtls"
-  depends_on "openssl"
+  depends_on "openssl" # no OpenSSL 1.1 support
   depends_on "pcre"
   unless OS.mac?
     depends_on "apr"
