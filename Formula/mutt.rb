@@ -15,10 +15,9 @@ class Mutt < Formula
   revision 2
 
   bottle do
-    sha256 "e0c20be9ff6d0ce29d610cb61ed92f35bfb3abe7a49c8927ecbf6aecad49d375" => :mojave
-    sha256 "4ea37a2acfe5c0ea6ecc4ae5a0cf53db7a6ff7c9aef50ea971ea359e49160ec6" => :high_sierra
-    sha256 "78f11d068e9732a78ee2dc6340876ec4b4d5e38a1123f636161ec03329ffc15d" => :sierra
-    sha256 "a1ada0272f52c94c514bd85cc3d8da2a20c5bb6d7e4c7f3f1452e624829aeddf" => :x86_64_linux
+    sha256 "60e75a481a2b25d50d0c404a14233e79579ee61e72cb14769c0a021dabf81428" => :mojave
+    sha256 "7d51106017603dec20a15e483b8aca629b3d4d34e3aa92094842c2b8f8ef83d2" => :high_sierra
+    sha256 "ae8f34c0378d4e1f40f31bbe841f4ee89fe26774305ad1c4a42d090b8b9f11ec" => :sierra
   end
 
   head do
