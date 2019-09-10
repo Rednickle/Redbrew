@@ -18,6 +18,7 @@ class Pixz < Formula
   depends_on "pkg-config" => :build
   depends_on "libarchive"
   depends_on "xz"
+  depends_on "libxslt" unless OS.mac?
 
   def install
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["libarchive"].opt_lib/"pkgconfig"
