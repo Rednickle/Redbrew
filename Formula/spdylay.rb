@@ -3,7 +3,7 @@ class Spdylay < Formula
   homepage "https://github.com/tatsuhiro-t/spdylay"
   url "https://github.com/tatsuhiro-t/spdylay/archive/v1.4.0.tar.gz"
   sha256 "31ed26253943b9d898b936945a1c68c48c3e0974b146cef7382320a97d8f0fa0"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -18,7 +18,7 @@ class Spdylay < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "libevent"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "zlib" unless OS.mac?
 
   def install

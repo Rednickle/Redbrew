@@ -12,7 +12,7 @@ class Mutt < Formula
   homepage "http://www.mutt.org/"
   url "https://bitbucket.org/mutt/mutt/downloads/mutt-1.12.1.tar.gz"
   sha256 "01c565406ec4ffa85db90b45ece2260b25fac3646cc063bbc20a242c6ed4210c"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "e0c20be9ff6d0ce29d610cb61ed92f35bfb3abe7a49c8927ecbf6aecad49d375" => :mojave
@@ -32,7 +32,7 @@ class Mutt < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "gpgme"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "tokyo-cabinet"
   unless OS.mac?
     depends_on "bzip2"
@@ -60,7 +60,7 @@ class Mutt < Formula
       --enable-smtp
       --with-gss
       #{OS.mac? ? "--with-sasl" : "--with-sasl2"}
-      --with-ssl=#{Formula["openssl"].opt_prefix}
+      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
       --with-tokyocabinet
       --enable-gpgme
     ]

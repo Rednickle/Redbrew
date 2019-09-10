@@ -5,6 +5,7 @@ class Mitmproxy < Formula
   homepage "https://mitmproxy.org"
   url "https://github.com/mitmproxy/mitmproxy/archive/v4.0.4.tar.gz"
   sha256 "d91eaaad06a5e124a76388999b22a4c590ea26149a30aaff73658cd98d0651d5"
+  revision 1
   head "https://github.com/mitmproxy/mitmproxy.git"
 
   bottle do
@@ -16,7 +17,7 @@ class Mitmproxy < Formula
     sha256 "b39c1f0f5ab42d6b157b438e06b90da28804d4049b0e39eb964dce87a973ea39" => :x86_64_linux
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "protobuf"
   depends_on "python"
   unless OS.mac?
