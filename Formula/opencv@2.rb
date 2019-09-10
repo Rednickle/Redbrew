@@ -3,7 +3,7 @@ class OpencvAT2 < Formula
   homepage "https://opencv.org/"
   url "https://github.com/opencv/opencv/archive/2.4.13.7.tar.gz"
   sha256 "192d903588ae2cdceab3d7dc5a5636b023132c8369f184ca89ccec0312ae33d0"
-  revision 4
+  revision 5
 
   bottle do
     cellar :any_skip_relocation

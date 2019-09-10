@@ -3,6 +3,7 @@ class Xrootd < Formula
   homepage "http://xrootd.org"
   url "http://xrootd.org/download/v4.10.0/xrootd-4.10.0.tar.gz"
   sha256 "f07f85e27d72e9e8ff124173c7b53619aed8fcd36f9d6234c33f8f7fd511995b"
+  revision 1
   head "https://github.com/xrootd/xrootd.git"
 
   bottle do
@@ -14,13 +15,13 @@ class Xrootd < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "readline"
   uses_from_macos "zlib"
 
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", *std_cmake_args, "-DENABLE_PYTHON=OFF"
       system "make", "install"
     end
   end

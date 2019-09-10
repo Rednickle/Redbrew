@@ -3,6 +3,7 @@ class Unbound < Formula
   homepage "https://www.unbound.net"
   url "https://nlnetlabs.nl/downloads/unbound/unbound-1.9.3.tar.gz"
   sha256 "1b55dd9170e4bfb327fb644de7bbf7f0541701149dff3adf1b63ffa785f16dfa"
+  revision 1
   head "https://github.com/NLnetLabs/unbound.git"
 
   bottle do
@@ -13,7 +14,7 @@ class Unbound < Formula
   end
 
   depends_on "libevent"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   uses_from_macos "expat"
 
   def install
@@ -21,7 +22,7 @@ class Unbound < Formula
       --prefix=#{prefix}
       --sysconfdir=#{etc}
       --with-libevent=#{Formula["libevent"].opt_prefix}
-      --with-ssl=#{Formula["openssl"].opt_prefix}
+      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
       --enable-event-api
     ]
 
