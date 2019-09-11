@@ -15,9 +15,9 @@ class Bind < Formula
   head "https://gitlab.isc.org/isc-projects/bind9.git"
 
   bottle do
-    sha256 "fd61c1f85c017dfd5a7bfb47858bdebaa3d5ef6c6261b85877d1660573bfb3f7" => :mojave
-    sha256 "1f913642a4ac026aeae2223a955031a9e3327e3333bb64239180f2324418f27b" => :high_sierra
-    sha256 "483c9e52f47529ecafdf7c50418bde1c825cce90c4be5a604ffdb56f72ca8133" => :sierra
+    rebuild 2
+    sha256 "4b9b04e5667cd34cdecca3798867b397a73edaa0cc67f668034e842591deffc4" => :mojave
+    sha256 "3222145bb158462d295526bc9717bf87f607c36da0f2d4d7033d2e54014469e1" => :high_sierra
   end
 
   depends_on "json-c"
@@ -50,6 +50,7 @@ class Bind < Formula
                           "--with-python=#{Formula["python"].opt_bin}/python3",
                           "--with-python-install-dir=#{vendor_site_packages}",
                           *("--disable-linux-caps" unless OS.mac?)
+                          "--without-lmdb"
 
     system "make"
     system "make", "install"

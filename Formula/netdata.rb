@@ -3,18 +3,18 @@ class Netdata < Formula
   homepage "https://my-netdata.io/"
   url "https://github.com/netdata/netdata/releases/download/v1.16.0/netdata-v1.16.0.tar.gz"
   sha256 "d62ae89c7b9e93d40feca6edd26b77c6e27e17caa2f90a50a1a7a677f6cc8b4f"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "1d937ea324ae760ddd986f6ac3ff3cda572335f597feb4b6c5acccf3dd8b8c26" => :mojave
-    sha256 "61935ea0123e116f21631f0a3b11fc2d694e23ed620107002d6b6dba1d9d1300" => :high_sierra
-    sha256 "028e79b7fe6d46bf33bc466d2e63180c6af50c328284434eb3bad5a45ce30bf7" => :sierra
+    sha256 "5b0878294799c32f90033e569eee29ec05f7db896405139a24cc25bcebdda058" => :mojave
+    sha256 "4cb0ad5a23839660f20a86b5bf364132a757d9306c3169b4fd3f3b074f8e91fb" => :high_sierra
+    sha256 "182375cd13d10d1ae85c58ead0d1a87a274f2ad723a455bcd8b65c5564fa5cab" => :sierra
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl" if MacOS.version <= :sierra
+  depends_on "openssl@1.1" if MacOS.version <= :sierra
 
   def install
     system "autoreconf", "-ivf"
