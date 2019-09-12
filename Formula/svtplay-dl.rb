@@ -3,15 +3,14 @@ class SvtplayDl < Formula
 
   desc "Download videos from https://www.svtplay.se/"
   homepage "https://svtplay-dl.se/"
-  url "https://files.pythonhosted.org/packages/65/32/ec0bace91cc59001f75043611cc5693ee716e226e318c5143fe729c07994/svtplay-dl-2.2.tar.gz"
-  sha256 "5c21675a54ca1690e1ab19a116ba922818129e1994bb7379c084df2b03e287f0"
-  revision 1
+  url "https://files.pythonhosted.org/packages/0c/19/b590fd5ca34ca7cc0c2aa9e7d935d5c1330ef5a99e93136ce040667adac4/svtplay-dl-2.4.tar.gz"
+  sha256 "bfe3b61c3294e01ee17fa670a10204e8369393fbc2d9f0c917fdc73026355761"
 
   bottle do
     cellar :any
-    sha256 "f809e326975236abc5f5aa20291b5d04a764e75b73a9cd8e85ec6aa3e13c1055" => :mojave
-    sha256 "4997cdf6c353147028c87446ba2cdb176063c8954fea53829b48175c69d3a5c1" => :high_sierra
-    sha256 "5e66832f54290f259e323d6a222b9359b0a6c66f3a84e981e0250fe6a9455fcd" => :sierra
+    sha256 "65323b4bfaf4ffed44ebd6cda596f4be325686ca7e72658d22d8026610696f87" => :mojave
+    sha256 "2682b6a58db571e3679d8bd2a4ed02feb501e0be5f9ae268ae01f0a7188a595e" => :high_sierra
+    sha256 "ab1db08f4c3789ac6a3f790f94f9c1ee2d43d9cae52e96b6ddd4638d5a92f4f0" => :sierra
   end
 
   depends_on "openssl@1.1"
@@ -60,6 +59,11 @@ class SvtplayDl < Formula
   resource "pyyaml" do
     url "https://files.pythonhosted.org/packages/e3/e8/b3212641ee2718d556df0f23f78de8303f068fe29cdaa7a91018849582fe/PyYAML-5.1.2.tar.gz"
     sha256 "01adf0b6c6f61bd11af6e10ca52b7d4057dd0be0343eb9283c878cf3af56aee4"
+  end
+
+  resource "python-dateutil" do
+    url "https://files.pythonhosted.org/packages/ad/99/5b2e99737edeb28c71bcbec5b5dda19d0d9ef3ca3e92e3e925e7c0bb364c/python-dateutil-2.8.0.tar.gz"
+    sha256 "c89805f6f4d64db21ed966fda138f8a5ed7a4fdbc1a8ee329ce1b74e3c74da9e"
   end
 
   def install

@@ -1,15 +1,15 @@
 class Atk < Formula
   desc "GNOME accessibility toolkit"
   homepage "https://library.gnome.org/devel/atk/"
-  url "https://download.gnome.org/sources/atk/2.32/atk-2.32.0.tar.xz"
-  sha256 "cb41feda7fe4ef0daa024471438ea0219592baf7c291347e5a858bb64e4091cc"
-  revision 1
+  url "https://download.gnome.org/sources/atk/2.34/atk-2.34.0.tar.xz"
+  sha256 "bd0714d57863c7f32e2f34388f309fdb4d5c22de69de9fa96ad19171e76605eb"
 
   bottle do
-    sha256 "ac54bad41a663388d7ce1063229d4aee2b0012ec50aed14a656b05f6347335cc" => :mojave
-    sha256 "7e7350ad341e22ab8acbb92ee7264d61f3eced9d4840653ef73c37127343d312" => :high_sierra
-    sha256 "1656de07be3f8a021e11a0f553929251ffa6a0963968cb36278ba5adb2ed24fb" => :sierra
-    sha256 "c421fcb3adfa28406b9ce517c41ae9d1137d7e72ebc42f600c8e4d371731506b" => :x86_64_linux
+    cellar :any
+    rebuild 1
+    sha256 "bef1913879e18e1ebb1374cea9099b469e627c143db1af84eb4ff952c0aa416a" => :mojave
+    sha256 "a9c3a88fe56e0f9a881ec1d0256f20cfe79e6ff7a1bb181aae34a369d52e76b5" => :high_sierra
+    sha256 "019ecba02c40d705a0479ec5ba997561faaad827f019d12e3f51030db2eb328b" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
