@@ -6,6 +6,7 @@ class Curl < Formula
   sha256 "6618234e0235c420a21f4cb4c2dd0badde76e6139668739085a70c4e2fe7a141"
 
   bottle do
+    cellar :any
     sha256 "f3030cdac8f12e65525a5b70ee534490082b4c0a99a8fc2eb5973aab030108e8" => :x86_64_linux
   end
 
