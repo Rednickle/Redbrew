@@ -3,40 +3,33 @@ class Bitchx < Formula
   homepage "https://bitchx.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/bitchx/ircii-pana/bitchx-1.2.1/bitchx-1.2.1.tar.gz"
   sha256 "2d270500dd42b5e2b191980d584f6587ca8a0dbda26b35ce7fadb519f53c83e2"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "a54b24df15570ceb3e8e62717c98941b0b0b4e4066c191053029abfaa6f0b39c" => :mojave
-    sha256 "799186d1028a2ea88f40cc0e6653658202c70d721b73ca2f1f673258d3388d63" => :high_sierra
-    sha256 "c97728febe95f8ce82a9bef839d811ba751ce323ae6005bac51b7b123cd47790" => :sierra
+    sha256 "52939d589b5697402b6b5c658ab065651ac1943e8c7c7c9798aca5f76790be00" => :mojave
+    sha256 "0a021e6d01b7f7d4ee9d048459ab7367b48da791896b2edeb96e270b196ff202" => :high_sierra
+    sha256 "0c9e7fcf39a8fb0c80f867495cf1d6776fbe4aec6010a1986edbca820ed7a6f0" => :sierra
   end
 
-  depends_on "openssl" # OpenSSL 1.1 support in next version (1.2.2)
+  depends_on "openssl@1.1"
 
   def install
-    plugins = %w[acro aim arcfour amp autocycle blowfish cavlink encrypt
-                 fserv hint identd nap pkga possum qbx qmail]
+    # Patch to fix OpenSSL detection with OpenSSL 1.1
+    # A similar fix is already committed upstream:
+    # https://sourceforge.net/p/bitchx/git/ci/184af728c73c379d1eee57a387b6012572794fa8/
+    inreplace "configure", "SSLeay", "OpenSSL_version_num"
+
     args = %W[
       --prefix=#{prefix}
-      --with-ssl
-      --with-plugins=#{plugins * ","}
-      --enable-ipv6
       --mandir=#{man}
+      --enable-ipv6
+      --with-plugins=acro,aim,arcfour,amp,autocycle,blowfish,cavlink,encrypt,fserv,hint,identd,nap,pkga,possum,qbx,qmail
+      --with-ssl
     ]
 
     system "./configure", *args
     system "make"
     system "make", "install"
-  end
-
-  def caveats; <<~EOS
-    On case-sensitive filesytems, it is necessary to run `BitchX` not `bitchx`.
-    For best visual appearance, your terminal emulator may need:
-    * Character encoding set to Western (ISO Latin 1).
-      (or a similar, compatible encoding)
-    * A font capable of extended ASCII characters:
-      See: https://www.google.com/search?q=perfect+dos+vga+437
-  EOS
   end
 
   test do
