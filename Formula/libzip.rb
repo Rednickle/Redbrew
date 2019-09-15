@@ -6,15 +6,16 @@ class Libzip < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0036272939932029e74982ae3757ddb3e2a671ea3328f80fbc6a61036396a8ec" => :mojave
-    sha256 "adede5bd45b75dbbfb5df7ba638688afa3fa7ad71c84b5b238221fb982bed720" => :high_sierra
-    sha256 "58eefd8fef7cdd91803c74c03f55ee161f3b84bdf9785bb693cd901ca5985c43" => :sierra
-    sha256 "2b026f3dcee9f0a8a21c6ed5c3bffcb9813c593e3a273953fc2ef9289bf94777" => :x86_64_linux
+    rebuild 1
+    sha256 "7aad5ff734cec8f3c7f71540ee3d16f1423cc9526893d8e60d624f6d22f7dcbc" => :mojave
+    sha256 "c3e6bfd3be85c039d1ea40706ce9921a21a2856e2b709dae38c2efb0a3996c37" => :high_sierra
+    sha256 "237b9a980bef4463dc1f88c97093312292049f3e6184986179b7e2411337a8e6" => :sierra
   end
 
   depends_on "cmake" => :build
 
-  conflicts_with "libtcod", :because => "both install `zip.h` header"
+  conflicts_with "libtcod", "minizip2",
+    :because => "libtcod, libzip and minizip2 install a `zip.h` header"
 
   unless OS.mac?
     depends_on "bzip2"

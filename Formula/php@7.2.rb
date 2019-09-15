@@ -6,10 +6,10 @@ class PhpAT72 < Formula
   revision 1
 
   bottle do
-    sha256 "abbcd1c105f315daa497b36bf45c57aaa8d53ce1dcd6b9de5deaebdadcba7fa7" => :mojave
-    sha256 "aefa6b2c2c330300df716fc601c36d7ad91f996a8b081f84e066071b3c263488" => :high_sierra
-    sha256 "753f7296d0d490c10b27d3e9e200da22b6d316f02ec3b4807e8e1a0c665aaaf5" => :sierra
-    sha256 "78a1ad85de45c2f24c8f068c3327b742f1ca9833ca5e6704d7a6ca5b5c7328c3" => :x86_64_linux
+    rebuild 1
+    sha256 "242d5de1ee435b619e5346b0e2ba452987b6dd71aa0cb9e14596d30841f8c1ca" => :mojave
+    sha256 "1ca6d215e9772c07a0bcad5cb802f464ff06bc90188217334163109093495081" => :high_sierra
+    sha256 "be15f5f587921bf2b7a60d4845792e3e588af90fb0c536c40958b8f508322dcd" => :sierra
   end
 
   keg_only :versioned_formula
@@ -210,9 +210,9 @@ class PhpAT72 < Formula
 
     # Use OpenSSL cert bundle
     inreplace "php.ini-development", /; ?openssl\.cafile=/,
-      "openssl.cafile = \"#{HOMEBREW_PREFIX}/etc/openssl/cert.pem\""
+      "openssl.cafile = \"#{etc}/openssl@1.1/cert.pem\""
     inreplace "php.ini-development", /; ?openssl\.capath=/,
-      "openssl.capath = \"#{HOMEBREW_PREFIX}/etc/openssl/certs\""
+      "openssl.capath = \"#{etc}/openssl@1.1/certs\""
 
     config_files = {
       "php.ini-development"   => "php.ini",

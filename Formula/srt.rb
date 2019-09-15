@@ -1,17 +1,15 @@
 class Srt < Formula
   desc "Secure Reliable Transport"
   homepage "https://www.srtalliance.org/"
-  url "https://github.com/Haivision/srt/archive/v1.3.4.tar.gz"
-  sha256 "d3ddf3ad89eb93a4dbf44046775eb63e04780cc536781490d65321d78d4b19de"
-  revision 1
+  url "https://github.com/Haivision/srt/archive/v1.4.0.tar.gz"
+  sha256 "c2ba0bb9382ab42f9eebac831dc021e7da26b2971aaeb30a891dd24297bd929c"
   head "https://github.com/Haivision/srt.git"
 
   bottle do
     cellar :any
-    sha256 "775311e52cde0937eb3d2082b080ea023673bedf65c044fdad67b1740e7f5fa6" => :mojave
-    sha256 "3d8ec15e6670482c6ced3d98cd6dfc4726318d9b4d1b37d2ea00692e01a1b778" => :high_sierra
-    sha256 "5b305e2360bb7ec1f0d6e6154b42d5dbc0face555e9e7182aac6be7def0dca77" => :sierra
-    sha256 "5acd065d5d5dbced2d152b83f001e63e37b0cb41728aa336696577541af20797" => :x86_64_linux
+    sha256 "f0c82082de31196e38d8d9b93dd991ec57ed020b50739d447e27496555575f01" => :mojave
+    sha256 "cb53f2eb06f79bdb840af4396220303c4c9279c9bea90076fe13f23949dff89a" => :high_sierra
+    sha256 "6075ef4880615220e11550c6bf60d87ee426eaaac0bb4e65e1f6a65a34ad1f55" => :sierra
   end
 
   depends_on "cmake" => :build
