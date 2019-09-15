@@ -1,16 +1,15 @@
 class Root < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern.ch/"
-  url "https://root.cern.ch/download/root_v6.18.00.source.tar.gz"
-  version "6.18.00"
-  sha256 "e6698d6cfe585f186490b667163db65e7d1b92a2447658d77fa831096383ea71"
-  revision 2
+  url "https://root.cern.ch/download/root_v6.18.04.source.tar.gz"
+  version "6.18.04"
+  sha256 "315a85fc8363f8eb1bffa0decbf126121258f79bd273513ed64795675485cfa4"
   head "https://github.com/root-project/root.git"
 
   bottle do
-    sha256 "5c95c2c5bb25a35efc7ab1704355aff9b0c181837157af3a0afbdfe957aeba58" => :mojave
-    sha256 "61dda0a31669b05ad547f2bd21658bcb4a37a094bf76df6726b4086b8997fecb" => :high_sierra
-    sha256 "f8d9a772ee2fc944625a596218b1c4884682b4c70fe2af1061999bd8aa15eb9b" => :sierra
+    sha256 "9ce760ff961b29b382d8373c6fbe72808e025b9a3e6113deb64df8586b0a853d" => :mojave
+    sha256 "acbac57657964414945706d499bab86ad7ac6367c78493a5e47de2eba111e0f1" => :high_sierra
+    sha256 "82e6f8dc5048f3977c9a942c2fd62671423f95bfe77e6d5abd9f53b6ac141b13" => :sierra
   end
 
   # https://github.com/Homebrew/homebrew-core/issues/30726

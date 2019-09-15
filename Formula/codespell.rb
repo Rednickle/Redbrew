@@ -3,14 +3,14 @@ class Codespell < Formula
 
   desc "Fix common misspellings in source code and text files"
   homepage "https://github.com/codespell-project/codespell"
-  url "https://files.pythonhosted.org/packages/84/92/0c864272b4db3f458a130ad732720c5607a88c0f7dd09fab1ad3234a1b4f/codespell-1.15.0.tar.gz"
-  sha256 "8f1bc15ca4322b72213b1cf13eb437b3c3956e0f423ab414d294d7e77e0e4130"
+  url "https://files.pythonhosted.org/packages/df/6f/764ca059e0eb06b69e1abed2c9a2cabe7dac72b336e2600615b38ea547a3/codespell-1.16.0.tar.gz"
+  sha256 "bf3b7c83327aefd26fe718527baa9bd61016e86db91a8123c0ef9c150fa02de9"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "aae637ce9ea085bea8fb28a9efbcfd26d0c89c25a2470cdbc2eddf0d8ec21059" => :mojave
-    sha256 "88380ded56e033c18878f8d7ca53988becf56ca25f4062bdb3c4e931b41a5bbd" => :high_sierra
-    sha256 "9901d26d021a711e529a5e197032cddb35c8f7919054aa3953403923a992debd" => :sierra
+    sha256 "577e71571fcefa1ef4edae6d790aa80e978afb21de6f12d232601885b0d30ff9" => :mojave
+    sha256 "330c2359a5e5050d555d9f70c29add7d3e7c9554d89ed43607235a896453b461" => :high_sierra
+    sha256 "b77254f7aee7303a2edabb0a780a78407e7d8c55a44e6a5c75c9dd799beba12d" => :sierra
   end
 
   depends_on "python"
