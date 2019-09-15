@@ -14,8 +14,6 @@ class Memcached < Formula
 
   depends_on "libevent"
 
-  conflicts_with "mysql-cluster", :because => "both install `bin/memcached`"
-
   def install
     system "./configure", "--prefix=#{prefix}", "--disable-coverage"
     system "make", "install"

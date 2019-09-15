@@ -20,7 +20,7 @@ class Mariadb < Formula
     depends_on "zlib"
   end
 
-  conflicts_with "mysql", "mysql-cluster", "percona-server",
+  conflicts_with "mysql", "percona-server",
     :because => "mariadb, mysql, and percona install the same binaries"
   conflicts_with "mysql-connector-c",
     :because => "both install MySQL client libraries"

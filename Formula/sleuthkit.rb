@@ -19,7 +19,6 @@ class Sleuthkit < Formula
   depends_on "libpq"
   depends_on "sqlite"
 
-  conflicts_with "irods", :because => "both install `ils`"
   conflicts_with "ffind",
     :because => "both install a 'ffind' executable."
 
