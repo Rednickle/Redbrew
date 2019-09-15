@@ -1,19 +1,19 @@
 class Snownews < Formula
   desc "Text mode RSS newsreader"
   homepage "https://github.com/kouya/snownews"
-  url "https://github.com/kouya/snownews/archive/v1.5.13.tar.gz"
-  sha256 "9a06cd58dee7846cbb18166c3b60153c1b7ee963261b205633d77feaa5410455"
-  revision 1
+  url "https://github.com/kouya/snownews/archive/1.6.10.tar.gz"
+  sha256 "8c78067aef75e283df4b3cca1c966587b6654e9e84a3e6e5eb8bdd5829799242"
 
   bottle do
-    rebuild 1
-    sha256 "3971c56d4b11dce284c01eac7b2c27a1f39b282056b2348587845af8098aca64" => :mojave
-    sha256 "dff9318381ed26526315a52edb7e5de362db958cadd1c7c774256ddf9160bb99" => :high_sierra
-    sha256 "099b010a3f16d1e32fabaa8351bf0a3ac13eb6b3aec802d05af83b4fee4545dd" => :sierra
+    sha256 "db1d20c1468867a2eeb77b521fdfac4e167393797506afd6bbd603fb40c435bf" => :mojave
+    sha256 "0e1eed435b2c94a95e35ee89c3b68be6cfa9867d75dc9fbb46b19a66ff6da915" => :high_sierra
+    sha256 "6437a67fb63f92f3c4d57b69505cb5146e2d7325da0d6fd73b57ac0f1461c807" => :sierra
   end
 
+  depends_on "coreutils" => :build
+  depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "openssl" # no OpenSSL 1.1 support
+  depends_on "ncurses"
 
   def install
     # Fix file not found errors for /usr/lib/system/libsystem_symptoms.dylib and
@@ -26,6 +26,11 @@ class Snownews < Formula
 
     # Must supply -lz because configure relies on "xml2-config --libs"
     # for it, which doesn't work on OS X prior to 10.11
-    system "make", "install", "EXTRA_LDFLAGS=#{ENV.ldflags} -L#{Formula["openssl"].opt_lib} -lz", "CC=#{ENV.cc}"
+    system "make", "install", "EXTRA_LDFLAGS=#{ENV.ldflags} -L#{Formula["openssl"].opt_lib} -lz",
+           "CC=#{ENV.cc}", "INSTALL=ginstall"
+  end
+
+  test do
+    system bin/"snownews -V"
   end
 end
