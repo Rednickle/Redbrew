@@ -3,14 +3,13 @@ class Vtk < Formula
   homepage "https://www.vtk.org/"
   url "https://www.vtk.org/files/release/8.2/VTK-8.2.0.tar.gz"
   sha256 "34c3dc775261be5e45a8049155f7228b6bd668106c72a3c435d95730d17d57bb"
-  revision 2
+  revision 3
   head "https://github.com/Kitware/VTK.git"
 
   bottle do
-    sha256 "198879d7b096a0783949664f76eb462db1b40ac0b6323ac064ae0f238a0dcedb" => :mojave
-    sha256 "8dc3e1b37f503b3230ba978a8900d705cd9856aec8930e3c7dee4f99522b5ac1" => :high_sierra
-    sha256 "8153de359561ed7a47248f99441d47fd09256f68be100cea06939219f9668637" => :sierra
-    sha256 "e0b866aa52270e5989be39b60fb72807cb1b1aecea5e7f5417d7f280568b5bc3" => :x86_64_linux
+    sha256 "b82c5276ce784af50cb6cddc8355b69239a51ea724849375207fff1518990be1" => :mojave
+    sha256 "1e2f7885e7502b654db20733c675d432549aba8d454567ec38fcb7a5975b9f24" => :high_sierra
+    sha256 "416159f7f88c72a0aec2eb5fb8d68feb99053cd025fc5c3b1f8b41e81cb8df1c" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -66,7 +65,7 @@ class Vtk < Formula
       -DPYTHON_EXECUTABLE=#{Formula["python"].opt_bin}/python3
       -DPYTHON_INCLUDE_DIR=#{py_prefix}/include/python#{pyver}m
       -DPYTHON_LIBRARY=#{py_prefix}/lib/#{dylib}
-      -DVTK_PYTHON_SITE_PACKAGES_SUFFIX=#{lib}/python3/site-packages
+      -DVTK_INSTALL_PYTHON_MODULE_DIR=#{lib}/python#{pyver}/site-packages
       -DVTK_QT_VERSION:STRING=5
       -DVTK_Group_Qt=ON
       -DVTK_WRAP_PYTHON_SIP=ON
