@@ -7,25 +7,17 @@ class Lazydocker < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2afbfee024cbe59bca718405e6966de2ac27df6ea5248931dac316aa1d9ab6af" => :mojave
-    sha256 "9b5ca7083c9e31a46fa42e9aee2ea88591aec585d192419bf344f844cfac0a59" => :high_sierra
-    sha256 "f45f1ff18d5b8bc445afd3cc6f3e202d21817bcaaca690e9ffe1947c3f559334" => :sierra
-    sha256 "ca0d176a44eef1745ce3223b31f6c531a41043824cd4712dc99be7530a897450" => :x86_64_linux
+    rebuild 1
+    sha256 "7e6904339596de03b73b9a7e9fd4fcb99bc3e17e7188de4305d0367af09094aa" => :mojave
+    sha256 "41f35cdbf18a012b7160ec10164ce66d4aedba2d9601f34d3cf0e93afa569528" => :high_sierra
+    sha256 "cc0ea7892e0615a0e6d8b02573334cb3759cafd9abf81c2cb55fbddb68979f44" => :sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GO111MODULE"] = "on"
-    ENV["GOPATH"] = buildpath
-
-    dir = buildpath/"src/github.com/jesseduffield/lazydocker"
-    dir.install buildpath.children
-
-    cd dir do
-      system "go", "build", "-mod", "vendor", "-ldflags", "-X main.version=#{version}", "-o", bin/"lazydocker"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-mod=vendor", "-o", bin/"lazydocker",
+      "-ldflags", "-X main.version=#{version} -X main.buildSource=homebrew"
   end
 
   test do

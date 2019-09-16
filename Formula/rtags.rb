@@ -2,15 +2,15 @@ class Rtags < Formula
   desc "Source code cross-referencer like ctags with a clang frontend"
   homepage "https://github.com/Andersbakken/rtags"
   url "https://github.com/Andersbakken/rtags.git",
-      :tag      => "v2.33",
-      :revision => "a5fa0951c92b4e5423d4ce95adafdca6ea30f254"
-  revision 2
+      :tag      => "v2.34",
+      :revision => "2723ce64f0e83e81ac4a49068fba2588701fdb11"
   head "https://github.com/Andersbakken/rtags.git"
 
   bottle do
-    sha256 "8499bfca6f3896c57209ffd87ce5f5e119cb212a29397db616eb6153ecd1f547" => :mojave
-    sha256 "4ffd9ecd605d8edf1200fc89f5523c07292b37b5f15fedfea11bba85df863d15" => :high_sierra
-    sha256 "35de25f4ae00b335384443a959eeb5b0ec02af0f459f53e425e3a838fed4f3de" => :sierra
+    cellar :any
+    sha256 "eecf7d02f14a70a7bf084ac4ca1b90069a5aafa1c8ce321a5c4a18bce480811e" => :mojave
+    sha256 "a6a0623ecedda03bf90e396e1c891ad2925dc2845810d55c3d145ab6bc410a28" => :high_sierra
+    sha256 "0c6d0ace0aba7ad795b4db67a658f3d2130e93b02bd22f459d54c5d852f3e9bd" => :sierra
   end
 
   depends_on "cmake" => :build
