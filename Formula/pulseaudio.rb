@@ -1,4 +1,3 @@
-# pulseaudio: Build a bottle for Linuxbrew
 class Pulseaudio < Formula
   desc "Sound system for POSIX OSes"
   homepage "https://wiki.freedesktop.org/www/Software/PulseAudio/"
@@ -9,6 +8,7 @@ class Pulseaudio < Formula
     sha256 "819cb5b8dd86715db2285f647b1742611dd2a802447aea637f05adae33a6056b" => :mojave
     sha256 "a5c5442b2118b9e3e3b2cbd8a8a700a121e9264b11c7096a3b3c42ce780a7a0b" => :high_sierra
     sha256 "bc42617a58074e5631eae20559f6a043ee87c8dcfd9944ac45b47467a3cdca66" => :sierra
+    sha256 "4f2180c043c35fc4aa0d04efdcefac7041a6ac7f0bf5850bbe700c666e83a36d" => :x86_64_linux
   end
 
   head do
