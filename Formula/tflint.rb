@@ -2,15 +2,15 @@ class Tflint < Formula
   desc "Linter for Terraform files"
   homepage "https://github.com/wata727/tflint"
   url "https://github.com/wata727/tflint.git",
-    :tag      => "v0.11.1",
-    :revision => "1c31b742deb0a556520dec70ae9d4da5740f2b48"
+    :tag      => "v0.11.2",
+    :revision => "08afbfa51ed6cbd4bf6d41c43de8910515bb098b"
   head "https://github.com/wata727/tflint.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ceb2dfc4b77a86616be7babfddc013f3bdeae9b6fd60f4f318680c7fd133d8b4" => :mojave
-    sha256 "bca39eb983b366f3c16f6ce08e9cee1b39e584fed8338fef93eefbcb1565d3ea" => :high_sierra
-    sha256 "b20c9e9b857dd39b616e072b0ccadbc97ee0cbe4d657104bd9d145d9f543c51d" => :sierra
+    sha256 "44676ccfd2eab7b62e949d9244a0b40ed45df4cb1864ce4feb801a4076a7b69f" => :mojave
+    sha256 "cffc8f1cfd97aef7142313b20a0e7fc0dedec87973f384c35edb426e24a46ba8" => :high_sierra
+    sha256 "7c0c391c1397327633c9dcd96323cfe32e2572f9df8b2c82988b0a63ffa0af47" => :sierra
   end
 
   depends_on "go" => :build
