@@ -1,18 +1,22 @@
 require "os/linux/glibc"
 
-class LlvmAT5 < Formula
+class LlvmAT8 < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
-  url "https://releases.llvm.org/5.0.2/llvm-5.0.2.src.tar.xz"
-  sha256 "d522eda97835a9c75f0b88ddc81437e5edbb87dc2740686cb8647763855c2b3c"
-  revision 1
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-8.0.1/llvm-8.0.1.src.tar.xz"
+  sha256 "44787a6d02f7140f145e2250d56c9f849334e11f9ae379827510ed72f12b75e7"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "33c32271f2094e27473b54577b6c04e89fb457a09946b8ea1fe9df3bda8f6511" => :mojave
-    sha256 "45b114bd1d3d652b679304cee5f405d1f856c8cc015a3f1c08764477c99310c2" => :high_sierra
-    sha256 "8673a94fd59e891d0e26dc535944ed52a50c8074cfe88d6307cb05119c984b81" => :sierra
+    sha256 "de26cfd906d55496acf1eb4927dca3d003e89a771c954495da1f905cf387b17d" => :mojave
+    sha256 "7bc6238ef198baf48d65b75f08f60fede8e81940d6224510cd5c17577854b75b" => :high_sierra
+    sha256 "46fd7af413951c2dadd46d58216f899bb5cfd1befb7e84317cc3b4b440c188cf" => :sierra
+  end
+
+  # Clang cannot find system headers if Xcode CLT is not installed
+  pour_bottle? do
+    reason "The bottle needs the Xcode CLT to be installed."
+    satisfy { MacOS::CLT.installed? }
   end
 
   pour_bottle? do
@@ -66,8 +70,11 @@ class LlvmAT5 < Formula
 
   keg_only :versioned_formula
 
+  # https://llvm.org/docs/GettingStarted.html#requirement
   depends_on "cmake" => :build
+  depends_on :xcode => :build
   depends_on "libffi"
+  depends_on "swig"
 
   unless OS.mac?
     depends_on "gcc" # <atomic> is provided by gcc
@@ -82,56 +89,48 @@ class LlvmAT5 < Formula
   end
 
   resource "clang" do
-    url "https://releases.llvm.org/5.0.2/cfe-5.0.2.src.tar.xz"
-    sha256 "fa9ce9724abdb68f166deea0af1f71ca0dfa9af8f7e1261f2cae63c280282800"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-8.0.1/cfe-8.0.1.src.tar.xz"
+    sha256 "70effd69f7a8ab249f66b0a68aba8b08af52aa2ab710dfb8a0fba102685b1646"
   end
 
   resource "clang-extra-tools" do
-    url "https://releases.llvm.org/5.0.2/clang-tools-extra-5.0.2.src.tar.xz"
-    sha256 "a3362a854ba4a60336b21a95612f647f4b6de0afd88858f2420e41c5a31b0b05"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-8.0.1/clang-tools-extra-8.0.1.src.tar.xz"
+    sha256 "187179b617e4f07bb605cc215da0527e64990b4a7dd5cbcc452a16b64e02c3e1"
   end
 
   resource "compiler-rt" do
-    url "https://releases.llvm.org/5.0.2/compiler-rt-5.0.2.src.tar.xz"
-    sha256 "3efe9ddf3f69e0c0a45cde57ee93911f36f3ab5f2a7f6ab8c8efb3db9b24ed46"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-8.0.1/compiler-rt-8.0.1.src.tar.xz"
+    sha256 "11828fb4823387d820c6715b25f6b2405e60837d12a7469e7a8882911c721837"
   end
 
   resource "libcxx" do
-    url "https://releases.llvm.org/5.0.2/libcxx-5.0.2.src.tar.xz"
-    sha256 "6edf88e913175536e1182058753fff2365e388e017a9ec7427feb9929c52e298"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-8.0.1/libcxx-8.0.1.src.tar.xz"
+    sha256 "7f0652c86a0307a250b5741ab6e82bb10766fb6f2b5a5602a63f30337e629b78"
   end
 
   resource "libunwind" do
-    url "https://releases.llvm.org/5.0.2/libunwind-5.0.2.src.tar.xz"
-    sha256 "706e43c69c7be0fdeb55ebdf653cf47ca77e471d1584f1dbf12a568a93df9928"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-8.0.1/libunwind-8.0.1.src.tar.xz"
+    sha256 "1870161dda3172c63e632c1f60624564e1eb0f9233cfa8f040748ca5ff630f6e"
   end
 
   resource "lld" do
-    url "https://releases.llvm.org/5.0.2/lld-5.0.2.src.tar.xz"
-    sha256 "46456d72ec411c6d5327ad3fea1358296f0dfe508caf1fa63ce4184f652e07aa"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-8.0.1/lld-8.0.1.src.tar.xz"
+    sha256 "9fba1e94249bd7913e8a6c3aadcb308b76c8c3d83c5ce36c99c3f34d73873d88"
   end
 
   resource "lldb" do
-    url "https://releases.llvm.org/5.0.2/lldb-5.0.2.src.tar.xz"
-    sha256 "78ba05326249b4d7577db56d16b2a7ffea43fc51e8592b0a1ac4d2ef87514216"
-
-    # Fixes "error: no type named 'pid_t' in the global namespace"
-    # https://github.com/Homebrew/homebrew-core/issues/17839
-    # Already fixed in upstream trunk
-    patch do
-      url "https://github.com/llvm-mirror/lldb/commit/324f93b5e30.patch?full_index=1"
-      sha256 "f23fc92c2d61bf6c8bc6865994a75264fafba6ae435e4d2f4cc8327004523fb1"
-    end
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-8.0.1/lldb-8.0.1.src.tar.xz"
+    sha256 "e8a79baa6d11dd0650ab4a1b479f699dfad82af627cbbcd49fa6f2dc14e131d7"
   end
 
   resource "openmp" do
-    url "https://releases.llvm.org/5.0.2/openmp-5.0.2.src.tar.xz"
-    sha256 "39ca542c540608d95d3299a474836a7b5f8377bcc5a68493379872738c28565c"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-8.0.1/openmp-8.0.1.src.tar.xz"
+    sha256 "3e85dd3cad41117b7c89a41de72f2e6aa756ea7b4ef63bb10dcddf8561a7722c"
   end
 
   resource "polly" do
-    url "https://releases.llvm.org/5.0.2/polly-5.0.2.src.tar.xz"
-    sha256 "dda84e48b2195768c4ef25893edd5eeca731bed7e80a2376119dfbc3350e91b8"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-8.0.1/polly-8.0.1.src.tar.xz"
+    sha256 "e8a1f7e8af238b32ce39ab5de1f3317a2e3f7d71a8b1b8bbacbd481ac76fd2d1"
   end
 
   def install
@@ -151,6 +150,7 @@ class LlvmAT5 < Formula
     (buildpath/"projects/libcxxabi").install resource("libcxxabi") unless OS.mac?
     (buildpath/"projects/libunwind").install resource("libunwind")
     (buildpath/"tools/lld").install resource("lld")
+    (buildpath/"tools/lldb").install resource("lldb")
     (buildpath/"tools/polly").install resource("polly")
     (buildpath/"projects/compiler-rt").install resource("compiler-rt")
 
@@ -177,6 +177,9 @@ class LlvmAT5 < Formula
       -DWITH_POLLY=ON
       -DFFI_INCLUDE_DIR=#{Formula["libffi"].opt_lib}/libffi-#{Formula["libffi"].version}/include
       -DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}
+      -DLLDB_USE_SYSTEM_DEBUGSERVER=ON
+      -DLLDB_DISABLE_PYTHON=1
+      -DLIBOMP_INSTALL_ALIASES=OFF
     ]
 
     if OS.mac?
@@ -204,13 +207,9 @@ class LlvmAT5 < Formula
       system "make", "install-xcode-toolchain" if OS.mac?
     end
 
-    (share/"cmake").install "cmake/modules"
     (share/"clang/tools").install Dir["tools/clang/tools/scan-{build,view}"]
-
-    # scan-build is in Perl, so the @ in our path needs to be escaped
-    inreplace "#{share}/clang/tools/scan-build/bin/scan-build",
-              "$RealBin/bin/clang", "#{bin}/clang".gsub("@", "\\@")
-
+    (share/"cmake").install "cmake/modules"
+    inreplace "#{share}/clang/tools/scan-build/bin/scan-build", "$RealBin/bin/clang", "#{bin}/clang"
     bin.install_symlink share/"clang/tools/scan-build/bin/scan-build", share/"clang/tools/scan-view/bin/scan-view"
     man1.install_symlink share/"clang/tools/scan-build/man/scan-build.1"
 
@@ -255,9 +254,10 @@ class LlvmAT5 < Formula
       }
     EOS
 
+    clean_version = version.to_s[/(\d+\.?)+/]
+
     system "#{bin}/clang", "-L#{lib}", "-fopenmp", "-nobuiltininc",
-                           "-I#{lib}/clang/#{version}/include",
-                           *("-Wl,-rpath=#{lib}" unless OS.mac?),
+                           "-I#{lib}/clang/#{clean_version}/include",
                            "omptest.c", "-o", "omptest"
     testresult = shell_output("./omptest")
 
