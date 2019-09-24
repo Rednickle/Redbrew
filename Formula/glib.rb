@@ -3,9 +3,12 @@ class Glib < Formula
   homepage "https://developer.gnome.org/glib/"
   url "https://download.gnome.org/sources/glib/2.62/glib-2.62.0.tar.xz"
   sha256 "6c257205a0a343b662c9961a58bb4ba1f1e31c82f5c6b909ec741194abc3da10"
+  revision 1
 
   bottle do
-    sha256 "a2cfa6d0bccfef54558d876f78e2b41066f306136796e2604acb702d69353156" => :x86_64_linux
+    sha256 "85744e48731ddb3aa62a4bdc0c1331571129d49f2ade0b37de0817a3987d3454" => :mojave
+    sha256 "7d41d51ec6927f905ba21405a59abe7f79f37a2211f34cb2cbba3fcd70900373" => :high_sierra
+    sha256 "e8ab99199051885bf89aac8cbb8c00cc9582111fbf416cca07446cb1ae62e3e4" => :sierra
   end
 
   depends_on "meson" => :build
@@ -65,6 +68,15 @@ class Glib < Formula
               "Libs: -L${libdir} -lglib-2.0 -L#{gettext}/lib#{lintl}"
       s.gsub! "Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include",
               "Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include -I#{gettext}/include"
+    end
+
+    # `pkg-config --print-requires-private gobject-2.0` includes libffi,
+    # but that package is keg-only so it needs to look for the pkgconfig file
+    # in libffi's opt path.
+    libffi = Formula["libffi"].opt_prefix
+    inreplace lib+"pkgconfig/gobject-2.0.pc" do |s|
+      s.gsub! "Requires.private: libffi",
+              "Requires.private: #{libffi}/lib/pkgconfig/libffi.pc"
     end
   end
 
