@@ -5,19 +5,19 @@ class GitAnnex < Formula
 
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-7.20190819/git-annex-7.20190819.tar.gz"
-  sha256 "9e794baf81f3fcc0359ec9c0f22f5d5cad1ea9446958e53acafe747c48ef7ebb"
+  url "https://hackage.haskell.org/package/git-annex-7.20190912/git-annex-7.20190912.tar.gz"
+  sha256 "9b25fba7de61ce5f09e737873442cd5702d01908b10430343a5b8cce0add72a8"
   head "git://git-annex.branchable.com/"
 
   bottle do
     cellar :any
-    sha256 "3fa013225498b0903e4c402054849129ce584dbe63f57b3863cc7483650bb635" => :mojave
-    sha256 "c4e0b3e3feb6472f59ea792890c8e30702cf4ea5bc506048ceab3cbf29a14cfc" => :high_sierra
-    sha256 "372ef1a30123f02263e003ba6b2f71daa139105890e875b02a1fda24a7388d2e" => :sierra
+    sha256 "3461db6b82bdfa01ff3079a9389822abf997bca5547c16dcf911ef53c4a7de34" => :mojave
+    sha256 "719ad81c1fa318a1f0fd79f2a3801086931a142715ff965638fc0752667e0f37" => :high_sierra
+    sha256 "d2c25f2af71d468fc3c310592b0111315cd4573f82f586a4dd93c8962aec5365" => :sierra
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@8.6" => :build
   depends_on "pkg-config" => :build
   depends_on "gsasl"
   depends_on "libmagic"
