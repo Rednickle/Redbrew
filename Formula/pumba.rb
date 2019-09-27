@@ -17,7 +17,6 @@ class Pumba < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
 
     src = buildpath/"src/github.com/alexei-led/pumba"
     src.install buildpath.children

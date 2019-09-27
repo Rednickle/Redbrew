@@ -16,7 +16,6 @@ class Jid < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
 
     src = buildpath/"src/github.com/simeji/jid"
     src.install buildpath.children

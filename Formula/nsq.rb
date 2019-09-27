@@ -17,7 +17,6 @@ class Nsq < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
 
     (buildpath/"src/github.com/nsqio/nsq").install buildpath.children
     cd "src/github.com/nsqio/nsq" do

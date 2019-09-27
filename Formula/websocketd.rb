@@ -16,7 +16,6 @@ class Websocketd < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
 
     src = buildpath/"src/github.com/joewalnes/websocketd"
     src.install buildpath.children

@@ -16,7 +16,6 @@ class Slackcat < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
 
     src = buildpath/"src/github.com/vektorlab/slackcat"
     src.install buildpath.children

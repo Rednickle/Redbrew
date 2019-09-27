@@ -17,7 +17,6 @@ class Exercism < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
 
     dir = buildpath/"src/github.com/exercism/cli"
     dir.install buildpath.children

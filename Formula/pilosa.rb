@@ -16,7 +16,6 @@ class Pilosa < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
 
     (buildpath/"src/github.com/pilosa/pilosa").install buildpath.children
     cd "src/github.com/pilosa/pilosa" do

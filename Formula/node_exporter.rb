@@ -16,7 +16,6 @@ class NodeExporter < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
 
     (buildpath/"src/github.com/prometheus/node_exporter").install buildpath.children
     cd "src/github.com/prometheus/node_exporter" do
