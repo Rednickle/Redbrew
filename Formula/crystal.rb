@@ -1,6 +1,7 @@
 class Crystal < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
+  revision 1
 
   stable do
     url "https://github.com/crystal-lang/crystal/archive/0.31.0.tar.gz"
@@ -13,10 +14,9 @@ class Crystal < Formula
   end
 
   bottle do
-    sha256 "0985bc1dbfecf3397c9e23d944517cd4b173431a55f832e3007378cf0fe58d70" => :mojave
-    sha256 "2a47675643701fc315d2078cc29505525e4162369bfb5bd02873e10e207c0248" => :high_sierra
-    sha256 "2ebd7647bf64cf7bcb91ede465a09479cefd5d0192d676284bcb5d0632a33dcd" => :sierra
-    sha256 "5cd40e2a34d1496eee0b93530102dee52c8604de390237ed2f81e46b2cc1c6d2" => :x86_64_linux
+    sha256 "a1fe1a4600c29faca4b8e4fa1016e1daa6667129b5956ff9d5777efe4da629b2" => :mojave
+    sha256 "e6af5b650eb9b5200e503989cee515f2da25b7778c651259288c8c62520aeb6c" => :high_sierra
+    sha256 "beff786db2fef34041bcc562909067fe667c315a57c30c5fc708ca80a838c0ba" => :sierra
   end
 
   head do
@@ -35,7 +35,7 @@ class Crystal < Formula
   depends_on "gmp" # std uses it but it's not linked
   depends_on "libevent"
   depends_on "libyaml"
-  depends_on "llvm"
+  depends_on "llvm@8"
   depends_on "pcre"
   depends_on "pkg-config" # @[Link] will use pkg-config if available
 
