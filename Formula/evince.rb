@@ -1,13 +1,13 @@
 class Evince < Formula
   desc "GNOME document viewer"
   homepage "https://wiki.gnome.org/Apps/Evince"
-  url "https://download.gnome.org/sources/evince/3.32/evince-3.32.0.tar.xz"
-  sha256 "f0d977216466ed2f5a6de64476ef7113dc7c7c9832336f1ff07f3c03c5324c40"
+  url "https://download.gnome.org/sources/evince/3.32/evince-3.32.1.tar.xz"
+  sha256 "bdb49e7705b6b3599fd5882a0648bba018b6de322a0db4e814382c6697c63d36"
 
   bottle do
-    sha256 "8d1fb23658da65d47d29adb98a07332168d5b5ec8be5d29069c43f88e1e55c64" => :mojave
-    sha256 "152c9214046e061a7d38ad88abe6dfde92b9e297993a459eed5ae5851be47381" => :high_sierra
-    sha256 "d46efcdeb3c0988bd477e83bcd67466c7f3000cb538e4d9fc9661bd8e3c0626d" => :sierra
+    sha256 "a7cccacf9f3dbfc2425b4493a8efbc1889926e55bba348b5c62f14fd1459ad18" => :catalina
+    sha256 "8698a2d6646bc27492188bdcae5a23fb0ccfccfc75e27f242342d3e54a716d4d" => :mojave
+    sha256 "46179d167fbb183dadf00e99c32d2ab4231b612a621e45b0671b2dee495ef7d9" => :high_sierra
   end
 
   depends_on "appstream-glib" => :build
@@ -26,9 +26,6 @@ class Evince < Formula
   depends_on "libxml2"
   depends_on "poppler"
   depends_on "python"
-
-  # patch submitted upstream at https://gitlab.gnome.org/GNOME/evince/merge_requests/154
-  patch :DATA
 
   def install
     ENV["GETTEXTDATADIR"] = "#{Formula["appstream-glib"].opt_share}/gettext"
@@ -71,22 +68,3 @@ class Evince < Formula
     assert_match version.to_s, shell_output("#{bin}/evince --version")
   end
 end
-
-__END__
-diff --git a/libdocument/ev-document-factory.c b/libdocument/ev-document-factory.c
-index ca1aeeb..4f7f40b 100644
---- a/libdocument/ev-document-factory.c
-+++ b/libdocument/ev-document-factory.c
-@@ -58,8 +58,12 @@ get_backend_info_for_mime_type (const gchar *mime_type)
-                 guint i;
-
-                 for (i = 0; mime_types[i] != NULL; ++i) {
--                        if (g_content_type_is_mime_type (mime_type, mime_types[i]))
-+                        gchar *content_type = g_content_type_from_mime_type(mime_type);
-+                        if (g_content_type_is_mime_type (content_type, mime_types[i])) {
-+                                g_free(content_type);
-                                 return info;
-+                        }
-+                        g_free(content_type);
-                 }
-         }
