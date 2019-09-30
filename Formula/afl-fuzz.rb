@@ -1,13 +1,13 @@
 class AflFuzz < Formula
   desc "American fuzzy lop: Security-oriented fuzzer"
   homepage "https://github.com/google/AFL"
-  url "https://github.com/google/AFL/archive/v2.55b.tar.gz"
-  sha256 "ca96fa6fac76f1ee104762cc9313be37a398f936f2b0e8a9f66e94244ae6babc"
+  url "https://github.com/google/AFL/archive/v2.56b.tar.gz"
+  sha256 "1d4a372e49af02fbcef0dc3ac436d03adff577afc2b6245c783744609d9cdd22"
 
   bottle do
-    sha256 "486079e79c19bff03bf1f9ff12aa85de32fe470669c16ff1fc13ad3303ec0da1" => :mojave
-    sha256 "775cab0fd6828e3f239bc6663806fff049bef3bf38f698573d97f72b277f5b37" => :high_sierra
-    sha256 "e562e6cb8546efed44bb47de67fe82ce9f4efa83802d6581e56f049c543211bc" => :sierra
+    sha256 "7b72b8e23c2227ced43e7cd51fd14e9134af5dab41acefcd76b2dd9671f483ad" => :catalina
+    sha256 "8746ae555c6f7fb52b8deff1a9584e121568da557eb29e967147dc1c6beee305" => :mojave
+    sha256 "cb0c464f59c82a4df3a8ec0cae87ceea54b49445da53be4f32c6a343d7180601" => :high_sierra
   end
 
   def install
