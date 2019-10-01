@@ -5,12 +5,10 @@ class Texi2html < Formula
   sha256 "e60edd2a9b8399ca615c6e81e06fa61946ba2f2406c76cd63eb829c91d3a3d7d"
 
   bottle do
-    rebuild 1
-    sha256 "cf02c2e593ded1e5b3ffaf04b9dc8a474ab36633ed40c50454c98a3adb5a7908" => :mojave
-    sha256 "5259ab2074f122f4725058d2477233add1a32c30d385680276b06c11e06bc67f" => :high_sierra
-    sha256 "5259ab2074f122f4725058d2477233add1a32c30d385680276b06c11e06bc67f" => :sierra
-    sha256 "5259ab2074f122f4725058d2477233add1a32c30d385680276b06c11e06bc67f" => :el_capitan
-    sha256 "c5c2e2fce28ce5c47f6b720a7a207bea19c95b149e6f6f2bddfb6cef82e0829b" => :x86_64_linux
+    rebuild 2
+    sha256 "10f6d76de400799fb21dc900a2344ef444d43658dd502f0c040ad7c0a4bf0fbb" => :catalina
+    sha256 "10f6d76de400799fb21dc900a2344ef444d43658dd502f0c040ad7c0a4bf0fbb" => :mojave
+    sha256 "10f6d76de400799fb21dc900a2344ef444d43658dd502f0c040ad7c0a4bf0fbb" => :high_sierra
   end
 
   depends_on "gettext"
