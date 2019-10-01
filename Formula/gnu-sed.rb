@@ -6,11 +6,10 @@ class GnuSed < Formula
   sha256 "2885768cd0a29ff8d58a6280a270ff161f6a3deb5690b2be6c49f46d4c67bd6a"
 
   bottle do
-    rebuild 2
-    sha256 "f519013891bc629f64d4ebbd37869007b73480f501185d1e7d1e7e771fe66502" => :mojave
-    sha256 "8ad20319d307e03c34ba4c38027b27d091b3774dc5f8daaaba41c3b02b76ebd0" => :high_sierra
-    sha256 "b195a1be46f37611386c845da0452fe7d406394376a57d21d6df1d55dd1856d1" => :sierra
-    sha256 "d3b8c9c0bc3c6d4f2ed250f8192d0cdc1e012cb56c0188f06953a71b3e7a4c9d" => :x86_64_linux
+    rebuild 3
+    sha256 "fd4d42fd7c2896ec25477cf132ee944e0977fe3f3fc98125e5319bf524a84024" => :catalina
+    sha256 "568caa32e2f48a1a3a0363e33367effbf447064eca64f471076c3dace6a4eae0" => :mojave
+    sha256 "c633ae024f6c977abee048485ac37a321ed7badcaab2377c5e1082f68210d28b" => :high_sierra
   end
 
   conflicts_with "ssed", :because => "both install share/info/sed.info"
@@ -23,6 +22,9 @@ class GnuSed < Formula
 
     args << "--program-prefix=g" if OS.mac?
     args << "--without-selinux" unless OS.mac?
+    # Work around a gnulib issue with macOS Catalina
+    args << "gl_cv_func_ftello_works=yes" if OS.mac?
+
     system "./configure", *args
     system "make", "install"
 
