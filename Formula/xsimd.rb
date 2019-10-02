@@ -1,15 +1,14 @@
 class Xsimd < Formula
   desc "Modern, portable C++ wrappers for SIMD intrinsics"
   homepage "https://xsimd.readthedocs.io/en/latest/"
-  url "https://github.com/QuantStack/xsimd/archive/7.4.0.tar.gz"
-  sha256 "466954041cf4a7ad8574926df73425d2b8fe1d5f2dafbf489217378e9c13c0d3"
+  url "https://github.com/QuantStack/xsimd/archive/7.4.1.tar.gz"
+  sha256 "787b6c8b202d2d34d78335549bfc09f2268218e5923c2d463ab8ad6d691e5d63"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "edc1cd2a23ac07ade0fe57c6f2e947108cd5a228e67c8fb87ce9283cf5096e9c" => :mojave
-    sha256 "edc1cd2a23ac07ade0fe57c6f2e947108cd5a228e67c8fb87ce9283cf5096e9c" => :high_sierra
-    sha256 "853763a2dee53da192c8161dcd353be2df7ff445527b4cc894d8817f94afdd9c" => :sierra
-    sha256 "35b5c92a6cbc9fb689512ff49ee0801e7c0e1f769a94f3ed1ed490568b78c559" => :x86_64_linux
+    sha256 "9648408a25af8d9781923ece9c2457f2c52cb0a011493dcb2d0200a6a6ad66ff" => :catalina
+    sha256 "9648408a25af8d9781923ece9c2457f2c52cb0a011493dcb2d0200a6a6ad66ff" => :mojave
+    sha256 "9648408a25af8d9781923ece9c2457f2c52cb0a011493dcb2d0200a6a6ad66ff" => :high_sierra
   end
 
   depends_on "cmake" => :build

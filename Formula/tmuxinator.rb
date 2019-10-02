@@ -1,16 +1,15 @@
 class Tmuxinator < Formula
   desc "Manage complex tmux sessions easily"
   homepage "https://github.com/tmuxinator/tmuxinator"
-  url "https://github.com/tmuxinator/tmuxinator/archive/v1.1.1.tar.gz"
-  sha256 "cc293578bca43ba5cf0d60c1355c6aa1da9d923a0acc274a47ceab03812a6ef4"
+  url "https://github.com/tmuxinator/tmuxinator/archive/v1.1.2.tar.gz"
+  sha256 "455e0b92f6b54d9ed8a132eb624c004ffa6fd219d1d0f710af90d3068e10ce07"
   head "https://github.com/tmuxinator/tmuxinator.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c5777d246d49889b3f83c10aaa16e01f43a7bfd17660856a7e5df47753849c64" => :mojave
-    sha256 "9f0607d9e9c47d91ffce19e2c2402aae7dd78c27693e533641908c5bbe5af96f" => :high_sierra
-    sha256 "9fdddfbcd9c0f89afd396aa3c60a8b3ec69d94585822dbdd8a45545e29bd58d0" => :sierra
-    sha256 "f636f9bbde4ecca349fdc4a9c9bc222e6612b05c8292656199bc0f1ea72af617" => :x86_64_linux
+    sha256 "2d07c2e730941a0250ab3ecab73225d81a3fce27bcb31c92b22998fdb6443b76" => :catalina
+    sha256 "17e16770c9ae8c9f284f7574091c5ed6470fc84b16ef8257cd4a2eb2473610f0" => :mojave
+    sha256 "439c8f31e061cd4c321a270b575679ededb5fda8cbb28e23ceb24464d21894d5" => :high_sierra
   end
 
   depends_on "ruby"
