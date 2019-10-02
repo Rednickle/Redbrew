@@ -2,14 +2,14 @@ class Terraformer < Formula
   desc "CLI tool to generate terraform files from existing infrastructure"
   homepage "https://github.com/GoogleCloudPlatform/terraformer"
   url "https://github.com/GoogleCloudPlatform/terraformer.git",
-    :tag      => "0.8",
-    :revision => "1604c897bf7c3ec2ca7c70c93453609070cd5d2b"
+    :tag      => "0.8.1",
+    :revision => "66470198b752ea2f17f36c5009b9b3516414476d"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fb641e815893d3b6e20f851f06ce232df1bc4fdb70bc1e449cbfa09500cf41af" => :catalina
-    sha256 "c248ce5f7923118066ad2588567d8787f549a7a0a846f9c8e0e770201e699e33" => :mojave
-    sha256 "403e29ef50b4dfe8ccc12e78b1ccdb1d5cdb0e142bd68dc63f470093a0423306" => :high_sierra
+    sha256 "003a9592e59bd925fc68835ee011cbc7cdc3aa679b9f61c8cc6ca1fa8e6265fe" => :catalina
+    sha256 "854f4bdc4b4fc4fd9eb04541036bbe5a4fc8df045ed845385a91dbdb743aedeb" => :mojave
+    sha256 "016dca87bf2064cbcc5113a8563047d4cdc28c7d59dc64f6d1e2e220e0754af3" => :high_sierra
   end
 
   depends_on "go" => :build

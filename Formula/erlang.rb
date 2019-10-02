@@ -9,9 +9,10 @@ class Erlang < Formula
 
   bottle do
     cellar :any
-    sha256 "8779938a70b0b3480d0e1ebfdcf7f7e8814d72e44fdced2390f8d57fedc51106" => :mojave
-    sha256 "7d7edaa7cd5c1ca7e7aa7de1077ddd4c5762b05619e8f5fb3eafd6fd90f9d723" => :high_sierra
-    sha256 "5a3b4fad305a5d255ff0ea0b266bb55b652c301d129cc1e28df78b65fdf47bd3" => :x86_64_linux
+    rebuild 1
+    sha256 "31e6418a356fa0a52995cb4928a50c0eb2f0b87eeae22528d7547f2c43da0295" => :catalina
+    sha256 "f27418c6548a2272a5687a1f1cae4352c5e18f9a52bc1d1960954b51cbf1de6c" => :mojave
+    sha256 "9d7874d31a7c116e3d032711386e1c37392008395f15b254a488d6db23ce934e" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -41,6 +42,10 @@ class Erlang < Formula
   end
 
   def install
+    # Work around Xcode 11 clang bug
+    # https://bitbucket.org/multicoreware/x265/issues/514/wrong-code-generated-on-macos-1015
+    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
+
     # Unset these so that building wx, kernel, compiler and
     # other modules doesn't fail with an unintelligable error.
     %w[LIBS FLAGS AFLAGS ZFLAGS].each { |k| ENV.delete("ERL_#{k}") }
