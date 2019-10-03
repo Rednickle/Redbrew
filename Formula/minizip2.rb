@@ -1,14 +1,14 @@
 class Minizip2 < Formula
   desc "Zip file manipulation library with minizip 1.x compatibility layer"
   homepage "https://github.com/nmoinvaz/minizip"
-  url "https://github.com/nmoinvaz/minizip/archive/2.8.9.tar.gz"
-  sha256 "ad0ab096e325ada77f4c75770ffcb03e3540e4c373e36ee22bb1d47b2b98c36d"
+  url "https://github.com/nmoinvaz/minizip/archive/2.9.0.tar.gz"
+  sha256 "d9501b1048064855222a42264ce773eebc29bbad5bcadbbeb22db2c3e65ae447"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c3e526e7c1d3a135d3b2ed02b4f41ed2aa07adde0ca7b32a1ddcc87e9f9f5ecd" => :mojave
-    sha256 "937fee9e2b22cd01cc36f042f3e5ae11ace7df1f40ceec7af3d77053c87a0fe1" => :high_sierra
-    sha256 "650410384cd941f2b0326e3d9ae0123b17dfca30bf2224a07f2a387bd65ddc29" => :sierra
+    sha256 "8da088dfc8380733a9ec95e35ac80bcc6c7142fc0c6de075a792cce3e288240b" => :catalina
+    sha256 "fc53e475c3b6d8e78f7e8e6e9c746f52d13549ca851d0c4efc28aea9767742fc" => :mojave
+    sha256 "3d67c6a0cdb7290c69b193cb341397f7cd5d5706068db6bd37f10070c79b97b4" => :high_sierra
   end
 
   depends_on "cmake" => :build
