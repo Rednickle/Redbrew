@@ -3,15 +3,14 @@ class ShairportSync < Formula
   homepage "https://github.com/mikebrady/shairport-sync"
   url "https://github.com/mikebrady/shairport-sync/archive/3.3.2.tar.gz"
   sha256 "a8f580fa8eb71172f6237c0cdbf23287b27f41f5399f5addf8cd0115a47a4b2b"
-  revision 1
+  revision 2
   head "https://github.com/mikebrady/shairport-sync.git", :branch => "development"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b85ebfbad2256d93662f8e57c2246813d1ad619be505d1194906e05f01b9f31d" => :mojave
-    sha256 "91d48408bb590905a8a96484c22f0baa27d616701fd72834e84ac6e8979a1167" => :high_sierra
-    sha256 "9e895f20d006e6a3f9064e50627d6b08f376ed9ba2585925e1ec33956d3710ba" => :sierra
-    sha256 "cbdba89220e9d0355ac02f502d9c33a8a8f0aa15954502b23b3ba4dea6d36816" => :x86_64_linux
+    sha256 "e4534f26915103639b8b96a6f92d39ab677e9235ccfd7703f1b95268abae1ff6" => :catalina
+    sha256 "cbd58969da96e6194b0807f6001ec281470f4e802d8b5de9238ab7d0d4db5146" => :mojave
+    sha256 "2f886c46813944567b8242df9216d8966041b820d0a21140f4ff2e8f4e0c3ec2" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -29,6 +28,7 @@ class ShairportSync < Formula
     system "autoreconf", "-fvi"
     args = %W[
       --with-os=darwin
+      --with-libdaemon
       --with-ssl=openssl
       --with-ao
       --with-stdout
@@ -52,7 +52,7 @@ class ShairportSync < Formula
   test do
     output = shell_output("#{bin}/shairport-sync -V")
     if OS.mac?
-      assert_match "OpenSSL-dns_sd-ao-pa-stdout-pipe-soxr-metadata", output
+      assert_match "libdaemon-OpenSSL-dns_sd-ao-pa-stdout-pipe-soxr-metadata", output
     else
       assert_match "OpenSSL-ao-pa-stdout-pipe-soxr-metadata-sysconfdir", output
     end

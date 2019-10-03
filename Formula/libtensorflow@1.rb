@@ -1,21 +1,30 @@
-class Libtensorflow < Formula
+class LibtensorflowAT1 < Formula
   include Language::Python::Virtualenv
 
   desc "C interface for Google's OS library for Machine Intelligence"
   homepage "https://www.tensorflow.org/"
-  url "https://github.com/tensorflow/tensorflow/archive/v2.0.0.tar.gz"
-  sha256 "49b5f0495cd681cbcb5296a4476853d4aea19a43bdd9f179c928a977308a0617"
+  url "https://github.com/tensorflow/tensorflow/archive/v1.14.0.tar.gz"
+  sha256 "aa2a6a1daafa3af66807cfe0bc77bfe1144a9a53df9a96bab52e3e575b3047ed"
 
   bottle do
     cellar :any
-    sha256 "a338993572cfa5bfa0ab375e02284012659e2fe1a71e0fa94572d28c8a890cf4" => :catalina
-    sha256 "a338993572cfa5bfa0ab375e02284012659e2fe1a71e0fa94572d28c8a890cf4" => :mojave
-    sha256 "5a80f27525dbb8e21244c792e256e444b617321d83d96cc6e3eb706a5b498e10" => :high_sierra
+    sha256 "4d61e319358885f1c6c8c032ad0f932cdf58fa8a123569236100e26612d9a72b" => :catalina
+    sha256 "4d61e319358885f1c6c8c032ad0f932cdf58fa8a123569236100e26612d9a72b" => :mojave
+    sha256 "140a9c31737c91e350f9867f34986d8f74ba4307afd9c15413f137e84aae38f2" => :high_sierra
   end
+
+  keg_only :versioned_formula
 
   depends_on "bazel" => :build
   depends_on :java => ["1.8", :build]
   depends_on "python" => :build
+
+  # Upgrade protobuf to 3.8.0
+  # The custom commit contains a fix to make protobuf.bzl compatible with Bazel 0.26 or later version.
+  patch do
+    url "https://github.com/tensorflow/tensorflow/commit/508f76b1d9925304cedd56d51480ec380636cb82.diff?full_index=1"
+    sha256 "89f09f266ee56ee583cfffb8b4ce9333f181f497f7e04a672a68a8b611d21270"
+  end
 
   def install
     venv_root = "#{buildpath}/venv"
@@ -53,9 +62,6 @@ class Libtensorflow < Formula
       tensorflow/c/c_api.h
       tensorflow/c/c_api_experimental.h
       tensorflow/c/tf_attrtype.h
-      tensorflow/c/tf_datatype.h
-      tensorflow/c/tf_status.h
-      tensorflow/c/tf_tensor.h
     ]
 
     (lib/"pkgconfig/tensorflow.pc").write <<~EOS
@@ -75,7 +81,7 @@ class Libtensorflow < Formula
         printf("%s", TF_Version());
       }
     EOS
-    system ENV.cc, "-L#{lib}", "-ltensorflow", "-o", "test_tf", "test.c"
+    system ENV.cc, "-L#{lib}", "-I#{include}", "-ltensorflow", "-o", "test_tf", "test.c"
     assert_equal version, shell_output("./test_tf")
   end
 end
