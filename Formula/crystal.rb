@@ -1,11 +1,10 @@
 class Crystal < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
-  revision 1
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/0.31.0.tar.gz"
-    sha256 "483ffcdce30b98f89b8c6cf6e48c62652cd0450205f609e04721a37997c32486"
+    url "https://github.com/crystal-lang/crystal/archive/0.31.1.tar.gz"
+    sha256 "b4a51164763b891572492e2445d3a69b462675184ea0ccf06fcc57a070f07b80"
 
     resource "shards" do
       url "https://github.com/crystal-lang/shards/archive/v0.8.1.tar.gz"
@@ -14,10 +13,9 @@ class Crystal < Formula
   end
 
   bottle do
-    sha256 "a1fe1a4600c29faca4b8e4fa1016e1daa6667129b5956ff9d5777efe4da629b2" => :mojave
-    sha256 "e6af5b650eb9b5200e503989cee515f2da25b7778c651259288c8c62520aeb6c" => :high_sierra
-    sha256 "beff786db2fef34041bcc562909067fe667c315a57c30c5fc708ca80a838c0ba" => :sierra
-    sha256 "6591931606de7be40e431d5f124c6a82e8e65d6fc6815c036669cd9813c22d37" => :x86_64_linux
+    sha256 "b2b6a72ed1d5475197afb51dda915df11b4ec0dea594d9ac9a0e74fb5b77f1a1" => :catalina
+    sha256 "a3b0717f4006a32899703e4608ff6ff6e22c079514ebafe4c14afb3cb9e6654b" => :mojave
+    sha256 "47e8c8b0b9525982dca06dab82ab9fffded6039f5a132f6d89e753bd135e0695" => :high_sierra
   end
 
   head do
@@ -47,8 +45,8 @@ class Crystal < Formula
 
     # extension to handle multi-threading
     patch :p1 do
-      url "https://raw.githubusercontent.com/crystal-lang/distribution-scripts/ab683792f34c60159f0e697adf792ff5b0fcbf91/linux/files/feature-thread-stackbottom.patch"
-      sha256 "acbae8cfe10e3efac403a629490cfd05e809554d23e9c3a88acddbb66f8ef7e0"
+      url "https://github.com/ivmai/bdwgc/commit/5668de71107022a316ee967162bc16c10754b9ce.patch?full_index=1"
+      sha256 "5c42d4b37cf4997bb6af3f9b00f5513644e1287c322607dc980a1955a09246e3"
     end
   end
 
