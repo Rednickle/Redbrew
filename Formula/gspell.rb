@@ -3,12 +3,12 @@ class Gspell < Formula
   homepage "https://wiki.gnome.org/Projects/gspell"
   url "https://download.gnome.org/sources/gspell/1.8/gspell-1.8.2.tar.xz"
   sha256 "bb9195c3a95bacf556d0203e9691f7489e0d3bc5ae1e5a440c89b2f2435d3ed6"
+  revision 1
 
   bottle do
-    sha256 "53c5ed95b9e33c2b8a17beaa8c32366cb5a45855fb88d8535c030e3dd71dba1f" => :mojave
-    sha256 "5a76dd049cd2abeec1394374b0136443710eaf4a12e5bef393f420e9ab09ec79" => :high_sierra
-    sha256 "35dde89706a287f4d61235a76328ec0c82d0dae0c7393f37dac26a5eff0b159a" => :sierra
-    sha256 "7c025e505d350b218c79fb7b095d8b79228577aad2d17f2496653f2b91a1c553" => :x86_64_linux
+    sha256 "144c6a377b07222a18188dbf119bfb9318acb88b87912dce1ae9e4d723e3be0b" => :catalina
+    sha256 "6b4a4829448f6ef777d0320c216a8e32a81fc9a7b8d3ec58cd1af99f891423a0" => :mojave
+    sha256 "a7e056ec7d6131699515670c3e15cc7c6fe6c03c88cf04db182fb92cd7f321c5" => :high_sierra
   end
 
   depends_on "autoconf" => :build
