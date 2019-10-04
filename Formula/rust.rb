@@ -1,16 +1,15 @@
 class Rust < Formula
   desc "Safe, concurrent, practical language"
   homepage "https://www.rust-lang.org/"
-  revision 1
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.37.0-src.tar.gz"
-    sha256 "120e7020d065499cc6b28759ff04153bfdc2ac9b5adeb252331a4eb87cbe38c3"
+    url "https://static.rust-lang.org/dist/rustc-1.38.0-src.tar.gz"
+    sha256 "644263ca7c7106f8ee8fcde6bb16910d246b30668a74be20b8c7e0e9f4a52d80"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          :tag      => "0.38.0",
-          :revision => "9edd089168f8795b3890bc3daf5b99f03e9f8765"
+          :tag      => "0.39.0",
+          :revision => "23ef9a4ef8a96d09b1fd67b2f4e023f416bb1ff1"
     end
 
     resource "racer" do
@@ -22,12 +21,9 @@ class Rust < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "0ec319b1c076fbfbfc0448952bcf3775b8854e6182c0c3fa886ae7c0e56cdb45" => :catalina
-    sha256 "2ad99aa268bf571c91105da674810e0680a3e76d418e10c03b54584b0be8de58" => :mojave
-    sha256 "4d6789db13ac445ed199666aed1fda37fc9f4aa9b82aa7ee2015a05a17b48552" => :high_sierra
-    sha256 "a377119eb42735fe2654d0be3ff931a4df487762be927ae9e68894522166128d" => :sierra
-    sha256 "aed5e6da83474aaaa4e421f3f72b30e78d09a8c51e4124f4127a4843ce36427f" => :x86_64_linux
+    sha256 "dc59b31db0a9095768c7c5487f892b0eeb206208f22beffae5183d44b407f5ae" => :catalina
+    sha256 "1bc1a95de1a2ed519c60b666927fcfe7253004f2ba5adb022a8fb1065ba5760b" => :mojave
+    sha256 "8b459d752dfa399f3595dbcdcee37024f60042501ffac23a5e3f83351e2b74d7" => :high_sierra
   end
 
   head do
@@ -57,12 +53,12 @@ class Rust < Formula
   resource "cargobootstrap" do
     if OS.mac?
       # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
-      url "https://static.rust-lang.org/dist/2019-07-04/cargo-0.37.0-x86_64-apple-darwin.tar.gz"
-      sha256 "1378e7a0fba0b66dd4d7b621313c149a0d7a76a526ee24c7c1249390e82f9dda"
+      url "https://static.rust-lang.org/dist/2019-09-26/cargo-0.39.0-x86_64-apple-darwin.tar.gz"
+      sha256 "107af82e268dfe7dbb35908ab0dfd96d0356c3750520612f1add1ecb8ecbc535"
     elsif OS.linux?
       # From: https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
-      url "https://static.rust-lang.org/dist/2019-07-04/cargo-0.37.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "6fbdecc0269b6f6a4ea7c819f84a87933e163387da3b433c2cdae12a589abfc0"
+      url "https://static.rust-lang.org/dist/2019-09-26/cargo-0.39.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "406ea5822851cf853a14b250386d47df0a60000410ce8ae92b47dedf8162ba9c"
     end
   end
 
