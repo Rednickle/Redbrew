@@ -2,21 +2,20 @@ class V8 < Formula
   desc "Google's JavaScript engine"
   homepage "https://github.com/v8/v8/wiki"
   # Track V8 version from Chrome stable: https://omahaproxy.appspot.com
-  url "https://github.com/v8/v8/archive/7.7.299.11.tar.gz"
-  sha256 "03d8abac7b5cb427b1d29085d82bf3a9f8030cc39cbc6f8528518053075adbbc"
+  url "https://github.com/v8/v8/archive/7.7.299.13.tar.gz"
+  sha256 "1f5939fcd74464ba43e3445d3e3f82b5bbf2efe7314dde06b3fb12b65ba7d5f9"
 
   bottle do
     cellar :any
-    sha256 "37ddfeec0f0405ca375e23b25351cb91a014a53d86c28f35adb9ea7ca86ea97f" => :mojave
-    sha256 "8963019a39391ea1f93d143ee2d62986536b810729c700276b049d93b18a5efd" => :high_sierra
-    sha256 "3dc8186f25a9efd9b5aef9e69943053bb98d3600d8de3f536f8035a2c87e2c93" => :sierra
+    sha256 "19454ea74b27155ffd92fe69122dba3aceabb0fd06dc47b9e49249e8a9a1911d" => :catalina
+    sha256 "5c7172c88d66ff913f72c208bddc245dd8ac721413ca0751bd6e52867efde545" => :mojave
+    sha256 "c3a0c2e343cf6176e54cedcc0a0bed4243b52e7bc9a666bdf2ddd48efe382d9a" => :high_sierra
   end
 
+  depends_on "llvm" => :build if DevelopmentTools.clang_build_version < 1001 # 1100 with v8 7.9+
   depends_on "ninja" => :build
-  depends_on "llvm" if MacOS.version < :mojave
 
-  # https://bugs.chromium.org/p/chromium/issues/detail?id=620127
-  depends_on :macos => :el_capitan
+  depends_on :xcode => ["9.0", :build] # required by v8 (bump to 10.0 with v8 7.9+)
 
   # Look up the correct resource revisions in the DEP file of the specific releases tag
   # e.g. for CIPD dependency gn: https://github.com/v8/v8/blob/7.6.303.27/DEPS#L15
@@ -82,8 +81,12 @@ class V8 < Formula
       :clang_use_chrome_plugins     => false,       # disable the usage of Google's custom clang plugins
       :use_custom_libcxx            => false,       # uses system libc++ instead of Google's custom one
     }
+
     # use clang from homebrew llvm formula on <= High Sierra, because the system clang is to old for V8
-    gn_args[:clang_base_path] = "\"#{Formula["llvm"].prefix}\"" if MacOS.version < :mojave
+    if DevelopmentTools.clang_build_version < 1001 # 1100 with v8 7.9+
+      ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib # but link against system libc++
+      gn_args[:clang_base_path] = "\"#{Formula["llvm"].prefix}\""
+    end
 
     # Transform to args string
     gn_args_string = gn_args.map { |k, v| "#{k}=#{v}" }.join(" ")
