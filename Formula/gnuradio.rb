@@ -3,13 +3,13 @@ class Gnuradio < Formula
   homepage "https://gnuradio.org/"
   url "https://gnuradio.org/releases/gnuradio/gnuradio-3.7.13.4.tar.gz"
   sha256 "c536c268b1e9c24f1206bbc881a5819ac46e662f4e8beaded6f3f441d3502f0d"
-  revision 9
+  revision 10
   head "https://github.com/gnuradio/gnuradio.git"
 
   bottle do
-    sha256 "cc4ac0868aa007d57749f3baf89ec2102bd4d45548c1ab556365b89fda140b23" => :mojave
-    sha256 "e09af2fcfabfd1421f3b5bba5c6b9778ee87dcbf1dd79b1185ca673dad351ab0" => :high_sierra
-    sha256 "3f4527cc5370e051ab78e1dbd2b64bf003934c0e5aae67a467e75f370f0eeff1" => :sierra
+    sha256 "f36fef90f0118a04b3f7cdddf109d99388e01ccdf0375224aa753bc68318bac9" => :catalina
+    sha256 "215229e531d21fe319f7d5a861e4d567b5acbcad6775c8d7dd3389d535950c4a" => :mojave
+    sha256 "774f51b9cb123e9ad9b4560802099c5050447855c931454d4473f107e818223e" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -20,7 +20,7 @@ class Gnuradio < Formula
   depends_on "boost"
   depends_on "fftw"
   depends_on "gsl"
-  depends_on "numpy"
+  depends_on "numpy@1.16"
   depends_on "portaudio"
   depends_on "python@2"
   depends_on "uhd"
