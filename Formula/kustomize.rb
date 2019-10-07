@@ -2,15 +2,15 @@ class Kustomize < Formula
   desc "Template-free customization of Kubernetes YAML manifests"
   homepage "https://github.com/kubernetes-sigs/kustomize"
   url "https://github.com/kubernetes-sigs/kustomize.git",
-      :tag      => "v3.2.0",
-      :revision => "a3103f1e62ddb5b696daa3fd359bb6f2e8333b49"
+      :tag      => "kustomize/v3.2.1",
+      :revision => "d89b448c745937f0cf1936162f26a5aac688f840"
   head "https://github.com/kubernetes-sigs/kustomize.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "37e844f32fe59d3e8fd770d2c0270573d05569989a4f1ff681f5bc52064461cd" => :mojave
-    sha256 "c4394c1616de83613db73580e3aaa2667592d726803ee0fa247acd47e8d6034b" => :high_sierra
-    sha256 "5fb657f255f45d45e2aa9ecfc5cee7d2af20344b184dfbe46a1ceb1105cb4cee" => :sierra
+    sha256 "1e47325d5013a7b05ea444099d3ccd746cd957e17915bd1b54c0187ad02d6d78" => :catalina
+    sha256 "a56bc3f26d7526f95467fee01d19da8f8efbe1c795180dff92d2d796f3eb098e" => :mojave
+    sha256 "382e90f81114ee7b082c2a211b6d9c380c1a8db5f658d3e5e6fe57ecabe8c746" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -22,13 +22,13 @@ class Kustomize < Formula
 
     dir = buildpath/"src/kubernetes-sigs/kustomize"
     dir.install buildpath.children
-    dir.cd do
+    cd dir/"kustomize" do
       ldflags = %W[
-        -s -X sigs.k8s.io/kustomize/v3/pkg/commands/misc.kustomizeVersion=#{version}
-        -X sigs.k8s.io/kustomize/v3/pkg/commands/misc.gitCommit=#{revision}
-        -X sigs.k8s.io/kustomize/v3/pkg/commands/misc.buildDate=#{Time.now.iso8601}
+        -s -X sigs.k8s.io/kustomize/kustomize/v3/provenance.version=#{version}
+        -X sigs.k8s.io/kustomize/kustomize/v3/provenance.gitCommit=#{revision}
+        -X sigs.k8s.io/kustomize/kustomize/v3/provenance.buildDate=#{Time.now.iso8601}
       ]
-      system "go", "build", "-ldflags", ldflags.join(" "), "-o", bin/"kustomize", "cmd/kustomize/main.go"
+      system "go", "build", "-ldflags", ldflags.join(" "), "-o", bin/"kustomize"
       prefix.install_metafiles
     end
   end
