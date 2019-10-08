@@ -1,16 +1,15 @@
 class Sccache < Formula
   desc "Used as a compiler wrapper and avoids compilation when possible"
   homepage "https://github.com/mozilla/sccache"
-  url "https://github.com/mozilla/sccache/archive/0.2.11.tar.gz"
-  sha256 "d72569789c4c54e5c8dc20bbde8e553b85497dbd9a3fdcc6d738a4df411dea46"
+  url "https://github.com/mozilla/sccache/archive/0.2.12.tar.gz"
+  sha256 "591a82ddbc2e970630a9426c78c25cbc52c3261b06d57cb4e1f11ab8008629fa"
   head "https://github.com/mozilla/sccache.git"
 
   bottle do
-    cellar :any
-    sha256 "915be21657f33db3e030830e98a80cbc11b45d8777489774353274069825ff51" => :mojave
-    sha256 "1b0ba25e94540261cb3c2b4e51fd6e7bc4c5504ec7731ada2cb391b5c6d56159" => :high_sierra
-    sha256 "b478e2417a9aa5be0ff5c90de91ee4e810bca29966dca0d3e5b28a06dc6f182f" => :sierra
-    sha256 "80d52f70519c66162aab568a2209a0735fb0431e3c40ff9b74e7fa81c32e1378" => :x86_64_linux
+    cellar :any_skip_relocation
+    sha256 "d04728e1c947b50772a7e725dac606447f959109a2a792544433cb096315e691" => :catalina
+    sha256 "f9b428414de3dc7521aa2c612ce050065e442b3c8d36f8a8a05d11da6f39f27a" => :mojave
+    sha256 "e8ce344b4827cb8f8abf988d8e4fa17e071bd69512e0dc92cd464aee57a45de7" => :high_sierra
   end
 
   depends_on "rust" => :build
