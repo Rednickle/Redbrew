@@ -1,15 +1,14 @@
 class Ginac < Formula
   desc "Not a Computer algebra system"
   homepage "https://www.ginac.de/"
-  url "https://www.ginac.de/ginac-1.7.7.tar.bz2"
-  sha256 "0eff6eed729aa6e5a34ecbd2c0723e6e23dcd5a14346050eb66697ea19394ecb"
+  url "https://www.ginac.de/ginac-1.7.8.tar.bz2"
+  sha256 "0c86501aa6c72efd5937fce42c5e983fc9f05dadb65b4ebdb51ee95c9f6a7067"
 
   bottle do
     cellar :any
-    sha256 "f5135098d377f2a8969b9a3168070ed52635710ad317a6bfed62157a4db56173" => :catalina
-    sha256 "2ba503fc69e45f964936e4ec7c0c385d7302462739c2cdd116293a3c6ae601de" => :mojave
-    sha256 "451551e26a4f7fdb7f137fd3ab5adc5ae20d57ee0ac643ea32ef9cc7586d1fa7" => :high_sierra
-    sha256 "e84320083351f5094733da649a3d8603c2d0d1e561cfc8d0ab3dc1e83da23754" => :x86_64_linux
+    sha256 "ada6219452caa90db7d3c79970d23a17ee7003b20355d8866356fcf0c5daee19" => :catalina
+    sha256 "2ca093815433050c5f90b5523cdb5360235f63ff484de5be72575d0e953c4b37" => :mojave
+    sha256 "1a3774e043db787f9e4c2882912c345597fabc4a620a4099dd39bbedee516f80" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
