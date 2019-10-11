@@ -6,6 +6,7 @@ class Datamash < Formula
   sha256 "226249d5fe54024f96404798778f45963a3041714229d4225cd5d9acdaba21ad"
 
   bottle do
+    sha256 "c32ee32dff85ecb97b402c69f8f2243dcbc586cfb5325eb63165d5fd635118cc" => :catalina
     sha256 "d98153d8fa86c50c12ad70c039ed1ab47ca23d8c2753ce1a4c3ffc4181456505" => :mojave
     sha256 "e1f5e1d8108457c23975a13ad65e4e2bff0d4df29009ffc403d69ae70f905a81" => :high_sierra
     sha256 "a99606bdfa15ba2c30a266aca1de086b2c15a470e4cdb1c9a8eb6ba4e978c738" => :sierra
