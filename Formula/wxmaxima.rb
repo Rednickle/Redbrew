@@ -1,17 +1,15 @@
 class Wxmaxima < Formula
   desc "Cross platform GUI for Maxima"
   homepage "https://wxmaxima-developers.github.io/wxmaxima/"
-  url "https://github.com/wxMaxima-developers/wxmaxima/archive/Version-19.09.0.tar.gz"
-  sha256 "5080cc3fee1bd1fb570dd354dea3c4fae8e8b752895e720fd51e160481d2bd72"
+  url "https://github.com/wxMaxima-developers/wxmaxima/archive/Version-19.10.0.tar.gz"
+  sha256 "5ec0a912ebe2688b0fbe10999463cb8365ce5e87d8a47eb04f95bd63880dc2f0"
   head "https://github.com/wxMaxima-developers/wxmaxima.git"
 
   bottle do
     cellar :any
-    sha256 "9002529a167dfc1cfbe7ece15bc3d1716d6fd9ca85a5d83633a4ad9c7ba7b34a" => :catalina
-    sha256 "89b8531a3cecd73bf103578f04b2e53b5cc5989e02d24c078ca0999e5f7bc5fc" => :mojave
-    sha256 "32aecb026524a9c7b39dc3b2cf48a5c5085b234be42b8feda5751ac12b8d0130" => :high_sierra
-    sha256 "adf3cb6242fb85f561bac2b6491c0f7e40ffcb680487b4d48768af88aaa3c1ae" => :sierra
-    sha256 "0a03a50f7ca436124912613ce807c346bcc2ac01e9c75c37bea90c9c813a4fb0" => :x86_64_linux
+    sha256 "67db4b7a55b8262884d13199566a759aa1fb11b128c38d98df41420f80d4d222" => :catalina
+    sha256 "0fde2dd271e807ea6a3035fab2fbe6559f5263dc5da28cb9c8ad3a42540f0d96" => :mojave
+    sha256 "812d6bee630aefdf692bb9367310186194b51e306b700c9a311bf643fe388e8f" => :high_sierra
   end
 
   depends_on "cmake" => :build
