@@ -3,13 +3,12 @@ class Gtkx3 < Formula
   homepage "https://gtk.org/"
   url "https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.12.tar.xz"
   sha256 "1384eba5614fed160044ae0d32369e3df7b4f517b03f4b1f24d383e528f4be83"
-  revision 1 unless OS.mac?
+  revision 1
 
   bottle do
-    sha256 "8544242fdbc70c7543fa9d46d90c8e1b8cae301c9eb09281714b5b8807db68c7" => :catalina
-    sha256 "ab801d103e2a80dad3825348cc998f89e5eaec949f3baa0a0563f3d63cd5fe5c" => :mojave
-    sha256 "15c99a778550e443a9d6a8f8bce42c7575b4d68ebdeb17fe5476fed20aea821c" => :high_sierra
-    sha256 "53a12415f204b6cdc165e209d05e6d8ae4c35be63beeded24851fb54c487cbb1" => :x86_64_linux
+    sha256 "4ccac8c178075606f275a258c215d6b805e184335306d9a78cd4b7c7fbf4a13b" => :catalina
+    sha256 "5198ebdb8d360fbc1d70b980f99b189348db793aa7a694c79cd7445f2ed7e6dd" => :mojave
+    sha256 "23682d476062f2ca5324f2ba584f44712b4d3264c1c9b70d452fead937a77346" => :high_sierra
   end
 
   depends_on "docbook" => :build
@@ -34,6 +33,11 @@ class Gtkx3 < Formula
     depends_on "libxkbcommon"
     depends_on "linuxbrew/xorg/wayland-protocols"
     depends_on "linuxbrew/xorg/xorgproto"
+  end
+
+  patch do
+    url "https://gitlab.gnome.org/GNOME/gtk/commit/fa07007389c9662b654680464cf88d8894e4e64d.diff"
+    sha256 "995173a076e6984789e862e81b332fa4b3c5794c113251c66b6d8708a1614d8a"
   end
 
   def install
@@ -71,6 +75,7 @@ class Gtkx3 < Formula
   def post_install
     system "#{Formula["glib"].opt_bin}/glib-compile-schemas", "#{HOMEBREW_PREFIX}/share/glib-2.0/schemas"
     system bin/"gtk3-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
+    system "#{bin}/gtk-query-immodules-3.0 > #{HOMEBREW_PREFIX}/lib/gtk-3.0/3.0.0/immodules.cache"
   end
 
   test do
