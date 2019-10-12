@@ -1,16 +1,15 @@
 class Cockroach < Formula
   desc "Distributed SQL database"
   homepage "https://www.cockroachlabs.com"
-  url "https://binaries.cockroachdb.com/cockroach-v19.1.4.src.tgz"
-  version "19.1.4"
-  sha256 "d819167dc109b566511cb6cef9aadc8c4f07b1be6a8b3108f4bbd14808d21faf"
+  url "https://binaries.cockroachdb.com/cockroach-v19.1.5.src.tgz"
+  version "19.1.5"
+  sha256 "1e3329a56e5a1729ed3ac4ff0a97943163325dd4825e8c7c8c1d9fd57bfddfde"
   head "https://github.com/cockroachdb/cockroach.git"
 
   bottle do
-    sha256 "82d20462ca26fcdaad2c4639582bc3cbb10fee2ca9fb63d1944648dc9fdf461a" => :mojave
-    sha256 "247cea9630fdc06c497c42ccf6290b601870eaac96a14ec91a993e87bbf5acb1" => :high_sierra
-    sha256 "f55c8f203ff3c49312641f81d7a15c4f3bcc02c5a5585981574b11161eeda62d" => :sierra
-    sha256 "27e274099f06f04f2e332c8ea14c0c371e2d14562b3768ecee5cc4bbee195b5c" => :x86_64_linux
+    sha256 "28fe948b12b6d92f968c4186ff0d07c708c86fca39088d31d2671c04c02aba77" => :catalina
+    sha256 "70d8f59b43661582cb1e7dc2d69c376436ddde87806edfbe431a60fdf6a7efcc" => :mojave
+    sha256 "895adf66dbeb3838f3655f37f35d80db67f79ad388b6448939740ab09c31d5f5" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -28,6 +27,38 @@ class Cockroach < Formula
     # that causes it to loop infinitely when trying to build cockroach. Use
     # the more up-to-date make that Homebrew provides.
     ENV.prepend_path "PATH", Formula["make"].opt_libexec/"gnubin"
+
+    # Patch the CXX_FLAGS used to build rocksdb as a workaround for the issue fixed by
+    # https://github.com/facebook/rocksdb/pull/5779. Furthermore on 10.14 (Mojave) and
+    # later we also allow defaulted-function-delete as a workaround for
+    # https://github.com/facebook/rocksdb/pull/5095.
+    if MacOS.version < "10.14"
+      patch = <<~PATCH
+        253c253
+        <     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror")
+        ---
+        >     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror -Wno-error=shadow")
+      PATCH
+    else
+      patch = <<~PATCH
+        253c253
+        <     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror")
+        ---
+        >     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror -Wno-error=shadow -Wno-error=defaulted-function-deleted")
+      PATCH
+    end
+    patchfile = Tempfile.new("patch")
+    begin
+      patchfile.write(patch)
+      patchfile.close
+      system "patch", "src/github.com/cockroachdb/cockroach/c-deps/rocksdb/CMakeLists.txt", patchfile.path
+    ensure
+      patchfile.unlink
+    end
+
+    # Ensure that go modules are not used as cockroachdb does not support them.
+    ENV["GO111MODULE"] = "off"
+
     # Build only the OSS components
     system "make", "buildoss"
     system "make", "install", "prefix=#{prefix}", "BUILDTYPE=release"
@@ -44,6 +75,10 @@ class Cockroach < Formula
     mode and may expose data publicly in e.g. a DNS rebinding attack. To run
     CockroachDB securely, please see:
       #{Formatter.url("https://www.cockroachlabs.com/docs/secure-a-cluster.html")}
+
+    Due to a license change, the cockroach package in homebrew-core will no
+    longer be updated when CockroachDB 19.2 is released. Please switch to
+    https://github.com/cockroachdb/homebrew-tap instead.
   EOS
   end
 

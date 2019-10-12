@@ -2,31 +2,21 @@ class Wtfutil < Formula
   desc "The personal information dashboard for your terminal"
   homepage "https://wtfutil.com"
   url "https://github.com/wtfutil/wtf.git",
-    :tag      => "v0.22.0",
-    :revision => "bb59d527eb5a60b2cefb8999972287742db729df"
+    :tag      => "v0.23.0",
+    :revision => "e98b15ca2cefddb285ad9d73b4fd2b35ca2c1d32"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b1001fc9292bc165d9fb2df04fd83a90d26ab19e11cb6fc89aa95a63f433d799" => :catalina
-    sha256 "68433b8dab63a55f63203de96d9a164e4a852f47466c0d37651a50b4fb7f7bdc" => :mojave
-    sha256 "ca949a320f6b6acf5870f1118a4923b2b153f6d688b3a51f871c95a4021d88cb" => :high_sierra
-    sha256 "379bb4e2f60cc0d2a63182324f3695681c738e6cd29ceeb9f4ac1fd3ad9e0e5b" => :sierra
-    sha256 "172494ae3c15d5b95f3bc3a16dbf6b66600dfb2539c3d9db05bfe8726f537aab" => :x86_64_linux
+    sha256 "ac07538f6d6aca1cdcba7af5fe5f5a788671566cdc4d173483e352db0f935b73" => :catalina
+    sha256 "c0aca34e02f80f79d4b00fd65d01af6e84d7b6be616420f551be068e94495c11" => :mojave
+    sha256 "44279429caa2cc05d6af048268ed471aefa67846e1a1fd47ef1f6dd70dfbff44" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
     ENV["GOPROXY"] = "https://gocenter.io"
-
-    dir = buildpath/"src/github.com/wtfutil/wtf"
-    dir.install buildpath.children
-
-    cd dir do
-      system "go", "build", "-o", bin/"wtfutil"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-o", bin/"wtfutil"
   end
 
   test do
