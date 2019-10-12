@@ -1,16 +1,14 @@
 class Glances < Formula
   desc "Alternative to top/htop"
   homepage "https://nicolargo.github.io/glances/"
-  url "https://github.com/nicolargo/glances/archive/v3.1.2.tar.gz"
-  sha256 "adda21ceaff7a04b18b0f71f2dbfcc1647bd0aa888d12f61f1e03f4f60216a12"
+  url "https://github.com/nicolargo/glances/archive/v3.1.3.tar.gz"
+  sha256 "e3e8f9362b82c74427522e82501b47696945251035b35282f9ee4bc533996220"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "10aa3df6da1e0df23a0fb20a12989bbec9c991ddf45cd2c9784771c57f4eba89" => :catalina
-    sha256 "f7f572e6f31858bf69d72c9272fb8b77c6dbccaed1cd2d0834ad782e259e44f5" => :mojave
-    sha256 "d87e75de7f80781c4bb44152f32c5757ab3528f6ad431fe31245e4107773d3f6" => :high_sierra
-    sha256 "4ea6dd2e0cb8acf84e558c1f85eeed91f4fafd0eb5ead4c0945033ac4f37cf78" => :sierra
-    sha256 "af375f5f32ae0c1bea16ba2759202a410d368d8b2a5ae4a6f4afd4edda52c508" => :x86_64_linux
+    sha256 "097a34050f718c47164d50265e3517826c968090319b45a93160e5f4b7a92d27" => :catalina
+    sha256 "44e10e5f83cbc9d5d0f44112457840c0762ac67a32a10ca12fa2f76fb28808a4" => :mojave
+    sha256 "6baa3d6dd0e01e93eb2edface89cec72f42c8860abf9fa5ff19ee8def1312284" => :high_sierra
   end
 
   depends_on "python"
