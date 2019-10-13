@@ -1,26 +1,25 @@
 class ForkCleaner < Formula
   desc "Cleans up old and inactive forks on your GitHub account"
   homepage "https://github.com/caarlos0/fork-cleaner"
-  url "https://github.com/caarlos0/fork-cleaner/archive/v1.4.3.tar.gz"
-  sha256 "5a71b3d454ac030522ea5fd8f78b90432d4a9a299c2b923388e7f9ee223795d8"
+  url "https://github.com/caarlos0/fork-cleaner/archive/v1.5.0.tar.gz"
+  sha256 "208d881aed374c97e6abb13880ef1df67c1a3a1da8577d8588cf1e55f4911961"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ba35506a75b9214f547ab1247e00a1774da42b7b6caf5ad7838786a4311d82aa" => :mojave
-    sha256 "1186f25c26a39b69cc5a45a48b60f8f663dbd7ac450fd7b69b20941d798cb11b" => :high_sierra
-    sha256 "c4f6ff2fb271638993210665fa49a44a6bb57f40116f87e7f1872029dc10000f" => :sierra
-    sha256 "cf86f8a3f2748f21fb727a8f2f9b5fd864dc3e7f25985261187da88e7ddee45f" => :x86_64_linux
+    sha256 "15fbcd401a094d4043125534ed65d288d83689f9388836a21f78178a6b56337e" => :catalina
+    sha256 "2121f81a8ba2a346bd3c996ecdbcca57dea8508306ed662a1572b198f419f860" => :mojave
+    sha256 "057111aea39d7d2a1335dab715121e31e98971a611627f94dbb6c52ddea8bf34" => :high_sierra
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
+
     dir = buildpath/"src/github.com/caarlos0/fork-cleaner"
     dir.install buildpath.children
+
     cd dir do
-      system "dep", "ensure", "-vendor-only"
       system "make"
       bin.install "fork-cleaner"
       prefix.install_metafiles
