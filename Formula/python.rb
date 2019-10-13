@@ -7,11 +7,10 @@ class Python < Formula
   head "https://github.com/python/cpython.git"
 
   bottle do
-    sha256 "d3f6d7105952f676e187c9cb7a8e0e4d78a5d028e90df58f181a4eb710e71f9a" => :catalina
-    sha256 "a1283e332d0754e450a7e46a1e1b0df2f1ba6b18a9540db9b2da07bb6b7b1ec1" => :mojave
-    sha256 "5e8e399e1a2a00754bff73c7605ff381094f3346351d2a6ef4fc1c798e6ebe10" => :high_sierra
-    sha256 "8875dc7112c3a98f6423d00915b4ca5242f18965463c0c2e266c7e511ddec026" => :sierra
-    sha256 "c9dccb88d25468206e3304730b1664eacc34a3528bf715651ba635e43aa1586b" => :x86_64_linux
+    rebuild 1
+    sha256 "9440ef937392b1c965f552ae72a63973c604f4c4b563891477423d97ff5a1c45" => :catalina
+    sha256 "387e32b735f3273bee16e8d8d20686ac40bd81e642a7e3d13cd21966698a4b77" => :mojave
+    sha256 "e7f28679d42fe0dcf602cef5d1a45754697954e1d012768a9b72b5db234856f2" => :high_sierra
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -44,18 +43,18 @@ class Python < Formula
   skip_clean "bin/easy_install3", "bin/easy_install-3.4", "bin/easy_install-3.5", "bin/easy_install-3.6", "bin/easy_install-3.7"
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/1d/64/a18a487b4391a05b9c7f938b94a16d80305bf0369c6b0b9509e86165e1d3/setuptools-41.0.1.zip"
-    sha256 "a222d126f5471598053c9a77f4b5d4f26eaa1f150ad6e01dcf1a42e185d05613"
+    url "https://files.pythonhosted.org/packages/f4/d5/a6c19dcbcbc267aca376558797f036d9bcdff344c9f785fe7d0fe9a5f2a7/setuptools-41.4.0.zip"
+    sha256 "7eae782ccf36b790c21bde7d86a4f303a441cd77036b25c559a602cf5186ce4d"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/93/ab/f86b61bef7ab14909bd7ec3cd2178feb0a1c86d451bc9bccd5a1aedcde5f/pip-19.1.1.tar.gz"
-    sha256 "44d3d7d3d30a1eb65c7e5ff1173cdf8f7467850605ac7cc3707b6064bddd0958"
+    url "https://files.pythonhosted.org/packages/00/9e/4c83a0950d8bdec0b4ca72afd2f9cea92d08eb7c1a768363f2ea458d08b4/pip-19.2.3.tar.gz"
+    sha256 "e7a31f147974362e6c82d84b91c7f2bdf57e4d3163d3d454e6c3e71944d67135"
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/1d/b0/f478e80aeace42fe251225a86752799174a94314c4a80ebfc5bf0ab1153a/wheel-0.33.4.tar.gz"
-    sha256 "62fcfa03d45b5b722539ccbc07b190e4bfff4bb9e3a4d470dd9f6a0981002565"
+    url "https://files.pythonhosted.org/packages/59/b0/11710a598e1e148fb7cbf9220fd2a0b82c98e94efbdecb299cb25e7f0b39/wheel-0.33.6.tar.gz"
+    sha256 "10c9da68765315ed98850f8e048347c3eb06dd81822dc2ab1d4fde9dc9702646"
   end
 
   def lib_cellar

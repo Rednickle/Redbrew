@@ -3,14 +3,14 @@ class Sip < Formula
   homepage "https://www.riverbankcomputing.com/software/sip/intro"
   url "https://www.riverbankcomputing.com/static/Downloads/sip/4.19.19/sip-4.19.19.tar.gz"
   sha256 "5436b61a78f48c7e8078e93a6b59453ad33780f80c644e5f3af39f94be1ede44"
+  revision 1
   head "https://www.riverbankcomputing.com/hg/sip", :using => :hg
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "04b82f4b315825bed027034e67aa37681aaef39c870ddeeb2487185cf6994cb6" => :catalina
-    sha256 "cce03b4167471dd9770f812d42093c14fec5867d1f94b0045c3b88a1501acee1" => :mojave
-    sha256 "363ab9c38ddab620092fb64353b45267f757a02f9e568a8aa0c2c1b59d16090b" => :high_sierra
-    sha256 "ffb138e9ab5bf1706906f1daf3f69fa10ab7a77dd92748bbf2f628e28dc16a96" => :x86_64_linux
+    sha256 "ba3355ad200e1f9386171fcbf895fd57fb0fe63a450611942b822d5920296932" => :catalina
+    sha256 "ce13e1599a99f64e0b76048fb6082359e6721a2455d172cb63391abbd08d7fc8" => :mojave
+    sha256 "7d58704f2abdd6d07b69284c800f4ecd3096b8c4733aad77f4718b5083d728d1" => :high_sierra
   end
 
   depends_on "python"
