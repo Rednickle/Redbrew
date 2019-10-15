@@ -1,15 +1,14 @@
 class Kubecfg < Formula
   desc "Manage complex enterprise Kubernetes environments as code"
   homepage "https://github.com/bitnami/kubecfg"
-  url "https://github.com/bitnami/kubecfg/archive/v0.13.0.tar.gz"
-  sha256 "c971175bbb83bb39b0f35f0359103c43471c3b42c903990f52ea34fcb53dfccf"
+  url "https://github.com/bitnami/kubecfg/archive/v0.13.1.tar.gz"
+  sha256 "1ebed3c7d815bbc8fcfcd3b49f7dd75f725167f7129f5acd9b66f9eb8a98ac5d"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "97c9d72c446e068a87936c9386e3b86f6d114e28734e812ca6b688f24fc40f82" => :mojave
-    sha256 "c19fe41ec12e33288288707e6d161b59e469dc476698c55f6d6e14b101c5c3b8" => :high_sierra
-    sha256 "6724ef5826dddd49683b07e0bc10c59710f1758c024917259860b7f9b767f995" => :sierra
-    sha256 "9fbb2451c97c137bdd2ede97ccf014687da9ca0b719b8a8966c9101b431add33" => :x86_64_linux
+    sha256 "2556f6cf6d6e24cb1f4fd3880d65cba6560eeefd08260b9a3fd19cf342abef69" => :catalina
+    sha256 "97a6a726693bdb3bee47f9cc4c05f23818a11b7e9b8beb99a668b651bf033b57" => :mojave
+    sha256 "600eaae96e6557e8c12df62ffee784635fc5def233e98ac6b850c4077473cfe2" => :high_sierra
   end
 
   depends_on "go" => :build
