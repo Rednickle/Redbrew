@@ -1,16 +1,13 @@
 class MysqlAT57 < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/5.7/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.27.tar.gz"
-  sha256 "036ab46a8a1216cfc1e87374bd1cba12e2208c02cf328a31851be7e1c7f57a2b"
-  revision 1
+  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.28.tar.gz"
+  sha256 "f16399315212117c08f9bdf8a0d682728b2ce82d691bcfbf25a770f413b6f2da"
 
   bottle do
-    sha256 "a5288b8b27c1d668bafa2f6f8813b69da1ddce893c7d9ca1cd8653224d44af04" => :catalina
-    sha256 "5ec3269f57853b0c0fb29e061bcdf19abda846184349feeebbcda40eeab3da53" => :mojave
-    sha256 "8abbdfbf92902212472e72c257ab5f05afe4bdd4fbde69a5959c4f490394961c" => :high_sierra
-    sha256 "e322e2672bbb839b59fdfb50f5784c350fb5175a816142602ce034c22abdab9a" => :sierra
-    sha256 "d5a7421f14f884b01fb255f240fecb6e82e22d9105189a3b73df2dec269784a4" => :x86_64_linux
+    sha256 "25979cdf7664ceabbe69c4423317612e51cb2dc73d4e5cb4e24abefc29aa018a" => :catalina
+    sha256 "81cf2771fd65d0fda6536bde1366622d5305d6720ba5822a4919acd661509613" => :mojave
+    sha256 "c4b91823da381ca3f5c1d4016b35b0f5c02c947eecad788541cb666bfbb49290" => :high_sierra
   end
 
   keg_only :versioned_formula
