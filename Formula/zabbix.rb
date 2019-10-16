@@ -1,15 +1,13 @@
 class Zabbix < Formula
   desc "Availability and monitoring solution"
   homepage "https://www.zabbix.com/"
-  url "https://downloads.sourceforge.net/project/zabbix/ZABBIX%20Latest%20Stable/4.2.6/zabbix-4.2.6.tar.gz"
-  sha256 "646b1f29a768e3123a00a9afadf382b4d0dfd54e20fb31023f0d6da066da0864"
+  url "https://downloads.sourceforge.net/project/zabbix/ZABBIX%20Latest%20Stable/4.2.7/zabbix-4.2.7.tar.gz"
+  sha256 "9d9bdf1d858048d72811de04269a429aba257fac2e4b6e782d5a2b1d3a82f627"
 
   bottle do
-    rebuild 1
-    sha256 "3461c9161eef5b816711a7b140788383c6994fb4b20ba067c78efb5552580d88" => :catalina
-    sha256 "b8015f092ec6b236f052bbebe88e2b0fe18aef20699fc3a3cae7daefcc47e795" => :mojave
-    sha256 "79c267b41df839e7765fdfc4a8ab8a0145273189d8819ff090eeae17ce3c08cc" => :high_sierra
-    sha256 "1c8f1ee03c0bb7488b1d9affebe991bc49a7a8f47c24e15a674f7fc9d1e483fa" => :sierra
+    sha256 "19302e92ea34068a9b7ca8d07d86ff9f392a88e2aac5e15782804bc70e15fd1d" => :catalina
+    sha256 "599478f53fab68e8e9016f13f42e6f52b90fafc9d4e5360997afd5c9d9fd30e1" => :mojave
+    sha256 "a3404415483b69565ce1e488990bb8bd71aad6ed6f89233dc05c8d345dd316c4" => :high_sierra
   end
 
   depends_on "openssl@1.1"
