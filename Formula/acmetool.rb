@@ -7,11 +7,10 @@ class Acmetool < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6f2cf5cfb987a2df2f791c162209039804fd8fd12692da69f52153ec9668e9ca" => :mojave
-    sha256 "c4ff2b08c70560072307d64272f105bcd66c05983efbf1e278de9e5012047738" => :high_sierra
-    sha256 "7c77a51f12ec154cd5a82f066d547c70f8970a4c5046adf2ab99c600c930a9d5" => :sierra
-    sha256 "8f9a190bbda5a5cd209cf7f45bcdfff9c504a7e368458b435c78b1c25c8cb54b" => :el_capitan
-    sha256 "3d434116f592e590175a0d3ed6b4627486aaf598be4081850773c995109be316" => :x86_64_linux
+    rebuild 1
+    sha256 "859ddcc717399c6724283beece51c0a93497e00be685d3f1cfb7153506cbd9bb" => :catalina
+    sha256 "fd6d5e67865a1038fef6f4b183c255e42e4eb6470d5847e804639197f226da6b" => :mojave
+    sha256 "62ec2c87880494488a50d78c36104f75eb97bb160ddf316387ab116e51ace2fd" => :high_sierra
   end
 
   depends_on "go" => :build
