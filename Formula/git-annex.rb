@@ -5,15 +5,15 @@ class GitAnnex < Formula
 
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-7.20190912/git-annex-7.20190912.tar.gz"
-  sha256 "9b25fba7de61ce5f09e737873442cd5702d01908b10430343a5b8cce0add72a8"
+  url "https://hackage.haskell.org/package/git-annex-7.20191009/git-annex-7.20191009.tar.gz"
+  sha256 "8f3c6d45b0532edaf8102ae8f6b374abaab5e4b36988df7e404a8d95a8dccc83"
   head "git://git-annex.branchable.com/"
 
   bottle do
     cellar :any
-    sha256 "3461db6b82bdfa01ff3079a9389822abf997bca5547c16dcf911ef53c4a7de34" => :mojave
-    sha256 "719ad81c1fa318a1f0fd79f2a3801086931a142715ff965638fc0752667e0f37" => :high_sierra
-    sha256 "d2c25f2af71d468fc3c310592b0111315cd4573f82f586a4dd93c8962aec5365" => :sierra
+    sha256 "119ed2f0e74a4ff22c5075d0b863afab814039979339681c369e6903bfebafd2" => :catalina
+    sha256 "e6767b1dcb253ada91481f09be5ef18677b49c2fde9c83e700956818ed100873" => :mojave
+    sha256 "8844a864f2c4063819c097c48d9f366cb3f9cff0040ccab81f3e647dc5033c88" => :high_sierra
   end
 
   depends_on "cabal-install" => :build
@@ -31,6 +31,7 @@ class GitAnnex < Formula
     # The network 2.7.0.1 issue has been fixed upstream but needs a new release.
     install_cabal_package "--constraint", "http-conduit>=2.3",
                           "--constraint", "network>=2.6.3.0",
+                          "--constraint", "persistent>=2.8.1&&<=2.9.2",
                           :using => ["alex", "happy", "c2hs"],
                           :flags => ["s3", "webapp"]
     bin.install_symlink "git-annex" => "git-annex-shell"
