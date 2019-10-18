@@ -1,16 +1,13 @@
 class Profanity < Formula
   desc "Console based XMPP client"
-  homepage "http://www.profanity.im/"
-  url "https://profanity-im.github.io/profanity-0.7.0.tar.gz"
-  sha256 "f1eb99be01683d41b891b0f997f4c873c9bb87b0b6b8400b7fccb8e553d514bb"
-  revision 1
+  homepage "https://profanity-im.github.io"
+  url "https://profanity-im.github.io/profanity-0.7.1.tar.gz"
+  sha256 "3fe442948ff2ee258681c3812e878d39179dcf92e1c67bc8fe0ef8896440b05b"
 
   bottle do
-    sha256 "49f5899461484c5ac2f7417ea4392b5cdc9a6d8811900261533b22284e405e54" => :catalina
-    sha256 "f22a03bebff8b2f665f43d53fb73f85d43c4527335df6a51e7600dbb0fb5828e" => :mojave
-    sha256 "98a55ec40c11d1909d4651cf3263e20da2a698acee294a2ea1241cec140aae6b" => :high_sierra
-    sha256 "f5ec5037194ddf9117317fed8f521129904b1d13cd24a3133267f13fb9c914eb" => :sierra
-    sha256 "12abf791dc99f0c622a8c622d6ceb22b8e3057d0bd8660d97a8278f1e9770686" => :x86_64_linux
+    sha256 "e758626095ed29ecb2165ed66fbd94ff33208bc021734c9b6da8ad07cc8ba9ef" => :catalina
+    sha256 "635da190c3390f3afbb8cd950cf325904b18a139ed3326950b101f1ba29c0cee" => :mojave
+    sha256 "00c708f8f2061059b919b9033775730ea0587671d5e1d0a45214de3599f676ed" => :high_sierra
   end
 
   head do

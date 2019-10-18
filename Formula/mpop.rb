@@ -1,15 +1,13 @@
 class Mpop < Formula
   desc "POP3 client"
   homepage "https://marlam.de/mpop/"
-  url "https://marlam.de/mpop/releases/mpop-1.4.5.tar.xz"
-  sha256 "5b69723b216d4330b93af81b487952e5897dcde782e3be65a4e79c87e420c7d4"
+  url "https://marlam.de/mpop/releases/mpop-1.4.6.tar.xz"
+  sha256 "fba142b133662c4e1d5587c96ea7d024a754584df64c8cf16e96bd40f7779160"
 
   bottle do
-    rebuild 1
-    sha256 "d7c6e864441dbdeba735ead1fb4c3596678681ca3dcbbe509255c92b8164aa1d" => :catalina
-    sha256 "e47884232dea498017d9963d255d62156e320413343b8d88994308f6c3cddd36" => :mojave
-    sha256 "03dbb2545823fc038d3b0664aa09c33f7ccc6e77f63c79701856f5336d01a4e9" => :high_sierra
-    sha256 "739a36f0303bf0cd38e8a9ab36e2569aa4e72b6dfe15daee13bd83eff0bc9c63" => :x86_64_linux
+    sha256 "ebee77370afb55e27e025b8b954334d70fc9c6d052033a30c3968be796eaa248" => :catalina
+    sha256 "71b45b62a099afa9bb44aa958e2318771e1c1851efccb961aa558629b0e2229e" => :mojave
+    sha256 "52f8ea2f987b39b13845c224d6704f6623f9448ab9cce699874ed657e5b19410" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
