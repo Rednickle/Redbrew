@@ -5,13 +5,13 @@ class S3ql < Formula
   homepage "https://github.com/s3ql/s3ql"
   url "https://github.com/s3ql/s3ql/releases/download/release-3.2/s3ql-3.2.tar.bz2"
   sha256 "07e93368a52e96a93e1fdc4a66d1a0d845f8808f6d8fbb4aab14e1c824ce67c6"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "bd73c0f779f68e6eefcc00eee53dabc32e8dc2a27c90977f580675e61c9c4133" => :mojave
-    sha256 "b59f26784bd563fda983aa2922e3d33d3e8d50f020da1daf22f57e4ce33a5148" => :high_sierra
-    sha256 "c83f358cc5dcdc95e1e7cb483fb7745a569aed0225e1318b50a68f7a989a1d7d" => :sierra
+    sha256 "b1cf0cc6f0030b40a5a72957b2e72e22b2ef376c5a1d0eafbb043e0d96f0b2a2" => :catalina
+    sha256 "5a74716ba8803d6d7ae6996f7917c4c6a15ba6607a958426cce51f1362153f1b" => :mojave
+    sha256 "d82b7e6600bc768d9dcf9b4d4445ba42ee903f29462143fec1dbe84a5eaaa8bc" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -59,8 +59,8 @@ class S3ql < Formula
   end
 
   resource "asn1crypto" do
-    url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
-    sha256 "9d5c20441baf0cb60a4ac34cc447c6c189024b6b4c6cd7877034f4965c464e49"
+    url "https://files.pythonhosted.org/packages/c1/a9/86bfedaf41ca590747b4c9075bc470d0b2ec44fb5db5d378bc61447b3b6b/asn1crypto-1.2.0.tar.gz"
+    sha256 "87620880a477123e01177a1f73d0f327210b43a3cdbd714efcd2fa49a8d7b384"
   end
 
   resource "defusedxml" do
