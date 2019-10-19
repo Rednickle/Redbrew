@@ -2,17 +2,15 @@ class Reposurgeon < Formula
   desc "Edit version-control repository history"
   homepage "http://www.catb.org/esr/reposurgeon/"
   url "https://gitlab.com/esr/reposurgeon.git",
-      :tag      => "3.47",
-      :revision => "a98846488b2df75f39de3180085ef9e49603815c"
+      :tag      => "3.48",
+      :revision => "911d5c1168f7839855b577ea43971c7c35cacef8"
   head "https://gitlab.com/esr/reposurgeon.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4dc631a1e8a73a0b4220d09632b19f21266bdc96d5c9af9f4dbd3151d73ec3c1" => :catalina
-    sha256 "e92f84c8e427baaa5df7c0661de9aa557d7487dad3f02b673984d1541bc864b9" => :mojave
-    sha256 "b528a838e55ea3604c1105d9519b252fb89d39349a3873f64a944abfa0c141f2" => :high_sierra
-    sha256 "293f48fc7bb768d48b0b2633188de2a88a770724d016e851fc2dcbeb7f4fabc5" => :sierra
-    sha256 "9f33f863f279e8d3d46b5a2e457d98c5bde079b1daed4eea0697c6b132199997" => :x86_64_linux
+    sha256 "aba7163a5984e3fb606b59b70e6c4233cf3d0aa69e400bad156c2a41c4800f3e" => :catalina
+    sha256 "7e3c1b86b32535b698098ffc82231ce1cde18512ffce1ea21cc7b70d0a85a535" => :mojave
+    sha256 "22f79c6f4746a5fcffe63be2247c748e5335082384a9309bdba061ff686813d0" => :high_sierra
   end
 
   depends_on "asciidoc" => :build
