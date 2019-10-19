@@ -5,13 +5,13 @@ class Buku < Formula
   homepage "https://github.com/jarun/Buku"
   url "https://github.com/jarun/Buku/archive/v4.2.2.tar.gz"
   sha256 "08866f284a03454d9ee5bbb332da62e6ae1dfbe83ada75092453a7fd04fe62b3"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "4d967af6718f0da6ae76412a9c4c9d756e8a5d6e1c9b1d5e276e9e56d36357cd" => :mojave
-    sha256 "fa52aab1b64d26a7120a227db71b2e32c90512191e64fe709ed63493e913b34a" => :high_sierra
-    sha256 "a946efe8e1d35cf8934f7f33dcebf905a8e8d6d66702f469d1929cfb291475df" => :sierra
+    sha256 "df4858f1cfb23d6dc88f6789fa9031f5b9a0b05d237b93f71303d696e21d2a78" => :catalina
+    sha256 "c7b8a37fae9350d07cc50f1230819c7f628eb577fbc7aa5ba07eb6cee06ec7cb" => :mojave
+    sha256 "2c93cf452cce05902049fcb5cf71daa7431ae4eb04fbbd6fc9091785fd19b78b" => :high_sierra
   end
 
   depends_on "openssl@1.1"
@@ -26,8 +26,8 @@ class Buku < Formula
   end
 
   resource "asn1crypto" do
-    url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
-    sha256 "9d5c20441baf0cb60a4ac34cc447c6c189024b6b4c6cd7877034f4965c464e49"
+    url "https://files.pythonhosted.org/packages/c1/a9/86bfedaf41ca590747b4c9075bc470d0b2ec44fb5db5d378bc61447b3b6b/asn1crypto-1.2.0.tar.gz"
+    sha256 "87620880a477123e01177a1f73d0f327210b43a3cdbd714efcd2fa49a8d7b384"
   end
 
   resource "beautifulsoup4" do

@@ -5,13 +5,13 @@ class Ooniprobe < Formula
   homepage "https://ooni.torproject.org/"
   url "https://files.pythonhosted.org/packages/d8/c0/b4a2ae442dd95160a75251110313d1f9b22834a76ef9bd8f70603b4a867a/ooniprobe-2.3.0.tar.gz"
   sha256 "b4c4a5665d37123b1a30f26ffb37b8c06bc722f7b829cf83f6c3300774b7acb6"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "72fd33b2be5c4f7d278e8e9983c891da43b15bcf3a0371365730dc1c889bd6f0" => :mojave
-    sha256 "e4bc7f80ccc41cfdf01f70f26a517234d7c82819b16c6d8d94816a31848d6957" => :high_sierra
-    sha256 "25c2a75c61b719091ad68c1494836fd7f30348d537454360c8a1d8feda7ef66c" => :sierra
+    sha256 "05ce79a0aeb0e883481580d842df635376d0eac039a86d5427658feb188780d4" => :catalina
+    sha256 "55d102e458c36b68734ba64cdbf591d8c6c07a9ac02467c8ef90e300033f3074" => :mojave
+    sha256 "f24000b6eb696d06b952dbe3e99af46c558890c744113420168033c44b6f1095" => :high_sierra
   end
 
   depends_on "geoip"
@@ -50,8 +50,8 @@ class Ooniprobe < Formula
   end
 
   resource "asn1crypto" do
-    url "https://files.pythonhosted.org/packages/ce/39/17e90c2efacc4060915f7d1f9b8d2a5b20e54e46233bdf3092e68193407d/asn1crypto-0.21.1.tar.gz"
-    sha256 "4e6d7b22814d680114a439faafeccb9402a78095fb23bf0b25f9404c6938a017"
+    url "https://files.pythonhosted.org/packages/c1/a9/86bfedaf41ca590747b4c9075bc470d0b2ec44fb5db5d378bc61447b3b6b/asn1crypto-1.2.0.tar.gz"
+    sha256 "87620880a477123e01177a1f73d0f327210b43a3cdbd714efcd2fa49a8d7b384"
   end
 
   resource "attrs" do

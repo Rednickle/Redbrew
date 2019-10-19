@@ -5,15 +5,14 @@ class Mitmproxy < Formula
   homepage "https://mitmproxy.org"
   url "https://github.com/mitmproxy/mitmproxy/archive/v4.0.4.tar.gz"
   sha256 "d91eaaad06a5e124a76388999b22a4c590ea26149a30aaff73658cd98d0651d5"
-  revision 1
+  revision 2
   head "https://github.com/mitmproxy/mitmproxy.git"
 
   bottle do
     cellar :any
-    sha256 "4b0bcb86f6eaabecde7a75dea70f6a0d3b0029d5abd407581579e7735dd6ddf4" => :mojave
-    sha256 "1c43f967c2526644fd4536d2a63a9526dcf20158c1288cbb086c467d9a581345" => :high_sierra
-    sha256 "36114abd20791f041f8d5c76f6448635cf8adc6c99777366dcba86f27f0f19b4" => :sierra
-    sha256 "bb5ad35e774c622387094bcd99b28d7614ac38802df84f97e1c0f53f71b22db8" => :x86_64_linux
+    sha256 "d946915abed58f18dfa8af35286dabfc8e5518028dcac1a9e551d840926af118" => :catalina
+    sha256 "05e9c2cd03b9fc62ecd73bc487c27c49b42c270467c12f36e4b7a1f11f2e4de8" => :mojave
+    sha256 "d2fb9a27ef50f0d8c74e9565bd3594b85ab4ddf9c6477ff5f467d83b2da95759" => :high_sierra
   end
 
   depends_on "openssl@1.1"
@@ -26,8 +25,8 @@ class Mitmproxy < Formula
   end
 
   resource "asn1crypto" do
-    url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
-    sha256 "9d5c20441baf0cb60a4ac34cc447c6c189024b6b4c6cd7877034f4965c464e49"
+    url "https://files.pythonhosted.org/packages/c1/a9/86bfedaf41ca590747b4c9075bc470d0b2ec44fb5db5d378bc61447b3b6b/asn1crypto-1.2.0.tar.gz"
+    sha256 "87620880a477123e01177a1f73d0f327210b43a3cdbd714efcd2fa49a8d7b384"
   end
 
   resource "blinker" do

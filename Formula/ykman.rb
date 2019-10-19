@@ -5,15 +5,14 @@ class Ykman < Formula
   homepage "https://developers.yubico.com/yubikey-manager/"
   url "https://developers.yubico.com/yubikey-manager/Releases/yubikey-manager-3.1.0.tar.gz"
   sha256 "0137acd30cffa60421dde8277b3bb0c5d5e2179d36df0d190de6faf7eec76359"
-  revision 1
+  revision 2
   head "https://github.com/Yubico/yubikey-manager.git"
 
   bottle do
     cellar :any
-    sha256 "bbcdddf68a76536a6579fc903a32595bdc51ac369a6bdf9562d768bb5aa5f354" => :mojave
-    sha256 "e415bd795d6b7f43c673ea14f5c61beb6309ad18e0d9de30b84fd03f65afaa2a" => :high_sierra
-    sha256 "7e943215909e0c4f0d98aba219be77ce4c1e921fd42b12781a3ddeaefba16e07" => :sierra
-    sha256 "355050336d859af92034c70d81ddb5165e64d69f87ee599952f4e6d396db71c1" => :x86_64_linux
+    sha256 "6167b5271e16ec0578c19e057d3640ef915078ea49283c33527e5eb1f8fb761c" => :catalina
+    sha256 "c61168ce749d7c6642028a64d5be0e6a27de9f9e5ad7cc7e7d63e3e7f9f022de" => :mojave
+    sha256 "b290e4341fd449971cb3b9d6459b28120b603cc96a2e2895473d6d3d5f12317b" => :high_sierra
   end
 
   depends_on "swig" => :build
@@ -28,8 +27,8 @@ class Ykman < Formula
   end
 
   resource "asn1crypto" do
-    url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
-    sha256 "9d5c20441baf0cb60a4ac34cc447c6c189024b6b4c6cd7877034f4965c464e49"
+    url "https://files.pythonhosted.org/packages/c1/a9/86bfedaf41ca590747b4c9075bc470d0b2ec44fb5db5d378bc61447b3b6b/asn1crypto-1.2.0.tar.gz"
+    sha256 "87620880a477123e01177a1f73d0f327210b43a3cdbd714efcd2fa49a8d7b384"
   end
 
   resource "cffi" do

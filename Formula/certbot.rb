@@ -5,15 +5,14 @@ class Certbot < Formula
   homepage "https://certbot.eff.org/"
   url "https://github.com/certbot/certbot/archive/v0.37.1.tar.gz"
   sha256 "db59585195929ca6af03dfee5ecc9b12bcac2bd42f9ed50c8de5a5165e1258e3"
-  revision 1
+  revision 2
   head "https://github.com/certbot/certbot.git"
 
   bottle do
     cellar :any
-    sha256 "485361348d807b03eaca0b3810719b0ddfa8fd57f7440425ac8e24d2432cd2bc" => :mojave
-    sha256 "c8b3993be09d6ec620c92c15ff1fc51b3ef13b47d12e3e19f3c7f02c434db8ca" => :high_sierra
-    sha256 "d7fee8f7a558d9d9963e5aa37ba6046973d3adaf70f762e6f8c3856f80b2df9b" => :sierra
-    sha256 "5e0d8c4230110e40a385245feb17c9eec809320c1f0b570c4636e657b4696adf" => :x86_64_linux
+    sha256 "ba1f8411ff670c32b98e5498643a56480194c71dfbdf6830355f279d4693a099" => :catalina
+    sha256 "4273bf106ee6158a2f0d9577c440f51babf44fc85116fa2e1dc8538bd599727c" => :mojave
+    sha256 "6f10447ba63bbd5b0d5e28f15975db60ee96db58e32d4334c510faa07479d880" => :high_sierra
   end
 
   depends_on "augeas"
@@ -26,8 +25,8 @@ class Certbot < Formula
   end
 
   resource "asn1crypto" do
-    url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
-    sha256 "9d5c20441baf0cb60a4ac34cc447c6c189024b6b4c6cd7877034f4965c464e49"
+    url "https://files.pythonhosted.org/packages/c1/a9/86bfedaf41ca590747b4c9075bc470d0b2ec44fb5db5d378bc61447b3b6b/asn1crypto-1.2.0.tar.gz"
+    sha256 "87620880a477123e01177a1f73d0f327210b43a3cdbd714efcd2fa49a8d7b384"
   end
 
   resource "certifi" do

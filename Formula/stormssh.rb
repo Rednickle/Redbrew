@@ -3,13 +3,14 @@ class Stormssh < Formula
   homepage "https://github.com/emre/storm"
   url "https://files.pythonhosted.org/packages/0a/18/85d12be676ae0c1d98173b07cc289bbf9e0c67d6c7054b8df3e1003bf992/stormssh-0.7.0.tar.gz"
   sha256 "8d034dcd9487fa0d280e0ec855d08420f51d5f9f2249f932e3c12119eaa53453"
+  revision 1
   head "https://github.com/emre/storm.git"
 
   bottle do
     cellar :any
-    sha256 "ff0a5b97f1450f89fe8ccd0ccb04067200db88fd36758b3847d06fa678f1ce98" => :mojave
-    sha256 "b9eee122d5ff26e4bfea039705f3bc6aa7677556bf904fa3b9afda495d58c278" => :high_sierra
-    sha256 "8a359d6072d36572383630fe7632cc59b8526993dc7071d3fca88a0bcc486226" => :sierra
+    sha256 "e20d17fd12cce6a7c3a52f7260357987487bb19dc4048ccb0db910180c942cf3" => :catalina
+    sha256 "e0cde03f436db323f91b6944ddf2222c2fa9823f3f8794b9619abe7046b267e3" => :mojave
+    sha256 "0082cc67df66b23b731c782c8d459adf302e643509fea12829db82f0e12c84e6" => :high_sierra
   end
 
   depends_on "python"
@@ -92,8 +93,8 @@ class Stormssh < Formula
   end
 
   resource "asn1crypto" do
-    url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
-    sha256 "9d5c20441baf0cb60a4ac34cc447c6c189024b6b4c6cd7877034f4965c464e49"
+    url "https://files.pythonhosted.org/packages/c1/a9/86bfedaf41ca590747b4c9075bc470d0b2ec44fb5db5d378bc61447b3b6b/asn1crypto-1.2.0.tar.gz"
+    sha256 "87620880a477123e01177a1f73d0f327210b43a3cdbd714efcd2fa49a8d7b384"
   end
 
   resource "idna" do
