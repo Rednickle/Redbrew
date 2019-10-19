@@ -3,11 +3,12 @@ class Sbcl < Formula
   homepage "http://www.sbcl.org/"
   url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.5.7/sbcl-1.5.7-source.tar.bz2"
   sha256 "54742fb5e2f3f350fbafd72bc73662fca21382b5553ed6a146098950d2409485"
+  revision 1
 
   bottle do
-    sha256 "03b4defdea7af26e6b1e78c61b1d77071f3b951c273d0c2fc35925ff9823de3b" => :mojave
-    sha256 "e8c571577442bec73ca4ed1f91f88643219a93fc467177708ad22ca14df9496a" => :high_sierra
-    sha256 "a98924f8a7602294fc076e0116bdfc01fc8b3641d2cee759e973dc4f7c5cad5d" => :x86_64_linux
+    sha256 "768b97a7b45d987a9880348e105a5134b2d1babc1e1048c4139820a93e27ceda" => :catalina
+    sha256 "7e75877ee61c8818ca836967c1df526b4c8126773e7d836a3e868800ba559fdf" => :mojave
+    sha256 "094b689bc00f692fcd90ea879b414a3bda0f2b0784463b459c11699038932a25" => :high_sierra
   end
 
   uses_from_macos "zlib"
@@ -26,6 +27,17 @@ class Sbcl < Formula
   patch :p0 do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/c5ffdb11/sbcl/patch-make-doc.diff"
     sha256 "7c21c89fd6ec022d4f17670c3253bd33a4ac2784744e4c899c32fbe27203d87e"
+  end
+
+  # Two patches below prevent a segfault on macOS Catalina
+  patch :p1 do
+    url "https://github.com/sbcl/sbcl/commit/07d135b0dd4e7c34bc0dce6aac07570d66e297ee.diff?full_index=1"
+    sha256 "7522320e325451a61181edfd0a3ccbd21b48850102c0f976c9af814117a8b29e"
+  end
+
+  patch :p1 do
+    url "https://github.com/sbcl/sbcl/commit/5cefb8506b7d8d9a0277236eb3f7e76c4428ac10.diff?full_index=1"
+    sha256 "e88cec2d4e8d9eff9658a7706ac25718d5d8cd09df3928692f2b27e0644dd73c"
   end
 
   def install

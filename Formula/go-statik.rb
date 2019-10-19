@@ -28,7 +28,8 @@ class GoStatik < Formula
   end
 
   test do
-    system bin/"statik", "-src", OS.mac? ? "/Library/Fonts/STIXGeneral.otf" : "/bin/ls"
+    font_name = (MacOS.version >= :catalina) ? "Arial Unicode.ttf" : "Arial.ttf"
+    system bin/"statik", "-src", "/Library/Fonts/#{font_name}"
     assert_predicate testpath/"statik/statik.go", :exist?
     refute_predicate (testpath/"statik/statik.go").size, :zero?
   end

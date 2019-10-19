@@ -10,10 +10,10 @@ class AzureCli < Formula
 
   bottle do
     cellar :any
-    sha256 "176043dcebf92af4f07316fc47f1524ca93330f3196c4eceab4f2ca561b27a93" => :catalina
-    sha256 "973c011885759e26895c91a1386796768c9fa025c07c4bb845e641bcc06cc8c1" => :mojave
-    sha256 "0d9296e7802f5b8c44c09f00071a1e59a8a3c88afd4682aa6c4479ee22a93547" => :high_sierra
-    sha256 "fdf7cf48ee40738cb50c00d3b726e3ad0eb9c50423b30a0951353a1123f23075" => :x86_64_linux
+    rebuild 1
+    sha256 "5ae0b1e2ced62d522ff5b92e7a7d0d0af75cb4376890743559282085ff46b3c5" => :catalina
+    sha256 "ea5756b2c94abac58292521064ccd8e8a6c13d831658ec438e6eb1d33acf416e" => :mojave
+    sha256 "0af32c77b63e384faf637ef12f9883d026a0eafb3243403e707c3206dc74daf1" => :high_sierra
   end
 
   depends_on "openssl@1.1"
@@ -656,6 +656,10 @@ class AzureCli < Formula
   end
 
   def install
+    # Work around Xcode 11 clang bug
+    # https://code.videolan.org/videolan/libbluray/issues/20
+    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
+
     venv = virtualenv_create(libexec, "python3")
     venv.pip_install resources
 

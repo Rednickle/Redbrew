@@ -5,14 +5,14 @@ class Ansible < Formula
   homepage "https://www.ansible.com/"
   url "https://releases.ansible.com/ansible/ansible-2.8.5.tar.gz"
   sha256 "8e9403e755ce8ef27b6066cdd7a4c567aa80ebe2fd90d0ff8efa0a725d246986"
+  revision 1
   head "https://github.com/ansible/ansible.git", :branch => "devel"
 
   bottle do
     cellar :any
-    sha256 "532afa6c48854c2cf0d4d068ec9402b36e1c899f31e72db486dff41c6bbf466d" => :mojave
-    sha256 "bf8087874985037db8c729f7d224ce39de5ca6d95c4f4f7b64a9be5efc7c4332" => :high_sierra
-    sha256 "1543fb46068032410a6fb4d9751dae3455ee947e113d191891b2c65896fd1e9c" => :sierra
-    sha256 "54ef63c4daaafbcb1b8109c4e049a18792b7a15125307f05c08b2eca65fc9de1" => :x86_64_linux
+    sha256 "6ef43b0530effc3253d90991cbf85b6f9c9a58036fa8da48aefb501c0be18e57" => :catalina
+    sha256 "307ae5fd91c99700b8d80330182beed3d37609330cafbc5fc14a7d96b59c16ed" => :mojave
+    sha256 "a6a40fa57224e4a4a9a5fa98231e9c49f78181cb450a23f1cca53cb8bb34c062" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -120,8 +120,8 @@ class Ansible < Formula
   end
 
   resource "asn1crypto" do
-    url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
-    sha256 "9d5c20441baf0cb60a4ac34cc447c6c189024b6b4c6cd7877034f4965c464e49"
+    url "https://files.pythonhosted.org/packages/c1/a9/86bfedaf41ca590747b4c9075bc470d0b2ec44fb5db5d378bc61447b3b6b/asn1crypto-1.2.0.tar.gz"
+    sha256 "87620880a477123e01177a1f73d0f327210b43a3cdbd714efcd2fa49a8d7b384"
   end
 
   resource "backports.ssl_match_hostname" do
@@ -601,6 +601,10 @@ class Ansible < Formula
 
     # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
     ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
+
+    # Work around Xcode 11 clang bug
+    # https://code.videolan.org/videolan/libbluray/issues/20
+    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
 
     # https://github.com/Homebrew/homebrew-core/issues/7197
     ENV.prepend "CPPFLAGS", "-I#{MacOS.sdk_path}/usr/include/ffi" if OS.mac?
