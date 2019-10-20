@@ -5,10 +5,11 @@ class UtilLinux < Formula
   sha256 "743f9d0c7252b6db246b659c1e1ce0bd45d8d4508b4dfa427bbb4a3e9b9f62b5"
 
   bottle do
-    sha256 "3fb25026099ea42c1c54b80cad6bbdf9bf09b0e0e967ca4690698d0d2d379483" => :mojave
-    sha256 "7d7e421229cbf8b0ac5fbe1f0ffc7d18a3e0ce9dc09090bd346f676111cc2bb7" => :high_sierra
-    sha256 "1c0c0011db6ecf47a6ad673c38878b5265ce82f6aba4b6bf7d4733d4513b6c7a" => :sierra
-    sha256 "2d33d47b8703a8c7aea6de0e5fe3f1feaa6c847625a90fbb23d1a2551f0165ab" => :x86_64_linux
+    cellar :any
+    rebuild 1
+    sha256 "ad4962d8ce56d784085cf53e2f3add3432a3905285acf05a23fcc2e5e40cf5a8" => :catalina
+    sha256 "483548a881703f1e4645c40a9779758ff2da0db1dc521b4ce7321d86c723669d" => :mojave
+    sha256 "f02d33204d3ff42112ab972d1fa93f84a7676bcc28f208eac41172db4f7416e7" => :high_sierra
   end
 
   keg_only "macOS provides the uuid.h header" if OS.mac?
@@ -30,7 +31,6 @@ class UtilLinux < Formula
       args << "--disable-ipcrm" # does not build on macOS
       args << "--disable-wall" # already comes with macOS
       args << "--enable-libuuid" # conflicts with ossp-uuid
-      args << "--disable-libsmartcols" # macOS already ships 'column'
     else
       args << "--disable-use-tty-group" # Fix chgrp: changing group of 'wall': Operation not permitted
       args << "--disable-kill" # Conflicts with coreutils.
@@ -76,8 +76,16 @@ class UtilLinux < Formula
   end
 
   test do
-    out = shell_output("#{bin}/namei -lx /usr").split("\n")
-    group = OS.mac? ? "wheel" : "root"
-    assert_equal ["f: /usr", "Drwxr-xr-x root #{group} /", "drwxr-xr-x root #{group} usr"], out
+    stat  = File.stat "/usr"
+    owner = Etc.getpwuid(stat.uid).name
+    group = Etc.getgrgid(stat.gid).name
+
+    flags = ["x", "w", "r"] * 3
+    perms = flags.each_with_index.reduce("") do |sum, (flag, index)|
+      sum.insert 0, ((stat.mode & (2 ** index)).zero? ? "-" : flag)
+    end
+
+    out = shell_output("#{bin}/namei -lx /usr").split("\n").last.split(" ")
+    assert_equal ["d#{perms}", owner, group, "usr"], out
   end
 end

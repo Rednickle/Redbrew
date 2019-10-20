@@ -1,15 +1,13 @@
 class PerconaServer < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
-  url "https://www.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.13-4/source/tarball/percona-server-8.0.13-4.tar.gz"
-  sha256 "0a42a0e51e3c27fa1fb2eb3e8d057a33e3ef77691f651b92b5ba6c9fe2890b9b"
-  revision 1
+  url "https://www.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.16-7/source/tarball/percona-server-8.0.16-7.tar.gz"
+  sha256 "8f8f685c23917054f47b7b3a0f0acb6eb9157e59f46463caf112d1704495e798"
 
   bottle do
-    sha256 "4577cd017f8718e66ef11d5b6e1711d344292c0eb48b4431fc19c046fb40933c" => :catalina
-    sha256 "b9c1caebe201916cc335ea1c6bf7febd7ef6c246919f0c63075bba0d821c5637" => :mojave
-    sha256 "b2eee30e6a099b054261ca3d908fcf1e6365eb033de1ffe899d1d8886adb1265" => :high_sierra
-    sha256 "18ac0d1f2f3ab54720e30d0687e44dfdf135a1b464c854390e1e6aa9e32d90ef" => :sierra
+    sha256 "052ee98be920cb88cc9ce2bcd7b25caeca0ae13203d16197f5e25126c20bf1df" => :catalina
+    sha256 "f7075505bd318f9738a4963652eb5dbeca7afd035b4c9dcfab06bb331229b8eb" => :mojave
+    sha256 "6a4565db4a704989ac67120325ff9b9a6ece44af4b8ec20866f9fd0b1003a483" => :high_sierra
   end
 
   pour_bottle? do
@@ -44,8 +42,8 @@ class PerconaServer < Formula
   end
 
   resource "boost" do
-    url "https://downloads.sourceforge.net/project/boost/boost/1.67.0/boost_1_67_0.tar.bz2"
-    sha256 "2684c972994ee57fc5632e03bf044746f6eb45d4920c343937a465fd67a5adba"
+    url "https://downloads.sourceforge.net/project/boost/boost/1.69.0/boost_1_69_0.tar.bz2"
+    sha256 "8f32d4617390d1c2d16f26a27ab60d97807b35440d45891fa340fc2648b04406"
   end
 
   # Where the database files should be located. Existing installs have them
@@ -57,6 +55,7 @@ class PerconaServer < Formula
 
   def install
     args = %W[
+      -DFORCE_INSOURCE_BUILD=1
       -DCOMPILATION_COMMENT=Homebrew
       -DDEFAULT_CHARSET=utf8
       -DDEFAULT_COLLATION=utf8mb4_0900_ai_ci
