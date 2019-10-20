@@ -13,11 +13,10 @@ class Qt < Formula
 
   bottle do
     cellar :any
-    sha256 "d734eff21324701858605d7896763cbba2440c1350969cd3804d3969b3147d89" => :catalina
-    sha256 "a58effe9b3aa460fcd6cc41aa4cef235b6e88d83fe1c863100a6423a37482f8b" => :mojave
-    sha256 "eae71268c2333dd6429a704123021ccca05737a629f89d5f7efbf1b1b7c0250b" => :high_sierra
-    sha256 "3af3d51d19936f6e46bab0f1dc6c3b1e650090796d74110a2b607b985006b0b1" => :sierra
-    sha256 "eddf9aa0c4a56e4a09762510f0dbeb85e817357a18c0b3eb384f67230d2f55b6" => :x86_64_linux
+    rebuild 1
+    sha256 "3d0edac62d9e12bc7886bbe5d656abb719816ea0312235215ff29d7bd510bba5" => :catalina
+    sha256 "8879bd6173c6bb83731ff3fa6114a1a5655d22d43cc10a6576c53f4940a1d3b9" => :mojave
+    sha256 "04fe46304a54f80ffb9b83f5a2e01bbfe86d016275e4ec989b2eb142b81366d8" => :high_sierra
   end
 
   keg_only "Qt 5 has CMake issues when linked"
@@ -43,6 +42,14 @@ class Qt < Formula
     depends_on "linuxbrew/xorg/xcb-util"
     depends_on "linuxbrew/xorg/xcb-util-wm"
     depends_on "linuxbrew/xorg/xorg"
+  end
+
+  # Fix QtWebEngine's chromium for Xcode 11 and macOS 10.15 SDK
+  # Upstream patch, remove in next version
+  # https://bugreports.qt.io/browse/QTBUG-78997
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/9cc60b1e/qt/QTBUG-78997.diff"
+    sha256 "9834112eaca6b903709308ee690e0315472ae82d7d4488e3a38d307fe58b2ae7"
   end
 
   def install
