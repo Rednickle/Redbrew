@@ -1,17 +1,14 @@
 class UBootTools < Formula
   desc "Universal boot loader"
   homepage "https://www.denx.de/wiki/U-Boot/"
-  url "https://ftp.denx.de/pub/u-boot/u-boot-2019.07.tar.bz2"
-  sha256 "bff4fa77e8da17521c030ca4c5b947a056c1b1be4d3e6ee8637020b8d50251d0"
-  revision 1
+  url "https://ftp.denx.de/pub/u-boot/u-boot-2019.10.tar.bz2"
+  sha256 "8d6d6070739522dd236cba7055b8736bfe92b4fac0ea18ad809829ca79667014"
 
   bottle do
     cellar :any
-    sha256 "57e03729a3ec9b9b3b9254251e6ee33e9e2b208f2eea0e8d056deed610670324" => :catalina
-    sha256 "12b0fc3efe3bc1cb8bc8601961312b5cc0f06c0763f7e8ef498c6b67c51bb914" => :mojave
-    sha256 "7ce886985cd7618286df58f5b81db5122a20e32a31463ee09f2231adece1646a" => :high_sierra
-    sha256 "d773f7288db6b6e29d421b64c237f9b3cdc2fa67c1cca63d5f1aaa2160eea424" => :sierra
-    sha256 "f6dc1e88d637a92e7e7c786a8ea646f88c40c25a94239d64f272ca6464ace533" => :x86_64_linux
+    sha256 "af8a3c5ce497b01ea53fba05c2995e3614bd52f695dae88ab97d3eed675f3846" => :catalina
+    sha256 "5f036981757605340697d6b5162037d786b40b2f25de56c2b5b10e7552be22b3" => :mojave
+    sha256 "a90ef3a2c36fd843ce11d922ab18f2a3d4cd77d27ad013239ec5de6e4508e2f0" => :high_sierra
   end
 
   depends_on "openssl@1.1"
