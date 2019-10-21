@@ -8,6 +8,7 @@ class Ipmitool < Formula
 
   bottle do
     cellar :any
+    sha256 "926d5c49a0a1b9411e45c54e412403003266c27127059edb50b40e07adaf2260" => :catalina
     sha256 "3bf8d00d62c2e1dc781493d448062ad365ac8e7c73010ee37ba2040a48513c10" => :mojave
     sha256 "04462f0b4129d34cbf7e8e5c72591360e89dd6d6cef20008567015d57ab611c4" => :high_sierra
     sha256 "f08f0e5717ff8ccf031ca738eb4995b39db5d37b802800b6e0b6c154f6fed830" => :sierra
@@ -27,7 +28,10 @@ class Ipmitool < Formula
 
   # Patch for compatibility with OpenSSL 1.1.1
   # https://reviews.freebsd.org/D17527
-  patch :p1, :DATA
+  patch :p0 do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/10f4f68f/ipmitool/openssl-1.1.diff"
+    sha256 "8ad4e19d7c39d1bf95a0219d03f4d8490727ac79cb297a36639443ef030bb76a"
+  end
 
   def install
     # Fix ipmi_cfgp.c:33:10: fatal error: 'malloc.h' file not found
@@ -50,91 +54,3 @@ class Ipmitool < Formula
     system bin/"ipmitool", "-V"
   end
 end
-__END__
---- old/src/plugins/lanplus/lanplus_crypt_impl.c	2016-05-28 10:20:20.000000000 +0200
-+++ new/src/plugins/lanplus/lanplus_crypt_impl.c	2017-02-21 10:50:21.634873466 +0100
-@@ -164,10 +164,10 @@ lanplus_encrypt_aes_cbc_128(const uint8_
-							uint8_t       * output,
-							uint32_t        * bytes_written)
- {
--	EVP_CIPHER_CTX ctx;
--	EVP_CIPHER_CTX_init(&ctx);
--	EVP_EncryptInit_ex(&ctx, EVP_aes_128_cbc(), NULL, key, iv);
--	EVP_CIPHER_CTX_set_padding(&ctx, 0);
-+	EVP_CIPHER_CTX *ctx = EVP_CIPHER_CTX_new();
-+	EVP_CIPHER_CTX_init(ctx);
-+	EVP_EncryptInit_ex(ctx, EVP_aes_128_cbc(), NULL, key, iv);
-+	EVP_CIPHER_CTX_set_padding(ctx, 0);
-
-
-	*bytes_written = 0;
-@@ -191,7 +191,7 @@ lanplus_encrypt_aes_cbc_128(const uint8_
-	assert((input_length % IPMI_CRYPT_AES_CBC_128_BLOCK_SIZE) == 0);
-
-
--	if(!EVP_EncryptUpdate(&ctx, output, (int *)bytes_written, input, input_length))
-+	if(!EVP_EncryptUpdate(ctx, output, (int *)bytes_written, input, input_length))
-	{
-		/* Error */
-		*bytes_written = 0;
-@@ -201,7 +201,7 @@ lanplus_encrypt_aes_cbc_128(const uint8_
-	{
-		uint32_t tmplen;
-
--		if(!EVP_EncryptFinal_ex(&ctx, output + *bytes_written, (int *)&tmplen))
-+		if(!EVP_EncryptFinal_ex(ctx, output + *bytes_written, (int *)&tmplen))
-		{
-			*bytes_written = 0;
-			return; /* Error */
-@@ -210,7 +210,8 @@ lanplus_encrypt_aes_cbc_128(const uint8_
-		{
-			/* Success */
-			*bytes_written += tmplen;
--			EVP_CIPHER_CTX_cleanup(&ctx);
-+			EVP_CIPHER_CTX_cleanup(ctx);
-+			EVP_CIPHER_CTX_free(ctx);
-		}
-	}
- }
-@@ -239,10 +240,10 @@ lanplus_decrypt_aes_cbc_128(const uint8_
-							uint8_t       * output,
-							uint32_t        * bytes_written)
- {
--	EVP_CIPHER_CTX ctx;
--	EVP_CIPHER_CTX_init(&ctx);
--	EVP_DecryptInit_ex(&ctx, EVP_aes_128_cbc(), NULL, key, iv);
--	EVP_CIPHER_CTX_set_padding(&ctx, 0);
-+	EVP_CIPHER_CTX *ctx = EVP_CIPHER_CTX_new();
-+	EVP_CIPHER_CTX_init(ctx);
-+	EVP_DecryptInit_ex(ctx, EVP_aes_128_cbc(), NULL, key, iv);
-+	EVP_CIPHER_CTX_set_padding(ctx, 0);
-
-
-	if (verbose >= 5)
-@@ -266,7 +267,7 @@ lanplus_decrypt_aes_cbc_128(const uint8_
-	assert((input_length % IPMI_CRYPT_AES_CBC_128_BLOCK_SIZE) == 0);
-
-
--	if (!EVP_DecryptUpdate(&ctx, output, (int *)bytes_written, input, input_length))
-+	if (!EVP_DecryptUpdate(ctx, output, (int *)bytes_written, input, input_length))
-	{
-		/* Error */
-		lprintf(LOG_DEBUG, "ERROR: decrypt update failed");
-@@ -277,7 +278,7 @@ lanplus_decrypt_aes_cbc_128(const uint8_
-	{
-		uint32_t tmplen;
-
--		if (!EVP_DecryptFinal_ex(&ctx, output + *bytes_written, (int *)&tmplen))
-+		if (!EVP_DecryptFinal_ex(ctx, output + *bytes_written, (int *)&tmplen))
-		{
-			char buffer[1000];
-			ERR_error_string(ERR_get_error(), buffer);
-@@ -290,7 +291,8 @@ lanplus_decrypt_aes_cbc_128(const uint8_
-		{
-			/* Success */
-			*bytes_written += tmplen;
--			EVP_CIPHER_CTX_cleanup(&ctx);
-+			EVP_CIPHER_CTX_cleanup(ctx);
-+			EVP_CIPHER_CTX_free(ctx);
-		}
-	}
