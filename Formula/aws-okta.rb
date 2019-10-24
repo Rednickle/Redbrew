@@ -1,15 +1,14 @@
 class AwsOkta < Formula
   desc "Authenticate with AWS using your Okta credentials"
   homepage "https://github.com/segmentio/aws-okta"
-  url "https://github.com/segmentio/aws-okta/archive/v0.26.0.tar.gz"
-  sha256 "e76e447ecb8d0e8c8e6365068e7f5caf290a752b6ed93680e3b6b2d1a106e518"
+  url "https://github.com/segmentio/aws-okta/archive/v0.26.3.tar.gz"
+  sha256 "e640610b29a5b501f9b3da3b9765106d3436fb2c980455b7e3d32687753f46fc"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "67e722b87142f217e803fb2d99374009bbe1bc217f71f5302c648b29d25aae35" => :catalina
-    sha256 "c8e0aad89b2c4751110a6cce78df887f9a7b2b4a3500da7c2679944867313965" => :mojave
-    sha256 "02e495de5e6d8010d78b906b998ec742d747ed404418cea7cbfdb6d16b7aca6e" => :high_sierra
-    sha256 "c56044a8be1c6624d3b98a651afdbadc70281b486c6e26cba2735affea45b8ef" => :x86_64_linux
+    sha256 "970c382f66ba279b4197643378f17c5de9007d2b66448b9ed4e6581cfe8403bf" => :catalina
+    sha256 "fd30c54113e712e65037fa9dcee81de3597a4aba9523771e99a0e3f716d33aa9" => :mojave
+    sha256 "15364c7cbf7bd0725ad6ce3f00a4ed56fc3f9d4d4759d7a72d8f8f165c76b943" => :high_sierra
   end
 
   depends_on "go" => :build

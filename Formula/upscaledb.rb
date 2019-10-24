@@ -18,9 +18,10 @@ class Upscaledb < Formula
 
   bottle do
     cellar :any
-    sha256 "c857ce1830607dd6aba67b317d84d5174126bc44215eb9d87045978658264bdf" => :mojave
-    sha256 "d326506b5a5eea10570737700e4cfa81841c63f8e03fb17915e02f194c4390e8" => :high_sierra
-    sha256 "89d71d8c9599109577ed72d03758ffb48c13d3a10aff093115fa681248331cc7" => :sierra
+    rebuild 1
+    sha256 "f43667827810a6aa32195181d4e59141cd6d887cc7b5c5b06cac7a62fbe26c5d" => :catalina
+    sha256 "c4f5569e53aee69de83be670f8d8646b0578d08c81a7f3a1bf6baabcecd634f6" => :mojave
+    sha256 "a69181d755deab2d8b9ea090370416532cd7b2731c03732786c3bc708d383987" => :high_sierra
   end
 
   head do
@@ -44,7 +45,10 @@ class Upscaledb < Formula
 
   # Patch for compatibility with OpenSSL 1.1
   # https://github.com/cruppstahl/upscaledb/issues/124
-  patch :DATA
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a7095c61/upscaledb/openssl-1.1.diff"
+    sha256 "c388613c88e856ee64be2b4a72b64a1b998f1f8b835122579e2049e9f01a0f58"
+  end
 
   def install
     # Fix collision with isset() in <sys/params.h>
@@ -80,67 +84,3 @@ class Upscaledb < Formula
     system "./test"
   end
 end
-__END__
-diff -pur upscaledb-2.2.0/src/2aes/aes.h upscaledb-2.2.0-fixed/src/2aes/aes.h
---- upscaledb-2.2.0/src/2aes/aes.h	2016-04-03 21:14:50.000000000 +0200
-+++ upscaledb-2.2.0-fixed/src/2aes/aes.h	2019-09-07 18:01:05.000000000 +0200
-@@ -48,19 +48,19 @@ class AesCipher {
-     AesCipher(const uint8_t key[kAesBlockSize], uint64_t salt = 0) {
-       uint64_t iv[2] = {salt, 0};
-
--	    EVP_CIPHER_CTX_init(&m_encrypt_ctx);
--	    EVP_EncryptInit_ex(&m_encrypt_ctx, EVP_aes_128_cbc(), NULL, key,
-+	    m_encrypt_ctx = EVP_CIPHER_CTX_new();
-+	    EVP_EncryptInit_ex(m_encrypt_ctx, EVP_aes_128_cbc(), NULL, key,
-						(uint8_t *)&iv[0]);
--	    EVP_CIPHER_CTX_init(&m_decrypt_ctx);
--	    EVP_DecryptInit_ex(&m_decrypt_ctx, EVP_aes_128_cbc(), NULL, key,
-+	    m_decrypt_ctx = EVP_CIPHER_CTX_new();
-+	    EVP_DecryptInit_ex(m_decrypt_ctx, EVP_aes_128_cbc(), NULL, key,
-						(uint8_t *)&iv[0]);
--	    EVP_CIPHER_CTX_set_padding(&m_encrypt_ctx, 0);
--	    EVP_CIPHER_CTX_set_padding(&m_decrypt_ctx, 0);
-+	    EVP_CIPHER_CTX_set_padding(m_encrypt_ctx, 0);
-+	    EVP_CIPHER_CTX_set_padding(m_decrypt_ctx, 0);
-     }
-
-     ~AesCipher() {
--      EVP_CIPHER_CTX_cleanup(&m_encrypt_ctx);
--  	  EVP_CIPHER_CTX_cleanup(&m_decrypt_ctx);
-+      EVP_CIPHER_CTX_free(m_encrypt_ctx);
-+  	  EVP_CIPHER_CTX_free(m_decrypt_ctx);
-     }
-
-     /*
-@@ -75,11 +75,11 @@ class AesCipher {
-	    /* update ciphertext, c_len is filled with the length of ciphertext
-	     * generated, len is the size of plaintext in bytes */
-	    int clen = (int)len;
--	    EVP_EncryptUpdate(&m_encrypt_ctx, ciphertext, &clen, plaintext, (int)len);
-+	    EVP_EncryptUpdate(m_encrypt_ctx, ciphertext, &clen, plaintext, (int)len);
-
-	    /* update ciphertext with the final remaining bytes */
-	    int outlen;
--	    EVP_EncryptFinal(&m_encrypt_ctx, ciphertext + clen, &outlen);
-+	    EVP_EncryptFinal(m_encrypt_ctx, ciphertext + clen, &outlen);
-     }
-
-     /*
-@@ -92,13 +92,13 @@ class AesCipher {
-       assert(len % kAesBlockSize == 0);
-
-	    int plen = (int)len, flen = 0;
--	    EVP_DecryptUpdate(&m_decrypt_ctx, plaintext, &plen, ciphertext, (int)len);
--	    EVP_DecryptFinal(&m_decrypt_ctx, plaintext + plen, &flen);
-+	    EVP_DecryptUpdate(m_decrypt_ctx, plaintext, &plen, ciphertext, (int)len);
-+	    EVP_DecryptFinal(m_decrypt_ctx, plaintext + plen, &flen);
-     }
-
-   private:
--    EVP_CIPHER_CTX m_encrypt_ctx;
--    EVP_CIPHER_CTX m_decrypt_ctx;
-+    EVP_CIPHER_CTX *m_encrypt_ctx;
-+    EVP_CIPHER_CTX *m_decrypt_ctx;
- };
-
- } // namespace upscaledb
