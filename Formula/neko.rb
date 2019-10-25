@@ -1,17 +1,15 @@
 class Neko < Formula
   desc "High-level, dynamically typed programming language"
   homepage "https://nekovm.org/"
-  url "https://github.com/HaxeFoundation/neko/archive/v2-2-0/neko-2.2.0.tar.gz"
-  sha256 "cf101ca05db6cb673504efe217d8ed7ab5638f30e12c5e3095f06fa0d43f64e3"
-  revision 6
+  url "https://github.com/HaxeFoundation/neko/archive/v2-3-0/neko-2.3.0.tar.gz"
+  sha256 "850e7e317bdaf24ed652efeff89c1cb21380ca19f20e68a296c84f6bad4ee995"
   head "https://github.com/HaxeFoundation/neko.git"
 
   bottle do
-    sha256 "e4d68665d504273468b38a5891c938d59080147677abfc718967e11eeb70ce5d" => :mojave
-    sha256 "396aea7bce27dcba88338f6698036c097864a172732742e04bfac4815fc7c7e7" => :high_sierra
-    sha256 "12be1d612bea5f7efbca986107ea498edec85d610e7df6abde68c95a07e5746c" => :sierra
-    sha256 "0054a53a378dc7ab95c74fff99f80a3bd15b927fe87204635b728a9bbdc2b866" => :el_capitan
-    sha256 "db0752d9e3af41477366c88053e827b148d68ae65230da5f46ef015470e1a22b" => :x86_64_linux
+    cellar :any
+    sha256 "290c4bad61fcce09531602bdb7520180f0b4f534aa18198d34d85ac77554d060" => :catalina
+    sha256 "57d9215dc2d4077c372eb290caf8ffa2880f768b0a80d5743e369d9c520434e2" => :mojave
+    sha256 "3bac4aaff119dddac74dd73056ff243ba78a398c2d052aad75d935b5b16cac93" => :high_sierra
   end
 
   depends_on "cmake" => :build
