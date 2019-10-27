@@ -1,27 +1,43 @@
 class Minikube < Formula
   desc "Run a Kubernetes cluster locally"
-  homepage "https://github.com/kubernetes/minikube"
-  url "https://github.com/kubernetes/minikube/archive/v1.4.0.tar.gz"
-  sha256 "091f76e5f0c086261e617f8b1c63009a1732bd5d7b559810572ac473e6da0411"
-  # tag "linuxbrew"
+  homepage "https://minikube.sigs.k8s.io/"
+  url "https://github.com/kubernetes/minikube.git",
+      :tag      => "v1.5.0",
+      :revision => "d1151d93385a70c5a03775e166e94067791fe2d9"
+  head "https://github.com/kubernetes/minikube.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f29d984869d527c0514b802b1e55a64b4e30b271c3bcd81e26a2e880a3dd538d" => :x86_64_linux
+    sha256 "4a338e3dd7b93c305fb58976db59b4b9549d264da078352c5afd3c525dafa172" => :catalina
+    sha256 "157d59038a69e69178185216cf9bc0f06f7d029ed31ee8598da72f98f367b86c" => :mojave
+    sha256 "1e7bcf26eda3e43d0632932f090c1d58c3250b5266b1e2f770ef289b00e4e649" => :high_sierra
   end
 
   depends_on "go" => :build
+  depends_on "go-bindata" => :build
+  depends_on "kubernetes-cli"
 
   def install
-    ENV.deparallelize
-    ENV["GOOS"] = "linux"
-    ENV["GOARCH"] = "amd64"
-
     system "make"
     bin.install "out/minikube"
+
+    output = Utils.popen_read("#{bin}/minikube completion bash")
+    (bash_completion/"minikube").write output
+
+    output = Utils.popen_read("#{bin}/minikube completion zsh")
+    (zsh_completion/"_minikube").write output
   end
 
   test do
-    assert_match("config modifies minikube config files using subcommands like \"minikube config set vm-driver kvm\"", shell_output("#{bin}/minikube config"))
+    output = shell_output("#{bin}/minikube version")
+    assert_match "version: v#{version}", output
+
+    (testpath/".minikube/config/config.json").write <<~EOS
+      {
+        "vm-driver": "virtualbox"
+      }
+    EOS
+    output = shell_output("#{bin}/minikube config view")
+    assert_match "vm-driver: virtualbox", output
   end
 end
