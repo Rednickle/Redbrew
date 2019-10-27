@@ -1,41 +1,42 @@
 class Cheat < Formula
-  include Language::Python::Virtualenv
-
   desc "Create and view interactive cheat sheets for *nix commands"
-  homepage "https://github.com/chrisallenlane/cheat"
-  url "https://github.com/chrisallenlane/cheat/archive/2.3.1.tar.gz"
-  sha256 "f944612b1d1b97dbe87c6cc3c68932df983482f53a09b0446c318ee7399c865c"
-  head "https://github.com/chrisallenlane/cheat.git"
+  homepage "https://github.com/cheat/cheat"
+  url "https://github.com/cheat/cheat.git",
+    :tag      => "3.0.1",
+    :revision => "d19f0e1c5dcbef2d3852cff5d3f73ede1a204964"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "af8476b088ecb10a559b4082bcbee85e30c243b1bca56860a2954e33cd4cbfd0" => :catalina
-    sha256 "edc4911e3dc71c8307700c08aa1bd737146fc076842c250ad8d26de77c46d6dd" => :mojave
-    sha256 "8fc5907164a0a1b4de27f7433e2908047dd743e8a34b9674f649e10db892c17c" => :high_sierra
-    sha256 "1d585e8e457dec3245644177ce4b8716df1edca9a39fe958ebbb96be8917175b" => :sierra
-    sha256 "aac23e8cfe97dfcbf15e88902b7aa79143be1a94c66617fad85ee7dbca9bfc08" => :x86_64_linux
+    sha256 "c9adb2d0bb7f37fb77f75b25b4c7a8361b7e565cac06c85518664d5701c6e9b1" => :catalina
+    sha256 "16ce2dcf10c3969fe75291e96fc4f571f469af80634cfbdbe9784abbe1786bbf" => :mojave
+    sha256 "0b95e89c04cf29d291d56e005286c9efb21277b10eada8975605d48245a9e5d1" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "go" => :build
 
-  resource "docopt" do
-    url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"
-    sha256 "49b3a825280bd66b3aa83585ef59c4a8c82f2c8a522dbe754a8bc8d08c85c491"
-  end
-
-  resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/71/2a/2e4e77803a8bd6408a2903340ac498cb0a2181811af7c9ec92cb70b0308a/Pygments-2.2.0.tar.gz"
-    sha256 "dbae1046def0efb574852fab9e90209b23f556367b5a320c0bcb871c77c3e8cc"
+  patch do
+    url "https://github.com/cheat/cheat/pull/486.patch?full_index=1"
+    sha256 "ea7839da450d1f59850c880a2c972ca284fff004a52bb9e5d83d95355ae53c25"
   end
 
   def install
-    virtualenv_install_with_resources
+    ENV["GOPATH"] = buildpath
 
-    bash_completion.install "cheat/autocompletion/cheat.bash"
-    zsh_completion.install "cheat/autocompletion/cheat.zsh" => "_cheat"
+    dir = buildpath/"src/github.com/cheat/cheat"
+    dir.install buildpath.children
+
+    cd dir do
+      system "go", "build", "-mod", "vendor", "-o", bin/"cheat", "./cmd/cheat"
+      prefix.install_metafiles
+    end
   end
 
   test do
-    system bin/"cheat", "tar"
+    assert_match version.to_s, shell_output("#{bin}/cheat --version")
+
+    output = shell_output("#{bin}/cheat --init 2>&1")
+    assert_match "editor: vim", output
+
+    assert_match "could not locate config file", shell_output("#{bin}/cheat tar 2>&1", 1)
   end
 end
