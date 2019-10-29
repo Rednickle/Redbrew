@@ -37,8 +37,18 @@ class Go < Formula
       url "https://storage.googleapis.com/golang/go1.7.darwin-amd64.tar.gz"
       sha256 "51d905e0b43b3d0ed41aaf23e19001ab4bc3f96c3ca134b48f7892485fc52961"
     elsif OS.linux?
-      url "https://storage.googleapis.com/golang/go1.7.linux-amd64.tar.gz"
-      sha256 "702ad90f705365227e902b42d91dd1a40e48ca7f67a2f4b2fd052aaa4295cd95"
+      if Hardware::CPU.intel?
+        url "https://storage.googleapis.com/golang/go1.7.linux-amd64.tar.gz"
+        sha256 "702ad90f705365227e902b42d91dd1a40e48ca7f67a2f4b2fd052aaa4295cd95"
+      elsif Hardware::CPU.arm?
+        if Hardware::CPU.is_64_bit?
+          url "https://dl.google.com/go/go1.9.linux-arm64.tar.gz"
+          sha256 "0958dcf454f7f26d7acc1a4ddc34220d499df845bc2051c14ff8efdf1e3c29a6"
+        else
+          url "https://dl.google.com/go/go1.9.linux-armv6l.tar.gz"
+          sha256 "f52ca5933f7a8de2daf7a3172b0406353622c6a39e67dd08bbbeb84c6496f487"
+        end
+      end
     end
   end
 
