@@ -1,7 +1,7 @@
 ---
 name: New issue for Bottle Request
-about: "Submit a request for bottle"
-title: "FORMULA: Request for bottle"
+about: "Submit a request for a bottle"
+title: "FORMULA: Request for a bottle"
 labels: bottle
 
 ---
