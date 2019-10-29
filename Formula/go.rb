@@ -40,7 +40,6 @@ class Go < Formula
       url "https://storage.googleapis.com/golang/go1.7.linux-amd64.tar.gz"
       sha256 "702ad90f705365227e902b42d91dd1a40e48ca7f67a2f4b2fd052aaa4295cd95"
     end
-    version "1.7"
   end
 
   def install
@@ -97,6 +96,7 @@ class Go < Formula
     assert_predicate libexec/"bin/godoc", :executable?
 
     ENV["GOOS"] = "freebsd"
+    ENV["GOARCH"] = "amd64"
     system bin/"go", "build", "hello.go"
   end
 end
