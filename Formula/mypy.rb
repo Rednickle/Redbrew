@@ -2,16 +2,15 @@ class Mypy < Formula
   desc "Experimental optional static type checker for Python"
   homepage "http://www.mypy-lang.org/"
   url "https://github.com/python/mypy.git",
-      :tag      => "v0.730",
-      :revision => "7ad7f8bbe61e5e67aa7fd6f2efe280931dd2f620"
+      :tag      => "v0.740",
+      :revision => "0662772b5a6b9029da0cf4aec857b9b1e34057a9"
   head "https://github.com/python/mypy.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7594412de306326e27728ec8941aebaacb0240351ade4359ab78c0238acf7ebd" => :catalina
-    sha256 "b64d1cb71f8d6ec88093d65ce9f1ceba9c6047ae207a6b91b7db57285287e81f" => :mojave
-    sha256 "265baad6e50b4bdbe1e9622c407dd2128fe0496b5bec2a3acd36d94925aa306a" => :high_sierra
-    sha256 "32d2abbf8ba6132580804220a27df1951663d0fab75c86fba4c9951cb7f579b1" => :x86_64_linux
+    sha256 "504cf32ce81ae794afe4404bebacb259234355d9948542d705075d16509c73aa" => :catalina
+    sha256 "0cb7d398b33f3ae133669d84711fe027c365d363b13f6c925db52294b83bb052" => :mojave
+    sha256 "3c23f16558f156d7f7c9850c684ce73cc504e5aa64612fa531b4fd1dff4614e1" => :high_sierra
   end
 
   depends_on "sphinx-doc" => :build
