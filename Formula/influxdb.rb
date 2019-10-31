@@ -1,4 +1,3 @@
-# influxdb: Build a bottle for Linux
 class Influxdb < Formula
   desc "Time series, events, and metrics database"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
