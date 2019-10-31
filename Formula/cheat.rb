@@ -2,23 +2,17 @@ class Cheat < Formula
   desc "Create and view interactive cheat sheets for *nix commands"
   homepage "https://github.com/cheat/cheat"
   url "https://github.com/cheat/cheat.git",
-    :tag      => "3.0.1",
-    :revision => "d19f0e1c5dcbef2d3852cff5d3f73ede1a204964"
+    :tag      => "3.0.3",
+    :revision => "33ac3d34d129b40c41cd45ef0f51662646682180"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c9adb2d0bb7f37fb77f75b25b4c7a8361b7e565cac06c85518664d5701c6e9b1" => :catalina
-    sha256 "16ce2dcf10c3969fe75291e96fc4f571f469af80634cfbdbe9784abbe1786bbf" => :mojave
-    sha256 "0b95e89c04cf29d291d56e005286c9efb21277b10eada8975605d48245a9e5d1" => :high_sierra
-    sha256 "4ab7c2d2fd58f20f96e49830769422367d6ecb6442ef2d6a9d07c73213924bfc" => :x86_64_linux
+    sha256 "c1ea3fe7f6d835172c20f8836aea19e3eed7274b651d5409de5d33ea53f948fb" => :catalina
+    sha256 "d0b85eb4e05836fb2750b052ce67270f6e5a74dfa8e029f583f2f14205830c0b" => :mojave
+    sha256 "a00d1caf21115340f529d5190b2b5b83e816e1ded62a092ae704550ebde28614" => :high_sierra
   end
 
   depends_on "go" => :build
-
-  patch do
-    url "https://github.com/cheat/cheat/pull/486.patch?full_index=1"
-    sha256 "ea7839da450d1f59850c880a2c972ca284fff004a52bb9e5d83d95355ae53c25"
-  end
 
   def install
     ENV["GOPATH"] = buildpath
