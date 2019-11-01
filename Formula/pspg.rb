@@ -1,16 +1,15 @@
 class Pspg < Formula
   desc "Unix pager optimized for psql"
   homepage "https://github.com/okbob/pspg"
-  url "https://github.com/okbob/pspg/archive/2.1.8.tar.gz"
-  sha256 "13c1c96b3f4042fb1ace4f9a2ff8792044adc4dbbe60e9298280a52387bba78e"
+  url "https://github.com/okbob/pspg/archive/2.5.2.tar.gz"
+  sha256 "62b1761bcb6387bd5fc8106b634949d3658a833dcfb0cc78f740e72f379b257d"
   head "https://github.com/okbob/pspg.git"
 
   bottle do
     cellar :any
-    sha256 "ad1e44f87cd893dcaeab0dda9df3d4f294d18ce39c66d1c001b75461e4cf22df" => :catalina
-    sha256 "ce0b0e03d07fa3f382049e92c13f533a3bd5f12daa19edd8e6396f2402933b64" => :mojave
-    sha256 "3fe9db926e8e5b1bc0edb39d80672f487490e542f5a0426f6c25e9b91dd63837" => :high_sierra
-    sha256 "56ccbe6d3a2dd267b337e6493953ab5063ebe43e685d4fee38f59c5d4763df4f" => :x86_64_linux
+    sha256 "abaae75486c0fb419bfa62a13542365418473bdfab3f8301d9547d0ed0b0588d" => :catalina
+    sha256 "aa0aa2c46ed0751b2000d0172baf4f9ae4bf94311a9a5720ff2a199d0e508854" => :mojave
+    sha256 "8f28f25db36e5a149e893fdc2d6425ebfe00447a83c04cfb3511740e1b0bff77" => :high_sierra
   end
 
   depends_on "ncurses"

@@ -1,22 +1,22 @@
 class Cmatrix < Formula
   desc "Console Matrix"
-  homepage "https://www.asty.org/cmatrix/"
-  url "https://www.asty.org/cmatrix/dist/cmatrix-1.2a.tar.gz"
-  mirror "https://deb.debian.org/debian/pool/main/c/cmatrix/cmatrix_1.2a.orig.tar.gz"
-  sha256 "1fa6e6caea254b6fe70a492efddc1b40ad7ccb950a5adfd80df75b640577064c"
+  homepage "https://github.com/abishekvashok/cmatrix/"
+  url "https://github.com/abishekvashok/cmatrix/archive/v2.0.tar.gz"
+  sha256 "ad93ba39acd383696ab6a9ebbed1259ecf2d3cf9f49d6b97038c66f80749e99a"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "ef82e10a50d453e2c72dab3fe06dd932548606157bdf0ce5241ccb2dd8272cb1" => :catalina
-    sha256 "f0234fbba18ba6a7d624192b3294ec52378c11a01e9e2ee58dd1cc062738dede" => :mojave
-    sha256 "de744cafdaf5a208200e0a8fe13327d700396dae1162de3db6ffec67f4770808" => :high_sierra
-    sha256 "320c5ea6a146de48a6141d193a18b78df90e46bc6d0399e9bd108145aefb5140" => :x86_64_linux
+    sha256 "fcc9c366c560e89ee2b4f61d1bdece14379a2c598719fd2eef784564bf9ed677" => :catalina
+    sha256 "1b3d3155c87c8f2b788fe18c3e72f04af4e79c609030e3447c3e17f9d3870c7b" => :mojave
+    sha256 "2c3b0ce73a2f89ece3783885e44aba5f584268768283e650d8b6552bc00f058d" => :high_sierra
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "ncurses" unless OS.mac?
 
   def install
+    system "autoreconf", "-i"
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
     system "make"
     system "make", "install"

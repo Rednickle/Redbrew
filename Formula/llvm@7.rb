@@ -3,14 +3,13 @@ class LlvmAT7 < Formula
   homepage "https://llvm.org/"
   url "https://releases.llvm.org/7.1.0/llvm-7.1.0.src.tar.xz"
   sha256 "1bcc9b285074ded87b88faaedddb88e6b5d6c331dfcfb57d7f3393dd622b3764"
+  revision 1
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "284d09b8030f99f21e0fde55ad6c19ca9284147170831da293114420200903ce" => :catalina
-    sha256 "4e8c48f768dcfdba49b33dd7fc51d8cb2ee17730d4d72c4812ca70da7de473e8" => :mojave
-    sha256 "4e72444bf625ba58ee449dcd86da5d27f72e5f34f616f98300e3ffb70a365c02" => :high_sierra
-    sha256 "639bf581641b0d86458d191550c7deef8d9de27f33c9989868b4f4010ac9a72f" => :x86_64_linux
+    sha256 "3db0aaac0de7c0e664288f14d051c69afb9294c1c7ceca616040ad662022c049" => :catalina
+    sha256 "50d86b01a2f722cc7570193e22ba852e640f90c781d31af6b4feb94643a87585" => :mojave
+    sha256 "b3786a0bb86a273e0c4b2f6591462dde29a634bc7978960b31752e9910730bd4" => :high_sierra
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
