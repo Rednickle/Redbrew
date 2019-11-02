@@ -1,16 +1,18 @@
-class Gmt < Formula
+class GmtAT5 < Formula
   desc "Tools for manipulating and plotting geographic and Cartesian data"
   homepage "https://www.generic-mapping-tools.org"
-  url "ftp://ftp.soest.hawaii.edu/gmt/gmt-6.0.0-src.tar.xz"
-  mirror "https://mirrors.ustc.edu.cn/gmt/gmt-6.0.0-src.tar.xz"
-  mirror "https://fossies.org/linux/misc/GMT/gmt-6.0.0-src.tar.xz"
-  sha256 "8b91af18775a90968cdf369b659c289ded5b6cb2719c8c58294499ba2799b650"
+  url "ftp://ftp.soest.hawaii.edu/gmt/gmt-5.4.5-src.tar.gz"
+  mirror "https://mirrors.ustc.edu.cn/gmt/gmt-5.4.5-src.tar.xz"
+  mirror "https://fossies.org/linux/misc/GMT/gmt-5.4.5-src.tar.xz"
+  sha256 "225629c7869e204d5f9f1a384c4ada43e243f83e1ed28bdca4f7c2896bf39ef6"
 
   bottle do
-    sha256 "8de07ab7df9b5bdcc3761e614fc1a9ff6b56a171d1c1f6d47591ed9646901bcd" => :catalina
-    sha256 "ec1f5a04352d0e85bb1ee65c4f790585e162d78a5443a5cefffe2eec3ff7c452" => :mojave
-    sha256 "590480794689fa5ce5a748693b1aa678fec1a7579df86ce85bd35d372f1543c6" => :high_sierra
+    sha256 "31b9d3f242e271459ccf542c37408a4f35ff294f5d2949330a2f8922e26f7ea4" => :catalina
+    sha256 "88a338eebedde949c06723fa7a8bf462cd9d759c97ba2000b4069e3840dc19c4" => :mojave
+    sha256 "51f8e1cd6a64d50a92d953d79f268907a93b89fe2357aa3326bd3b7af1073107" => :high_sierra
   end
+
+  keg_only :versioned_formula
 
   depends_on "cmake" => :build
   depends_on "fftw"
@@ -49,7 +51,7 @@ class Gmt < Formula
       -DNETCDF_ROOT=#{Formula["netcdf"].opt_prefix}
       -DPCRE_ROOT=#{Formula["pcre"].opt_prefix}
       -DFLOCK:BOOL=TRUE
-      -DGMT_INSTALL_MODULE_LINKS:BOOL=FALSE
+      -DGMT_INSTALL_MODULE_LINKS:BOOL=TRUE
       -DGMT_INSTALL_TRADITIONAL_FOLDERNAMES:BOOL=FALSE
       -DLICENSE_RESTRICTED:BOOL=FALSE
     ]
@@ -63,17 +65,11 @@ class Gmt < Formula
   def caveats; <<~EOS
     GMT needs Ghostscript for the 'psconvert' command to convert PostScript files
     to other formats. To use 'psconvert', please 'brew install ghostscript'.
-
-    GMT needs FFmpeg for the 'movie' command to make movies in MP4 or WebM format.
-    If you need this feature, please 'brew install ffmpeg'.
-
-    GMT needs GraphicsMagick for the 'movie' command to make animated GIFs.
-    If you need this feature, please 'brew install graphicsmagick'.
   EOS
   end
 
   test do
-    system "#{bin}/gmt pscoast -R0/360/-70/70 -Jm1.2e-2i -Ba60f30/a30f15 -Dc -G240 -W1/0 -P > test.ps"
+    system "#{bin}/pscoast -R0/360/-70/70 -Jm1.2e-2i -Ba60f30/a30f15 -Dc -G240 -W1/0 -P > test.ps"
     assert_predicate testpath/"test.ps", :exist?
   end
 end
