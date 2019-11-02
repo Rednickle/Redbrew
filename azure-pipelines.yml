@@ -63,7 +63,11 @@ jobs:
     continueOnError: true
   - bash: |
       cp /tmp/bottles/*.bottle.* $(Build.ArtifactStagingDirectory)
-      cp /tmp/bottles/build_status.txt $(Build.ArtifactStagingDirectory)
+      if [ -f /tmp/bottles/build_status.txt ]; then
+        cp /tmp/bottles/build_status.txt $(Build.ArtifactStagingDirectory)
+      else
+        true
+      fi
     displayName: Copy json & bottle files
     condition: always()
     continueOnError: true
