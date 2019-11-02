@@ -1,15 +1,13 @@
 class Libpeas < Formula
   desc "GObject plugin library"
   homepage "https://developer.gnome.org/libpeas/stable/"
-  url "https://download.gnome.org/sources/libpeas/1.24/libpeas-1.24.0.tar.xz"
-  sha256 "0b9a00138c129a663de3eef5569b00ace03ce31d345f7af783768e9f35c8e6f9"
-  revision 1
+  url "https://download.gnome.org/sources/libpeas/1.24/libpeas-1.24.1.tar.xz"
+  sha256 "9c3acf7a567cbb4f8bf62b096e013f12c3911cc850c3fa9900cbd5aa4f6ec284"
 
   bottle do
-    sha256 "aba555630484cb36d38b0615bbe3286c3ec1ac99b3ad29c93e664021c6df4d55" => :catalina
-    sha256 "3cd811a5a7b5292e63dd64464d33b3b3cb939550c382bc6f420be3d08668cb41" => :mojave
-    sha256 "e7dcb102147c7172082a17e9150b3c66e805e517ca6620b08cd0382fe205bd91" => :high_sierra
-    sha256 "777ef4531e0c81921424e56fe3bf1739a7c9138139b0b27ce0149db143089d8d" => :x86_64_linux
+    sha256 "0b0f838272f0a44cb81c70fffb984a054a12ea63f6b515aab1f1158bc96bad1b" => :catalina
+    sha256 "504886a5e23802e49f8a10de0bc0547f4235854ae3eae3ac87fa3aed39ab50c1" => :mojave
+    sha256 "be6e36451525d6b365159b177eea7a1b92fc2cae3376a923970eef2f432cba16" => :high_sierra
   end
 
   depends_on "meson" => :build
@@ -22,15 +20,10 @@ class Libpeas < Formula
   depends_on "pygobject3"
   depends_on "python"
 
-  # patch submitted upstream as https://gitlab.gnome.org/GNOME/libpeas/merge_requests/15
+  # patch submitted upstream as https://gitlab.gnome.org/GNOME/libpeas/merge_requests/22
   patch do
-    url "https://gitlab.gnome.org/GNOME/libpeas/commit/8500981.diff"
-    sha256 "61650bdca802631a67556edf8306e53e4b6d632fcb614ca9e3b397b02ef36092"
-  end
-
-  patch do
-    url "https://gitlab.gnome.org/GNOME/libpeas/commit/bd80538.diff"
-    sha256 "4c0a7cd4f9147450e4d163493d6ed050056dd4c2dbc666ef30e9fe60d936f0bd"
+    url "https://gitlab.gnome.org/GNOME/libpeas/commit/d5f5749372.diff"
+    sha256 "a46c4229656423de2e277bf5dd96e7f595cee19cc112c10f422c29c960cf4dcc"
   end
 
   def install
