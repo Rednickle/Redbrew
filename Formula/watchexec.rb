@@ -6,16 +6,16 @@ class Watchexec < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "db7221c9f60907b69c70ef8eaec1a5b2e60b5b0b2b9409f2603c3214bfd2889e" => :catalina
-    sha256 "11ae8b596e0a14a6efb1342b5e497fb9ccfc75434b8275907bddc8116fee5196" => :mojave
-    sha256 "e2a83d838b24aa29b8d0a7b1dff87bca16e1269c1c36f87e20a913f27530bcdb" => :high_sierra
-    sha256 "3672e36c739fa90151ad5477f98aca5274c504dcd7760f84f9eadfd497482869" => :x86_64_linux
+    rebuild 1
+    sha256 "eed083352cf7ed682acc1e35babc9f410f3b17fd403a7dbb816dc312242cf741" => :catalina
+    sha256 "66d0ff90111182e9b982f76157885d5c7bcd8fd795eeb322bdf86868d7433ab6" => :mojave
+    sha256 "0b44845c30c08cce6a218e11aae9d635b7dbf195165a3c2e43798a4ea95813ef" => :high_sierra
   end
 
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--root", prefix, "--path", "."
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
     man1.install "doc/watchexec.1"
   end
 

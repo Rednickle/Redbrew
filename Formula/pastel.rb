@@ -6,10 +6,10 @@ class Pastel < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bd8d2f6e7c1543e6125f903b5c1d679ad285798bff61f878aa8adbd215c3fe38" => :catalina
-    sha256 "833c6fd6d2448758422a7f767089ea9e8880051c77ddf7be0579f7d31938c429" => :mojave
-    sha256 "eb942a372e4b0eb8e707c2c4a68cae26e1664c551107046d9ff7b9de1570ed5c" => :high_sierra
-    sha256 "8ba6ddbe925f133164e263edaccc5416c6a27a5145ee8cd939b8d4b7c03c2dfd" => :x86_64_linux
+    rebuild 1
+    sha256 "98a1ba143f1675f3c9a24ace7dc3047cd9b80c462b3b57a38448a81414d911a6" => :catalina
+    sha256 "9ff2230b5d4405ca5d889aa6938ebc2d0189e3012fc6e367a6a4c5f4f28ecd3a" => :mojave
+    sha256 "fa282f3adbef4bc3fe48690b0e539bf73b1abbf594c5ea93b9cc26cb25217c3b" => :high_sierra
   end
 
   depends_on "rust" => :build
@@ -17,7 +17,7 @@ class Pastel < Formula
   def install
     ENV["SHELL_COMPLETIONS_DIR"] = buildpath/"completions"
 
-    system "cargo", "install", "--root", prefix, "--path", "."
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
 
     bash_completion.install "completions/pastel.bash"
     zsh_completion.install "completions/_pastel"

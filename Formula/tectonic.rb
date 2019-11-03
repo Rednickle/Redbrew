@@ -7,11 +7,10 @@ class Tectonic < Formula
 
   bottle do
     cellar :any
-    sha256 "b377715e0bda43737904c03699969655d4973c19b49f4dc7ba3cdee3f2790b7c" => :catalina
-    sha256 "9902c83484f4b8aa3b3fca5bc72cee473bbf0b9928ea8f3267943c18f15801f7" => :mojave
-    sha256 "003ba188e0a2b531726552ef85b9ace546fe0d7ce99a7f369f5377a97bb37186" => :high_sierra
-    sha256 "f6bee609fb6dc3433a5e9c28fec1fc575f6d9703e8c031fa439e5e9e1cb7f42a" => :sierra
-    sha256 "95b62aab07c0985453021581fbf81d849d662a22ef5fcd2cfe3eb13446111c8b" => :x86_64_linux
+    rebuild 1
+    sha256 "f0ca20c3fb6590fc243d4d10b4c7441f0f9f2db02dc094bcc6b79f9b00021712" => :catalina
+    sha256 "444c5e60329bda85226028b831b300c46620fc7ffb398767bd55e657dc13b8c7" => :mojave
+    sha256 "73e06f54020a87762d6126205d26c7d50d216e3cbdb3778ed0828d32a89ef032" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -31,7 +30,7 @@ class Tectonic < Formula
     # https://crates.io/crates/openssl#manual-configuration
     ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
 
-    system "cargo", "install", "--root", prefix, "--path", "."
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end
 
   test do
