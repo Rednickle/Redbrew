@@ -5,13 +5,13 @@ class LlvmAT8 < Formula
   homepage "https://llvm.org/"
   url "https://github.com/llvm/llvm-project/releases/download/llvmorg-8.0.1/llvm-8.0.1.src.tar.xz"
   sha256 "44787a6d02f7140f145e2250d56c9f849334e11f9ae379827510ed72f12b75e7"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "de26cfd906d55496acf1eb4927dca3d003e89a771c954495da1f905cf387b17d" => :mojave
-    sha256 "7bc6238ef198baf48d65b75f08f60fede8e81940d6224510cd5c17577854b75b" => :high_sierra
-    sha256 "46fd7af413951c2dadd46d58216f899bb5cfd1befb7e84317cc3b4b440c188cf" => :sierra
-    sha256 "83dbc8421851303261cad2ad97fe58a38347323580e4fbacbcfe325fcd7dbb86" => :x86_64_linux
+    sha256 "0180eb097783edfefe0670935facf912b9044934cd2c8a087bdcc1229130a4ee" => :catalina
+    sha256 "92105eeabbeafff55733385ea82b8e1e5dae89e8a8050a0de31a8e30367164c6" => :mojave
+    sha256 "30efcbdc61cd36e3fbd03c7f2ff411be5638c8540de9d491ed77a30d5ab2e3c9" => :high_sierra
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -160,6 +160,11 @@ class LlvmAT8 < Formula
     # Enable llvm gold plugin for LTO
     args << "-DLLVM_BINUTILS_INCDIR=#{Formula["binutils"].opt_include}" unless OS.mac?
 
+    if OS.mac? && MacOS.version >= :mojave
+      sdk_path = MacOS::CLT.installed? ? "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk" : MacOS.sdk_path
+      args << "-DDEFAULT_SYSROOT=#{sdk_path}"
+    end
+
     mkdir "build" do
       system "cmake", "-G", "Unix Makefiles", "..", *(std_cmake_args + args)
       system "make"
@@ -199,7 +204,6 @@ class LlvmAT8 < Formula
       #include <stdlib.h>
       #include <stdio.h>
       #include <omp.h>
-
       int main() {
           #pragma omp parallel num_threads(4)
           {
@@ -227,7 +231,6 @@ class LlvmAT8 < Formula
 
     (testpath/"test.c").write <<~EOS
       #include <stdio.h>
-
       int main()
       {
         printf("Hello World!\\n");
@@ -237,7 +240,6 @@ class LlvmAT8 < Formula
 
     (testpath/"test.cpp").write <<~EOS
       #include <iostream>
-
       int main()
       {
         std::cout << "Hello World!" << std::endl;
@@ -250,54 +252,75 @@ class LlvmAT8 < Formula
       assert_equal "Hello World!", shell_output("./test").chomp
     end
 
-    # Testing Command Line Tools
-    if OS.mac? && MacOS::CLT.installed?
-      libclangclt = Dir["/Library/Developer/CommandLineTools/usr/lib/clang/#{MacOS::CLT.version.to_i}*"].last { |f| File.directory? f }
-
-      system "#{bin}/clang++", "-v", "-nostdinc",
-              "-I/Library/Developer/CommandLineTools/usr/include/c++/v1",
-              "-I#{libclangclt}/include",
-              "-I/usr/include", # need it because /Library/.../usr/include/c++/v1/iosfwd refers to <wchar.h>, which CLT installs to /usr/include
-              "test.cpp", "-o", "testCLT++"
-      assert_includes MachO::Tools.dylibs("testCLT++"), "/usr/lib/libc++.1.dylib"
-      assert_equal "Hello World!", shell_output("./testCLT++").chomp
-
-      system "#{bin}/clang", "-v", "-nostdinc",
-              "-I/usr/include", # this is where CLT installs stdio.h
-              "test.c", "-o", "testCLT"
-      assert_equal "Hello World!", shell_output("./testCLT").chomp
-    end
-
-    # Testing Xcode
-    if OS.mac? && MacOS::Xcode.installed?
-      libclangxc = Dir["#{MacOS::Xcode.toolchain_path}/usr/lib/clang/#{DevelopmentTools.clang_version}*"].last { |f| File.directory? f }
-
-      system "#{bin}/clang++", "-v", "-nostdinc",
-              "-I#{MacOS::Xcode.toolchain_path}/usr/include/c++/v1",
-              "-I#{libclangxc}/include",
-              "-I#{MacOS.sdk_path}/usr/include",
-              "test.cpp", "-o", "testXC++"
-      assert_includes MachO::Tools.dylibs("testXC++"), "/usr/lib/libc++.1.dylib"
-      assert_equal "Hello World!", shell_output("./testXC++").chomp
-
-      system "#{bin}/clang", "-v", "-nostdinc",
-              "-I#{MacOS.sdk_path}/usr/include",
-              "test.c", "-o", "testXC"
-      assert_equal "Hello World!", shell_output("./testXC").chomp
-    end
-
-    # link against installed libc++
-    # related to https://github.com/Homebrew/legacy-homebrew/issues/47149
     if OS.mac?
-      system "#{bin}/clang++", "-v", "-nostdinc",
-              "-std=c++11", "-stdlib=libc++",
-              "-I#{MacOS::Xcode.toolchain_path}/usr/include/c++/v1",
-              "-I#{libclangxc}/include",
-              "-I#{MacOS.sdk_path}/usr/include",
-              "-L#{lib}",
-              "-Wl,-rpath,#{lib}", "test.cpp", "-o", "test"
-      assert_includes MachO::Tools.dylibs("test"), "#{opt_lib}/libc++.1.dylib"
+      # Testing default toolchain and SDK location.
+      system "#{bin}/clang++", "-v",
+             "-std=c++11", "test.cpp", "-o", "test++"
+      assert_includes MachO::Tools.dylibs("test++"), "/usr/lib/libc++.1.dylib"
+      assert_equal "Hello World!", shell_output("./test++").chomp
+      system "#{bin}/clang", "-v", "test.c", "-o", "test"
       assert_equal "Hello World!", shell_output("./test").chomp
-    end
+
+      # Testing Command Line Tools
+      if MacOS::CLT.installed?
+        toolchain_path = "/Library/Developer/CommandLineTools"
+        sdk_path = "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk"
+        system "#{bin}/clang++", "-v",
+               "-isysroot", sdk_path,
+               "-isystem", "#{toolchain_path}/usr/include/c++/v1",
+               "-isystem", "#{toolchain_path}/usr/include",
+               "-isystem", "#{sdk_path}/usr/include",
+               "-std=c++11", "test.cpp", "-o", "testCLT++"
+        assert_includes MachO::Tools.dylibs("testCLT++"), "/usr/lib/libc++.1.dylib"
+        assert_equal "Hello World!", shell_output("./testCLT++").chomp
+        system "#{bin}/clang", "-v", "test.c", "-o", "testCLT"
+        assert_equal "Hello World!", shell_output("./testCLT").chomp
+      end
+
+      # Testing Xcode
+      if MacOS::Xcode.installed?
+        system "#{bin}/clang++", "-v",
+               "-isysroot", MacOS.sdk_path,
+               "-isystem", "#{MacOS::Xcode.toolchain_path}/usr/include/c++/v1",
+               "-isystem", "#{MacOS::Xcode.toolchain_path}/usr/include",
+               "-isystem", "#{MacOS.sdk_path}/usr/include",
+               "-std=c++11", "test.cpp", "-o", "testXC++"
+        assert_includes MachO::Tools.dylibs("testXC++"), "/usr/lib/libc++.1.dylib"
+        assert_equal "Hello World!", shell_output("./testXC++").chomp
+        system "#{bin}/clang", "-v",
+               "-isysroot", MacOS.sdk_path,
+               "test.c", "-o", "testXC"
+        assert_equal "Hello World!", shell_output("./testXC").chomp
+      end
+
+      # link against installed libc++
+      # related to https://github.com/Homebrew/legacy-homebrew/issues/47149
+      system "#{bin}/clang++", "-v",
+             "-isystem", "#{opt_include}/c++/v1",
+             "-std=c++11", "-stdlib=libc++", "test.cpp", "-o", "testlibc++",
+             "-L#{opt_lib}", "-Wl,-rpath,#{opt_lib}"
+      assert_includes MachO::Tools.dylibs("testlibc++"), "#{opt_lib}/libc++.1.dylib"
+      assert_equal "Hello World!", shell_output("./testlibc++").chomp
+
+      (testpath/"scanbuildtest.cpp").write <<~EOS
+        #include <iostream>
+        int main() {
+          int *i = new int;
+          *i = 1;
+          delete i;
+          std::cout << *i << std::endl;
+          return 0;
+        }
+      EOS
+      assert_includes shell_output("#{bin}/scan-build --use-analyzer #{bin}/clang++ clang++ scanbuildtest.cpp 2>&1"),
+        "warning: Use of memory after it is freed"
+
+      (testpath/"clangformattest.c").write <<~EOS
+        int    main() {
+            printf("Hello world!"); }
+      EOS
+      assert_equal "int main() { printf(\"Hello world!\"); }\n",
+        shell_output("#{bin}/clang-format -style=google clangformattest.c")
+    end # OS.mac?
   end
 end
