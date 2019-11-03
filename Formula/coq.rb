@@ -1,15 +1,14 @@
 class Coq < Formula
   desc "Proof assistant for higher-order logic"
   homepage "https://coq.inria.fr/"
-  url "https://github.com/coq/coq/archive/V8.10.0.tar.gz"
-  sha256 "292c64162620c4c4825c323c1c71762d764ebc9ce39bd8eee900851eaca655f5"
+  url "https://github.com/coq/coq/archive/V8.10.1.tar.gz"
+  sha256 "f8eb889c4974b89db1303b22382b2de4116ede1db673afefc67e3abff8955612"
   head "https://github.com/coq/coq.git"
 
   bottle do
-    sha256 "e4fe07c67883dee1248c8100ecf361fcb7cb6eb0e841e72a6816d81789119268" => :catalina
-    sha256 "49b5536de76d034c5bba92a7229dd61090fd35709f59e88cf9c7ea26a5f2d414" => :mojave
-    sha256 "b7eeedfbfcc42464fd50e3e579b6f986068a3a7f50e1da06c153a22097b3ca09" => :high_sierra
-    sha256 "693a4b5bc0ee54b1d3060ad0e508066a25314f4dd2d7d812ee78dfd0b2cfe9d3" => :x86_64_linux
+    sha256 "ad44a6694028e971ebe8b203dc5b240353133482d0766666bbaacee8bc2b6b1d" => :catalina
+    sha256 "26ee42e17513ae2e7d5a3fa4ee7185fd2e1c3b3d60eb61ba5b499871542cf715" => :mojave
+    sha256 "4bea2021c232045a6535a33f18f05b1e36533920df3c8245cbfb52d42279c69f" => :high_sierra
   end
 
   depends_on "ocaml-findlib" => :build
@@ -28,11 +27,6 @@ class Coq < Formula
                           "-coqdocdir", "#{pkgshare}/latex",
                           "-coqide", "no",
                           "-with-doc", "no"
-    # building the compiler in parallel fails due to upstream bug:
-    # https://github.com/coq/coq/issues/10864
-    # once fixed, delete this line and the compiler will be built with
-    # parallelism as part of "make world"
-    ENV.deparallelize { system "make", "coqbinaries" }
     system "make", "world"
     ENV.deparallelize { system "make", "install" }
   end
