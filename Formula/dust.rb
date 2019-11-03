@@ -1,17 +1,15 @@
 class Dust < Formula
   desc "More intuitive version of du in rust"
   homepage "https://github.com/bootandy/dust"
-  url "https://github.com/bootandy/dust/archive/v0.3.1.tar.gz"
-  sha256 "a10e0b2bc5862928a257e05866e077866193cc673d97a711ddd63eeecd075867"
+  url "https://github.com/bootandy/dust/archive/v0.4.1.2.tar.gz"
+  sha256 "e5b1b43203f58130dec0f69b1eb02e7a855cbaa2efcf79274187f9149de016bc"
   head "https://github.com/bootandy/dust.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "3b49364aa67239151c5cf3f133a3fe8f06ad06e8e625545605dba09c1da654f0" => :catalina
-    sha256 "3a5a22375b9dc464a23226667bc4c4e0d3711ceef4ac691fb3de2fd96fa17521" => :mojave
-    sha256 "f0abd07b12a44556813165f4a5266fad616dd62dce055fd4258205751aff2285" => :high_sierra
-    sha256 "9ad6b3ffb1c8e729b5da3f2a4e68f7ab7f3b746c356023a05cda223102fb795c" => :x86_64_linux
+    sha256 "6343dcf3b0bb0e4a749ae2e7f0145c9e2142c9783dfaf3fdba2ac5b8a1de6ce1" => :catalina
+    sha256 "d6a3d605922957c82a631d643d5025511e21e9b0ceddf6b2998b6a0f086c9c77" => :mojave
+    sha256 "ae2e22191c5f37c366f6b0b93e0c525a5b2013f32cd0ae287bef84a12490422a" => :high_sierra
   end
 
   depends_on "rust" => :build
