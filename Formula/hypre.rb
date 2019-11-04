@@ -1,16 +1,15 @@
 class Hypre < Formula
   desc "Library featuring parallel multigrid methods for grid problems"
   homepage "https://computation.llnl.gov/casc/hypre/software.html"
-  url "https://github.com/hypre-space/hypre/archive/v2.18.0.tar.gz"
-  sha256 "62591ac69f9cc9728bd6d952b65bcadd2dfe52b521081612609804a413f49b07"
+  url "https://github.com/hypre-space/hypre/archive/v2.18.2.tar.gz"
+  sha256 "28007b5b584eaf9397f933032d8367788707a2d356d78e47b99e551ab10cc76a"
   head "https://github.com/hypre-space/hypre.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d6c976ea7fb7eaf275e2404e48f136d436c4e56a2fc0d49e4eb8db5b57708336" => :catalina
-    sha256 "b8ba54670957d9253dcf2f34ba968cef71cab123bfa6dc20be7befac0db4abde" => :mojave
-    sha256 "032e59eebde294d0222ea3ea619ce94af962d760eaa5bc2cf6d509e105012f17" => :high_sierra
-    sha256 "efa6a9f25f327c48bec6dd243fba50b9a75339dbc4c8dbb4fdb14f72090bc168" => :x86_64_linux
+    sha256 "6330b511b0e5a2ab686fd15b3de330ea9e104bab3fcb8f2ff1dc3c70b55b0a39" => :catalina
+    sha256 "2d2b435909d08f1d1d59cc9c6a4c2d4ec6148f1422e8b11c93fc923785e7b84b" => :mojave
+    sha256 "92ae0488c49e818175585a2975e9d5a055b0235839bf9bc2e102152d0a9c8168" => :high_sierra
   end
 
   depends_on "gcc" # for gfortran

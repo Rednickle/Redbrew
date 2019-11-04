@@ -3,27 +3,27 @@ class Miller < Formula
   homepage "https://github.com/johnkerl/miller"
   url "https://github.com/johnkerl/miller/releases/download/v5.6.0/mlr-5.6.0.tar.gz"
   sha256 "325f9acabd5b1b00663b03c6454f609981825ba12d3f82d000772399a28a1ff2"
+  head "https://github.com/johnkerl/miller.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a16659cfdc72dfde05634aa03155535ba8b5ae720864838606df5d47bb59a8bc" => :mojave
-    sha256 "39ff0c316f56bed553a9da632c3f791c2651550ffa8d27d57d3b0ce1cd9f4481" => :high_sierra
-    sha256 "79155a7c2dd70813d51c99df37719ea29013ee4814e887eeced45f437c342369" => :sierra
-    sha256 "c432c0253cf703dc3740b16133524c9e0d071c2fe73dcc3b20fe55f1cf5de174" => :x86_64_linux
+    rebuild 1
+    sha256 "1b66317a06c90c4727dbb51796ac0b2b79690dcef5c19f703da41d43dae7a173" => :catalina
+    sha256 "39fad1f8eaee23cb0135469b016b01dc6f1117f05f197df2e483e4661ebe2710" => :mojave
+    sha256 "a3c4e36c09ecf0d8335527e8261d9a4caa9277f6510b35daae4bd758e7b43dbf" => :high_sierra
   end
 
-  head do
-    url "https://github.com/johnkerl/miller.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
 
   depends_on "flex" => :build unless OS.mac?
 
   def install
-    system "autoreconf", "-fvi" if build.head?
+    # Profiling build fails with Xcode 11, remove it
+    inreplace "c/Makefile.am", /noinst_PROGRAMS=\s*mlrg\s*\\\n\s*mlrp/, ""
+    system "autoreconf", "-fvi"
+
     system "./configure", "--prefix=#{prefix}", "--disable-silent-rules",
                           "--disable-dependency-tracking"
     system "make"
