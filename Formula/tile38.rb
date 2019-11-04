@@ -1,15 +1,15 @@
 class Tile38 < Formula
   desc "In-memory geolocation data store, spatial index, and realtime geofence"
   homepage "https://tile38.com/"
-  url "https://github.com/tidwall/tile38/archive/1.18.0.tar.gz"
-  sha256 "75b085b1b45ae288b4b42687925cad1dda1276a7c6d08807d12b8f78374be6a5"
+  url "https://github.com/tidwall/tile38/archive/1.19.0.tar.gz"
+  sha256 "4317f3753c941b48e22ea61f3425fb5c2fd345fbeb5415f06396fa0af3ad35d1"
   head "https://github.com/tidwall/tile38.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "324f65bcc9118b37154d83eab2cf351e776371624cd1004de9b49a2c2c367e9e" => :catalina
-    sha256 "f5d76e7f7a0874464151ac6792a0d404a2b8396bcb7a36d6f8407b8a34e78a9b" => :mojave
-    sha256 "1abd14bd1217f0a522699d29af63c69cd191a75f34bdb8c91dcb1a8a2c46d8c3" => :high_sierra
+    sha256 "9177936ccc91b290ea8aa41e2de701290cf91f1ee0e0654d70d62aed0b2c87fe" => :catalina
+    sha256 "5d468ff70e1f611c44d3845de13d4c23408ccd88f8426097d19c4c8f1568cbfa" => :mojave
+    sha256 "07414b98ce099ac14fbf199ce587ba53b2715a7bed2778ac8344de4826f1ec10" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -73,7 +73,8 @@ class Tile38 < Formula
       exec "#{bin}/tile38-server", "-q"
     end
     sleep 2
-    json_output = shell_output("#{bin}/tile38-cli server")
+    # remove `$408` in the first line output
+    json_output = shell_output("#{bin}/tile38-cli server").lines[1]
     tile38_server = JSON.parse(json_output)
     assert_equal tile38_server["ok"], true
   ensure
