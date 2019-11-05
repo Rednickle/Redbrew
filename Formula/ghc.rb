@@ -10,10 +10,10 @@ class Ghc < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5b385157fd0c96164d7156d3ec9ce2819f0f5fa93442f6b6951ab22e6f909479" => :mojave
-    sha256 "4b7a91539914e3db24f88d9c946ff7ae994c22d1929b4940384822eb86e70792" => :high_sierra
-    sha256 "f81254c63b1b95eb82d2ce681c828672e06ae95aabe3178ea004e8fb3a84bb0c" => :sierra
-    sha256 "b8fd686b10054d169ca1ed2bfbc7f909d7442aae513ec53f017760f21bf0efa2" => :x86_64_linux
+    rebuild 1
+    sha256 "e0c68beda3b63b242d971f86792e92693732fa5e23c69659fc0a59d8dc331a38" => :catalina
+    sha256 "335717b90bb69785591b4e8896bd081170d4dd0fcb0f7496d367c2b0fdcf03c3" => :mojave
+    sha256 "0b1414c28edf44b9433a2976a7ed63301197c478f9e2d01fa5dd449b3b42a597" => :high_sierra
   end
 
   head do
@@ -61,10 +61,16 @@ class Ghc < Formula
     end
   end
 
-  # workaround for https://gitlab.haskell.org/ghc/ghc/issues/17114
+  # Two patches:
+  #  - configure: workaround for https://gitlab.haskell.org/ghc/ghc/issues/17114
+  #  - rts/Linker.c: Fix for Catalina compatibility https://gitlab.haskell.org/ghc/ghc/issues/17353
   patch :DATA
 
   def install
+    # Work around Xcode 11 clang bug
+    # https://bitbucket.org/multicoreware/x265/issues/514/wrong-code-generated-on-macos-1015
+    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
+
     ENV["CC"] = ENV.cc
     ENV["LD"] = "ld"
 
@@ -192,3 +198,26 @@ index e00a480..6db08ee 100755
  fi
 +fi
  AlexVersion=$fptools_cv_alex_version;
+
+
+diff -pur a/rts/Linker.c b/rts/Linker.c
+--- a/rts/Linker.c	2019-08-25 21:03:36.000000000 +0900
++++ b/rts/Linker.c	2019-11-05 11:09:06.000000000 +0900
+@@ -192,7 +192,7 @@ int ocTryLoad( ObjectCode* oc );
+  *
+  * MAP_32BIT not available on OpenBSD/amd64
+  */
+-#if defined(x86_64_HOST_ARCH) && defined(MAP_32BIT)
++#if defined(x86_64_HOST_ARCH) && defined(MAP_32BIT) && !defined(__APPLE__)
+ #define TRY_MAP_32BIT MAP_32BIT
+ #else
+ #define TRY_MAP_32BIT 0
+@@ -214,7 +214,7 @@ int ocTryLoad( ObjectCode* oc );
+  */
+ #if !defined(ALWAYS_PIC) && defined(x86_64_HOST_ARCH)
+
+-#if defined(MAP_32BIT)
++#if defined(MAP_32BIT) && !defined(__APPLE__)
+ // Try to use MAP_32BIT
+ #define MMAP_32BIT_BASE_DEFAULT 0
+ #else
