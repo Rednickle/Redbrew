@@ -5,17 +5,44 @@ class Netdata < Formula
   sha256 "39cca83e810296177ea255deef9961631480cb911da68dde7ac5a339cc95e521"
 
   bottle do
-    sha256 "92ae4eea497275834c69d0c26f3296e5d6b53748618a7275caea017a555e4c26" => :catalina
-    sha256 "b6dc94b9cb4b122f256ed108c72d16aee9d7ce165064e19cac6306e609ba066e" => :mojave
-    sha256 "e37c39bba4f892a24655cf8337a9c4c60c90183e066b5eb0a507135e8337aff3" => :high_sierra
+    rebuild 1
+    sha256 "84efcd6425d799cdaa275e451e0817c7b4254679161b4b56eb0ea7e7b12fd90d" => :catalina
+    sha256 "58e13b46d8a49d0bcb3a46dd96361b1800c217c3d94b3a2180213760c16b32a5" => :mojave
+    sha256 "207101244660ee19ea4f56ab0c77c24d5fc51ff333892191e2ae1e0ea0db5433" => :high_sierra
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1" if MacOS.version <= :sierra
+  depends_on "json-c"
+  depends_on "libuv"
+  depends_on "lz4"
+  depends_on "openssl@1.1"
+
+  resource "judy" do
+    url "https://downloads.sourceforge.net/project/judy/judy/Judy-1.0.5/Judy-1.0.5.tar.gz"
+    sha256 "d2704089f85fdb6f2cd7e77be21170ced4b4375c03ef1ad4cf1075bd414a63eb"
+  end
 
   def install
+    # We build judy as static library, so we don't need to install it
+    # into the real prefix
+    judyprefix = "#{buildpath}/resources/judy"
+
+    resource("judy").stage do
+      system "./configure", "--disable-debug", "--disable-dependency-tracking",
+          "--disable-shared", "--prefix=#{judyprefix}"
+
+      # Parallel build is broken
+      ENV.deparallelize do
+        system "make", "-j1", "install"
+      end
+    end
+
+    ENV["PREFIX"] = prefix
+    ENV.append "CFLAGS", "-I#{judyprefix}/include"
+    ENV.append "LDFLAGS", "-L#{judyprefix}/lib"
+
     system "autoreconf", "-ivf"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
@@ -25,6 +52,7 @@ class Netdata < Formula
                           "--libexecdir=#{libexec}",
                           "--with-math",
                           "--with-zlib",
+                          "--enable-dbengine",
                           "--with-user=netdata",
                           "UUID_CFLAGS=-I/usr/include",
                           "UUID_LIBS=-lc"
