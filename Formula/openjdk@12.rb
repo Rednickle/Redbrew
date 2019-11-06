@@ -1,24 +1,24 @@
-class Openjdk < Formula
+class OpenjdkAT12 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://hg.openjdk.java.net/jdk-updates/jdk13u/archive/jdk-13.0.1+9.tar.bz2"
-  version "13.0.1+9"
-  sha256 "97328e767bc5f47b097ec0e9d88a6a650e60c448dbaba2e835284a2bf5594eb5"
+  url "https://hg.openjdk.java.net/jdk-updates/jdk12u/archive/jdk-12.0.2+10.tar.bz2"
+  version "12.0.2+10"
+  sha256 "f7242b56e0292bc7ec5795bbaeb98552ef30d7a686cd7ca0a877fe37b399f384"
 
   bottle do
     cellar :any
-    sha256 "cac85fcc79d435eff83fdb616cebe07ff10d3cbdd525fc61f9e5297072f346fb" => :catalina
-    sha256 "f34c615559bfb80d00c8cc706d2d212e4b61217acf5dd7225946c6708d84a8ea" => :mojave
-    sha256 "7b62e237d3b90fbce0b136e0ddc54224ded9cac74021fa7a7de3a4b39729b833" => :high_sierra
+    sha256 "3892b99f99b2074c70bbae87b6d17cb26253b4021ea9ca7e032fe7be12b9b972" => :catalina
+    sha256 "846447341bfe7c51ce60db6b3e56b88934ef4266e96386c975cf7e2f50e84ba6" => :mojave
+    sha256 "8967f8909149bc48637dc06da8670380224b1ca3e41c654688d82c1dfd41a77a" => :high_sierra
   end
 
-  keg_only :provided_by_macos
+  keg_only :versioned_formula
 
   depends_on "autoconf" => :build
 
   resource "boot-jdk" do
-    url "https://download.java.net/java/GA/jdk12.0.2/e482c34c86bd4bf8b56c0b35558996b9/10/GPL/openjdk-12.0.2_osx-x64_bin.tar.gz"
-    sha256 "675a739ab89b28a8db89510f87cb2ec3206ec6662fb4b4996264c16c72cdd2a1"
+    url "https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_osx-x64_bin.tar.gz"
+    sha256 "f365750d4be6111be8a62feda24e265d97536712bc51783162982b8ad96a70ee"
   end
 
   def install
@@ -28,6 +28,16 @@ class Openjdk < Formula
     java_options = ENV.delete("_JAVA_OPTIONS")
 
     short_version, _, build = version.to_s.rpartition("+")
+
+    # Fix compile error due to -Werror.
+    # https://bugs.openjdk.java.net/browse/JDK-8223309
+    # https://bugs.openjdk.java.net/browse/JDK-8233448
+    inreplace "make/autoconf/flags-cflags.m4",
+      'DISABLED_WARNINGS="unused-parameter unused"',
+      'DISABLED_WARNINGS="unknown-warning-option unused-parameter unused"'
+    inreplace "make/hotspot/lib/CompileGtest.gmk",
+      "undef switch format-nonliteral tautological-undefined-compare,",
+      "undef switch format-nonliteral tautological-undefined-compare self-assign-overloaded,"
 
     chmod 0755, "configure"
     system "./configure", "--without-version-pre",
@@ -52,7 +62,7 @@ class Openjdk < Formula
   def caveats
     <<~EOS
       For the system Java wrappers to find this JDK, symlink it with
-        sudo ln -sfn #{opt_libexec}/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
+        sudo ln -sfn #{opt_libexec}/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-12.jdk
     EOS
   end
 
