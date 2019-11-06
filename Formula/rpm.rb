@@ -1,24 +1,22 @@
 class Rpm < Formula
   desc "Standard unix software packaging tool"
   homepage "https://rpm.org/"
-  url "http://ftp.rpm.org/releases/rpm-4.14.x/rpm-4.14.2.1.tar.bz2"
-  sha256 "1139c24b7372f89c0a697096bf9809be70ba55e006c23ff47305c1849d98acda"
-  revision 2
+  url "http://ftp.rpm.org/releases/rpm-4.15.x/rpm-4.15.0.tar.bz2"
+  sha256 "1e06723b13591e57c99ebe2006fb8daddc4cf72efb366a64a34673ba5f61c201"
   version_scheme 1
 
   bottle do
-    sha256 "78bbeca72764e18eab6b75fa8fe0c450e5f47aa2ea9a00a607ecd2727a816e1f" => :catalina
-    sha256 "1a4da220ae37c016815055778b94e3395c9acb2a460c6c1df87b15e834ec0dfb" => :mojave
-    sha256 "49be9aa93d8eb6e55a8b8e4e8214a70de9e4fe31bfbe68055ab7d19db1d3d467" => :high_sierra
-    sha256 "dc328eff0beb50f5a08b1ac4f98153c4471c2f0a53b3e4db4c5eef380757ac53" => :sierra
-    sha256 "a052a538ae36790754f14493b89d995b27d63800c60c1a9283bfbb049ef87814" => :x86_64_linux
+    sha256 "a758f1a11bb8b5c794d6566988cc0a1d61aa5f7b0b66b6a5b0fe33330d26aff6" => :catalina
+    sha256 "282452168e2b1c1635009bcd8a5dcc27580f2bcaf738f6b37fd20c383e0e17de" => :mojave
+    sha256 "0e1ccf75206784980f892425c2d96d5ff2b7433953c49296948eda35506e2e9f" => :high_sierra
   end
 
   depends_on "berkeley-db"
   depends_on "gettext"
   depends_on "libarchive"
   depends_on "libmagic"
-  depends_on "lua@5.1"
+  depends_on "libomp"
+  depends_on "lua"
   depends_on "openssl@1.1"
   depends_on "pkg-config"
   depends_on "popt"
@@ -26,7 +24,9 @@ class Rpm < Formula
   depends_on "zstd"
 
   def install
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["lua@5.1"].opt_libexec/"lib/pkgconfig"
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["lua"].opt_libexec/"lib/pkgconfig"
+    ENV.append "CPPFLAGS", "-I#{Formula["lua"].opt_include}/lua"
+    ENV.append "LDFLAGS", "-lomp"
 
     # only rpm should go into HOMEBREW_CELLAR, not rpms built
     inreplace ["macros.in", "platform.in"], "@prefix@", HOMEBREW_PREFIX

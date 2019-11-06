@@ -1,14 +1,14 @@
 class Mpi4py < Formula
   desc "Python bindings for MPI"
   homepage "https://mpi4py.readthedocs.io"
-  url "https://bitbucket.org/mpi4py/mpi4py/downloads/mpi4py-3.0.2.tar.gz"
-  sha256 "f8d629d1e3e3b7b89cb99d0e3bc5505e76cc42089829807950d5c56606ed48e0"
+  url "https://bitbucket.org/mpi4py/mpi4py/downloads/mpi4py-3.0.3.tar.gz"
+  sha256 "012d716c8b9ed1e513fcc4b18e5af16a8791f51e6d1716baccf988ad355c5a1f"
 
   bottle do
     cellar :any
-    sha256 "e4b9bf0d251aa9c6a23e39eee7fdc476e985734a84ff6228aaddea4e87a10f34" => :catalina
-    sha256 "aab2b09949a0f4984c1ea8969d98f33cada88f23a02e8b6661d616cd641579c9" => :mojave
-    sha256 "c4386874ab89d58514fcabbdf2dd912f7a3f1d5d1d4b3a23487f60b03ee6489d" => :high_sierra
+    sha256 "c7986ad3dd30dad9ec0e39d0bb8a6b393e83928602911cce0c8ba9fa754f573d" => :catalina
+    sha256 "6ab550d9030af6de7be420e8c09789f39b378850206c6bdac92ee34507418688" => :mojave
+    sha256 "a7240ca7705037a69127ae6337274e2f4fdf4675897195199d63339d12011d1b" => :high_sierra
   end
 
   depends_on "cython" => :build
