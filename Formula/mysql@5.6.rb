@@ -3,12 +3,12 @@ class MysqlAT56 < Formula
   homepage "https://dev.mysql.com/doc/refman/5.6/en/"
   url "https://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.46.tar.gz"
   sha256 "12e1fbabf2086e6175359767ca89fa8a58f9274fcad40434aa6a56e582d65f49"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "110f70d90f42d346fba999930aae72b6e585d97f22c8774e00e62f6b959fad87" => :catalina
-    sha256 "73a1d7ef68bb5d537c6b655fcf85d0aa564cf49572a7cfa3289850f308279f24" => :mojave
-    sha256 "b4aafd1cbf92f9dc870975d4fcbd9f908d96fc88e49ffb1363eaeae10b1703e2" => :high_sierra
+    sha256 "a3145660591369afee1c641ddcf42826b77782547fd85e54974d894e0e23e72f" => :catalina
+    sha256 "965f73063ddf89afb3baa3ff1d8bd22636cd39011207bb748d465b9d881dca93" => :mojave
+    sha256 "b3b0ca8146a2d477c8c37b5b9f7b775ea316fbc424ae30b04f8abe95e8c1c1f1" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -36,7 +36,7 @@ class MysqlAT56 < Formula
       -DINSTALL_DOCDIR=share/doc/#{name}
       -DINSTALL_INFODIR=share/info
       -DINSTALL_MYSQLSHAREDIR=share/mysql
-      -DWITH_SSL=system
+      -DWITH_SSL=yes
       -DDEFAULT_CHARSET=utf8
       -DDEFAULT_COLLATION=utf8_general_ci
       -DSYSCONFDIR=#{etc}

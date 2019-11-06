@@ -3,14 +3,14 @@ class Neko < Formula
   homepage "https://nekovm.org/"
   url "https://github.com/HaxeFoundation/neko/archive/v2-3-0/neko-2.3.0.tar.gz"
   sha256 "850e7e317bdaf24ed652efeff89c1cb21380ca19f20e68a296c84f6bad4ee995"
+  revision 1
   head "https://github.com/HaxeFoundation/neko.git"
 
   bottle do
     cellar :any
-    sha256 "290c4bad61fcce09531602bdb7520180f0b4f534aa18198d34d85ac77554d060" => :catalina
-    sha256 "57d9215dc2d4077c372eb290caf8ffa2880f768b0a80d5743e369d9c520434e2" => :mojave
-    sha256 "3bac4aaff119dddac74dd73056ff243ba78a398c2d052aad75d935b5b16cac93" => :high_sierra
-    sha256 "fc036b7ba27e4936323ccc67bb3ce3080191b591354540c8840b749adb185ce5" => :x86_64_linux
+    sha256 "aedc2d1e4ac68af356e4d3d6e1bde0553b737e5734a227dfe2134645d363b788" => :catalina
+    sha256 "7a499e2421564e1b752f658ffd8af89cbd91dd4418fa6b68390a7f55652f7420" => :mojave
+    sha256 "29be87f25d471ad2961b3bcd526eaccd618fa050cab5d3c6e29aaa2953df1178" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -18,7 +18,7 @@ class Neko < Formula
   depends_on "pkg-config" => :build
   depends_on "bdw-gc"
   depends_on "mbedtls"
-  depends_on "openssl" # no OpenSSL 1.1 support
+  depends_on "openssl@1.1"
   depends_on "pcre"
   unless OS.mac?
     depends_on "apr"

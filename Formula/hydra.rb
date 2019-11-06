@@ -3,15 +3,14 @@ class Hydra < Formula
   homepage "https://github.com/vanhauser-thc/thc-hydra"
   url "https://github.com/vanhauser-thc/thc-hydra/archive/v9.0.tar.gz"
   sha256 "56672e253c128abaa6fb19e77f6f59ba6a93762a9ba435505a009ef6d58e8d0e"
-  revision 2
+  revision 3
   head "https://github.com/vanhauser-thc/thc-hydra.git"
 
   bottle do
     cellar :any
-    sha256 "b287c6d19087efe7b8a082dc830db6b2fd71a8ea1e5228f38bc2c5ce29a7c33a" => :catalina
-    sha256 "d3c404dd5c0bb16a963722b180f72d1ca6204ee7f30d093db5f4a2bf64855082" => :mojave
-    sha256 "a0d4224bf02a88f2c275ae82741cb59d5b0128b0445abb60c22747176b8bafe6" => :high_sierra
-    sha256 "4d6de932d98c743629c738adef5d5b9759ee1c623b0dd0c8accb7a93fe956c83" => :x86_64_linux
+    sha256 "349f0dc6653ffbd73979c142a0c409a1a5eb226cc670922eded4a184311fe0bb" => :catalina
+    sha256 "1c3e624176225d39a30f4527f715c1f5e8c703495b87d69fc4d50f3f3fca8d44" => :mojave
+    sha256 "3d5e99635237d29089f6c73f94a383ac55d73ca13bccd36bd40a04bc881ba105" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -26,8 +25,19 @@ class Hydra < Formula
       s.gsub! "/opt/local/lib", Formula["openssl@1.1"].opt_lib
       s.gsub! "/opt/local/*ssl", Formula["openssl@1.1"].opt_lib
       s.gsub! "/opt/*ssl/include", Formula["openssl@1.1"].opt_include
-      # Avoid opportunistic linking of subversion
-      s.gsub! "libsvn", "oh_no_you_dont"
+      # Avoid opportunistic linking of everything
+      %w[
+        gtk+-2.0
+        libfreerdp2
+        libgcrypt
+        libidn
+        libmemcached
+        libmongoc
+        libpq
+        libsvn
+      ].each do |lib|
+        s.gsub! lib, "oh_no_you_dont"
+      end
     end
 
     # Having our gcc in the PATH first can cause issues. Monitor this.

@@ -1,16 +1,13 @@
 class Squid < Formula
   desc "Advanced proxy caching server for HTTP, HTTPS, FTP, and Gopher"
   homepage "http://www.squid-cache.org/"
-  url "http://www.squid-cache.org/Versions/v4/squid-4.8.tar.xz"
-  sha256 "78cdb324d93341d36d09d5f791060f6e8aaa5ff3179f7c949cd910d023a86210"
-  revision 1
+  url "http://www.squid-cache.org/Versions/v4/squid-4.9.tar.xz"
+  sha256 "1cb1838c6683b0568a3a4050f4ea2fc1eaa5cbba6bdf7d57f7258c7cd7b41fa1"
 
   bottle do
-    sha256 "429050d3989194432d4f71436dce1d5b71bca1e2bbb6e9acf414f43a35e53bd0" => :catalina
-    sha256 "9a270ba2224d4a6a1980aadac4c9c8dee77a7bf228d08e5795d659e2fc7635d5" => :mojave
-    sha256 "8de312f6d60ae2afefe1e16c3b90add226b66cf73ff32fed9960285daf5a834b" => :high_sierra
-    sha256 "47a380fbb860aedd22f08ed93af9caeb0b8cd9e1fc3efa68e0e7a49b7c79478e" => :sierra
-    sha256 "14d2a39f26320d3102b77c3cd1b6dd3a3e4a25a0e023608de2c934ea1f965091" => :x86_64_linux
+    sha256 "eb88a0963a5793de409259e8cb913b9e24bd3d3b536112142426ad1fcef7428f" => :catalina
+    sha256 "ee3a1e05ca15a5505baef58f33ad86d109cf104edeec514de69310a2532eafeb" => :mojave
+    sha256 "6e4b5b7033c57b70fb6f9de126bc5526c4bad7a153151bf80569ec31d77ffc24" => :high_sierra
   end
 
   head do
@@ -26,10 +23,6 @@ class Squid < Formula
   def install
     # https://stackoverflow.com/questions/20910109/building-squid-cache-on-os-x-mavericks
     ENV.append "LDFLAGS", "-lresolv"
-
-    # Patch for detection of OpenSSL 1.1, submitted upstream
-    # https://github.com/squid-cache/squid/pull/470
-    inreplace "configure", "SSL_library_init", "SSL_CTX_new"
 
     # For --disable-eui, see:
     # http://www.squid-cache.org/mail-archive/squid-users/201304/0040.html

@@ -2,16 +2,15 @@ class Virgil < Formula
   desc "CLI tool to manage your Virgil account and applications"
   homepage "https://github.com/VirgilSecurity/virgil-cli"
   url "https://github.com/VirgilSecurity/virgil-cli.git",
-     :tag      => "v5.1.5",
-     :revision => "ddf822a750cf43e2d1e953bd36b6770ec098f88b"
+     :tag      => "v5.1.6",
+     :revision => "41305d0a181da9915e361fc0dd6c6cee8161bbe3"
   head "https://github.com/VirgilSecurity/virgil-cli.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2b2f771af64c7b8827ed627334e5658ebf8a03c7de66cd8454a19edfb5a00f4b" => :catalina
-    sha256 "84f3312865cd188bc4bca33340d8f050ae4cd6bafb5af9ba078b14084cefedee" => :mojave
-    sha256 "f4ef9cd5a3d081ee3edcc38fdb762e6cbc3c0a8cf1b19cd1d5ca873ac649b7cc" => :high_sierra
-    sha256 "c9c129cbf5b7b573f38ea56bac18ff38263cb40c9aab697bef262d9c9bedcd10" => :x86_64_linux
+    sha256 "6d031ab150d2e143ce3e655ca8adda5fcff86fe784fb650535f5ffeb56ebb640" => :catalina
+    sha256 "81ce76c5dabd29e3d5d06f65359e08caa11dbbf06191e79efd23315e0e90c9d5" => :mojave
+    sha256 "152e84ec92c664b11d005ef2d4a8101546c70d2394f571ef63931f39efdaf38e" => :high_sierra
   end
 
   depends_on "dep" => :build
