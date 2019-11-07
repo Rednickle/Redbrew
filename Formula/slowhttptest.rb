@@ -1,16 +1,15 @@
 class Slowhttptest < Formula
   desc "Simulates application layer denial of service attacks"
   homepage "https://github.com/shekyan/slowhttptest"
-  url "https://github.com/shekyan/slowhttptest/archive/v1.8.tar.gz"
-  sha256 "31f7f1779c3d8e6f095ab19559ea515b5397b5c021573ade9cdba2ee31aaef11"
+  url "https://github.com/shekyan/slowhttptest/archive/v1.8.1.tar.gz"
+  sha256 "95f43a18efbdfaa088acf0e2d6ce0fc4f4fc33a7486cd536d327a6ba71de30e7"
   head "https://github.com/shekyan/slowhttptest.git"
 
   bottle do
     cellar :any
-    sha256 "ae6bf1d79b73492cf552f1c070f66c8589596ca68cb1dfd0fbacb1aec703d77a" => :catalina
-    sha256 "f9911a5ba4c428db816eed4e97a15f5163fecbb018e66fa6c95f45a0f61e8db2" => :mojave
-    sha256 "9df930c2bcfc3b447cfde2b4f106e6ecb2adb7ddc33c73b484f997395bdb45f0" => :high_sierra
-    sha256 "f1c41c1e94ac89048e857f0aeb6dd97b578d527b4ee3f161d4332a821fdcfbdc" => :x86_64_linux
+    sha256 "579f26294a1ed9ddf40957b71df0c5663951229264e38d040d705aafdc202cee" => :catalina
+    sha256 "8049b768fa761db677a06931d0ed19676be4783afa67950e498fa2136a175990" => :mojave
+    sha256 "52b9a275cc949a58917c33aa839dbeb7f0c4b932e5b432ac1b3e05ed445141af" => :high_sierra
   end
 
   depends_on "openssl@1.1"

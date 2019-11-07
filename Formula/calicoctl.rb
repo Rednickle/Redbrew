@@ -2,15 +2,14 @@ class Calicoctl < Formula
   desc "Calico CLI tool"
   homepage "https://www.projectcalico.org"
   url "https://github.com/projectcalico/calicoctl.git",
-      :tag      => "v3.10.0",
-      :revision => "7968b525711f3f4059f837bfca8328d1d12c5cef"
+      :tag      => "v3.10.1",
+      :revision => "4aaff8e910a6cf9f77e3e82f1ef68e91bd5a8e9a"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2078b19df33eedc4e5d0d480ece18e057bfcc1f229cb280e59893b679badf1d6" => :catalina
-    sha256 "bdad39e6df742a686e51d449166cd6e7907c42a99ba3df6dc8261754d3d45723" => :mojave
-    sha256 "546593c454fe0f7be24b4b32bf25deb3c45082aee6c2377b1d685261df633232" => :high_sierra
-    sha256 "8276029760a634b5f2318cb321b105396d1d1470bd078082efa22b5abe228c6f" => :x86_64_linux
+    sha256 "5ef71fb66898bba896d6af7e0337b0e8df424f5f1e3bb4fefd30c5b81a83afed" => :catalina
+    sha256 "a4f07320159325cf33ddc2f817ec4aa8169c7a774b01c78141b81d4316be7a26" => :mojave
+    sha256 "0dfcc0d09528ba30ed3b66c5c5a52c8f0b4a94d5c48c41e03344f3fe2ff1869c" => :high_sierra
   end
 
   depends_on "go" => :build
