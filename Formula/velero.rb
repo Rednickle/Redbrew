@@ -1,29 +1,27 @@
 class Velero < Formula
   desc "Disaster recovery for Kubernetes resources and persistent volumes"
-  homepage "https://github.com/heptio/velero"
-  url "https://github.com/heptio/velero/archive/v1.1.0.tar.gz"
-  sha256 "9313f059c9c973052fba4b307e652b1067b8542302277af1f610415e79cb32c0"
+  homepage "https://github.com/vmware-tanzu/velero"
+  url "https://github.com/vmware-tanzu/velero/archive/v1.2.0.tar.gz"
+  sha256 "078a0e8d2283b8e0e951d30e0e2f494d9ff9828ed385af77986b945cbd6d3338"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e4684ab704c35f8ee7f9843f2f106f693f87d7671864f9a20859c392b844adc7" => :catalina
-    sha256 "713560c7ada1422f49cf04e4146e3afa483e5f00b50a67fcc4c7180e7018c394" => :mojave
-    sha256 "74e077b085c10713f22c09fdc592ef6dce9e13a6a87a3d83b02ca9f66f1557c1" => :high_sierra
-    sha256 "36bce9094dac8e3dd1ed7d108dea0237f90f101ff158ae7279a53907258e5ed0" => :sierra
-    sha256 "b8965f278fd704569508729e0e4af0bae5923c40c24399b69e2d47576afed07b" => :x86_64_linux
+    sha256 "3827dad0a20f292d1804cbd5c63ab5a865aa9147e63b6c90796d47045085efcf" => :catalina
+    sha256 "92df24196b7dd9a7bae22819ea143303c525e54fc8070fdf2fb9e2b05e8303a9" => :mojave
+    sha256 "9007d6da73d6baff307226cc3f3630005bbf7cc1a4777d6961236b670499c56f" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/heptio/velero"
+    dir = buildpath/"src/github.com/vmware-tanzu/velero"
     dir.install buildpath.children - [buildpath/".brew_home"]
 
     cd dir do
       system "go", "build", "-o", bin/"velero", "-installsuffix", "static",
                    "-ldflags",
-                   "-X github.com/heptio/velero/pkg/buildinfo.Version=v#{version}",
+                   "-X github.com/vmware-tanzu/velero/pkg/buildinfo.Version=v#{version}",
                    "./cmd/velero"
 
       # Install bash completion

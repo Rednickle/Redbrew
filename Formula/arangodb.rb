@@ -1,13 +1,13 @@
 class Arangodb < Formula
   desc "The Multi-Model NoSQL Database"
   homepage "https://www.arangodb.com/"
-  url "https://download.arangodb.com/Source/ArangoDB-3.5.1.tar.gz"
-  sha256 "4e648c0aff129a02dd0279303880603cd92dd27b81ef7c40dee3eded9102c1cb"
+  url "https://download.arangodb.com/Source/ArangoDB-3.5.2.tar.gz"
+  sha256 "9331ddb8d745c5d977975591b20a00461bfe11865bfce9f3495dc8bdb9260bf1"
   head "https://github.com/arangodb/arangodb.git", :branch => "devel"
 
   bottle do
-    sha256 "d6b4899f5e62ae8b392545e29744367887ad977e8a89482d44ced7c6dff332ee" => :catalina
-    sha256 "a59a94102316348d44e457b00d3548161434732b57cdc98b6cbaea72a9471b2a" => :mojave
+    sha256 "5e86cc8536055411a87d0e98329a07edf77b54e5624fab7cb7ae3d0e5a11cc0b" => :catalina
+    sha256 "c37fb40d99c4ade05624bfbe6200be512de4d2f234479ac356d459fde3c1ebd1" => :mojave
   end
 
   depends_on "ccache" => :build
@@ -25,12 +25,6 @@ class Arangodb < Formula
   resource "starter" do
     url "https://github.com/arangodb-helper/arangodb.git",
       :revision => "bbe29730e70dba609b57c469e8f863f032fabf3e"
-  end
-
-  # fixed upstream in https://github.com/arangodb/arangodb/commit/55ca6c8660e0b373bae1840d61894a4202913cfa
-  patch do
-    url "https://github.com/arangodb/arangodb/commit/55ca6c86.diff?full_index=1"
-    sha256 "99f653d868360949ee6eb2d5fa380ded3f9a8941caba1ce7b97c88b6e4ae166d"
   end
 
   def install

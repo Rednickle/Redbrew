@@ -3,13 +3,13 @@ class Dynare < Formula
   homepage "https://www.dynare.org/"
   url "https://www.dynare.org/release/source/dynare-4.5.7.tar.xz"
   sha256 "9224ec5279d79d55d91a01ed90022e484f66ce93d56ca6d52933163f538715d4"
-  revision 6
+  revision 7
 
   bottle do
     cellar :any
-    sha256 "5e6191e5e862f1729e47a53a0261d40430d91089cdb8626afbc5b5d7a18651d9" => :mojave
-    sha256 "4780fb158ec635c5b1761d16949e4ebd435a32b2bd6de087d65da9747b3617fe" => :high_sierra
-    sha256 "cf0c471675a8684df712ba9278bae7ab982ecc0f20ac6e3962ecadfe56021211" => :sierra
+    sha256 "1099b6c5697d797b8e0d9e6464e5cf31c625fbbe0fd1642ea10c05d4bb3f9bc0" => :catalina
+    sha256 "52558399745d3774b47395b96fa891408421f86db422fe6ea0cb33b287a47075" => :mojave
+    sha256 "0a743dfda6443744fed3aae2068746c73b8eb4a489107c105b8c98b8bb9942d8" => :high_sierra
   end
 
   head do

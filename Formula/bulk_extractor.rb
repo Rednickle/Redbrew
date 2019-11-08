@@ -3,20 +3,41 @@ class BulkExtractor < Formula
   homepage "https://github.com/simsong/bulk_extractor/wiki"
   url "https://digitalcorpora.org/downloads/bulk_extractor/bulk_extractor-1.5.5.tar.gz"
   sha256 "297a57808c12b81b8e0d82222cf57245ad988804ab467eb0a70cf8669594e8ed"
-  revision 2
+  revision 3
 
   bottle do
-    rebuild 2
-    sha256 "29c9314307ce220c48c414cb27ce3db0e327372ff37cf093afd198ad6ffb702b" => :catalina
-    sha256 "d9a23deb7c19b4efba7c4079ff8cf3f7bc56f2d13e4d10fa74a28ee1e08ddd86" => :mojave
-    sha256 "110583d688900e06f1607469145eba60fe807bb1c41020b8ba9decf379685a9e" => :high_sierra
-    sha256 "712520309fa42fb430631cf8d5746e0ae71a87c07760e2f8b3532c04bac8d171" => :sierra
+    sha256 "6acada1995761f484993f407f33014260f8c16596381172b405fe84eef206e06" => :catalina
+    sha256 "da01b2d5208c362fa10baa1a3b1d7fd018f4886eddb068107b9786c36bbff480" => :mojave
+    sha256 "621af8efc0671cd2905f4f077c9cfef8ac2493cf65421fb2973228c2b651c24e" => :high_sierra
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "boost"
-  depends_on "openssl" # no OpenSSL 1.1 support
+  depends_on "openssl@1.1"
+
+  # Upstream commits for OpenSSL 1.1 compatibility in dfxm:
+  # https://github.com/simsong/dfxml/commits/master/src/hash_t.h
+  # Three commits are picked:
+  #   - https://github.com/simsong/dfxml/commit/8198685d
+  #   - https://github.com/simsong/dfxml/commit/f2482de7
+  #   - https://github.com/simsong/dfxml/commit/c3122462
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/78bb67a8/bulk_extractor/openssl-1.1.diff"
+    sha256 "996fd9b3a8d1d77a1b22f2dbb9d0e5c501298d2fd95ad84a7ea3234d51e3ebe2"
+  end
 
   def install
+    # Source contains to copies of dfxml, keep them in sync
+    # (because of the patch). Remove in next version.
+    rm_rf "plugins/dfxml"
+    cp_r "src/dfxml", "plugins"
+
+    # Regenerate configure after applying the patch.
+    # Remove in next version.
+    system "autoreconf", "-f"
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make"
