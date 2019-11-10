@@ -7,9 +7,10 @@ class Skopeo < Formula
 
   bottle do
     cellar :any
-    sha256 "6d6e5ef0e8de608b30b3c455aae169ff63139d3442c20ea6fb966b602c7892c7" => :catalina
-    sha256 "24136b664d634af98856d4d57ba8000410f056555ded3f7ac805bb9928a4cf56" => :mojave
-    sha256 "962f951f12aee1b7130ad47bd6fc9955e3735b09043a50f44460d69676ba63a0" => :high_sierra
+    rebuild 1
+    sha256 "d382e6ed0f92e335d4b0c82bc535760dd7c32268f0b60dcb8ce7a09dbe4e1b5f" => :catalina
+    sha256 "2c766d15ff4b798021ddb5c2eff823cefbbb20afb92da2e86e8e747dc891abbd" => :mojave
+    sha256 "ae5437d6ba74269a0b82a85b365bbbdd0cf187107a44bf7119753d33e644947f" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -34,7 +35,7 @@ class Skopeo < Formula
       ldflags = [
         "-X main.gitCommit=",
         "-X github.com/containers/image/docker.systemRegistriesDirPath=#{etc/"containers/registries.d"}",
-        "-X github.com/containers/image/internal/tmpdir.unixTempDirForBigFiles=#{ENV["TEMPDIR"]}",
+        "-X github.com/containers/image/internal/tmpdir.unixTempDirForBigFiles=/var/tmp",
         "-X github.com/containers/image/signature.systemDefaultPolicyPath=#{etc/"containers/policy.json"}",
         "-X github.com/containers/image/pkg/sysregistriesv2.systemRegistriesConfPath=#{etc/"containers/registries.conf"}",
       ].join(" ")
