@@ -41,7 +41,7 @@ class Valgrind < Formula
     system "./autogen.sh" if build.head?
 
     # Look for headers in the SDK on Xcode-only systems: https://bugs.kde.org/show_bug.cgi?id=295084
-    if OS.mac? && !MacOS::CLT.installed?
+    if build.stable? && OS.mac? && !MacOS::CLT.installed?
       inreplace "coregrind/Makefile.in", %r{(\s)(?=/usr/include/mach/)}, '\1'+MacOS.sdk_path.to_s
     end
 
