@@ -6,16 +6,16 @@ class Fselect < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bb4d42b92ed035a6f8db32e3da543877159688651c80e4eac560b02a79cf60c4" => :catalina
-    sha256 "b7fa9957ed48e2c960332278d31532d6ce459ebd911130698575506eefc4af8c" => :mojave
-    sha256 "ce7be82e86c184d751b61b47ce6ff566c1f79841004606f0eff6c24250f5956b" => :high_sierra
-    sha256 "8fea6f94078538555ba0b2d1139410f23f7a6b043fbcd00e62724f439c07fd31" => :x86_64_linux
+    rebuild 1
+    sha256 "db07ab70beaf891be7249f6cb3a457198dabd24f6136edb93725576442ce3f40" => :catalina
+    sha256 "8e4a8e4acb099cc10506050bd7b009a1401960e5a4cb3a476cf4fdb1b68d158a" => :mojave
+    sha256 "1c46725732d77887dd3f9e7103ef1c315ae654ba4b2310f86a49856d91eec8f6" => :high_sierra
   end
 
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--root", prefix, "--path", "."
+    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end
 
   test do

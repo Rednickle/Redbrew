@@ -1,16 +1,14 @@
 class H3 < Formula
   desc "Hexagonal hierarchical geospatial indexing system"
   homepage "https://uber.github.io/h3/"
-  url "https://github.com/uber/h3/archive/v3.6.0.tar.gz"
-  sha256 "0f07d477d057c8b34263a8e173d86fe7b5ca3d6f35be81e5f4db886b81281d9a"
+  url "https://github.com/uber/h3/archive/v3.6.1.tar.gz"
+  sha256 "2610892706f13a616626740a4e474af93568fcb332e8ee2497bf5c3be60065f2"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2445fd676b354d9378eddc1e568e0297af4dbaeaa3d8fdd2c581e40d3dd6b475" => :catalina
-    sha256 "2dc693483b0d80f03d1ea20713cfe03b45ea88de2e694d0965009127c13f5f40" => :mojave
-    sha256 "a18b465ee41ebb5ac788d909f4680a93e03881fdca515d8506d036d4ad825b36" => :high_sierra
-    sha256 "0ebd3445e13d8a4e9d8aaac7b281a30214a2573b06e65d05cdc74ba234bbe7a0" => :sierra
-    sha256 "4d9cc6b07a6fa488af85254ceb302c385f3a09f62755ce5c4810ff0dd388d270" => :x86_64_linux
+    sha256 "995bdeb47df1e9a516f0d1723bfa636c3292760b0bf01e5553b6ef014e56d686" => :catalina
+    sha256 "091d1b56208b92af6ab304e904b72059a4bc3700a23564daba1fac9e68ae2ee4" => :mojave
+    sha256 "bc195a3205e34ad22cf4c6776961c1c969330982f69b8d9314f37a79e2359ca2" => :high_sierra
   end
 
   depends_on "cmake" => :build
