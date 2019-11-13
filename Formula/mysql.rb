@@ -3,12 +3,12 @@ class Mysql < Formula
   homepage "https://dev.mysql.com/doc/refman/8.0/en/"
   url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.18.tar.gz"
   sha256 "0eccd9d79c04ba0ca661136bb29085e3833d9c48ed022d0b9aba12236994186b"
+  revision 1
 
   bottle do
-    sha256 "e8aa0830817cd49a2155c7764650bc6bf46ee54d536af09f3b814d9b960065b2" => :catalina
-    sha256 "0bddb035ea8098a4eb0a9d76afae97a077f517bdb0592a4edae828a566470236" => :mojave
-    sha256 "85a4e9fedd5fa606eff74a72d0e8b9f2ce4dcbd7976e42deb6611eccc1db24ef" => :high_sierra
-    sha256 "47d8ede56b46ee191fadc6945814ba156331feede9a04fe72a7a1f504a5140e8" => :x86_64_linux
+    sha256 "dd0af1f15dd8906db5842329531548c4dc46b587e36647807b663162a8d83d7c" => :catalina
+    sha256 "2bdaae4c7b08d11e04c21eca651dfeb0d87d2e199d371a0fa6cd145dc1170fdd" => :mojave
+    sha256 "9f12ab1f836c59d2630a4916ec69dd6dd99175b702ef6762f34f5d3f51642018" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -22,6 +22,7 @@ class Mysql < Formula
   depends_on :macos => :yosemite if OS.mac?
 
   depends_on "openssl@1.1"
+  depends_on "protobuf@3.7" # MySQL 8.0.19 will support the latest version
 
   # Fix error: Cannot find system editline libraries.
   uses_from_macos "libedit"
@@ -78,8 +79,8 @@ class Mysql < Formula
       -DWITH_BOOST=boost
       -DWITH_EDITLINE=system
       -DWITH_SSL=yes
+      -DWITH_PROTOBUF=system
       -DWITH_UNIT_TESTS=OFF
-      -DWITH_EMBEDDED_SERVER=ON
       -DENABLED_LOCAL_INFILE=1
       -DWITH_INNODB_MEMCACHED=ON
     ]

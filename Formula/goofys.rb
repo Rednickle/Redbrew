@@ -4,16 +4,15 @@ class Goofys < Formula
   desc "Filey-System interface to Amazon S3"
   homepage "https://github.com/kahing/goofys"
   url "https://github.com/kahing/goofys.git",
-      :tag      => "v0.22.0",
-      :revision => "bdab1e7a172330248c9e0532f61e9ccb5be06d09"
+      :tag      => "v0.23.0",
+      :revision => "3d8c910723cded1b62f4adb40bbcd68d7e190745"
   head "https://github.com/kahing/goofys.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e9137251c445461e3bbea740e6b6f7b00670c5cc52b6a3e99da440fdab1004b2" => :catalina
-    sha256 "7e562985506e5c1fbd86771b11ad0187388642dca7365ff8889706e9b3993eb6" => :mojave
-    sha256 "7b4713a3e45c7e2fdca86f7c945727481324810009ff73a86a646ebdb1ab10bb" => :high_sierra
-    sha256 "ee7153441d92115a3ff17a5c50ca05742207ae50dd6b5e48d66ed900d9591238" => :x86_64_linux
+    sha256 "94c0635881cfa11f9df09d946262c29dd0dbd255ce04448385173f127d8c699f" => :catalina
+    sha256 "31f7241e733feb57452a13b3909fbfb144f2b32a0c3938dbd33d1537322dae88" => :mojave
+    sha256 "a8a27367dabf549fb4f80324dfbbe266e79c7cf3693d639ed25c04fc857f0968" => :high_sierra
   end
 
   depends_on "go" => :build
