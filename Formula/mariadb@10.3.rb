@@ -3,16 +3,19 @@ class MariadbAT103 < Formula
   homepage "https://mariadb.org/"
   url "https://downloads.mariadb.org/f/mariadb-10.3.20/source/mariadb-10.3.20.tar.gz"
   sha256 "53818f2d684e060143b4d8293da44c7f09cc676d71959405f84e6dc8affbc492"
+  revision 1
 
   bottle do
-    sha256 "8d2c88f3de082b03ea280053b29df01f572678e0cdcf719d21380a59f3e1755d" => :catalina
-    sha256 "dc83c411999bfeb0cd35d90ad6573add25077bd5831c313e0bd1b3c64d332bc3" => :mojave
-    sha256 "240cf814a405a5778b2ee5c034290c8baf17e46edaf2ac575288ea83984635f1" => :high_sierra
+    sha256 "64acfc6576ac3a26cbef7b79ffc6c8e65c7f73c9ed06aaf70bb027082c71917d" => :catalina
+    sha256 "0db002d2a665b82a6829c5e72e4428e48c0e997999cf1da3c8ee8f1dff88caf6" => :mojave
+    sha256 "e1a85615a68be28373f9260731b15a167b85e02976de36b1de66905696afd67f" => :high_sierra
   end
 
   keg_only :versioned_formula
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
+  depends_on "groonga"
   depends_on "openssl@1.1"
 
   def install
@@ -23,6 +26,9 @@ class MariadbAT103 < Formula
       s.change_make_var! "basedir", "\"#{prefix}\""
       s.change_make_var! "ldata", "\"#{var}/mysql\""
     end
+
+    # Use brew groonga
+    rm_r "storage/mroonga/vendor/groonga"
 
     # -DINSTALL_* are relative to prefix
     args = %W[
