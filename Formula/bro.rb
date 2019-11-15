@@ -1,16 +1,15 @@
 class Bro < Formula
   desc "Network security monitor"
   homepage "https://www.bro.org"
-  url "https://www.bro.org/downloads/bro-2.6.4.tar.gz"
-  sha256 "a47a9cdcef0ea14d5f70c390ab266f0333063ff96f3869a5f1609581a1d1ceb7"
-  revision 1
+  url "https://github.com/bro/bro.git",
+      :tag      => "v3.0.0",
+      :revision => "a5557586699d9a90aba70a7a0468549c400e9b61"
   head "https://github.com/bro/bro.git"
 
   bottle do
-    sha256 "419e0702059d7ee0170735650a189d6a556f7fe9c3666b2f49bd2045412679dd" => :catalina
-    sha256 "a39e2533cbb05e69cf93e984a1a7c17ba009590c57d9251fe07a21a6c435ce9e" => :mojave
-    sha256 "8e477f1ed235aee0449950b6492d103fe722cb48f4c66fe394dc129b88150ef8" => :high_sierra
-    sha256 "89eea16f3af80b96d5b334b4022ea3e030c731d021d5cc47d77f6e3738742816" => :x86_64_linux
+    sha256 "41f94471321f660ee0cb1f0577f6501fefd5d5af4959db475450ec12cbf2c658" => :catalina
+    sha256 "efac6ba7610a0b6b72be5308a245964c2b5b82b86fe34fd5bbdc541ad25128ba" => :mojave
+    sha256 "392fc82e858a89e5041e7d3e016353d1b056ed9a73de48a8c5d2952124d13f57" => :high_sierra
   end
 
   depends_on "bison" => :build
