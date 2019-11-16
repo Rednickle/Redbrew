@@ -1,18 +1,18 @@
-class KubernetesHelm < Formula
+class HelmAT2 < Formula
   desc "The Kubernetes package manager"
   homepage "https://helm.sh/"
   url "https://github.com/helm/helm.git",
       :tag      => "v2.16.1",
       :revision => "bbdfe5e7803a12bbdf97e94cd847859890cf4050"
-  head "https://github.com/helm/helm.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e13b6d2b1a76b4af452e8582f2d2b07cde2b231de00ce16be04dbbf0c77b49af" => :catalina
-    sha256 "e41f332120fc3a047b2b654a6afb286c9a09e24a0ac5929ba943cc94940d1267" => :mojave
-    sha256 "29683ee842eaebd7a88c8c1f9e9069c12f6c8c0b531ff9255fe97330da58d2d8" => :high_sierra
-    sha256 "d1deb7ff16cc062ef47833aafa8750daf2193df548619dada85b808741a54238" => :x86_64_linux
+    sha256 "1450f1bdc13f6ac6f08c3edcefbdf0301a73d6158a8335b3fec68c32bf367d7c" => :catalina
+    sha256 "eedc16bde2576c3ddb4d02213154ad09951e5e65ec2d1a1ec1e451d6fa5108b2" => :mojave
+    sha256 "c9d3fe248f6231c860f7cc0226bea285284f7a8af82ee5d2d88e35c9c407fb0f" => :high_sierra
   end
+
+  keg_only :versioned_formula
 
   depends_on "glide" => :build
   depends_on "go" => :build
