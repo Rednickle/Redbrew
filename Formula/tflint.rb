@@ -2,30 +2,21 @@ class Tflint < Formula
   desc "Linter for Terraform files"
   homepage "https://github.com/wata727/tflint"
   url "https://github.com/wata727/tflint.git",
-    :tag      => "v0.12.1",
-    :revision => "98b9b63f6d1bae0838165465db8b04613760e9e6"
+    :tag      => "v0.13.1",
+    :revision => "470fb17da7324f773e204ce56e5f1ded6fc9cf3c"
   head "https://github.com/wata727/tflint.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a321c4c221d75e7438bf5f0066f7fb19bdba08bb4a8e1f7f9aba21c4378f1115" => :catalina
-    sha256 "014a86cc46f23c52eab90b9679c40cfe2727d88dd9d1e85538ced3f0a36d3ff2" => :mojave
-    sha256 "68b21e6af886c82e29e24b8892bb7be0f75ccc2861101748aa9c18b283c0b9e5" => :high_sierra
-    sha256 "889cd116b5a42977b8e38d6b5d175d541fbd384cbc230ad2b2aa63766e7cc2b6" => :x86_64_linux
+    sha256 "85654d379cea3827b04ca3030784aea6359cee2b106d9682f9d6858f4fea6aa8" => :catalina
+    sha256 "a07992088f945c6b39844b71efc72f3a584fa2fb118332374cfd14c141af2fcb" => :mojave
+    sha256 "a9b092875a63e93bd0437275be9907b89a9edc6150e167cae0811f2217044f68" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    dir = buildpath/"src/github.com/wata727/tflint"
-    dir.install buildpath.children
-
-    cd dir do
-      system "go", "build", "-o", bin/"tflint"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-o", bin/"tflint"
   end
 
   test do

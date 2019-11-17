@@ -1,30 +1,38 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v12.12.0/node-v12.12.0.tar.gz"
-  sha256 "6ce681625c09bc2b2b5757165580e648579e4bc7bce5e246fa6339270eec8bde"
+  url "https://nodejs.org/dist/v13.1.0/node-v13.1.0.tar.gz"
+  sha256 "df640a2f151f788d02dc25c91d80fffe06b4c3c72fbdee07ab9abd7c6879d6cd"
   head "https://github.com/nodejs/node.git"
 
   bottle do
     cellar :any
-    sha256 "9838182b0d60364c5339b1c114d238544e3206232762060c299072ecf62feefa" => :catalina
-    sha256 "eb0c3475ab27846d730168a2d2d63eb1802254203c34141cf3ae22f65801228d" => :mojave
-    sha256 "0f35e88be5a84c808dba472d053af25639b300c095392f63e85d9ae94cf12b20" => :high_sierra
-    sha256 "f7e1ef186ebb6be26c6451aac958500a8bcfd0527f88fd44b1be35ef1b95bf10" => :x86_64_linux
+    sha256 "5863d08b039c44d35a8343179cf93d495e1288efe2c669ccb77704a236e0e17b" => :catalina
+    sha256 "87a9fffbc4d55a0f071a69896494e5b56fc12cd8b45f3b302aaf1e48eb7551c3" => :mojave
+    sha256 "d7f42ee0972136ef49b0908bfe92cd53ca63e536d93f7eb5fd1ee455edc3b65c" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@2" => :build
+  depends_on "python" => :build
   depends_on "icu4c"
 
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-6.11.3.tgz"
-    sha256 "9e1dbf6a2642df2cef11e68fdc20e29e4ee04bd7c9459fef914cae4bdc587f18"
+    url "https://registry.npmjs.org/npm/-/npm-6.12.1.tgz"
+    sha256 "a537fc1d5e8d1187deb4c8debb07b580cfdb4a0e5584feb378e2c66f35d85b9a"
+  end
+
+  # apply upstream Python 3 compatibility fix for macOS (remove with next version)
+  patch do
+    url "https://github.com/nodejs/node/commit/0673dfc0d8944a37e17fbaa683022f4b9e035577.patch?full_index=1"
+    sha256 "a682d597fb63861a3ae812345ade7ad2b1125b3362317e247b4fb52ecd7532be"
   end
 
   def install
+    # make sure subprocesses spawned by make are using our Python 3
+    ENV["PYTHON"] = Formula["python"].opt_bin/"python3"
+
     # Never install the bundled "npm", always prefer our
     # installation from tarball for better packaging control.
     args = %W[--prefix=#{prefix} --without-npm --with-intl=system-icu]

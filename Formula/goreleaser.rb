@@ -2,32 +2,22 @@ class Goreleaser < Formula
   desc "Deliver Go binaries as fast and easily as possible"
   homepage "https://goreleaser.com/"
   url "https://github.com/goreleaser/goreleaser.git",
-      :tag      => "v0.121.0",
-      :revision => "fdfe0487df5fc1114506fff5872e5c2a3d631124"
+      :tag      => "v0.122.0",
+      :revision => "173edbac545df7796ca2c4eb5ea3a1817920b562"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "172c1680e4b1787d6002c4a55d16eb7c2828ebc983168835faca4ceb693fa71d" => :catalina
-    sha256 "849a39f8b0f749dbb8c70314168c61b74b2cfe7c76f1d769ca2092f628b17dcc" => :mojave
-    sha256 "f3d81dcbed665e6e6bc0ea1a0ea00ceb5071d24f3e03ba80bdf0e6e3e264c79c" => :high_sierra
-    sha256 "240c06356adaab5562264dfdeef877bf268c5016bc637adf0383b60f6a81db95" => :x86_64_linux
+    sha256 "90e861be77b310b0254729a9e0498305d28abea9de0b5b482c846c264b7f9c90" => :catalina
+    sha256 "cbc613aab5481dfb61c57f514e48937ccdb336d645288a7f59f54947eb7683fd" => :mojave
+    sha256 "78a306541094747d00b7aa2ebe63111a767b0611c173dc9491b4409ea4d87efa" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    dir = buildpath/"src/github.com/goreleaser/goreleaser"
-    dir.install buildpath.children
-
-    cd dir do
-      system "go", "mod", "vendor"
-      system "go", "build", "-ldflags",
-                   "-s -w -X main.version=#{version} -X main.commit=#{stable.specs[:revision]} -X main.builtBy=homebrew",
-                   "-o", bin/"goreleaser"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags",
+             "-s -w -X main.version=#{version} -X main.commit=#{stable.specs[:revision]} -X main.builtBy=homebrew",
+             "-o", bin/"goreleaser"
   end
 
   test do

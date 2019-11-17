@@ -5,19 +5,18 @@ class Vault < Formula
   desc "Secures, stores, and tightly controls access to secrets"
   homepage "https://vaultproject.io/"
   url "https://github.com/hashicorp/vault.git",
-      :tag      => "v1.2.4",
-      :revision => "360b3a32c68a4003594a25ba17c8f582558fcfbc"
+      :tag      => "v1.3.0",
+      :revision => "0f5c835d1cf91c00d01cb29a0048732d91357afa"
   head "https://github.com/hashicorp/vault.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "85c55dbc7851cecf723a23b23907fb5874f72254cf8e9b039f811f31d94cec6d" => :catalina
-    sha256 "520b0924b40384d5149aa71533982c4f1c91b4063296641f32af652a5c65dbea" => :mojave
-    sha256 "323c61e661e4f55f7a5387877fd5c3537650cfaa1fe71b1150d2d8943a83c8e2" => :high_sierra
-    sha256 "700236f9edb0b02b8721378ef0ef5d41fde79245237847578380593262eae5d4" => :x86_64_linux
+    sha256 "157a98c8c0437a07bb91f23e0f466077689c54fa0fc83bb6291972ed3fb7661e" => :catalina
+    sha256 "7ff366fc8db6a9b9bce7cdc44725b0c706498057c25aaa8addb38c60d0c0fcdc" => :mojave
+    sha256 "023fc73fcbc9b28e58bf1ce180b8f26db46df9babaa26c314073fd076213b828" => :high_sierra
   end
 
-  depends_on "go" => :build
+  depends_on "go@1.12" => :build
   depends_on "gox" => :build
 
   def install

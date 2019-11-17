@@ -2,29 +2,20 @@ class Cheat < Formula
   desc "Create and view interactive cheat sheets for *nix commands"
   homepage "https://github.com/cheat/cheat"
   url "https://github.com/cheat/cheat.git",
-    :tag      => "3.0.7",
-    :revision => "09c29a322f4393f1c92d00b84c867b2c8ff45a7a"
+    :tag      => "3.1.0",
+    :revision => "573d43a7e6f8e093392c2582dfaa30ac824dda8d"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ad5c46d1ec437d364591fc640fc3eaa67f98a379497894bddd2f83436cc0635d" => :catalina
-    sha256 "ff93eaa6fdd671e6b490d7ab61bb4770fb045281b047f44033bc4d45d982373c" => :mojave
-    sha256 "08d47ee793dc589ac80af88adec9dfebd34f3d04c22db50af7f0c565ec52ffc2" => :high_sierra
-    sha256 "3829697eacea569b6c40122bba273ca2a24ee833bcf9df2c5b3c9d64f834e356" => :x86_64_linux
+    sha256 "a2e1b945d1c928710864b37966d79f0761e8b3176b0e5d4a2c71946783670e05" => :catalina
+    sha256 "f379301e0ec1b2d341ef144cfc3260a9082e678d7df1c5b3801ee123eab5f4bc" => :mojave
+    sha256 "1fe24ca39bb1123548ce0643594a4ebfd8dcca0a94c3679ff0e743ce8dbdc51d" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    dir = buildpath/"src/github.com/cheat/cheat"
-    dir.install buildpath.children
-
-    cd dir do
-      system "go", "build", "-mod", "vendor", "-o", bin/"cheat", "./cmd/cheat"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-mod", "vendor", "-o", bin/"cheat", "./cmd/cheat"
   end
 
   test do
