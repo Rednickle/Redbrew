@@ -1,16 +1,15 @@
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v0.12.13.tar.gz"
-  sha256 "d8194bb0861755433f7b4c574559a96bec2cd205513e4722f0d841b74b6d4fec"
+  url "https://github.com/hashicorp/terraform/archive/v0.12.15.tar.gz"
+  sha256 "09c9e9e5db6df112de3fb8735b7d17100a99becd60d79e2f0a486a7eda54b415"
   head "https://github.com/hashicorp/terraform.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6852431102c3fbff0edb56ff502d1103d1f5995b7e1b7c6f90d6461ad0e12666" => :catalina
-    sha256 "aa4ecaa42299a0fc67e1de5f96f1a86a019ab8730729ac309939715751cae2af" => :mojave
-    sha256 "3cc69f74d3947732eccd7dbdc2aed050a0fa452b089f0a5581faebb7008c8686" => :high_sierra
-    sha256 "36d9689f4fb80dcb19d35a506d214cae4c2e442a95a007c36e0cefa2ace760e3" => :x86_64_linux
+    sha256 "bf50bfa57d5485078512842d329de18f80afc7194d29612ee3d56c35c2d538e6" => :catalina
+    sha256 "17c97801c7cbf589f80c63a6a5c1f58ec05da16059d3ac0ba1b22016e09a7b92" => :mojave
+    sha256 "95a83b7a8eba2b92e95da6fb3deb3c9ffe9cfa4f3315c3449934d79feec315e4" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -34,9 +33,7 @@ class Terraform < Formula
       os = OS.mac? ? "darwin" : "linux"
       ENV["XC_OS"] = os
       ENV["XC_ARCH"] = "amd64"
-      # Tests fail to build on linux: FAIL: TestFmt_check
-      # See https://github.com/Homebrew/linuxbrew-core/pull/13309
-      system "make", "tools", *("test" if OS.mac?), "bin"
+      system "make", "tools", "bin"
 
       bin.install "pkg/#{os}_amd64/terraform"
       prefix.install_metafiles

@@ -3,12 +3,12 @@ class PerconaXtrabackup < Formula
   homepage "https://www.percona.com/software/mysql-database/percona-xtrabackup"
   url "https://www.percona.com/downloads/XtraBackup/Percona-XtraBackup-2.4.14/source/tarball/percona-xtrabackup-2.4.14.tar.gz"
   sha256 "4dffa6986aef358675b318b3b9f4a9b8df48e8fc4987ad2469bba1b186b47662"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 "3de1cc8089d273eaf169764138c669f8a87f5a74c585f8f259d0e49c74023bba" => :catalina
-    sha256 "c23450a2570d5cfce83aa24bdcb7d151261bd7cde183a570681a0b6d7fcdf5d6" => :mojave
-    sha256 "fcbbc4998956a5aee3f2ae098e913be5b9a0f732e534f8d21f5b9b1253ef21b8" => :high_sierra
+    sha256 "668e937c8b5bfd4494325f3fb1cad14dca148c572002f4701a8c74e1a7333247" => :catalina
+    sha256 "9c9b799666a1f0ce3a56d86b01989370a0717aa62497241528005c13f2a2dc01" => :mojave
+    sha256 "1776bd19664d4e423558bde7d5c9260ef6859220f7fe5a287f802ee25f1eeba8" => :high_sierra
   end
 
   depends_on "cmake" => :build
