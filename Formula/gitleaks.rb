@@ -1,29 +1,24 @@
 class Gitleaks < Formula
   desc "Audit git repos for secrets"
   homepage "https://github.com/zricethezav/gitleaks"
-  url "https://github.com/zricethezav/gitleaks/archive/v3.0.0.tar.gz"
-  sha256 "8f1c78c15e779643112e5c12ddaa05f103fe24b81bd628b0e644335b65e26cbe"
+  url "https://github.com/zricethezav/gitleaks/archive/v3.0.1.tar.gz"
+  sha256 "f1d30e4714407200129baa20e1f73420b24d8502e38d40f893b4782e20507fc0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bcaf26aa8ab448bbda9fcaeb247d8a2d0cb3f8cbd330e9eaed5998f859b6443d" => :catalina
-    sha256 "c8770283827f584775099d4f6d4372d0797dbbec19bb7f3be5966e8ee13c5157" => :mojave
-    sha256 "796986382740df5919ff039a0e9eab15ff1d74958cdc3e33ae9b0f10a701dc5c" => :high_sierra
-    sha256 "555a7d7717408a87b01378ea6df9ca871ebdecf135f6d5b9e18c0c45e92d4278" => :x86_64_linux
+    sha256 "18e8902a1de1cebbbfeeeb182a63d5923365f9e0d60359d84ab91e39424709d8" => :catalina
+    sha256 "01193c6401631b8588f3a7a0437a68d1d85c59fb1407b645aa334ab35b2962d9" => :mojave
+    sha256 "a1bc8b21076c57defe04d2ba392df88420adc02074fe6a35f3561d1c2b8fac9a" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
+    ldflags = %W[
+      -X github.com/zricethezav/gitleaks/version.Version=#{version}
+    ]
 
-    dir = buildpath/"github.com/zricethezav/gitleaks"
-    dir.install buildpath.children
-
-    cd dir do
-      system "go", "build", "-o", bin/"gitleaks"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags", ldflags.join(" "), "-o", bin/"gitleaks"
   end
 
   test do
