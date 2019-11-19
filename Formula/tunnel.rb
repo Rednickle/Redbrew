@@ -1,15 +1,14 @@
 class Tunnel < Formula
   desc "Expose local servers to the internet securely"
   homepage "https://tunnel.labstack.com/docs"
-  url "https://github.com/labstack/tunnel-client/archive/v0.5.9.tar.gz"
-  sha256 "e05c0d1ca16f2339397f922fa6245993db82a4e95487ee75049cdc6fbb540b7f"
+  url "https://github.com/labstack/tunnel-client/archive/v0.5.12.tar.gz"
+  sha256 "325f577ffccae54269289eb3134ff7b1cae2fb60a882108531e622de8f6e21de"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0781ad8426f33718cb8887d2ad61a8a5e5c71576f983f0b696c7be249728f33e" => :catalina
-    sha256 "79dadacebd7c332387285c918538ea368721271d142aa78f144db7dfc23c60d1" => :mojave
-    sha256 "9c55bf544787f37678ce9ab0e3708282a913926df7cd75cefaf660de7aa0d399" => :high_sierra
-    sha256 "c3646a09203e5e6e9d80b2d61498e16dfd00838b1b7e6dcd660195cdffe7e588" => :x86_64_linux
+    sha256 "5ae64aa290bdccdec7bcd07d11b28639588a8988c3dbcff6fb42006afd7ed129" => :catalina
+    sha256 "e46ad17077c5593342eccd07452953f35c96816c82df3972dcbeb2aad5d5645d" => :mojave
+    sha256 "dc840f6f2cb5cc6736c0c3f82efe9f01fa030856040f393f57a1ed7fdf728ba6" => :high_sierra
   end
 
   depends_on "go" => :build
