@@ -2,16 +2,15 @@ class Kubebuilder < Formula
   desc "SDK for building Kubernetes APIs using CRDs"
   homepage "https://github.com/kubernetes-sigs/kubebuilder"
   url "https://github.com/kubernetes-sigs/kubebuilder.git",
-      :tag      => "v2.1.0",
-      :revision => "51b536013c61d87b19e0d3e1d498c4ff3db5bbcf"
+      :tag      => "v2.2.0",
+      :revision => "0824a139f59e109c9e418a0b6e71a53c6e9e144f"
   head "https://github.com/kubernetes-sigs/kubebuilder.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b9ced42c41cc779728cf88a265d6ccc779593d4fadc54e09a7875045ddd8eefb" => :catalina
-    sha256 "7d080cf062c71c123368de823d1be821b7cc2c7f6f1cd447a605ce56f0d8984f" => :mojave
-    sha256 "7bb90a95808e0340b38f9af6ee2ed3a4db3fc0ea88bfd6b25f8e292b217e1928" => :high_sierra
-    sha256 "5b0ca72b35bf9bc4a7721cb223b32bb538b5192c2b46141de7ee99d8a1740335" => :x86_64_linux
+    sha256 "051043567cef8d39e55adfefab1d703831a26a4474d8a218f290c550069c4759" => :catalina
+    sha256 "32ab8d66024bf3f65d93d530ea418aeb3e8a4eca74b425a55f9f62bd2a8dcd49" => :mojave
+    sha256 "b7e50da13d190cb07d0d3c30a36cd7d084bd782481c48a83f5d48c8dedb4c091" => :high_sierra
   end
 
   depends_on "git-lfs" => :build
