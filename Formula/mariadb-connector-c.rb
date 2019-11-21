@@ -15,8 +15,8 @@ class MariadbConnectorC < Formula
   depends_on "openssl@1.1"
   uses_from_macos "curl"
 
-  conflicts_with "mysql", "mariadb", "percona-server",
-                 :because => "both install plugins"
+  conflicts_with "mariadb",
+                 :because => "both install mariadb_config"
 
   def install
     args = std_cmake_args
