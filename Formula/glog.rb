@@ -22,12 +22,14 @@ class Glog < Formula
       system "cmake", "..", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
       system "make", "install"
 
-      # Move lib64/* to lib/ on Linuxbrew
-      lib64 = Pathname.new "#{lib}64"
-      if lib64.directory?
-        system "mkdir -p #{lib}"
-        system "mv #{lib64}/* #{lib}/"
-        rmdir lib64
+      unless OS.mac?
+        # Move lib64/* to lib/ on Linuxbrew
+        lib64 = Pathname.new "#{lib}64"
+        if lib64.directory?
+          mkdir_p lib
+          mv lib64, lib
+          rmdir lib64
+        end
       end
     end
 
