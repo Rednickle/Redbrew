@@ -3,12 +3,12 @@ class Gwyddion < Formula
   homepage "http://gwyddion.net/"
   url "http://gwyddion.net/download/2.54/gwyddion-2.54.tar.gz"
   sha256 "4809f8709adb18aecff9dc0271832fd9840f02d4bc0e69d25c59d745f05cf81d"
+  revision 1
 
   bottle do
-    sha256 "30244622aea628ca3dcdd7f57e1a17e73aed09a1ca57340cf6dabe543929b671" => :catalina
-    sha256 "70e7fac78dd42c0d19cbdf80d07e1553f1c14e9b319a3a9f88aaac99c9a56d8b" => :mojave
-    sha256 "81e115edc3f1a97601629b5d4ab26cf3134d3b322c4688dc228acec5aad84452" => :high_sierra
-    sha256 "adfad7a2851c71f604a9a3efe6b284f18e4cfc60d167538a93d86876d6af400e" => :sierra
+    sha256 "d9868d3b33740bdc92832ba59279177379ab1da0990f81c57e9b067aad01e965" => :catalina
+    sha256 "79da1ba50706f1839c5451d1715185a65772079df2410af8f60d5a8f9462c0a6" => :mojave
+    sha256 "57c73721d1d657f5eba48df591f49a2c4451ded0f002dd661d5b05debd43ab7b" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -19,14 +19,13 @@ class Gwyddion < Formula
   depends_on "gtksourceview"
   depends_on "libxml2"
   depends_on "minizip"
-  depends_on "pygtk"
-  depends_on "python@2" # does not support Python 3
 
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-desktop-file-update",
                           "--prefix=#{prefix}",
-                          "--with-html-dir=#{doc}"
+                          "--with-html-dir=#{doc}",
+                          "--disable-pygwy"
     system "make", "install"
   end
 

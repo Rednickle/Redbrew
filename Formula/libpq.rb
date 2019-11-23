@@ -1,16 +1,13 @@
 class Libpq < Formula
   desc "Postgres C API library"
-  homepage "https://www.postgresql.org/docs/11/static/libpq.html"
-  url "https://ftp.postgresql.org/pub/source/v11.5/postgresql-11.5.tar.bz2"
-  sha256 "7fdf23060bfc715144cbf2696cf05b0fa284ad3eb21f0c378591c6bca99ad180"
-  revision 1
+  homepage "https://www.postgresql.org/docs/12/libpq.html"
+  url "https://ftp.postgresql.org/pub/source/v12.1/postgresql-12.1.tar.bz2"
+  sha256 "a09bf3abbaf6763980d0f8acbb943b7629a8b20073de18d867aecdb7988483ed"
 
   bottle do
-    sha256 "40e1dae7e45682dea663096349858936ce6b885ce25db523f27469e3f18febab" => :catalina
-    sha256 "641895e3f770b0eaa23bb7669c6ab8a198d67d341237cd1da6751f3e22ed8549" => :mojave
-    sha256 "f95a9ac7f46a6a1ad8c74e609c0ab2160591457ff8aa8785ea08792d90d4efb6" => :high_sierra
-    sha256 "94894610fed9516c72b9ed8bade18869d6ff71cd6ab2a28db2ed604ace0a023e" => :sierra
-    sha256 "81538219502a77555a91558eba175c3a1cadf34f76db6ebc580b2ed1b989de77" => :x86_64_linux
+    sha256 "e38eeb2551409bd6f85fac83f04fe73a794a040c155a75dafe56d6f8ce031494" => :catalina
+    sha256 "ced57c972519a98fb97dd178a6415aa191e624c06ea0fb78c735463a14b98d55" => :mojave
+    sha256 "fd9cc6a0674764f208d4ebe72619d01ae7f209010fca416a9ff5d9f2cc292166" => :high_sierra
   end
 
   keg_only "conflicts with postgres formula"
@@ -24,12 +21,21 @@ class Libpq < Formula
   def install
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",
-                          "--with-openssl"
+                          "--with-openssl",
+                          "--libdir=#{opt_lib}",
+                          "--includedir=#{opt_include}"
+    dirs = %W[
+      libdir=#{lib}
+      includedir=#{include}
+      pkgincludedir=#{include}/postgresql
+      includedir_server=#{include}/postgresql/server
+      includedir_internal=#{include}/postgresql/internal
+    ]
     system "make"
-    system "make", "-C", "src/bin", "install"
-    system "make", "-C", "src/include", "install"
-    system "make", "-C", "src/interfaces", "install"
-    system "make", "-C", "doc", "install"
+    system "make", "-C", "src/bin", "install", *dirs
+    system "make", "-C", "src/include", "install", *dirs
+    system "make", "-C", "src/interfaces", "install", *dirs
+    system "make", "-C", "doc", "install", *dirs
   end
 
   test do

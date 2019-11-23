@@ -3,14 +3,14 @@ class Passenger < Formula
   homepage "https://www.phusionpassenger.com/"
   url "https://github.com/phusion/passenger/releases/download/release-6.0.4/passenger-6.0.4.tar.gz"
   sha256 "ec1e4b555c176642c1c316897177d54b6f7d369490280e8ee3e54644e40b250b"
+  revision 1
   head "https://github.com/phusion/passenger.git", :branch => "stable-6.0"
 
   bottle do
     cellar :any
-    sha256 "1666c82a84620312ec62cfb77002ed6e179e2b1293660ba894b54d7233790794" => :catalina
-    sha256 "24321dbcff81680db700a4db7b51ec3e0f3ac0b529da65472dc31d16cb2274ec" => :mojave
-    sha256 "ed377d83606fa170504a5eef8616e565a3bd13a9df2039ad6b512aa11356ef65" => :high_sierra
-    sha256 "0953ddc8a300558ce56392181435f98760afa469fd12bbe4664ddaa471c7e8ff" => :sierra
+    sha256 "edc179d81d892aeabf1bea02123a75cbc7fe8c0c968f4b3e8695972b81a16967" => :catalina
+    sha256 "2ab3427b6525c4d6bc2ac05a840e7d7ecf018cf66508be3df0c721c1900d7e6f" => :mojave
+    sha256 "2b63ac2c49a30552c3759c807fb11db8a7c41f198efa824dd05871d1b9e67f01" => :high_sierra
   end
 
   # to build nginx module
@@ -18,9 +18,18 @@ class Passenger < Formula
   depends_on "openssl@1.1"
   depends_on "pcre"
 
+  # Enables setting temp path to avoid sandbox violations, already merged upstream
+  patch do
+    url "https://github.com/phusion/passenger/commit/e512231f.patch?full_index=1"
+    sha256 "9f39f5c1c8b68516f7bac0ba07921144a5de30b6a72ef2423ea83a77d512bea8"
+  end
+
   def install
-    # https://github.com/Homebrew/homebrew-core/pull/1046
-    ENV.delete("SDKROOT")
+    if MacOS.version >= :mojave && MacOS::CLT.installed?
+      ENV["SDKROOT"] = MacOS::CLT.sdk_path(MacOS.version)
+    else
+      ENV.delete("SDKROOT")
+    end
 
     inreplace "src/ruby_supportlib/phusion_passenger/platform_info/openssl.rb" do |s|
       s.gsub! "-I/usr/local/opt/openssl/include", "-I#{Formula["openssl@1.1"].opt_include}"
@@ -119,6 +128,7 @@ class Passenger < Formula
         proxy_temp_path #{testpath}/proxy_temp;
         scgi_temp_path #{testpath}/scgi_temp;
         uwsgi_temp_path #{testpath}/uwsgi_temp;
+        passenger_temp_path #{testpath}/passenger_temp;
 
         server {
           passenger_enabled on;
