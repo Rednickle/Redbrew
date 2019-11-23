@@ -1,6 +1,7 @@
 class Valgrind < Formula
   desc "Dynamic analysis tools (memory, debug, profiling)"
   homepage "https://www.valgrind.org/"
+  revision 1 unless OS.mac?
 
   stable do
     url "https://sourceware.org/pub/valgrind/valgrind-3.15.0.tar.bz2"
