@@ -3,18 +3,14 @@ require "os/linux/glibc"
 class GccAT7 < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-  url "https://ftp.gnu.org/gnu/gcc/gcc-7.4.0/gcc-7.4.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gcc/gcc-7.4.0/gcc-7.4.0.tar.xz"
-  sha256 "eddde28d04f334aec1604456e536416549e9b1aa137fc69204e65eb0c009fe51"
-  revision 2
+  url "https://ftp.gnu.org/gnu/gcc/gcc-7.5.0/gcc-7.5.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gcc/gcc-7.5.0/gcc-7.5.0.tar.xz"
+  sha256 "b81946e7f01f90528a1f7352ab08cc602b9ccc05d4e44da4bd501c5a189ee661"
 
   # gcc is designed to be portable.
   bottle do
-    cellar :any
-    sha256 "cd0ab374ef92a1688ccf2e6cf6c275c64e99b05ef1e7b145e3ef56569cc2f2e6" => :mojave
-    sha256 "5a47d91428176dfb4b77bcddc24844a0ae31dd0cd8347913e10eb753e0b7df61" => :high_sierra
-    sha256 "804157359c20bdb3ddf6b8b2bd86a6ead241d217d00e82b1365539ef9675ce1b" => :sierra
-    sha256 "c0f54b3951cdc8c4585e8b91b90a37e092aefbe2d2a7b3159a85917d27f62062" => :x86_64_linux
+    sha256 "f9df4177f2893dd91df5e8ccf825bc1e5f46f4ea23526e18307874d00d61f892" => :mojave
+    sha256 "c2dc80495ae24de4482cb26f53460fd5b1d9068d9be8462e4c896940858adf65" => :high_sierra
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -37,16 +33,6 @@ class GccAT7 < Formula
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
-
-  # Patch for Xcode bug, taken from https://gcc.gnu.org/bugzilla/show_bug.cgi?id=89864#c43
-  # This should be removed in the next release of GCC if fixed by apple; this is an xcode bug,
-  # but this patch is a work around committed to GCC trunk
-  if OS.mac? && MacOS::Xcode.version >= "10.2"
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/gcc%407/gcc7-xcode10.2.patch"
-      sha256 "873f791d249467bd4187f2994b08a924774d39311af93b61c827e066434181fe"
-    end
-  end
 
   def install
     # GCC will suffer build errors if forced to use a particular linker.
@@ -139,7 +125,7 @@ class GccAT7 < Formula
         elsif MacOS.version >= :mojave
           # System headers are no longer located in /usr/include
           args << "--with-native-system-header-dir=/usr/include"
-          args << "--with-sysroot=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk"
+          args << "--with-sysroot=/Library/Developer/CommandLineTools/SDKs/MacOSX#{MacOS.version}.sdk"
         end
       end
 
