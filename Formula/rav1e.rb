@@ -5,13 +5,14 @@ class Rav1e < Formula
   sha256 "00395087eaba4778d17878924e007716e2f399116b8011bf057fd54cc528a6cb"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "1367e1ee122f6c24213d78e7ec5c26545ebc5a901ffb5b129013282e06175bc8" => :catalina
-    sha256 "f2e114c452d5abca2e1ec3635add73036520092f25db8285a5d35b7125483098" => :mojave
-    sha256 "d7677873a6ddb3c9818aadc04324727bd7d402ec930609dbbffff47cb931337a" => :high_sierra
-    sha256 "b89b22589862ee16685a1d007874d30c39f2d9be664f60d10e1e4907ca96a96c" => :x86_64_linux
+    cellar :any
+    rebuild 1
+    sha256 "7a7fe6d524b3a1acd21318f391772ba3e6a166b3766b93a53e3d16f62ea65c22" => :catalina
+    sha256 "ab83db0131cba30e27596fb3a6b78af2e22e942ed0f28ff521b72f241cfe7467" => :mojave
+    sha256 "292555163436269437a469eefe7730e86bb4ee6537edfd25395ac87ffd909c35" => :high_sierra
   end
 
+  depends_on "cargo-c" => :build
   depends_on "nasm" => :build
   depends_on "rust" => :build
 
@@ -24,6 +25,7 @@ class Rav1e < Formula
     system "cargo", "install", "--locked",
                                "--root", prefix,
                                "--path", "."
+    system "cargo", "cinstall", "--prefix", prefix
   end
 
   test do
