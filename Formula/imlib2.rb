@@ -1,15 +1,13 @@
 class Imlib2 < Formula
   desc "Image loading and rendering library"
   homepage "https://sourceforge.net/projects/enlightenment/"
-  url "https://downloads.sourceforge.net/project/enlightenment/imlib2-src/1.5.1/imlib2-1.5.1.tar.bz2"
-  sha256 "fa4e57452b8843f4a70f70fd435c746ae2ace813250f8c65f977db5d7914baae"
-  revision 1
+  url "https://downloads.sourceforge.net/project/enlightenment/imlib2-src/1.6.0/imlib2-1.6.0.tar.bz2"
+  sha256 "cfc440ddfaed5fc85ba2572ad8d87a87cd77a5bffb33ebca882c42cefcd8691d"
 
   bottle do
-    sha256 "d4b9918e30a1126f1b9a1b6372cdd2c013e17355e917ec283ea0f792df2328c8" => :catalina
-    sha256 "05b8a89744caac23ef9cb95c1e75a19e8ff127023eb786db4c20c146d3e33743" => :mojave
-    sha256 "cbbefadfe4a7d6a8a7df2f66251fccfc2973808d8cbeb48f8cef8c1b1ef9ff1d" => :high_sierra
-    sha256 "8158f15d548d855331ab59a7daf0a730a2cda8c1ded5854a39e0d6ba468032d9" => :x86_64_linux
+    sha256 "9db8828f5bdcf1e66053cf5fc4b7e8c0e23d092c2db84a5a8d657be20ab26515" => :catalina
+    sha256 "573b4531211a05e3a6248736af333e9964fc5b6ae64dd25c99b5cb9fc75fb729" => :mojave
+    sha256 "8bde43cdec3e8b5195ef574901be09c6b414755161a725637d3a7a90b3a326a7" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

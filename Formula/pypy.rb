@@ -1,18 +1,15 @@
 class Pypy < Formula
   desc "Highly performant implementation of Python 2 in Python"
   homepage "https://pypy.org/"
-  url "https://bitbucket.org/pypy/pypy/downloads/pypy2.7-v7.1.1-src.tar.bz2"
-  sha256 "5f06bede6d71dce8dfbfe797aab26c8e35cb990e16b826914652dc093ad74451"
-  revision 1
+  url "https://bitbucket.org/pypy/pypy/downloads/pypy2.7-v7.2.0-src.tar.bz2"
+  sha256 "55cb7757784fbe3952102447f65b27d80e6c885a464a7af1a9ce264492439dcc"
   head "https://bitbucket.org/pypy/pypy", :using => :hg
 
   bottle do
     cellar :any
-    sha256 "e1840eed0266a35996470db66f28b1d1b2fabcda7f51200e81847c2c59a32ed8" => :catalina
-    sha256 "14c8cec024030a5c28748a0783e4e7c6dfcc31b81dfbed4cd53eb0ea0b382aa6" => :mojave
-    sha256 "d2c8f92fcbd771cb919d92a8aac14970d26c7cd3d41965dcf8507c5195fd00c7" => :high_sierra
-    sha256 "90fc694ab3be9590e0aaf3a2c77042978c2b93776b94f6e8ba5df7d849f250f3" => :sierra
-    sha256 "2cd10acca3e75bb8a6943c5b9d9634aad14f185f3027472cca760bb8e7b5bf04" => :x86_64_linux
+    sha256 "ae97f3007fcb482c5c0b39f37b444f84771a697bf36f7f3fdf8c22c8b653eda8" => :catalina
+    sha256 "d0b2bae0b56b6439aec9e2fef89c4225258c736ed53896d73095205785afc633" => :mojave
+    sha256 "99e670825a05a82433ec6de3a8d0639b9d88b238552e39c7e4ca3bcf8ee5fdf1" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -23,51 +20,52 @@ class Pypy < Formula
   depends_on "libffi" if OS.mac? && DevelopmentTools.clang_build_version >= 1000
   depends_on "openssl@1.1"
   depends_on "sqlite"
-  unless OS.mac?
-    depends_on "expat"
-    depends_on "libffi"
-    depends_on "tcl-tk"
-    depends_on "zlib"
-  end
+  depends_on "tcl-tk"
+
+  uses_from_macos "expat"
+  uses_from_macos "libffi"
+  uses_from_macos "zlib"
 
   resource "bootstrap" do
     if OS.mac?
-      url "https://bitbucket.org/pypy/pypy/downloads/pypy2.7-v7.0.0-osx64.tar.bz2"
-      sha256 "e7ecb029d9c7a59388838fc4820a50a2f5bee6536010031060e3dfa882730dc8"
+      url "https://bitbucket.org/pypy/pypy/downloads/pypy2.7-v7.1.1-osx64.tar.bz2"
+      sha256 "31a17294dec96c2191885c776b4ee02112957dc874f7ba03e570537a77b78c35"
     else
-      url "https://bitbucket.org/pypy/pypy/downloads/pypy2.7-v7.0.0-linux64.tar.bz2"
-      sha256 "971b1909f9fe960c4c643a6940d3f8a60d9a7a2937119535ab0cfaf83498ecd7"
+      url "https://bitbucket.org/pypy/pypy/downloads/pypy2.7-v7.1.1-linux64.tar.bz2"
+      sha256 "73b09ef0860eb9ad7997af3030b22909806a273d90786d78420926df53279d66"
     end
-    version "7.0.0"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/source/s/setuptools/setuptools-41.0.1.zip"
-    sha256 "a222d126f5471598053c9a77f4b5d4f26eaa1f150ad6e01dcf1a42e185d05613"
+    url "https://files.pythonhosted.org/packages/11/0a/7f13ef5cd932a107cd4c0f3ebc9d831d9b78e1a0e8c98a098ca17b1d7d97/setuptools-41.6.0.zip"
+    sha256 "6afa61b391dcd16cb8890ec9f66cc4015a8a31a6e1c2b4e0c464514be1a3d722"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/source/p/pip/pip-19.1.1.tar.gz"
-    sha256 "44d3d7d3d30a1eb65c7e5ff1173cdf8f7467850605ac7cc3707b6064bddd0958"
+    url "https://files.pythonhosted.org/packages/ce/ea/9b445176a65ae4ba22dce1d93e4b5fe182f953df71a145f557cffaffc1bf/pip-19.3.1.tar.gz"
+    sha256 "21207d76c1031e517668898a6b46a9fb1501c7a4710ef5dfd6a40ad9e6757ea7"
   end
 
   def install
-    ENV.append "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers" if OS.mac?
+    ENV.prepend_path "PKG_CONFIG_PATH", "#{prefix}/opt/tcl-tk/lib/pkgconfig"
+    ENV.prepend "LDFLAGS", "-L#{prefix}/opt/tcl-tk/lib"
+    ENV.prepend "CPPFLAGS", "-I#{prefix}/opt/tcl-tk/include"
     # Having PYTHONPATH set can cause the build to fail if another
     # Python is present, e.g. a Homebrew-provided Python 2.x
     # See https://github.com/Homebrew/homebrew/issues/24364
     ENV["PYTHONPATH"] = ""
     ENV["PYPY_USESSION_DIR"] = buildpath
 
+    # Fix build on High Sierra
+    inreplace "lib_pypy/_tkinter/tklib_build.py" do |s|
+      s.gsub! "/System/Library/Frameworks/Tk.framework/Versions/Current/Headers/",
+              "#{prefix}/opt/tcl-tk/include"
+      s.gsub! "libdirs = []",
+              "libdirs = ['#{prefix}/opt/tcl-tk/lib']"
+    end
+
     resource("bootstrap").stage buildpath/"bootstrap"
     python = buildpath/"bootstrap/bin/pypy"
-
-    unless OS.mac?
-      inreplace "lib_pypy/_tkinter/tklib_build.py" do |s|
-        s.gsub! "/usr/include/tcl", Formula["tcl-tk"].opt_include.to_s
-        s.gsub! "'tcl' + _ver, 'tk' + _ver", "'tcl8.6', 'tk8.6'"
-      end
-    end
 
     cd "pypy/goal" do
       system python, buildpath/"rpython/bin/rpython",
