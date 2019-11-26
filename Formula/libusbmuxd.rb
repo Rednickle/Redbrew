@@ -1,19 +1,17 @@
 class Libusbmuxd < Formula
   desc "USB multiplexor library for iOS devices"
   homepage "https://www.libimobiledevice.org/"
-  revision 1
 
   stable do
-    url "https://github.com/libimobiledevice/libusbmuxd/archive/2.0.0.tar.gz"
-    sha256 "ecf287b9d5fa28645a6b5ed640b6bd174134227c4fd8fde28d0678df2be0e97a"
+    url "https://github.com/libimobiledevice/libusbmuxd/archive/2.0.1.tar.gz"
+    sha256 "f93faf3b3a73e283646f4d62b3421aeccf58142266b0eb22b2b13dd4b2362eb8"
   end
 
   bottle do
     cellar :any
-    sha256 "cd86a52e7d94295f6ddb4f61449f349f22e6ebe0dec876904a0bdde78869035b" => :catalina
-    sha256 "c296286ac58e0afbd167f37b7be5ced50c104252d69878e9a54f33268eb54a54" => :mojave
-    sha256 "c37185be694168115ef33c17794a3a00ef3e917ade673f0a6a7f39fb3a9dd5dd" => :high_sierra
-    sha256 "ee432299637791b86a04ae3d0422a1b258e74a5e83a4c1ac739b232cb1931665" => :x86_64_linux
+    sha256 "082a3ef816c55324d9c8c51917b155403211284940b10e822d87cac91991ec0b" => :catalina
+    sha256 "d6d7639277e5590b24713cad79e12c7b9dbb373c6ecf76c97a007041b5307fe2" => :mojave
+    sha256 "dd3ef2fb6343f59a05c16a66f3e839a14b660cec0c11d3d40bb00f9505565a2a" => :high_sierra
   end
 
   head do
