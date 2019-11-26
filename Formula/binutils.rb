@@ -7,6 +7,7 @@ class Binutils < Formula
 
   # binutils is portable.
   bottle do
+    cellar :any
     sha256 "c9043b4615a1462646f0af1296fdc4ec70fc654fb7daff77f9c4e73373d1b312" => :catalina
     sha256 "c97046dc6f519c176addcd4ed37afddc0553e7eebf8b30fbd5a5b64487b9cdc4" => :mojave
     sha256 "021367441684b194be93d5be015930e1507a6a2d7c7201d3815740a052f0b87a" => :high_sierra
