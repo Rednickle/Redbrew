@@ -1,15 +1,15 @@
 class Scipy < Formula
   desc "Software for mathematics, science, and engineering"
   homepage "https://www.scipy.org"
-  url "https://files.pythonhosted.org/packages/df/20/2f147945396fa74b467d696e42aa55eb603d166490a8ebe4d79e54c793df/scipy-1.3.2.tar.gz"
-  sha256 "a03939b431994289f39373c57bbe452974a7da724ae7f9620a1beee575434da4"
+  url "https://files.pythonhosted.org/packages/a7/5c/495190b8c7cc71977c3d3fafe788d99d43eeb4740ac56856095df6a23fbd/scipy-1.3.3.tar.gz"
+  sha256 "64bf4e8ae0db2d42b58477817f648d81e77f0b381d0ea4427385bba3f959380a"
   head "https://github.com/scipy/scipy.git"
 
   bottle do
     cellar :any
-    sha256 "7da0580acb4ae66ff2d84fc8cdbc83a828b498fdd060e6c257755d22a08a3cfd" => :catalina
-    sha256 "27382ea2cd1b636c4ce18187c3027d19bfbcbde978d286cf31f58e535501a2f5" => :mojave
-    sha256 "95bab403776f3ae5b8770e8da1ce08e5c2b4f29fe3fb7282ca5db9e647302d78" => :high_sierra
+    sha256 "90c66bb5eb57a751896a07b8a44fcaa9bd7440e5aa073b5c96a1df2e04e88894" => :catalina
+    sha256 "125d98ba98493a26d7e1f0466f941de4fd7a295af34ff628a6e8b623d7d5aba3" => :mojave
+    sha256 "a7dc8831f6566a55aa266cc20b6653015bf29a18d68f315ca0f001bd39b61480" => :high_sierra
   end
 
   depends_on "swig" => :build

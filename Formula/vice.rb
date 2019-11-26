@@ -3,14 +3,13 @@ class Vice < Formula
   homepage "https://vice-emu.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/vice-emu/releases/vice-3.3.tar.gz"
   sha256 "1a55b38cc988165b077808c07c52a779d181270b28c14b5c9abf4e569137431d"
-  revision 2
+  revision 3
   head "https://svn.code.sf.net/p/vice-emu/code/trunk/vice"
 
   bottle do
-    sha256 "7cc7889e59d86aea5c5d546b2546f0d362eca98f0a3b30c6b79a0b225ff6e134" => :catalina
-    sha256 "70cd1c39de3602ff4f6834bae1e2bdb084183d48dfd50559e771f91b8b13dead" => :mojave
-    sha256 "93a9bd8e96d84c627e54ca142674e99fa47e8501dac887210d7afcde43d511d9" => :high_sierra
-    sha256 "ec8486f012038772ef8239623f472d7c619c614194f0da67d72cadaedf10154c" => :sierra
+    sha256 "ab60f8d6ed6e48190ae40464b449578141326e56006e422e46b85525f0876fec" => :catalina
+    sha256 "8774f17d04f9f3967886123347151705b1e53d0d3d55328ba553d60f1a73747b" => :mojave
+    sha256 "009af174f99daedad8b319cef9668f07d7c513fa8a859a687ef731a3e2a1abf7" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

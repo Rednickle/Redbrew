@@ -1,28 +1,23 @@
 class Pianod < Formula
   desc "Pandora client with multiple control interfaces"
   homepage "https://deviousfish.com/pianod/"
-  url "https://deviousfish.com/Downloads/pianod/pianod-176.tar.gz"
-  sha256 "4f3be12daef1adb3bcbbcf8ec529abf0ac018e03140be9c5b0f1203d6e1b9bf0"
-  revision 1
+  url "http://deviousfish.com/Downloads/pianod2/Devel/pianod2-298.tar.gz"
+  sha256 "0de916d8df19c045a98fd9b63ec25f157d30235c412689c00c3cead99c64ba76"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "14b7d55edd091ded3ad707d14e81136fdd34ec38308b292bd78a4879c7690fa1" => :catalina
-    sha256 "e85267b08e38e5657066b8c20e84177ada48b11567c79de70e4b61b65da515f7" => :mojave
-    sha256 "f3b3d4d7ab4c8841a87cb44ecfee33fdd69b05c85c2f62f094ae4251fe38d777" => :high_sierra
-    sha256 "7c5f10241a72c7200552cc9b2ca735a416f963ccf5307e053eab5712ce2452ea" => :x86_64_linux
+    sha256 "6c0dee18b03c7dfd0c4d752164b7e86edd84098f3dfccd4e248d4e2085314988" => :catalina
+    sha256 "f5f17916dd35eb4ec45b7ad25ed7b82cd7f8b7dd4cd53846b4fd023e331cd622" => :mojave
+    sha256 "0d3430afe66553f3b3a87798766ff1bccc2972ed2867a363ebf6d1b8a3ae57b1" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
-  depends_on "faad2"
-  depends_on "gnutls"
   depends_on "json-c"
   depends_on "libao"
   depends_on "libgcrypt"
-  depends_on "mad"
 
   def install
+    ENV["OBJCXXFLAGS"] = "-std=c++11"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",

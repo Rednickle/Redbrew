@@ -8,16 +8,15 @@ class Bind < Formula
   # "version_scheme" because someone upgraded to 9.15.0, and required a
   # downgrade.
 
-  url "https://ftp.isc.org/isc/bind/9.14.7/bind-9.14.7.tar.gz"
-  sha256 "cea0f54e5908f77ffd21eb312ee9dd4f3f8f93ca312c6118f27d6c0fba45291d"
+  url "https://ftp.isc.org/isc/bind/9.14.8/bind-9.14.8.tar.gz"
+  sha256 "e545aa75ced6695a9bf4b591606ef00260fb3c055c2865b299cfe0fe6eeea076"
   version_scheme 1
   head "https://gitlab.isc.org/isc-projects/bind9.git"
 
   bottle do
-    sha256 "7a25e1c396315cff3ea878c0bba176078f1c76559afef6bc3f367763d2bc1769" => :catalina
-    sha256 "08329c4f83dc10626cfed146f4123dd19ff9bc8336dfb0e8dfbfd01b4f01ccf5" => :mojave
-    sha256 "48a3e794f6832bf04bd3f9880f542980ba46bc62dd1c3722dd322cf4d1e7b694" => :high_sierra
-    sha256 "fb1e946a79c3ff1814a06906c3e34937548c6d528c82a96e882439d16740e65e" => :x86_64_linux
+    sha256 "9203b586ea98db5e5bd470025bcec3ec2faf4e3b9f1d4c6d7bab1c3896d7eb3d" => :catalina
+    sha256 "a741231331f8fe183b26b3c2ee5142a0ee1a1bdb2d2c967409fc4f95498edbfb" => :mojave
+    sha256 "7ebea9d31d03f4ecec70697dbf4d3e8fa5cd79630f08b251ca5f1a437d2f25c6" => :high_sierra
   end
 
   depends_on "json-c"
