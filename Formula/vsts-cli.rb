@@ -8,11 +8,10 @@ class VstsCli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fe8bf52da2dfd3a475c035183a3fb2587b7ab255a598aa3bf30ffd5ab8cff6e6" => :catalina
-    sha256 "55cd1a1328f4d3f85d4f7319b8cc1eaa6bfb2c528922f7707e5156649a54c997" => :mojave
-    sha256 "0ab4def28bd633cdbd4d82158db3eb7f105e91091c2740cf37a6f84d065a0c69" => :high_sierra
-    sha256 "cffcc18b4f1785c13c9599de7f829df864fa319ee614383b1652526a17ea87a3" => :sierra
-    sha256 "f00e1823d44602ff412df06ebc6faa5484045d5b9ee86843c6b6fc9e4b9da7a7" => :x86_64_linux
+    rebuild 1
+    sha256 "703ab6ce70b48ab910259ff44277d23d6c87a58d04d6e21e8231ab1351fd9ece" => :catalina
+    sha256 "10436bda5077ec04a3507f034c708c54166ac3de0be142bb84e20852dd16b249" => :mojave
+    sha256 "ca77ac87f904bb3e88fb958f5d088d4740d93ea134a41c5bab3fb1218ef7c54d" => :high_sierra
   end
 
   depends_on "python"
@@ -125,11 +124,6 @@ class VstsCli < Formula
   resource "vsts" do
     url "https://files.pythonhosted.org/packages/e7/37/d8725833efba01d234aabda5a0c2ffb6c369dd3286bca265dfbbe7a51250/vsts-0.1.20.tar.gz"
     sha256 "1ece70729d616029f7fd1859524ee6b7d95ff07403af7bb4f963322ad28005f8"
-  end
-
-  resource "vsts-cli" do
-    url "https://files.pythonhosted.org/packages/f9/c2/3ed698480ab30d2807fc961eef152099589aeaec3f1407945a4e07275de5/vsts-cli-0.1.4.tar.gz"
-    sha256 "27defe1d8aaa1fcbc3517274c0fdbd42b5ebe2c1c40edfc133d98fe4bb7114de"
   end
 
   resource "vsts-cli-admin" do

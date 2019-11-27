@@ -8,9 +8,10 @@ class Bazelisk < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b6e209c53c904eb4ea0eefb3935e24ad1330dda2c5b2a9ea822e6c0f93ed39cd" => :catalina
-    sha256 "b6e209c53c904eb4ea0eefb3935e24ad1330dda2c5b2a9ea822e6c0f93ed39cd" => :mojave
-    sha256 "b6e209c53c904eb4ea0eefb3935e24ad1330dda2c5b2a9ea822e6c0f93ed39cd" => :high_sierra
+    rebuild 1
+    sha256 "b67457baf627d399aadd91e420886a7cfaca0d715940b168750f63164991054e" => :catalina
+    sha256 "b67457baf627d399aadd91e420886a7cfaca0d715940b168750f63164991054e" => :mojave
+    sha256 "b67457baf627d399aadd91e420886a7cfaca0d715940b168750f63164991054e" => :high_sierra
   end
 
   depends_on "bazel" => :build
@@ -25,6 +26,7 @@ class Bazelisk < Formula
   end
 
   test do
+    ENV["USE_BAZEL_VERSION"] = Formula["bazel"].version
     assert_match /v#{version}/, shell_output("#{bin}/bazelisk version")
 
     # This is an older than current version, so that we can test that bazelisk

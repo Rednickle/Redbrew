@@ -1,17 +1,14 @@
 class Tmux < Formula
   desc "Terminal multiplexer"
   homepage "https://tmux.github.io/"
-  url "https://github.com/tmux/tmux/releases/download/2.9a/tmux-2.9a.tar.gz"
-  sha256 "839d167a4517a6bffa6b6074e89a9a8630547b2dea2086f1fad15af12ab23b25"
-  revision 1
+  url "https://github.com/tmux/tmux/releases/download/3.0/tmux-3.0.tar.gz"
+  sha256 "9edcd78df80962ee2e6471a8f647602be5ded62bb41c574172bb3dc3d0b9b4b4"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "9479fe351b5e6165ac6c50b6cdd393afa84fc35e908696a6b0410f2f8cf8dd01" => :catalina
-    sha256 "a6c847ffc57c9e6d730b1dcfb3ca193588cfdb679a60f221a41690ac8ec202a7" => :mojave
-    sha256 "c01b0af8cf9a266e4ced0aaa6c05bd9c83b69b22ea9c790f0ab38eec4d86fcbf" => :high_sierra
-    sha256 "caeb4047951019c086ddbb8d0ace71b3f62e7266decd2b06c28f0213897292b4" => :sierra
-    sha256 "978e4cb473ec3570e04ba60df6218e3ba260c759a918055ae13de5fa1de021db" => :x86_64_linux
+    cellar :any
+    sha256 "24bcd11bb53dbab31da4925e65937ae360e516532e6bc33e810ebd1097657d48" => :catalina
+    sha256 "6218422cc4111b6328f2ca9cc69012769bcab08415e707b9076522a86938859f" => :mojave
+    sha256 "271471eb543a7ea4fd7d724f9bf19ff7f9b5159f362c4a486f161871d2298506" => :high_sierra
   end
 
   head do
