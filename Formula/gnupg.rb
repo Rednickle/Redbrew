@@ -1,15 +1,13 @@
 class Gnupg < Formula
   desc "GNU Pretty Good Privacy (PGP) package"
   homepage "https://gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.17.tar.bz2"
-  sha256 "afa262868e39b651a2db4c071fba90415154243e83a830ca00516f9a807fd514"
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.18.tar.bz2"
+  sha256 "30d37ce2ca55b2b9b61480b2a175a3b22066ab41cd3f84688448919b566dec0a"
 
   bottle do
-    sha256 "4d6dcc2800fd42235849fec27fe13843abbe0f6a35dc1a33c8477325ecd10037" => :catalina
-    sha256 "1644ab52baf4e89ad3eb5423e67bef8f316edb02dac68879a92a72515b8de594" => :mojave
-    sha256 "131b7346fb893388dac5db6d20943a6f2a03f123568fa8495a4faeb354a7b394" => :high_sierra
-    sha256 "ffb619c7cd3b5e9cd11444b17eea2e2b0d63da2f8cc3d2fbd3a1d834ff428a8b" => :sierra
-    sha256 "f46112a6a1660615c6a7db1a6c4d19f4516e3a398d161c37fb5a9ec25c178e48" => :x86_64_linux
+    sha256 "f917eab1b8680aaec7f565917b168ff5cf085476ccd1a32db5961b27ca98d376" => :catalina
+    sha256 "b65d87ac6cb5dc10de6f4afa7e33ca79c146b5a2a35ad8455ac01eeddc9e82f5" => :mojave
+    sha256 "b3ba15bfd670a472ec9b2ddbf65b3d05c2d9802089afeee8a129a5eb470dcaea" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
