@@ -1,16 +1,15 @@
 class Nushell < Formula
   desc "Modern shell for the GitHub era"
   homepage "https://www.nushell.sh"
-  url "https://github.com/nushell/nushell/archive/0.6.0.tar.gz"
-  sha256 "90cdd83410d23e32fd47457d227b00cb2c8f607ac38020360eea0e385b693707"
+  url "https://github.com/nushell/nushell/archive/0.6.1.tar.gz"
+  sha256 "3f7878df7d77fe330e6840428845800d9eefc2ad8248617c42004030ecf527f0"
   head "https://github.com/nushell/nushell.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fe7d8bb7afc14616f3513d1d4cb2a615ebd2d63460d020f5d7d732e14ab6ae7a" => :catalina
-    sha256 "2ebfe6d0b3364c8efa9f308a55724eeaceaa2d40e7a89d63ce6274a57ce8badf" => :mojave
-    sha256 "b00815e1b2dee7798a79b357a1afc9c203cc49037d1da39051184ef9a1cf4f53" => :high_sierra
-    sha256 "1b8cfd1f02a6209d2799b71437157b64dde0caa8e6ca50843152c5cab5a8b5bd" => :x86_64_linux
+    sha256 "dc92b88a9b8f3bd658d7e94852781b94c8454f96d880bd51bcf09a4bc42365d5" => :catalina
+    sha256 "1bf554953bade08fd0d34e5c79286a20a3a4707d23f24f8416e702d3a853eee0" => :mojave
+    sha256 "0a462f17a6f2c1fdab7fd605da8b24d1e30e83fdfd7834756f054d25460c1543" => :high_sierra
   end
 
   depends_on "openssl@1.1"
