@@ -3,13 +3,12 @@ class Vips < Formula
   homepage "https://github.com/libvips/libvips"
   url "https://github.com/libvips/libvips/releases/download/v8.8.3/vips-8.8.3.tar.gz"
   sha256 "c5e4dd5a5c6a777c129037d19ca606769b3f1d405fcc9c8eeda906a61491f790"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 "8c31d6738b85b66511af4c73ffb3cfe5ea28c795fa953a55498f717722f69b81" => :catalina
-    sha256 "e47f5605d1838c9d7733bacda4fe0b6755e94a8431b9fd190d37a669997d9e08" => :mojave
-    sha256 "46df8329d0438446b0da1cf17fec608627c33bf3ad3d13abd597ecb955e75ec7" => :high_sierra
-    sha256 "fc3ed338fa7531c5fe7739239ecb625d5121eab1fe35d57d551e84f6ad0b980c" => :x86_64_linux
+    sha256 "261c88feda43fbf3da5ea298a4d16b74fa6125f896ce38d9069e007f460e768e" => :catalina
+    sha256 "8981625145a1775cf8cc4b385a97262229fd5bfb61fe7be2ab4bb249f4f13f2d" => :mojave
+    sha256 "eecfa10af511e9da060bb449f538eba0f053a87295d22af210d072fe06af8a12" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -20,7 +19,6 @@ class Vips < Formula
   depends_on "giflib"
   depends_on "glib"
   depends_on "imagemagick"
-  depends_on "jpeg"
   depends_on "libexif"
   depends_on "libgsf"
   depends_on "libheif"
@@ -29,6 +27,7 @@ class Vips < Formula
   depends_on "librsvg"
   depends_on "libtiff"
   depends_on "little-cms2"
+  depends_on "mozjpeg"
   depends_on "openexr"
   depends_on "openslide"
   depends_on "orc"
@@ -39,6 +38,9 @@ class Vips < Formula
   depends_on "gobject-introspection" unless OS.mac?
 
   def install
+    # mozjpeg needs to appear before libjpeg, otherwise it's not used
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["mozjpeg"].opt_lib/"pkgconfig"
+
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
@@ -53,5 +55,9 @@ class Vips < Formula
     system "#{bin}/vips", "-l"
     cmd = "#{bin}/vipsheader -f width #{test_fixtures("test.png")}"
     assert_equal "8", shell_output(cmd).chomp
+
+    # --trellis-quant requires mozjpeg, vips warns if it's not present
+    cmd = "#{bin}/vips jpegsave #{test_fixtures("test.png")} #{testpath}/test.jpg --trellis-quant 2>&1"
+    assert_equal "", shell_output(cmd)
   end
 end

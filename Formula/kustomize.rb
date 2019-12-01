@@ -2,34 +2,28 @@ class Kustomize < Formula
   desc "Template-free customization of Kubernetes YAML manifests"
   homepage "https://github.com/kubernetes-sigs/kustomize"
   url "https://github.com/kubernetes-sigs/kustomize.git",
-      :tag      => "kustomize/v3.2.1",
-      :revision => "d89b448c745937f0cf1936162f26a5aac688f840"
+      :tag      => "kustomize/v3.4.0",
+      :revision => "2c9635967a2b1469d605a91a1d040bd27c73ca7d"
   head "https://github.com/kubernetes-sigs/kustomize.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a56bc3f26d7526f95467fee01d19da8f8efbe1c795180dff92d2d796f3eb098e" => :mojave
-    sha256 "382e90f81114ee7b082c2a211b6d9c380c1a8db5f658d3e5e6fe57ecabe8c746" => :high_sierra
-    sha256 "9ea0888c0401b5213166ebe39f91e16461eb6806698054d59630652626d1288d" => :x86_64_linux
+    sha256 "bd87ecd0de0280d18e75a3c0f9feaf368d14bb745f41852e712c67e71fcfb529" => :mojave
+    sha256 "66232bcc843f42aed0f74bef4ab8aeea97ca69e20b8f2a9c25b046d6559b93d0" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
     revision = Utils.popen_read("git", "rev-parse", "HEAD").strip
 
-    dir = buildpath/"src/kubernetes-sigs/kustomize"
-    dir.install buildpath.children
-    cd dir/"kustomize" do
+    cd "kustomize" do
       ldflags = %W[
-        -s -X sigs.k8s.io/kustomize/kustomize/v3/provenance.version=#{version}
-        -X sigs.k8s.io/kustomize/kustomize/v3/provenance.gitCommit=#{revision}
-        -X sigs.k8s.io/kustomize/kustomize/v3/provenance.buildDate=#{Time.now.iso8601}
+        -s -X sigs.k8s.io/kustomize/api/provenance.version=#{version}
+        -X sigs.k8s.io/kustomize/api/provenance.gitCommit=#{revision}
+        -X sigs.k8s.io/kustomize/api/provenance.buildDate=#{Time.now.iso8601}
       ]
       system "go", "build", "-ldflags", ldflags.join(" "), "-o", bin/"kustomize"
-      prefix.install_metafiles
     end
   end
 
