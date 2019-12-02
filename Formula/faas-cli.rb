@@ -2,15 +2,14 @@ class FaasCli < Formula
   desc "CLI for templating and/or deploying FaaS functions"
   homepage "https://docs.get-faas.com/"
   url "https://github.com/openfaas/faas-cli.git",
-      :tag      => "0.10.5",
-      :revision => "8f825f6dab4cf9bd4622324d38528ccbb994e7e6"
+      :tag      => "0.11.0",
+      :revision => "0ab4012784510381e2b90c031ede3d77197b10b1"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6075dc7f30879b00eaf0a10eda06825c19f094d77c89913a8561f9348a928fc1" => :catalina
-    sha256 "7f94c376c1cfb8142afd73bc117b860d7190d4eb3bc018de46c67eeb17c74e6a" => :mojave
-    sha256 "6595e8d4ffe9aafe1e0a7c58298615c3fd3aa9040c9a8ef26a18b4ffbbbc34b4" => :high_sierra
-    sha256 "088ef89441c3510a089406e3fccd2929bbdd7fd048ffd43447017378a9f49202" => :x86_64_linux
+    sha256 "1927818a15ef6869649aee24a1a928e365609f252fc3af5384f588573764e54c" => :catalina
+    sha256 "8c071aa89602eb94af3bbe512f9f800d0903ce5aca590d77deb1b610a6c33206" => :mojave
+    sha256 "a436c5c1293e8b0808b0b4a2a1a5866f93158e689ddacaaf95e62ea115de59ec" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -51,7 +50,7 @@ class FaasCli < Formula
 
     (testpath/"test.yml").write <<~EOS
       provider:
-        name: faas
+        name: openfaas
         gateway: http://localhost:#{port}
         network: "func_functions"
 
