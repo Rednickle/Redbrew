@@ -8,18 +8,13 @@ class AwsElasticbeanstalk < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "845a732bc3beebc483146c2981c33e7d6c76ca99d266794ef51ad9ffe4519dd9" => :catalina
-    sha256 "83badc49015db13b12f12ec1f3640716fba2161a80e91772d8ccdc144ff69185" => :mojave
-    sha256 "e88ba1b0777ae69d037fb3fe933b833ed8147d34b85aa0adb97b2d63df08a87f" => :high_sierra
-    sha256 "c51ecef2685f2fc9c50b1fa6b3e77fbaf54d81b126b416a9c68009797862fa96" => :x86_64_linux
+    rebuild 1
+    sha256 "16e60b8d707853ffb8cf9ad3045729d8fbbc8f18a9df79dca9d851c4fe738566" => :catalina
+    sha256 "f6f1575934a85e49b644ad51a62f6d8316208e4e6fa8afae7dd6b2292666e333" => :mojave
+    sha256 "5edc021d5332d503dd005d75b35bf4630cf434a4833471a2e5121f64e3483651" => :high_sierra
   end
 
-  uses_from_macos "python@2"
-
-  resource "backports.ssl_match_hostname" do
-    url "https://files.pythonhosted.org/packages/76/21/2dc61178a2038a5cb35d14b61467c6ac632791ed05131dda72c20e7b9e23/backports.ssl_match_hostname-3.5.0.1.tar.gz"
-    sha256 "502ad98707319f4a51fa2ca1c677bd659008d27ded9f6380c79e8932e38dcdf2"
-  end
+  depends_on "python"
 
   resource "blessed" do
     url "https://files.pythonhosted.org/packages/51/c7/3af3ec267387d4a900a9e8f9a03a6c9068fb3c606c77bf2dd4558e1ea248/blessed-1.15.0.tar.gz"
@@ -84,16 +79,6 @@ class AwsElasticbeanstalk < Formula
   resource "docutils" do
     url "https://files.pythonhosted.org/packages/84/f4/5771e41fdf52aabebbadecc9381d11dea0fa34e4759b4071244fa094804c/docutils-0.14.tar.gz"
     sha256 "51e64ef2ebfb29cae1faa133b3710143496eca21c530f3f71424d77687764274"
-  end
-
-  resource "enum34" do
-    url "https://files.pythonhosted.org/packages/bf/3e/31d502c25302814a7c2f1d3959d2a3b3f78e509002ba91aea64993936876/enum34-1.1.6.tar.gz"
-    sha256 "8ad8c4783bf61ded74527bffb48ed9b54166685e4230386a9ed9b1279e2df5b1"
-  end
-
-  resource "functools32" do
-    url "https://files.pythonhosted.org/packages/c5/60/6ac26ad05857c601308d8fb9e87fa36d0ebf889423f47c3502ef034365db/functools32-3.2.3-2.tar.gz"
-    sha256 "f6253dfbe0538ad2e387bd8fdfd9293c925d63553f5813c4e587745416501e6d"
   end
 
   resource "idna" do
@@ -177,6 +162,7 @@ class AwsElasticbeanstalk < Formula
   end
 
   test do
-    system "#{bin}/eb", "--version"
+    output = shell_output("#{bin}/eb init --region=us-east-1 --profile=homebrew-test", 4)
+    assert_match("ERROR: InvalidProfileError - The config profile (homebrew-test) could not be found", output)
   end
 end

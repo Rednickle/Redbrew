@@ -1,15 +1,15 @@
 class Opencascade < Formula
   desc "3D modeling and numerical simulation software for CAD/CAM/CAE"
   homepage "https://www.opencascade.com/content/overview"
-  url "https://git.dev.opencascade.org/gitweb/?p=occt.git;a=snapshot;h=refs/tags/V7_3_0p3;sf=tgz"
-  version "7.3.0p3"
-  sha256 "fbd46db3e75313131b88a606024ea4d4496c3c7f6e68c23988e9d3e673d4f21b"
+  url "https://git.dev.opencascade.org/gitweb/?p=occt.git;a=snapshot;h=refs/tags/V7_4_0;sf=tgz"
+  version "7.4.0"
+  sha256 "655da7717dac3460a22a6a7ee68860c1da56da2fec9c380d8ac0ac0349d67676"
 
   bottle do
     cellar :any
-    sha256 "8427b4f13e30e4bf455b769b42375a50ff338a73b5d9b392bc054793ec3f2a16" => :mojave
-    sha256 "ce9ba0fab8d9356eeb89b2cadfbdf0e00fcfb0fc4b03e08dc2c9a8e32e77e319" => :high_sierra
-    sha256 "42fb6d39f4c069543762c68dbeb49c1114c123b716b9504cb333bd23308497c4" => :sierra
+    sha256 "898bcef9febe46552afbae44b7ecb368d55dca623554ffb514b3c6c3f4ec18f5" => :catalina
+    sha256 "b8d97444db998b3ba99c457d79574337261369645ab98d1f413f05e30440f619" => :mojave
+    sha256 "deb791a34aa0bde90fea8690cac771a1245f224ed69836bbdd30779a69569f1c" => :high_sierra
   end
 
   depends_on "cmake" => :build
