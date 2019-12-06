@@ -24,8 +24,6 @@ class Bazaar < Formula
     apply "patches/27_fix_sec_ssh"
   end
 
-  uses_from_macos "python@2"
-
   def install
     ENV.deparallelize # Builds aren't parallel-safe
 
