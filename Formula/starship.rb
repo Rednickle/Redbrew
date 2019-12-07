@@ -1,16 +1,15 @@
 class Starship < Formula
   desc "The cross-shell prompt for astronauts"
   homepage "https://starship.rs"
-  url "https://github.com/starship/starship/archive/v0.27.0.tar.gz"
-  sha256 "af1c4dd9b211a6271709c2cd2bbc81745d63907981474ff59084864dfd2bcf3a"
+  url "https://github.com/starship/starship/archive/v0.28.0.tar.gz"
+  sha256 "b3279f9b6abbd1ec98c8ef480ab1a11056f7f06a3f75deeb215c82185f4c33e2"
   head "https://github.com/starship/starship.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cbce976f93925fb9988c2fde7124ec513ceb6e6c3cf42b9c8980410e8088fdcf" => :catalina
-    sha256 "bf2c3f7615968ba79fd1dcf836ec896be13207a482fbda397fab596ae1da9684" => :mojave
-    sha256 "8cdd7d51cc3477f014dc053bb4db6c15bcf18719125e8a2eb99e308412274f69" => :high_sierra
-    sha256 "e30e1458cbd803b811f6d653146f78a0742e34cc51e9b3b6537968eca0eb6c89" => :x86_64_linux
+    sha256 "0af14cbb74873d2b6ff6844b2eb051fc112646693830c0e878ea5bb3cd77df52" => :catalina
+    sha256 "48ce8734e05a7df1eded465cdda05e8617379f249101418cf0d9b781eab9e8cb" => :mojave
+    sha256 "337fe0a19091bac546d03e5cd5fb8c6be587992553289ad80c34e2dbb53c6261" => :high_sierra
   end
 
   depends_on "rust" => :build
