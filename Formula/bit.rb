@@ -3,16 +3,15 @@ require "language/node"
 class Bit < Formula
   desc "Distributed Code Component Manager"
   homepage "https://bit.dev"
-  url "https://registry.npmjs.org/bit-bin/-/bit-bin-14.6.0.tgz"
-  sha256 "f8061d649564f133168a20a9965fea69946117b5b15325c200aeb81285b9042f"
+  url "https://registry.npmjs.org/bit-bin/-/bit-bin-14.7.0.tgz"
+  sha256 "dc837b00c13f7f428e53b1e087571d3ca9c852e09ca7a2ed094adfc0e685c770"
   head "https://github.com/teambit/bit.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ef01da2fb0caabd52ed3bc8771b6cb7078d6457ca971d1325e7fc4f0b06fa1da" => :catalina
-    sha256 "1342f7668d6bfded20312f04dde6af08a9be7aac8b61fae3f76ee13be30abb8c" => :mojave
-    sha256 "a8eaa8c7783e9e367490038bdc1344e3c0320cf07ef16c2ec7e8b47b93bd7912" => :high_sierra
-    sha256 "42cffb21238fd4632449e280b4b3198117819c91c17f6708128d46e8a2a89400" => :x86_64_linux
+    sha256 "6656343f7a44a0e1c5bbdb79b1e417683c68d8cb6f995a229178adb2fbb3c15d" => :catalina
+    sha256 "551e000c90e0401fafb7516d9c072ba884ba74d1da364f0013b14f05768cf7ca" => :mojave
+    sha256 "593fb3b40f9a31fee227f09d4a4e2e5108b9c8cd05096216fb8458b838fa1237" => :high_sierra
   end
 
   depends_on "node"
