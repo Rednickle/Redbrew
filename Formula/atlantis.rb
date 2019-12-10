@@ -6,25 +6,17 @@ class Atlantis < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6a7ecd37325d562a499a19b4080fd56bc19146e363e3c536538928b48dad11c0" => :catalina
-    sha256 "c8dab2be57c47e361cbadc2b5e61d4292d6a440bc7adcfd03371e9510ca38625" => :mojave
-    sha256 "a430e649cbb7b4780f875f874254444f59d9f5094be0761d1e8010c510f14525" => :high_sierra
-    sha256 "436cd557fd1d3c3ca8e5a1c0109f7fbef4726008f1acc45c046fa7bff83ce93d" => :x86_64_linux
+    rebuild 1
+    sha256 "cc3388f1553a1c1142bcf59c5357e9b7b8e020790529febe25e42d83e5502875" => :catalina
+    sha256 "08772b561463ee7a26b620338d1c5d2a1ae8b81af8017d63e00e884ffb0ee1f6" => :mojave
+    sha256 "e951f14e57a14f631f2b26cf98db73f884115b3ce9a8e6bfa9cbd93b42cfabb6" => :high_sierra
   end
 
   depends_on "go" => :build
   depends_on "terraform"
 
   def install
-    ENV["GOPATH"] = buildpath
-    dir = "src/github.com/runatlantis/atlantis"
-    build_dir = buildpath/dir
-    build_dir.install buildpath.children
-
-    cd dir do
-      system "go", "build", "-o", "atlantis"
-      bin.install "atlantis"
-    end
+    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"atlantis"
   end
 
   test do
