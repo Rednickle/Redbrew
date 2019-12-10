@@ -6,32 +6,25 @@ class DcosCli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "03890cad65a0b2224314635e58b372178995390d4a7c97b913d59002bd293b21" => :catalina
-    sha256 "98aef91d7bb435f715c126fbcd0d15dec7e319e986ee756f0a7a1623d3a1b374" => :mojave
-    sha256 "1d718db93a057382ad804db628773a5b51f20f47d1274b61b99c50c9e184fb97" => :high_sierra
-    sha256 "6b1edac1c3384eb08db4e4d381d4ca5a8d62bf78753bb71880b14a57c999c50f" => :x86_64_linux
+    rebuild 1
+    sha256 "885608448ee10b76a0605100eeda5b1597998b9f81597813bba4e7b32115d6f5" => :catalina
+    sha256 "f7116290594e24bac141f8e8689832197804373a6558c55159eeea79ce56a15c" => :mojave
+    sha256 "1255e7628a35b8afac17b55f34fa5e0d24cbcb14c155648bc39c7c579c91ef9f" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
     ENV["NO_DOCKER"] = "1"
-
-    ENV["VERSION"] = "1.1.0"
-
-    bin_path = buildpath/"src/github.com/dcos/dcos-cli"
+    ENV["VERSION"] = version.to_s
 
     platform = OS.mac? ? "darwin" : "linux"
-    bin_path.install Dir["*"]
-    cd bin_path do
-      system "make", platform
-      bin.install "build/#{platform}/dcos"
-    end
+    system "make", platform
+    bin.install "build/#{platform}/dcos"
   end
 
   test do
     run_output = shell_output("#{bin}/dcos --version 2>&1")
-    assert_match "dcoscli.version=1.1.0", run_output
+    assert_match "dcoscli.version=#{version}", run_output
   end
 end
