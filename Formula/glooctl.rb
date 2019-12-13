@@ -2,16 +2,15 @@ class Glooctl < Formula
   desc "Envoy-Powered API Gateway"
   homepage "https://docs.solo.io/gloo/latest/"
   url "https://github.com/solo-io/gloo.git",
-      :tag      => "v1.2.7",
-      :revision => "4ae5d4718747ab867f2cfc1099b47f22a9ac7723"
+      :tag      => "v1.2.8",
+      :revision => "f00085b2d67723a3b4c78b45791f3c0c1a16df4c"
   head "https://github.com/solo-io/gloo.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "77e12a7965d69f365fa2ba3dcb7ca525e277b25f6e5c59b117b66d4ec492761b" => :catalina
-    sha256 "56a355c4b279d6eabe520764b3a51cc88479fa687b39b66a6288c6a6e066b4f8" => :mojave
-    sha256 "efc2823c0091bb6fcb2defe64a70c665d9e6d423e3c6add293b8f46e65f053a9" => :high_sierra
-    sha256 "3383fd04d8c5b94309151845ff310a561a3074e2001232c5e4350cd41bf7e34d" => :x86_64_linux
+    sha256 "f3feff7d62315d938ab9cb2440c73c4a809cce0ceaf06428c7e79b5041ec0c66" => :catalina
+    sha256 "05ebde6d3c1a36fd7f317aafa066e20085ec49e4684b2256b0f19bced76e2315" => :mojave
+    sha256 "00b942bf66ddc094493a2436bfdaf5373da28ca3dad49ba009a98e36bae18cd2" => :high_sierra
   end
 
   depends_on "dep" => :build
