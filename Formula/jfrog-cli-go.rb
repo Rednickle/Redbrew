@@ -6,24 +6,18 @@ class JfrogCliGo < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "81e780ac71a8a888087e59d80d85303328f6a947d3248ed80d97cd05ce6669f2" => :catalina
-    sha256 "33bdae09e643c298a4725ddcde2cddeba75ab3b15bb6d60325544395a8bb621b" => :mojave
-    sha256 "e4f69ad52986f1381d390d777c5ff73c47c2ec8714b1022285abd29498419991" => :high_sierra
-    sha256 "30c814190eac443a2449ccec4b35f87840371986fa35e26da45e5911c079b141" => :x86_64_linux
+    rebuild 1
+    sha256 "d359e6ced20707b56eccc928248785202033a487d98748d680c4d56a4e5a2403" => :catalina
+    sha256 "640dcc93305f1495a93444b89021e432eb4600f8406d13e9d2b264cf83c28207" => :mojave
+    sha256 "95b2c2f35547130e0c45e9bd63d9b0db2d50943095b6bbae74832ec079ab47b0" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    src = buildpath/"src/github.com/jfrog/jfrog-cli"
-    src.install buildpath.children
-    src.cd do
-      system "go", "run", "./python/addresources.go"
-      system "go", "build", "-o", bin/"jfrog", "-ldflags", "-s -w -extldflags '-static'"
-      prefix.install_metafiles
-    end
+    system "go", "run", "./python/addresources.go"
+    system "go", "build", "-ldflags", "-s -w -extldflags '-static'", "-trimpath", "-o", bin/"jfrog"
+    prefix.install_metafiles
   end
 
   test do
