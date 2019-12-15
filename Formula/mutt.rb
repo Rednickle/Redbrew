@@ -10,14 +10,13 @@
 class Mutt < Formula
   desc "Mongrel of mail user agents (part elm, pine, mush, mh, etc.)"
   homepage "http://www.mutt.org/"
-  url "https://bitbucket.org/mutt/mutt/downloads/mutt-1.13.0.tar.gz"
-  sha256 "a00ddc21084f45f53653c35a8a991ca86d68c7162b7c8ec1625d63cfeaf5f5b7"
+  url "https://bitbucket.org/mutt/mutt/downloads/mutt-1.13.1.tar.gz"
+  sha256 "1fb5951292e57428974d1fd8e60ae83292743f74e440efea3659ae83593e875d"
 
   bottle do
-    sha256 "f36692148f422605c358b2c1f4b4b85dd38268b05979629b867909000bb4d6f2" => :catalina
-    sha256 "ee5e5ef9badd4fc70887560f5667e664039368bd30c9a333bfdb138f4dba470a" => :mojave
-    sha256 "b3818719cdc1f16a1c64baf9d2b86ad6e51ce1073c68cc3c0fdef3506fa14b6a" => :high_sierra
-    sha256 "048a50e59388bda3369f14546c6f2db22a91d5a40d4548060aa34520481c2eec" => :x86_64_linux
+    sha256 "b3b954e5c91b73db93521fc7354f644f62b15b91ab72af96739af456b4e183f6" => :catalina
+    sha256 "e3a4fff34be701f8a26d60a2b9b06be8e1b510af50a54b4c2b94ffdd0ac241cc" => :mojave
+    sha256 "fe3a4c4035a56796032cf4e0e1bdd271c3b80adbe4795b3dc1fd388c3385e985" => :high_sierra
   end
 
   head do
