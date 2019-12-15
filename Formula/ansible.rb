@@ -10,10 +10,10 @@ class Ansible < Formula
 
   bottle do
     cellar :any
-    sha256 "b91a0494307d7755f12163e017804586f997fc95ca10cca5778ea2cdb20b4dbf" => :catalina
-    sha256 "14e25108d466ebd08d0a6a3a5c70dca8e64d59d69ffdd616e7fcc07434f3baaf" => :mojave
-    sha256 "ebf902e8dae71050637221a78699e70f1afb9917e6420339f427ff66b0678b97" => :high_sierra
-    sha256 "5b959d2de3464647c0a8761f6a613c2817a49feaa08fdbba596d0bdb84006873" => :x86_64_linux
+    rebuild 1
+    sha256 "ce13d36d45f503c545b18ea243763c87de6f51dbc2cd8bb5be8c0a9209931a59" => :catalina
+    sha256 "3aa1c3c50b68e086799fa0e775ad4039aede3697cbba99b9c336e6cc7eeb8231" => :mojave
+    sha256 "56ddc3764ecfb4ca657ebb8f9f8b6e986ed580c86508edc1d19ebb1954025df8" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -403,6 +403,11 @@ class Ansible < Formula
   resource "passlib" do
     url "https://files.pythonhosted.org/packages/25/4b/6fbfc66aabb3017cd8c3bd97b37f769d7503ead2899bf76e570eb91270de/passlib-1.7.1.tar.gz"
     sha256 "3d948f64138c25633613f303bcc471126eae67c04d5e3f6b7b8ce6242f8653e0"
+  end
+
+  resource "pexpect" do
+    url "https://files.pythonhosted.org/packages/1c/b1/362a0d4235496cb42c33d1d8732b5e2c607b0129ad5fdd76f5a583b9fcb3/pexpect-4.7.0.tar.gz"
+    sha256 "9e2c1fd0e6ee3a49b28f95d4b33bc389c89b20af6a1255906e90ff1262ce62eb"
   end
 
   resource "pyasn1" do
