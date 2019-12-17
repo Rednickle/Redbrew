@@ -3,14 +3,14 @@ class Node < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v13.3.0/node-v13.3.0.tar.gz"
   sha256 "cab5bd4712265745cfce1416ea0f425f1de71452f0ddc544d815aacee2aede3e"
+  revision 1
   head "https://github.com/nodejs/node.git"
 
   bottle do
     cellar :any
-    sha256 "1c1704aad73b2c4cd45c3e3e9f358f9c2476d4528009334b13b90f6ffcc4c8a3" => :catalina
-    sha256 "75dcefb957a959b40a5ba8046ac23a1ae4df23816a35c6f207307aedcd81a220" => :mojave
-    sha256 "099b9385d400785c20f92a4728c7f4a2aefc6d0d82cdd0916d101703090e0678" => :high_sierra
-    sha256 "3c9d7c95048f6d0281c88a575b0ef1833816c831fa0c044c44e2e56b72df5ec3" => :x86_64_linux
+    sha256 "5760f35a867db8b1cff7714210b8420ac9d829e3bf8d7b0f45ac21e217166362" => :catalina
+    sha256 "1231a09d313ce3f3e6e7d0ac647f56e9d4377c752004941ddf366662e00401ed" => :mojave
+    sha256 "34560ff8ff3b553b531bc6cf9a2805cfeaeed2cc7dce6eaa439c0158ab6b78dd" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -20,8 +20,8 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-6.13.2.tgz"
-    sha256 "7d1253134b21f51b3bd89fedf699ce85deb29990e3ab16e691bea4685e5edd42"
+    url "https://registry.npmjs.org/npm/-/npm-6.13.4.tgz"
+    sha256 "a063290bd5fa06a8753de14169b7b243750432f42d01213fbd699e6b85916de7"
   end
 
   def install
