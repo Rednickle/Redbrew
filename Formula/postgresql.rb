@@ -16,11 +16,10 @@ class Postgresql < Formula
   depends_on "icu4c"
   depends_on "openssl@1.1"
   depends_on "readline"
-  unless OS.mac?
-    depends_on "libxslt"
-    depends_on "perl"
-    depends_on "util-linux" # for libuuid
-  end
+  uses_from_macos "libxml2"
+  uses_from_macos "libxslt"
+  uses_from_macos "perl"
+  depends_on "util-linux" unless OS.mac? # for libuuid
 
   def install
     # avoid adding the SDK library directory to the linker search path
