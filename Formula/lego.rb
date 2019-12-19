@@ -7,25 +7,18 @@ class Lego < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ffdee52b3c648683f4fabbcdc56baa0dc9cb20b44ac877155f08a6d627d2cc69" => :catalina
-    sha256 "9dea300001bce666a42667cbf8c967bf2c73d0494b072bd147dd99c6b8aa2b2f" => :mojave
-    sha256 "506828353d7593b758035b0e3302661c78b75c347b5165829f2ab0ae18224422" => :high_sierra
-    sha256 "85589e6311741ac7fa7241c9a8ae940b7da6ab426e21e2ed2a2ed0f73387f935" => :x86_64_linux
+    rebuild 1
+    sha256 "faadf684bc039a30f718190565dbfd7f0c353a754cb0f5116e6c4bdf77286424" => :catalina
+    sha256 "fea578fafd709af5e6fcc291f489b5eef32908d1386f22b0041b632bd939544f" => :mojave
+    sha256 "4da303e650d6d047be85d3afe4f9a06c6ddf59be9ea47ef404761e93133d2c93" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    dir = buildpath/"src/github.com/go-acme/lego"
-    dir.install buildpath.children
-
-    cd dir do
-      system "go", "build", "-ldflags", "-X main.version=#{version}",
-          "-o", bin/"lego", "cmd/lego/main.go"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags", "-s -w -X main.version=#{version}", "-trimpath",
+        "-o", bin/"lego", "cmd/lego/main.go"
+    prefix.install_metafiles
   end
 
   test do
