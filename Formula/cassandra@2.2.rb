@@ -9,11 +9,13 @@ class CassandraAT22 < Formula
     sha256 "efe044b667e3479966bb5a29802a1fcca724d36d07f1eddc29baf59b9f887d0b" => :catalina
     sha256 "b969cfce702ad4dd02f6495abee2370a3ababd44cc82a567169b8af930fab85e" => :mojave
     sha256 "1a2aa9db7744896b53bf01ffca7214cc2cd0ef5f026546873c9c02f4bb7471fe" => :high_sierra
+    sha256 "4d883e2c11044f125c1c53086a6d1a25d073d078a659d83f04817f36ecb5f908" => :x86_64_linux
   end
 
   keg_only :versioned_formula
 
   depends_on "cython" => :build
+  depends_on :java => ["1.8+", :test] unless OS.mac?
   uses_from_macos "python@2" # does not support Python 3.7
 
   # Only >=Yosemite has new enough setuptools for successful compile of the below deps.
