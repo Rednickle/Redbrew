@@ -1,17 +1,14 @@
 class RustupInit < Formula
   desc "The Rust toolchain installer"
   homepage "https://github.com/rust-lang/rustup.rs"
-  url "https://github.com/rust-lang/rustup.rs/archive/1.20.2.tar.gz"
-  sha256 "28207ee4c2d66840ca903df152b23b916326a5d3eeb643a1de0f24a16afa4209"
-  revision 1 unless OS.mac?
+  url "https://github.com/rust-lang/rustup.rs/archive/1.21.0.tar.gz"
+  sha256 "5dc7e1b16ec57c8cf9015f7f2b9780c09527b5f8783e8d5a62ddae7553a9587b"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "eeae5fd83583db5ccaef4d02e7d4bab357dc3983ba28856240b21a16c7e31fe4" => :catalina
-    sha256 "e5e40bdec0a7e7e370d841a1251142d872653bf2b1601a1d81889af21ef6a94f" => :mojave
-    sha256 "da5d48864bb15a73c7d9b20cf338fd6840ce3f77c1083598ebeac12f1243e779" => :high_sierra
-    sha256 "721ea50e02408dea8e3ba2dbbfdc0f0197aaefdc3959c8973c3cc52281eec146" => :x86_64_linux
+    sha256 "dcfa31ebf56502047530a96d741e8d5a5631e25cff964d108963327fd2f31068" => :catalina
+    sha256 "59a05d34a7ac1dd39d96698c46865c6c6113a5465aaa9e82bfe99ce0c7d45f4f" => :mojave
+    sha256 "8c279d7a186437297b3cb28359392ed779561142e38c898d6a02a2370f1f6b3c" => :high_sierra
   end
 
   depends_on "rust" => :build
