@@ -8,36 +8,30 @@ class Minio < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1c5c0595206f8c26f31314f9d96efed95dcb51df0e016941f6ac07bf4f8e4434" => :catalina
-    sha256 "617635392cbafe21de8060ed5fc5dacf96a246c315f2950c577eb1f7a924656e" => :mojave
-    sha256 "4d7484e1cc920ae55dcf0775b7969c0de76cc3aa2fe855f2c2334a5f2c1f4896" => :high_sierra
-    sha256 "c7314ee9692c35a8e30b1c7a6ba20951be2d40b2128af977d48f4134c1ef8388" => :x86_64_linux
+    rebuild 1
+    sha256 "01ee59cc1e44e965d361ae4eafbdff518bf5a23227bc7bcec3e3234245789ae9" => :catalina
+    sha256 "8f3a30dd023971d20c447a9a2996c208e9725ae8a709dc486d533f3738146ffb" => :mojave
+    sha256 "12697c1d12ff5bdc61c46dc81a9e38ebe587c98373dca2a67f282cb2431148ab" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    src = buildpath/"src/github.com/minio/minio"
-    src.install buildpath.children
-    src.cd do
-      if build.head?
-        system "go", "build", "-o", buildpath/"minio"
-      else
-        release = `git tag --points-at HEAD`.chomp
-        version = release.gsub(/RELEASE\./, "").chomp.gsub(/T(\d+)\-(\d+)\-(\d+)Z/, 'T\1:\2:\3Z')
-        commit = `git rev-parse HEAD`.chomp
-        proj = "github.com/minio/minio"
+    if build.head?
+      system "go", "build", "-trimpath", "-o", bin/"minio"
+    else
+      release = `git tag --points-at HEAD`.chomp
+      version = release.gsub(/RELEASE\./, "").chomp.gsub(/T(\d+)\-(\d+)\-(\d+)Z/, 'T\1:\2:\3Z')
+      commit = `git rev-parse HEAD`.chomp
+      proj = "github.com/minio/minio"
 
-        system "go", "build", "-o", buildpath/"minio", "-ldflags", <<~EOS
-          -X #{proj}/cmd.Version=#{version}
-          -X #{proj}/cmd.ReleaseTag=#{release}
-          -X #{proj}/cmd.CommitID=#{commit}
-        EOS
-      end
+      system "go", "build", "-trimpath", "-o", bin/"minio", "-ldflags", <<~EOS
+        -X #{proj}/cmd.Version=#{version}
+        -X #{proj}/cmd.ReleaseTag=#{release}
+        -X #{proj}/cmd.CommitID=#{commit}
+      EOS
     end
 
-    bin.install buildpath/"minio"
     prefix.install_metafiles
   end
 
