@@ -13,14 +13,14 @@ class LibcapNg < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "swig" => :build
-  depends_on "python" => :build
   depends_on "m4" => :build
+  depends_on "python" => :build
+  depends_on "swig" => :build
 
   # undefined reference to `pthread_atfork'
   # https://github.com/stevegrubb/libcap-ng/pull/10
   patch do
-    url "https://github.com/stevegrubb/libcap-ng/commit/b4e3cb9cb74aa5d33ad21a988a1463d75b159b77.patch"
+    url "https://github.com/stevegrubb/libcap-ng/commit/b4e3cb9cb74aa5d33ad21a988a1463d75b159b77.patch?full_index=1"
     sha256 "d414dd225d069a86f34313619eeabf287c6b153d97c4a6554b5840c1ccdbebc1"
   end
 
