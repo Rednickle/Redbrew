@@ -18,9 +18,9 @@ class AtSpi2Core < Formula
   depends_on "dbus"
   depends_on "gettext"
   depends_on "glib"
-  depends_on "linuxbrew/xorg/xorgproto"
   depends_on "linuxbrew/xorg/libx11"
   depends_on "linuxbrew/xorg/libxtst"
+  depends_on "linuxbrew/xorg/xorgproto"
 
   def install
     ENV.refurbish_args
