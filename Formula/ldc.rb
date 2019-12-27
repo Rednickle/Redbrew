@@ -1,15 +1,15 @@
 class Ldc < Formula
   desc "Portable D programming language compiler"
   homepage "https://wiki.dlang.org/LDC"
-  url "https://github.com/ldc-developers/ldc/releases/download/v1.17.0/ldc-1.17.0-src.tar.gz"
-  sha256 "6a2fa91a53d954361832591488241c92adb497842069077425d73c9b9d2c4fa9"
+  url "https://github.com/ldc-developers/ldc/releases/download/v1.19.0/ldc-1.19.0-src.tar.gz"
+  sha256 "c7056c10ab841762b84ae9ea6ab083b131924d683e1e0d8a18aa496c537213ae"
   head "https://github.com/ldc-developers/ldc.git", :shallow => false
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d1a3c150b95503558ef83d8e6dfdad818fa550b97333368178e402ab13cc02fc" => :mojave
-    sha256 "ae7b85fa800d95dcc8815dfafd5716b0d3cf47134d2fc536a2796db8cee11f28" => :high_sierra
-    sha256 "f48a3181863ba8a69c56459512a15fb1f0fcc153250d3cba5374c173a3627d31" => :sierra
+    sha256 "45aa4a331339761b64fb5f8b4ed14bdf1cca1be6a9fba0afd2dded25198fdd22" => :catalina
+    sha256 "b5b3313d4325c90be9a97792a8125852a677ae266ab9c3e7855011049b146696" => :mojave
+    sha256 "0a93cdccea7326398bd43d303be8d8faab9e58896f9d595d2b3db1595703b556" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -18,13 +18,13 @@ class Ldc < Formula
 
   resource "ldc-bootstrap" do
     if OS.mac?
-      url "https://github.com/ldc-developers/ldc/releases/download/v1.17.0/ldc2-1.17.0-osx-x86_64.tar.xz"
-      version "1.17.0"
-      sha256 "fb1fe4e6edba4a8ac590e24abccdd034f11fa11a1bbe4c0f3cdb6083ba069825"
+      url "https://github.com/ldc-developers/ldc/releases/download/v1.19.0/ldc2-1.19.0-osx-x86_64.tar.xz"
+      version "1.19.0"
+      sha256 "c7bf6facfa61f2e771091b834397b36331f5c28a56e988f06fc4dc9fe0ece3ae"
     else
-      url "https://github.com/ldc-developers/ldc/releases/download/v1.17.0/ldc2-1.17.0-linux-x86_64.tar.xz"
-      version "1.17.0"
-      sha256 "715adbdd614edf926d5f53bb9f8bfa34d0c828aa40077cb627ce064955fd641d"
+      url "https://github.com/ldc-developers/ldc/releases/download/v1.19.0/ldc2-1.19.0-linux-x86_64.tar.xz"
+      version "1.19.0"
+      sha256 "30f8b810ab12df0885262e0b1d83566399d5cf59fecec747982e2b4e45cecf90"
     end
   end
 

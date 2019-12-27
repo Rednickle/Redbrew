@@ -178,12 +178,6 @@ class Python < Formula
       inreplace Dir[lib_cellar/"**/_sysconfigdata_m_darwin_darwin.py"],
                 %r{('LINKFORSHARED': .*?)'(Python.framework/Versions/3.\d+/Python)'}m,
                 "\\1'#{opt_prefix}/Frameworks/\\2'"
-
-      # A fix, because python and python3 both want to install Python.framework
-      # and therefore we can't link both into HOMEBREW_PREFIX/Frameworks
-      # https://github.com/Homebrew/homebrew/issues/15943
-      ["Headers", "Python", "Resources"].each { |f| rm(prefix/"Frameworks/Python.framework/#{f}") }
-      rm prefix/"Frameworks/Python.framework/Versions/Current"
     else
       # Prevent third-party packages from building against fragile Cellar paths
       inreplace Dir[lib_cellar/"**/_sysconfigdata_m_linux_x86_64-*.py",
