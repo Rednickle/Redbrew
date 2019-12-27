@@ -5,23 +5,23 @@ class Certbot < Formula
   homepage "https://certbot.eff.org/"
   url "https://github.com/certbot/certbot/archive/v1.0.0.tar.gz"
   sha256 "cb853d4aeff1bd28c6a20bb4b26e782a791a28dfee5b6cf410ef2b6f4f580bd8"
+  revision 1
   head "https://github.com/certbot/certbot.git"
 
   bottle do
-    sha256 "9fe11b8b078c97c49243321ac1404804ff08f2bde0fe8751eeaa4b073e08310e" => :catalina
-    sha256 "84acaab2029abddb44702d34c073d11bc2f15a8a22c5cf61361d916c5875008c" => :mojave
-    sha256 "a8356343fd650dc7b62268300ff54dbcf7828946a081a4cf9bbdfbfc06fcf9f0" => :high_sierra
-    sha256 "bc822077dc7e6c7c8cab449f1475cd6fcf8df5dc06716e7b35caccf9327ac7c6" => :x86_64_linux
+    cellar :any
+    sha256 "eb69401a2f0b42d291d2c8ab2c070896e867f8d719ac0db2b012a5ed6b92548a" => :catalina
+    sha256 "f46a37aa10be323aa7f618300ed0fcbacc51024fe6a25b6d7c729f4a54d527cd" => :mojave
+    sha256 "9bbdd9fb1c78314bb768fc29f85d7f768cef56866c553329c1008ba899120bc3" => :high_sierra
   end
 
   depends_on "augeas"
   depends_on "dialog"
   depends_on "openssl@1.1"
   depends_on "python"
-  unless OS.mac?
-    depends_on "libffi"
-    depends_on "pkg-config" => :build
-  end
+
+  uses_from_macos "pkg-config" => :build
+  uses_from_macos "libffi"
 
   resource "acme" do
     url "https://files.pythonhosted.org/packages/c7/57/8747646a4ae8fbde7460248b2489a68cf9161029009e55d305b36df40f21/acme-1.0.0.tar.gz"

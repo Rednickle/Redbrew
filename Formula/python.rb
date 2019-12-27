@@ -1,15 +1,14 @@
 class Python < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.7.5/Python-3.7.5.tar.xz"
-  sha256 "e85a76ea9f3d6c485ec1780fca4e500725a4a7bbc63c78ebc44170de9b619d94"
+  url "https://www.python.org/ftp/python/3.7.6/Python-3.7.6.tar.xz"
+  sha256 "55a2cce72049f0794e9a11a84862e9039af9183603b78bc60d89539f82cf533f"
   head "https://github.com/python/cpython.git"
 
   bottle do
-    sha256 "623d2a1110674974c0ea3ff0498c1ac865b858ba5293bdc29f3ce4dbd421fd42" => :catalina
-    sha256 "bcbdc3612a10d06facca7ec9499265731d530c8273b1a2dc28f16258d4410552" => :mojave
-    sha256 "32e080b97e0075d2563c1f454e6925dbdd57ad683b857fc2a42e46a0a30959f6" => :high_sierra
-    sha256 "4709a9a0c66456028dc3a3f7fa5d5ba254792321841533e3fdc7c934e5cf578d" => :x86_64_linux
+    sha256 "f9053f7d2b371b6c1960e790be5603f8662d65f44bfdfe2c3854ac287f10d705" => :catalina
+    sha256 "011f76aac1362a7df8618ec10751a87b3745afccabfdf5e354f9980f04e9b064" => :mojave
+    sha256 "853a5c89053fa747daf1779a515df60648b56968317aa8865dfdd058f1520bad" => :high_sierra
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -29,21 +28,19 @@ class Python < Formula
   depends_on "readline"
   depends_on "sqlite"
   depends_on "xz"
-  unless OS.mac?
-    depends_on "linuxbrew/xorg/xorg" if build.with? "tcl-tk"
-    depends_on "bzip2"
-    depends_on "libffi"
-    depends_on "ncurses"
-    depends_on "xz"
-    depends_on "zlib"
-  end
+
+  uses_from_macos "bzip2"
+  uses_from_macos "libffi"
+  uses_from_macos "ncurses"
+  uses_from_macos "xz"
+  uses_from_macos "zlib"
 
   skip_clean "bin/pip3", "bin/pip-3.4", "bin/pip-3.5", "bin/pip-3.6", "bin/pip-3.7"
   skip_clean "bin/easy_install3", "bin/easy_install-3.4", "bin/easy_install-3.5", "bin/easy_install-3.6", "bin/easy_install-3.7"
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/11/0a/7f13ef5cd932a107cd4c0f3ebc9d831d9b78e1a0e8c98a098ca17b1d7d97/setuptools-41.6.0.zip"
-    sha256 "6afa61b391dcd16cb8890ec9f66cc4015a8a31a6e1c2b4e0c464514be1a3d722"
+    url "https://files.pythonhosted.org/packages/f7/b6/5b98441b6749ea1db1e41e5e6e7a93cbdd7ffd45e11fe1b22d45884bc777/setuptools-42.0.2.zip"
+    sha256 "c5b372090d7c8709ce79a6a66872a91e518f7d65af97fca78135e1cb10d4b940"
   end
 
   resource "pip" do

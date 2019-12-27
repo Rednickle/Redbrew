@@ -5,15 +5,14 @@ class Remarshal < Formula
   homepage "https://github.com/dbohdan/remarshal"
   url "https://github.com/dbohdan/remarshal/archive/v0.11.2.tar.gz"
   sha256 "3f383e48f59722a4d93ef2b5e417b6a8c152f382a1faad416099ffcde5c87a66"
+  revision 1
   head "https://github.com/dbohdan/remarshal.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "09d9250297513d0e3b4e32ec13f84f3289b4fccec3f7d47ceb646854881703cd" => :catalina
-    sha256 "5a74936a60c2a6242cfafde7aef7c07c2c311c88c114cba85ca927bb54e9346f" => :mojave
-    sha256 "757a22523a68e47fbfc372d84c44d840bd61c212fb02d5e1f17fccdfd870d62a" => :high_sierra
-    sha256 "645c1cbaa4ff1fa317b2ca3cfdf2ccd8763bd2a11b69b3ffe9bb39e0ee4b8669" => :sierra
-    sha256 "904b0b26cf359608f11ebe2e9eef12b50541f6936733bce6b2b5359342691739" => :x86_64_linux
+    cellar :any
+    sha256 "f0abc1abe36b30daa77f5998d978850b2aeec894b91b02066dc183a082d3d24a" => :catalina
+    sha256 "cefd880562da8bcb2e867987d13e61359a69ab77824c8efbafe1e6358ab6576d" => :mojave
+    sha256 "5ed4e3a38f981f042acf5f85414341e1fd21a1780fd57297c4b4195a692f6b9f" => :high_sierra
   end
 
   depends_on "python"
