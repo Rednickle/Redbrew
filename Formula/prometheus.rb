@@ -1,24 +1,25 @@
 class Prometheus < Formula
   desc "Service monitoring system and time series database"
   homepage "https://prometheus.io/"
-  url "https://github.com/prometheus/prometheus/archive/v2.13.1.tar.gz"
-  sha256 "5624c16728679362cfa46b76ec1d247018106989f2260d35583c42c49c5142b5"
+  url "https://github.com/prometheus/prometheus/archive/v2.15.1.tar.gz"
+  sha256 "67590a51ad26ee6135d40b8df90f8b58d85ce890fc67e66d08bb8207db289a1e"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "3e2f6180a0594933ac5eeb1f5574d9f07a45479b556702a426697ffa507328fd" => :catalina
-    sha256 "7a0549df192cd2b4c23a7322ff2d8096eb19774027f028cbeef5363fb5718862" => :mojave
-    sha256 "a68c839c3b0d5d63e768ab069f72b7a4d1c32b385d4d448a3de444b5044e95c3" => :high_sierra
-    sha256 "f173c052a247405842d3b739f3e0c38552dbfcef7b2bdfe34e45fb504dfc32b0" => :x86_64_linux
+    sha256 "e488672bc0ac215a82721abe5d2d543e3d3d1610876e32764c920f302da678ae" => :catalina
+    sha256 "931ba33b9e6901d5b61c14cf238c59adc183749cabc226a66f442577c7f5f756" => :mojave
+    sha256 "fe988a26b80aef4c23dcefcb60cd50899107f82618a8dc7d2e6e6ee7c548750b" => :high_sierra
   end
 
   depends_on "go" => :build
+  depends_on "node" => :build
+  depends_on "yarn" => :build
 
   def install
     mkdir_p buildpath/"src/github.com/prometheus"
     ln_sf buildpath, buildpath/"src/github.com/prometheus/prometheus"
 
+    system "make", "assets"
     system "make", "build"
     bin.install %w[promtool prometheus]
     libexec.install %w[consoles console_libraries]
@@ -43,7 +44,7 @@ class Prometheus < Formula
   end
 
   def caveats; <<~EOS
-    When used with `brew services`, prometheus' configuration is stored as command line flags in
+    When used with `brew services`, prometheus' configuration is stored as command line flags in:
       #{etc}/prometheus.args
 
     Configuration for prometheus is located in the #{etc}/prometheus.yml file.
