@@ -5,16 +5,17 @@ class TwinePypi < Formula
   homepage "https://github.com/pypa/twine"
   url "https://files.pythonhosted.org/packages/7e/2f/e2a91a8ab97e8c9830ce297132631aef5dcd599f076123d1ebb26f1941b6/twine-3.1.1.tar.gz"
   sha256 "d561a5e511f70275e5a485a6275ff61851c16ffcb3a95a602189161112d9f160"
+  revision 1
   head "https://github.com/pypa/twine.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8818e4bdc5d8aaef557f7eb0d1ad4c0a0b0656f19a2a9e449875a999a9f38010" => :catalina
-    sha256 "86c9c21c033849febc856750b55672e3a357ec62fb507d8a24d5ae094f4c5e1b" => :mojave
-    sha256 "ea2b15ce123653d0b5174b8ed00c6fb4718c9815385bada71d1aded4f99b55c9" => :high_sierra
+    sha256 "bf24fa66bd707af6c82b9f4a15ae9f9d0f89d2979e8728c45bee4fc2e232d526" => :catalina
+    sha256 "3361f04b027e09a3816c8faba24ea9ad18381754a420605be2070dab048ac0c2" => :mojave
+    sha256 "d83e742f2d90a6c7154073189be2903ce35773f589c2bd637e95e20dc495adf3" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "bleach" do
     url "https://files.pythonhosted.org/packages/78/5a/0df03e8735cd9c75167528299c738702437589b9c71a849489d00ffa82e8/bleach-3.1.0.tar.gz"

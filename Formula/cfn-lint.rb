@@ -5,16 +5,16 @@ class CfnLint < Formula
   homepage "https://github.com/aws-cloudformation/cfn-python-lint/"
   url "https://github.com/aws-cloudformation/cfn-python-lint/archive/v0.26.2.tar.gz"
   sha256 "fff4b0a6f867308b5fa27b7e6cbd4e6bfa161b6a9edefc03835698c7c266a263"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "47766dbafc1390ed046c6d913df93ffdb8f099dd5b0ef3ae7019d6836442d6c4" => :catalina
-    sha256 "abd738931200d4b81259343c6dc3056fca1b2d96043dfd9ecd0438a4e4675b61" => :mojave
-    sha256 "b1fadf87e056092b095e14d6a072e13df65f6b190b8392c17f4e9c9b1e66c76f" => :high_sierra
-    sha256 "7b11d914f8c5dbd486014bcb489bf9bab57910bbc2339b3807f82da426b294e2" => :x86_64_linux
+    sha256 "9d0acb00bc3365e5caa4b725724dc736354616cd0e31d21464b4b5ce4a2c3d50" => :catalina
+    sha256 "d51588a278825825ba14b4adf8b334aecc1ab94f1f5c26cd11edf76d5857fb59" => :mojave
+    sha256 "01f02c2cadae3f14e5584bb4fc9a9c69518fa98692e2bd9cf913d3249b93a3f5" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/98/c3/2c227e66b5e896e15ccdae2e00bbc69aa46e9a8ce8869cc5fa96310bf612/attrs-19.3.0.tar.gz"

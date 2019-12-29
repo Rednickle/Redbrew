@@ -5,18 +5,17 @@ class Remarshal < Formula
   homepage "https://github.com/dbohdan/remarshal"
   url "https://github.com/dbohdan/remarshal/archive/v0.11.2.tar.gz"
   sha256 "3f383e48f59722a4d93ef2b5e417b6a8c152f382a1faad416099ffcde5c87a66"
-  revision 1
+  revision 2
   head "https://github.com/dbohdan/remarshal.git"
 
   bottle do
     cellar :any
-    sha256 "f0abc1abe36b30daa77f5998d978850b2aeec894b91b02066dc183a082d3d24a" => :catalina
-    sha256 "cefd880562da8bcb2e867987d13e61359a69ab77824c8efbafe1e6358ab6576d" => :mojave
-    sha256 "5ed4e3a38f981f042acf5f85414341e1fd21a1780fd57297c4b4195a692f6b9f" => :high_sierra
-    sha256 "9a160d40733aa93c43ca97aa46dc67ef1bdc6bc3002d068148ada5ae706851bc" => :x86_64_linux
+    sha256 "838a5c8b35bb130ec4ba8f7f0a1bff42c53b483f59b6f895cbbb61c87e8acaac" => :catalina
+    sha256 "93382c3689ea68644435c6b1d552718d05e22d52bd60540ef422638b08ea84a6" => :mojave
+    sha256 "bdfdd97a2c095ad6d391e2f7c258fa8301e5597222061b0f88b24675cff5bf84" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   conflicts_with "msgpack-tools", :because => "both install 'json2msgpack' binary"
 
