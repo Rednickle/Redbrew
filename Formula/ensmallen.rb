@@ -1,14 +1,14 @@
 class Ensmallen < Formula
   desc "Flexible C++ library for efficient mathematical optimization"
   homepage "https://ensmallen.org"
-  url "https://ensmallen.org/files/ensmallen-2.10.5.tar.gz"
-  sha256 "fa45e8f65c93d20fec3bbafbb87c66d2762942b00395159846f62e9c35ff7168"
+  url "https://ensmallen.org/files/ensmallen-2.11.1.tar.gz"
+  sha256 "c1343f4a61817a396866e497912cc3cd918600c4778869ce8a4f46a5474b980b"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "aa864a73b33f5e886480e75327398f0a742d9cf0dc4001bf7d00500a0db463bb" => :catalina
-    sha256 "aa864a73b33f5e886480e75327398f0a742d9cf0dc4001bf7d00500a0db463bb" => :mojave
-    sha256 "aa864a73b33f5e886480e75327398f0a742d9cf0dc4001bf7d00500a0db463bb" => :high_sierra
+    sha256 "d23b32d396820798a0a059a1d9f5272256619360dd71fad53023450b373e322d" => :catalina
+    sha256 "44b5b437fa4e990f5a0a9b707cb6052b4ca1656e063df638a5408fbfa26a0295" => :mojave
+    sha256 "44b5b437fa4e990f5a0a9b707cb6052b4ca1656e063df638a5408fbfa26a0295" => :high_sierra
   end
 
   depends_on "cmake" => :build
