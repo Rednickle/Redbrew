@@ -6,15 +6,14 @@ class GccAT8 < Formula
   url "https://ftp.gnu.org/gnu/gcc/gcc-8.3.0/gcc-8.3.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-8.3.0/gcc-8.3.0.tar.xz"
   sha256 "64baadfe6cc0f4947a84cb12d7f0dfaf45bb58b7e92461639596c21e02d97d2c"
-  revision OS.mac? ? 1 : 2
+  revision OS.mac? ? 2 : 3
 
   # gcc is designed to be portable.
   # reminder: always add 'cellar :any'
   bottle do
-    cellar :any
-    sha256 "6157934cbc4f7d4200ae2e3dd99d4e553f39b202991f7111aff07b68c1954a3d" => :mojave
-    sha256 "43c0d8a28d1fb8c4a4f70c7cf1d33039983b8d0177566ea54bcc2bed4ffe6c8c" => :high_sierra
-    sha256 "6dec4c591266aa7705ff5331310acad4b0a9fb5eaf7b31b7cfd0b43b0c6c2bf7" => :x86_64_linux
+    sha256 "b410ceed5dd0e68839a663792c0744c7669cae633f200d4be690b6df0f955169" => :catalina
+    sha256 "db70df625d79fc4eb3cff8a4669173c216a0a3c38b3718899713b3c682ded0ee" => :mojave
+    sha256 "3c3c877cc99a599ad73695b6745ea05a096fb081c4c18070c30c7d5fa08dc532" => :high_sierra
   end
 
   # The bottles are built on systems with the CLT installed, and do not work

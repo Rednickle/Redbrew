@@ -3,12 +3,12 @@ class MingwW64 < Formula
   homepage "https://mingw-w64.org/"
   url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v7.0.0.tar.bz2"
   sha256 "aa20dfff3596f08a7f427aab74315a6cb80c2b086b4a107ed35af02f9496b628"
+  revision 1
 
   bottle do
-    sha256 "7e837e0c4ee8140d9b736d1cfb5a50c095140ffb279feb8219ab870f39188f99" => :catalina
-    sha256 "0c4da57cb15cceb50b98195abff2fe6c7c40b8db01b157f9cd9e596ba8d04358" => :mojave
-    sha256 "bb2e2232296723caee2b65212ed3c4834db0caf3e4b92e3e313416437a6caab7" => :high_sierra
-    sha256 "09e9e78a616cb36419302465fc1719c6e1b7409da0ce5b286c0d20e8eb0b6960" => :x86_64_linux
+    sha256 "d7a256ed5cbbda5c055c05d628a1469abe72707961f3960d768de25035b7f4fe" => :catalina
+    sha256 "6072ce08e6c12ad2a519ca5fac3f10e0317d8522719a212174574e42a6cdec4c" => :mojave
+    sha256 "1dde3bae255dc729cfbc82a1805df00e7b738fc2db7f943bf818c6b123d54f6e" => :high_sierra
   end
 
   # Apple's makeinfo is old and has bugs
