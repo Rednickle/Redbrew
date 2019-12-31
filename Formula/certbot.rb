@@ -5,14 +5,14 @@ class Certbot < Formula
   homepage "https://certbot.eff.org/"
   url "https://github.com/certbot/certbot/archive/v1.0.0.tar.gz"
   sha256 "cb853d4aeff1bd28c6a20bb4b26e782a791a28dfee5b6cf410ef2b6f4f580bd8"
-  revision 1
+  revision 3
   head "https://github.com/certbot/certbot.git"
 
   bottle do
-    sha256 "eb69401a2f0b42d291d2c8ab2c070896e867f8d719ac0db2b012a5ed6b92548a" => :catalina
-    sha256 "f46a37aa10be323aa7f618300ed0fcbacc51024fe6a25b6d7c729f4a54d527cd" => :mojave
-    sha256 "9bbdd9fb1c78314bb768fc29f85d7f768cef56866c553329c1008ba899120bc3" => :high_sierra
-    sha256 "7f545a64125cd74bc87574255e60a1e2288df6c618a7c290433059940dad80bc" => :x86_64_linux
+    cellar :any
+    sha256 "6836acb9246e344167a5f03e49c19167fd743dfe39c78748a66d8670aba5bece" => :catalina
+    sha256 "facc6d84755fa8218c998328ea53425ee451777a6e1db389e03ebfb1f892073f" => :mojave
+    sha256 "54e5bb7ec0f220da2e6281a7c5dbe9297dc4e43883914c685e2a8362673f7aa5" => :high_sierra
   end
 
   depends_on "augeas"
@@ -186,7 +186,7 @@ class Certbot < Formula
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
 
     cd buildpath/"certbot" do
-      system "python3", "setup.py", "install", "--prefix=#{libexec}"
+      system "python3", *Language::Python.setup_install_args(libexec)
     end
 
     # Shipped with certbot, not external resources.
