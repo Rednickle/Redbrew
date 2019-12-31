@@ -11,6 +11,7 @@ class GccAT8 < Formula
   # gcc is designed to be portable.
   # reminder: always add 'cellar :any'
   bottle do
+    cellar :any
     sha256 "b410ceed5dd0e68839a663792c0744c7669cae633f200d4be690b6df0f955169" => :catalina
     sha256 "db70df625d79fc4eb3cff8a4669173c216a0a3c38b3718899713b3c682ded0ee" => :mojave
     sha256 "3c3c877cc99a599ad73695b6745ea05a096fb081c4c18070c30c7d5fa08dc532" => :high_sierra
