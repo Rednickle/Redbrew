@@ -2,17 +2,15 @@ class Ghq < Formula
   desc "Remote repository management made easy"
   homepage "https://github.com/motemen/ghq"
   url "https://github.com/motemen/ghq.git",
-      :tag      => "v0.17.1",
-      :revision => "5add27b66cbb918e28f195a9065f6875b1a33392"
-  revision 1
+      :tag      => "v0.99.1",
+      :revision => "661921c8605c3e8d421d3149cd1d1a8a7ec226c8"
   head "https://github.com/motemen/ghq.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5b049947bba0792be5adc935ae4e2419a6b59b0ca2e4ce212ef8ab000fcd78e1" => :catalina
-    sha256 "9cecceec484eb2b8ccc0d9c626771e7a4217ea9c0b9515432b9dd8ccc241a5d1" => :mojave
-    sha256 "9e55e0e171b7f3b3e7b774caaf7962d79480184c07b9500cf4c0620f3b2d73f8" => :high_sierra
-    sha256 "a50f15b5058b831b7470d8939ad2b697794ba20592a6429f30ae0d01ae92e4a5" => :x86_64_linux
+    sha256 "f3adbb41ce222dc0ab1e23ea4c7b59d4d30d1b5dc01b57015268b73640902db3" => :catalina
+    sha256 "eb86f7174cc74031947befdd57d29146a902825fefba69f4a32260a02efc0039" => :mojave
+    sha256 "792c8b7a1be6948b9dcf08a01a152ba4492511b1a95ae2a268f6bc92cdaf60fd" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -26,6 +24,6 @@ class Ghq < Formula
   end
 
   test do
-    assert_match "#{testpath}/.ghq", shell_output("#{bin}/ghq root")
+    assert_match "#{testpath}/ghq", shell_output("#{bin}/ghq root")
   end
 end
