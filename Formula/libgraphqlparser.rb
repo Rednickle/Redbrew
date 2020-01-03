@@ -1,4 +1,3 @@
-# libgraphqlparser: Build a bottle for Linux
 class Libgraphqlparser < Formula
   desc "GraphQL query parser in C++ with C and C++ APIs"
   homepage "https://github.com/graphql/libgraphqlparser"
