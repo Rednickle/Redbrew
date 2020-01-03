@@ -1,16 +1,15 @@
 class Peco < Formula
   desc "Simplistic interactive filtering tool"
   homepage "https://github.com/peco/peco"
-  url "https://github.com/peco/peco/archive/v0.5.4.tar.gz"
-  sha256 "06636082070634256b5adc4c24955ad2c520b24fec528131d0ce203c31aa209d"
+  url "https://github.com/peco/peco/archive/v0.5.5.tar.gz"
+  sha256 "ce4191cb16d924c81cce1ebd0340d98739794745d19565ba8a84ef1e12e1960c"
   head "https://github.com/peco/peco.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4ea47db32f650d926abfeba4ebc210de96a8eb28bd0677acf1eb8fa7ddc365e4" => :catalina
-    sha256 "424c1cd6b0c9d331f65be9cf17f0ca6cd03489fec412f1ad0f4cd067f2a16b93" => :mojave
-    sha256 "4422802e055e8b7c47f9a31aac5a9e868d9d1f92818514ecc4b13aa49fa32d9e" => :high_sierra
-    sha256 "4b4428b386422f7995f20bc9438e6b22bbf78bbbe18030935c7ea49a2e831e73" => :x86_64_linux
+    sha256 "ae7ead7012d642b886c3afe0614fdb82a5a2e71b5eaafaa1fce9dfc3f47a6ec3" => :catalina
+    sha256 "e605993ea5cbeae13cb86ef63412ffb766dbd566a5e8dc16c74506e343db8ff1" => :mojave
+    sha256 "f1559339b3f8e8e965a2b0da940dab2fa216c3135f7095f50ec85a0e6af4627c" => :high_sierra
   end
 
   depends_on "go" => :build

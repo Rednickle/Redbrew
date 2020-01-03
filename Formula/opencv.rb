@@ -1,15 +1,13 @@
 class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
-  url "https://github.com/opencv/opencv/archive/4.1.2.tar.gz"
-  sha256 "385dd0a9c25e67ef0dd60e022d2a2d7b17e2f36819cf3cb46aa8cdff5c5282c9"
+  url "https://github.com/opencv/opencv/archive/4.2.0.tar.gz"
+  sha256 "9ccb2192d7e8c03c58fee07051364d94ed7599363f3b0dce1c5e6cc11c1bb0ec"
 
   bottle do
-    rebuild 1
-    sha256 "5f6821416988e413bcc9bd4ef5169a66e8458c4b55495286850bea7c6b6d34ee" => :catalina
-    sha256 "a5ff3b325dda09989870c0ff910b4ca4e639962b605ee95e9d2a01627d93da07" => :mojave
-    sha256 "d028ff3f01a4548e402659bf2291030d98a8ef6ec3ad54cbf18e2b7782899dec" => :high_sierra
-    sha256 "fdd6a18f2a21bd26f90b553d7d5a48f80a1e1d3fa9f69cff16bbda79ca09d3cc" => :x86_64_linux
+    sha256 "f53dd07aea7163aff1d30ec9cd6b4d2a49db5362e5845b690284b4f0574f09db" => :catalina
+    sha256 "081a75f753ede6ec73bb27135838fee1b9f15660663cae350e2f37a988498529" => :mojave
+    sha256 "4c6deb39336b29bf1bb3f8acd5adbb26a8dc9ac8b56beb991bd720e6ce0b6966" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -29,8 +27,8 @@ class Opencv < Formula
   uses_from_macos "openblas"
 
   resource "contrib" do
-    url "https://github.com/opencv/opencv_contrib/archive/4.1.2.tar.gz"
-    sha256 "0f6c3d30baa39e3e7611afb481ee86dea45dafb182cac87d570c95dccd83eb8b"
+    url "https://github.com/opencv/opencv_contrib/archive/4.2.0.tar.gz"
+    sha256 "8a6b5661611d89baa59a26eb7ccf4abb3e55d73f99bb52d8f7c32265c8a43020"
   end
 
   def install
@@ -104,6 +102,7 @@ class Opencv < Formula
       system "make"
       lib.install Dir["lib/*.a"]
       lib.install Dir["3rdparty/**/*.a"]
+      rm lib/"libIlmImf.a"
     end
   end
 
