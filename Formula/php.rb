@@ -166,6 +166,7 @@ class Php < Formula
       --with-password-argon2=#{Formula["argon2"].opt_prefix}
       --with-pdo-dblib=#{Formula["freetds"].opt_prefix}
       --with-pdo-mysql=mysqlnd
+      --with-pdo-odbc=unixODBC,#{Formula["unixodbc"].opt_prefix}
       --with-pdo-pgsql=#{Formula["libpq"].opt_prefix}
       --with-pdo-sqlite
       --with-pgsql=#{Formula["libpq"].opt_prefix}
@@ -191,7 +192,6 @@ class Php < Formula
       args << "--without-ndbm"
       args << "--without-gdbm"
       args << "--without-ldap-sasl"
-      args << "--with-pdo-odbc=unixODBC,#{Formula["unixodbc"].opt_prefix}"
     end
 
     system "./configure", *args
