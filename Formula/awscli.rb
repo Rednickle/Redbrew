@@ -6,19 +6,19 @@ class Awscli < Formula
   # awscli should only be updated every 10 releases on multiples of 10
   url "https://github.com/aws/aws-cli/archive/1.16.310.tar.gz"
   sha256 "2a8fa13b03714fd1f503b2c4a696c5cf433a2bc07ea5d262387a2f176e8f535e"
+  revision 1
   head "https://github.com/aws/aws-cli.git", :branch => "develop"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "427aeedb5c7920a89704b2861aeb4068b3d23f1db5f854a0814785c1f33bd288" => :catalina
-    sha256 "272f7019bccef9d970bbcdc657ce1bb9a891ddc8afdc80a5c1d6487b464f8adc" => :mojave
-    sha256 "8f36ece466b1bc17b7517495b4bc29648d8e05e8c9ddaee0d94944eaf8c4fa08" => :high_sierra
-    sha256 "b6ab1e0d209023ae67e730a39e12cd345ee8890c8ebb85349bff9f396e320875" => :x86_64_linux
+    sha256 "9325b1008a86a6c4c5f4b66306fdd0253567a4128fec9b42feb8b1003654c837" => :catalina
+    sha256 "782e0766a5ca96f93bdde03d11ac170d953b2e29de584ac83c8c3f48520432f5" => :mojave
+    sha256 "cf906177afd0ac1a49b256c6a5a4c7afcd012183ccd9db96dd85beb96283a228" => :high_sierra
   end
 
   # Some AWS APIs require TLS1.2, which system Python doesn't have before High
   # Sierra
-  depends_on "python"
+  depends_on "python@3.8"
 
   uses_from_macos "libyaml"
 
