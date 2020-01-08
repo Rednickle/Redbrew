@@ -9,10 +9,10 @@ class Alot < Formula
 
   bottle do
     cellar :any
-    sha256 "265e4cdb2a61d124b706636d6fdb6bba0f5b2a6aa10a6642c85b60049a630831" => :mojave
-    sha256 "b66af0bf5204a245bfa6fd22399ed216ace6908b36af167c08bad8a4cc9d8e12" => :high_sierra
-    sha256 "45f6fbbd3e1e22a57dae3497651b8413f9a46b905af2529f5096fc264fbaed01" => :sierra
-    sha256 "9083702fe7b122130304df15316ac1d3d17b343d9f306b5c7365b25ffbd56cf3" => :x86_64_linux
+    rebuild 1
+    sha256 "b65c69851ded777bfbe680bd680b840fde7a9869f55d885854b2b3a3971d3fa7" => :catalina
+    sha256 "bf584301024f443de3cbeafab621e85c0113c37f72d6eab3a516122c3acd4d01" => :mojave
+    sha256 "f0d202bb397b92d0e744e38d20410bfe72f64bc709bece7b63580d30e67deb80" => :high_sierra
   end
 
   depends_on "sphinx-doc" => :build
@@ -117,14 +117,15 @@ class Alot < Formula
     (testpath/"Mail").mkpath
     system Formula["notmuch"].bin/"notmuch", "new"
 
-    # The following test requires /usr/bin/script.
-    return unless OS.mac?
-
     begin
       pid = fork do
         $stdout.reopen("/dev/null")
         $stdin.reopen("/dev/null")
-        exec "script", "-q", "/dev/null", bin/"alot", "--logfile", testpath/"out.log"
+        if OS.mac?
+          exec "script", "-q", "/dev/null", bin/"alot", "--logfile", testpath/"out.log"
+        else
+          exec "script", "-q", "/dev/null", "-e", "-c", "#{bin}/alot --logfile #{testpath}/out.log"
+        end
       end
       sleep 10
     ensure

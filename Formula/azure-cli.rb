@@ -6,18 +6,18 @@ class AzureCli < Formula
   url "https://codeload.github.com/Azure/azure-cli/legacy.tar.gz/f68fedd91e6fc84ed4a0d3b670bd8b9a50319838"
   version "2.0.79"
   sha256 "46fa9be6ee185147400327bdb112ae0c924d9b9aa1f650d65c73a203bb4fe06e"
+  revision 1
   head "https://github.com/Azure/azure-cli.git"
 
   bottle do
     cellar :any
-    sha256 "5ac8f5dd1644fb8690f5441a06970cc20be6b910e67e84a934cae995dfed4e01" => :catalina
-    sha256 "db7d2cbff6ef28aee9afbc0833be15afa77862285a04dee4382b15944954e566" => :mojave
-    sha256 "fc1ec5e7685520576b7bd214d1219a029066b43752f518479a7263d2f65c0630" => :high_sierra
-    sha256 "a16efb00979fc7ae2321454c4166d96a10028778f0ca8b89b945abae6a062a46" => :x86_64_linux
+    sha256 "a8e71cb34e0e6230896fcbc3b9e379f6e11c2b5ba91df7295fc50177c0ff836b" => :catalina
+    sha256 "ae543e1e979d3daee487df226c8e548dfa9cc14e102833429b6c23f59e5aed0a" => :mojave
+    sha256 "a78bac4d82c8966b5386ced0412889491d543df37763bf3f22855241d10c9dd9" => :high_sierra
   end
 
   depends_on "openssl@1.1"
-  depends_on "python"
+  depends_on "python@3.8"
 
   unless OS.mac?
     # pkg-config helps setuptools find libffi
