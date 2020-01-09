@@ -5,21 +5,21 @@ class Yamllint < Formula
   homepage "https://github.com/adrienverge/yamllint"
   url "https://github.com/adrienverge/yamllint/archive/v1.20.0.tar.gz"
   sha256 "6391bfd0f3d360a418fef54c6ccf77615c25b2b62c54fb770c07823471016b18"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "d03777300040daa938d7ade2ba7fc9b6af93ac2cf62f649d58ce69d81d519cdd" => :catalina
-    sha256 "8b531f80bcba7853d6f2e7cd4d420719cbaa0e7f3fcb0b56ccbb889c7da28856" => :mojave
-    sha256 "5432b3844222b9f6f65af13496c19219aed05fdd60958c063ed3e99824d696ae" => :high_sierra
-    sha256 "f1b57eff03d4193b9843c088a21d7fd8e744d3091e90dc344cd793b2231b9995" => :x86_64_linux
+    sha256 "1a39e71f5471a2ef25cbb48d4ad7978171385ff38d5c40125f2c258cc6682244" => :catalina
+    sha256 "ee0e9115ae2423d3691c59c85ee10e03a0109706e24b2f51e21773ff15096a6b" => :mojave
+    sha256 "cb73a80359f4c689e5051d11cb3931b23268c573e00f52900875391442e10f51" => :high_sierra
   end
 
   depends_on "libyaml"
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/8d/c9/e5be955a117a1ac548cdd31e37e8fd7b02ce987f9655f5c7563c656d5dcb/PyYAML-5.2.tar.gz"
-    sha256 "c0ee8eca2c582d29c3c2ec6e2c4f703d1b7f1fb10bc72317355a746057e7346c"
+    url "https://files.pythonhosted.org/packages/3d/d9/ea9816aea31beeadccd03f1f8b625ecf8f645bd66744484d162d84803ce5/PyYAML-5.3.tar.gz"
+    sha256 "e9f45bd5b92c7974e59bcd2dcc8631a6b6cc380a904725fce7bc08872e691615"
   end
 
   resource "pathspec" do

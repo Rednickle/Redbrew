@@ -1,15 +1,15 @@
 class Numpy < Formula
   desc "Package for scientific computing with Python"
   homepage "https://www.numpy.org/"
-  url "https://files.pythonhosted.org/packages/ff/59/d3f6d46aa1fd220d020bdd61e76ca51f6548c6ad6d24ddb614f4037cf49d/numpy-1.17.4.zip"
-  sha256 "f58913e9227400f1395c7b800503ebfdb0772f1c33ff8cb4d6451c06cabdf316"
+  url "https://files.pythonhosted.org/packages/40/de/0ea5092b8bfd2e3aa6fdbb2e499a9f9adf810992884d414defc1573dca3f/numpy-1.18.1.zip"
+  sha256 "b6ff59cee96b454516e47e7721098e6ceebef435e3e21ac2d6c3b8b02628eb77"
   head "https://github.com/numpy/numpy.git"
 
   bottle do
-    sha256 "7b63631ab91df782aafe5662d11ad15265ff55ddd23647484ea51566e77e4ca1" => :catalina
-    sha256 "0c7b145b0075974fbb3beb4bef585b6c352d71ec470aeb2f3d6c2388c3073f25" => :mojave
-    sha256 "93d3b0d26275214bdd1d359c29e323b7719ac16269dbc98db3b5d80c7dfa8520" => :high_sierra
-    sha256 "418deb9969e9ec0b4c14110f06571fa6526346da4ca2596206316dba2ec279a7" => :x86_64_linux
+    cellar :any
+    sha256 "0a7e014e69165631f0d1edc661d80fac146daa1c938a0daa195c0b8553d9b7f5" => :catalina
+    sha256 "1888adb4efe3be2ea8aea7e7df57e51ba1164fdc39d8cd834eaa3cbf165a5928" => :mojave
+    sha256 "9ad4aa04bd2664551e4bfe1aac777e22d2bf803b51df164bc6421bc6a64fd31d" => :high_sierra
   end
 
   depends_on "cython" => :build

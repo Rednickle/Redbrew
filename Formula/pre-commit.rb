@@ -5,16 +5,16 @@ class PreCommit < Formula
   homepage "https://pre-commit.com/"
   url "https://github.com/pre-commit/pre-commit/archive/v1.21.0.tar.gz"
   sha256 "9cdc791bfad86b3648a5801518bbfb3ad7cb66f74a4681b10d8dd34d4032cb59"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5b8f6482e47234182504d6949d31ccb191fac5e33c90b75e860da01cfe4161f2" => :catalina
-    sha256 "21167fc4d14445b1445a985f83d78a490d070c9c670cce71d949ec3690c20641" => :mojave
-    sha256 "f101582126b30f6e4c2752c4b8437ca82afe9f6918f614b9493c9ccc6725da9c" => :high_sierra
-    sha256 "4350248c9e1c538f43bc716d627059fb7c1b06fc32a81c0044ebb5eeb723a7d1" => :x86_64_linux
+    sha256 "e91d7afb101e474e4a064e61a04fcd428bf620dfeeb41749389f130a4fa83da1" => :catalina
+    sha256 "de1c5a3a4f924145edbab2e705280a92ea6491b1e6485af3b299aa1bd5ece1fd" => :mojave
+    sha256 "f2976d6b3e6a5443638d32f44de261e9615fdaf780f1270cfe2c11762819a597" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     venv = virtualenv_create(libexec, "python3")
@@ -34,8 +34,6 @@ class PreCommit < Formula
       rm f
       ln_s realpath, f
     end
-    inreplace lib_python_path/"orig-prefix.txt",
-              Formula["python3"].opt_prefix, Formula["python3"].prefix.realpath
   end
 
   test do
