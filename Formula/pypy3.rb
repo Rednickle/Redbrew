@@ -1,15 +1,14 @@
 class Pypy3 < Formula
   desc "Implementation of Python 3 in Python"
   homepage "https://pypy.org/"
-  url "https://bitbucket.org/pypy/pypy/downloads/pypy3.6-v7.2.0-src.tar.bz2"
-  sha256 "0d7c707df5041f1593fe82f29c40056c21e4d6cb66554bbd66769bd80bcbfafc"
+  url "https://bitbucket.org/pypy/pypy/downloads/pypy3.6-v7.3.0-src.tar.bz2"
+  sha256 "48d12c15fbcbcf4a32882a883195e1f922997cde78e7a16d4342b9b521eefcfa"
 
   bottle do
     cellar :any
-    sha256 "6d7e5373e600fed6b6bd01818f0106355a8b6ae5692b15e871a17d66dfab16f7" => :catalina
-    sha256 "2e93847b5c7af6b6ae1171720b8cd95f6cd939f6ae19c19948d4092c165d37d7" => :mojave
-    sha256 "e4b8e6116658c07a07311e9fc1e40c080de529a8f34b49473b52f1dbc9836fce" => :high_sierra
-    sha256 "59763aac4f137a8b236889684674d9edba9869d3d64570e8bfd7b0c4de80f8c5" => :x86_64_linux
+    sha256 "d1af1b4bbbd226a50df7989c2e5b21d5fb97f0defa7d12a96cd859c595d25c29" => :catalina
+    sha256 "da12adec658ce8d292bd9f3ad1766268116f0ef11514e18ec9b1f1551179095d" => :mojave
+    sha256 "3e1db4fb3c9e627b285a8d08123513bd5ebe6d351148b7637f9da6a21a3cc111" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -31,8 +30,8 @@ class Pypy3 < Formula
 
   # packaging depends on pyparsing
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/00/32/8076fa13e832bb4dcff379f18f228e5a53412be0631808b9ca2610c0f566/pyparsing-2.4.5.tar.gz"
-    sha256 "4ca62001be367f01bd3e92ecbb79070272a9d4964dce6a48a82ff0b8bc7e683a"
+    url "https://files.pythonhosted.org/packages/a2/56/0404c03c83cfcca229071d3c921d7d79ed385060bbe969fde3fd8f774ebd/pyparsing-2.4.6.tar.gz"
+    sha256 "4c830582a84fb022400b85429791bc551f1f4871c33f23e44f353119e92f969f"
   end
 
   # packaging and setuptools depend on six
@@ -43,8 +42,8 @@ class Pypy3 < Formula
 
   # setuptools depends on packaging
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/5a/2f/449ded84226d0e2fda8da9252e5ee7731bdf14cd338f622dfcd9934e0377/packaging-19.2.tar.gz"
-    sha256 "28b924174df7a2fa32c1953825ff29c61e2f5e082343165438812f00d3a7fc47"
+    url "https://files.pythonhosted.org/packages/c7/cf/d84b72480a556d9bd4a191a91b0a8ea71cb48e6f6132f12d9d365c51bdb6/packaging-20.0.tar.gz"
+    sha256 "fe1d8331dfa7cc0a883b49d75fc76380b2ab2734b220fbb87d774e4fd4b851f8"
   end
 
   # setuptools depends on appdirs
@@ -54,8 +53,8 @@ class Pypy3 < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/11/0a/7f13ef5cd932a107cd4c0f3ebc9d831d9b78e1a0e8c98a098ca17b1d7d97/setuptools-41.6.0.zip"
-    sha256 "6afa61b391dcd16cb8890ec9f66cc4015a8a31a6e1c2b4e0c464514be1a3d722"
+    url "https://files.pythonhosted.org/packages/b0/f3/44da7482ac6da3f36f68e253cb04de37365b3dba9036a3c70773b778b485/setuptools-44.0.0.zip"
+    sha256 "e5baf7723e5bb8382fc146e33032b241efc63314211a3a120aaa55d62d2bb008"
   end
 
   resource "pip" do

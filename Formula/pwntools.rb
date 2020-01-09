@@ -3,15 +3,14 @@ class Pwntools < Formula
 
   desc "CTF framework used by Gallopsled in every CTF"
   homepage "https://github.com/Gallopsled/pwntools"
-  url "https://github.com/Gallopsled/pwntools/archive/3.12.2.tar.gz"
-  sha256 "8e048b514ee449b4c76f4eba1b4fcd48fdefd1bf04ae4c62b44e984923d2e979"
-  revision 2
+  url "https://github.com/Gallopsled/pwntools/archive/3.13.0.tar.gz"
+  sha256 "36bb37e213046cd265b11ef82c4df1e009f547ecd1ffcbd4720f410b3f71aaf8"
 
   bottle do
     cellar :any
-    sha256 "4451b3af23f57558456b208bafeb26c3edbd37dfe11d4de9d4a815233822759e" => :catalina
-    sha256 "c2fdfe2c99004b7800ff8d0768b7804f17b30b81b544864b2735b33a4308b741" => :mojave
-    sha256 "17c21c2430aa0e95baccc3f0d25a202682c8133daf61e032da6668506ee79561" => :high_sierra
+    sha256 "f0102d596ed9aa3247e38c0f0c5e3c110a2c0a742d3d2c85b4386c215724fc7a" => :catalina
+    sha256 "e815e89ba708e975275b36a48b6d353ab446e54ee405ac0bea90d5789b4e829e" => :mojave
+    sha256 "3aae80b957393eba426ca3c3d164fca42b25919e788f28b8cbd4f2411fbbf3d8" => :high_sierra
   end
 
   depends_on "openssl@1.1"
