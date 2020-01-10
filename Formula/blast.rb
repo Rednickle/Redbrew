@@ -1,16 +1,15 @@
 class Blast < Formula
   desc "Basic Local Alignment Search Tool"
   homepage "https://blast.ncbi.nlm.nih.gov/"
-  url "https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.9.0/ncbi-blast-2.9.0+-src.tar.gz"
-  version "2.9.0"
-  sha256 "a390cc2d7a09422759fc178db84de9def822cbe485916bbb2ec0d215dacdc257"
+  url "https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.10.0/ncbi-blast-2.10.0+-src.tar.gz"
+  version "2.10.0"
+  sha256 "3acdd9cec01c4f43e56aeaf89049cb8f8013d60b9c1705eced10166967f1d926"
 
   bottle do
-    sha256 "9fef86c970bdc8556a479920bffd3d33a57c0ce7bdcad4c44f2469e116f940aa" => :catalina
-    sha256 "e07f0dafa79bd72359cf467ba8cf8e51d76665c1571128dc7cc5d7857c5b92d8" => :mojave
-    sha256 "3de6646d96d9fdbf6b76fdf57a14612c8eebbfa1327f0d42e0402b516b6298ec" => :high_sierra
-    sha256 "57f2e2f9c65aa5364eb72a9bbdf6948a30af2975a53445a4b43203f56395da7c" => :sierra
-    sha256 "c848cfbc52ef569b19510f0f8a9eebe686d19a96c5933597c85186056e74eb41" => :x86_64_linux
+    rebuild 1
+    sha256 "71ebf77b85de24cac6384b796b7b6a70fcaaeded84e1534bbfc4ba86030289d8" => :catalina
+    sha256 "4da358f7b8d0fdc4b3d3a47ee16e0f6345c0846d76a692bdfeb7a7e0f84a12dd" => :mojave
+    sha256 "0f8ce869239db65218854d9897bc47108d08a33d4f35d7afb56c22f1dc4a24ba" => :high_sierra
   end
 
   depends_on "lmdb"
@@ -40,11 +39,22 @@ class Blast < Formula
   end
 
   test do
+    output = shell_output("#{bin}/update_blastdb.pl --showall")
+    assert_match "nt", output
+
     (testpath/"test.fasta").write <<~EOS
       >U00096.2:1-70
       AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC
     EOS
     output = shell_output("#{bin}/blastn -query test.fasta -subject test.fasta")
     assert_match "Identities = 70/70", output
+
+    # Create BLAST database
+    output = shell_output("#{bin}/makeblastdb -in test.fasta -out testdb -dbtype nucl")
+    assert_match "Adding sequences from FASTA", output
+
+    # Check newly created BLAST database
+    output = shell_output("#{bin}/blastdbcmd -info -db testdb")
+    assert_match "Database: test", output
   end
 end

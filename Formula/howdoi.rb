@@ -1,18 +1,20 @@
 class Howdoi < Formula
+  include Language::Python::Virtualenv
+
   desc "Instant coding answers via the command-line"
   homepage "https://github.com/gleitz/howdoi"
   url "https://files.pythonhosted.org/packages/03/db/c9b5bb64adac16b0feab7924fb1134ce88bc38f7af4e74aca27c48de26df/howdoi-1.2.1.tar.gz"
   sha256 "3b322668606d29d8a841c3b28c0574851f512b55c33a7ceb982b6a98d82fa3e3"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "674fb236d02acae277b474d706c573dcb4d3b2b9ad9e24521a4880d9b1a35557" => :catalina
-    sha256 "ee5ddf41be97e394d9dfd1518b83585e7e14057c9244147f951d998c39ad23b3" => :mojave
-    sha256 "3238cfd27c96ebd69e74b0549e119a83f463dfe52b762b32bf34b72d6566ce1d" => :high_sierra
-    sha256 "68eb55d0792e9f0d2cb5ec747a8fc4050636281e679470c2f465a2e0979b354c" => :x86_64_linux
+    sha256 "576f5aba58a444486f8cb57ac06bde018ffb17be52a024bf7f21a75f1267c0c1" => :catalina
+    sha256 "edb6184fc8ce91e409ec1914f7cac62c203b336c1a96071380f9f7b51204bd3d" => :mojave
+    sha256 "b61bddf5e645a2916ae87b4791fc13a882eb18c6bd0bfca1ce27df9f2f070cd5" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
 
@@ -66,11 +68,6 @@ class Howdoi < Formula
     sha256 "11e007a8a2aa0323f5a921e9e6a2d7e4e67d9877e85773fba9ba6419025cbeb4"
   end
 
-  resource "requests-cache" do
-    url "https://files.pythonhosted.org/packages/0c/d4/bdc22aad6979ceeea2638297f213108aeb5e25c7b103fa02e4acbe43992e/requests-cache-0.5.2.tar.gz"
-    sha256 "813023269686045f8e01e2289cc1e7e9ae5ab22ddd1e2849a9093ab3ab7270eb"
-  end
-
   resource "urllib3" do
     url "https://files.pythonhosted.org/packages/ad/fc/54d62fa4fc6e675678f9519e677dfc29b8964278d75333cf142892caf015/urllib3-1.25.7.tar.gz"
     sha256 "f3c5fd51747d450d4dcf6f923c81f78f811aab8205fda64b0aba34a4e48b0745"
@@ -80,19 +77,7 @@ class Howdoi < Formula
     # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
     ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
 
-    xy = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
-    resources.each do |r|
-      r.stage do
-        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
-    system "python3", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   test do
