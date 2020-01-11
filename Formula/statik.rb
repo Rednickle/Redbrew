@@ -5,18 +5,17 @@ class Statik < Formula
   homepage "https://getstatik.com"
   url "https://github.com/thanethomson/statik/archive/v0.22.2.tar.gz"
   sha256 "27aeda86c40ba2a489d2d8e85b7b38200e8f5763310003294c135ab2cf09975b"
-  revision 2
+  revision 3
   head "https://github.com/thanethomson/statik.git"
 
   bottle do
     cellar :any
-    sha256 "114195665f574c4c4a9b56ca1071610423c252b0d3e222034575f51206059ed0" => :catalina
-    sha256 "d1e258882ca6b3b5bb4a84e9786639fc8281919d3167f06d98d190a6104b3c6e" => :mojave
-    sha256 "7fb8a4394f54916bd6d9f9770be85a9da4a6f9c35ffb1c692fa4306a430062b1" => :high_sierra
-    sha256 "3ae2e09bc40787e75d19f0c451f5ea2623f99e14c173301463b51dd720bcba41" => :x86_64_linux
+    sha256 "42b9ce47cd1adf076f99b06ee1af089870a2da0c4abc2f86fd98a94761a1eb27" => :catalina
+    sha256 "0291dbdf49901a3141f97a466ecda416ab8ee1c11c30f04bab8c5f4208a95a1c" => :mojave
+    sha256 "9d898d64f57db338a4ece54d14d6cdda03a47eb8131fbb6b39067c9213ec838c" => :high_sierra
   end
 
-  depends_on "python"
+  depends_on "python@3.8"
   depends_on "pkg-config" => :build unless OS.mac?
 
   uses_from_macos "libffi"

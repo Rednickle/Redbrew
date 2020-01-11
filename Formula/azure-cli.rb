@@ -6,15 +6,14 @@ class AzureCli < Formula
   url "https://codeload.github.com/Azure/azure-cli/legacy.tar.gz/f68fedd91e6fc84ed4a0d3b670bd8b9a50319838"
   version "2.0.79"
   sha256 "46fa9be6ee185147400327bdb112ae0c924d9b9aa1f650d65c73a203bb4fe06e"
-  revision 1
+  revision 2
   head "https://github.com/Azure/azure-cli.git"
 
   bottle do
     cellar :any
-    sha256 "a8e71cb34e0e6230896fcbc3b9e379f6e11c2b5ba91df7295fc50177c0ff836b" => :catalina
-    sha256 "ae543e1e979d3daee487df226c8e548dfa9cc14e102833429b6c23f59e5aed0a" => :mojave
-    sha256 "a78bac4d82c8966b5386ced0412889491d543df37763bf3f22855241d10c9dd9" => :high_sierra
-    sha256 "ee04464765459a010c88d1158ce5d377a38cb13a617d5852fcd7a555ed1100ca" => :x86_64_linux
+    sha256 "6dd20a1d9b33b20f84168180bfe63287fea8d8ce3845f16664ac8f097dda1e6f" => :catalina
+    sha256 "1a1feefa90b26c71446f3c08f069dd93ee09c8a995d6ca36f1497ad77ffdf2ed" => :mojave
+    sha256 "aad5ab4fa95c8e344340331d639df90d41905b14bfd4349185de2870cc5f7d1f" => :high_sierra
   end
 
   depends_on "openssl@1.1"
@@ -494,6 +493,12 @@ class AzureCli < Formula
   resource "jmespath" do
     url "https://files.pythonhosted.org/packages/2c/30/f0162d3d83e398c7a3b70c91eef61d409dea205fb4dc2b47d335f429de32/jmespath-0.9.4.tar.gz"
     sha256 "bde2aef6f44302dfb30320115b17d030798de8c4110e28d5cf6cf91a7a31074c"
+
+    # Fix warnings "SyntaxWarning: "is" with a literal. Did you mean "=="?" for python 3.8
+    patch do
+      url "https://github.com/jmespath/jmespath.py/pull/188.patch?full_index=1"
+      sha256 "f56128dc46ca5b12f62098753f6a71646c8c85d0814275dcfdf465a1ae67da62"
+    end
   end
 
   resource "jsmin" do
