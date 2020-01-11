@@ -3,14 +3,14 @@ class Poetry < Formula
 
   desc "Python package management tool"
   homepage "https://python-poetry.org/"
-  url "https://files.pythonhosted.org/packages/59/b9/79e078a303b6b813aa16c1f9cffe22e048c6edfef9a31574670193d09fc4/poetry-1.0.0.tar.gz"
-  sha256 "f52930910371a748aa2ae62bc7dbe503e50f17532fb037486644db8a2c75f13f"
+  url "https://files.pythonhosted.org/packages/d1/c6/c911e905c4ea9e7d87ee27c13b3b0671afd5775555206b354f1f858d6344/poetry-1.0.2.tar.gz"
+  sha256 "f3e41da4820ac94689bcf736807e48213e5e5cb5edfdbae3df6c6876c42de4ed"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b63645e108ecd753736f1cb7f44d560c832df7f537fcf5b743bb3802b5a392d0" => :catalina
-    sha256 "aee4ec12b1c94067868a88815687b222ec6c37eac10a69f2c9a51f193f998825" => :mojave
-    sha256 "048cf6682c24fa6299262acbac9b3bd30a1be5a77d77f51919e7b227c8d0eaae" => :high_sierra
+    sha256 "10df063f03a450392883f562621a240ba062de70f9db917c383c87bf9d901c18" => :catalina
+    sha256 "7bc40a1e86946cf60a046a869129c9772cbc46030bfdf3f46ad37601ea0e8816" => :mojave
+    sha256 "8881f7d7a38addfaf0abd337f8b958ac3018dbae1cb01af0b91c30c0b4cd3a82" => :high_sierra
   end
 
   depends_on "python"
@@ -61,8 +61,8 @@ class Poetry < Formula
   end
 
   resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/5d/44/636bcd15697791943e2dedda0dbe098d8530a38d113b202817133e0b06c0/importlib_metadata-0.23.tar.gz"
-    sha256 "aa18d7378b00b40847790e7c27e11673d7fed219354109d0e7b9e5b25dc3ad26"
+    url "https://files.pythonhosted.org/packages/e0/ab/591e1162057d42954114d87cd73ee29f7259535f3743f6618fc09ce681a9/importlib_metadata-1.1.3.tar.gz"
+    sha256 "7a99fb4084ffe6dae374961ba7a6521b79c1d07c658ab3a28aa264ee1d1b14e3"
   end
 
   resource "jsonschema" do
@@ -71,8 +71,8 @@ class Poetry < Formula
   end
 
   resource "keyring" do
-    url "https://files.pythonhosted.org/packages/a7/74/01d60aefd5719d00379f663565c49b81d3452b0d87b14fbc40b48d5bc94f/keyring-19.3.0.tar.gz"
-    sha256 "ee3d35b7f1ac3cb69e9a1e4323534649d3ab2fea402738a77e4250c152970fed"
+    url "https://files.pythonhosted.org/packages/97/b5/983b219cc9288340b1a572dc85b1efd96938d807dae9ebc9355616e0db32/keyring-20.0.1.tar.gz"
+    sha256 "963bfa7f090269d30bdc5e25589e5fd9dad2cf2a7c6f176a7f2386910e5d0d8d"
   end
 
   resource "lockfile" do
