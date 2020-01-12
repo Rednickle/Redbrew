@@ -3,24 +3,24 @@ class NodeAT12 < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v12.14.1/node-v12.14.1.tar.gz"
   sha256 "42a7f0777fea8825611cb9250ff927824dba4f7aea854b47d522798acf4bdbc6"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "5dfcdde4c37e9c43510ddf65edbc505e00d4ffa549f464756854a8dbbcd3e1e6" => :catalina
-    sha256 "37806532cc9af9760eb688d58be41118647714ca246d6fbc2c93528836c3d880" => :mojave
-    sha256 "f4428abbb973480e9782a167f4dea84ebcd646523dee3dd7e3ca131d0d3f488c" => :high_sierra
-    sha256 "a3be20e57061bab869efd89e9f737dff8059796c70f79add826c9b9f6cc92a80" => :x86_64_linux
+    sha256 "fa84698b76088b1850f9bd8545de42b322cd44c01c8db0885c12be6a3511a4ac" => :catalina
+    sha256 "7b2367278944d594a48b3f45fd0b3a30a140d040305560ae851ec0a7b2011135" => :mojave
+    sha256 "c9dca6f8661f77970d62f4936dc285a39f4ad2ea4808834dc9092048e69a4f01" => :high_sierra
   end
 
   keg_only :versioned_formula
 
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
+  depends_on "python@3.8" => :build
   depends_on "icu4c"
 
   def install
     # make sure subprocesses spawned by make are using our Python 3
-    ENV["PYTHON"] = Formula["python"].opt_bin/"python3"
+    ENV["PYTHON"] = Formula["python@3.8"].opt_bin/"python3"
 
     system "python3", "configure.py", "--prefix=#{prefix}", "--with-intl=system-icu"
     system "make", "install"

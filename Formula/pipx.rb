@@ -3,14 +3,14 @@ class Pipx < Formula
   homepage "https://github.com/pipxproject/pipx"
   url "https://files.pythonhosted.org/packages/67/87/7f1547c4e8430ad3a6ca815f66e666651f91ad26e91d99d797a09f2b8991/pipx-0.15.1.1.tar.gz"
   sha256 "4b56b878899bf26917a945c316d52c71a8a99131c192f8396e9e971b431b8dd7"
+  revision 1
   head "https://github.com/pipxproject/pipx.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b7b3a5d3a681b2aab8be3d99dd47d307180a9a61db5fe0047c1e044cdfe60e26" => :catalina
-    sha256 "b7b3a5d3a681b2aab8be3d99dd47d307180a9a61db5fe0047c1e044cdfe60e26" => :mojave
-    sha256 "b7b3a5d3a681b2aab8be3d99dd47d307180a9a61db5fe0047c1e044cdfe60e26" => :high_sierra
-    sha256 "de7981b4400525b092a4a933bff36134fa03ac9ddebc8cb047907fddcccaa22c" => :x86_64_linux
+    sha256 "256bf6633c381e01c1ac56db6351497b03e3f5ec0baeba0d9de555c09e76489f" => :catalina
+    sha256 "256bf6633c381e01c1ac56db6351497b03e3f5ec0baeba0d9de555c09e76489f" => :mojave
+    sha256 "256bf6633c381e01c1ac56db6351497b03e3f5ec0baeba0d9de555c09e76489f" => :high_sierra
   end
 
   depends_on "python"
@@ -47,6 +47,7 @@ class Pipx < Formula
 
     system "python3", *Language::Python.setup_install_args(libexec)
     (bin/"pipx").write_env_script(libexec/"bin/pipx", :PYTHONPATH => ENV["PYTHONPATH"])
+    (bin/"register-python-argcomplete").write_env_script(libexec/"bin/register-python-argcomplete", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do
