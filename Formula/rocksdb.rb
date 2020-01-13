@@ -1,14 +1,14 @@
 class Rocksdb < Formula
   desc "Embeddable, persistent key-value store for fast storage"
   homepage "https://rocksdb.org/"
-  url "https://github.com/facebook/rocksdb/archive/v6.5.2.tar.gz"
-  sha256 "a923e36aa1cdd1429ae93a0b26baf477c714060ce7dd1c52e873754e1468d7ff"
+  url "https://github.com/facebook/rocksdb/archive/v6.5.3.tar.gz"
+  sha256 "6dc023a11d61d00c8391bd44f26ba7db06c44be228c10b552edc84e02d7fbde2"
 
   bottle do
     cellar :any
-    sha256 "ca2e55466c077aeffb8a517be7b55bcbb99fb0f2d0431e3640eefac42987773b" => :catalina
-    sha256 "55ff937ebde5e92c9cf6643c890f9f365bdb28708259d904e3ddc2b457f10679" => :mojave
-    sha256 "6f6e41e226ff9565abbe77028ec9c272e42fd66df08386799aea6eb53738b06b" => :high_sierra
+    sha256 "65d304607dac40a7e6cbecbe5601b3b6c31eb3fa331fc4f36cd4c955475e4b52" => :catalina
+    sha256 "160c04ae75f3aa8d63a6317b9a23ecb7df09000d692192f6bdc84022ee5fb39e" => :mojave
+    sha256 "8821f9297f9c612f21def21761c99c6bd54d3bdd0371fe308700e90a3d304b8f" => :high_sierra
   end
 
   depends_on "gflags"
