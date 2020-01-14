@@ -5,15 +5,15 @@ class DhallJson < Formula
 
   desc "Dhall to JSON compiler and a Dhall to YAML compiler"
   homepage "https://github.com/dhall-lang/dhall-haskell/tree/master/dhall-json"
-  url "https://hackage.haskell.org/package/dhall-json-1.6.0/dhall-json-1.6.0.tar.gz"
-  sha256 "058601eed1ffca03a71f03c2e3abd0f83a90ef06c2e0810dc3ddd225eee163b9"
+  url "https://hackage.haskell.org/package/dhall-json-1.6.1/dhall-json-1.6.1.tar.gz"
+  sha256 "3ce9b0a9d3a946beb021bb42589426ceb4c44cf5f104e5bdf120659ccb5109c9"
   head "https://github.com/dhall-lang/dhall-haskell.git"
 
   bottle do
-    sha256 "1cc81f1c9f6a97d9ac4a5539b9c8c0c71c318c247253b34dba98eaf7031bd93f" => :catalina
-    sha256 "76daf58beb302c6dfb451015dacbfddea53e44807e0708acce70f89a17d65771" => :mojave
-    sha256 "ec70a72b710b3351d999943fc6dc3d2e0727dee5d22cc4002cbe2714dbe110a5" => :high_sierra
-    sha256 "578f3624f34a9cb4089b3e1c58f2799e4c02c174ae2b7f694ed0055cec3e911f" => :x86_64_linux
+    cellar :any_skip_relocation
+    sha256 "dfc7e2ce2ae83fb5093eff83f15e19d74a73915455fb328c0af9fef1c4095db8" => :catalina
+    sha256 "2fd72d8f6a7edd4162a2058c6cadf3368af1cc304d0cdf2f23c2538f23219b8a" => :mojave
+    sha256 "28d8fa30f1ecc0087c27994d6a6d28fa08e72bf48db36669ec484354a1d1d221" => :high_sierra
   end
 
   depends_on "cabal-install" => :build
