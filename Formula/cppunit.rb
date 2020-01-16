@@ -1,15 +1,14 @@
 class Cppunit < Formula
   desc "Unit testing framework for C++"
   homepage "https://wiki.freedesktop.org/www/Software/cppunit/"
-  url "https://dev-www.libreoffice.org/src/cppunit-1.15.0.tar.gz"
-  sha256 "1c61dfdb430e04ebb411e4b80fbd49fe7e63a1be0209a76d7c07501f02834922"
+  url "https://dev-www.libreoffice.org/src/cppunit-1.15.1.tar.gz"
+  sha256 "89c5c6665337f56fd2db36bc3805a5619709d51fb136e51937072f63fcc717a7"
 
   bottle do
     cellar :any
-    sha256 "6c68eac5da5330a2536097146f8d25b1443cec83d00c2ee05b1f1abc62eb0500" => :catalina
-    sha256 "39db5ec22ab81000077b55383765d2f2bbc1b5080e4feb25494693af0ec7cec8" => :mojave
-    sha256 "d1eb4e839796b944ed3b966cf6a71e7eff2498237cf4ca2ef38d60e114320e48" => :high_sierra
-    sha256 "f917da7308b356b7ac14375d352b4e2624ed3aa744a8ce80789c32ba03429933" => :x86_64_linux
+    sha256 "3e194b84577c733e5641f305a1cb5cc76355f13037898afc56c3096f98bb78fe" => :catalina
+    sha256 "1c107efb84d656dd5327aa8cf13e6cbce8db7542aacba98ae98a2b05940b16ff" => :mojave
+    sha256 "08a339bc38db169bce2f5eb0fc0b940bc82562c37274aa770668f681aeca4386" => :high_sierra
   end
 
   def install

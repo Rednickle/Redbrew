@@ -1,16 +1,15 @@
 class Assimp < Formula
   desc "Portable library for importing many well-known 3D model formats"
   homepage "http://www.assimp.org"
-  url "https://github.com/assimp/assimp/archive/v5.0.0.tar.gz"
-  sha256 "b0110a91650d6bb4000e3d5c2185bf77b0ff0a2e7a284bc2c4af81b33988b63c"
+  url "https://github.com/assimp/assimp/archive/v5.0.1.tar.gz"
+  sha256 "11310ec1f2ad2cd46b95ba88faca8f7aaa1efe9aa12605c55e3de2b977b3dbfc"
   head "https://github.com/assimp/assimp.git"
 
   bottle do
     cellar :any
-    sha256 "fe46160da97212c37c91e5798d70c8d0ff25bb551034919f54bfca92eb740eb3" => :catalina
-    sha256 "de688cc4a769519596543c4fcb6c6da9811dc98bd9fe068d358337361d7ad558" => :mojave
-    sha256 "05192d6a70b625792264ceca37da758e1a3ffeab95551968a4df53635eb0d1a3" => :high_sierra
-    sha256 "06429c589a3cbffcd3392ab8ffcc2717cb7d00e72a6fafad1267373dcd27de13" => :x86_64_linux
+    sha256 "f049baf0e3bc3941e8449dbfbc997d0448b0a1722bfdceadb69b2eacc48e3464" => :catalina
+    sha256 "620f5f399783c487ae78077da65b65f6a0c81dce23768ae56eb1edd383a57daa" => :mojave
+    sha256 "6dffc67ca984f5870bdc09a1c0adbb3c0d2209c7fb8169e2204c4c2d2d44aebe" => :high_sierra
   end
 
   depends_on "boost" => :build
@@ -24,14 +23,6 @@ class Assimp < Formula
       url "https://github.com/assimp/assimp/pull/1634.patch?full_index=1"
       sha256 "79b93f785ee141dc2f56d557b2b8ee290eed0afc7dd373ad84715c6c9aa23460"
     end
-  end
-
-  # Fix CMake error "The imported target "assimp::assimp" references the file
-  # "/usr/local/lib/libassimp.dylib.5""
-  # Upstream PR from 11 Nov 2019 "Fix shared lib name on macOS"
-  patch do
-    url "https://github.com/assimp/assimp/pull/2765.patch?full_index=1"
-    sha256 "4c8102fea4af720f65d420aa883d60e6ed0f9eb8309938793e82de69d11a23dc"
   end
 
   def install

@@ -3,15 +3,14 @@ require "language/node"
 class GatsbyCli < Formula
   desc "Gatsby command-line interface"
   homepage "https://www.gatsbyjs.org/docs/gatsby-cli/"
-  url "https://registry.npmjs.org/gatsby-cli/-/gatsby-cli-2.8.26.tgz"
-  sha256 "8380d6dfe588621e745ad7f0e63ea7e52244461852fb264d80ae41c67238ffa5"
+  url "https://registry.npmjs.org/gatsby-cli/-/gatsby-cli-2.8.27.tgz"
+  sha256 "bc413ceabb78ff54faba810cfe83c8640af3bf8ec879e0f92d5ea3fd18f2d613"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "56b15bfc745392cf7aeffd527011a885940a360dec17fb1c94875ef54f2be76a" => :catalina
-    sha256 "dbb2bc9322f1e668794bd62b34f30780f73de63ea436d947d3a05617e556740d" => :mojave
-    sha256 "18dc3c001939470a3d3d173bd53e9457654f6bf697307175e627011978335b67" => :high_sierra
-    sha256 "cce10c05236c58cb3b47c66cc39f527c10a096029aed79f93d5e245b2c414298" => :x86_64_linux
+    sha256 "163d6ca748050c6d46ca419b0cb3a31668168a5cbf0d584c14ef9ea0ebd9e6ed" => :catalina
+    sha256 "9cb68a86826b61d5deed0311842ac602e57367eff80ffa9b5f7902535d5cca24" => :mojave
+    sha256 "d5efc43086ecd9f94f43b59b8dc5b0208e566cc07ad3f4edf2c436cb4033862e" => :high_sierra
   end
 
   depends_on "node"
@@ -23,7 +22,7 @@ class GatsbyCli < Formula
   end
 
   test do
-    if ENV["CI"]
+    if !OS.mac? && ENV["CI"]
       system "git", "config", "--global", "user.email", "you@example.com"
       system "git", "config", "--global", "user.name", "Your Name"
     end

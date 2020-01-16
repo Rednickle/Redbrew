@@ -1,16 +1,14 @@
 class Fastmod < Formula
   desc "Fast partial replacement for the codemod tool"
   homepage "https://github.com/facebookincubator/fastmod"
-  url "https://github.com/facebookincubator/fastmod/archive/v0.2.6.tar.gz"
-  sha256 "b70f615e883cc6cc235b62ee15ec2ec7ef4b04618b42fb79d8ee807440f6cf3c"
+  url "https://github.com/facebookincubator/fastmod/archive/v0.3.0.tar.gz"
+  sha256 "95925c73d06f6bd9ea9a6ca66c847e9722fe7bff5c8c3ee9a3245a37f630dfc0"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "b8796ef40402ee2f3f1663186cf0c72a0b46e7870bdc38ed36b42797b1d8903e" => :catalina
-    sha256 "3e63d95fed7192044cb1140179d6b0565f69c7187e82efb541b157c91cd27186" => :mojave
-    sha256 "8047f087b7034a595a66daa17b6d5e7fb381ce8a50fe443747f5ce42714b323f" => :high_sierra
-    sha256 "cbfce8f08706e0529a581c335f417412d28f1856b59dc66ebd867b22d7290748" => :x86_64_linux
+    sha256 "274ec8fcf9eec3ace63784576b6f48e801c60aa0d87911c652ade74e918c04bd" => :catalina
+    sha256 "4ded8ec0f1c13f363620f02098fd6b699cf8280cc4852f6006b85a6ac90e4555" => :mojave
+    sha256 "03753429f472a6c12ead72534ee006c93da7d0da865c2bc393c655a9670b0dbc" => :high_sierra
   end
 
   depends_on "rust" => :build
