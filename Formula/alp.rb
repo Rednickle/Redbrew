@@ -1,17 +1,15 @@
 class Alp < Formula
   desc "Access Log Profiler"
   homepage "https://github.com/tkuchiki/alp"
-  url "https://github.com/tkuchiki/alp/archive/v1.0.2.tar.gz"
-  sha256 "b2a0cb6b836d0f2ab9b4a53bf2ac996e18645c1332a4f0c824b6a5e12925913e"
+  url "https://github.com/tkuchiki/alp/archive/v1.0.3.tar.gz"
+  sha256 "3bc3284d007eb9a3904ca9f36e244a31576c7e219c0cea7758eee1439c49701c"
   head "https://github.com/tkuchiki/alp.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "490aef4ecbd2150797258cd243da08323f3ac7fca4fb140fba7dd1dc4c0e9226" => :catalina
-    sha256 "d1ce608565f0fa3995de0f21b3b3aa5cc90b8c6678704ffe8bf23f56feb9706b" => :mojave
-    sha256 "8c560595fc185ffa578e527f3736b0429d35fce177ce86ab20d25f7f1d0a791e" => :high_sierra
-    sha256 "632ef323d84a13454e79c56fdc635582a0f7c6b1708268a4fe958bf3d894c4ec" => :x86_64_linux
+    sha256 "755f952f59a31722a849a195b1cc9aaab82d427e104ece552088f322477f1e73" => :catalina
+    sha256 "bda205a8a157441a4a9aebe3c1881575d8a801bf8f8edc3cccdba9607163661e" => :mojave
+    sha256 "2b8f514b8c7540a6db9fc6a70a4b803dbf864e35eb1410e6cc874915485fbbfb" => :high_sierra
   end
 
   depends_on "go" => :build
