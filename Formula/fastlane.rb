@@ -3,14 +3,14 @@ class Fastlane < Formula
   homepage "https://fastlane.tools"
   url "https://github.com/fastlane/fastlane/archive/2.140.0.tar.gz"
   sha256 "06f6c3f348d1892d53ffc2055293b1d7fe0898c43e183811bce6055da8536be6"
+  revision 1
   head "https://github.com/fastlane/fastlane.git"
 
   bottle do
     cellar :any
-    sha256 "3ac5d449574b304dda19bb1e2b5738e4c2f8912884d57148b590f5d8868f6924" => :catalina
-    sha256 "fa934f12bae8f5b7a288ede5e71d67a121f6ff83f0de8fc9720b7db6410876b8" => :mojave
-    sha256 "2fe8e04488700c5db78892802f85bf3a34adf18e0e17fc1a9c7a7b05297932f1" => :high_sierra
-    sha256 "74c902cb8450319decf827df360d1385f0ea950794784d2319be5709288fb9e1" => :x86_64_linux
+    sha256 "1b5de425745039cb47e396fe85a6a9b4910317c2abdc3fa64c0b58d5dd990671" => :catalina
+    sha256 "486f064585ca683ea4a8bf388a704d6e3c673c19f58200049ff7d7e684c4be2e" => :mojave
+    sha256 "1e0eac14d05a0fa00c7fa5e3fbbae8bd4fc56ad74e1f9caa28e4fb45cda191f2" => :high_sierra
   end
 
   depends_on "ruby@2.5"
@@ -24,7 +24,7 @@ class Fastlane < Formula
 
     (bin/"fastlane").write <<~EOS
       #!/bin/bash
-      export PATH="#{Formula["ruby@2.5"].opt_bin}:$PATH}"
+      export PATH="#{Formula["ruby@2.5"].opt_bin}:#{libexec}/bin:$PATH"
       GEM_HOME="#{libexec}" GEM_PATH="#{libexec}" \\
         exec "#{libexec}/bin/fastlane" "$@"
     EOS

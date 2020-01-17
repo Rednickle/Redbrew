@@ -2,14 +2,14 @@ class Sourcekitten < Formula
   desc "Framework and command-line tool for interacting with SourceKit"
   homepage "https://github.com/jpsim/SourceKitten"
   url "https://github.com/jpsim/SourceKitten.git",
-      :tag      => "0.28.0",
-      :revision => "97b5848e5692150d75b5cf0b81d7ebef5f4d5071"
+      :tag      => "0.29.0",
+      :revision => "77a4dbbb477a8110eb8765e3c44c70fb4929098f"
   head "https://github.com/jpsim/SourceKitten.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f549273e9da69397ce4c6331025ad0f45fa6ae787b6f24fe5eaee287585f22d7" => :catalina
-    sha256 "9f9a1f7086aacef4513fde429ff6378eb6bc2db10afac74f6740647e853d6f0f" => :mojave
+    sha256 "d08bed584c9f176c09f460aa77ec0dcbed338b557b3aa35d9913a778b28ceac5" => :catalina
+    sha256 "2afc89c640799f55759d6b72b1e2ba694711ff434a7e883a052263b9e83d7692" => :mojave
   end
 
   depends_on :macos
