@@ -1,17 +1,14 @@
 class Netcdf < Formula
   desc "Libraries and data formats for array-oriented scientific data"
   homepage "https://www.unidata.ucar.edu/software/netcdf"
-  url "https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-c-4.6.3.tar.gz"
-  sha256 "335fdf16d7531f430ad75e732ed1a9a3fc83ad3ef91fb33a70119a555dd5415c"
-  revision 1
+  url "https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-c-4.7.3.tar.gz"
+  sha256 "8e8c9f4ee15531debcf83788594744bd6553b8489c06a43485a15c93b4e0448b"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5952a7a1b2b4872b6e3dcf50ab7d76148120706209b9e11fd246bf17bd684cb2" => :catalina
-    sha256 "d798cbc16c2e6c312d921abf4cef0d74f094c9f6496114c06219baabaa962974" => :mojave
-    sha256 "0307831230fe41037beb09e9434d587497dc246ad4c0eb083e603efa4d5fbbec" => :high_sierra
-    sha256 "272ebe803e2c331d4839387d644261281315486413d581e460c1fef91455df6b" => :sierra
-    sha256 "8da9ba9cbbfc5693d28a41e353b497c805106fd88e5ebb39180e6b17727a381d" => :x86_64_linux
+    sha256 "7064ac71a3c01f819993473b181ca390b1ce4d25f8087ceb66dd210e9cecc358" => :catalina
+    sha256 "4e4333dc3c1250236b0242d9bf044ca2eaca4c50ac68d42d0865cb34b9a3d7d5" => :mojave
+    sha256 "9f59cd7b0610e2b834eabd128f13b4bd0f89812672867e1843f474059d0a709c" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -31,9 +28,9 @@ class Netcdf < Formula
   end
 
   resource "fortran" do
-    url "https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-fortran-4.4.4.tar.gz"
-    mirror "https://www.gfd-dennou.org/arch/netcdf/unidata-mirror/netcdf-fortran-4.4.4.tar.gz"
-    sha256 "b2d395175f8d283e68c8be516e231a96b191ade67ad0caafaf7fa01b1e6b5d75"
+    url "https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-fortran-4.5.2.tar.gz"
+    mirror "https://www.gfd-dennou.org/arch/netcdf/unidata-mirror/netcdf-fortran-4.5.2.tar.gz"
+    sha256 "b959937d7d9045184e9d2040a915d94a7f4d0185f4a9dceb8f08c94b0c3304aa"
   end
 
   def install
@@ -43,9 +40,8 @@ class Netcdf < Formula
 
     mkdir "build" do
       args = common_args.dup
-      args << "-DENABLE_TESTS=OFF"
       args << "-DNC_EXTRA_DEPS=-lmpi" if Tab.for_name("hdf5").with? "mpi"
-      args << "-DENABLE_DAP_AUTH_TESTS=OFF" << "-DENABLE_NETCDF_4=ON" << "-DENABLE_DOXYGEN=OFF"
+      args << "-DENABLE_TESTS=OFF" << "-DENABLE_NETCDF_4=ON" << "-DENABLE_DOXYGEN=OFF"
 
       system "cmake", "..", "-DBUILD_SHARED_LIBS=ON", *args
       system "make", "install"
@@ -57,7 +53,7 @@ class Netcdf < Formula
 
     # Add newly created installation to paths so that binding libraries can
     # find the core libs.
-    args = common_args.dup << "-DNETCDF_C_LIBRARY=#{lib}"
+    args = common_args.dup << "-DNETCDF_C_LIBRARY=#{lib}/libnetcdf.dylib"
 
     cxx_args = args.dup
     cxx_args << "-DNCXX_ENABLE_TESTS=OFF"
