@@ -1,15 +1,13 @@
 class Gssdp < Formula
   desc "GUPnP library for resource discovery and announcement over SSDP"
   homepage "https://wiki.gnome.org/GUPnP/"
-  url "https://download.gnome.org/sources/gssdp/1.2/gssdp-1.2.1.tar.xz"
-  sha256 "6b57b79a96e229367981b6f00474e4bbc795909a2d3160c748cba3395b3556d3"
+  url "https://download.gnome.org/sources/gssdp/1.2/gssdp-1.2.2.tar.xz"
+  sha256 "cabb9e3b456b8354a55e23eb0207545d974643cda6d623523470ebbc4188b0a4"
 
   bottle do
-    sha256 "d0f477645aba1dae4ae4d0ebaee92dc61e7a4e10169a45d743b9337d2cd17534" => :catalina
-    sha256 "2290af08181d27e7aa38ee9a005872b0c4c00b36b6d07bc35eb42ca475dfe73e" => :mojave
-    sha256 "02e1fa177854c341451732648d6fe1d3872521efdcbaab7d6fc9427ae9b4fa6d" => :high_sierra
-    sha256 "1c06bb7d867ca5f542e83340649e757ee07faf45540fdb37eb7685e600ef83ca" => :sierra
-    sha256 "06a5febf926b2d0bf22420123cd626c2ee05b463104717e06ecbd4755c85266e" => :x86_64_linux
+    sha256 "a034241f5bf93797110bbad30222dcce724c7c93db341e2196bf21c89e941db9" => :catalina
+    sha256 "09d7829d9e394bc02fded8018460470750221d195d06b636f095e0474a33ec62" => :mojave
+    sha256 "578aa551636198f669c67902cc37ddee65bc1d295f477e95bf8a49f1413b5894" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build
@@ -19,9 +17,6 @@ class Gssdp < Formula
   depends_on "gettext"
   depends_on "glib"
   depends_on "libsoup"
-
-  # submitted upstream as https://gitlab.gnome.org/GNOME/gssdp/merge_requests/2
-  patch :DATA
 
   def install
     mkdir "build" do
@@ -55,37 +50,3 @@ class Gssdp < Formula
     system "./test"
   end
 end
-__END__
-diff --git a/libgssdp/meson.build b/libgssdp/meson.build
-index aa66def..a022609 100644
---- a/libgssdp/meson.build
-+++ b/libgssdp/meson.build
-@@ -48,8 +48,18 @@ if generic_unix
-   sources += 'gssdp-net-posix.c'
- endif
-
-+version = '0.0.0'
-+version_arr = version.split('.')
-+major_version = version_arr[0].to_int()
-+minor_version = version_arr[1].to_int()
-+micro_version = version_arr[2].to_int()
-+current = major_version + minor_version + 1
-+interface_age = micro_version
-+darwin_versions = [current, '@0@.@1@'.format(current, interface_age)]
-+
- libgssdp = library('gssdp-1.2', sources + enums,
--    version : '0.0.0',
-+    version : version,
-+    darwin_versions : darwin_versions,
-     dependencies : dependencies + system_deps,
-     include_directories : include_directories('..'),
-     install : true)
-diff --git a/meson.build b/meson.build
-index 7e898eb..3d75cc9 100644
---- a/meson.build
-+++ b/meson.build
-@@ -1,4 +1,4 @@
--project('gssdp', 'c', version: '1.2.1')
-+project('gssdp', 'c', version: '1.2.1', meson_version : '>= 0.48.0')
- gnome = import('gnome')
- pkg = import('pkgconfig')

@@ -1,16 +1,14 @@
 class Byobu < Formula
   desc "Text-based window manager and terminal multiplexer"
   homepage "https://launchpad.net/byobu"
-  url "https://launchpad.net/byobu/trunk/5.129/+download/byobu_5.129.orig.tar.gz"
-  sha256 "e5135f20750c359b6371ee87cf2729c6038fbf3a6e66680e67f6a2125b07c2b9"
+  url "https://launchpad.net/byobu/trunk/5.130/+download/byobu_5.130.orig.tar.gz"
+  sha256 "47e414161dda124287b9ec1cf94acc716b49e7428c6ec7efeed181f477e17461"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3fc6479c9f8ade7976cb70a62eff7aae03cb660f9dc1fc053e1cfe63d8cdf065" => :catalina
-    sha256 "6d47abdde37ae912d3ffabf2161284914cd5cd75ec68b2308e14f1e7cc560e1e" => :mojave
-    sha256 "6d47abdde37ae912d3ffabf2161284914cd5cd75ec68b2308e14f1e7cc560e1e" => :high_sierra
-    sha256 "2071147e4d137922442b615dfe4bc13513b85ba1766aa36c7367aec29097ec2c" => :sierra
-    sha256 "521fb4d062329f5bc12f4e50ff53575be53f89c748182a40ef4d1a26abf8746f" => :x86_64_linux
+    sha256 "07b9d980d33ff5c4cccc2f9ff70b17c88e97a1a34d8a43bfba1378f4ad8981a8" => :catalina
+    sha256 "07b9d980d33ff5c4cccc2f9ff70b17c88e97a1a34d8a43bfba1378f4ad8981a8" => :mojave
+    sha256 "07b9d980d33ff5c4cccc2f9ff70b17c88e97a1a34d8a43bfba1378f4ad8981a8" => :high_sierra
   end
 
   head do
