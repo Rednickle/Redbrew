@@ -1,15 +1,15 @@
 class Wabt < Formula
   desc "Web Assembly Binary Toolkit"
   homepage "https://github.com/WebAssembly/wabt"
-  url "https://github.com/WebAssembly/wabt/archive/1.0.12.tar.gz"
-  sha256 "5333949ed4ae63808afa0d1f7d627cd7485ebeec339590571e5f2cb21e304f79"
+  url "https://github.com/WebAssembly/wabt.git",
+    :tag      => "1.0.13",
+    :revision => "7c80d05e37dc02870c680869ae3f04ac6d9637ee"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "baeaed567994766f860377137d7d9775ad416e4bd4eb179abd7db98aec01fb75" => :catalina
-    sha256 "b60e1c032adcf32bfda6358f666dfcba39d7e113a9546876b52c0082541e1263" => :mojave
-    sha256 "dc94e7b9d892b2edfa2c4dec4e11d4b42ec20ae1f1cb93b242bab073ec1bbf70" => :high_sierra
-    sha256 "03b8e462166fb126d7e248e38336ce1f98fda049bfd954fd0db477affc83741b" => :x86_64_linux
+    sha256 "11975b7122f6106a969064cd684e9a77d24443df26b873a225f48d8e1304fff9" => :catalina
+    sha256 "26d32821ca26815974d699a5665ce3406fb9373a9d8970d7349ef6e3aee18208" => :mojave
+    sha256 "5d028ba6b144571da2407e65351aebd93fabb84d453601971a4c5c02d3a51b17" => :high_sierra
   end
 
   depends_on "cmake" => :build

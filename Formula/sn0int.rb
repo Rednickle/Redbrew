@@ -1,15 +1,14 @@
 class Sn0int < Formula
   desc "Semi-automatic OSINT framework and package manager"
   homepage "https://github.com/kpcyrd/sn0int"
-  url "https://github.com/kpcyrd/sn0int/archive/v0.14.0.tar.gz"
-  sha256 "bcadd7ed2f9736a3719e393603354bb9965b200db59a1c6ad758b583fe477ac5"
+  url "https://github.com/kpcyrd/sn0int/archive/v0.15.0.tar.gz"
+  sha256 "6fc1819eda57dff5e580ce9980a8526bb076f96845adfd3f41566416ffdf729c"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "54f505e305d3b379d2f12b73fe8831fa57b793920f3540801846a6d4cbf97639" => :catalina
-    sha256 "d1178042a9a31fdef54d486fb8f69a84370714bb318c85ab2ecafb0265a0728e" => :mojave
-    sha256 "29241df8f8534c61db50b8cbb22857fdac5880eea4d3e756606a729039cd743e" => :high_sierra
-    sha256 "60085c090a0a0ebc465b6675f0c2a1e1273635ea0dfdea2036e8916abb0bf3fe" => :x86_64_linux
+    sha256 "7d295b60c582fa507bc91eead8a3c6e158eb10b376f959b698ffc340014dcaa8" => :catalina
+    sha256 "3a1c89314cbba6b30faae25982886d49bc50fbd8a230855cddb7f393b831ebeb" => :mojave
+    sha256 "835293cc217458201799d60e59091e49e7cdd0aebd025220eec8b88d97865b96" => :high_sierra
   end
 
   depends_on "rust" => :build

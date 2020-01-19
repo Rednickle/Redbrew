@@ -1,15 +1,15 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
-  url "https://www.musicpd.org/download/mpd/0.21/mpd-0.21.18.tar.xz"
-  sha256 "8782e66cd5afd6c92860725196b35b6df07d3d127ef70e900e144323089e9442"
+  url "https://www.musicpd.org/download/mpd/0.21/mpd-0.21.19.tar.xz"
+  sha256 "d3275e11d85637adde250cadf3b4f5aec2144228f0d8085767493fc46c55b2f9"
   head "https://github.com/MusicPlayerDaemon/MPD.git"
 
   bottle do
-    sha256 "97205bdca3c0ab031163f0b6721a4a07072de25d98c9ebab9228c97a7e0ee651" => :catalina
-    sha256 "d50ccd6d119e4d7a8b2d5fb6267e2b576f2f8d35eb27f0e2885fc2f4b7db7ef6" => :mojave
-    sha256 "97c3161fd3a06c8158c388a3c2a094b4698f73ef7218270ede11d7bcd7f06d94" => :high_sierra
-    sha256 "2cc687ec54846277c0b22e25b330cf33955b82dc6fbe8f29f6b877d1959af32a" => :x86_64_linux
+    cellar :any
+    sha256 "8ae6ae0fa462ebaa09d1cbc079c8d09f49e550fe7c0402d7b0ef35988757f6e4" => :catalina
+    sha256 "bbd105f0749b0071115107cf1f8a29441dff3cd779ca3877291fe99c3e6b871e" => :mojave
+    sha256 "178ab20d42fcab20695b044af4591a1cc7691615901e183f79ff581451a74614" => :high_sierra
   end
 
   depends_on "boost" => :build
@@ -40,11 +40,6 @@ class Mpd < Formula
     depends_on "gcc@6" => :build
     depends_on "curl"
   end
-
-  # Fix compilation with Clang
-  # This patch backports https://github.com/MusicPlayerDaemon/MPD/commit/dca0519336586be95b920004178114a097681768
-  # Remove in next release
-  patch :DATA if OS.mac?
 
   def install
     # mpd specifies -std=gnu++0x, but clang appears to try to build
@@ -139,18 +134,3 @@ class Mpd < Formula
     end
   end
 end
-
-__END__
-diff --git a/src/util/Compiler.h b/src/util/Compiler.h
-index 96f63fae4..04e49bb61 100644
---- a/src/util/Compiler.h
-+++ b/src/util/Compiler.h
-@@ -145,7 +145,7 @@
-
- #if GCC_CHECK_VERSION(7,0)
- #define gcc_fallthrough __attribute__((fallthrough))
--#elif CLANG_CHECK_VERSION(10,0)
-+#elif CLANG_CHECK_VERSION(10,0) && defined(__cplusplus)
- #define gcc_fallthrough [[fallthrough]]
- #else
- #define gcc_fallthrough

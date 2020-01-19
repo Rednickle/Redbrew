@@ -1,14 +1,14 @@
 class Nebula < Formula
   desc "Scalable overlay networking tool for connecting computers anywhere"
   homepage "https://github.com/slackhq/nebula"
-  url "https://github.com/slackhq/nebula/archive/v1.0.0.tar.gz"
-  sha256 "e0585ef37fae1f8db18cdea20648d4087e586b20ff0961ab7eac59a6c9bdafa2"
+  url "https://github.com/slackhq/nebula/archive/v1.1.0.tar.gz"
+  sha256 "ff08ce10c202a047149397b172e2effaac7f213676e99bb01293b751e73a33fd"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fafd51b5bd0609e3f8e3b6e92a9e85f309b1ed6cea2e3342b0ffc4e691cb3823" => :catalina
-    sha256 "e7a4dc91c7c1b8798468dfe977c6d365eea4a57b794aa94ab592edb005c5353d" => :mojave
-    sha256 "99d660db7cd0f718b8bc9e876eb0a8e012c8c841f9b59b8d2b0fbe04374f47a7" => :high_sierra
+    sha256 "1ab56a03259d3eab9fce10c2480a6c4c1331008b8c5336ee91b7ea57910d3ccf" => :catalina
+    sha256 "4455c6cfc00f3da5c546d5ba27e49bcbfb624eebf7700937e2d8d18b6d0186e8" => :mojave
+    sha256 "1b3b0d8fecadaeb8f93ce0a4477c8cda027b45fea6c1dd3786573dedb1976411" => :high_sierra
   end
 
   depends_on "go" => :build
