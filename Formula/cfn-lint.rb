@@ -3,15 +3,14 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-python-lint/"
-  url "https://github.com/aws-cloudformation/cfn-python-lint/archive/v0.26.3.tar.gz"
-  sha256 "bf33ac554431e73496c20d2a562a0d82b05039850c72196f4faef82a3a3fd16f"
+  url "https://github.com/aws-cloudformation/cfn-python-lint/archive/v0.27.1.tar.gz"
+  sha256 "4c7227763ccd2fb96451a55d87951c5951f20c8275a884afcdb8b7b3ff82304f"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e29c27faf8586a25226320e108b598bd2bc856a47ad0eb8d4ea87a717978d7da" => :catalina
-    sha256 "6102b192202f7c41f102e89598f4fa164a3233338b8d037d0c6b08b83ae540c1" => :mojave
-    sha256 "ac2489ed5f546129d8f84dd9c4b5dddb49d9456bd92778c6239577b57d39275e" => :high_sierra
-    sha256 "fdbd4fff74665e1ddcf5863875cd77ca7452032e94f8d1e672dca1170d9999f7" => :x86_64_linux
+    sha256 "781205024f8d497e3b92886ba8915de672d34c0396451e00ef12f5bd7c0a597a" => :catalina
+    sha256 "0c4c186bb38c1463f9a7b430bf76606b2f985d26b0cd046fd9337242fff21d5f" => :mojave
+    sha256 "f853bdb7b2b0f89761c7653b8109ee613026329d964ce6ae4fa1ea656e4343a3" => :high_sierra
   end
 
   depends_on "python@3.8"
@@ -22,18 +21,18 @@ class CfnLint < Formula
   end
 
   resource "aws-sam-translator" do
-    url "https://files.pythonhosted.org/packages/a4/fb/46a67369e4e71cab8e73ca73ca0b938c297767d0ef8cfcad21b4f064ed66/aws-sam-translator-1.19.1.tar.gz"
-    sha256 "a62f31ac81a9f36a89ba61b147c5df5819e73af3562859711191354d86836326"
+    url "https://files.pythonhosted.org/packages/82/36/3096d95cbffc2996e9230102864ece3c3e8e6381b63280a1e4f1092c37fd/aws-sam-translator-1.20.1.tar.gz"
+    sha256 "ddf61fdabc94a66ca0a3e7d042d6a0e508bc45bd128c86fb02af0c87a59ac79e"
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/a5/8f/d274941ae26ab53c01529777c03a7040fccfbc6c9a28a9a8212d87bfa920/boto3-1.11.0.tar.gz"
-    sha256 "d7a3c425f55e2b1974201f610adbf1963db1c80d9fd58a04963557a09fbf0aed"
+    url "https://files.pythonhosted.org/packages/a7/42/0f7da5b5a834808d796a90c74cce1eaaa810534824484c566b834fa10d83/boto3-1.11.5.tar.gz"
+    sha256 "7aaccacc199cd633b5ac14f0d544c9d592c53275a79cf4d230a9f66215331665"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/1e/ef/2248110e8141b64db4e7795841eae3e25c34546a3981105580a0b2569ab4/botocore-1.14.0.tar.gz"
-    sha256 "9980e043842e42251a9d342836d79ee824b0d25f22b0f5e00f2dda57be1090f9"
+    url "https://files.pythonhosted.org/packages/a7/e9/a5189f3d97226ccabd711d5532e16023691385f9390a6670f31c38c9c0c9/botocore-1.14.5.tar.gz"
+    sha256 "96a16e64c96d34fa2e535c1d5a0024bf55eee853b939be0331318cd060b3d395"
   end
 
   resource "certifi" do
@@ -108,13 +107,13 @@ class CfnLint < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/43/bf/5a0117a8e848aebc8a0cb1f2f62c016ff8eec481568ba6714c48e23a01c1/s3transfer-0.3.0.tar.gz"
-    sha256 "e3343ae0f371781c17590cf06cb818a54484fbac9a65a5be7603a39b0a6d7b31"
+    url "https://files.pythonhosted.org/packages/b2/45/5f8817a68b5128f9c9ee2259412de4fccf0dbce4220bf9ba703285232231/s3transfer-0.3.1.tar.gz"
+    sha256 "248dffd2de2dfb870c507b412fc22ed37cd3255293e293c395158e7c55fbe5f9"
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/94/3e/edcf6fef41d89187df7e38e868b2dd2182677922b600e880baad7749c865/six-1.13.0.tar.gz"
-    sha256 "30f610279e8b2578cab6db20741130331735c781b56053c59c4076da27f06b66"
+    url "https://files.pythonhosted.org/packages/21/9f/b251f7f8a76dec1d6651be194dfba8fb8d7781d10ab3987190de8391d08e/six-1.14.0.tar.gz"
+    sha256 "236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a"
   end
 
   resource "urllib3" do
@@ -123,8 +122,8 @@ class CfnLint < Formula
   end
 
   resource "zipp" do
-    url "https://files.pythonhosted.org/packages/57/dd/585d728479d97d25aeeb9aa470d36a4ad8d0ba5610f84e14770128ce6ff7/zipp-0.6.0.tar.gz"
-    sha256 "3718b1cbcd963c7d4c5511a8240812904164b7f381b647143a89d3b98f9bcd8e"
+    url "https://files.pythonhosted.org/packages/ee/f7/6c3ca4764a8025da9422825c2bc367fdc8dd115ebb52e4ef057f234938c4/zipp-2.0.0.tar.gz"
+    sha256 "7ae5ccaca427bafa9760ac3cd8f8c244bfc259794b5b6bb9db4dda2241575d09"
   end
 
   def install

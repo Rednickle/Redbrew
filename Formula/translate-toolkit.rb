@@ -3,17 +3,15 @@ class TranslateToolkit < Formula
 
   desc "Toolkit for localization engineers"
   homepage "https://toolkit.translatehouse.org/"
-  url "https://github.com/translate/translate/archive/2.4.0.tar.gz"
-  sha256 "7f1d6a9566bb512fd88d51bd8bc920f42e379c91a4686761dbe89762f8a3a51d"
-  revision 1
+  url "https://github.com/translate/translate/archive/2.5.0.tar.gz"
+  sha256 "4c4f28ab70f8bd028c8242c76a0dfef4ad88e0f62df53c5d7d6f2adcfac57600"
   head "https://github.com/translate/translate.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "83dbc6c6d4aedac2d2b08062e3d200c8d9f19d9e26097f4134b93cd6382c56f2" => :catalina
-    sha256 "442d94824f1b8dd243e92cb8843c6cc3a636ea8cc63ddfcdc160a08792c6d9cb" => :mojave
-    sha256 "a3d5b1ecbeb2bf56b8356aff63fc16276a5dcf0bffb500cdf1f775f272e05b89" => :high_sierra
-    sha256 "b79532718eff9ea53e11530b4ac7379ac1aab5df60606ad732fbd1f9f71c9079" => :x86_64_linux
+    sha256 "b26b15dd5cad2f33db55a095c5c122249f374201cf7768f4f1e203c53097b30f" => :catalina
+    sha256 "db113798b83ef63ad4b7de9615a6fa3ceb5282480784931ebad375cbbd6ccf93" => :mojave
+    sha256 "78e607805c484ec8be1d1e0381c33e50a2519f1be0b868681e9ab2013307ff1b" => :high_sierra
   end
 
   depends_on "python@3.8"
@@ -34,8 +32,8 @@ class TranslateToolkit < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
-    sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
+    url "https://files.pythonhosted.org/packages/21/9f/b251f7f8a76dec1d6651be194dfba8fb8d7781d10ab3987190de8391d08e/six-1.14.0.tar.gz"
+    sha256 "236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a"
   end
 
   def install

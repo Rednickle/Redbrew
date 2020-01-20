@@ -3,14 +3,14 @@ class Snapcraft < Formula
 
   desc "Package any app for every Linux desktop, server, cloud or device"
   homepage "https://snapcraft.io/"
-  url "https://github.com/snapcore/snapcraft/archive/3.9.7.tar.gz"
-  sha256 "1b7221ec3e8cc8afccaae959dd51cbde7228c580c072e0db3b5fd2a6252f050b"
+  url "https://github.com/snapcore/snapcraft/archive/3.9.8.tar.gz"
+  sha256 "98e52347e0080cb4b08290b1c0814b2f20d2a9da1c337fe21bf24345bb04bc68"
 
   bottle do
     cellar :any
-    sha256 "4dc957bcbcf39aadbfb64d52e255a4ac96e0efde7fa8315a4d3b109423f08f5f" => :catalina
-    sha256 "97893cf300303f787db1203091f28ea12d8bdc56561a9ea5cadac0ed3d8d7e9e" => :mojave
-    sha256 "3f0ffa2d631a534eff10e9d62c2c795f5d70c32b69e12aa59780a75aabdee624" => :high_sierra
+    sha256 "024404e7e24ebd4452decdb1a6b09e834fce4c66ddcfe67f3251e95621333d5c" => :catalina
+    sha256 "81071bd891b6a54da8a23af4eac21739638178747fc80d4f113629fa3712fab5" => :mojave
+    sha256 "16503aecb7263f59eff66985952fd963ae3f37c242e60d78565f14ac34ed11fd" => :high_sierra
   end
 
   depends_on "libsodium"
@@ -232,8 +232,8 @@ class Snapcraft < Formula
   end
 
   resource "zipp" do
-    url "https://files.pythonhosted.org/packages/d4/cd/ef86396dce8910413b6ca1ef31ec09367c47e15fc1a12def2cc8ae134dea/zipp-1.0.0.tar.gz"
-    sha256 "d38fbe01bbf7a3593a32bc35a9c4453c32bc42b98c377f9bff7e9f8da157786c"
+    url "https://files.pythonhosted.org/packages/ee/f7/6c3ca4764a8025da9422825c2bc367fdc8dd115ebb52e4ef057f234938c4/zipp-2.0.0.tar.gz"
+    sha256 "7ae5ccaca427bafa9760ac3cd8f8c244bfc259794b5b6bb9db4dda2241575d09"
   end
 
   unless OS.mac?

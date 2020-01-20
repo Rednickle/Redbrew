@@ -2,16 +2,14 @@ class ErlangAT21 < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/archive/OTP-21.3.8.10.tar.gz"
-  sha256 "68c4d1026992e61a9cf2db4db9a970e27c9d8c1b44366873e74b1fa8371ac3ea"
-  revision 1 unless OS.mac?
+  url "https://github.com/erlang/otp/archive/OTP-21.3.8.12.tar.gz"
+  sha256 "918f32a594da692a87abe1825b49c9584e751cdebd86055f327fbad03fdf55c1"
 
   bottle do
     cellar :any
-    sha256 "0a9e26c3ff531bd814fe59447877905e22aa0f825c40c196d106b5a23aa7064d" => :catalina
-    sha256 "e493545d294d2ad6ce423322ac10910c4945eb10366b42d3086a60396f50226a" => :mojave
-    sha256 "877f7545eac82764c02459c7308204022cb3c951f279832545f65e0f5da70572" => :high_sierra
-    sha256 "2f0b4d31f096d9f98a7357387955bcf76407d2243258dd5023e4ea56429f9501" => :x86_64_linux
+    sha256 "ea6e884a74dd5dd9f01fcd5f4cfc7649b99f1e609c5ddeffcb1db72a04fbd33e" => :catalina
+    sha256 "3a8ab5c628469d65433b1b5108508e7c350e1595a067c3b7d0b7fbf244846300" => :mojave
+    sha256 "555cb62574dd9d1bb1d3762ca88ae31bee58bdf27c6f6be351d0398ce648dbec" => :high_sierra
   end
 
   keg_only :versioned_formula
