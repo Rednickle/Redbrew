@@ -2,16 +2,14 @@ class Hey < Formula
   desc "HTTP load generator, ApacheBench (ab) replacement"
   homepage "https://github.com/rakyll/hey"
   url "https://github.com/rakyll/hey.git",
-    :tag      => "v0.1.2",
-    :revision => "01803349acd49d756dafa2cb6ac5b5bfc141fc3b"
+    :tag      => "v0.1.3",
+    :revision => "36f181ad99713ffd70c09a021ea8a689b8fb43d3"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "cd9a8e4d509b49c316adf3e3a81a803013ee16aef60c5764f8d630320c8d8de1" => :catalina
-    sha256 "b3679713758e81df3b8a269bd16c21a02826f559e87b36ed23a8184013929afa" => :mojave
-    sha256 "a935a6112c86b4a42b53f1d914ddb1719529ff2c0fb72a1c92be432fa9bf974b" => :high_sierra
-    sha256 "a037f92609005bf74843370a7f9f108b44d9cf6c10f5fe8e968c356ffb48b61e" => :x86_64_linux
+    sha256 "833f09f5322dd41cc3438f9880d557941652073d02acc2971181aa1c5b4f6a7d" => :catalina
+    sha256 "902d975f8dbc7f27890d56eed1a377bd880225b6860e2e7db6fed4f03e58c077" => :mojave
+    sha256 "2111023b9742683d7beb4c1383f59daff60fe019ffcf5fbc91d9e3f68386dc5f" => :high_sierra
   end
 
   depends_on "go" => :build

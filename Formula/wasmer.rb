@@ -1,16 +1,15 @@
 class Wasmer < Formula
   desc "🚀 The Universal WebAssembly Runtime"
   homepage "https://wasmer.io"
-  url "https://github.com/wasmerio/wasmer/archive/0.12.0.tar.gz"
-  sha256 "cb6c70026f29f09248cf80aa0406ef6a7c7100d2bef1809211efc621967a52c3"
+  url "https://github.com/wasmerio/wasmer/archive/0.13.1.tar.gz"
+  sha256 "7347e026b91f7ae693023ddbdd18858d688c74b28c959d6f849336f08d35e1f1"
   head "https://github.com/wasmerio/wasmer.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ab4ff5856bfc8fb630de85522d5d8269dbf4685e93a9a6d115693870a1d80d18" => :catalina
-    sha256 "d827f5b4452c63faab931f58979ecb7980d02e8a68951095d84214886b0d32d6" => :mojave
-    sha256 "164d4d9ac8499ed296945121d620f09420bcb2e7f56664d38fab60ab044039e6" => :high_sierra
-    sha256 "3fcf2ba3a3df6f860bd1b4da400b4a632a15bb4c1ee8bf9cdb5a8dbd4e0e3dc4" => :x86_64_linux
+    sha256 "85c97cb073468f0de1533066fb87f6f0df6fa22edf29fdab83ced5ac00c6604b" => :catalina
+    sha256 "5ef4f8973b8398195bf7654088f9cbaac51d0ac9e2aeeff7f3438eb8d91ec5cc" => :mojave
+    sha256 "19d0b8f30090cd72c60a10f10f0163d5fb620fb78159bad898efd57b4db46e71" => :high_sierra
   end
 
   depends_on "cmake" => :build

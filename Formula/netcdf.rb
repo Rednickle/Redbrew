@@ -3,13 +3,13 @@ class Netcdf < Formula
   homepage "https://www.unidata.ucar.edu/software/netcdf"
   url "https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-c-4.7.3.tar.gz"
   sha256 "8e8c9f4ee15531debcf83788594744bd6553b8489c06a43485a15c93b4e0448b"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7064ac71a3c01f819993473b181ca390b1ce4d25f8087ceb66dd210e9cecc358" => :catalina
-    sha256 "4e4333dc3c1250236b0242d9bf044ca2eaca4c50ac68d42d0865cb34b9a3d7d5" => :mojave
-    sha256 "9f59cd7b0610e2b834eabd128f13b4bd0f89812672867e1843f474059d0a709c" => :high_sierra
-    sha256 "85682d8ce72f0e4ddb1a8e093d9975cbf46401410486d858ed62f58e2c6017db" => :x86_64_linux
+    sha256 "9e217ac938403f5bf547a3c62984ec2979c5d02af10dd2c2023e180e4a2bd90a" => :catalina
+    sha256 "eedecd250d0c0069dc6484685741446fe67fd2d373ef015e2b6de3f228cc388e" => :mojave
+    sha256 "e81f0655b42db959dbcbaaf7471a5c2567fdd11cfd1ed159c529c12b2964810a" => :high_sierra
   end
 
   depends_on "cmake" => :build

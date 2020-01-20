@@ -3,25 +3,19 @@ class Minetest < Formula
   homepage "https://www.minetest.net/"
 
   stable do
-    url "https://github.com/minetest/minetest/archive/5.1.0.tar.gz"
-    sha256 "ca53975eecf6a39383040658f41d697c8d7f8d5fe9176460f564979c73b53906"
-
-    # This patch is already merged in master and it should be removed when new version of mintest is released
-    patch do
-      url "https://github.com/minetest/minetest/pull/9064.patch?full_index=1"
-      sha256 "78c5148ae5260bf2220ca18849c698e92c93e1c92b8f287135b293457c9ab6cd"
-    end
+    url "https://github.com/minetest/minetest/archive/5.1.1.tar.gz"
+    sha256 "65d483bce244827de174edcb30f7e453b06a7590da6cdeb7a2237ff6180c090b"
 
     resource "minetest_game" do
-      url "https://github.com/minetest/minetest_game/archive/5.1.0.tar.gz"
-      sha256 "f165fac0081bf4797cf9094282cc25034b2347b3ea94e6bb8d9329c5ee63f41b"
+      url "https://github.com/minetest/minetest_game/archive/5.1.1.tar.gz"
+      sha256 "89dbb7cad2a1cec1ca0cdaa0f0eafc5699676bcd6880891c7720a10dfe7f6af9"
     end
   end
 
   bottle do
-    sha256 "e6774d4217375c164de190acccfbc208ca7c9e5a491b0584450090ea7d393b65" => :catalina
-    sha256 "656842e7896dcc6458522201d9a6ec2ccd6f09daf249a1145387122c52af74bb" => :mojave
-    sha256 "cebe39a206ec1d950d8c3e77b94d2b8e4f1953350d9b0ae5ece220de082f531c" => :high_sierra
+    sha256 "6c6d62a96e916fd3640206508547e326e1d39e97a51c3abb36c7a921ed1c2e56" => :catalina
+    sha256 "bf3ca399f4349eaefdf0435577c747e5adf10aaf881797d9eba5837dee80a92c" => :mojave
+    sha256 "a79e3ee2648769f1d14b5f1c88e2f98154e3ea58355682018c8b6467c171d68b" => :high_sierra
   end
 
   head do
@@ -62,7 +56,11 @@ class Minetest < Formula
       to create those folders first).
 
       If you would like to start the Minetest server from a terminal, run
-      "/Applications/minetest.app/Contents/MacOS/minetest --server".
+      "#{prefix}/minetest.app/Contents/MacOS/minetest --server".
     EOS
+  end
+
+  test do
+    system "#{prefix}/minetest.app/Contents/MacOS/minetest", "--version"
   end
 end

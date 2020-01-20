@@ -1,17 +1,14 @@
 class Libxmlxx3 < Formula
   desc "C++ wrapper for libxml"
   homepage "https://libxmlplusplus.sourceforge.io/"
-  url "https://download.gnome.org/sources/libxml++/3.0/libxml++-3.0.1.tar.xz"
-  sha256 "19dc8d21751806c015179bc0b83f978e65c878724501bfc0b6c1bcead29971a6"
-  revision OS.mac? ? 2 : 3
+  url "https://download.gnome.org/sources/libxml++/3.2/libxml++-3.2.0.tar.xz"
+  sha256 "b786fae7fd7820d356698069a787d107995c3efcbef50d8f4efd3766ab768e4f"
 
   bottle do
     cellar :any
-    sha256 "005a1ad3816a68e931cb9f846ea308890ee1cb193c78930ab807ea2b8eb045aa" => :catalina
-    sha256 "e28337e04206928b26c1ef1b0e01e17611fae0c71f2aff3446cfbba00d3271d0" => :mojave
-    sha256 "a454a9d800341cbed2a10d89dbce4a633036dfad4965cac8b4eab36fd77133b7" => :high_sierra
-    sha256 "1f3337b717075e6391dcfb784025fe911d044145ce136f38218ff27ed2d2955e" => :sierra
-    sha256 "5bd84d8227f04ecd8dd369164f31f71940b72116c5573accee6d50fd4e886241" => :x86_64_linux
+    sha256 "583c5345ed243a5cea2bbf82e71a130e85554110ebe3927183171c66225a7c26" => :catalina
+    sha256 "054180f67aa9d297a26c40fc9e6dcc27bf68e78f09db895b3821c68751eabae2" => :mojave
+    sha256 "2da0d0f6e732f910e75e5b20c19a01056854d00feab6e1c2490b7722bbc1af29" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
