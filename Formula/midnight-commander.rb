@@ -1,15 +1,21 @@
 class MidnightCommander < Formula
   desc "Terminal-based visual file manager"
   homepage "https://www.midnight-commander.org/"
-  url "https://www.midnight-commander.org/downloads/mc-4.8.23.tar.xz"
-  sha256 "dd7f7ce74183307b0df25b5c3e60ad3293fd3d3d27d2f37dd7a10efce13dff1c"
-  head "https://github.com/MidnightCommander/mc.git"
+  url "https://www.midnight-commander.org/downloads/mc-4.8.24.tar.xz"
+  sha256 "859f1cc070450bf6eb4d319ffcb6a5ac29deb0ac0d81559fb2e71242b1176d46"
 
   bottle do
-    sha256 "5c97885f5afc7eeeb4cf0cafc805f551dcd05ef88d918b401619eda36f0e5d2b" => :catalina
-    sha256 "e76360b03ae28f84ee962e1e15a7bd4506a7bb7dc0811f88647beed8a21beae4" => :mojave
-    sha256 "cac5b58750645de5fb74112a5ba5e640593500fc3b78d45d33432d448e962d61" => :high_sierra
-    sha256 "edcd3fd954e97e83934de1c9ba6f6d06dde4df7ac12c02cf4f86f834420e5727" => :x86_64_linux
+    sha256 "c6adcb70e949c89ba12ba91fffb89ad00c55e8c3a063ae6d01954a02a84512f2" => :catalina
+    sha256 "2e3e95bd852f0edd7069b09ff24e897e94bb495f3b852230f7cc3400acfc2d9a" => :mojave
+    sha256 "2e888d8d8cec7a0c881d0df09f5662080494f89e1871fbcccf30e9a0cc18aa1b" => :high_sierra
+  end
+
+  head do
+    url "https://github.com/MidnightCommander/mc.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
@@ -19,13 +25,6 @@ class MidnightCommander < Formula
   depends_on "s-lang"
 
   conflicts_with "minio-mc", :because => "Both install a `mc` binary"
-
-  # Fix compilation https://midnight-commander.org/ticket/4035
-  # Remove in next release
-  patch do
-    url "https://midnight-commander.org/raw-attachment/ticket/4035/mc-4.8.23.patch"
-    sha256 "eca0c095700bc4c4a41e74da0f95874c4a91a0f22ad45b2d96b32d2f537d856f"
-  end
 
   def install
     args = %W[
@@ -41,7 +40,7 @@ class MidnightCommander < Formula
     # Fix compilation bug on macOS 10.13 by pretending we don't have utimensat()
     # https://github.com/MidnightCommander/mc/pull/130
     ENV["ac_cv_func_utimensat"] = "no" if MacOS.version >= :high_sierra
-
+    system "./autogen.sh" if build.head?
     system "./configure", *args
     system "make", "install"
   end

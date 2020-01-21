@@ -5,16 +5,13 @@ class Ghc < Formula
 
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  url "https://downloads.haskell.org/ghc/8.8.1/ghc-8.8.1-src.tar.xz"
-  sha256 "908a83d9b814da74585de9d39687189e6260ec3848131f9d9236cab8a123721a"
+  url "https://downloads.haskell.org/~ghc/8.8.2/ghc-8.8.2-src.tar.xz"
+  sha256 "01cea54d90686b97bcc9960b108beaffccd4336dee930dcf9beaf52b1f370a0b"
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "e0c68beda3b63b242d971f86792e92693732fa5e23c69659fc0a59d8dc331a38" => :catalina
-    sha256 "335717b90bb69785591b4e8896bd081170d4dd0fcb0f7496d367c2b0fdcf03c3" => :mojave
-    sha256 "0b1414c28edf44b9433a2976a7ed63301197c478f9e2d01fa5dd449b3b42a597" => :high_sierra
-    sha256 "f4b080f1a599ca375637b8e41934d4fced2e1a9178bf1b59bcd465f34b3b846e" => :x86_64_linux
+    sha256 "bf0bccb87e793a052b2f49109ae3e99342e239ae213408825d30d16cf2170b19" => :catalina
+    sha256 "b04d036de7bdace378f178a15bb67eda8d0932e911f4519d6abf266b0fa44678" => :mojave
+    sha256 "3361eba5ff14c5ee50a90ee1090c01e1a6cac005788e4d05a9b66ddeddecc50c" => :high_sierra
   end
 
   head do
@@ -62,11 +59,6 @@ class Ghc < Formula
     end
   end
 
-  # Two patches:
-  #  - configure: workaround for https://gitlab.haskell.org/ghc/ghc/issues/17114
-  #  - rts/Linker.c: Fix for Catalina compatibility https://gitlab.haskell.org/ghc/ghc/issues/17353
-  patch :DATA
-
   def install
     # Work around Xcode 11 clang bug
     # https://bitbucket.org/multicoreware/x265/issues/514/wrong-code-generated-on-macos-1015
@@ -90,7 +82,6 @@ class Ghc < Formula
       system "./configure", "--prefix=#{gmp}", "--with-pic", "--disable-shared",
                             *args
       system "make"
-      system "make", "check"
       system "make", "install"
     end
 
@@ -179,46 +170,3 @@ class Ghc < Formula
     system "./hello"
   end
 end
-__END__
-diff --git a/configure b/configure
-index e00a480..6db08ee 100755
---- a/configure
-+++ b/configure
-@@ -11525,6 +11525,8 @@ fi;
- fi
- { $as_echo "$as_me:${as_lineno-$LINENO}: result: $fptools_cv_alex_version" >&5
- $as_echo "$fptools_cv_alex_version" >&6; }
-+if test ! -f compiler/cmm/CmmLex.hs || test ! -f compiler/parser/Lexer.hs
-+then
- fp_version1=$fptools_cv_alex_version; fp_version2=3.1.7
- fp_save_IFS=$IFS; IFS='.'
- while test x"$fp_version1" != x || test x"$fp_version2" != x
-@@ -11548,6 +11550,7 @@ IFS=$fp_save_IFS
- if test "$fp_num1" -lt "$fp_num2"; then :
-   as_fn_error $? "Alex version 3.1.7 or later is required to compile GHC." "$LINENO" 5
- fi
-+fi
- AlexVersion=$fptools_cv_alex_version;
-
-
-diff -pur a/rts/Linker.c b/rts/Linker.c
---- a/rts/Linker.c	2019-08-25 21:03:36.000000000 +0900
-+++ b/rts/Linker.c	2019-11-05 11:09:06.000000000 +0900
-@@ -192,7 +192,7 @@ int ocTryLoad( ObjectCode* oc );
-  *
-  * MAP_32BIT not available on OpenBSD/amd64
-  */
--#if defined(x86_64_HOST_ARCH) && defined(MAP_32BIT)
-+#if defined(x86_64_HOST_ARCH) && defined(MAP_32BIT) && !defined(__APPLE__)
- #define TRY_MAP_32BIT MAP_32BIT
- #else
- #define TRY_MAP_32BIT 0
-@@ -214,7 +214,7 @@ int ocTryLoad( ObjectCode* oc );
-  */
- #if !defined(ALWAYS_PIC) && defined(x86_64_HOST_ARCH)
-
--#if defined(MAP_32BIT)
-+#if defined(MAP_32BIT) && !defined(__APPLE__)
- // Try to use MAP_32BIT
- #define MMAP_32BIT_BASE_DEFAULT 0
- #else

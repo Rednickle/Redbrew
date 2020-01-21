@@ -1,15 +1,14 @@
 class Vnstat < Formula
   desc "Console-based network traffic monitor"
   homepage "https://humdi.net/vnstat/"
-  url "https://humdi.net/vnstat/vnstat-2.5.tar.gz"
-  sha256 "f1bfb16911b28cb0db93341e65433da804ec178592b6728235a84b1c091d1578"
+  url "https://humdi.net/vnstat/vnstat-2.6.tar.gz"
+  sha256 "89276e0a7281943edb554b874078278ad947dc312938a2451e03eb80679f7ff7"
   head "https://github.com/vergoh/vnstat.git"
 
   bottle do
-    sha256 "20c5f324f3ace6755f5f98bb54af26d774557e61783802c1f1b7bb3c3b1b5938" => :catalina
-    sha256 "7e01be903cffd9278f118921a12af52135990ef07a7170676e3966e7d2c920f7" => :mojave
-    sha256 "6b09ffb239d221379702ccbe866033d80eca38efe4148ef5fbba82c53060c973" => :high_sierra
-    sha256 "8bc16a799319942f864d85466192efa717898ac244844c22700d619464ba74a8" => :x86_64_linux
+    sha256 "c4087b24e69aa3bbf9ccb7f58ca3d942bc3403bcfff47df7657cac00e8c9fc75" => :catalina
+    sha256 "795d67ae3e4d0f8683ee0812d29a4205aab38a2f453a09cd714adac7f00aaea8" => :mojave
+    sha256 "5e873fe1cb03aecfc02e0a5224f2fa222ef9e3f2a2e8a007a031cf4a1f9cf3ee" => :high_sierra
   end
 
   depends_on "gd"
