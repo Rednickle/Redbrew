@@ -2,20 +2,19 @@ class Octant < Formula
   desc "Kubernetes introspection tool for developers"
   homepage "https://octant.dev"
   url "https://github.com/vmware-tanzu/octant.git",
-      :tag      => "v0.9.1",
-      :revision => "7c4bd4a03489aebba979a09aeda0c4c390650e94"
+      :tag      => "v0.10.0",
+      :revision => "72e66943d660dc7bdd2c96b27cc141f9c4e8f9d8"
   head "https://github.com/vmware-tanzu/octant.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "52126ba28e36f505b3a407bfd217116b57bf53bcfab687fa264e636bf41ff7bd" => :catalina
-    sha256 "c7ce2a9e152cb3cd1f7f97392e26d6ace65fb5205a4aa2d8dfc02319edb9b7ce" => :mojave
-    sha256 "81dcc583665d254bc84d53b15a357b135a859ed5831a14333c92afc00e9ee28a" => :high_sierra
+    sha256 "4112688a8ed55afab44eae20e07f78018211ce28f37a8009618c588447d2d861" => :catalina
+    sha256 "0e9211251838203cd6ecdf3c9eee79ab54c6097939ab2b152e33326455aeddb5" => :mojave
+    sha256 "e6f0bec2f6469cf42c6b274b6d91d5ecc6d99f137eb16aedb913b15367de6f20" => :high_sierra
   end
 
   depends_on "go" => :build
   depends_on "node@10" => :build
-  depends_on "protoc-gen-go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
@@ -25,11 +24,11 @@ class Octant < Formula
     dir.install buildpath.children
 
     cd "src/github.com/vmware-tanzu/octant" do
-      system "make", "go-install"
+      system "go", "run", "build.go", "go-install"
       ENV.prepend_path "PATH", buildpath/"bin"
 
-      system "make", "web-build"
-      system "make", "generate"
+      system "go", "generate", "./pkg/icon"
+      system "go", "run", "build.go", "web-build"
 
       commit = Utils.popen_read("git rev-parse HEAD").chomp
       build_time = Utils.popen_read("date -u +'%Y-%m-%dT%H:%M:%SZ' 2> /dev/null").chomp

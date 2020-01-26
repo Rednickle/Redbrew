@@ -5,19 +5,23 @@ class YouGet < Formula
   homepage "https://you-get.org/"
   url "https://github.com/soimort/you-get/archive/v0.4.1388.tar.gz"
   sha256 "17bbb545efbd0898fe48311df33d6288049dcae5f4a2132da70a1072f019b96b"
-  revision 1
+  revision 2
   head "https://github.com/soimort/you-get.git", :branch => "develop"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0e66ba7133b8196a6d24617a8ae313101ec006864ad27e7073dabcbc37f47512" => :catalina
-    sha256 "c3a8453329addc500d0f5d5a82749d8a3a088529f9341b5a126b96abd8c428f9" => :mojave
-    sha256 "dd1bc1b83a0abb1da2923da2b1ef5d0c2cbad847f804a245153468c2cafdf74e" => :high_sierra
-    sha256 "f2f24e8e5db68ecd6856ed8ad39970c2053314ad15a9c8e4c9dd04fb344da6aa" => :x86_64_linux
+    sha256 "dc2847209e2df0392971ca3f8eb1eb3568727194d4f9abd54fc1c4dfd069b912" => :catalina
+    sha256 "b5c4b692026ed50964e32123dcc7f0ca547bf1c9fa3fcaaa8c313c5d051a21d8" => :mojave
+    sha256 "eea0ffa9a11dc449b37923ae91e17aff88350fd859dd3f0fa357cd677bbbdb13" => :high_sierra
   end
 
   depends_on "python@3.8"
   depends_on "rtmpdump"
+
+  resource "PySocks" do
+    url "https://files.pythonhosted.org/packages/bd/11/293dd436aea955d45fc4e8a35b6ae7270f5b8e00b53cf6c024c83b657a11/PySocks-1.7.1.tar.gz"
+    sha256 "3f8804571ebe159c380ac6de37643bb4685970655d3bba243530d6558b799aa0"
+  end
 
   def install
     virtualenv_install_with_resources
