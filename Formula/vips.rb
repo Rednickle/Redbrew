@@ -3,12 +3,12 @@ class Vips < Formula
   homepage "https://github.com/libvips/libvips"
   url "https://github.com/libvips/libvips/releases/download/v8.9.0/vips-8.9.0.tar.gz"
   sha256 "97334a5e70aff343d2587f23cb8068fc846a58cd937c89a446142ccf00ea0349"
+  revision 1
 
   bottle do
-    sha256 "f047299393fc25223296dfea2a2119de83bcaeee12407ca901477a575c2b1058" => :catalina
-    sha256 "1f61d78abaee8214946aec3149268684de06de1fcdd8eb1e6d1405ed29ab90b7" => :mojave
-    sha256 "a47c7a76cff8c45f4623ce35f408b40a82df73e4daf573bb49189a4757c35d19" => :high_sierra
-    sha256 "b1d9085b826063fcc5f8d759d28bc8f4563ecc6b6ca20c28dc5487759acdabee" => :x86_64_linux
+    sha256 "eb22173fc2ca4474d331a4bf008569200fa47f709da4f2762e5356491dcc3750" => :catalina
+    sha256 "9897f9c293197c14e77505cca849b07ad5b9f9192e09e6337aca564e5fd21e90" => :mojave
+    sha256 "b034c46a88d0ce20d64e9c21b2b3a609bf92e3f6d2d6474a2e9c9203af584a7d" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
