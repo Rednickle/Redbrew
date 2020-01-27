@@ -8,7 +8,7 @@ pr:
     include:
     - '*'
     exclude:
-    - 'merge-*-*-*-*'
+    - 'merge-*'
 
 jobs:
 - job: BuildLinuxbrewCoreBottles
