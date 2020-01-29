@@ -1,19 +1,24 @@
 class Memcached < Formula
   desc "High performance, distributed memory object caching system"
   homepage "https://memcached.org/"
-  url "https://www.memcached.org/files/memcached-1.5.20.tar.gz"
-  sha256 "cfd7b023a9cefe7ae8a67184f51d841dbbf97994ed0e8a55e31ee092320ea1e4"
+  url "https://www.memcached.org/files/memcached-1.5.21.tar.gz"
+  sha256 "e3d10c06db755b220f43d26d3b68d15ebf737a69c7663529b504ab047efe92f4"
+  head "https://github.com/memcached/memcached.git"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "a03608101a7aa55a32ef05d945e852bfc22cbd4647c5a6d41d7957c022489e02" => :catalina
-    sha256 "cca9f385ec7477a12f787aec8cb0da8a58f83c170e8ded061cbbdff75e158ccf" => :mojave
-    sha256 "893bc856ebe459590a08c6acf9ad863d850413de804ddac8b65d1262c5dc2467" => :high_sierra
-    sha256 "b4fe67fc5f2d411b6917fd2c953120ea507ce29945fb5461ca11c319e9f756e9" => :x86_64_linux
+    sha256 "e51087b5f555e07edfaec6ea6c7d6f9391cc3e7db70c9a2c0d94c7b1a20ebb51" => :catalina
+    sha256 "f74f56c7e1e8c358694a0cb4842d4c8e002a4bc7c7249b4cea64997195c0a781" => :mojave
+    sha256 "851b26d026604f265cb237f53aaa3d47fde7ceaad564c9eb3ab6b946897a0c9f" => :high_sierra
   end
 
   depends_on "libevent"
+
+  # fix for https://github.com/memcached/memcached/issues/598, included in next version
+  patch do
+    url "https://github.com/memcached/memcached/commit/7e3a2991.diff?full_index=1"
+    sha256 "063a2d91f863c4c6139ff5f0355bd880aca89b6da813515e0f0d11d9295189b4"
+  end
 
   def install
     system "./configure", "--prefix=#{prefix}", "--disable-coverage", "--enable-tls"
@@ -49,11 +54,7 @@ class Memcached < Formula
   test do
     pidfile = testpath/"memcached.pid"
     # Assumes port 11211 is not already taken
-    if ENV["CI"]
-      system bin/"memcached", "-u", "root", "--listen=0.0.0.0", "--daemon", "--pidfile=#{pidfile}"
-    else
-      system bin/"memcached", "--listen=localhost:11211", "--daemon", "--pidfile=#{pidfile}"
-    end
+    system bin/"memcached", "--listen=localhost:11211", "--daemon", "--pidfile=#{pidfile}"
     sleep 1
     assert_predicate pidfile, :exist?, "Failed to start memcached daemon"
     pid = (testpath/"memcached.pid").read.chomp.to_i

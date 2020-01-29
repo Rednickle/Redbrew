@@ -1,15 +1,14 @@
 class Topgrade < Formula
   desc "Upgrade all the things"
   homepage "https://github.com/r-darwish/topgrade"
-  url "https://github.com/r-darwish/topgrade/archive/v3.7.2.tar.gz"
-  sha256 "efb58722d27c4c1d01cdb8eb7fccc0a8adc51970b25e1dd9a581fc3aadaea8ea"
+  url "https://github.com/r-darwish/topgrade/archive/v3.8.0.tar.gz"
+  sha256 "0a9bfcc8a2ea87d6549de159de57f08eba95c81456c02631cd87b6e63febdc0e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9a7b2ae994621388678dd1a990f2bf2838e14176a9063518742afc202a8f178c" => :catalina
-    sha256 "c879061ae0b8079f72fd3cda99183fb8116912a3d141b246979248393b778073" => :mojave
-    sha256 "8208b232fd3ab8967b83f73fb25b70993a21dc962011b06ac484ca9decc2da3b" => :high_sierra
-    sha256 "de7b7293a24ac5d1612b5ec73f64051b4bb479f215a3255dfdc47b8b9d1e24c3" => :x86_64_linux
+    sha256 "5a9fee6cdf406529dae5ec2de082a262875886651cf283401d21016f7036f6ce" => :catalina
+    sha256 "9e7b688efa36171e0e47e2756fd409ff8e5ccbfd147197b1813021494b5b4e18" => :mojave
+    sha256 "cf7c9efdfa5ac6ecbf34501788dfe55a861a38405a034a1dcfd89ae57188ba99" => :high_sierra
   end
 
   depends_on "rust" => :build
@@ -31,7 +30,7 @@ class Topgrade < Formula
 
     assert_match version.to_s, shell_output("#{bin}/topgrade --version")
 
-    mkdir "#{ENV["HOME"]}/.config" if OS.linux?
+    mkdir testpath/".config" unless OS.mac?
     output = shell_output("#{bin}/topgrade -n")
     assert_match "Dry running: #{HOMEBREW_PREFIX}/bin/brew upgrade", output
     assert_not_match /\sSelf update\s/, output

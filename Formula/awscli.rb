@@ -4,21 +4,21 @@ class Awscli < Formula
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
   # awscli should only be updated every 10 releases on multiples of 10
-  url "https://github.com/aws/aws-cli/archive/1.17.8.tar.gz"
-  sha256 "c81093cc8d2d7471f4a1bb9876f63b2468bf0f1caa8baea5a222f4ebd282f154"
+  url "https://github.com/aws/aws-cli/archive/1.17.9.tar.gz"
+  sha256 "d36925052eafa989b071c37d3deb082957381643a2aad0c4a64facd428e1c290"
   head "https://github.com/aws/aws-cli.git", :branch => "develop"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e0db0501cdcace5a263be95925a1ab2006a3eb01904e181ca71b1698f2d6196c" => :catalina
-    sha256 "8cb362bc459b295c51a40a3121fba9cd5e2b8c03dda462aaee7939028f0076d3" => :mojave
-    sha256 "f7ce2be1faf572793fa0cca04a6a0f04544140c4654b7ee18cc9d95b53a55991" => :high_sierra
-    sha256 "0cfcce5e0d9a04df6734caac94e394f7678010c98bc1a7d0ba8b31a081478573" => :x86_64_linux
+    sha256 "37a440efce1df4fb81c021b231871cd9788046a3f17f83bc4254a2f15d4797ce" => :catalina
+    sha256 "86fdc3092d701dcca89ef858b6db02e418d374ced3de7a8226b02f41559acb43" => :mojave
+    sha256 "2b0d3bd2dadd77657686e96071f4187457ecb2d60cd43a6b2b601f1994b55105" => :high_sierra
   end
 
   # Some AWS APIs require TLS1.2, which system Python doesn't have before High
   # Sierra
   depends_on "python@3.8"
+  depends_on "groff" unless OS.mac?
 
   uses_from_macos "libyaml"
 
@@ -50,12 +50,6 @@ class Awscli < Formula
   end
 
   test do
-    if OS.mac?
-      assert_match "topics", shell_output("#{bin}/aws help")
-    else
-      # aws-cli needs groff as dependency, which we do not want to install
-      # just to display the help.
-      system "#{bin}/aws", "--version"
-    end
+    assert_match "topics", shell_output("#{bin}/aws help")
   end
 end
