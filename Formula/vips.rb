@@ -5,10 +5,10 @@ class Vips < Formula
   sha256 "45633798877839005016c9d3494e98dee065f5cb9e20f4552d3b315b8e8bce91"
 
   bottle do
-    sha256 "cbb909b87727fd918b2267d81ab00722a3384f004eff856e1dfa573e06d2dc65" => :catalina
-    sha256 "0020fa84587836c7d39157a8b3d593efc44902bfd69e5676949770e9856b0f73" => :mojave
-    sha256 "6a4a848b3e4f8b9dcd6759b41dd202332239bac1af69a477848b29e2762369a1" => :high_sierra
-    sha256 "67ee47de1c836f4a81f41ce0177d2c1564ff0cf04f1d95f5a53fe517884afc4a" => :x86_64_linux
+    rebuild 1
+    sha256 "b70ae725cab853130ac9a1c14873a8cb4929a4ca8d5ddbfdb65908cb345fe74a" => :catalina
+    sha256 "62b0f72d537fe8b92efaaa37563f6840caafa16f89c602a89a4b560dbb4c5fa2" => :mojave
+    sha256 "4558e29fb5b4ab515e3d21b8d116edead14c847b3fd3f306a47b93e9440e94fd" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -22,6 +22,7 @@ class Vips < Formula
   depends_on "libexif"
   depends_on "libgsf"
   depends_on "libheif"
+  depends_on "libimagequant"
   depends_on "libmatio"
   depends_on "libpng"
   depends_on "librsvg"
@@ -58,6 +59,10 @@ class Vips < Formula
 
     # --trellis-quant requires mozjpeg, vips warns if it's not present
     cmd = "#{bin}/vips jpegsave #{test_fixtures("test.png")} #{testpath}/test.jpg --trellis-quant 2>&1"
+    assert_equal "", shell_output(cmd)
+
+    # [palette] requires libimagequant, vips warns if it's not present
+    cmd = "#{bin}/vips copy #{test_fixtures("test.png")} #{testpath}/test.png[palette] 2>&1"
     assert_equal "", shell_output(cmd)
   end
 end

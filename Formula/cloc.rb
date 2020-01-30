@@ -7,23 +7,13 @@ class Cloc < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "133bacc497cb73a958e823f12e09e91b97d43ac188e4b002e7f939c5625fcacd" => :catalina
-    sha256 "faa85a918f0517f35a41fb60550c0d990ed58aed325c50efca95634b014edbd8" => :mojave
-    sha256 "0407f6ec4d2378659b63bb33598f9b5f49756325322fe3fc0f339ec16b5edc5f" => :high_sierra
-    sha256 "c997ea844a4a87ecb44fd4345adad2f34cc3dd855c7c34c3f416eed50a3e1cd2" => :x86_64_linux
+    rebuild 1
+    sha256 "efc3757be2925b654cc317cc7f28dd3b8a7af83898cba21ce2dd48e47a3d642b" => :catalina
+    sha256 "d3ef73f5832515c2b6500815826e1f5ac172a62c2079e503dd9fee92433b236d" => :mojave
+    sha256 "0eedafaa2a69493f39b0ea619ecbb5193a55a3519a0c5c914fc75700510b2394" => :high_sierra
   end
 
   unless OS.mac?
-    resource "Moo::Role" do
-      url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Moo-2.003004.tar.gz"
-      sha256 "f8bbb625f8e963eabe05cff9048fdd72bdd26777404ff2c40bc690f558be91e1"
-    end
-
-    resource "Module::Runtime" do
-      url "https://cpan.metacpan.org/authors/id/Z/ZE/ZEFRAM/Module-Runtime-0.016.tar.gz"
-      sha256 "68302ec646833547d410be28e09676db75006f4aa58a11f3bdb44ffe99f0f024"
-    end
-
     resource "Devel::GlobalDestruction" do
       url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Devel-GlobalDestruction-0.14.tar.gz"
       sha256 "34b8a5f29991311468fe6913cadaba75fd5d2b0b3ee3bb41fe5b53efab9154ab"
@@ -32,16 +22,6 @@ class Cloc < Formula
     resource "Sub::Exporter::Progressive" do
       url "https://cpan.metacpan.org/authors/id/F/FR/FREW/Sub-Exporter-Progressive-0.001013.tar.gz"
       sha256 "d535b7954d64da1ac1305b1fadf98202769e3599376854b2ced90c382beac056"
-    end
-
-    resource "Role::Tiny" do
-      url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Role-Tiny-2.000008.tar.gz"
-      sha256 "b1541fc5e3e0eb2dbd55b25c432293c197e0153c2c9f7747deba4df72c27146a"
-    end
-
-    resource "Sub::Quote" do
-      url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Sub-Quote-2.006003.tar.gz"
-      sha256 "be1f3a6f773f351f203cdc8f614803ac492b77d15fd68d5b1f0cd3884be18176"
     end
   end
 
@@ -58,6 +38,26 @@ class Cloc < Formula
   resource "Parallel::ForkManager" do
     url "https://cpan.metacpan.org/authors/id/Y/YA/YANICK/Parallel-ForkManager-2.02.tar.gz"
     sha256 "c1b2970a8bb666c3de7caac4a8f4dbcc043ab819bbc337692ec7bf27adae4404"
+  end
+
+  resource "Sub::Quote" do
+    url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Sub-Quote-2.006006.tar.gz"
+    sha256 "6e4e2af42388fa6d2609e0e82417de7cc6be47223f576592c656c73c7524d89d"
+  end
+
+  resource "Moo::Role" do
+    url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Moo-2.003006.tar.gz"
+    sha256 "bcb2092ab18a45005b5e2e84465ebf3a4999d8e82a43a09f5a94d859ae7f2472"
+  end
+
+  resource "Module::Runtime" do
+    url "https://cpan.metacpan.org/authors/id/Z/ZE/ZEFRAM/Module-Runtime-0.016.tar.gz"
+    sha256 "68302ec646833547d410be28e09676db75006f4aa58a11f3bdb44ffe99f0f024"
+  end
+
+  resource "Role::Tiny" do
+    url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Role-Tiny-2.001004.tar.gz"
+    sha256 "92ba5712850a74102c93c942eb6e7f62f7a4f8f483734ed289d08b324c281687"
   end
 
   def install
