@@ -5,14 +5,14 @@ class Hadolint < Formula
 
   desc "Smarter Dockerfile linter to validate best practices"
   homepage "https://github.com/hadolint/hadolint"
-  url "https://github.com/hadolint/hadolint/archive/v1.17.4.tar.gz"
-  sha256 "db789e2b57117a989c837c4522609bd62d10afa79b4c3e9131efd1cdc46aa12b"
+  url "https://github.com/hadolint/hadolint/archive/v1.17.5.tar.gz"
+  sha256 "385e5b5c6c5f962073764ceb2350326ce6effef5304135b20bea04427dccbe1c"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8188ae83745bef4a9d28d5d08faff1bf9c27522ba0cd2f55f77e8dbbcbebd5a2" => :catalina
-    sha256 "60a4ad1f6c0fd4514ab34bcbc0ed2187266958d604b12c6a4126494cbe633f95" => :mojave
-    sha256 "44ca2612d78903494068ee04720570f2575eaa163495b19913a8bfd22b078b40" => :high_sierra
+    sha256 "a878f0f34ce987a40bc2d5e7a7c4cb9afeebcaa657793eaaf15d9bc025b6f591" => :catalina
+    sha256 "ec4f7290b4a57dafdf8a66543b87a04e9dd9aac590e5810a82779888e396fec3" => :mojave
+    sha256 "2a7e7a9198c8220f0c8ea4a259606cddad3787e02bed7f05d5071394f40548b8" => :high_sierra
   end
 
   depends_on "haskell-stack" => :build
