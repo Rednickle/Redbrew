@@ -40,8 +40,8 @@ jobs:
           brew test-bot --ci-upload --publish --bintray-org=linuxbrew --git-name=LinuxbrewTestBot --git-email=testbot@linuxbrew.sh --keep-old
           cd "$(brew --repo ${{github.repository}})"
 
-          git checkout master
-          git merge --squash -m "Merge pull request #$pr" develop
+          git fetch
+          git rebase origin/master
           git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{github.repository}} master master:develop && exit
 
           # Failed push due to race
