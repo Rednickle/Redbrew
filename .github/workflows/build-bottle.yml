@@ -14,7 +14,7 @@ jobs:
       - uses: actions/checkout@master
       - name: Build bottles
         run: |
-          mkdir -p "$(dirname $(brew --repo ${{github.repository}}))"
+          rm -rf "$(brew --repo ${{github.repository}})"
           cp -a "$GITHUB_WORKSPACE" "$(brew --repo ${{github.repository}})"
           mkdir ~/bottles
           cd ~/bottles
