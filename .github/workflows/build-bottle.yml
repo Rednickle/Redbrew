@@ -23,6 +23,7 @@ jobs:
         run: |
           mkdir ~/bottles
           cd ~/bottles
+          export GITHUB_SHA=${{github.event.pull_request.sha}}
           brew test-bot \
             --tap=homebrew/core \
             --bintray-org=linuxbrew \
