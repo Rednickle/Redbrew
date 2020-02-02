@@ -42,10 +42,9 @@ jobs:
 
           git fetch
           git rebase origin/master
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{github.repository}} master master:develop && exit
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{github.repository}} master && git push -f https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{github.repository}} master:develop && exit
 
           # Failed push due to race
-          git checkout develop
           git branch -f "pr$pr"
           git push --force https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{github.repository}} "pr$pr"
           GITHUB_TOKEN='${{secrets.HOMEBREW_GITHUB_API_TOKEN}}' hub pull-request -l bottles -b master -h "pr$pr" -m "Bottles for PR $pr" --no-edit
