@@ -33,6 +33,12 @@ jobs:
             --bintray-org=linuxbrew \
             --git-name=LinuxbrewTestBot \
             --git-email=testbot@linuxbrew.sh \
+            --keep-old ${{github.event.client_payload.formula}}
+          brew test-bot \
+            --tap=homebrew/core \
+            --bintray-org=linuxbrew \
+            --git-name=LinuxbrewTestBot \
+            --git-email=testbot@linuxbrew.sh \
             --ci-upload --publish \
             --keep-old ${{github.event.client_payload.formula}}
           cp -a ~/bottles $RUNNER_TEMP/
