@@ -40,7 +40,7 @@ jobs:
           cd "$(brew --repo ${{github.repository}})"
           git fetch origin
           git reset --hard origin/master
-          cd -
+          cd ~/bottles
           brew test-bot \
             --tap=homebrew/core \
             --bintray-org=linuxbrew \
