@@ -19,9 +19,6 @@ jobs:
           git config --global user.email testbot@linuxbrew.sh
       - name: Setup tap
         run: |
-          git checkout -b test
-          git fetch origin "master:master" "pull/${{github.event.number}}/head:pr"
-          git checkout pr
           rm -rf $(brew --repository ${{github.repository}})
           ln -s "$GITHUB_WORKSPACE" $(brew --repository ${{github.repository}})
       - name: Build bottles
