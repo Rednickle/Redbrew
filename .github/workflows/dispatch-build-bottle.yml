@@ -31,7 +31,6 @@ jobs:
             --git-name=LinuxbrewTestBot \
             --git-email=testbot@linuxbrew.sh \
             --keep-old ${{github.event.client_payload.formula}}
-          cp -a ~/bottles $RUNNER_TEMP/
       - name: Upload bottles
         env:
           HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
