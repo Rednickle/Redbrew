@@ -22,9 +22,6 @@ jobs:
           rm -rf $(brew --repository ${{github.repository}})
           ln -s "$GITHUB_WORKSPACE" $(brew --repository ${{github.repository}})
       - name: Build bottles
-        env:
-          HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
-          HOMEBREW_BINTRAY_USER: LinuxbrewTestBot
         run: |
           mkdir ~/bottles
           cd ~/bottles
@@ -34,6 +31,16 @@ jobs:
             --git-name=LinuxbrewTestBot \
             --git-email=testbot@linuxbrew.sh \
             --keep-old ${{github.event.client_payload.formula}}
+          cp -a ~/bottles $RUNNER_TEMP/
+      - name: Upload bottles
+        env:
+          HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
+          HOMEBREW_BINTRAY_USER: LinuxbrewTestBot
+        run: |
+          cd "$(brew --repo ${{github.repository}})"
+          git fetch origin
+          git reset --hard origin/master
+          cd -
           brew test-bot \
             --tap=homebrew/core \
             --bintray-org=linuxbrew \
@@ -41,7 +48,6 @@ jobs:
             --git-email=testbot@linuxbrew.sh \
             --ci-upload --publish \
             --keep-old ${{github.event.client_payload.formula}}
-          cp -a ~/bottles $RUNNER_TEMP/
       - name: Push bottles
         run: |
           cd "$(brew --repo ${{github.repository}})"
