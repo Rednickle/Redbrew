@@ -22,6 +22,9 @@ jobs:
           rm -rf $(brew --repository ${{github.repository}})
           ln -s "$GITHUB_WORKSPACE" $(brew --repository ${{github.repository}})
       - name: Build bottles
+        env:
+          HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
+          HOMEBREW_BINTRAY_USER: LinuxbrewTestBot
         run: |
           mkdir ~/bottles
           cd ~/bottles
@@ -30,22 +33,11 @@ jobs:
             --bintray-org=linuxbrew \
             --git-name=LinuxbrewTestBot \
             --git-email=testbot@linuxbrew.sh \
+            --ci-upload --publish \
             --keep-old ${{github.event.client_payload.formula}}
           cp -a ~/bottles $RUNNER_TEMP/
-      - name: Save bottles
-        uses: actions/upload-artifact@v1
-        with:
-          name: bottles
-          path: ${{runner.temp}}/bottles
-        if: always()
-      - name: Upload and publish bottles on Bintray
-        env:
-          HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
-          HOMEBREW_BINTRAY_USER: LinuxbrewTestBot
-        run: |
-          cd ~/bottles
-          brew test-bot --ci-upload --publish --bintray-org=linuxbrew --git-name=LinuxbrewTestBot --git-email=testbot@linuxbrew.sh --keep-old
       - name: Push bottles
         run: |
           cd "$(brew --repo ${{github.repository}})"
+          git show
           git push https://x-access-token:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}} master
