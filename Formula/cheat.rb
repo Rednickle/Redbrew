@@ -2,15 +2,14 @@ class Cheat < Formula
   desc "Create and view interactive cheat sheets for *nix commands"
   homepage "https://github.com/cheat/cheat"
   url "https://github.com/cheat/cheat.git",
-    :tag      => "3.4.0",
-    :revision => "d4c62007027e0e12b75d4d2099d92ec1278133b4"
+    :tag      => "3.5.1",
+    :revision => "7b4a268ebddedca7f94de7b1d9751212f68e3488"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fac9267a41859f0feeffa77048b2ff3508b4d1e77b5dc4d69996d4d7dbb929fb" => :catalina
-    sha256 "74be8231bcb1728f4357c945c69d1ba3898fae721865bdf17432cb573d29cd64" => :mojave
-    sha256 "42b6a9d8868a3097e3438fbc95ff5167287bf5c5ed481b0aa9fb97a1a48515e1" => :high_sierra
-    sha256 "c1ba53d4c7afef365917220d82ef8414c23da2c1c8f2709508aab8c48c7c6bab" => :x86_64_linux
+    sha256 "5b5659889c08fe22d962c955804c210a508cc5ba4cefa69d81076c81d55c63b9" => :catalina
+    sha256 "1165dcff4c53fdb3adc322101373d2ada3f4eaeced8a133e982377055ed8c57b" => :mojave
+    sha256 "8160f43431907f2d7aed7a9a527b5f4c5760c67eeeb788deb2196396ab297a55" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -25,6 +24,6 @@ class Cheat < Formula
     output = shell_output("#{bin}/cheat --init 2>&1")
     assert_match "editor: vim", output
 
-    assert_match "failed to create config file", shell_output("#{bin}/cheat tar 2>&1", 1)
+    assert_match "Created config file", shell_output("#{bin}/cheat tar 2>&1")
   end
 end
