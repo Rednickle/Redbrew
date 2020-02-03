@@ -22,9 +22,6 @@ jobs:
           rm -rf $(brew --repository ${{github.repository}})
           ln -s "$GITHUB_WORKSPACE" $(brew --repository ${{github.repository}})
       - name: Build bottles
-        env:
-          HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
-          HOMEBREW_BINTRAY_USER: LinuxbrewTestBot
         run: |
           mkdir ~/bottles
           cd ~/bottles
@@ -42,6 +39,9 @@ jobs:
           path: ${{runner.temp}}/bottles
         if: always()
       - name: Upload and publish bottles on Bintray
+        env:
+          HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
+          HOMEBREW_BINTRAY_USER: LinuxbrewTestBot
         run: |
           cd ~/bottles
           brew test-bot --ci-upload --publish --bintray-org=linuxbrew --git-name=LinuxbrewTestBot --git-email=testbot@linuxbrew.sh --keep-old
