@@ -12,10 +12,15 @@ jobs:
       HOMEBREW_NO_AUTO_UPDATE: 1
     steps:
       - uses: actions/checkout@master
+      - name: Bottle request details
+        uses: actions/github-script@0.4.0
+        with:
+          script: |
+            console.log('formula=' + context.payload.client_payload.formula)
+            console.log('sender=' + context.payload.sender.login)
+            console.log('name=' + context.payload.client_payload.name)
       - name: Setup user
         run: |
-          echo ::group::${{github.event.client_payload.formula}} requested by ${{github.event.client_payload.name}}
-          echo ::endgroup::
           sudo adduser $(whoami) linuxbrew
           git config --global user.name LinuxbrewTestBot
           git config --global user.email testbot@linuxbrew.sh
