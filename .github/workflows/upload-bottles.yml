@@ -23,6 +23,8 @@ jobs:
               commit_sha: "e2575cfdc20129b94f8268a3b9594ca61f21f4b0"
             })
             console.log(prs.data.length + " prs")
+            if (prs.data.length === 0)
+              return
             const pr = prs.data[0]
             console.log("first pr head ref=" + pr.head.ref)
 
@@ -101,7 +103,7 @@ jobs:
           HOMEBREW_NO_AUTO_UPDATE: 1
         run: |
           set -eu
-          echo ${{steps.artifact.outputs}}
+          echo ${{ toJSON(steps.artifact.outputs) }}
           artifact_id=${{steps.artifact.outputs}}
           echo "artifact_id=$artifact_id"
           exit
