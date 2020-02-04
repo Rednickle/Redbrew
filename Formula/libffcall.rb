@@ -10,6 +10,7 @@ class Libffcall < Formula
     sha256 "02b522baa2d0f38a85e3a2bee8adb79644e8c834c486737b81a62945b9ec73d4" => :catalina
     sha256 "e38d2a42a2ad191847e423028580245f4b84829e5c781f6d58ce7da9981da280" => :mojave
     sha256 "d9f7db3318279d7dac5a162de3a251e96c3810be2e70fe8926d93e63b9849045" => :high_sierra
+    sha256 "f558d33d0b06fc7c5956354beed87518acf5a6cc32f01e6c86911264ed4c4799" => :x86_64_linux
   end
 
   def install
