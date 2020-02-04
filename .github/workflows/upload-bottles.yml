@@ -83,18 +83,17 @@ jobs:
               workflow_id: "build-bottles.yml",
               branch: pr.head.ref
               })
-            console.log(runs)
-            console.log(runs.total_count + " runs")
+            console.log(runs.data.total_count + " runs")
 
             const artifacts = await github.actions.listWorkflowRunArtifacts({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              run_id: runs.workflow_runs[0].id
+              run_id: runs.data.workflow_runs[0].id
               })
-            console.log(artifacts)
-            console.log(artifacts.total_count + " artifacts")
-            console.log("Artifact <" + artifacts[0].archive_download_url + ">")
-            return {id: artifacts[0].id, success: true}
+            console.log(artifacts.data)
+            console.log(artifacts.data.total_count + " artifacts")
+            console.log("Artifact <" + artifacts.data[0].archive_download_url + ">")
+            return {id: artifacts.data[0].id, success: true}
       - name: Download artifacts
         env:
           HOMEBREW_BINTRAY_USER: linuxbrewtestbot
