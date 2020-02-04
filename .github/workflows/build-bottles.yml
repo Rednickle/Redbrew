@@ -1,4 +1,4 @@
-name: Build bottles
+name: Build bottles.
 
 on: pull_request
 
@@ -21,10 +21,13 @@ jobs:
         run: |
           mkdir ~/bottles
           cd ~/bottles
-          brew test-bot --tap=homebrew/core --keep-old
+          brew test-bot \
+            --tap=homebrew/core \
+            --keep-old
       - name: Copy bottles
         if: always()
-        run: cp -a ~/bottles $GITHUB_WORKSPACE
+        run: |
+          cp -a ~/bottles $GITHUB_WORKSPACE
       - name: Upload bottles
         if: always()
         uses: actions/upload-artifact@v1
