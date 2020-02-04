@@ -15,6 +15,7 @@ class Pipebench < Formula
     sha256 "353cabdaf04a41e2169c1e489cd038f9fbe7f33cfd24a5a0b3068449ccc3446d" => :el_capitan
     sha256 "a999c7ba2978e60d38bdeec63d1f1a8b2667cb0d77d35c4da2e57212a37b85ac" => :yosemite
     sha256 "c5b0805588d8a8d9047d30b9330dd0be0215bfe694ed662cf11fa84595bba85c" => :mavericks
+    sha256 "47b160fec5a4d67846d1f1916216ebeb4c27f5eb3d65137417ed8c1bf00261ce" => :x86_64_linux
   end
 
   def install
