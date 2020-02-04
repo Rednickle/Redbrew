@@ -14,6 +14,8 @@ jobs:
       - uses: actions/checkout@master
       - name: Setup user
         run: |
+          echo ::group::${{github.event.client_payload.formula}} requested by ${{github.event.client_payload.name}}
+          echo ::endgroup::
           sudo adduser $(whoami) linuxbrew
           git config --global user.name LinuxbrewTestBot
           git config --global user.email testbot@linuxbrew.sh
@@ -50,6 +52,8 @@ jobs:
       - name: Push bottles
         run: |
           cd "$(brew --repo ${{github.repository}})"
+          msg=$(git show -s --format=format:%s)
+          git commit --amend -m "$msg\n\nCo-authored-by: ${{github.event.client_payload.name}} <${{github.event.client_payload.email}}>"
           git show
           git fetch
           git rebase origin/master
