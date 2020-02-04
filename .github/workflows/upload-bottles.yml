@@ -21,6 +21,10 @@ jobs:
               repo: context.repo.repo,
               commit_sha: context.payload.head_commit.id
             })
+            unless (prs) {
+              console.log("No pull requests found for commit " + context.payload.head_commit.id)
+              return {id: "", success: false}
+            }
             console.log(prs.length + " prs")
             const pr = prs[0]
             console.log("first pr head ref=" + pr.head.ref)
@@ -38,13 +42,14 @@ jobs:
               })
             console.log(artifacts.total_count + " artifacts")
             console.log("Artifact <" + artifacts[0].archive_download_url + ">")
-            return artifacts[0]
+            return {id: artifacts[0].id, success: true}
       - name: Download artifacts
         env:
           HOMEBREW_BINTRAY_USER: linuxbrewtestbot
           HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
           HOMEBREW_NO_ANALYTICS: 1
           HOMEBREW_NO_AUTO_UPDATE: 1
+        if: steps.artifact.success
         run: |
           set -eu
           artifact_id=${{steps.artifact.outputs.id}}
