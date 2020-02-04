@@ -22,6 +22,7 @@ jobs:
               repo: context.repo.repo,
               commit_sha: "e2575cfdc20129b94f8268a3b9594ca61f21f4b0"
             })
+            console.log(prs)
             console.log(prs.length + " prs")
             const pr = prs[0]
             console.log("first pr head ref=" + pr.head.ref)
@@ -31,12 +32,14 @@ jobs:
               workflow_id: "build-bottles.yml",
               branch: pr.head.ref
               })
+            console.log(runs)
             console.log(runs.total_count + " runs")
             const artifacts = await github.actions.listWorkflowRunArtifacts({
               owner: context.repo.owner,
               repo: context.repo.repo,
               run_id: runs.workflow_runs[0].id
               })
+            console.log(artifacts)
             console.log(artifacts.total_count + " artifacts")
             console.log("Artifact <" + artifacts[0].archive_download_url + ">")
             return {id: artifacts[0].id, success: true}
