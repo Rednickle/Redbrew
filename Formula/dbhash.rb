@@ -13,6 +13,7 @@ class Dbhash < Formula
     sha256 "9ea365cbc64a6623313e4d6701ac5cfe12d14b76be8b6fba72afdb47129327d6" => :catalina
     sha256 "84322ef8c2737104776358d3ddc6f253ce4e4d9bf464d4d2da1fa8c56bba7d2f" => :mojave
     sha256 "953a02effe120859def6682480aa659fd137163ff1334d247c2ebd20472407c4" => :high_sierra
+    sha256 "8b8da9e454b905b4d0f3a2846061367b6d2bf21096017603494b1d2da8bfb498" => :x86_64_linux
   end
 
   def install
