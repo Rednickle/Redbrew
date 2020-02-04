@@ -2,55 +2,57 @@ name: Upload bottles
 
 on:
   push:
-    branches: [develop]
+    branches: [master]
 
 jobs:
   upload-bottles:
     runs-on: ubuntu-latest
     container:
       image: homebrew/brew
-    env:
-      HOMEBREW_BINTRAY_USER: linuxbrewtestbot
-      HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
       HOMEBREW_NO_ANALYTICS: 1
       HOMEBREW_NO_AUTO_UPDATE: 1
     steps:
-      - name: Install dependencies
-        run: |
-          brew update-reset
-          brew install hub jq unzip
-          brew tap ${{github.repository}}
-      - name: Upload bottles
+      - name: Get artifact data
+        uses: actions/github-script@0.4.0
+        id: artifact
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const prs = github.repos.listPullRequestsAssociatedWithCommit({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              commit_sha: context.payload.head_commit.id
+            })
+            console.log(prs.length + " prs")
+            const pr = prs[0]
+            console.log("first pr head ref=" + pr.head.ref)
+            const runs = github.actions.listWorkflowRuns({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: "build-bottles.yml",
+              branch: pr.head.ref
+              })
+            console.log(runs.total_count + " runs")
+            const artifacts = github.actions.listWorkflowRunArtifacts({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              run_id: runs.workflow_runs[0].id
+              })
+            console.log(artifacts.total_count + " artifacts")
+            console.log("Artifact <" + artifacts[0].archive_download_url + ">")
+            return artifacts[0]
+      - name: Download artifacts
+        env:
+          HOMEBREW_BINTRAY_USER: linuxbrewtestbot
+          HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
         run: |
           set -eu
-          echo sha1='${{github.event.head_commit.id}}'
-          echo '${{github.event.head_commit.message}}'
-          pr="$(echo '${{github.event.head_commit.message}}' | sed 's/^.*#\([0-9]*\).*/\1/;q')"
-          git -C "$(brew --repo ${{github.repository}})" fetch origin "pull/$pr/head:pr-head"
-          sha1="$(git -C "$(brew --repo ${{github.repository}})" rev-parse pr-head)"
-          echo pr="$pr" sha1="$sha1"
-          run_id=$(curl -s -H 'Accept: application/vnd.github.antiope-preview+json' https://api.github.com/repos/${{github.repository}}/actions/workflows/build-bottles.yml/runs \
-            | jq ".workflow_runs[] | select(.head_sha == \"$sha1\").id")
-          artifact_id="$(curl -s -H 'Accept: application/vnd.github.antiope-preview+json' https://api.github.com/repos/${{github.repository}}/actions/runs/$run_id/artifacts \
-            | jq '.artifacts[0].id')"
-          echo run_id="$run_id" artifact_id="$artifact_id"
+          artifact_id=${{steps.artifact.outputs.id}}
           curl -L -o bottles.zip "https://${{secrets.HOMEBREW_GITHUB_API_TOKEN}}@api.github.com/repos/${{github.repository}}/actions/artifacts/$artifact_id/zip"
           file bottles.zip
           unzip bottles.zip
           brew test-bot --ci-upload --publish --bintray-org=linuxbrew --git-name=LinuxbrewTestBot --git-email=testbot@linuxbrew.sh --keep-old
           cd "$(brew --repo ${{github.repository}})"
-
           git fetch
           git rebase origin/master
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{github.repository}} master && git push -f https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{github.repository}} master:develop && exit
-
-          # Failed push due to race
-          git branch -f "pr$pr"
-          git push --force https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{github.repository}} "pr$pr"
-          GITHUB_TOKEN='${{secrets.HOMEBREW_GITHUB_API_TOKEN}}' hub pull-request -l bottles -b master -h "pr$pr" -m "Bottles for PR $pr" --no-edit
-          git fetch origin master
-          git reset --hard origin/master
-          git merge --no-ff -m "Merge pull request #$pr" "pr$pr"
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{github.repository}} master master:develop
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{github.repository}} -d "pr$pr"
-
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{github.repository}} master
