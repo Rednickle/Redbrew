@@ -92,8 +92,8 @@ jobs:
               })
             console.log(artifacts.data)
             console.log(artifacts.data.total_count + " artifacts")
-            console.log("Artifact <" + artifacts.data[0].archive_download_url + ">")
-            return {id: artifacts.data[0].id, success: true}
+            console.log("Artifact <" + artifacts.data.artifacts[0].archive_download_url + ">")
+            return {id: artifacts.data.artifacts[0].id, success: true}
       - name: Download artifacts
         env:
           HOMEBREW_BINTRAY_USER: linuxbrewtestbot
