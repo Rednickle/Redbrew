@@ -15,6 +15,7 @@ jobs:
         id: artifact
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
+          result-encoding: string
           script: |
             const prs = await github.repos.listPullRequestsAssociatedWithCommit({
               owner: context.repo.owner,
@@ -91,9 +92,7 @@ jobs:
               })
             console.log(artifacts.data.total_count + " artifacts")
             console.log("Artifact <" + artifacts.data.artifacts[0].archive_download_url + ">")
-            const to_return = {id: artifacts.data.artifacts[0].id, success: true}
-            console.log(to_return)
-            return to_return
+            return artifacts.data.artifacts[0].id
       - name: Download artifacts
         env:
           HOMEBREW_BINTRAY_USER: linuxbrewtestbot
@@ -103,7 +102,7 @@ jobs:
         run: |
           set -eu
           echo ${{steps.artifact.outputs}}
-          artifact_id=${{steps.artifact.outputs.id}}
+          artifact_id=${{steps.artifact.outputs}}
           echo "artifact_id=$artifact_id"
           exit
           curl -L -o bottles.zip "https://${{secrets.HOMEBREW_GITHUB_API_TOKEN}}@api.github.com/repos/${{github.repository}}/actions/artifacts/$artifact_id/zip"
