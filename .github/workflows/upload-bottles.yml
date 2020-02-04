@@ -106,7 +106,7 @@ jobs:
             console.log("Artifact <" + artifacts.data.artifacts[0].archive_download_url + ">")
             return artifacts.data.artifacts[0].id
       - name: Install dependencies
-        if: steps.artifact.outputs
+        if: steps.artifact.outputs != 0
         run: |
           apt update
           apt install -y unzip
@@ -116,10 +116,9 @@ jobs:
           HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
           HOMEBREW_NO_ANALYTICS: 1
           HOMEBREW_NO_AUTO_UPDATE: 1
-        if: steps.artifact.outputs
+        if: steps.artifact.outputs != 0
         run: |
           set -eu
-          echo "${{ toJson(steps.artifcat.outputs) }}
           artifact_id=${{steps.artifact.outputs.result}}
           echo "artifact_id=$artifact_id"
           curl -L -o bottles.zip "https://${{secrets.HOMEBREW_GITHUB_API_TOKEN}}@api.github.com/repos/${{github.repository}}/actions/artifacts/$artifact_id/zip"
@@ -127,7 +126,7 @@ jobs:
           unzip bottles.zip
           brew test-bot --ci-upload --publish --bintray-org=linuxbrew --git-name=LinuxbrewTestBot --git-email=testbot@linuxbrew.sh --keep-old
       - name: Push bottle commit
-        if: steps.artifact.outputs
+        if: steps.artifact.outputs != 0
         run: |
           cd "$(brew --repo ${{github.repository}})"
           git fetch
