@@ -11,6 +11,7 @@ class DockerMachineDriverVmware < Formula
     sha256 "df81e5c14ec3961d53f6490a165a17b8ceda29beba747ee659b57d82a9468e26" => :mojave
     sha256 "e65553889741f8c077de12706314e9f95805d673b186d1d545617515d7ab4a03" => :high_sierra
     sha256 "4901f8daf5bc087b0b4bb64a2798696604e618b8d11433b6fa851dd90fd1b77f" => :sierra
+    sha256 "7c45c6504fc180d77486bae9bda595892d4941c08fe4250e1ee1f1d8d445dff4" => :x86_64_linux
   end
 
   depends_on "go" => :build
