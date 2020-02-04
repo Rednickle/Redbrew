@@ -13,6 +13,7 @@ class Mpgtx < Formula
     sha256 "566ce06d938b4e3b7886a729d456bd3034325985acbdb5e21355b076d7acccf5" => :el_capitan
     sha256 "dbe21236b1f2ae76dca4be4fa259c9dd902d2b109a6f0f0549cc7f6463945d06" => :yosemite
     sha256 "a9b32ab7e68133b508d9f919a740ed279567e1b68d3d9a72e0a50013a1029b11" => :mavericks
+    sha256 "61a51e8ebdec1f38d21af07e18435c719940f79c192749d0ce3f84b2d493e1cc" => :x86_64_linux
   end
 
   def install
