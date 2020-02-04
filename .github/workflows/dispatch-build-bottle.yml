@@ -51,4 +51,6 @@ jobs:
         run: |
           cd "$(brew --repo ${{github.repository}})"
           git show
+          git fetch
+          git rebase origin/master
           git push https://x-access-token:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}} master
