@@ -59,9 +59,7 @@ jobs:
         run: |
           cd "$(brew --repo ${{github.repository}})"
           msg=$(git show -s --format=format:%s)
-          git commit --amend -m "$msg
-
-          Co-authored-by: ${{github.event.client_payload.name}} <${{github.event.client_payload.email}}>"
+          git commit --amend -m "$msg" -m "Co-authored-by: ${{github.event.client_payload.name}} <${{github.event.client_payload.email}}>"
           git show
           git fetch
           git rebase origin/master
