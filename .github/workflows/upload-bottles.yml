@@ -10,6 +10,11 @@ jobs:
     container:
       image: homebrew/brew
     steps:
+      - uses: actions/checkout@master
+      - name: Setup tap
+        run: |
+          rm -rf $(brew --repository ${{github.repository}})
+          ln -s "$GITHUB_WORKSPACE" $(brew --repository ${{github.repository}})
       - name: Get artifact data
         uses: actions/github-script@0.4.0
         id: artifact
