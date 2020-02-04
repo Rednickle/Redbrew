@@ -4,6 +4,10 @@ class HelloTest < Formula
   url "https://ftp.gnu.org/gnu/hello/hello-2.10.tar.gz"
   sha256 "31e066137a962676e89f69d1b65382de95a7ef7d914b8cb956f41ea72e0f516b"
 
+  bottle do
+    sha256 "2325c6e4167192a4a60b308695444c1cafde8f9e6b25f64fb01de6336ecd0983" => :x86_64_linux
+  end
+
   conflicts_with "camlistore", :because => "both install `hello` binaries"
 
   def install
