@@ -13,6 +13,7 @@ class B2sum < Formula
     sha256 "ff4a36110ddee427728c3c7027b6e64d4ecdcab4bbe73bf69cf200cbfd877657" => :el_capitan
     sha256 "ac07e18f25467617297e60a4a46d2309241ecf16adc642d8ef0abfbd6dd2cd70" => :yosemite
     sha256 "d2adbbbe2cce0efe380586ebbfd6a765fdc092c9d205134119613b0dbf9964ab" => :mavericks
+    sha256 "a5f9feb74faf0b52d943244061d1c16b8b4af39d00576289a532d01f2f8878b7" => :x86_64_linux
   end
 
   def install
