@@ -14,6 +14,7 @@ class Minimodem < Formula
     sha256 "1539133df2fe9f85e8dcdf56e2a62d5ae116861e6dbc3b02e45680fbf8a467a9" => :el_capitan
     sha256 "ac39bf2ca304ce0f513a037193aca0850cf3cafddf17cd40a2ac047e5f051db7" => :yosemite
     sha256 "bbd84e83ce1e3a2f7f257d5c8b5fafd998187aeeb78b5d98eeb4ca97fc90d00e" => :mavericks
+    sha256 "d875b60eec4018cc99a07ad82ef486fd1f6e5ffa6836c7a59fff0c5adde8561f" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
