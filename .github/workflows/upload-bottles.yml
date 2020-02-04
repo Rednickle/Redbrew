@@ -14,7 +14,6 @@ jobs:
         uses: actions/github-script@0.4.0
         id: artifact
         with:
-          debug: true
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
             const prs = await github.repos.listPullRequestsAssociatedWithCommit({
@@ -90,10 +89,11 @@ jobs:
               repo: context.repo.repo,
               run_id: runs.data.workflow_runs[0].id
               })
-            console.log(artifacts.data)
             console.log(artifacts.data.total_count + " artifacts")
             console.log("Artifact <" + artifacts.data.artifacts[0].archive_download_url + ">")
-            return {id: artifacts.data.artifacts[0].id, success: true}
+            const to_return = {id: artifacts.data.artifacts[0].id, success: true}
+            console.log(to_return)
+            return to_return
       - name: Download artifacts
         env:
           HOMEBREW_BINTRAY_USER: linuxbrewtestbot
