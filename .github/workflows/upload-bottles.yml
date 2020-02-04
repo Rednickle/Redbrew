@@ -25,7 +25,7 @@ jobs:
             console.log(prs.data.length + " prs")
             if (prs.data.length === 0) {
               console.log("No pull requests are associated with this merge commit.")
-              return
+              return 0
             }
             const pr = prs.data[0]
             console.log("first pr head ref=" + pr.head.ref)
@@ -90,7 +90,7 @@ jobs:
             console.log(runs.data.total_count + " runs")
             if (runs.data.total_count === 0) {
               console.log("No workflow runs are associated with this pull request.")
-              return
+              return 0
             }
 
             const artifacts = await github.actions.listWorkflowRunArtifacts({
@@ -101,12 +101,12 @@ jobs:
             console.log(artifacts.data.total_count + " artifacts")
             if (artifacts.data.total_count === 0) {
               console.log("No artifacts were uploaded for this workflow run.")
-              return
+              return 0
             }
             console.log("Artifact <" + artifacts.data.artifacts[0].archive_download_url + ">")
             return artifacts.data.artifacts[0].id
       - name: Install dependencies
-        if: steps.artifact.outputs != 0
+        if: steps.artifact.outputs.result != 0
         run: |
           apt update
           apt install -y unzip
@@ -116,7 +116,7 @@ jobs:
           HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
           HOMEBREW_NO_ANALYTICS: 1
           HOMEBREW_NO_AUTO_UPDATE: 1
-        if: steps.artifact.outputs != 0
+        if: steps.artifact.outputs.result != 0
         run: |
           set -eu
           artifact_id=${{steps.artifact.outputs.result}}
@@ -126,7 +126,7 @@ jobs:
           unzip bottles.zip
           brew test-bot --ci-upload --publish --bintray-org=linuxbrew --git-name=LinuxbrewTestBot --git-email=testbot@linuxbrew.sh --keep-old
       - name: Push bottle commit
-        if: steps.artifact.outputs != 0
+        if: steps.artifact.outputs.result != 0
         run: |
           cd "$(brew --repo ${{github.repository}})"
           git fetch
