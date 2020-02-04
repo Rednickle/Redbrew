@@ -27,7 +27,7 @@ jobs:
             console.log("first pr head ref=" + pr.head.ref)
 
             // register needed endpoints since the github action is too old
-            octokit.registerEndpoints({
+            github.registerEndpoints({
               actions: {
                 listWorkflowRuns: {
                   method: "GET",
