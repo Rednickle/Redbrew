@@ -13,6 +13,7 @@ class Sqldiff < Formula
     sha256 "7c7c1d6b079bf9f336e8ea5e51347b7b07dc0370dd6daac8c33dd6bbbd0d0f12" => :catalina
     sha256 "0242ab486e5b376e568ce714c12911c979f276bcc4aab4e65d3a5924fa23e41e" => :mojave
     sha256 "1ea15eaf7c608d1cf7fb562a1581acce36b81862313fa8f743167322cb4e0297" => :high_sierra
+    sha256 "59aa3ea68d2de25aa62adf1aa6aec1caac8be563ddd3337c2108fbd532a78b35" => :x86_64_linux
   end
 
   def install
