@@ -14,6 +14,7 @@ class Crunch < Formula
     sha256 "84c0c275e63cc5c27fd468587f67ae5f1ab31a3923fe2eda27b4e33477356844" => :el_capitan
     sha256 "406d94f00713b83bbf41b36453605a5f85f154f88aec9b3ae23e7646ddcc03c1" => :yosemite
     sha256 "379e5d6a2a8a9baaa9b337f3e702e25ccca6025fd8b49e2685031e67d8ce8666" => :mavericks
+    sha256 "28d49ef615d8f26edf0fec888973fffb2649332d84acc0f34c8faa43b294dda8" => :x86_64_linux
   end
 
   def install
