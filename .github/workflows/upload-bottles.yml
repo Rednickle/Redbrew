@@ -10,11 +10,6 @@ jobs:
     container:
       image: homebrew/brew
     steps:
-      - uses: actions/checkout@master
-      - name: Setup tap
-        run: |
-          rm -rf $(brew --repository ${{github.repository}})
-          ln -s "$GITHUB_WORKSPACE" $(brew --repository ${{github.repository}})
       - name: Get artifact data
         uses: actions/github-script@0.4.0
         id: artifact
@@ -111,6 +106,7 @@ jobs:
             console.log("Artifact <" + artifacts.data.artifacts[0].archive_download_url + ">")
             return artifacts.data.artifacts[0].id
       - name: Install dependencies
+        if: steps.artifact.outputs
         run: |
           apt update
           apt install -y unzip
@@ -120,7 +116,7 @@ jobs:
           HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
           HOMEBREW_NO_ANALYTICS: 1
           HOMEBREW_NO_AUTO_UPDATE: 1
-        if: steps.artifact.outputs.result
+        if: steps.artifact.outputs
         run: |
           set -eu
           artifact_id=${{steps.artifact.outputs.result}}
@@ -130,6 +126,7 @@ jobs:
           unzip bottles.zip
           brew test-bot --ci-upload --publish --bintray-org=linuxbrew --git-name=LinuxbrewTestBot --git-email=testbot@linuxbrew.sh --keep-old
       - name: Push bottle commit
+        if: steps.artifact.outputs
         run: |
           cd "$(brew --repo ${{github.repository}})"
           git fetch
