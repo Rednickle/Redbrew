@@ -100,10 +100,12 @@ jobs:
           HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
           HOMEBREW_NO_ANALYTICS: 1
           HOMEBREW_NO_AUTO_UPDATE: 1
-        if: steps.artifact.outputs.success
         run: |
           set -eu
+          echo ${{steps.artifact.outputs}}
           artifact_id=${{steps.artifact.outputs.id}}
+          echo "artifact_id=$artifact_id"
+          exit
           curl -L -o bottles.zip "https://${{secrets.HOMEBREW_GITHUB_API_TOKEN}}@api.github.com/repos/${{github.repository}}/actions/artifacts/$artifact_id/zip"
           file bottles.zip
           unzip bottles.zip
