@@ -21,7 +21,7 @@ jobs:
               repo: context.repo.repo,
               commit_sha: context.payload.head_commit.id
             })
-            if (!prs) {
+            if (prs.length === undefined) {
               console.log("No pull requests found for commit " + context.payload.head_commit.id)
               return {id: "", success: false}
             }
