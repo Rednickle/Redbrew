@@ -17,6 +17,7 @@ class XbeeComm < Formula
     sha256 "64b15ac79da143e2b092db702fd22c92ef064093be1c4c81cb60fd5b08f44075" => :el_capitan
     sha256 "805e99d4e700a2e9993f26fbc48cae17c1bf16e6ff9ce63b5c7195358fcb052c" => :yosemite
     sha256 "06cb9c96c880a55763dbb58c1b1a60cba19ec89be9c6995955e235d10b6cb47d" => :mavericks
+    sha256 "5384e94b2ac56713f0a17c5a76d1e36d33f20c1730901e909b4fdf552ab9a49c" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
