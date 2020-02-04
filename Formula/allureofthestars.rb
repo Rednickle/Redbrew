@@ -14,6 +14,7 @@ class Allureofthestars < Formula
     sha256 "d568c44d9f158ac188d690a0366950923b565aebf3c82a6b718c52d8584b29e5" => :catalina
     sha256 "81f6960b26c310bea1b253768edfc00c8c38b84d2651a6d3b9e0dc3434b7cd04" => :mojave
     sha256 "893be6de189e97cb416e0e0f8ee8b73ce663a57fa4593a32c76ac69f987f64ab" => :high_sierra
+    sha256 "0a3f7822a82888ddd157d79cdd681f2a68f135bf8aa4450d8e45ec035ea07af2" => :x86_64_linux
   end
 
   depends_on "cabal-install" => :build
