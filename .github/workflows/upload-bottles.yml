@@ -19,12 +19,8 @@ jobs:
             const prs = github.repos.listPullRequestsAssociatedWithCommit({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              commit_sha: context.payload.head_commit.id
+              commit_sha: "e2575cfdc20129b94f8268a3b9594ca61f21f4b0"
             })
-            if (prs.length === undefined) {
-              console.log("No pull requests found for commit " + context.payload.head_commit.id)
-              return {id: "", success: false}
-            }
             console.log(prs.length + " prs")
             const pr = prs[0]
             console.log("first pr head ref=" + pr.head.ref)
