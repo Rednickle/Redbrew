@@ -13,6 +13,7 @@ class Rnv < Formula
     sha256 "1c1aa519b786f842b39720e33900e92a2f2f8deef403755e79e2d3b518897ff1" => :el_capitan
     sha256 "6d46cb2e6476e22b8bb04d00f599884aa8e44ba7e199ad860e4f15795b04e83b" => :yosemite
     sha256 "f9c4575d7384100b1cc97d9f421b5906ea5068f612c346ffa0238db6c8e855be" => :mavericks
+    sha256 "2d3abeb791ca8e31d1967aa1f13f89aff958a3b2c55a44adbbbbcf7e983e3b34" => :x86_64_linux
   end
 
   depends_on "expat"
