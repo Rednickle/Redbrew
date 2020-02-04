@@ -1,6 +1,9 @@
 name: Build bottles.
 
-on: pull_request
+on:
+  pull_request:
+    paths:
+      - 'Formula/*'
 
 jobs:
   build-bottles:

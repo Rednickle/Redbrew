@@ -2,7 +2,10 @@ name: Upload bottles.
 
 on:
   push:
-    branches: [master]
+    branches:
+      - master
+    paths:
+      - 'Formula/*'
 
 jobs:
   upload-bottles:
