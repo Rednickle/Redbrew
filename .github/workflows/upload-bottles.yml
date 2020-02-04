@@ -17,23 +17,22 @@ jobs:
           debug: true
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            const prs = github.repos.listPullRequestsAssociatedWithCommit({
+            const prs = await github.repos.listPullRequestsAssociatedWithCommit({
               owner: context.repo.owner,
               repo: context.repo.repo,
               commit_sha: "e2575cfdc20129b94f8268a3b9594ca61f21f4b0"
             })
-            console.log(prs)
             console.log(prs.length + " prs")
             const pr = prs[0]
             console.log("first pr head ref=" + pr.head.ref)
-            const runs = github.actions.listWorkflowRuns({
+            const runs = await github.actions.listWorkflowRuns({
               owner: context.repo.owner,
               repo: context.repo.repo,
               workflow_id: "build-bottles.yml",
               branch: pr.head.ref
               })
             console.log(runs.total_count + " runs")
-            const artifacts = github.actions.listWorkflowRunArtifacts({
+            const artifacts = await github.actions.listWorkflowRunArtifacts({
               owner: context.repo.owner,
               repo: context.repo.repo,
               run_id: runs.workflow_runs[0].id
