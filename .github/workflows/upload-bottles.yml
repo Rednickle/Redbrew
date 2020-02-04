@@ -23,6 +23,7 @@ jobs:
               commit_sha: "e2575cfdc20129b94f8268a3b9594ca61f21f4b0"
             })
             console.log(prs)
+            console.log(prs.data)
             console.log(prs.length + " prs")
             const pr = prs[0]
             console.log("first pr head ref=" + pr.head.ref)
