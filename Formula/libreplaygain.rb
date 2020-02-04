@@ -15,6 +15,7 @@ class Libreplaygain < Formula
     sha256 "58b52d360c2f37f3ab3a50c4a2fe72b9a370bd951d52939f8853a5ef49fcc322" => :el_capitan
     sha256 "d47338c5b86daabf3e2e05ab9dd2443c04c1233f3319307e8e5d545b24dcf722" => :yosemite
     sha256 "dc3f2c3823c5552bddad7b1727b9086dc2fe79e8fa13987b420d1621c97e2bce" => :mavericks
+    sha256 "192ad8d9539a4121eaa4b70b5eecf9f8ce7af90c9ed02aeef288748d2ec0c1dd" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
