@@ -10,6 +10,7 @@ class Libb2 < Formula
     sha256 "bbd333a0a89e6a38445aba0170b14b516edad300c30d6f4239b66a130c446959" => :mojave
     sha256 "6e9156db268cea377f7050c4e9ebf1ee3065fef76a11c40e03e700a23b1bef36" => :high_sierra
     sha256 "9b909b878c01b5bb3284ba4d0937352e0df54b27e491fa796dfb6d3e67f989a1" => :sierra
+    sha256 "e2d6059aed6d1739ef1e8e24a6cd21cbd02a2aaa651ba4261d333feef474d30f" => :x86_64_linux
   end
 
   def install
