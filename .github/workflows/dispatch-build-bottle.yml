@@ -15,6 +15,7 @@ jobs:
       - name: Bottle request details
         uses: actions/github-script@0.4.0
         with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
             console.log('formula=' + context.payload.client_payload.formula)
             console.log('sender=' + context.payload.sender.login)
