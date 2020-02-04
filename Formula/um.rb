@@ -9,6 +9,7 @@ class Um < Formula
     sha256 "266b397cd3e24060e7926f438279325aed89643070618add3db64175e348c04b" => :catalina
     sha256 "a4d8c9ddc2b46076eaccf3e3d4eaa43918f3d156e8abd16ad1415ea85f2da8f5" => :mojave
     sha256 "a479ed6f535f228d1bfa15a7292e58d06a4f07d1238c4fa83f1b99c80564a24e" => :high_sierra
+    sha256 "965706a7846d6e06e1c21f592c477a597cd7ccf78d266a3ef5d3ab811fd1020b" => :x86_64_linux
   end
 
   depends_on "ruby" if !OS.mac? || MacOS.version <= :sierra
