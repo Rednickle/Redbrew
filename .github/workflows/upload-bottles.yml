@@ -23,8 +23,10 @@ jobs:
               commit_sha: "e2575cfdc20129b94f8268a3b9594ca61f21f4b0"
             })
             console.log(prs.data.length + " prs")
-            if (prs.data.length === 0)
+            if (prs.data.length === 0) {
+              console.log("No pull requests are associated with this merge commit.")
               return
+            }
             const pr = prs.data[0]
             console.log("first pr head ref=" + pr.head.ref)
 
@@ -86,6 +88,10 @@ jobs:
               branch: pr.head.ref
               })
             console.log(runs.data.total_count + " runs")
+            if (runs.data.total_count === 0) {
+              console.log("No workflow runs are associated with this pull request.")
+              return
+            }
 
             const artifacts = await github.actions.listWorkflowRunArtifacts({
               owner: context.repo.owner,
@@ -93,6 +99,10 @@ jobs:
               run_id: runs.data.workflow_runs[0].id
               })
             console.log(artifacts.data.total_count + " artifacts")
+            if (artifacts.data.total_count === 0) {
+              console.log("No artifacts were uploaded for this workflow run.")
+              return
+            }
             console.log("Artifact <" + artifacts.data.artifacts[0].archive_download_url + ">")
             return artifacts.data.artifacts[0].id
       - name: Download artifacts
@@ -101,12 +111,11 @@ jobs:
           HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
           HOMEBREW_NO_ANALYTICS: 1
           HOMEBREW_NO_AUTO_UPDATE: 1
+        if: steps.artifact.outputs.result
         run: |
           set -eu
-          echo ${{ toJSON(steps.artifact.outputs) }}
-          artifact_id=${{steps.artifact.outputs}}
+          artifact_id=${{steps.artifact.outputs.result}}
           echo "artifact_id=$artifact_id"
-          exit
           curl -L -o bottles.zip "https://${{secrets.HOMEBREW_GITHUB_API_TOKEN}}@api.github.com/repos/${{github.repository}}/actions/artifacts/$artifact_id/zip"
           file bottles.zip
           unzip bottles.zip
