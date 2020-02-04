@@ -105,7 +105,11 @@ jobs:
             }
             console.log("Artifact <" + artifacts.data.artifacts[0].archive_download_url + ">")
             return artifacts.data.artifacts[0].id
-      - name: Download artifacts
+      - name: Install dependencies
+        run: |
+          apt update
+          apt install -y unzip
+      - name: Upload and publish bottles
         env:
           HOMEBREW_BINTRAY_USER: linuxbrewtestbot
           HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
@@ -120,6 +124,8 @@ jobs:
           file bottles.zip
           unzip bottles.zip
           brew test-bot --ci-upload --publish --bintray-org=linuxbrew --git-name=LinuxbrewTestBot --git-email=testbot@linuxbrew.sh --keep-old
+      - name: Push bottle commit
+        run: |
           cd "$(brew --repo ${{github.repository}})"
           git fetch
           git rebase origin/master
