@@ -21,7 +21,7 @@ jobs:
               repo: context.repo.repo,
               commit_sha: context.payload.head_commit.id
             })
-            unless (prs) {
+            if (!prs) {
               console.log("No pull requests found for commit " + context.payload.head_commit.id)
               return {id: "", success: false}
             }
@@ -49,7 +49,7 @@ jobs:
           HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
           HOMEBREW_NO_ANALYTICS: 1
           HOMEBREW_NO_AUTO_UPDATE: 1
-        if: steps.artifact.success
+        if: steps.artifact.outputs.success
         run: |
           set -eu
           artifact_id=${{steps.artifact.outputs.id}}
