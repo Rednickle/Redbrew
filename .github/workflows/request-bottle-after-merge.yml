@@ -22,6 +22,10 @@ jobs:
         run: |
           rm -rf $(brew --repository ${{github.repository}})
           ln -s $GITHUB_WORKSPACE $(brew --repository ${{github.repository}})
+      - name: Setup git
+        run: |
+          git config --global user.name LinuxbrewTestBot
+          git config --global user.email testbot@linuxbrew.sh
       - name: Tap linux-dev
         run: brew tap homebrew/linux-dev
       - name: Run brew request-bottle
