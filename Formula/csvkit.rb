@@ -12,6 +12,7 @@ class Csvkit < Formula
     sha256 "9083266427393ac8cfcec49fde3090bfeabea1abe5d70186dbd9bd72c42744a4" => :catalina
     sha256 "71c0b34e9749e70bea71c6ec077d04cbdd95554ac1bdc8024995edc8bdfa4ba6" => :mojave
     sha256 "b4abc28e0a5054dc386c54ce3fdb0a8295c07cf3e43a04333e1d88e2a1c8f67d" => :high_sierra
+    sha256 "27a19676ad08b1406567c9e30e5aa91bbb0e1b315753df0b5a6337d5cc428efa" => :x86_64_linux
   end
 
   depends_on "python@3.8"
