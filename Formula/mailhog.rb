@@ -118,6 +118,7 @@ class Mailhog < Formula
     sha256 "fa2fad0872e20bc0d8e302306e38c0a66fa7c92f3f0c61ff6952e3ec2de089dc" => :sierra
     sha256 "ee9851eae56a0b8f2e52274ee358323dc4887a1e7c40ee8f1e7a9b0ae0bc07dd" => :el_capitan
     sha256 "6832c9139e927cfd708604db23e95c3d3cee79f64d5cb2902137dca85007ed53" => :yosemite
+    sha256 "8466b1131309b783360dc57d47ec3664b4602e0fe64b830e0425b4ab72c025f4" => :x86_64_linux
   end
 
   depends_on "go" => :build
