@@ -13,6 +13,7 @@ class Exif < Formula
     sha256 "607827dc887cae86a2bedc7892e4d061990cb04814fb0ac2fd5d0cd1fdefcb30" => :el_capitan
     sha256 "ebf412bb43ad3695f01f8ed1e5851e7c02218589fc7cbb175c9a3f1914894e37" => :yosemite
     sha256 "e24a0bdfee07a46a49620c29726748e73a4eca0937c59c1f5efeeb51ea9f6971" => :mavericks
+    sha256 "122e0cce673cb986eba3872e881628bbb48394a626d612296779263d312cfec1" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
