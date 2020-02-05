@@ -18,6 +18,7 @@ jobs:
           echo formula=${{github.event.client_payload.formula}}
           echo sender=${{github.event.sender.login}}
           echo name=${{github.event.client_payload.name}}
+          echo ignore-errors=${{github.event.client_payload.ignore_errors}}
       - name: Setup git
         run: |
           git config --global user.name LinuxbrewTestBot
@@ -38,6 +39,7 @@ jobs:
         env:
           HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
           HOMEBREW_BINTRAY_USER: LinuxbrewTestBot
+        if: success() || github.event.client_payload.ignore_errors
         run: |
           cd "$(brew --repo ${{github.repository}})"
           git fetch origin
@@ -53,6 +55,7 @@ jobs:
             --keep-old \
             ${{github.event.client_payload.formula}}
       - name: Push bottles
+        if: success() || github.event.client_payload.ignore_errors
         run: |
           cd $(brew --repo ${{github.repository}})
           msg=$(git show -s --format=format:%s)
