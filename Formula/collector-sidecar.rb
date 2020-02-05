@@ -10,6 +10,7 @@ class CollectorSidecar < Formula
     sha256 "c5df7e3fe89d27da283cba2d44c8d9bfd4edd686167b8d4acf0c6f0387154fef" => :mojave
     sha256 "267c985605ca057bff286bc111fc6ac84dfc0d4bb391da19c044ddef381c7a74" => :high_sierra
     sha256 "6e09f805d30b96d2650a6541fddbda8a55d6ef74d7de7e96c642df5d2cd7d18b" => :sierra
+    sha256 "d3992dcaef26a9cbfaa9f8433cd8a17c854b1de2b9a23273e36ebc4910ad9d39" => :x86_64_linux
   end
 
   depends_on "glide" => :build
