@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Checkout tap
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
       - name: Setup tap
         run: |
           rm -rf $(brew --repository ${{github.repository}})
