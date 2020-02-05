@@ -15,6 +15,7 @@ class Cosi < Formula
     sha256 "e73fd1b11e66d3931c91d6504b9958d44059aa4f3bbc547ed6cc8bdbc3717c6e" => :el_capitan
     sha256 "2953f8c62a93c976bf450d9605cab850d6d442e9e1885f3a455243942e59f6dd" => :yosemite
     sha256 "73d73bd817f6700c751a9065133ea460115ee5e5dbbff89d0655137bee30ef1f" => :mavericks
+    sha256 "1a2fd306fb817b8338aaf808bc21e5c71ec29df620cf1e0c9f3c53f83b5b71c6" => :x86_64_linux
   end
 
   depends_on "go" => :build
