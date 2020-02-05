@@ -10,6 +10,7 @@ class SsllabsScan < Formula
     sha256 "eab95a02c320153e8bcc68bcbc960665fd7b755d9a339d4bdd6618d5d33714e6" => :mojave
     sha256 "91041d74d4bd340c53f15bab9c43fb6d7757601e0da00d810cdc2733a6e6c9a5" => :high_sierra
     sha256 "a2e66ec0c5e565428d2cc33906d8eecf38697e503cedb95f4817c8f186537f73" => :sierra
+    sha256 "964d23a4bccc18bebb06f975cba0b5dc0b101cf893ccfb3b132c18623a0c3444" => :x86_64_linux
   end
 
   depends_on "go" => :build
