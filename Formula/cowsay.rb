@@ -14,6 +14,7 @@ class Cowsay < Formula
     sha256 "360390af15a3c4793e07eda95f55f4a5466ffafc766cb6b62f9790146080a62a" => :el_capitan
     sha256 "a622af361a6139bc930b371fbde7cfc54bbe8bebfbbe0782e59248fadb10b95f" => :yosemite
     sha256 "185bfafd379cd6f6d6202fdae0750fdd2998cc94f33ea349bd4872a0274cb1dc" => :mavericks
+    sha256 "14ece8675c31ee32596f14164e0aef65b634430cef9545f3f0c557bda05dbca5" => :x86_64_linux
   end
 
   def install
