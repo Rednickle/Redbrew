@@ -26,7 +26,7 @@ jobs:
         run: brew tap homebrew/linux-dev
       - name: Run brew request-bottle
         env:
-          HOMEBREW_GITHUB_API_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          HOMEBREW_GITHUB_API_TOKEN: ${{secrets.TEST_TOKEN}}
         run: |
           set -eu
           brew find-formulae-to-bottle | xargs -n1 brew request-bottle
