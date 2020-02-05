@@ -13,6 +13,7 @@ class DockerGen < Formula
     sha256 "42d2757b01271ef6c14de5441b3c65507538388db1e00e69f322272a5ba5b59c" => :high_sierra
     sha256 "222a5586670fec7643e9e7651f0b1fa82ff012048bd29b959ac720743f1a1a4f" => :sierra
     sha256 "c274701a545e5a4885995718f5f01ca6df2f9c6b9a143d4ffcf46b1771ac4cbc" => :el_capitan
+    sha256 "6c5b758ab172bccc2ff8c911334e91ba4fcd0fe1eb53eae51cdf19e7cf8908eb" => :x86_64_linux
   end
 
   depends_on "go" => :build
