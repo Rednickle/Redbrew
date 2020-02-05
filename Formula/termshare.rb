@@ -18,6 +18,7 @@ class Termshare < Formula
     sha256 "c540732aab70ec29b60459c19bb4ee55c0584b3a63476473219a115d2ec380af" => :el_capitan
     sha256 "c3b9c2784b02536ce97a2a3b3a205314e7ada8e727ac60b54577d933a04aa808" => :yosemite
     sha256 "aa9131a7eae6efe7e7d3bac1e73711f7bfe52f1dd246389bdbb137c70c815310" => :mavericks
+    sha256 "dfba00eac1170972c2fb35a2d9481693b0ac344ccd2e0f792518ba5873e94b32" => :x86_64_linux
   end
 
   depends_on "go" => :build
