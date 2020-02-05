@@ -9,6 +9,7 @@ class BaidupcsGo < Formula
     sha256 "07c1610dfb0beb9a3ee4ba68209fef1440dd6a7cac848e5cde41d2cb3379335a" => :catalina
     sha256 "3b5d79236674f7c222bda94ef560e74414dea2fb219c2e6acc63c66b662c722a" => :mojave
     sha256 "4965b6a261743ad46b7625803f0f0efba3a80d4af8dd81a66b77dc7c148951f1" => :high_sierra
+    sha256 "d6de466af2e5dc4b4dd2ca0ba7dacc87096571e6ca3bc15f9e4b8ff9812093e0" => :x86_64_linux
   end
 
   depends_on "go" => :build
