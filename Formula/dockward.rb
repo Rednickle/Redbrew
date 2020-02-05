@@ -15,6 +15,7 @@ class Dockward < Formula
     sha256 "50c2b838bbd89349e40050810a833cfea2803ac699cd006d47e796075be975b2" => :high_sierra
     sha256 "3dcac3afd57773d1c4b07b72f7f1bc9d66953dccccb0b3eadf7f40e43175d89b" => :sierra
     sha256 "b1b33f2b4db8242f9b422232d49bfde4c9b8fa0fa5053437366a9bc16795d9b5" => :el_capitan
+    sha256 "4179e72cfea7fc705ca8ad840a473dc0e6d0a152a0c46f302ad77d4569d417b6" => :x86_64_linux
   end
 
   depends_on "go" => :build
