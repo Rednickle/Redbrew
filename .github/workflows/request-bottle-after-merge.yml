@@ -1,4 +1,4 @@
-name: Request bottle rebuild after merge
+name: Request bottles after upstream merge.
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
       - 'Formula/*'
 
 jobs:
-  upload-bottles:
+  request-bottles:
     if: startsWith(github.event.head_commit.message, 'Merge') == true
     runs-on: ubuntu-latest
     container:
