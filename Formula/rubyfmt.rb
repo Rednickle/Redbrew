@@ -9,6 +9,7 @@ class Rubyfmt < Formula
     sha256 "8d9ed80d496220e02b9df146c41870079116cf798ab90734212d3cdc6080bb8b" => :catalina
     sha256 "8d9ed80d496220e02b9df146c41870079116cf798ab90734212d3cdc6080bb8b" => :mojave
     sha256 "8d9ed80d496220e02b9df146c41870079116cf798ab90734212d3cdc6080bb8b" => :high_sierra
+    sha256 "e8843c31665c63f1c243dce1b20f8d3c39c8d0037b5a47dc6a8e62b47db63dd0" => :x86_64_linux
   end
 
   uses_from_macos "ruby"
