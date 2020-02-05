@@ -27,4 +27,4 @@ jobs:
       - name: Run brew request-bottle
         run: |
           set -eu
-          brew find-formulae-to-bottle | xargs brew request-bottle
+          brew find-formulae-to-bottle | xargs -n1 brew request-bottle
