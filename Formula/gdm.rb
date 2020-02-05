@@ -16,6 +16,7 @@ class Gdm < Formula
     sha256 "b3f081076a078f90f6a534ff30ff268c89baec38bd02ff11c9e02804755c8c33" => :el_capitan
     sha256 "03f2d8cbcee0c4e41a00ec222f56b7d3204290b075afafe28afe6ced3458ebd8" => :yosemite
     sha256 "a5b111a00c19c74400787394eead8b5a209f9ee64125a5365eae97fa3d78d38a" => :mavericks
+    sha256 "728da93a2b68dfc522a68e1292bf1cf06e14887bea9491db726c6dacfd00fbe5" => :x86_64_linux
   end
 
   depends_on "go"
