@@ -11,6 +11,7 @@ class Gitmoji < Formula
     sha256 "4b96cb3e23f90b5fb58eff364090f6014a5bc0a9f7e4e74fd6627d1b8b668658" => :catalina
     sha256 "f277533e688b463fb6300e3ea66fb3a78d9c62fa66c32c7c81646d18b0fa266f" => :mojave
     sha256 "16be1212a53e4299bf2ec78ad2ce9ed9d7383350135e423a5406366c6e9499e3" => :high_sierra
+    sha256 "ca290fb66066b8887a438873e3dd0614dba68d0aa8443153c9941548db884b44" => :x86_64_linux
   end
 
   depends_on "node"
