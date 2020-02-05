@@ -12,6 +12,7 @@ class Cig < Formula
     sha256 "6ae38e73bed4326d85c7f31498b0a5715d877c7a2e32aad9987ba7726efe240e" => :mojave
     sha256 "9215f225d4b314d1047f6bb4e5c909b82b456d2005fffed8c637ca2d63641791" => :high_sierra
     sha256 "5d4eb1f34f8b185513d59dc9072f1a95555dd222f0f7a0526c89983e1643fef6" => :sierra
+    sha256 "31b282304027a333bf1d0320610f1edbb7794bece22b236a2f249013e49d07c4" => :x86_64_linux
   end
 
   depends_on "go" => :build
