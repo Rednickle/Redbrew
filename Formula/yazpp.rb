@@ -12,6 +12,7 @@ class Yazpp < Formula
     sha256 "794e2e265413005b3c26a0fa38e1ab8957bd1ec13cf4abb63730070181d9beb4" => :sierra
     sha256 "292447a86953bb10361130542d2db9e0c0fc410e9be3b13b8c80891fbfaeec20" => :el_capitan
     sha256 "6f769c30797af9cb98bf02491706f96b7085eed2d5d05c377e51ca5e0bf8541a" => :yosemite
+    sha256 "e88036eee1f421fa010db0b524bb4595fd841cdd6958ab021486c09978d8d674" => :x86_64_linux
   end
 
   depends_on "yaz"
