@@ -22,6 +22,7 @@ jobs:
             --keep-old \
             ${{github.event.client_payload.formula}}
       - name: Update tap
+        if: success() || github.event.client_payload.ignore_errors
         run: |
           brew update-reset $(brew --repo ${{github.repository}})
       - name: Upload bottles
