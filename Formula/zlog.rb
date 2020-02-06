@@ -10,6 +10,7 @@ class Zlog < Formula
     sha256 "53397021c310a023186a827e409f89579dcc9e4a2476aa692c8fc999ebed5365" => :mojave
     sha256 "0947510004f20981a16c25a95fb680826f56d884cc48a05c775179bc5bd17f82" => :high_sierra
     sha256 "ac9057902240d755b3e57c3cc599dec9e1aa769a2bb83b07576d24f73fbe6ecf" => :sierra
+    sha256 "8597b457335c16bfb3f87eca0ebcb7ad756533467c460d56e61f3acebc5c4671" => :x86_64_linux
   end
 
   def install
