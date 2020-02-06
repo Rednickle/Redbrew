@@ -13,6 +13,7 @@ class Aamath < Formula
     sha256 "8b805e37fd5f4536b4fbf7f3ae6251b645b4b132027d56ccd015a6036c304744" => :el_capitan
     sha256 "1e22022e621e7d2337edf4a80ae2c1618a89089132656d85cc141774565e34d7" => :yosemite
     sha256 "0212e0b5844ea1a491bc7d4fcab2b590921042b28bc50e79c36cd9e15d08e2aa" => :mavericks
+    sha256 "92b1295c2244f40e6f59e51598b8e41e09f323d63887b9d01d19bad2b793b787" => :x86_64_linux
   end
 
   uses_from_macos "bison" => :build # for yacc
