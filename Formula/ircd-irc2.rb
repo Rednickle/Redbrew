@@ -13,6 +13,7 @@ class IrcdIrc2 < Formula
     sha256 "259ddceb29a5d5e0705c3b0a130368053de98282ecec2036c17d30062bd6f9f4" => :el_capitan
     sha256 "af6c845d852e4a525d64f1cfbd551377c90da201c2ef3e521d48fc1513a58064" => :yosemite
     sha256 "9fd885d98218c6e570f16b238cb72546130f5ca1bbe2e06f260b7a672dba02e2" => :mavericks
+    sha256 "3c502310dbe2ac02eb4ce4d34fd9453c74b45eaab9802fb70a34974d6988deb3" => :x86_64_linux
   end
 
   def default_ircd_conf
