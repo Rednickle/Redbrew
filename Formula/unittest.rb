@@ -13,6 +13,7 @@ class Unittest < Formula
     sha256 "501b61d05de70cfb53116c66daf380cb35a1665eeecf34dfc6b27ab945458f43" => :el_capitan
     sha256 "8e26d281818bdf26ae2876004f5388fee9bd954589f57a6a25c979949e5f5bf1" => :yosemite
     sha256 "2acbb80540c9ff3c17cf4ab95db16657947761813915a94fa4afc0204e4b09b3" => :mavericks
+    sha256 "faec1beb9a391c122fb62f9268ffc34fc8a77869fc32b12f1f00c96e664de503" => :x86_64_linux
   end
 
   def install
