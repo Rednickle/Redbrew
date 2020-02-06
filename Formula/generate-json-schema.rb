@@ -14,6 +14,7 @@ class GenerateJsonSchema < Formula
     sha256 "3461301c038b8bb6e15b8e183661976e95ea7b7e0659d57f0f21ea2c0eb4e67c" => :high_sierra
     sha256 "a6ff075810774d44030a59a12032d302c64834d03c7aabeb32efb8dc86d276de" => :sierra
     sha256 "5a5b34d8e233d9b75648c39f8edada5077c8f6c6466bd3358f3f661062ccbe83" => :el_capitan
+    sha256 "603a75d4ae2557499f867cfbb968bbc01006e65fc9e361fac84632d9558f6151" => :x86_64_linux
   end
 
   depends_on "node"
