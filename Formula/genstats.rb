@@ -13,6 +13,7 @@ class Genstats < Formula
     sha256 "44502f7a2dfcb1355336db69267d6363d6e8b8767b47628b0d3099743513ed5f" => :el_capitan
     sha256 "91737ec825ed346716fddcedc4e075b195f214dfb22586a33d46f7ec5ea3a17e" => :yosemite
     sha256 "d46142a806e13029120bfb1a038805b07dc88b191aed1cd41340f5f868168f92" => :mavericks
+    sha256 "b532a53713cc8fafb4a544bf1d07ab75a5d70436f0fb15d1eaa52d1d11235fad" => :x86_64_linux
   end
 
   def install
