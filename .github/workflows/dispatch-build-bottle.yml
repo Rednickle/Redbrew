@@ -21,6 +21,9 @@ jobs:
           brew test-bot \
             --keep-old \
             ${{github.event.client_payload.formula}}
+      - name: Update tap
+        run: |
+          brew update-reset $(brew --repo ${{github.repository}})
       - name: Upload bottles
         env:
           HOMEBREW_BINTRAY_USER: LinuxbrewTestBot
