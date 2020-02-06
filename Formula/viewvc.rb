@@ -10,6 +10,7 @@ class Viewvc < Formula
     sha256 "a42a0ce05dbc1e36a8a1a75e4b16fe22a5c7501c54f0459283c1d112aedd3644" => :mojave
     sha256 "a42a0ce05dbc1e36a8a1a75e4b16fe22a5c7501c54f0459283c1d112aedd3644" => :high_sierra
     sha256 "abc850e402813a1208bfff6f59b82ed8bc695d3e192b72cbb9873f50a1200c30" => :sierra
+    sha256 "b6f79bc9bb0de7aa562a7e19f52407c0bee744f4624759d7df9507f6877efd05" => :x86_64_linux
   end
 
   depends_on "subversion"
