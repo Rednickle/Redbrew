@@ -15,6 +15,7 @@ class VisionmediaWatch < Formula
     sha256 "b43dbb305fcb6c681d2208456a1f39dd0aa5b97790b629ac907a666869119f20" => :el_capitan
     sha256 "4d31b501672801394c687aa45a44741f3461fb4730e96fe94197a1e7952fe2e0" => :yosemite
     sha256 "941cd639bf71a7d0e7397b77a3eebce4bd06fbc4ef30aac69147b04b3f6569f8" => :mavericks
+    sha256 "68a722d117062e597afb10adbeb46eb1eb0535e0b22b875b6b894bb7ed7f1160" => :x86_64_linux
   end
 
   conflicts_with "watch"
