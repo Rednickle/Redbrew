@@ -13,6 +13,7 @@ class Id3tool < Formula
     sha256 "b5b4d49b4710a67df5200149873dd8c17131ef4a4eaac722a2095b1445d053ff" => :el_capitan
     sha256 "348a229d26dd699013d8e3372c5382da10b12d02d286304e61d9f2c71ed77101" => :yosemite
     sha256 "dd989abacf0c1113879b6864a5ca08a59ac766a320897b9c323e5f7eaeeb2e70" => :mavericks
+    sha256 "ce6d8be05ed1ca38d80493271f5a906577d1f0237f30d6de69031d0a764c0162" => :x86_64_linux
   end
 
   def install
