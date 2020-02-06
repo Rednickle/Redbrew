@@ -13,6 +13,7 @@ class Xtail < Formula
     sha256 "a579041c4d693dd444464228dcd0175e79f31708b62ad3ccf55a8f545ce67ed7" => :el_capitan
     sha256 "60a2bcabfb83e8ab4df95b2417ccf5c49c5ca242853ff16e2a106f3e37f6005e" => :yosemite
     sha256 "939117402a33f5037aa7e49f5228e0d0b852e0e39e85d81357b8955864bd26eb" => :mavericks
+    sha256 "640e3bc461fc43b24c2cd3ad17753e877c3d1873c44c6a861ed0a415bb97c7ba" => :x86_64_linux
   end
 
   def install
