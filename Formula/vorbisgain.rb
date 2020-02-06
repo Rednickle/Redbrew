@@ -13,6 +13,7 @@ class Vorbisgain < Formula
     sha256 "00f7047e5d884dbf22ed036154961b41d4ad6ae8295c55043929b008ae82a9f7" => :el_capitan
     sha256 "a1315eaaaf667f7486deb2b899c422e3cc9caa8f9e771221dca12b0ecc085dc7" => :yosemite
     sha256 "7bff88a3512ff2d28846b89b89f1cfd130e5934f1f6301d36e66ccc26b896281" => :mavericks
+    sha256 "acaa8afad6cd0e01b23b88c6c7cb1736e08b315c827bafe3603fb1e413451046" => :x86_64_linux
   end
 
   depends_on "libogg"
