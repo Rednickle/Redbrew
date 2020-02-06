@@ -12,6 +12,7 @@ class Wumpus < Formula
     sha256 "fa693e01a17d31e9e5a5b51f27ea18b69e30f5613615c95ddb89c7dbc4bbe75d" => :sierra
     sha256 "3b6751d8a871e44c033e4a6d83009bb8b499952385d8c1743be3d26bfe37b312" => :el_capitan
     sha256 "d292048f1869507766d60e6931bffbf402f99d8fe36711ed6d9dbb060407a4a6" => :yosemite
+    sha256 "775e16103b8cd2ed8515023044224f7d3dfedae4254f968cb91b8bb7ee5799ca" => :x86_64_linux
   end
 
   # Patches to allow `make install` to specify a prefix; both patches
