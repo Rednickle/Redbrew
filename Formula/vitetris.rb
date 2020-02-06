@@ -10,6 +10,7 @@ class Vitetris < Formula
     sha256 "5cfebdcea81b5e7720d1941f3973b0b47c1fd510234b09f81e9098c1132c0b92" => :mojave
     sha256 "175da9ed672d62d7c5409d94f299a67ab8499020283a4ea1ca21f6efc6470809" => :high_sierra
     sha256 "6cb9f1f8d9492c7a652d32115ae488dd19282aa94261957115b50e97c74f06f4" => :sierra
+    sha256 "a7c431cfffee36712d6f47dc56b3afa4f09b43280c9df541f77b4eeaa52f9b6b" => :x86_64_linux
   end
 
   # remove a 'strip' option not supported on OS X and root options for
