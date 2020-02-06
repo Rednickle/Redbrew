@@ -18,13 +18,10 @@ jobs:
         run: |
           mkdir ~/bottles
           cd ~/bottles
+          brew update-reset $(brew --repo ${{github.repository}})
           brew test-bot \
             --keep-old \
             ${{github.event.client_payload.formula}}
-      - name: Update tap
-        if: success() || github.event.client_payload.ignore_errors
-        run: |
-          brew update-reset $(brew --repo ${{github.repository}})
       - name: Upload bottles
         env:
           HOMEBREW_BINTRAY_USER: LinuxbrewTestBot
@@ -32,6 +29,7 @@ jobs:
         if: success() || github.event.client_payload.ignore_errors
         run: |
           cd ~/bottles
+          brew update-reset $(brew --repo ${{github.repository}})
           brew test-bot \
             --bintray-org=linuxbrew \
             --ci-upload \

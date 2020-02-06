@@ -109,10 +109,6 @@ jobs:
             }
             console.log("Artifact <" + artifacts.data.artifacts[0].archive_download_url + ">")
             return artifacts.data.artifacts[0].id
-      - name: Update tap
-        if: steps.artifact.outputs.result != 0
-        run: |
-          brew update-reset $(brew --repo ${{github.repository}})
       - name: Install unzip
         if: steps.artifact.outputs.result != 0
         run: |
@@ -135,6 +131,7 @@ jobs:
         if: steps.artifact.outputs.result != 0
         run: |
           cd ~/bottles
+          brew update-reset $(brew --repo ${{github.repository}})
           brew test-bot \
             --bintray-org=linuxbrew \
             --ci-upload \
