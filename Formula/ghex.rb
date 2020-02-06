@@ -9,6 +9,7 @@ class Ghex < Formula
     sha256 "74ef6e73cc29bce3ee6d7a8a97eb54b54d5794fbfe7e924c85d8cfdde0431d45" => :catalina
     sha256 "7cbce6d7454244b0fb038dcae2ff4a73c687676205478f7c61ac5dd42cb96bd4" => :mojave
     sha256 "30ba8e80ca6e3ff26752a8c2127ed6ed46d3b31d19c63c4ef8b737dfac7d9c23" => :high_sierra
+    sha256 "fc0d816f1e8224bce775f26c161847c31b0e11b21a8bef8a32717570083cdc59" => :x86_64_linux
   end
 
   depends_on "itstool" => :build
