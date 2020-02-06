@@ -13,6 +13,7 @@ class Zsync < Formula
     sha256 "9bbe0e102ca6a2b7ca57af6b2b29984f7da59ce97d15ce550bbbb206f1ad1815" => :el_capitan
     sha256 "b7436466e25e1fe44e2169059d613d9df279a69c31183f6cacce953fc6a47e8b" => :yosemite
     sha256 "c44baf1fc7c83e88bb255307121de1546a0b89d43048e6c0f951648a649bc5fd" => :mavericks
+    sha256 "983ed095e81a7ec30832439b9d20bcfc5499b90519eb16a1d68c58833143d0c4" => :x86_64_linux
   end
 
   def install
