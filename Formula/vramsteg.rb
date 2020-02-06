@@ -14,6 +14,7 @@ class Vramsteg < Formula
     sha256 "e4b3e2e66c2f772a38de529b884091a2ffa1f920af6604696129d21cc9e70b99" => :el_capitan
     sha256 "9285766e0502b88c62d3d295402a41c46b8d9d2707a492bb5d70484b1080c212" => :yosemite
     sha256 "f9ea5a2984d676db153d2128b1aa84a413edb93692e9c6be8147e5a856d42972" => :mavericks
+    sha256 "993d951d168210668304d0363b9f8eba6e7f5037537fc49bb12dc013c0e518e1" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
