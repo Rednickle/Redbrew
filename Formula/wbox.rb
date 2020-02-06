@@ -13,6 +13,7 @@ class Wbox < Formula
     sha256 "0e813a0982d6b9228217f14352812d9e6880cce44757f8af9a0447bf5e4a1e63" => :el_capitan
     sha256 "ee2bd7599a73c3a9f3fe9f8c2d441d753914981b2420e591050780d436bbf011" => :yosemite
     sha256 "35b640ce39cd36f75ec595215099f121feb517672fb11abf30b36a1e567fc117" => :mavericks
+    sha256 "463120cebca012c9f72083a5e01dea8ceb47f1987f1854159cf0512eab7e4408" => :x86_64_linux
   end
 
   def install
