@@ -21,6 +21,7 @@ class Uriparser < Formula
     sha256 "e54bac5e1cf6a1ed3f87e42f56f0ff2f4602e22cf6113bc03d82a6ae12b13f76" => :mojave
     sha256 "27649c5b2c692596c9811ab872b1b82e09ccb67dbff0a048de7137134aff81e8" => :high_sierra
     sha256 "a3ee937d18ead7330f7cf6dfbf5a63ac41dbb5e9d7e68450e3b07ff54c75d80f" => :sierra
+    sha256 "f9ac90d43ef9e6d6c1b816c35204461405a6f1029d1fbc19e382cbe672a23a07" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
