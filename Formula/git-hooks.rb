@@ -14,6 +14,7 @@ class GitHooks < Formula
     sha256 "bdfffb820e5a7574169b91113ed59c578ebe88bcea8c890166a33fb9af17c0ce" => :el_capitan
     sha256 "d4c5fba7f1b80e8e68762356a2f64ac216bf4e9f3151cf2f236c92a9524b97ed" => :yosemite
     sha256 "ace6acaff04ef09795d26e6034bf411a89c9f348287dd95f756c82068cea123d" => :mavericks
+    sha256 "d752497286961e018f332e0e0be3a342473645c553c3542b72d1debe9f0054f8" => :x86_64_linux
   end
 
   def install
