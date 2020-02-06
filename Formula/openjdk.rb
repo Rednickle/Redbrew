@@ -4,13 +4,13 @@ class Openjdk < Formula
   url "https://hg.openjdk.java.net/jdk-updates/jdk13u/archive/jdk-13.0.2+8.tar.bz2"
   version "13.0.2+8"
   sha256 "01059532335fefc5e0e7a23cc79eeb1dc6fea477606981b89f259aa0e0f9abc1"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "80adbb10899eca74e20da21c346865ce80613ba8a3d5b69db1c7155ff8362a2e" => :catalina
-    sha256 "547f24340b88bc3db1e11b9df567fd561334134aeb9095834c90b27c2b374f80" => :mojave
-    sha256 "1e955b075c2061f9a650ea3d3d0906a6e16bb5456ae69ce2aff7abeb1a68ed8a" => :high_sierra
+    sha256 "65adca036393f528e3830cab8b0aafec94be870de087d94cfe098fd593517307" => :catalina
+    sha256 "6034ec5a0927803eae37a5e85b6c6efadb930527827b45ecc593e25a9750061c" => :mojave
+    sha256 "358101f25201e4c942297223d854ef95003798fe5396ebc671efa359c27e3d22" => :high_sierra
   end
 
   keg_only :provided_by_macos
@@ -73,8 +73,9 @@ class Openjdk < Formula
     else
       libexec.install Dir["build/linux-x86_64-server-release/images/jdk/*"]
     end
-    prefix.install_symlink libexec/"openjdk.jdk/Contents/Home/bin"
-    prefix.install_symlink libexec/"openjdk.jdk/Contents/Home/include"
+    bin.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/bin/*"]
+    include.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/include/*.h"]
+    include.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/include/darwin/*.h"]
   end
 
   def caveats

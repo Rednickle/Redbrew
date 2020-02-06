@@ -4,13 +4,13 @@ class OpenjdkAT11 < Formula
   url "https://hg.openjdk.java.net/jdk-updates/jdk11u/archive/jdk-11.0.5+10.tar.bz2"
   version "11.0.5+10"
   sha256 "5375ca18b2c9f301e8ae6f77192962a5ec560d808f3e899bb17719c82eae5407"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "d5d4d001a84b5a973040776451b5ae0edc2418322955979d689560879d8c3a6f" => :catalina
-    sha256 "07356d4680a0fbfa4aa3c5565c1f4dd2349d93275ee2553a06d9b070d324fb78" => :mojave
-    sha256 "fbb84442929a7474d22e42b032c17ed4bd50bece73725073f119e0b6ec9becb5" => :high_sierra
+    sha256 "597c5a1a01e0cc1c6b6c0eeb7d09496858f2190463c6f24ef56ccb0dc441fadd" => :catalina
+    sha256 "3834baedb47ad0d2b2630f4df8c5671b2d295aa33e5fbc314564478be044a98b" => :mojave
+    sha256 "74017e2f409b0e64e5e03bab785b0ccc565206fa4fd7f4aa00c4c0f0c6582b4d" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -73,8 +73,9 @@ class OpenjdkAT11 < Formula
     else
       libexec.install Dir["build/linux-x86_64-normal-server-release/images/jdk/*"]
     end
-    prefix.install_symlink libexec/"openjdk.jdk/Contents/Home/bin"
-    prefix.install_symlink libexec/"openjdk.jdk/Contents/Home/include"
+    bin.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/bin/*"]
+    include.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/include/*.h"]
+    include.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/include/darwin/*.h"]
   end
 
   def caveats
