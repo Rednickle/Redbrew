@@ -12,6 +12,7 @@ class Uniutils < Formula
     sha256 "5f6609e92596f48fbb20bd0245437f4e967ebc9d06d9fc5e130584f394dce21a" => :sierra
     sha256 "9e83bffe9268c4be17f6e37254da13d2edfeee19869bd075580eeaa8f770078b" => :el_capitan
     sha256 "8707e4003370e82a9dc93f928f35f7160b4fa52d6954df916f292020bf9a790b" => :yosemite
+    sha256 "be9d28c8dc342f7c763a5da12b90f721efaf19b94d5e0003b1f73f4dff3d59cd" => :x86_64_linux
   end
 
   # Allow build with clang. This patch was reported to debian here:
