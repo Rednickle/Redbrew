@@ -9,6 +9,7 @@ class Gdl < Formula
     sha256 "72213f48c641e747ee4e5f57d99f5f6b58281def3979fd9bbd4b10d43fac94f1" => :catalina
     sha256 "be37ffff8627cd687027fa38bc67e1e19dac530caeff7c6e26a1d4c58cb7219b" => :mojave
     sha256 "0d014a840abbe39750efa407a6a9bc49b542dd875e07eb541cf234307f41b276" => :high_sierra
+    sha256 "71d8493e3d5563b181063e5c132cbea28e33420325bf20a99ea9c74b9470afbc" => :x86_64_linux
   end
 
   depends_on "gobject-introspection" => :build
