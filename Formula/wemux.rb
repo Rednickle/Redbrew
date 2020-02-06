@@ -11,6 +11,7 @@ class Wemux < Formula
     sha256 "5fb4eaf177d1766716003032bfc632d02ebed302c57e00dc752ed3de4b9cf1f6" => :catalina
     sha256 "5fb4eaf177d1766716003032bfc632d02ebed302c57e00dc752ed3de4b9cf1f6" => :mojave
     sha256 "5fb4eaf177d1766716003032bfc632d02ebed302c57e00dc752ed3de4b9cf1f6" => :high_sierra
+    sha256 "547d23982ba1711c8d8a5d5a11595e5801ff52eb1a1a31d50096910a4b029db1" => :x86_64_linux
   end
 
   depends_on "tmux"
