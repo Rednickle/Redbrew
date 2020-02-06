@@ -13,6 +13,7 @@ class EotUtils < Formula
     sha256 "b2a4e0f385fa861baf54ac3c483f5599bc96994b3797fe00430653f1a5c28ba4" => :el_capitan
     sha256 "3276e755d84fda54851733b693e56922ddb597f1ac4f14792f4221ce794832da" => :yosemite
     sha256 "d22988bd2c4ba4bb945a80d997fb06532579a09a3bc0c8be86c832f7bbc57a42" => :mavericks
+    sha256 "b5b6c465872f4fc93b590a8b06db5b964d8d8549d78ac79ab13918dee2245efd" => :x86_64_linux
   end
 
   resource "eot" do
