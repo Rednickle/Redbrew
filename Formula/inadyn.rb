@@ -9,6 +9,7 @@ class Inadyn < Formula
     sha256 "6e74812d53caa2ae34d2c571e7e2a0575de36aeec1504c0c840ce7e5cdf7e1b0" => :mojave
     sha256 "870e29d1856c85414d2566d2d5a9d39de1c2aa6846c6c9c3647c29ea4be588b8" => :high_sierra
     sha256 "d2ee8d33a5069f120081ea1c70ecd600bc516e7e0b09658d3196f1df6e40029a" => :sierra
+    sha256 "0f0d9f9136614e8b05d04b6f1270aaa33aa195a16b9b6d342888bb23c57e1632" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
