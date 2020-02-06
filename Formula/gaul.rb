@@ -13,6 +13,7 @@ class Gaul < Formula
     sha256 "0a6fb9c8ae17bb0785cc9c9da0fa0b3bf5fd6ca69b1ef8516b800d0d28d77360" => :el_capitan
     sha256 "8b0cb8b79f456faf4b7a8f9af2c788290b3e2eb1785f120875f2b72b4159fbf5" => :yosemite
     sha256 "2ce7947353b3ea8e9be3925b1e516c92cbcca5602039d91ebe729c6fb96f5a37" => :mavericks
+    sha256 "d409a5a6346617544ee710aa5c6178b30d182c867deedb338dcb09c16f1a0f8e" => :x86_64_linux
   end
 
   def install
