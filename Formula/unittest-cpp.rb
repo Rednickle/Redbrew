@@ -12,6 +12,7 @@ class UnittestCpp < Formula
     sha256 "91d028b464f32fcf6edda6b791be2b70d9b770934edd7af7d2b8ff24e9c5eb06" => :sierra
     sha256 "6136d8cdc420681130c59d9f77327ddad6b46a35d29da5be760b522c7456e2a2" => :el_capitan
     sha256 "573f6f3a83ba0d2d0e3b54314a5eb93affd11f03bcc409d381ef8253d7e03c4c" => :yosemite
+    sha256 "26cedbcb10ae3056e770e1b791a243a950d8b00a979b48c662febcc721db2ee6" => :x86_64_linux
   end
 
   head do
