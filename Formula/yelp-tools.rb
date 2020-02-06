@@ -10,6 +10,7 @@ class YelpTools < Formula
     sha256 "fd04fbc43832ca6a6e75ffcd928794c866153c7cf04d4f366e79d15a14a317b6" => :catalina
     sha256 "fd04fbc43832ca6a6e75ffcd928794c866153c7cf04d4f366e79d15a14a317b6" => :mojave
     sha256 "fd04fbc43832ca6a6e75ffcd928794c866153c7cf04d4f366e79d15a14a317b6" => :high_sierra
+    sha256 "3042cae5a46032afd71245c46aec7a00909484146cc0b2f9f8b51e4dbf05b523" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
