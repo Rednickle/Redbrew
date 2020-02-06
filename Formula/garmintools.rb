@@ -13,6 +13,7 @@ class Garmintools < Formula
     sha256 "dd86a8e306d3c4ebb9b94ddd4aaf60fdb79aa06fc7eb56ca95942248db33924e" => :el_capitan
     sha256 "62d2b45ae3d7ef7de9a8deaa658e12021f16b14008f1a91e8c747f84b0e803d3" => :yosemite
     sha256 "bdd96fdc8cf79cde06b330855d7899539816d08cc3b815a0ee115289cac6e30b" => :mavericks
+    sha256 "d45e1122bd8a9cb96000b52d911606459ed88b548c419448936687199409a6cb" => :x86_64_linux
   end
 
   depends_on "libusb-compat"
