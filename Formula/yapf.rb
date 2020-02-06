@@ -12,6 +12,7 @@ class Yapf < Formula
     sha256 "6bbe6c40b433bee94f923c479ca8020314960edae9452eedd627b031603180dd" => :catalina
     sha256 "158dcb7867a2572a30caa27951dd11431554de050a432691ab250796aa76b30b" => :mojave
     sha256 "b794952a1ac7f0d1537745d89c8d88846b45ff8758019d1cf594789f552a05cd" => :high_sierra
+    sha256 "5564f3ea09c60fef22186ddae18f8b06ea8355e7eef2fa96dc391d66e36dfd8d" => :x86_64_linux
   end
 
   depends_on "python@3.8"
