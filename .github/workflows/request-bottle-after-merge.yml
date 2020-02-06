@@ -26,4 +26,5 @@ jobs:
           GIT_COMMITTER_NAME: ${{github.event.pusher.name}}
           GIT_COMMITTER_EMAIL: ${{github.event.pusher.email}}
         run: |
+          cd $(brew --repo ${{github.repository}})
           brew find-formulae-to-bottle | xargs -n1 brew request-bottle
