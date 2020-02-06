@@ -10,6 +10,7 @@ class Etl < Formula
     sha256 "b775dfeb3634c3b4ff3828239250394328b5c971e472cb775a0590d94bcdc6f8" => :mojave
     sha256 "b775dfeb3634c3b4ff3828239250394328b5c971e472cb775a0590d94bcdc6f8" => :high_sierra
     sha256 "507d4f4b35d0e075869446600e36e0f9f382014e99bf16a07d77f2c256cbc594" => :sierra
+    sha256 "33e312b94923dd3f375fa0135f250773c4dcc004e1a569a434d4e2fd5170bb3e" => :x86_64_linux
   end
 
   def install
