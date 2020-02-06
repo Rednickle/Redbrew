@@ -14,6 +14,7 @@ class Ent < Formula
     sha256 "f5244a065b7aafe3ba60077de0072e9b5d231a7fd1eb348cd7f6583a69a08ad3" => :el_capitan
     sha256 "072e3e71ee3b6813dafb15e53e8b474c1d15f26865b9cd05652e46c220e3926d" => :yosemite
     sha256 "cb4bd5766cdb804092f73a908921e034da352b890fdc34f5cc1f0d56a27d3c3a" => :mavericks
+    sha256 "421d447a11fbeeb4d73be9117dd2dcfa5be8f4b5cfd1251fb0d8d6e5dc621d58" => :x86_64_linux
   end
 
   def install
