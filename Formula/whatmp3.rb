@@ -14,6 +14,7 @@ class Whatmp3 < Formula
     sha256 "976769c7868f672a9a5bd625b1c6d4e557dbbaf74f9d4274ebac0a1b0afe920a" => :high_sierra
     sha256 "976769c7868f672a9a5bd625b1c6d4e557dbbaf74f9d4274ebac0a1b0afe920a" => :sierra
     sha256 "976769c7868f672a9a5bd625b1c6d4e557dbbaf74f9d4274ebac0a1b0afe920a" => :el_capitan
+    sha256 "6dc85f56deaec139f57c0cfae4178b58076cf24340f76b9ecf65ccdda97d181b" => :x86_64_linux
   end
 
   depends_on "flac"
