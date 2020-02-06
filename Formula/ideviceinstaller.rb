@@ -11,6 +11,7 @@ class Ideviceinstaller < Formula
     sha256 "3fcfe52042361034d6d884268c6e145db6ccae21a65d55fae590b8d3203209e6" => :catalina
     sha256 "e0df189964f8d77e2ea30e8255b7d5a6fa82710b9b65e1351f086358530f6d84" => :mojave
     sha256 "d8f6c9528b2737db5453b118e8792533274df7b06968c868ba0096cf62e48079" => :high_sierra
+    sha256 "846750620c15dcffbe278ec49bf32048744621d169bf49ec27b808e885f96ebc" => :x86_64_linux
   end
 
   head do
