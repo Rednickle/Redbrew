@@ -13,6 +13,7 @@ class Ipinfo < Formula
     sha256 "ecb331ae035cf5963afc8e8adf371d80f936960bf0d5ba379b18761263a1b040" => :el_capitan
     sha256 "e1ce332c726d060521e97a5402746a60778d91beaf28704d9ce5bb6e17451fb3" => :yosemite
     sha256 "686fe99fef85ecbfdcc9c922f6cda898362d70bb9f5b9b7e1aeba8e30c284196" => :mavericks
+    sha256 "f3ddff03c21a8628ec0bab847802f2bbb5aeb16623b69982220c163d51d1762a" => :x86_64_linux
   end
 
   def install
