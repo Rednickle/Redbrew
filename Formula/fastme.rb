@@ -11,6 +11,7 @@ class Fastme < Formula
     sha256 "65bfd93ee6bdc21881fe342dd289a4c0808a3eb0abb1e04e174c32fd43a0bc77" => :mojave
     sha256 "eac83026ed4ce4b30511c1f7b79ff032e9c3c607a52d63881951937e210d663c" => :high_sierra
     sha256 "1a04d48b4a33ad3c854a4d45724f339438455f47e20d870c265b070ec75db08b" => :sierra
+    sha256 "cc2ce4c3b9a60a297413e8b13f8eeb4a0945ce730594b336df44bc8f07420816" => :x86_64_linux
   end
 
   depends_on "gcc"
