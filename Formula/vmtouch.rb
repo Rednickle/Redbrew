@@ -11,6 +11,7 @@ class Vmtouch < Formula
     sha256 "020d4e624a448e4e1b9a6e26b8f506bd65ab789ae1c0f23f25beda78b09bc6dd" => :mojave
     sha256 "edb14ca1ff4cbd4ab535ca9099ea113a36e280ddaf2957a65bdef10f4a7a1b88" => :high_sierra
     sha256 "7359ed3256886940e6fb1883141c495d5b3e6ab28130ed16553e0f6ab57ac3db" => :sierra
+    sha256 "55ec1c830415be7e6e7b01947028f631fa3674d178f09959ae5f58b42a9594d1" => :x86_64_linux
   end
 
   # Upstream change broke macOS support in 1.3.1, patch submitted upstream and accepted.
