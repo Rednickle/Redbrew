@@ -14,6 +14,7 @@ class Vcprompt < Formula
     sha256 "11e4de5f008aec3510274ef2265d6d30d214249e127cc1d3045b01b47232c96b" => :el_capitan
     sha256 "a6b02f96a018c993568e4ee43bfa23343c88aa4c6aa58b4727b69c01340f59ff" => :yosemite
     sha256 "ee133ff8277ce6d7792acd261ba3f27259e677badfe73b80ffd6fd08c6cd3665" => :mavericks
+    sha256 "b6601f9986b7cde626bdfc08792865e1001f5e820d308ada3916b56341650ae1" => :x86_64_linux
   end
 
   head do
