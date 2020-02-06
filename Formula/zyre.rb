@@ -12,6 +12,7 @@ class Zyre < Formula
     sha256 "f8f694368da98cd4781d43b1e4e18db94584ce1f8508b41d492d81194a15db3c" => :sierra
     sha256 "1402b11567fa689064366bf9f8fe9527dba8dfe9246e35b02130a344aa879a9b" => :el_capitan
     sha256 "1170a594d0eff7a57df26150d92daa37382ca6469d320e84957afb184560f691" => :yosemite
+    sha256 "be276eafd22a83b0ab53e0a95a2aaf8d56eba9635bec3e782789183b39f8e1e6" => :x86_64_linux
   end
 
   head do
