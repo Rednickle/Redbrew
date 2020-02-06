@@ -1,17 +1,15 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v13.7.0/node-v13.7.0.tar.gz"
-  sha256 "441a1b2b6031f359597fb68b82fd27dfbbe5933f9e1242f6a03062c2abd88368"
+  url "https://nodejs.org/dist/v13.8.0/node-v13.8.0.tar.gz"
+  sha256 "815b5e1b18114f35da89e4d98febeaba97555d51ef593bd5175db2b05f2e8be6"
   head "https://github.com/nodejs/node.git"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "ba5bd9a80c8969a10df981521dde63fc8e2e2fdca97c0be7239d75cf9df80f92" => :catalina
-    sha256 "634b52994ab2142281692f9c8796ca28d656aaab0f7f09f1a4f541ff5a2a03e5" => :mojave
-    sha256 "c52fc849ecb2ca089edd47f6bf21907c088afd5d5c43baaa015c0a6fe9054af8" => :high_sierra
-    sha256 "3af75081e43b57eb68055d8c2a862f5c791436eaef9cbe0dc7bd9eb15786eea9" => :x86_64_linux
+    sha256 "6a7bb59475a74827139563a4aa12d44de2cd427d889fdad61274f44b5dcbeb24" => :catalina
+    sha256 "b5b012b38740b15d59245aa118f95d896449dafb5e3d336a2df611acf8e65d55" => :mojave
+    sha256 "927e40396e22a83cb9dadc3ac8f52ddd1726439368b516e1c433a2c80d4df2e7" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -21,8 +19,8 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-6.13.6.tgz"
-    sha256 "c403adbfd702f620d6f48e6c223c9dee43dca2406b1f6f34093b442524f6f74e"
+    url "https://registry.npmjs.org/npm/-/npm-6.13.7.tgz"
+    sha256 "6adf71c198d61a5790cf0e057f4ab72c6ef6c345d72bed8bb7212cb9db969494"
   end
 
   def install
