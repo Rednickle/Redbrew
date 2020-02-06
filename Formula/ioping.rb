@@ -11,6 +11,7 @@ class Ioping < Formula
     sha256 "86ccaf89bf56a5f25f3d91463794d6e26c0dd19a37f72532e6d9c475881b7756" => :mojave
     sha256 "f7ec7717b3a117c9d57ddc62649e5635311ace177db679c57798257c85cfba63" => :high_sierra
     sha256 "f2f45cdd184b2c1e8eaf401123950eb788832a2a2e4234e96e7f31566b63a9bc" => :sierra
+    sha256 "a7c8c400ece0271bb827e811f4add4d9cdcbcc41b8249a33f815d84f5803ed27" => :x86_64_linux
   end
 
   def install
