@@ -13,6 +13,7 @@ class Iat < Formula
     sha256 "baadc7c40697b28b46c7541d617f65ee318b78efbdc4156c6527490616fd2dee" => :el_capitan
     sha256 "db517ebd84afdeabaf2e130faccb88f33f359d13eab3bfbb5e19013051ca7827" => :yosemite
     sha256 "31eb7a245b5ee29b983017b572bb6895abda8f32101b402889a96b0f316abe45" => :mavericks
+    sha256 "2149efe2c6da5e0a493d0bc19ca608663b87467d7312534357c681559597c99a" => :x86_64_linux
   end
 
   def install
