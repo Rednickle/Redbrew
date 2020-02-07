@@ -12,6 +12,7 @@ class Progress < Formula
     sha256 "30283abf5c811af72c62e3c2467479f7373ce176e3eb6ca940039ca77cb938e0" => :high_sierra
     sha256 "cdceba6fffdaca9563a5888452a4227f7e715547a2345c5ba36ff12945e8bfd2" => :sierra
     sha256 "11217f309893e35b8be163a077f9934ce4d71e4a8ff0098e3f12751f64310925" => :el_capitan
+    sha256 "fa3fea33287f1d80a3e61e27c69248a77d24ee9a7a1c9fba6ec1723dd8570885" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build unless OS.mac?
