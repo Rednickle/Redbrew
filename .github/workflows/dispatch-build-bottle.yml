@@ -20,6 +20,7 @@ jobs:
           cd ~/bottles
           brew update-reset $(brew --repo ${{github.repository}})
           brew test-bot \
+            --tap=homebrew/core \
             --keep-old \
             ${{github.event.client_payload.formula}}
       - name: Upload bottles
@@ -31,6 +32,7 @@ jobs:
           cd ~/bottles
           brew update-reset $(brew --repo ${{github.repository}})
           brew test-bot \
+            --tap=homebrew/core \
             --bintray-org=linuxbrew \
             --ci-upload \
             --publish \
