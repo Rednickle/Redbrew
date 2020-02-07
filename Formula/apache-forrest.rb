@@ -3,6 +3,7 @@ class ApacheForrest < Formula
   homepage "https://forrest.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=forrest/apache-forrest-0.9-sources.tar.gz"
   sha256 "c6ac758db2eb0d4d91bd1733bbbc2dec4fdb33603895c464bcb47a34490fb64d"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -16,7 +17,7 @@ class ApacheForrest < Formula
     sha256 "b972b46d2ee37dd0b99b80b71a8e30ea1432df8e8cac5570f987eff84eec0db3" => :x86_64_linux # glibc 2.19
   end
 
-  depends_on :java
+  depends_on "openjdk"
 
   resource "deps" do
     url "https://www.apache.org/dyn/closer.cgi?path=forrest/apache-forrest-0.9-dependencies.tar.gz"
@@ -25,7 +26,7 @@ class ApacheForrest < Formula
 
   def install
     libexec.install Dir["*"]
-    (bin/"forrest").write_env_script libexec/"bin/forrest", Language::Java.java_home_env
+    (bin/"forrest").write_env_script libexec/"bin/forrest", :JAVA_HOME => Formula["openjdk"].opt_prefix
 
     resource("deps").stage do
       # To avoid conflicts with directory names already installed from the
@@ -41,7 +42,7 @@ class ApacheForrest < Formula
         "tools/jetty",
       ]
       deps_to_install.each do |dep|
-        (libexec+dep).install Dir["#{dep}/*"]
+        (libexec/dep).install Dir["#{dep}/*"]
       end
     end
   end
