@@ -14,6 +14,7 @@ class Ploticus < Formula
     sha256 "088f4ba0eea75ed4b401f94331b70dd64e23f02fa0d95731fbaccf6904c8cea5" => :el_capitan
     sha256 "b15be72d80abf16b348c625945de811bf1fb411b1cb329adc701bc04cfb41dd8" => :yosemite
     sha256 "c2b4982907f4a9de66973cf55729fed03f17c42704593d6dbcce955ce53cd9bb" => :mavericks
+    sha256 "bf5e7c4c9f1bf3689311b341d070bfc950f9d0a8fed63d8661ef1cf8af4c106d" => :x86_64_linux
   end
 
   depends_on "libpng"
