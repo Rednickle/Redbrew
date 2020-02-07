@@ -18,6 +18,7 @@ class Uade < Formula
     sha256 "59ddaa5a6d841f436a5d297330ff62b613e446785ad17666c8fb4157d3a7c8db" => :el_capitan
     sha256 "454945f35580b0b2bc8f0c7ddeecfae091634f54ee3a367eb14acce7251e5779" => :yosemite
     sha256 "807b7f5cb5a83348c778003d781d715cec73d37da537e0b11b8138c93aad4938" => :mavericks
+    sha256 "97fb6d86bdb2372c60b425b571064aea4c0498b958e2d416704b4982cf7cdb33" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
