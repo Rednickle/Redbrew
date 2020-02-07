@@ -12,6 +12,7 @@ class Qcachegrind < Formula
     sha256 "7a0dd392028ecb443bf84284dc671c1697781c5099c253dc526cd02d5530e697" => :high_sierra
     sha256 "f8ec63325129315fd760eccdc59ef14ac096f9f5ddb49e52a495c67e6980b835" => :sierra
     sha256 "4f5b0000b8391dcadbb9b043c475a80753e1421d314749076029674116840eed" => :el_capitan
+    sha256 "d19805c2564c94f70e544aa70c5d6f00d762a2ccc6c791e47c79dfa829d75db8" => :x86_64_linux
   end
 
   depends_on "graphviz"
