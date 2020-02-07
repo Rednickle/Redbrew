@@ -9,6 +9,7 @@ class Pioneer < Formula
     sha256 "d6ef58a82bd5d0030f28db39103882a4da8416ba3b1dae5d3e98d09e2d06c5c6" => :catalina
     sha256 "837ce3dc518de05e3c50597252acf888b55ee341777f765bd4b1d88faf53592d" => :mojave
     sha256 "2d2d2aaeff7ec2231f7908504d4750f9fc2e60fd4d68f059d20808cea36370d7" => :high_sierra
+    sha256 "779c12838a8d6e3516b90dd46a58184b1ee6ff56d36388e2e5078f29f00fe33e" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
