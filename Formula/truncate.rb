@@ -14,6 +14,7 @@ class Truncate < Formula
     sha256 "299b80454c20134c5d0916da25fb3d5f0b6843e620dac6babebe01a899253a69" => :el_capitan
     sha256 "a9d1c87d6cfec42674f0e7db25b786ba100a04c8c0da318fd5f6299a7418843f" => :yosemite
     sha256 "d8751674842b772bd3a5318c1234f262518d05d66a7fe3b06ce5f59b2176bba8" => :mavericks
+    sha256 "41e96e4e675dec121553ea5ecae40f39d3495610c5c35632c7862b7731488107" => :x86_64_linux
   end
 
   def install
