@@ -14,6 +14,7 @@ class Procmail < Formula
     sha256 "3328bcda4649612afba606950e59f4cb0c22e10fe97a4f1e38f190e3e4115800" => :el_capitan
     sha256 "cd5a5cdfbe9d03067533df0ef3f09cc2c05bd16a9b75d2d19cd9c2d1da2986e5" => :yosemite
     sha256 "9e476567851a38caedbbb894afb83d3f5575bb494aaab296f884387feca9bf54" => :mavericks
+    sha256 "1304e36e6f63857224753a1bc2430fb79a530cabe875d82805caf1c024419d95" => :x86_64_linux
   end
 
   def install
