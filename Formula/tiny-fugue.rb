@@ -11,6 +11,7 @@ class TinyFugue < Formula
     sha256 "2196e7b32acfb7604f19b8734d5425b32650ff1154f6c327313b8d18c52ffda1" => :mojave
     sha256 "32fcc0d6629da120ee1698b6185aaea0387519861182a4d6f10e6c67e9455405" => :high_sierra
     sha256 "cbdc761189ce2c20a0a00b2ba2bfe930d0b149ea932dda7c562fa36d6b199e7e" => :sierra
+    sha256 "509fb2fdfb0869ee3ae7d54687f01e09953c3a487acb00d420c4426a1479136c" => :x86_64_linux
   end
 
   depends_on "libnet"
