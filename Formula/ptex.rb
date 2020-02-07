@@ -16,6 +16,8 @@ class Ptex < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
 
+  uses_from_macos "zlib"
+
   def install
     system "make", "prefix=#{prefix}"
     system "make", "test"
