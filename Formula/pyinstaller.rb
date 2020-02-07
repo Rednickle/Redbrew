@@ -13,6 +13,7 @@ class Pyinstaller < Formula
     sha256 "bf8d47f3ce71c116ed0f16a0ed15be68e4dc6be191a4e91ec261d426a298eca7" => :catalina
     sha256 "020b0ee4ede3bef3febeeeb7c845ea59127df5947296b4f3cf5b34bcaa70a8b8" => :mojave
     sha256 "36dbdb6bb82e28fd0eb031bb94a26213a4fa0aa4dcfcfd560c1ead265bf2feac" => :high_sierra
+    sha256 "af5a1b117ea14224d5993b74b45a42f8aab0a3230e1c81dc5a00d1a27ebe631c" => :x86_64_linux
   end
 
   depends_on "python"
