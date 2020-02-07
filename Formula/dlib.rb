@@ -10,6 +10,7 @@ class Dlib < Formula
     sha256 "8ae2a8809bfe9eb63be8ec74adb0be4d84a84b80d6e31b090d7c17537b0adf12" => :catalina
     sha256 "8eff561df45210fe1a71101d62ecd8b3ae1055d49e7c0442735b60bffe4dc034" => :mojave
     sha256 "394c9aeeb51f9fa1c0cc5fc3b8343e42a3b439e27ac1a938c0d993bb6a0712eb" => :high_sierra
+    sha256 "336c29ed813be966c45949c68a6114ad5ac6fc1e07bf274de79975a3e10a353e" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
