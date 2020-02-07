@@ -13,6 +13,7 @@ class Polyglot < Formula
     sha256 "de7a79cd7b59fb412b245a50c601ec0546da345f5901b2bec260fba86fc27ce9" => :sierra
     sha256 "36d5170db384175c1f6f097f6d179243d265c3a06dcf34a11266cbd370be5aad" => :el_capitan
     sha256 "eff91a02101ab40e05f3479100120da2f54b1a9832cea957a054ed92872748a8" => :yosemite
+    sha256 "787891537bf894799cc6b31a0e3950ac21118c94b699528474fcfcb33b5501a7" => :x86_64_linux
   end
 
   def install
