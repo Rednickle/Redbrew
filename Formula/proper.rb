@@ -10,6 +10,7 @@ class Proper < Formula
     sha256 "a93bfdd9a7558b9ad0cc013f3aca0cadfe86535948730ab6861c10931cae4b92" => :mojave
     sha256 "f9f6404b3c025d06fb1b6ab0155716fe5f59f337ac6884b92d4ac01d6677b4c7" => :high_sierra
     sha256 "a80e754b0bb2ce17d223034734cd1aa473532ba743cf45cbff89fa154af18220" => :sierra
+    sha256 "8aef0136f96be9152759585a390e225674814d8273c28a8084cb337c89ac4ee9" => :x86_64_linux
   end
 
   depends_on "erlang"
