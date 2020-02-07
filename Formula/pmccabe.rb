@@ -14,6 +14,7 @@ class Pmccabe < Formula
     sha256 "d6189f6ae7341da933653c687adec0bb8952b14ed8a2883b19aec4db90b65eea" => :el_capitan
     sha256 "cb369d2f04ce0fccdb22b2640f1f6e37fc056b6edda79767474040cb52f76936" => :yosemite
     sha256 "d64603cace1f97227e6efc2c26f628fece4e49f762e1e6d0903400a579be0a0f" => :mavericks
+    sha256 "7ca8ca868e22ba122e2c5cbc51a9cb753d27eb01fea55633990d5cf6d26470ed" => :x86_64_linux
   end
 
   def install
