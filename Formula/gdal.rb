@@ -1,14 +1,13 @@
 class Gdal < Formula
   desc "Geospatial Data Abstraction Library"
   homepage "https://www.gdal.org/"
-  url "https://download.osgeo.org/gdal/2.4.2/gdal-2.4.2.tar.xz"
-  sha256 "dcc132e469c5eb76fa4aaff238d32e45a5d947dc5b6c801a123b70045b618e0c"
-  revision OS.mac? ? 5 : 6
+  url "https://download.osgeo.org/gdal/2.4.4/gdal-2.4.4.tar.xz"
+  sha256 "a383bd3cf555d6e1169666b01b5b3025b2722ed39e834f1b65090f604405dcd8"
 
   bottle do
-    sha256 "7ab5d0645e315c69694dcf2b75e398d92c2bb85a6a52c6e52447e676c58d2230" => :catalina
-    sha256 "c1e5a07f9d38a004e739355015a52f1ca4623fc16e4dbac3c115e5579cce0d37" => :mojave
-    sha256 "0d7dd3e1382f657b6e70bdd8d4cea6cb266768836b36d83357df26b85dd5ee15" => :high_sierra
+    sha256 "f1a34f2865d0c1bd0ec769bed7870de108cf33153d64b717a4a222a8238b1423" => :catalina
+    sha256 "4f39435942c2a78e27f6e1c1f70909fcd38ee632b95f396a9121ff9ed06d6436" => :mojave
+    sha256 "3e64f48138d7f12cba134a0dd60d6b7b296b8ee93260a1e40519f7de6e222d4b" => :high_sierra
   end
 
   head do
