@@ -11,6 +11,7 @@ class GnuTypist < Formula
     sha256 "9f0fcdd42b9a041408b132882778db2eb479749a7169b82f2caf1f4fd486b599" => :mojave
     sha256 "72503afd4efafe7a8485ea22332819937008263976a6f5f5b42818565d59edbf" => :high_sierra
     sha256 "d32708d6e8a640101ac618ceac23be6b9d1a6a4caa127c5fd12a44b4e57c09e9" => :sierra
+    sha256 "96f7d1fe80ea3c8e5a6687b0a2e7ce519d97b933cd42219cb9ef6837150ce8c5" => :x86_64_linux
   end
 
   depends_on "gettext"
