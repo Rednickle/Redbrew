@@ -11,6 +11,7 @@ class Torsocks < Formula
     sha256 "a69a7a23628c4a79c216b114ccdd0bbd20b76513f5f16eaea2eab8be17473323" => :mojave
     sha256 "14a21746072ddb73f7fc3157dbe41bcce90e0bcb0a3761646faf421294e3ecff" => :high_sierra
     sha256 "c2eb93f0ef7d44ca1c74ccc210d0a2a3fa2a45a7ef46c7ec68f68fb4162e5905" => :sierra
+    sha256 "9fbc9210bbd1705fe35121ceee6f3979e48ee72a56089cef1f544758e2f154e7" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
