@@ -13,6 +13,7 @@ class Pkgdiff < Formula
     sha256 "18895054433b4b050c3a863306c62a910be7fa4e36b0020a742c5c7541c0df65" => :el_capitan
     sha256 "c566b1a44ed89a1b7b3547adf0a0e0fa784174e1acc4a1dd46a240ea6d09bbff" => :yosemite
     sha256 "a9ccac49037c91c63af967e67256daa24e878f38fd17959ba30fffb8e1fcc2a2" => :mavericks
+    sha256 "f6596304719ef0ac8ef5d55f55eea6e2a6f7c55d4f5f3eb4f31023bd5e0c1fec" => :x86_64_linux
   end
 
   depends_on "binutils"
