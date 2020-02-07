@@ -13,6 +13,7 @@ class Poster < Formula
     sha256 "07702fc6f1d43a3875637f8ff9d3509d6eb913abda301c24c23d824a76a858b6" => :el_capitan
     sha256 "718131fa123a69d0db610d95722d968fbda597da2477abe520146393ff0321c2" => :yosemite
     sha256 "5c109f3122d33b73aecbb3a7e5aaeece5c9e9d3be8aae9c6e39001b6a5feea4e" => :mavericks
+    sha256 "4deee4e40fde821451f8b9608620d05cf589dd5d26198b3e9ad55e86f9e7848d" => :x86_64_linux
   end
 
   def install
