@@ -14,6 +14,7 @@ class Pwnat < Formula
     sha256 "0149fc977622f2fd55db5845a377437028df31bb847230d3fd73d548e481e289" => :el_capitan
     sha256 "cf17568c4053240ffe61594bcc618577c0d0c569abda8b3b956a4e4b441a755e" => :yosemite
     sha256 "0baed31dc05b28a330501a0d4119e8997c1038d14311c64f2d7b367ebdf9f01e" => :mavericks
+    sha256 "1e574797edcea5484ea15e3c11a273386bcaa84e4b8552914a5eb89bc3b14c27" => :x86_64_linux
   end
 
   def install
