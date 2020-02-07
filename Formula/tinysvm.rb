@@ -13,6 +13,7 @@ class Tinysvm < Formula
     sha256 "2b84b75043ba1d97172e2756e3da870a8ec8e074167ab5402e7a4e1b4c923864" => :el_capitan
     sha256 "ea90446332244176d4ec3bc4ff0c6175810c3a39d942f225bb55c0fb6252858d" => :yosemite
     sha256 "c3464518eb4a82d123939aca024c328d885c3f14e74df31b4deed9588bb495b1" => :mavericks
+    sha256 "da24a024f780ac04419a10ae65c6f50361391485a4fc848c7ed2d300ac08cad2" => :x86_64_linux
   end
 
   # Use correct compilation flag, via MacPorts.
