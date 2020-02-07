@@ -111,6 +111,8 @@ jobs:
             return artifacts.data.artifacts[0].id
       - name: Install unzip
         if: steps.artifact.outputs.result != 0
+        env:
+          HOMEBREW_NO_ANALYTICS: 1
         run: |
           brew install unzip
       - name: Download bottles
