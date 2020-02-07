@@ -13,6 +13,7 @@ class Tta < Formula
     sha256 "0543d1561fe44fc6137f90076d247f16e6ac28e72413a7ba3bac08d422bb4e9c" => :el_capitan
     sha256 "e25b0a3c395c62d2cb130f4817e405a9e09494c92c17fc71bf123d72b6da5f06" => :yosemite
     sha256 "1b4bdda9786729fffe279cd17faea744108198064d2effcc42b078eb85862671" => :mavericks
+    sha256 "aca2a5f136f9dce50d27b1e7c4bfae6f58f2b8f510a1f46fc940e0fbfa3cdc0c" => :x86_64_linux
   end
 
   def install
