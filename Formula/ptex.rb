@@ -11,6 +11,7 @@ class Ptex < Formula
     sha256 "e9065c4a5ec4366e5e105fecc9035bd2e3f3e36335fd042b20ce23ab77549d2f" => :mojave
     sha256 "7f500b3f83df7d629ab757f75549f33c04a36c7fc357b3bc724df08c3e9cd249" => :high_sierra
     sha256 "9b72606a8f4d057d00bc0bcd7b54ce16873e345043b3f877cf17e723aedae863" => :sierra
+    sha256 "de38c0fbf565624d13026836bbc8cfe44221fef815f75bce38e59f5f8e2ac92a" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
