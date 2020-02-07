@@ -9,6 +9,7 @@ class Gtkmm3 < Formula
     sha256 "d35be6a3fa037d282f4b69a2c4ccf7f23a37a8474b630d1b01ed6862786e2a3f" => :catalina
     sha256 "72650a88c5365ac34924eb731abd08396bbf4a4618d160c272b5f6b26b0b629e" => :mojave
     sha256 "de16db648405af1cc6f236026437a928a0f3d238c41317106d878ea5fa52bad4" => :high_sierra
+    sha256 "4bf58ee7fab7f88b31048c1d4e078a110c177e34b337700bf2026ca925638f42" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
