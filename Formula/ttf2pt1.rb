@@ -13,6 +13,7 @@ class Ttf2pt1 < Formula
     sha256 "0ef606dfb439ad46c5442b35458f009e864ee3270145c7be940581a5d272bc54" => :el_capitan
     sha256 "65c1456cab73a91161e4dddbc4f04842029a810a8e4e4c396e90fbf039e61f60" => :yosemite
     sha256 "c81f56318e2311c422c1a53647650478660ec16fc935380c01cf10c1f53edd73" => :mavericks
+    sha256 "883fb6c81ba624665ed010961147d06503ddfdc4abce7d343e460808e048d33d" => :x86_64_linux
   end
 
   def install
