@@ -9,6 +9,7 @@ class Powerman < Formula
     sha256 "1a36b88991905a9f768f789b9d4381d5ad26992259440325fc997bc3bcd074bd" => :mojave
     sha256 "397248285300786311331cfa9b67d74e0f3b1dfb9d93bc9d0887b7caa253bf3e" => :high_sierra
     sha256 "8eb522e26039405245bb5159c34eb8e329683569c0b0f6654aeed183d0f13dba" => :sierra
+    sha256 "13de2a1f124d036039f9c6c562dccdd68c6f819131510fd4759b6fc51c6dda65" => :x86_64_linux
   end
 
   head do
