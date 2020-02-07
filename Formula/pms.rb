@@ -11,6 +11,7 @@ class Pms < Formula
     sha256 "0c43ee20313b6616c6ececb9c906da12720b035862a894a3f9dd11984c640b30" => :mojave
     sha256 "f01d2f4db91f6b6bcf35f86c7a0d2b0fbed17941d9556fe0ba71e855c7667638" => :high_sierra
     sha256 "fa90afc92fc9d1e57a9a0a74dc63d3ec5ba92f1430caf5cad8fa54362b0da298" => :sierra
+    sha256 "8696449a4eedb33228b49209278efbb68f90d13f9894cfea5cc37687d88d0b78" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
