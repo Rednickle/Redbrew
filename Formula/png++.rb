@@ -10,6 +10,7 @@ class Pngxx < Formula
     sha256 "536f9c2dd05cfd2ae8a4f7f5d0c5c38575cf91609498f98bd6c3f97c4de2c520" => :mojave
     sha256 "536f9c2dd05cfd2ae8a4f7f5d0c5c38575cf91609498f98bd6c3f97c4de2c520" => :high_sierra
     sha256 "cee110f568bae723e8e5172e8bab36c8f4c5adb8bf339a444926a572bfa13f89" => :sierra
+    sha256 "3705bec0c4e9ead00a245f3e173c7a2a6aedf4f886ec7aa4614900a217b4b7bf" => :x86_64_linux
   end
 
   depends_on "libpng"
