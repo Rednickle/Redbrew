@@ -15,6 +15,7 @@ class Truecrack < Formula
     sha256 "2905997955799043b8f07c7cb28854d0a0acd3a84131b92b6c49780570dd198f" => :el_capitan
     sha256 "d7d6879b7132093ebcc716ffe115dc20974c68e7e629f7f7cc3bce5030d153d3" => :yosemite
     sha256 "8357dddf047bdd2180f241edb5848e49a48083300484143a245f41e5def1888d" => :mavericks
+    sha256 "0d8af072631fa8be0d5a0e45c80090db360f2cec16f5a12d04f9d787dd6f0c43" => :x86_64_linux
   end
 
   # Fix missing return value compilation issue
