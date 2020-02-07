@@ -13,6 +13,7 @@ class Treecc < Formula
     sha256 "e74d23594113e594ad8021fe55b0f0f863fcd4b01140c3fd8b1a5f2bb6c8ad74" => :el_capitan
     sha256 "595dada9ecb2cef6d3e225e99a98997968d15f8009038511c464b6499cbcd872" => :yosemite
     sha256 "9f9a9e6a66c9e0a60888ad2af502070683637b5cd19dec6e080211a45c3313e6" => :mavericks
+    sha256 "7188105af687c1a9ef6c8e146931eb51ffb5513ac788247395483def96d4289c" => :x86_64_linux
   end
 
   def install
