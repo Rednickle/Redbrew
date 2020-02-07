@@ -12,6 +12,7 @@ class Mlton < Formula
     sha256 "c3712458c252eba59c3b370f99662cc02e06f6aad3b5e0bb5abe6980541bac9c" => :high_sierra
     sha256 "7605c1540d4449fdcda1802ee31dd891dc3d197081747744b575300bebe9000c" => :sierra
     sha256 "7182b0b044b789e03f99577dc993e0cb9737b9c175dd17815018fa777d0f4214" => :el_capitan
+    sha256 "7dc9bce7607cd50b2093e1e7e7298b459cb75c921943dfbcabb830bf99e2e55a" => :x86_64_linux
   end
 
   depends_on "gmp"
