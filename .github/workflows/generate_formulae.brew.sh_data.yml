@@ -1,7 +1,8 @@
 name: Generate formulae.brew.sh data.
 
 on:
-  schedule: '0 02,12,20 * * *'
+  schedule:
+    - cron: '0 02,12,20 * * *'
 
 jobs:
   generate:
