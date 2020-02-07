@@ -12,6 +12,7 @@ class PipesSh < Formula
     sha256 "2793ad5fb825b4f805a4731c7028cbcb2ca5e9dd904133df0cce7481c5961322" => :high_sierra
     sha256 "2793ad5fb825b4f805a4731c7028cbcb2ca5e9dd904133df0cce7481c5961322" => :sierra
     sha256 "2793ad5fb825b4f805a4731c7028cbcb2ca5e9dd904133df0cce7481c5961322" => :el_capitan
+    sha256 "ff7abda2674bdddfaf0360e9e223b2e70f3657ef4fdf24937d158e9601ff4912" => :x86_64_linux
   end
 
   depends_on "bash"
