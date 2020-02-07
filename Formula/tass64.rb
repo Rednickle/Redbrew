@@ -10,6 +10,7 @@ class Tass64 < Formula
     sha256 "a50a7694850bb4da92edf5aa79e509935ae16951f1e362c31ffe22f2c15e9858" => :mojave
     sha256 "db03b63e4f453c52de9b9b22c9596e8f3b45b71c1fcab8a039a71def6186906f" => :high_sierra
     sha256 "ec0c831022ccc4446820bc73076dbb3c1f17c80cdcb3af8c21a62b801f27561b" => :sierra
+    sha256 "240176cb05e57dd9b255bd37ebc559c24af5bf8aac1eb32330f724ab721d8b37" => :x86_64_linux
   end
 
   def install
