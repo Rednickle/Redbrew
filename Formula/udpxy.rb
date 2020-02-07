@@ -13,6 +13,7 @@ class Udpxy < Formula
     sha256 "46de795b585d88c658554fb943931885db85d75c7f838d9db6d11d98e46538d0" => :high_sierra
     sha256 "ee35787b2877b8ac1a9fa967e9f8fbf466f8c107e28cc61fee59c26aef9bf44d" => :sierra
     sha256 "0d4a899340bdee7f4497d68fe3bc59213ad83382d205aa08ada871d9d08c010d" => :el_capitan
+    sha256 "890386c37032bad683813bad94554b5ef47d5c59fa8e6af7f3d5136f2e02bd98" => :x86_64_linux
   end
 
   def install
