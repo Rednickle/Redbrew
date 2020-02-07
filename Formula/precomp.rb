@@ -11,6 +11,7 @@ class Precomp < Formula
     sha256 "7488435759867b2bb152cdd3ea78d2358659b34ff838e2cb97b54bd3a322147b" => :mojave
     sha256 "92824cc03c547d276436e1bdf55e905d402f77eeccf61f25a720d4315e5bd4cf" => :high_sierra
     sha256 "5d852d83cf57987a521471b74e450a65473ed20e32bb14e83b5d99e969e37458" => :sierra
+    sha256 "3783a6f19c30eef01d0946e9a3462f7f107a82ebc5e27f9448bbd6b0d6b29528" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
