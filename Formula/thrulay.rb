@@ -13,6 +13,7 @@ class Thrulay < Formula
     sha256 "74f52b9eaa39092931b68630eef408db6b53e1b0c538ec52950b89d0a4ea5563" => :el_capitan
     sha256 "f0a9bb5aa42ee3ce25965c50163e190ba13c220d91d4855fd38655cb91aae138" => :yosemite
     sha256 "558dc8e0634a811bab7dd9608dcb2e1ed95375e0cd3d37a4e3be6e9c30f94ed1" => :mavericks
+    sha256 "69b070c0ffcceebf433b3837d083be1d690aa77cd56427183e13fef4847109c5" => :x86_64_linux
   end
 
   def install
