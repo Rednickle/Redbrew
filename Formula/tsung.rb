@@ -13,6 +13,7 @@ class Tsung < Formula
     sha256 "64dba403e11577b28f3a80114158b96d8c74f58d09a4d9930801674031d4a7d9" => :high_sierra
     sha256 "e52abdb35507ceff03804d29a1ecf4e64d11e3345a9f095462cb653bba6cac6d" => :sierra
     sha256 "11f06a010b1a56d7a751bf5379d7d053c1befdf41f73aabeb79330761566724d" => :el_capitan
+    sha256 "d37fdb75dabcd7066eda5e2c77906c51281892b7495a7481b19a7f017d3461e5" => :x86_64_linux
   end
 
   depends_on "erlang"
