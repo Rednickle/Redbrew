@@ -13,6 +13,7 @@ class Postmark < Formula
     sha256 "784b46fe9883d27d347a44da73413ccf5c589088c0b57da577ebc1c79e64e1e6" => :el_capitan
     sha256 "7fb38c3960e124a836cdc48650fd5f4d1fc446897b590e0dd6b6b6b5cbdec522" => :yosemite
     sha256 "2ccb3812b371bc02e66d84ff853cb9684f8941485af3287424b4c183205bc649" => :mavericks
+    sha256 "1d7eb15c6a01d8bb40efdaeb2b228b8b7f6f816988d06a640d0dfaba97ffc925" => :x86_64_linux
   end
 
   def install
