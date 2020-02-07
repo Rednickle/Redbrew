@@ -10,6 +10,7 @@ class Pokerstove < Formula
     sha256 "60f469d6ec2b39eac5d801c7968f56b21ddd0464ebc074964f6dacb4cd151b74" => :mojave
     sha256 "49b7d8bcd4c54b42dbd311f94dcfb71ff04d3a1e273ecda213baaa562ad9b02b" => :high_sierra
     sha256 "c78b16c6cfd9981df7ba66dd367f3b25181350d317e0ec00704a3b837383a8e8" => :sierra
+    sha256 "887aaec60c630d764e42d96fc4517e8cd60c01529f0372317b31d794ab6bc426" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
