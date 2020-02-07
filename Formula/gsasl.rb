@@ -9,6 +9,7 @@ class Gsasl < Formula
     sha256 "964ad480f7fafd04051fe76a288b5f109766ae39e4329b00f1a268b5082b316e" => :catalina
     sha256 "ac8236d918eea76cb15f196f5a571aab775ba1381e33d2c222a98114a2d391f6" => :mojave
     sha256 "d79efee531f43ebd0019d68f2066fb02f0ab9009ea3b78bddda231b6ddda5a7a" => :high_sierra
+    sha256 "fbd676fc4cb9bb119eb13ab3cea43cf1ea2bd7548368a067cd9f3208a09d520f" => :x86_64_linux
   end
 
   depends_on "libgcrypt"
