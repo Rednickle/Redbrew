@@ -13,6 +13,7 @@ class Arss < Formula
     sha256 "5da45934b19d0cab02c809932fb8c5da3fd76d2f781bc9e2e7a98fa1825989eb" => :el_capitan
     sha256 "268225389842f4952424b17c7b94759b7a3d3009053b50718f1e4155b7eace86" => :yosemite
     sha256 "7159b6b56ad3878bc84b9fdf9d708f0828637db64ae12ef96f39820c2f22d061" => :mavericks
+    sha256 "7bc019e2012ca8365f5f72677e89d2e3ff80cd4e686b46710fdb2f2693d9c487" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
