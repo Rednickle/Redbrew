@@ -15,6 +15,7 @@ class Compface < Formula
     sha256 "50200eb6f7cb61be39420d2e127eb4e2af9391a514f7cfbd26fa9203ca137d21" => :el_capitan
     sha256 "4f7a202ead9c7b6ba1498be71c937500d64cad15ae451ec37c54a8fba70816a0" => :yosemite
     sha256 "3208feb3c0055906ee163662c0d5b5cbe561222128a0979f6e159110973ee3fa" => :mavericks
+    sha256 "6019f23941dfc2bb4d58a8abb7c83e2e2d9ca300793de5fc65f71a6ebc599115" => :x86_64_linux
   end
 
   def install
