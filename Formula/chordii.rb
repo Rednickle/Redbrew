@@ -12,6 +12,7 @@ class Chordii < Formula
     sha256 "5eed38c2781095a1ea852e8407d791ee09c87f06e8d596e49e3abb685f8234ad" => :sierra
     sha256 "99c022cf0741bca48fd78d1bc5b5f0488e720321133a1357412d2342527a1dd8" => :el_capitan
     sha256 "02cca7ec07939f7b29f1f2c844d250caaa9b7ba7d19e51f9e3eeb636d51b72d4" => :yosemite
+    sha256 "e677c12c855729ebb2b8c3454e5d4165728d1f0ca51c73137ca9a1bc69133111" => :x86_64_linux
   end
 
   def install
