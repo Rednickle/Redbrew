@@ -14,6 +14,7 @@ class Concurrencykit < Formula
     sha256 "1597c3fde162ccc3c8c729003da472f3f414509b18a2e64a1fade268ee8798e0" => :sierra
     sha256 "897667302b03467c291ff141082b21ec2f31fc82ef5940f791196a14cec24909" => :el_capitan
     sha256 "914d6e5afd3412f8892770f73233e1cca915b2a2315c811fc6a8d6fa5ab811ce" => :yosemite
+    sha256 "8c2629ba4c2b3985a0093ecae71bf9bed44bb4806f28f0c3b6c3c47bc894e1ef" => :x86_64_linux
   end
 
   def install
