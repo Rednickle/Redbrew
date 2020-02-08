@@ -14,6 +14,7 @@ class Dxflib < Formula
     sha256 "aff6c3f5e5bca552c5962e8ef5c43d1dd5fb0630d091e206a164e99ed8b70637" => :el_capitan
     sha256 "e883aa60c9baab1198671db178c0723e4331ed9fb65ad4d87ba72ca921d7d0b4" => :yosemite
     sha256 "0e591fba7cac298bf4afbb4d7f9895c10865998c6ae64ad4db31c7a33c3377cc" => :mavericks
+    sha256 "1d27d9e4512514a9f7e8decef99169b11f75acb96845e2cf59a1b8efef7ba3be" => :x86_64_linux
   end
 
   def install
