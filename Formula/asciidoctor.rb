@@ -12,6 +12,7 @@ class Asciidoctor < Formula
     sha256 "3a76289cb376285952c46a17ebc44c24f5c56bc6cc5219507321d9745963f23b" => :mojave
     sha256 "36b22c4bba82748fbd212c2bc0c4726aff9850addeea7b7df2ac707b0728034c" => :high_sierra
     sha256 "48f283b4f49a361a4a1aedc433996345edb49e8de0d039e9c35cadf0830e33b4" => :sierra
+    sha256 "82760f551a681b5a162b958aa802d8055e9637aaa815b79521aee6848cf44966" => :x86_64_linux
   end
 
   def install
