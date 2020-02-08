@@ -10,6 +10,7 @@ class Clzip < Formula
     sha256 "654a41ff519d4109d38f17c3fb321f130e60c9d72d137674f2dde9ef5cf129be" => :mojave
     sha256 "2a3bf6819a2fdbef49fa7bf1e1cea7ef6c6d090bf8fa787fe7b2a582b2631045" => :high_sierra
     sha256 "26dbdb3a397aa3f62acc15bbbf599a32e5b832564ea6ddc6e15327baac90b5ba" => :sierra
+    sha256 "81366015fe25b9f1c91d1b517cbe434e4bc5f1558c36b828f22c5e13a5f74f57" => :x86_64_linux
   end
 
   def install
