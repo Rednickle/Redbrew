@@ -13,6 +13,7 @@ class Dcfldd < Formula
     sha256 "0d5ff357d74fa90a97d80e202ddb5b5554bfec35efa2c4cb6e0f7e6dc9cf8ece" => :el_capitan
     sha256 "4731a1409199c0eb8d83f9f2f23106c1f71ccb1f8d8faf71a3fd691ba394791f" => :yosemite
     sha256 "5aeedb1165a426057dce57cf8b9b5b33db33f502d8cf2611276f2526bde1dda4" => :mavericks
+    sha256 "b7c9ef612fb36d98dd72de1602453bc739c5c0f51cb4a4e9309d5062a07f4286" => :x86_64_linux
   end
 
   def install
