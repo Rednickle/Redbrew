@@ -12,6 +12,7 @@ class Cweb < Formula
     sha256 "377a987173b8274ab97de6d8978816372d6f380a0fe4c9e0b09cfcd7d27ab66e" => :sierra
     sha256 "86ff3ceca459e8f087644249378a19a7f53f4ebbd5c74ddfbbe6ea795003a1a2" => :el_capitan
     sha256 "27c017af8f2e004888240d99a14b29ea9ac8d1fa5339d228b6a79ecda8031e4e" => :yosemite
+    sha256 "e0bd51f987885533c083d4c71995a5f6db5657d191cbf272045bae08b23c2fdd" => :x86_64_linux
   end
 
   def install
