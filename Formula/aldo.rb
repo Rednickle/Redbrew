@@ -14,6 +14,7 @@ class Aldo < Formula
     sha256 "0691c4b9b7ae5b6f104c5b5205f731d4348563b8a9a8c3631395f619ce00aabf" => :el_capitan
     sha256 "f5d55cefcfc65033f50bf2aedb30298db1540a8dd5f5c028feb3b4b1c7e5610b" => :yosemite
     sha256 "fea59d120862f6a04da3993dde1b2f6db60183fc6d7f90f77bb622efdf8a16ac" => :mavericks
+    sha256 "3101dd5c2d8b4646c2623fb0bcd72f1d7ca41346b201c799a90289db96649075" => :x86_64_linux
   end
 
   depends_on "libao"
