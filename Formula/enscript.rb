@@ -12,6 +12,7 @@ class Enscript < Formula
     sha256 "a8bbba8f7d64eed40dd59a9db980b049ec786e148d31a0aeb92556959b4ad0b0" => :mojave
     sha256 "00045dff3bdf7ac98a19236838d7af7101cc1fc002e55550312042bb2e4d7426" => :high_sierra
     sha256 "c14fad6cfd67fa782beb7a425eb03c3ed0b8090ed751c37f5f5ec426808df25c" => :sierra
+    sha256 "f0446241cc1d01788286f4e310935bb4b52e88ff728d84bc0d84aa5735410bd3" => :x86_64_linux
   end
 
   depends_on "gettext"
