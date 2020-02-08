@@ -9,6 +9,7 @@ class Ctl < Formula
     sha256 "e76d1577ae18eff19a8a4b82941ab42d1be88e0cede2e6f53daaf611363a1eee" => :catalina
     sha256 "42fae5bdcc9ebd6fdcf65048748659a0f5d27169396cf4dc2aef6668263ff8a4" => :mojave
     sha256 "1a63d9afedf0845adb9daf5b7700c5715217e477b99453dc02c50be0eb9e8565" => :high_sierra
+    sha256 "9608697ba24ceff0be99073fc7266bb19c85dcbd9b3d8ff0bf217c4da88f4c73" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
