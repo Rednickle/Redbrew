@@ -12,6 +12,7 @@ class AstrometryNet < Formula
     sha256 "cb0300becf79b6cfaed610b1a597aad73cc4a01dc7d35c860ada294933a52086" => :catalina
     sha256 "3cb90e5f8cf720be409d0b1e2562b5efaa874695c67331e48ac2add01ac3fd96" => :mojave
     sha256 "a85dc3730566d2da35afa3d7730c0db7f2c5d67a94d89f4a17f2d985a16529e2" => :high_sierra
+    sha256 "8c3900d4daefcdb4a7d41822652ae6c4bf00c3e90201fc811f4ecd33585737f1" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
