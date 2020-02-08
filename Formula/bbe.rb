@@ -13,6 +13,7 @@ class Bbe < Formula
     sha256 "d9c63d7b9657e6f1c0e53048564f275283177e3513e202a7a9cfc69571bb5008" => :el_capitan
     sha256 "ae0aa826fcd9f11e93428e9eaeedb14a56c193c861f09123999a8ba0f3d7f9cd" => :yosemite
     sha256 "6b7c4c2c05ab444212260dfef6b2ab2ed7e9230844007651217259d1f957ed02" => :mavericks
+    sha256 "ab60278e8805481ca3a130113a209d80fa06df1069af1f3c750ded36844b3d74" => :x86_64_linux
   end
 
   def install
