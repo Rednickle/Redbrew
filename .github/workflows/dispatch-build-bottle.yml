@@ -8,6 +8,8 @@ jobs:
     container:
       image: homebrew/brew
     steps:
+      - name: ${{github.event.client_payload.formula}}
+        run: echo
       - name: Print details
         run: |
           echo formula=${{github.event.client_payload.formula}}
