@@ -13,6 +13,7 @@ class Diction < Formula
     sha256 "858b8312ef527a7745a02b3bf40cd483c0212216e3342ac7eaddbfe6045893dd" => :el_capitan
     sha256 "ce2b0d6b0f7184596753de94a3cbd171f5236c947f47536d3bf5be806c8ef804" => :yosemite
     sha256 "b993bef13629751dc5ac23a38e67ea8fdce3e75f0d96585dc71508543e099f0e" => :mavericks
+    sha256 "b4aae6928c07ee315dc2f01803d9e57b81efaa1eaba626b6a71650db7d6ea525" => :x86_64_linux
   end
 
   def install
