@@ -12,6 +12,7 @@ class Dylibbundler < Formula
     sha256 "f2554553b0c00165394e41ade50712f490331d7bf084792abc2cb4f12ae1164e" => :mojave
     sha256 "60b4e47bfbb3450f6901e6c104d37530940e9cc22abacaacbe37eb4539b820c6" => :high_sierra
     sha256 "c8f470a6e3c0c5eaf632dd384f5098f0e59f60ab2c873482424f7c6729a4fe07" => :sierra
+    sha256 "2d60ed35ec5b1678f660e73cbca3c2c3dd5a6a663a9191ae7255c8138e1c8301" => :x86_64_linux
   end
 
   def install
