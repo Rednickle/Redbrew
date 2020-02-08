@@ -11,6 +11,7 @@ class Cntlm < Formula
     sha256 "97bf4da991ae873495d574675c4bca87dd184322ff6855818d19d6ef4eb28a0d" => :high_sierra
     sha256 "aee92f33d388d2c759c9ff881ebc1c9da35b2295d4050e489ebd72f48401a163" => :sierra
     sha256 "e41938ee125ee2ac25f72833b79f2c6326f421ac54f2bcf1ec46de6ebf59fa44" => :el_capitan
+    sha256 "866866cd8bf1bd0c86c69d88aaf21dec850c282dd0d9d3fbe5711289f5e701d1" => :x86_64_linux
   end
 
   def install
