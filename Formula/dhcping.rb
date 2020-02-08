@@ -14,6 +14,7 @@ class Dhcping < Formula
     sha256 "d3b03b1004d3a2d97b80fbbe9714bd29d006d9099a8f6baec343feb2833f3996" => :el_capitan
     sha256 "7741adb9bc166ee2450e521f7468e2b023632e737eb4da065848c5e87b6bd35a" => :yosemite
     sha256 "49206410d2fc5259798c2a76ee871df08c54772d1501d7ce1d29be652d600905" => :mavericks
+    sha256 "8e9caa0cf1255efac9ad5135ab1b0a7c82853f5f75877640b5d241bcd08e8f36" => :x86_64_linux
   end
 
   def install
