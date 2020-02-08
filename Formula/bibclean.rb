@@ -11,6 +11,7 @@ class Bibclean < Formula
     sha256 "635f879a68a634caf12bff8930a27c0427b37bfb8332b7febfce34e62bb892e7" => :catalina
     sha256 "f095e3e8a61f36dac9bff1687c7c11fddbe75c67f4dded0f82a6a95399d9a8c6" => :mojave
     sha256 "485c4641efc1716e3de1e7672f5b3a444a0ce7fb3eb516d16fa93292907f931d" => :high_sierra
+    sha256 "c8cbb65f5260f5bf826e4b4b77638446bb621d467732db053e1e21f9c9e4e69c" => :x86_64_linux
   end
 
   def install
