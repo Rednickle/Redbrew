@@ -10,6 +10,7 @@ class Dsh < Formula
     sha256 "9d694a476e5d74d7c3edbf284628e3f68c96c5a30c91b7fd3c624630805636ea" => :sierra
     sha256 "0b6a147235228473634c424e5e12671b6e9a4609ce6b732dd5ca9f56f335add5" => :el_capitan
     sha256 "fba83e836f8fa0ddca0a9c35f5f8781aabb0a3c7dfadc8eb6cd69ca1e2930cd0" => :yosemite
+    sha256 "af00cb33411711ee205dd780436403d2c5ce9841142641cb043db8e3d2b951e5" => :x86_64_linux
   end
 
   depends_on "libdshconfig"
