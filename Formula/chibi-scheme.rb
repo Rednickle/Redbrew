@@ -11,6 +11,7 @@ class ChibiScheme < Formula
     sha256 "532cd642ab70f1e37ed670206fab9828f0a0b3e93dc20fadb786305f50e80a19" => :high_sierra
     sha256 "c6efeccee97565c675a3f149855dd9550a6f8b7313694b52429e42e4cee9001d" => :sierra
     sha256 "283522e8939e5a2b724b476ce3a1830f4bb48e70b778ffef14030498cd877b16" => :el_capitan
+    sha256 "4d2a38a96fe30f90e1c07dc04c4be558a5ba551d65e5eb92f7ab1ec5459b034e" => :x86_64_linux
   end
 
   def install
