@@ -11,6 +11,7 @@ class Carla < Formula
     sha256 "145213abf29287173b35fb52a6f5cf81d57f5288c0b0c546d82564d14df15e22" => :catalina
     sha256 "bc4711cf9f85aa8a39621fc6230f7fde6c022be615fed5fdba7a45a4429ebada" => :mojave
     sha256 "eceaa5c7436b0f6d206fb40dedfe7cb36f2f83a3c8cd483723aa6db13a43ba50" => :high_sierra
+    sha256 "1faf76207b1f2381c857f2ad39429f0df223d2002d25501fa74a6c7653dbd06d" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
