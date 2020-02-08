@@ -13,6 +13,7 @@ class Dns2tcp < Formula
     sha256 "2cd5e77bec42f0f5e2715494c38eb8773ab30d53b140509d3f428d38890bf640" => :el_capitan
     sha256 "3e805ac804eea824b81bd15191b71cdc42d4ac779ebfc1d74d5de51500be18a5" => :yosemite
     sha256 "2f69efb2f705eb1514e8b46d7daa61379df3f4892cfe2d570c233a18ff109e7d" => :mavericks
+    sha256 "29555ccb8cdf2fba7bfc8807ff887b4494f4858c100248f0c680f4e6c0194702" => :x86_64_linux
   end
 
   def install
