@@ -13,6 +13,7 @@ class Connect < Formula
     sha256 "af244ce650bc1ebd50209b62d98c9780df9ff3b90b2b7496f7b74426f33349a6" => :el_capitan
     sha256 "1285bb995a9eed5ce5198da853bd33ce49c04ac0caa328b651be5d0421e784f4" => :yosemite
     sha256 "4f1dffe41e3164e12fe447c123e17a998cdc936d5dddb7cdc6195fb1b2293fcb" => :mavericks
+    sha256 "b163fb2c62a3efaaf4cf53e49c4fd3838f087680d53f8ff0b1c09b37437e8998" => :x86_64_linux
   end
 
   def install
