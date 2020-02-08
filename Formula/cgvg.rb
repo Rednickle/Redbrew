@@ -14,6 +14,7 @@ class Cgvg < Formula
     sha256 "a8232322755cb4c369193dca37fecb968ff689c6463611680e12f216f46507c4" => :el_capitan
     sha256 "de0c8b890aa68670097790093fdceccfe1d69598c18ea5385069efc2f73a3c5d" => :yosemite
     sha256 "d05cafffec1008fff858f9c0210d37d4d081aa34d8a490b968a8b824866a69be" => :mavericks
+    sha256 "a9fabe57878811418054600d055d15f12daa8a845f577fecea291d1306ddd63d" => :x86_64_linux
   end
 
   def install
