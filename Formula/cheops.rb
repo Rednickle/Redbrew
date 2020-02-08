@@ -13,6 +13,7 @@ class Cheops < Formula
     sha256 "f6087558b906474548d121bf3e745a7291dbc307d0c9ef16b3b6edd92d9dc830" => :sierra
     sha256 "3ed8f3d4920c6c44b4d25f16402564db5639acb1e3f104329f244cd52051a9f6" => :el_capitan
     sha256 "de719231c43b1494c0a77fe0ef97868399bd67e3c3386fecfd6564f26f4acbdf" => :yosemite
+    sha256 "eaf5dea55f884df12d85f17d3324013999917660e20cb4e73ee993d3f1daf6d8" => :x86_64_linux
   end
 
   def install
