@@ -13,6 +13,7 @@ class Base64 < Formula
     sha256 "0ab522634adf5c9eefb08c11d51d2b6e0477d8ea607afdb8eefe204de764f180" => :el_capitan
     sha256 "5681332029a2ed1fe1272b2ef9877a6348501897822c6a8955b26bb904426b1a" => :yosemite
     sha256 "42e0864be73790c541237c3a2d41183cf1baacad346cb16c97bd3576f5f50cfc" => :mavericks
+    sha256 "9a9ce00338cde1af65b9283cc9893621c645bf32307eae5f3cf6e5f3e88efdce" => :x86_64_linux
   end
 
   def install
