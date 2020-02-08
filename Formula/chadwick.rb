@@ -13,6 +13,7 @@ class Chadwick < Formula
     sha256 "9b62dbf5675819d3ba2f770ab04086702d22054133c37096582a744624c41fce" => :el_capitan
     sha256 "3975fe87dde078bf3fe1bfa23738e81dc2da185f8ea021a536e653749e33f944" => :yosemite
     sha256 "f1d8a2d60be50146451c1581e536e5f22929c8846d8c6e625ee9ee2910348a35" => :mavericks
+    sha256 "15a66ffd85507cd7c27779c4fb1ac7964c92c86ebcba7f6d69b50d3768da863c" => :x86_64_linux
   end
 
   def install
