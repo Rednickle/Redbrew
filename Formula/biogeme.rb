@@ -11,6 +11,7 @@ class Biogeme < Formula
     sha256 "669b97da46ec4e508169b764b6c801682f9282702ec6f17d32f9e4b7426cf8dc" => :mojave
     sha256 "b90e3f0d203a5ad33d2ad1f70e12503a93784bb4a97d78b284c0d4c746666ea5" => :high_sierra
     sha256 "cad38740685b800f07bece9dd13238b900427155697582fc689bd3eee42e8c38" => :sierra
+    sha256 "94f0cd9214a8a0ace8581f120d3bee4405397457ac980e2ce8247e17910a105e" => :x86_64_linux
   end
 
   depends_on "gtkmm3"
