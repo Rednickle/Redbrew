@@ -11,6 +11,7 @@ class Blitz < Formula
     sha256 "1d88c433d1c5dc863d670358624cc3d733f042cdb052848c673d5eafa8a6dc33" => :mojave
     sha256 "1fbcdb2453e10ef03721f965050244519743a6161dfc581bda663597ecf44595" => :high_sierra
     sha256 "b676b24071752779faadf53d71b53b0c632b8ba62d1cd7c1f90d40ee5b13a85b" => :sierra
+    sha256 "6bbf27a02ca350fcf38b5a25469d725afb8033b53f16434e9de37ddc717efed4" => :x86_64_linux
   end
 
   head do
