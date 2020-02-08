@@ -13,6 +13,7 @@ class Corkscrew < Formula
     sha256 "f7e4e63df01aa33a6518f4f6c2c0ccbb0c7b8aaca95052d4aa827b5e56ed8e5c" => :el_capitan
     sha256 "5a0916aa242a22808bbbb652664f1e44620c1c78b896982f67c9a5a1b85a5efc" => :yosemite
     sha256 "79ca3f19c2a8df1cd7b43410ab600d32c4fc7038f99998acb656e5cc61807f25" => :mavericks
+    sha256 "722088638812e2a57b6db3f78697f0f0b7c823281a9328c1cc92fb608cf2eb58" => :x86_64_linux
   end
 
   depends_on "libtool" => :build
