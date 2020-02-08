@@ -13,6 +13,7 @@ class Blitzwave < Formula
     sha256 "be9ba4deb07a468b23f430fe2f0896206b120f70e07f94d48267448c0524d3bc" => :el_capitan
     sha256 "609c85eec329a8aa988a2b026522642f41b392039936661ce428d13887dfa84d" => :yosemite
     sha256 "af7d02c7520db927c0d835992719922753e89d26588a00a2a53601a1e5aabd8b" => :mavericks
+    sha256 "c1e0d672e0b49081bb7c4e96249b304063bd41067e1d5671ece8e8a7c3b711f9" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
