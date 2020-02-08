@@ -14,6 +14,7 @@ class ArpSk < Formula
     sha256 "5d112e8d54329bff104270b7ca27cd4884e48f8c47904bb5838a2e107c035736" => :el_capitan
     sha256 "11253608a659d16a179c9c7b25050989991a29a68c9c9b4647fe9614e191fcff" => :yosemite
     sha256 "cea3047a876b12520e9614be8cfcf09348a49522bb5c8bbb7d2c185950e4c08d" => :mavericks
+    sha256 "9cc9eb1a339643244e52746332ac44994fb8d0b64f88efcadcf9663985870d6f" => :x86_64_linux
   end
 
   depends_on "libnet"
