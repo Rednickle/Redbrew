@@ -13,6 +13,7 @@ class Bwctl < Formula
     sha256 "ac9e615919ebd84515022f9650f42194d9ad4b1c1f5f97509e1293962a96e943" => :el_capitan
     sha256 "c8890647536e60b3ed8599eb3239ee59fde0382e9df8b7585ee7eeb20275fc39" => :yosemite
     sha256 "f10efbf8f41f526130340cc6087ce3dfad83b71b69d21e0b01c11b3169d88bdd" => :mavericks
+    sha256 "383519f4d8559ac7869310563dad833cfac9721707b6a47e5e2e60094b8b8f43" => :x86_64_linux
   end
 
   depends_on "i2util" => :build
