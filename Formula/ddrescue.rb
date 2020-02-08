@@ -11,6 +11,7 @@ class Ddrescue < Formula
     sha256 "4607386b3581f9243aa870c58bd8be80a60dbd18bdbb6bd092685876b99849d7" => :mojave
     sha256 "ad2a428fe7506bb53bb7084dd4b69c5738dd8f3cce65d266082731439401462d" => :high_sierra
     sha256 "b417104d0741c312dbaa916711c1642b74fe3d846b3c57441a93bd264b4ef608" => :sierra
+    sha256 "fa2eae22da36a6bef21b0a18e6991d42c686839e4e78244fe0452235b77d9862" => :x86_64_linux
   end
 
   def install
