@@ -13,6 +13,7 @@ class Dupseek < Formula
     sha256 "576106465507f9281685d12dba4409e1b409f090fc6ac1397c92b5190a5416d4" => :el_capitan
     sha256 "ec38b1caa009ca1c33efe85eb1b00cd7e37f67f3cf43b547f889e39f5be4d28a" => :yosemite
     sha256 "ff34b6c5ac5fcf84bf532008fb5fd2b2cfd9db7736854efb09e451e54b370c37" => :mavericks
+    sha256 "a955e2e3cb7bd26091695842ff64e66bba4b03a6ead7b3647e5279fb3f5bcfd7" => :x86_64_linux
   end
 
   def install
