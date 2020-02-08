@@ -16,6 +16,7 @@ class Dirac < Formula
     sha256 "8f4414614755f863d3ba0f43d6415684fbc00976ae24c7e45c88fe736be918d2" => :el_capitan
     sha256 "1d3049d9dcdbd0116c65c54582601b20cdd17c8b89cf80e74efc79f71b641ca4" => :yosemite
     sha256 "e7c407545085631c27c77f2d15abe84b3cc0a3645cf5e538aa15f0aacfe6de50" => :mavericks
+    sha256 "bcf101614a66678b18f442ea650f3ee58a813a1a2d15cb1655da65608bd90d3d" => :x86_64_linux
   end
 
   # First two patches: the only two commits in the upstream repo not in 1.0.2
