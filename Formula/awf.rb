@@ -12,6 +12,7 @@ class Awf < Formula
     sha256 "b0290ffc5c750f924cbf96a2a5398215a41137a69211d262387789e399aba9d8" => :mojave
     sha256 "090ec40bbd96bea15714d411b9c89e6b06ca9723050252f00623b49c61da1497" => :high_sierra
     sha256 "417806f1ab0aa5d1c2e2e0302dd2c3c4cdaaf2957ac18fbfe1f9a2ced72947bd" => :sierra
+    sha256 "18e68a5fb538e601bd2d7d6485f82427cb8c8607028e8ebcac8174d7348b8f7b" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
