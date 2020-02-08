@@ -13,6 +13,7 @@ class C2048 < Formula
     sha256 "d2f33783cf7cd2ac69eaed113d940aca31e02e5863fcdb40e200e3fe9a4d0623" => :sierra
     sha256 "8f9e75196f87718be0c572f731cecba0c8cd4e8dc35f8b3027392cd6e1c45f5d" => :el_capitan
     sha256 "c06bde9e58788a1a4f16b6d0ace89be02cf07f86211e0c78af5fdaa7d70a3614" => :yosemite
+    sha256 "29b61ea85269a57e48f2399fc9e135d05830435461c4fc16bde7573899f1bf18" => :x86_64_linux
   end
 
   def install
