@@ -14,6 +14,7 @@ class Cbmbasic < Formula
     sha256 "92762d9b7f5f21190b98d23e7fedf787cccc14e1c82699b60036948beaf1e7d1" => :el_capitan
     sha256 "d7285a8376e20ac008e51814a97f155f8ac80ce94a809c953ee63932a1d2c1d7" => :yosemite
     sha256 "ffe1126f8e12f15471abadf280fa83b8e77770170749805a28fdaa1a1adf51b0" => :mavericks
+    sha256 "57872625bdd6d2e29e92686aa65efa7fce3991612851bc0d6edba4526dd82f72" => :x86_64_linux
   end
 
   def install
