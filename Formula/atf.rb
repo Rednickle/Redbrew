@@ -12,6 +12,7 @@ class Atf < Formula
     sha256 "74493d4b4868628a7a84338eb28ecfce8afdd896962f3ba632b1e785def48737" => :el_capitan
     sha256 "e4caa0498d0caf2e99e0eea9ae9269240e4f4a49a41f712cf6a730fab8d72672" => :yosemite
     sha256 "240443a1a96ba8ed51ac7b263749f69013f05d42eb84018824791e419a6d5e81" => :mavericks
+    sha256 "425b01c2d934a3dc46586d83a0e58ef07c6dc185733e7678c5be4844b82b9147" => :x86_64_linux
   end
 
   def install
