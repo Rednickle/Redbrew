@@ -13,6 +13,7 @@ class Cksfv < Formula
     sha256 "41d81d535cfa41b4eb03709e646b0bdc36a78f99c8e15746b7eb289a98afbb97" => :el_capitan
     sha256 "9885cadccdeec56d0f665bad80655cfba3397c3ff2958c7a44af514a69bc8114" => :yosemite
     sha256 "3838548d5febbed5d9db37e8634397a589bcec766ee5ec84949a17dae9b34cdd" => :mavericks
+    sha256 "5d651d6c6dda4c293b8cf1e56e647a86aac048ccc29b19c7c574c82c1bac23ba" => :x86_64_linux
   end
 
   def install
