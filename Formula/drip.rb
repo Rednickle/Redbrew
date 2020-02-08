@@ -13,6 +13,7 @@ class Drip < Formula
     sha256 "69a071055da45949c56df74c4959336f9511f863f447aed941a66547169f2c88" => :el_capitan
     sha256 "14711be9325c0b2df465197156b4b78bed673bf441011d0ce29d48a0c2ee0045" => :yosemite
     sha256 "69207c24aa1f8e6ba406e6cc3f811cd7000ee14c713cc32b49d72f2c76a702bc" => :mavericks
+    sha256 "048944c8240d219b4777e4f35bb7d456062042385e6b2a375f2d00d1b9d517f9" => :x86_64_linux
   end
 
   depends_on :java => "1.8"
