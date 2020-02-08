@@ -11,6 +11,7 @@ class Dwatch < Formula
     sha256 "e422496ef0cf4bed87d9a38475b392b98291077200da58978bed893f5a253fde" => :high_sierra
     sha256 "4778a3087b6ff2097975a9b552a2996c12b351ff8479d766b3a9ffca0b1075e1" => :sierra
     sha256 "937b2bdf39471f35f37fadccec316a1f719f51e9f47c6b2240cde6f5e3b948f3" => :el_capitan
+    sha256 "9ea9d28bca8fe529b6c16ef63a3671ad33ba702bb013c01a2c7f2949d769687b" => :x86_64_linux
   end
 
   def install
