@@ -13,6 +13,7 @@ class Daemon < Formula
     sha256 "ad4f8ad9e7deeb0039c6c603b0108fb6733abe425c49fa6344f762e26b49cf2d" => :el_capitan
     sha256 "f48000af3631f28d47d01d3d89a1f03e7c4f7eac4a81ab7db9c38a1ce9ff66cd" => :yosemite
     sha256 "09a420b59d2e5cbaf3073b2daf81d57d01c733b79a928bb58da6418de7f5bd3a" => :mavericks
+    sha256 "5b3c34a25d3a69f29dbdeebc15caea003778c939bc9dd3d1fd54ce3c7e80b581" => :x86_64_linux
   end
 
   # fixes for strlcpy/strlcat: https://trac.macports.org/ticket/42845
