@@ -13,6 +13,7 @@ class Cmuclmtk < Formula
     sha256 "c647327d709c3b4a93d5541f8b340d2726540c9efdcbc53d1124043c8c4989bd" => :el_capitan
     sha256 "320a3590af1e9a1bee6827eb71e4d91fb283952f178b7f0393406a120046d4ee" => :yosemite
     sha256 "37703a65f22b994f724e54ebcf19ab8204b6d7a27e17d176af13440f611642a3" => :mavericks
+    sha256 "4daeffb741d35393fc5a8d66a2b92ed24e52700d995167b9e113f6cab16183e0" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
