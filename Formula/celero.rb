@@ -9,6 +9,7 @@ class Celero < Formula
     sha256 "50180fabca883914fd2b120cee3258ef4a58015287babb1883274c03d5be0fa6" => :catalina
     sha256 "2ae8505c1415e5a9ca3b9d2d80a4f28516f311c755a0cbe809bc45b521a0169b" => :mojave
     sha256 "c73b3bcf8fc8dfcb1df8367febe579c11b60067550500a5e94ec1ef7f279882c" => :high_sierra
+    sha256 "7b6c149c6ad85d5e22bcb18a22f1cea31ca1c27a2dbf0d9b2747c9ad59fbd918" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
