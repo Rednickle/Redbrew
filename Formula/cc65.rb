@@ -10,6 +10,7 @@ class Cc65 < Formula
     sha256 "a84e72ecee825a41a9614a7563df24418d5173ff13ff767adf2a924e28b00fcb" => :mojave
     sha256 "2fecec53d0f65fc2ae409fc29516207cf11377e6726574087da4f06502e10770" => :high_sierra
     sha256 "e4bf2981ea6489e414bf2166f6e591612b2e589aa30a3beaab1fd0d7a2ca1207" => :sierra
+    sha256 "270039e4dbd2433378c9a1fbd8e2f50d7ba3a05665650f01d59db44e08ba1b95" => :x86_64_linux
   end
 
   conflicts_with "grc", :because => "both install `grc` binaries"
