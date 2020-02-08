@@ -11,6 +11,7 @@ class ChrubyFish < Formula
     sha256 "ba0ca145d65c92efa34f257219a96d94c4a82800ac5e37b71e3208ed61a82293" => :mojave
     sha256 "1ebd01df8a1edd51c2b73568c1db57b38a672b530fd0a55d063595370d0c301d" => :high_sierra
     sha256 "1ebd01df8a1edd51c2b73568c1db57b38a672b530fd0a55d063595370d0c301d" => :sierra
+    sha256 "09b1fe583b6d4d1c4c0162cbecd82e99deb3ca3a623fdec950680fd7d882e66d" => :x86_64_linux
   end
 
   depends_on "chruby"
