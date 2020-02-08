@@ -12,6 +12,7 @@ class Bsdconv < Formula
     sha256 "9afd5dd285b98bf656bbd0e29fa3594128a312e525e079e4348b1a706e16b16a" => :sierra
     sha256 "565a934e96be6ef7726d1c03dbd6eec63ac5ad82678192b544cfe2bff706b1b7" => :el_capitan
     sha256 "ccb11937d94df29b9434925b9416291f9d927c2e4669fb39cad96c47912662e5" => :yosemite
+    sha256 "64f6a3c295d2ef87edf8342ff0022c3c66f34fc1164c09bfd60f4234b1668fd0" => :x86_64_linux
   end
 
   def install
