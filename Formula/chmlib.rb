@@ -15,6 +15,7 @@ class Chmlib < Formula
     sha256 "6b834a6ae6e95f8daaa726fd6ae1a2d3e60335f98862fea9e790c24e5a6411d1" => :el_capitan
     sha256 "bdc19058cbf1690e960bd88d06f6c8b2ff47f8b743947eb82c259ba394881a65" => :yosemite
     sha256 "366c564a2cd0185d84ff6892f5d773f80ddee50f6db39e763060b3ebb31413b3" => :mavericks
+    sha256 "05d5aa707c42b2a693b39a0817744d2383450b6303c2dd3de8b8a89f56e6012d" => :x86_64_linux
   end
 
   def install
