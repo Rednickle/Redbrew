@@ -9,6 +9,7 @@ class Bitwise < Formula
     sha256 "d7d90a1402b7b87e1989b2504e6c55ea5bea27282f4bf909b6248aac2d5263cd" => :catalina
     sha256 "95674ac94d09b5502765956cc94b5f1a9687f22f145e2757bd708f7f7613f913" => :mojave
     sha256 "e5e76e2ec3f762a6c79b52552fb5513bc891e55831aa75806f61b75834369d6d" => :high_sierra
+    sha256 "dd29287d00806ef80327a226de16d1721c442c74b5cd7962fd0c29ed8ba62509" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
