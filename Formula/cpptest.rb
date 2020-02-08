@@ -14,6 +14,7 @@ class Cpptest < Formula
     sha256 "216442c844ddb2886e6877cd129fda3c589dadf8ac07572e6aa05c1c3cff4669" => :el_capitan
     sha256 "e6b364e203c882063362e4a0ef6e6482420ab57b1ec24699b6da31b50f792f14" => :yosemite
     sha256 "c1f68d40bd58366d28846395169868d86a012b8d65473aa8845401619052d568" => :mavericks
+    sha256 "54b40046db8a9bc1fcb1470f87d6430e2c65e2162c50e6281bd3bc66635f12f9" => :x86_64_linux
   end
 
   def install
