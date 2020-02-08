@@ -12,6 +12,7 @@ class Cxxtest < Formula
     sha256 "0c97b74f6bc2cee5e0683fcec6bd07da544b5f3e9cd25b9631b6291b86490392" => :mojave
     sha256 "4ef0fbb78839714da6108883475dce9536df2e59dd9dc7bf42677a86d00f4356" => :high_sierra
     sha256 "4ef0fbb78839714da6108883475dce9536df2e59dd9dc7bf42677a86d00f4356" => :sierra
+    sha256 "b916f094076a012b6bfbb75c72e40d2c55f2b747089ef20d7f3e5db6c5e9c33c" => :x86_64_linux
   end
 
   depends_on "python"
