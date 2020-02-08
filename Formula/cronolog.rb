@@ -15,6 +15,7 @@ class Cronolog < Formula
     sha256 "964df15660a5c0ec25bedec56aeb128ae93794a8ad721c1c600e377df9be1c2d" => :el_capitan
     sha256 "f3f485105f7466422a507bafef3acfd741f18b8ab26438c267d10dbf4701282e" => :yosemite
     sha256 "288bcd1671de08659b7d2f67141aa5178d797870597837c569dccfaae460afd8" => :mavericks
+    sha256 "aa50fabd761e781ea3ca94c6a2bd28cbeed0e05260beb3f7e02c57fa82c603bd" => :x86_64_linux
   end
 
   def install
