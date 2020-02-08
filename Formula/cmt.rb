@@ -13,6 +13,7 @@ class Cmt < Formula
     sha256 "000379960e116751b0b65db8323729cde8e4b524f2ec956246a494f2c4a1e676" => :catalina
     sha256 "9119f6838dd3172aae1e145f43dc34f78ab4d8f8e8e6c72927d404211e73ae2b" => :mojave
     sha256 "abd7fab4e32cdc50f8ec4c84c84bb8cb0001b21a3e4199dcb848fc3270298297" => :high_sierra
+    sha256 "31bed40539ec9995a8e84d53a07fc989c4f6609a7af02480f6c4572da00a481f" => :x86_64_linux
   end
 
   depends_on "cabal-install" => :build
