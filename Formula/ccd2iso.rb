@@ -13,6 +13,7 @@ class Ccd2iso < Formula
     sha256 "e74b2779ef3d832bc899422285c2d03ea33aa6ab979ca835914343999b444671" => :el_capitan
     sha256 "020f198fa4476dc640fa14e8efa7ad04985143e7007c45610b890bdc7db47599" => :yosemite
     sha256 "46facd34e7bbf203fe76dcd6e99bcf066eb245992aef01f1d703a9ce7a69cac3" => :mavericks
+    sha256 "df95c15a655c42ab3e041f2b4782b90e783f4ad341108e4866f8a3f03adf87f2" => :x86_64_linux
   end
 
   def install
