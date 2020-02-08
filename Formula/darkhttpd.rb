@@ -13,6 +13,7 @@ class Darkhttpd < Formula
     sha256 "cf8e5885072baed885238dc1a6b23466f80d96a32eb48d5f61f3b9d519df88b5" => :el_capitan
     sha256 "2fc16040a837b47ac947b8462f93530a387f9db0e0d6a594e4b7dba3437e6e11" => :yosemite
     sha256 "0ac0b5be3f8e944981806ed255740a6feaee64cd14d78d817e8c5a75391d9837" => :mavericks
+    sha256 "9b1b5edd27b676c8f32e1d4f6fc28e1850e9a1725dc02754e4c47a781191943e" => :x86_64_linux
   end
 
   def install
