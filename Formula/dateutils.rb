@@ -9,6 +9,7 @@ class Dateutils < Formula
     sha256 "14c0bba42d725f246b116e5818ee421b8747b605aa4cc02dfaf00c863f821173" => :mojave
     sha256 "efcf8e592b8a3f76d73bcc0b4478323631f16554003c84ada8af2f92e5592dbc" => :high_sierra
     sha256 "c612ebbb2baffa30db4c1ba51afb635e406acd29cb0afec3329efbdf6dd419ae" => :sierra
+    sha256 "12f10c4a8af2d7765c8e6a6c576e3ffc3e0fda4e562f5f5bc0f368c9a2ff449a" => :x86_64_linux
   end
 
   head do
