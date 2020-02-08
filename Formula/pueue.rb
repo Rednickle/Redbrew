@@ -54,7 +54,7 @@ class Pueue < Formula
   end
 
   test do
-    mkdir testpath/"Library/Preferences"
+    mkdir OS.mac? ? testpath/"Library/Preferences" : testpath/".config"
 
     begin
       pid = fork do
