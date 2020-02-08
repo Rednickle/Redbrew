@@ -14,6 +14,7 @@ class Blazeblogger < Formula
     sha256 "0d6bf439fa6f880cb9457581da66082f49f514f8b0fd4b57ac81180948aaa5e1" => :el_capitan
     sha256 "bac92237da25ffb0b9b31bd78fea353bf717cfb6f1381fbb0df333f555fbab91" => :yosemite
     sha256 "d48ad0f2ce8de2cf98f111a491e47136debbd0e585ff20b9978eb00349e454b3" => :mavericks
+    sha256 "2899ae65143abb4b3408f02950b73824a6d7f1c436efa6a819da9b5c0ec873d1" => :x86_64_linux
   end
 
   def install
