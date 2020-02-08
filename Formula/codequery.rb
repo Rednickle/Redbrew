@@ -11,6 +11,7 @@ class Codequery < Formula
     sha256 "fe67cc5adc84bb2558ad4e67c5b02bfba8b80f3a18bc036801e4c1e1d81c96eb" => :high_sierra
     sha256 "21a673797bdc3ff9c7453930499e7e29e7f1320eb4dbddec67f7127dee34a989" => :sierra
     sha256 "15e18f6bb87bd489b33f4322af5d6351e28ec805aef291d6c0df50d80fb7958d" => :el_capitan
+    sha256 "3829cf837bafa41442f8ad988acfc256a19b76cd3820e483187794e9e1d2906d" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
