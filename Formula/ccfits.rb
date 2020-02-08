@@ -10,6 +10,7 @@ class Ccfits < Formula
     sha256 "091f16fb6eb763125d88394d1baa092d005fe86723af6b0b2e0a04377f61293c" => :catalina
     sha256 "b22ef6deaa692874052618ade2477edae7bfb364c7fc99a840cc5907663165e9" => :mojave
     sha256 "aa4b8ed8430b08cc627e54c938901b85967e0050e61c359d31c18617092590a9" => :high_sierra
+    sha256 "f4aa05309dc94b7ecbcf2f718919a5a53ec31b4caa4dc59bd35acaf1a32488a4" => :x86_64_linux
   end
 
   depends_on "cfitsio"
