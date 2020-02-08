@@ -9,6 +9,7 @@ class Clp < Formula
     sha256 "d1a33cab0f8dcf831ac90298ed32f654c421c050cdd896ae1fb668b918c3a2de" => :catalina
     sha256 "289e8a0a562e795ef4c88395ea41098d62965f474249839bd53c8aa7f14f4ef8" => :mojave
     sha256 "26e2a26ff6c1212ca867fd41bfb827969e414e540b5bbe2f28a034ea9e32293b" => :high_sierra
+    sha256 "1814617d6733a59773a256cfd525df78bc4a21733dee350212c474a2b92989a8" => :x86_64_linux
   end
 
   depends_on "pkg-config" => [:build, :test]
