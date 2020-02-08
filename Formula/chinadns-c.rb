@@ -13,6 +13,7 @@ class ChinadnsC < Formula
     sha256 "a620bce8421a9773233c51886c6845995569a1fda80e252efa86f6271c1d274c" => :el_capitan
     sha256 "329351a4f82e4f871cbc2b384902b0c84040bd1df222970d67be7513bbead207" => :yosemite
     sha256 "4266825a8ecbb6a84d459b41465fe9318a918b171880ac8ddfd8bdf3e37573d1" => :mavericks
+    sha256 "0ae6ba84c62433d9152027bd8ba7ed3d463db892624f07ec38955f5a986d080b" => :x86_64_linux
   end
 
   head do
