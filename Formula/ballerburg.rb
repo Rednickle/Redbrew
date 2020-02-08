@@ -13,6 +13,7 @@ class Ballerburg < Formula
     sha256 "fa38cec8799ff4dcd33735146d4d93c986eb42c72bf6a9f1b3bd997acb5613c1" => :sierra
     sha256 "314236d328ffdbaa4ddbcfbe38566ab0669df3935a9a051d3366a8d0e87d3de9" => :el_capitan
     sha256 "46502878f24bf976bc5798ff74c145059f642ca2e9cb9d8467e296ad5b582f00" => :yosemite
+    sha256 "b42b2c1998ea713ceadebf3787a2752e4ef1277b6a607adc5c2bb63b464b1ca0" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
