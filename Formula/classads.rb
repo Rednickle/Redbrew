@@ -14,6 +14,7 @@ class Classads < Formula
     sha256 "52bd3bb21e7a2491ad96f01988b802ab183c5e93d3123e9cc57b75e1a0076171" => :el_capitan
     sha256 "2ec01b2285391e8c1a696c783db281dc69c05e0f2c483792129799b8ad304d7e" => :yosemite
     sha256 "b2ba8857a9e07ece0c19ac04a78893322bb22b361e28d5eb23abfa2515e965c9" => :mavericks
+    sha256 "909635d1a430caa525b45dc818b110296da7c70d5e54c0a549156e5b8a532a33" => :x86_64_linux
   end
 
   depends_on "pcre"
