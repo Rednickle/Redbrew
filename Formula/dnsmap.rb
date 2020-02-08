@@ -13,6 +13,7 @@ class Dnsmap < Formula
     sha256 "57d5f7ea4a8a73b454bbc60e38fdb9a55e07c2d97f0b5acf38db0408e83b197b" => :el_capitan
     sha256 "6ede00304c268f3a0013f8aa708f5bfc314acbac1db7a3547e8381dc620b18eb" => :yosemite
     sha256 "8ed334077b5c440a7e7015e0b178f0e9500d816d6ee99d00e81a532b8e028e26" => :mavericks
+    sha256 "f3209acb66a74659763a47b9f921ee423040b8f090a5fc67a7037547c652e057" => :x86_64_linux
   end
 
   def install
