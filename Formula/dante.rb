@@ -11,6 +11,7 @@ class Dante < Formula
     sha256 "26eb48c9eda005d8486f2dddee23420047a326f82638b71c5aa2f7d28f3ce402" => :mojave
     sha256 "6a234a72eb6a8bc9439a9a45129ca2214151dee7b63c1ab76c7b5831bda8d1ea" => :high_sierra
     sha256 "5d4fb552b729372afc0b5450af162d9b49984c64e28d7f1825fd879b4cf3bdf7" => :sierra
+    sha256 "8517c1b876d52e5e50025c37e160886dfefc9fbf2ea2e161662f869cbcbb8af8" => :x86_64_linux
   end
 
   def install
