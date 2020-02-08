@@ -12,6 +12,7 @@ class Apib < Formula
     sha256 "ca59f86634b3b9282496f95b432aa9e0c9924eb189c1ec2965d427edac8bab4e" => :mojave
     sha256 "f2adc68de1b28e305ad7530ec097425bcf75beb70d6dd820f025cabcbeb54585" => :high_sierra
     sha256 "bbe9bc25a8584f163347662675d78b69cdfaac495be5f2fa026dfca112f8d4a4" => :sierra
+    sha256 "df07adef56e3dd926dcb95ad135abf4b55200c9ff59470345a1fc06d7ea3b6b4" => :x86_64_linux
   end
 
   depends_on "apr"
