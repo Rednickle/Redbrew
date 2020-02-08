@@ -9,6 +9,7 @@ class Bogofilter < Formula
     sha256 "2f2d4c414683f922e687d054e71619a0455560aac2522484132099fbddcc6a77" => :catalina
     sha256 "d7df5e0d29f4fcbc9eafc129ddfd993dc785ee3a4bf79b70b0dce9b5f31f7be4" => :mojave
     sha256 "c7998fa1651590e6aaf27f8fe014a7b0e305a48a02de4cdcb9ba53f1c84bd1e7" => :high_sierra
+    sha256 "215db90cbfc337c7c96e5bee3f2848b49798f6795ac0f33234ab32e366c67b55" => :x86_64_linux
   end
 
   depends_on "berkeley-db"
