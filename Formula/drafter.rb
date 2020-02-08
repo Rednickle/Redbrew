@@ -10,6 +10,7 @@ class Drafter < Formula
     sha256 "4cbb74b2c3398833b374c27fe5490386239ff6717436a1737def8b20d9e74ae9" => :catalina
     sha256 "333b8f9b68f883f9aa75b96ec2547b5149bcf6e963f03f06d38c262e180ff503" => :mojave
     sha256 "36c0c14b26b458caa49e41e20d6005a5fbbdac577d3ae80b1ed417ab5625975e" => :high_sierra
+    sha256 "5c5266eaec7842ef2528553aa1fb99efd51e4d29c5ff35ebab332b691db81d06" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
