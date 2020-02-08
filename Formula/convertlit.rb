@@ -13,6 +13,7 @@ class Convertlit < Formula
     sha256 "66b05c2c6371f16620c82b31b507413556b511b859644322c65f4ceea4a83a64" => :el_capitan
     sha256 "024a9fdb4b58a3e04c12ec300facbac636b3510f8726726c4be93c60cf272ab1" => :yosemite
     sha256 "366ce6afb71223d3f14939c5d4d382a90cf56df7920cb41dca0eeae72e809702" => :mavericks
+    sha256 "bd8d9edf3ca47dcc76718f182d4c9e1114f45a7d8d21b05721a2828cfbae63d2" => :x86_64_linux
   end
 
   depends_on "libtommath"
