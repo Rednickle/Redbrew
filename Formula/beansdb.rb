@@ -13,6 +13,7 @@ class Beansdb < Formula
     sha256 "0c93cb38fd445baab2c301b3cb76ce0b6c7af9d3e879113d4c78bf761756bc08" => :sierra
     sha256 "5bb5311949ba21cde40848d1c1f58cf3317d8e8d604d3d0590dab2e9953a5ece" => :el_capitan
     sha256 "e3c0bfa02e012ef1b0935fe13be8286dce080e8898b6519f5bf8c886ea77b9bc" => :yosemite
+    sha256 "471954afefb48115bc2e42ec8ab7a55b18c0fc7816b265c3edadd0a00140db60" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
