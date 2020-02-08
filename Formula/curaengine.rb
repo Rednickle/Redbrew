@@ -11,6 +11,7 @@ class Curaengine < Formula
     sha256 "03459dc8fd06bc5522b8d0084ac2dd05f238316f009e8fa792f5e55218f5852e" => :mojave
     sha256 "b29d96d522832565490392c1945bec5be2fe5b48f2331fd121f706e06d7b6912" => :high_sierra
     sha256 "2f2c5d334057a9e99ef969f7f2cb66d357ab0c98e501a22103b4c53faa0ca8e8" => :sierra
+    sha256 "2623bf95263b391fd246e6b2b812f66641f322537e62166057e3c19c999438cb" => :x86_64_linux
   end
 
   def install
