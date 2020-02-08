@@ -13,6 +13,7 @@ class Bsdsfv < Formula
     sha256 "404ec03e044a019a487adfab90012a29a6655fe67b907d9b4e9a46d4f6c57a9b" => :el_capitan
     sha256 "fd15cb46a9499bcd1182e8fe4a6ae1de9fb77ced85186601ef6c6579a22d9c51" => :yosemite
     sha256 "7d0590952682b7baf619122a2942dacbf7ed455263c49b0314a85be7d51b1dc1" => :mavericks
+    sha256 "0af32dda6454f7bed3a7c476ac500f8826dc9ab48b56604205245f1ea491ace6" => :x86_64_linux
   end
 
   # bug report:
