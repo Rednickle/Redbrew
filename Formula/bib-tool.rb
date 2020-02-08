@@ -10,6 +10,7 @@ class BibTool < Formula
     sha256 "b09a0c04b6fdc9e70b3d83c6eb127ea4db163ee85938f26a4ad77070dc69d335" => :catalina
     sha256 "bf35f661105cc65adb12ab58a17f722c7152a97bc7e83d2f9b8cc0e969390389" => :mojave
     sha256 "b6b4a3254167a377d45193b39b3b9e90f678f43f0744b3ff622e5cd7b7ecf694" => :high_sierra
+    sha256 "8d360fc663f948f39b3e04672b371afa2290cf366cdc60f2cdf90563c7f1d18e" => :x86_64_linux
   end
 
   def install
