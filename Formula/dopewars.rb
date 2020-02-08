@@ -10,6 +10,7 @@ class Dopewars < Formula
     sha256 "8bb4cbd11a3db0bbdbdd283d531742c9485dc1d86b57b9986f3b86da01947807" => :mojave
     sha256 "3808bf43bb96b796624f8ffb855b176ea2a908f3b9477fd7d07a1f960dff0ef2" => :high_sierra
     sha256 "db1c91122cf53f166a5811595bbf84b63227818ca11877b78a21592686a975f2" => :sierra
+    sha256 "dfee1dc909fc4b49a18c62e358bc652c661bb9c0e614643cbc53e2760b75d34e" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
