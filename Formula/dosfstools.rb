@@ -20,6 +20,7 @@ class Dosfstools < Formula
     sha256 "a12605487c15e462c7ae652bb3f1587d254fc0001bfbae9261903c9f85542c2e" => :mojave
     sha256 "44d8a1baa92d553ec9c24c1152c875b0f7d3730146d3decf4cdfa8f7b1516434" => :high_sierra
     sha256 "b14dc5d79955f0ee586a33c7e265df2def55b1c64b7eb123539fce827cdeb6ec" => :sierra
+    sha256 "66d79cb2d7855f2005f138e92b15d5120ae057379afce31fb889e27251ae4006" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
