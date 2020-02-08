@@ -14,6 +14,7 @@ class Cmockery2 < Formula
     sha256 "61b64aeaf89d205742bbb254148502cd2df83bcf05d20377bdce8637f275bee5" => :el_capitan
     sha256 "ea94ba8420bd5bc01412b52ce9c03b392b933f279d1bce7a8ff8f7502bc83f88" => :yosemite
     sha256 "ce0cc1a3151655d4bb970ca92c87c5ebb5ed660c3c445e763edc4b835ca7e9a6" => :mavericks
+    sha256 "665950abd92ba0f6e67c6b959d0ec246608c7950084e2053aa2d94ba171ac435" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
