@@ -14,6 +14,7 @@ class Libvbucket < Formula
     sha256 "cc3333f73161a96deb410ae0b8185a74e0c2a5bc8e62018929b17efe6ef732b8" => :el_capitan
     sha256 "dd69ae3261c461b15bd29e435ab95496441dfde4535cb7d6925527cdfa8c64dd" => :yosemite
     sha256 "920f0656e62f10e6fc6649b0edc4a6f46dc196f931b7c14833608d9e926a4d09" => :mavericks
+    sha256 "d74034d12d03175501a165f0cb1dacb10544be8a7d6a1914ba09bf490e24b566" => :x86_64_linux
   end
 
   def install
