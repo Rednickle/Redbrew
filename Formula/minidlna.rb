@@ -12,6 +12,7 @@ class Minidlna < Formula
     sha256 "ed1b022aaea8beed91a26b9907c8253da9c5c441fa52482ae0255571cd1744ad" => :high_sierra
     sha256 "5145b3bae1ebb4add544bc8877668a5cea2e80a380a5a0beaba94a6e88cbf33c" => :sierra
     sha256 "16fb753050582f030bcc16de31ccac3faa74f5ada3d1bed4d17895dd8628f772" => :el_capitan
+    sha256 "40a589e25fada104961fa72f527635235070630a87b2762a7c31b4b78c4a5d71" => :x86_64_linux
   end
 
   head do
