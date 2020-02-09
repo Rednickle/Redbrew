@@ -12,6 +12,7 @@ class Mpg321 < Formula
     sha256 "6c8921b0703d2952b6038ce7097957c3c2bfe9b59c2d41b5caddc268e96b245d" => :el_capitan
     sha256 "48b9ac480d966fc344c4867f3dcef7cd59be1440b11fe7d8280d51134a881f78" => :yosemite
     sha256 "bf86f590672fdb27f6fc92c706db1bfcb2ca0a1e35129c5435821640a11a422f" => :mavericks
+    sha256 "232cc9ebd436ec387104a7645e9523b1aff0adb5e624cd9dda0560997967c642" => :x86_64_linux
   end
 
   depends_on "libao"
