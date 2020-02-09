@@ -13,6 +13,7 @@ class Hashcash < Formula
     sha256 "b9ab067b3001c71dc5cfa3085bfcd204cb4837fd6c87f5ce722bd77b8a629850" => :el_capitan
     sha256 "b9e7653e9f2c14aad3d4f3589bed6de036e78b766bc01be5ae9f24be0d9696c4" => :yosemite
     sha256 "5b34b5d7a14ec55622545d823d7a707fcb7b736a88cc531e82799ef85ff8f494" => :mavericks
+    sha256 "5f36d00d696205be5f23cf4bd7968c7fa07f0d4375d00ef5ead2f5232ffcbb1e" => :x86_64_linux
   end
 
   def install
