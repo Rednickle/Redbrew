@@ -9,6 +9,7 @@ class Otf2 < Formula
     sha256 "cd45334e8b465b0405d641311b000de22e99eb93abe863da642307144ad8122c" => :mojave
     sha256 "66e9193d40e126c83d98bca06d30bd18815fb4aebbd486ff8d59ad27724935aa" => :high_sierra
     sha256 "70db1872735f904393ff8b3d1395c40eed3201072c5f08ca1ca5235d40688d07" => :sierra
+    sha256 "5f24aff503c5199271f6d4c97e51b0b4b99eb4a3d324b3ceb36835fbbea4c61d" => :x86_64_linux
   end
 
   depends_on "sphinx-doc" => :build
