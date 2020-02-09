@@ -10,6 +10,7 @@ class Mplayer < Formula
     sha256 "72da2446b0077085121da3cc3437a3e07d0bd2136529dd7dfba79d05bca1b405" => :mojave
     sha256 "11c01635f619e3aa77a85cd095be0b302d2b25fdd4362f47340c93122a113775" => :high_sierra
     sha256 "225e2628b4edf16a4ffea768e03587a8cc1c3f67544c92cb3fb8f3332feee51d" => :sierra
+    sha256 "84a93ac8696bb0b91b19cc9ebff86e050dbc72df13cd100bd9e84ee088e10497" => :x86_64_linux
   end
 
   head do
