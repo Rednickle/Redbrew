@@ -10,6 +10,7 @@ class Faiss < Formula
     sha256 "fd642e2ffd4b59242131707b9fd83eb0b8cd2299e33e9d6d81e6e8627ff4186c" => :catalina
     sha256 "6520670d92974efc45dad09c56e3348021601154438bed8d40a8b8e86f23493a" => :mojave
     sha256 "e8cb0c3cdc94b90b59b64c918519d3c657e7bae66af63c99a8f6636b20edc578" => :high_sierra
+    sha256 "d3d80b47abcc71bb6022ab6eb44976f5eeec326a08dbf6c6b18d9744adec0fe7" => :x86_64_linux
   end
 
   depends_on "libomp"
