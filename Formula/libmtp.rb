@@ -10,6 +10,7 @@ class Libmtp < Formula
     sha256 "787180c3be62277d66b70c5d362e98ad1906648ddd6be83714f243eb2eaf4347" => :mojave
     sha256 "db8b67e377fc8297a135bf63df9945b7101627bc2d10d79c5054d20a3b9b6856" => :high_sierra
     sha256 "daeed59855f2f12403175cee945ebd11b4de41494af53618f70de779ef483939" => :sierra
+    sha256 "650ad58a3bae861ce6559cc06b85901fca8c6a1323ab3ca1d282f5830e304d69" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
