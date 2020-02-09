@@ -10,6 +10,7 @@ class Libiodbc < Formula
     sha256 "1472bb0987705537158b7c3196d27d01ba02d6c0fdcca733f3cf8d53eca29c5d" => :mojave
     sha256 "77a4fb5fa3036a831e05e2a83585ac2fcdcdf4cf83baa72f28cfb2f8a659ba13" => :high_sierra
     sha256 "abc07f2fe98ed04c4dc5bd5cada2ea68fb9be56337ed442393609f0a22ec21e8" => :sierra
+    sha256 "c0e2b529a96f39dc5af6c0d69d5089efa13e28a4823926360b066de2f142117f" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
