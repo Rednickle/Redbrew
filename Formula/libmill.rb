@@ -12,6 +12,7 @@ class Libmill < Formula
     sha256 "6eb891740171f0471d420da7e92df829dd64e108cdf115588a639f6be3906e0a" => :sierra
     sha256 "37103d981777f9c30dda9add67a2cafc72b405ee7d10ac3a32b1f267b0b5cda5" => :el_capitan
     sha256 "4f8a2b4ddbcac88459c0f4b463e497a82e8d6a02b43419e29e2be8230c15123d" => :yosemite
+    sha256 "41d12c56fbbadb54a3d8590d90a1f3553191dd343674a6b9d9e0fe4435f1c0c5" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
