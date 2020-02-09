@@ -9,6 +9,7 @@ class GstLibav < Formula
     sha256 "dce5e4261059fa2fc2e14eb4db2f43cfdf749eee11140539b3f1c3c74af25198" => :catalina
     sha256 "999e32d952de88b5578a3906fe922b135827738ac9b16afcd542bc9ba01d2d21" => :mojave
     sha256 "281dc5fd5d4a0f558b653d7054303fbd30308feb73d2c4e37811d8389d28b6ad" => :high_sierra
+    sha256 "0ab41eb8f4fa2e7b0049d4454d75b2e361fe5d3ac4ec8e98509663d7fb29109c" => :x86_64_linux
   end
 
   head do
