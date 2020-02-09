@@ -14,6 +14,7 @@ class Libpano < Formula
     sha256 "ee3a892768cab28490d0c5719d503faec655ed274b42d21cd93413c269430bfa" => :sierra
     sha256 "cde19367882bcb0f1ef6aa389a56fad271dbe956055b8c3e7cafe9c27a559478" => :el_capitan
     sha256 "d78f4a20ee2b3a55e91cb04f9655f719631fe8b3ac9ffed162e88a337a6e3a08" => :yosemite
+    sha256 "035c55fb5b6839925cb9bd7c8774a41d20a7724fba0dd879da801de86ece7987" => :x86_64_linux
   end
 
   depends_on "jpeg"
