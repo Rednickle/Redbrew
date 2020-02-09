@@ -13,6 +13,7 @@ class Jpeginfo < Formula
     sha256 "0ec9e97f1ce99e36c9e5d4de8be48ca6b5bfc2d807ee590115426a7c57e26d00" => :sierra
     sha256 "ca1548c5ed9e3f18cf2e013f49d22a00276c9ef0b3d829fd256ae48178ed9974" => :el_capitan
     sha256 "d28d3fcbf355139760d15d1869f57d180940e8114b150446214b18270275dcf8" => :yosemite
+    sha256 "224c92c7cdc2e14e4bda9f413a5fc1d9a6f96b0c4e0ab5bfb20c45832372ca4f" => :x86_64_linux
   end
 
   depends_on "jpeg"
