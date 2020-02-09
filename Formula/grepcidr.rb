@@ -13,6 +13,7 @@ class Grepcidr < Formula
     sha256 "31ccf6792cab3c5022530ef4576ea53e6dedd4855b939d11212fea0d7fa294dc" => :el_capitan
     sha256 "d0024b81610b4a698de415aef87958e2a61f74a9f1f2b7acf875f2f3d50ecc05" => :yosemite
     sha256 "c4ed3ba91b4acd41f51850b143ea9826275b221fc8f041098dfe5f5a429a0289" => :mavericks
+    sha256 "b7e58d61f306f9da90413cc6b95746dcb46fc94ac937216955d7ef42dd45dccc" => :x86_64_linux
   end
 
   def install
