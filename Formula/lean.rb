@@ -11,6 +11,7 @@ class Lean < Formula
     sha256 "a4e42293767b2c39d46ededd68ccdbae0deddc8280a8d5a0004390091e91acd4" => :mojave
     sha256 "31506dc58b1108625510415a551fea963739898ad675d8cb3023af6e3922e109" => :high_sierra
     sha256 "a5df8afdccd0db40f4a9c8184d9197a8a66a47b2c2bbf7451e05976b13274025" => :sierra
+    sha256 "c585e95ea9ea1e8eead98ba5cdfe5966e93e7eed58352973d2be0995657c1a58" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
