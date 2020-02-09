@@ -14,6 +14,7 @@ class GnuComplexity < Formula
     sha256 "89b7043d1f51fc6ff7a1e96f8ed23bbac73bbb7196a04851a2cf29475b0803f7" => :el_capitan
     sha256 "35a8ac468a12565af95b82c75d6b45c9c55c27fa769244f0bd87ec69b10742b1" => :yosemite
     sha256 "5aba079cba5a07f3e754019cd11ed767ab65cd6c4dcef33eea9e94b94bae19eb" => :mavericks
+    sha256 "2fe81d7aa28f2192f62ce3aa6bab412778576e421847fdbc523267428baa53d1" => :x86_64_linux
   end
 
   depends_on "autogen"
