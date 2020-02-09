@@ -9,7 +9,7 @@ on:
 
 jobs:
   upload-bottles:
-    if: startsWith(github.event.head_commit.message, 'Merge') == false && endsWith(github.event.head_commit.message, ')') == true && contains(github.event.head_commit.message, '#') == true
+    if: startsWith(github.event.head_commit.message, 'Merge') == false
     runs-on: ubuntu-latest
     container:
       image: homebrew/brew
