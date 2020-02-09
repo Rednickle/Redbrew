@@ -10,6 +10,7 @@ class Libevhtp < Formula
     sha256 "507466763ef1710ef11b82d02a5229d1445ba6393a553d75926b8fe5d727d871" => :catalina
     sha256 "bfd6cffbcad95d0db38d4b699af24dd3aab1a82b0bdfc7ea7136b212cecab37c" => :mojave
     sha256 "72be53d01a0ab668255e9ab605c4d7b6c16e4ca1a3f68b026c3c9ae1fe77af50" => :high_sierra
+    sha256 "29167d6282f7ac44301220daeeec91f0dac8ffac348b361002d933aed56fd558" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
