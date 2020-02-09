@@ -12,6 +12,7 @@ class Lesspipe < Formula
     sha256 "f22864d81a8eb648fc4501665af743d285fcf0fa7c81edb21fd71f2593addedd" => :sierra
     sha256 "f22864d81a8eb648fc4501665af743d285fcf0fa7c81edb21fd71f2593addedd" => :el_capitan
     sha256 "f22864d81a8eb648fc4501665af743d285fcf0fa7c81edb21fd71f2593addedd" => :yosemite
+    sha256 "42defa39e5f3871111c4235c98d9165d1901d4d628af7a85ee689735238a53ed" => :x86_64_linux
   end
 
   def install
