@@ -15,6 +15,7 @@ class GnuGo < Formula
     sha256 "25fa92bd5c129cb655ec06c441523ada5cbc90a560111c32f5b1246c8f7d124c" => :sierra
     sha256 "f845be5a48a89cf0e46322b4d3a64a86b9fd4793f6b98fee0c45de5e8e5eda69" => :el_capitan
     sha256 "57731f2cb8dcb2959e85baebdb779989390688a70447b923b9d5c1ce8575da44" => :yosemite
+    sha256 "ed00c34cc100eb97c2332a96cdde6faac2437bd75ed5fde8c88e3351a2a30694" => :x86_64_linux
   end
 
   def install
