@@ -11,6 +11,7 @@ class Hashpump < Formula
     sha256 "ddd00b7f11649d0ad36bdc9bfa724daee15e135687a1d71c5f043aa758b15399" => :mojave
     sha256 "dd22c32a8a2c4ade6b45e573b61d09d91f56c60a74c7fd9265fb75e8dc60be5f" => :high_sierra
     sha256 "91dd089a608636170ad9ba63f5095f254773d510e0eaf48735aa35c3cf6d9bf2" => :sierra
+    sha256 "036bfe38ba41e8e29e85f84c034c66dafb6e0e3952d9ba2bbdfadb9def3c396f" => :x86_64_linux
   end
 
   depends_on "openssl@1.1"
