@@ -12,6 +12,7 @@ class Kytea < Formula
     sha256 "3e0c66a7efb34ddb8e4f80d9b95562779e224271b8d63d38f9bc8176103427e2" => :el_capitan
     sha256 "2f2dda314728cd74750db339ebc2d166b8b611ad54668cc3e7b6225d39aec3f5" => :yosemite
     sha256 "045d0c9ad0cf35e003b8839cb0213e3f49d9107dfbc955e449b36fd4b6596640" => :mavericks
+    sha256 "50c45c17af6949a560ddf4f06c24d9e9d70bc0fc34d53b42f0cbac50ea7b6abd" => :x86_64_linux
   end
 
   head do
