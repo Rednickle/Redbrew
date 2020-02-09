@@ -11,6 +11,7 @@ class Lcdproc < Formula
     sha256 "2371b10dc3bd2644ac83ced35dcde1960110217385f9f5547917ebbbb823e332" => :sierra
     sha256 "1de4bece6e781dc6d88d000039095cbf6edbd10313163ef9644152d67778171c" => :el_capitan
     sha256 "2ac794ede644c1c86b321af648eb2b0197762cb7e5eb09cd0a31e8eed842e2f9" => :yosemite
+    sha256 "8bbdf070ebb721bf5daa69e35d475c22c9207c8b2402689ea48fe1bb56f8aa47" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
