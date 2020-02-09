@@ -14,6 +14,7 @@ class Md5deep < Formula
     sha256 "986dad46d2945aac775eb625e41b0236f2413b3924244d5e9aba445994c38687" => :el_capitan
     sha256 "227b8b8e4f4dd71972cd02062faefef90515b44ef5c3ce55f5c665cf679a26d1" => :yosemite
     sha256 "1bacd45d420975ff8b90d633e361b54c7f6a14776a41f175313360d31fb03ba4" => :mavericks
+    sha256 "752515990b25f829c57fcf0a85ce1aeb517fcdacc5d038f24f4ee7f2fd5ff909" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
