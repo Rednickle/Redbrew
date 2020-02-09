@@ -11,6 +11,7 @@ class Mrtg < Formula
     sha256 "8a76630f04f1c8b6883d7621cf9c72456e22fa5206a8b2b3eb6527547d048fbb" => :high_sierra
     sha256 "71561d0dbd12007514597dc85bf8ecb5e76e32f0feb35eb126b0998a30db49c8" => :sierra
     sha256 "0d434588f3d22e55db11fe23baa82a5e1a4a8ccbcab84dfd74ddc1a0dafc085c" => :el_capitan
+    sha256 "8834e76706bc12e31e8389f4184dc0d526e1398321377c9d49601fd66daff651" => :x86_64_linux
   end
 
   depends_on "gd"
