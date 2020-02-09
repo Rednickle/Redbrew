@@ -8,6 +8,7 @@ class FuseEmulator < Formula
     sha256 "53310374faf051b906a38e8cabac72c9b68d1c671f1c33161dee0e4b44263e16" => :mojave
     sha256 "007c73a4b5bd3a79b3fa49683e12672afdcc6456d0d89c53de672ec308741555" => :high_sierra
     sha256 "f61e728e1a3bd5c89e8f9f887f15d5d18ab37cc0af6a857547eff7314d297305" => :sierra
+    sha256 "643c01366b4b6022eaee9f20f71fab52e97e3c17c30176c2d44e6df9e76cfb0f" => :x86_64_linux
   end
 
   head do
