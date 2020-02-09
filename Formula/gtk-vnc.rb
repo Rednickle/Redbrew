@@ -9,6 +9,7 @@ class GtkVnc < Formula
     sha256 "1e932ef0f54e09e9cf107c6ef386ff49e1b1cfd107eca77e4d1c5569da71909d" => :mojave
     sha256 "efb82f38076361165896bbf906881331c349082464fa8fc0b6b81f4c58b52f0a" => :high_sierra
     sha256 "c244ffda67d3e559172ba2b9e2b1015011733630232c203f733f259d8a6dd485" => :sierra
+    sha256 "417c7bce95c729cdf1af2a58b1da7586d1e5a14af06a041f6981db7fdcfc9515" => :x86_64_linux
   end
 
   depends_on "gettext" => :build
