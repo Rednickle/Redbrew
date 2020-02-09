@@ -14,6 +14,7 @@ class Flvmeta < Formula
     sha256 "e38ef52c18acdf32d1a61e2604220eeff05b3ca1eb8ca8b215f20371b7b09f37" => :el_capitan
     sha256 "54e7dc4be603332324c5a0833fa03b982c315696b07321295886d1bc3232448f" => :yosemite
     sha256 "d50606001ee39c8fed3f928b38652e437fd3b8bb1fa97306114b93088fc98b0b" => :mavericks
+    sha256 "6f91f86a1199767b4e5e10591508f38a363f563c97d62ed2b7f955c6170bc80b" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
