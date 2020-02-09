@@ -11,6 +11,7 @@ class Libiscsi < Formula
     sha256 "473988c2ba81d9d9cf6eb21f2f3d41ade13e76131a2c2aabdade9983c79f99ed" => :mojave
     sha256 "c05b614ecbacf4f957777c33144924322147b40b898fbb1acf91b72663e35203" => :high_sierra
     sha256 "832760665cad678de3079365edc72bc21d946dd03ecff9304220b9972a29dd8c" => :sierra
+    sha256 "15397ee12c43f009f7990487bcd6e01f658c9d89cb1e5ea6c8c6c34a01d93dc9" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
