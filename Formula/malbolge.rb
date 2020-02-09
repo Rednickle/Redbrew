@@ -14,6 +14,7 @@ class Malbolge < Formula
     sha256 "20f743a8bcb4085f5958e65a54bc20399de6894155ecd64dfc056431d93ec477" => :el_capitan
     sha256 "e5f617b7bbfee4386442aa739ce8df21b4c54584f2a4ea9f52eec877002ecdf7" => :yosemite
     sha256 "3681aa628f0cbc4d9f2bd65d647402d05dc850041119e24515223527df261125" => :mavericks
+    sha256 "2439453845fed5067a63f7a40ac0a65437efa9f83db4d1313198607ef610d9ad" => :x86_64_linux
   end
 
   patch :DATA
