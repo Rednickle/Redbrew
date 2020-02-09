@@ -9,6 +9,7 @@ class OsmGpsMap < Formula
     sha256 "4ef711a7499c6aecaa1e11e2fb0d2ecd12ec9a06bfa769b0c62ac4bfd23ec318" => :catalina
     sha256 "181971cd05297972cacd6549e73738bf78ee6cbf069b16a56c960f1835257697" => :mojave
     sha256 "f6bf2bb29f95988e3ed566488905535b519dd51fb3711329d80b046379b3728a" => :high_sierra
+    sha256 "2016271954f9649ad2fcad807f6d384d368de47edefbe47bf612777eb93e3926" => :x86_64_linux
   end
 
   head do
