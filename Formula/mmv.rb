@@ -14,6 +14,7 @@ class Mmv < Formula
     sha256 "e22f894e1224e3c0f85257c5b4db11ed1095b5a2117f48f38653b22a3d395fe4" => :el_capitan
     sha256 "4e921612e3edb452f6a67f41248247d1c5b60aa22ad17d632cd43e62f5d77084" => :yosemite
     sha256 "ad6205419a88e181be9bc8c107b5cd366bb0a60bf4b4b2ec5b3457c64f8060c0" => :mavericks
+    sha256 "44803efa99a3fb3d84f3303bf8ad5bf016d4e20d9604254226b2376a068dde8b" => :x86_64_linux
   end
 
   patch do
