@@ -11,6 +11,7 @@ class Mdbtools < Formula
     sha256 "7ba58781f1d60f4b5ea1e9af6f75d52be36a7cfec10fef414e1e99d447ad10e5" => :mojave
     sha256 "57bc1d0d1df78a20881b0d0340a302ec3a7d359a80eaffe78d809bf4dc150521" => :high_sierra
     sha256 "1e1f75dc87ac2f423ecbf993a118220fe8d309ad179ec9986d099b98f959f216" => :sierra
+    sha256 "c28f86a64c3cc917776b3409397644db73d2051ea2e5da63ee3f2dc43b093524" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
