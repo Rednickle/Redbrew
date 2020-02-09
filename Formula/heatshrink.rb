@@ -10,6 +10,7 @@ class Heatshrink < Formula
     sha256 "504b4b64164343217c6852509b59858494ba38ad9b63e7a9b3bb247290833582" => :mojave
     sha256 "865d11380a3e586a962a5dec0069def43e777f20626bdc5396735d003d90d20b" => :high_sierra
     sha256 "3965350f672040dfec9d2e07ac5f26aa16b324f59d2a762a4faac0930d2de684" => :sierra
+    sha256 "e123eeaf3cb1a91fee75c354d7655e81a3f1352d9dae4f4b5797cf7dbe3d00f9" => :x86_64_linux
   end
 
   def install
