@@ -14,6 +14,7 @@ class KnownHosts < Formula
     sha256 "b1f7982e9fb744226dcdf2be12467613ca97fa9a05f92673a4c785f6f445333c" => :el_capitan
     sha256 "be8ddf7bec2c25ee2de9f84db383b56e25e45825386e6726bedbda41824c9d6a" => :yosemite
     sha256 "826d0ac6e5b61f6fa5278710b0acda82f474d9e81c85b644815a5963a296938f" => :mavericks
+    sha256 "cd41533b1859c4a66e5e71e6243ea7e80b48744611ca4a47a9a5d7abcb22b6f8" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
