@@ -10,6 +10,7 @@ class Mdds < Formula
     sha256 "b99d97a6301b18f1abb2e8743115f099dc5ed753a5d44949affa083af3d1b0a1" => :catalina
     sha256 "b99d97a6301b18f1abb2e8743115f099dc5ed753a5d44949affa083af3d1b0a1" => :mojave
     sha256 "b99d97a6301b18f1abb2e8743115f099dc5ed753a5d44949affa083af3d1b0a1" => :high_sierra
+    sha256 "9fb32e22d1961bc03f41bc5aed3fcc72665ee55d14a75c57bc9f44c8f1bdb45a" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
