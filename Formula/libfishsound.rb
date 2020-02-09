@@ -14,6 +14,7 @@ class Libfishsound < Formula
     sha256 "9cf94c3c6963895940e8720aef21c29b001257c918fce6b65685c33f8430f0e4" => :el_capitan
     sha256 "4fcfc4270d73ac2b0e8d8a4d1fe6b94a1093502b802ed327febb5286ad5140b9" => :yosemite
     sha256 "b8c54b7d3b2bc5e433b20f89f67c6cb3d03b18e0881126a526ae1ff028d8c220" => :mavericks
+    sha256 "132ad239e0a0708574b8c2de16d7c439c028fea87eb4befc17bb86e8c3975bbd" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
