@@ -13,6 +13,7 @@ class Mongroup < Formula
     sha256 "d3065cb969df510f29b742e1d6606151328af2afe3542bb3ff3462e7551ade9b" => :sierra
     sha256 "8e801dac08ad7a776d698dc8bfc170f1df2fcb621561b86c789cc0e8098b1b38" => :el_capitan
     sha256 "f7db89622f5575404e2ccbb1d0aca159f06b82766f27ac28bd41492d498128a7" => :mavericks
+    sha256 "4cc849d51482cd963991b0eca4dae6e6797f898532fbd83a243bc9d192d67eae" => :x86_64_linux
   end
 
   depends_on "mon"
