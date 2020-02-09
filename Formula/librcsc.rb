@@ -15,6 +15,7 @@ class Librcsc < Formula
     sha256 "c2093c232c857c15bea5dd6c1c6df14aa4b00ed0c6eb3ab7e4d0d3f8c72b54c6" => :el_capitan
     sha256 "c339890cbed4a1ca1b0a14d4375ece92ccee44a1f29023e1f633e9a9e0d6b6d5" => :yosemite
     sha256 "db8f74fadedc34da92c2109c1bbb90971c494e104c6041f1c8429def7f14dbc9" => :mavericks
+    sha256 "664aecab5d3e5e6217c3ee9c38f406de610310a7a98581209174a50f8ce36cc3" => :x86_64_linux
   end
 
   depends_on "boost"
