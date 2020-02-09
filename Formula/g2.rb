@@ -14,6 +14,7 @@ class G2 < Formula
     sha256 "45c2029c3fc914866ba32966a78cba39b8415ba7f191cd1eaaf604db798b6d3f" => :el_capitan
     sha256 "5645b9c9401aa9f047082612de0e7bbd119ff7fd9fd49d94d45ce2adfbbfb69a" => :yosemite
     sha256 "41f5cd09949d53b4d46dfab4a17d5f3d77f65978ebb5e04e3433f9386d7846b4" => :mavericks
+    sha256 "3eff4144410ec431690c432060ec69c06e4a610f4e5e8a7159ca0d1fffd6d850" => :x86_64_linux
   end
 
   def install
