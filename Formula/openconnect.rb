@@ -10,6 +10,7 @@ class Openconnect < Formula
     sha256 "440a031dc0467ba3928fc2ab380e50c0c8b64042c109885856061f03f8bf5d86" => :mojave
     sha256 "3a4cf289c1c8c57d5a83b2993791b1a64a5af25b655ba15ff70b9a8ddd9b8bbc" => :high_sierra
     sha256 "ffd8c90ee9cc4d69f7f6efbeb57727b2e87c910b9920786ae9055d2177e8600c" => :sierra
+    sha256 "e672e376b2ab3d604c579f821388e05af2bb2761f9d07854e4cd8354c19b446d" => :x86_64_linux
   end
 
   head do
