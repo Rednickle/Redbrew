@@ -12,6 +12,7 @@ class Ncftp < Formula
     sha256 "25caf7d9c7ac3c1642d3d205fcedfbea05878798033c0ff82cc3b5fbab4674d5" => :sierra
     sha256 "821f66bcd8991168314bb77f1404b3af6f93fda5c4fdcb3c651d3b7fbdd7f4fe" => :el_capitan
     sha256 "ac12f87bb648eb4dde883ad5ccca0c8cf80c60e1437ce03e5fc8d768fcec1bde" => :yosemite
+    sha256 "56fc2ac2646ff028578711afe50279af74d5625965ab1e2543a28bdf35592eda" => :x86_64_linux
   end
 
   def install
