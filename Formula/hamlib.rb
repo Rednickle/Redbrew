@@ -10,6 +10,7 @@ class Hamlib < Formula
     sha256 "cef1ba3b5dcb592c43686f76e9167ee60c19331672164bae5186620d6db7d382" => :mojave
     sha256 "1a347bc581ea06ee93d2c2ddf955f54a6997484b91aabd304fdc077bd70936b9" => :high_sierra
     sha256 "eb3ce94a8e752ab792dd306221b74d0a254695d64bd818fbb841ef068b6b7600" => :sierra
+    sha256 "832cdc1aff6e01179072db578a58637d2378daf8f0ee84fd6dccd0ae462810bc" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
