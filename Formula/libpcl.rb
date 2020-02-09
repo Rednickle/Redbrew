@@ -14,6 +14,7 @@ class Libpcl < Formula
     sha256 "1975baf018352fd1f1ca88bd39fc02db384e2f6be4017976184dda3365c60608" => :el_capitan
     sha256 "e9c6f7bc1efab583e44879426a5abb2ff5e7f3eb30261a81a7be723c3280c3a3" => :yosemite
     sha256 "8f8e6669f9a552618b5578ad649e0b2a5f0860922e756c79a609b2eb21b5d4b4" => :mavericks
+    sha256 "0f7ac6736461560ec54ab2cf752952a9e9da832e0b85cfbefbc96cb2bb9c9be5" => :x86_64_linux
   end
 
   def install
