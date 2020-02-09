@@ -11,6 +11,7 @@ class NicovideoDl < Formula
     sha256 "21a964141ae24de2635828bde4ac6f46ed09a8b03b5564050e36ab3df0b9bceb" => :mojave
     sha256 "21a964141ae24de2635828bde4ac6f46ed09a8b03b5564050e36ab3df0b9bceb" => :high_sierra
     sha256 "ff5c5d5a91e5384c20cd068a1857c83322e2ab27ac6ee0baf01cfabad44b9dd9" => :sierra
+    sha256 "1f712f3df5117da3d56677b2579f9caf60973c3b058641ad290d7dbcb890c370" => :x86_64_linux
   end
 
   depends_on "python"
