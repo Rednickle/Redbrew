@@ -13,6 +13,7 @@ class Libgfshare < Formula
     sha256 "c50ebaadca206eef93bc6d835f5814e0d640223c2c7e39cd12feff47720c054d" => :el_capitan
     sha256 "6929a937f6f8ee624f02891622375d23aa65114475cf53ce82342976b4705454" => :yosemite
     sha256 "1696482fdd83b98b999d4b4037ae6c02d06a4b5297d089c826fed92a367d0d5c" => :mavericks
+    sha256 "5fcea5e75446540a94c30a1ca71d9bd2c514ce94e750c26725b538754e93d242" => :x86_64_linux
   end
 
   def install
