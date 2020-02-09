@@ -14,6 +14,7 @@ class Httptunnel < Formula
     sha256 "b328d4e1f1e2638764d3ac2ed32a4f4e06935e4e9ef83af281936df4ab805aa5" => :el_capitan
     sha256 "54fbed6b247d143f05c50c2202b5ff447f90504553431e7a143f6178893f148c" => :yosemite
     sha256 "dcec84a118e1e7246d29ccc12397b7aa0134e1a2a952aa83af7b4ba6745318ac" => :mavericks
+    sha256 "a7001ca3ece027907bec57de54311fe793d66952db303c86432d32e8950b8757" => :x86_64_linux
   end
 
   def install
