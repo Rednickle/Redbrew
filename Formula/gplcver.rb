@@ -13,6 +13,7 @@ class Gplcver < Formula
     sha256 "a094d355a75148ed611e9668841a33810a1a1226bc6651b8d0c5e4868867e7fd" => :el_capitan
     sha256 "fc4f5fc0f1bb13139740ae6f2966bd4e3adb57c7a9803b84f946d95fcb40dd2a" => :yosemite
     sha256 "0fc13b457839ee25fc9d0b35338ada6af67d07c8e3fb4ea1ac6f7d454f13475c" => :mavericks
+    sha256 "ad06c2e786a951441517368741d1b785ebb4fcfc9444aee9d6dd626c3d797ca5" => :x86_64_linux
   end
 
   def install
