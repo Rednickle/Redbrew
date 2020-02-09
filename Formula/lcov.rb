@@ -11,6 +11,7 @@ class Lcov < Formula
     sha256 "2ca04e6c269ebf3587be2e485e0a6be9de81963e0a59a852c3be227bcb43919e" => :mojave
     sha256 "2ca04e6c269ebf3587be2e485e0a6be9de81963e0a59a852c3be227bcb43919e" => :high_sierra
     sha256 "e6d2a1d121c878d81d051de0f9f7fbda37c438a620de9c99d0a0c7540b5f61d1" => :sierra
+    sha256 "9e9253342074f24cb10876aa8e91c29870f26ece2925650f0e4bfc9965e94b21" => :x86_64_linux
   end
 
   def install
