@@ -19,6 +19,7 @@ class Nut < Formula
     sha256 "80c2ed8d7a3b3b56cf7d27ac2e3ce4c76d181ed234479dfb45ca8c997a6fbe63" => :catalina
     sha256 "4bad8169c9c0750fe3e537d9ad6efa961e7cd0882e133933d0bfcf906be46aeb" => :mojave
     sha256 "8c82af838412a2be677821aab3ec3f72f8e68bb997e7bcd42b828b5cf9b0dcc5" => :high_sierra
+    sha256 "edc5adb160d18cf30965deca4ba54e51942e6f71c1b454e4927b6a234759cce7" => :x86_64_linux
   end
 
   head do
