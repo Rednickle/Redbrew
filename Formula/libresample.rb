@@ -14,6 +14,7 @@ class Libresample < Formula
     sha256 "ba2446005f2417fa81e5a5963d2273494396f8821ee95fd84ed9825342564598" => :el_capitan
     sha256 "2f58f8b45cd7b6f89f645cb90d3b4f63dd0a28e927713f3a4664c348e3a15a21" => :yosemite
     sha256 "61a8ab0861ce6e6c45632b7235eaf718e4be191fe8c184ba8f065d436681d786" => :mavericks
+    sha256 "5cd85c8ea65ed33a5a989af48d2c3e69e6fea877af3c3993909db216b9a931a8" => :x86_64_linux
   end
 
   def install
