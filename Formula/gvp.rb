@@ -13,6 +13,7 @@ class Gvp < Formula
     sha256 "ddd00ded9d21c3ecfe23e807619d3ab1b3011bc586db0d7d4aa8d5d87e3689c6" => :el_capitan
     sha256 "5e63da6d9c8d065277491db1658fee5c53089f7dd1bf1180e5d9e7172b376cde" => :yosemite
     sha256 "afbe7d649883c750c182976a7c09035fe30f4d56b1b5859c8d214c01334874f7" => :mavericks
+    sha256 "2148b0df9c6a4b3f9531641da815b9e060a4bfe4c5719cb89e8317affed7be2f" => :x86_64_linux
   end
 
   # Upstream fix for "syntax error near unexpected token `;'"
