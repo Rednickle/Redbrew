@@ -10,6 +10,7 @@ class Lsdvd < Formula
     sha256 "cf5b1b4f5291edca2f210f74f391a625c06ef930a00b769aee3cf46e8f2c217c" => :catalina
     sha256 "0db26707f1960dd5354f14e4ad779ad4a29e3066b124e0b11af0a179b3a36256" => :mojave
     sha256 "c106839fc9f9378eb0d72ada198a13e279d7ef5afd73bc8bcafd1e99566bf50e" => :high_sierra
+    sha256 "652c8f6eb3232f3622cb5c438f0585164a373357338bbd60e4e9d24c416a33a8" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
