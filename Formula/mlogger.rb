@@ -12,6 +12,7 @@ class Mlogger < Formula
     sha256 "1f7392a3d16a2bf595487a4b35bf5c866fa00c0967629eef46f07cbf6e696ff4" => :sierra
     sha256 "e1f78a9ef569085efcac8c41bd2a70feda85e7fcba5eb7b46a9ee5341cf8cb2d" => :el_capitan
     sha256 "f64331a815b26047bc982340650aae806a568a10060adfc819e25d077059af2e" => :yosemite
+    sha256 "5e14ef214b719ce23d386b70e3a08c821737428b2e3d8ecacfd3d2e219e6a748" => :x86_64_linux
   end
 
   def install
