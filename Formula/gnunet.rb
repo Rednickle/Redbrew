@@ -9,6 +9,7 @@ class Gnunet < Formula
     sha256 "31a8219cf9008c4f14b9bbbf962bcc9ab1ae2a3225b83257a3a2534d993e0d4c" => :catalina
     sha256 "4bc0298e1059a8da833a8cc73b01fd3705fef61931b1be30f7132180f9083fbc" => :mojave
     sha256 "113d1a55a25b57615189749651a3d69b6573d587baf06000beb0d8733f9d62fa" => :high_sierra
+    sha256 "5befa27563830875d746ea79c96defca0f11bb9dad7c37d256090ddac0730ab1" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
