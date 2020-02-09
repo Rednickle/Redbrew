@@ -9,6 +9,7 @@ class Mat2 < Formula
     sha256 "f76a7502c9fe7004b93005da64beee98ccc56312be9e228411ca1e2a94aa8771" => :catalina
     sha256 "f76a7502c9fe7004b93005da64beee98ccc56312be9e228411ca1e2a94aa8771" => :mojave
     sha256 "f76a7502c9fe7004b93005da64beee98ccc56312be9e228411ca1e2a94aa8771" => :high_sierra
+    sha256 "0c1321219b95a40673b3151c6931c990ee42c0876b292fd181a0aaef3da9ef10" => :x86_64_linux
   end
 
   depends_on "exiftool"
