@@ -12,6 +12,7 @@ class Keystone < Formula
     sha256 "bb281d9882f991ce15f0c7c421af9af9ed7f9ac1d563bc6bbe5ff7ce5352617d" => :high_sierra
     sha256 "b6cd1a7208fa16627366dfa4ba297edbf1dba6baf01a031d830b292e0e6cd019" => :sierra
     sha256 "25a45e702238530539973a7a28ffdfe5aa512be3cd639b3247895d11d6f9576f" => :el_capitan
+    sha256 "c54f2aca7cc979b7822b6a830740ca9bf3f64a28684199c1048c997f986abafc" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
