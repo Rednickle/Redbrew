@@ -10,6 +10,7 @@ class Mpck < Formula
     sha256 "e819ac8ce7eab3b4f83bcdf83cfbb129a9e3cebb36e314dabca646f808ed6257" => :mojave
     sha256 "3ecd47f83f5645cfaf2bfef23b5b9a1b14bb36f2ec146409ca44d9d5f25c3401" => :high_sierra
     sha256 "cd283270b83cf83c3e3a3c393404c1eca16e1620ced195821b97fe5ad6b39236" => :sierra
+    sha256 "d57cb79bd723f695fc86fccd2ddd79a0166aa276b679dbe85e34c8a2f0d59db0" => :x86_64_linux
   end
 
   def install
