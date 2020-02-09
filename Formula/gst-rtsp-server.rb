@@ -8,6 +8,7 @@ class GstRtspServer < Formula
     sha256 "30d213fe81eece2d6a566c7d53ea36f9f3ee24219aa7b0be4edf15d46559cc03" => :catalina
     sha256 "fc5d1f94602dc377f2d6938ed5f97e1a104958fbfeb26e48598e18c0dd0ca9ca" => :mojave
     sha256 "94e6f9c451be9c5f2e3b3a92d7450b730b3cea49c85f1e03cd8348943385a311" => :high_sierra
+    sha256 "0fa4eceb2609270ae4e606dac40f883ab0669d078b9579891191aa27ab6876b4" => :x86_64_linux
   end
 
   depends_on "gobject-introspection" => :build
