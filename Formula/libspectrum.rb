@@ -11,6 +11,7 @@ class Libspectrum < Formula
     sha256 "25edb4f26816ec6bfb7f1437c9a17fb2621c1bb81b93a48e22960aabf89d3a1d" => :catalina
     sha256 "29b40b473d7db763d376b1ac1949db8887b3d0a08016d84370add76524c0c377" => :mojave
     sha256 "b4ee40ecf01a16826994e74d31ca1dbc34baeeee0287908f4e1e4a11365f6b4b" => :high_sierra
+    sha256 "01c7b8459ce6f012ee3256c96cec0867cb36712b639818f278c84a5502bb52f8" => :x86_64_linux
   end
 
   head do
