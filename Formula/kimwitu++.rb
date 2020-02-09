@@ -13,6 +13,7 @@ class Kimwituxx < Formula
     sha256 "98c3516d1f3a9b17397354d8dde712f8a8c0f97ac919c65fc468ab4569534cc4" => :el_capitan
     sha256 "6b396c209bc1bc9df74df57f86e2d27a36817f2ed3a6ba2c5101879dec6ffb43" => :yosemite
     sha256 "850a6609b75b222e5443a2c293ecaec376dfa6fe2a3ba708d742c6fdb2537af7" => :mavericks
+    sha256 "d588641cfcc626adcf0ec598289a5445fdcddfed6358afaca4a3fbfaea6a468c" => :x86_64_linux
   end
 
   def install
