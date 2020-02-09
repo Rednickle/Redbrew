@@ -22,6 +22,7 @@ class Mpssh < Formula
     sha256 "e5ac485861dfca0be2bb1ca2eb5826b5ca5977c0d2abb12dc58de011c18046f1" => :el_capitan
     sha256 "2b91c9a9dbae19e99b8b8735bb3292cc056dcf8e06472c0b2d354f64896a4186" => :yosemite
     sha256 "60d489a872cb7ed8855c0f95913af4fffe3082b6bee8669b0080c3d30d73249d" => :mavericks
+    sha256 "57f1f95da19bfaa5743d96a25093f3dfee989494692ae1b68bd9fb1441ee3a85" => :x86_64_linux
   end
 
   def install
