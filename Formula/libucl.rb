@@ -12,6 +12,7 @@ class Libucl < Formula
     sha256 "dd5dbb4eb7e3d37816acc4f3bc2842c8e91caeb4a6f058eed75cab9d72192315" => :high_sierra
     sha256 "5c477e0feb163dc955e89eabf97cae445fefc9c920fe46073c85af348535d7cd" => :sierra
     sha256 "93e7d66507c386c9fe720b5f4c77d3b719574b7c311319cddc09bcbda659bce7" => :el_capitan
+    sha256 "105185654971e14837cbac0afdd5be444081b1536f0799a80b54972c42e2a794" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
