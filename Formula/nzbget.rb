@@ -11,6 +11,7 @@ class Nzbget < Formula
     sha256 "1d69e26d929d2a1be4824ea8c2134d543033462302bc5527269d5ca7b1b2c575" => :mojave
     sha256 "862bd9889d1590b8e3f600419f2bbf84f1ea7582ed55c58eccc024382d6db245" => :high_sierra
     sha256 "2e174f6c4df74ef3cd5decca500963db0c99d71553da624693ec4e9d085a0a56" => :sierra
+    sha256 "6c3c540e8b43fc0ea81f33cceb45df6b042e673742c444493797079b5e8c9a2d" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
