@@ -12,6 +12,7 @@ class Flake < Formula
     sha256 "e521dae57260b2a71f161f16609530c854ff8ebee4252b0addf3c16b5abc982c" => :el_capitan
     sha256 "af8e2e83dd3c82e8cc26be91ca64e24571b34185d4f8f007725b54d37f38e2b1" => :yosemite
     sha256 "caae2cab90e1e392a93d47b88c5c9a9242c3740ca95e767bca61d9d267f337f9" => :mavericks
+    sha256 "8aa028b1632bae1f3d4365ec813e9cb4e908cfd0edaa8b55080f902ec9a28b81" => :x86_64_linux
   end
 
   def install
