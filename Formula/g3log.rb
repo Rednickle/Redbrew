@@ -11,6 +11,7 @@ class G3log < Formula
     sha256 "59c77b06d62ea06a4aa96ce6ecf1903a415d32248631cadc2c1787e291f006fc" => :high_sierra
     sha256 "be3b9045a3cc0e011db0e9d9bd7b8feda8080a0fb591edb33a846d990395f4f6" => :sierra
     sha256 "4cd2f01ea225e95a348d1a514cf14f2c51eb47b1ef2f86c8d3e7c8218ba0eb31" => :el_capitan
+    sha256 "f594e33cbbd9f941e69685a6d8899d2062edafe60e94efd6afc635f412906999" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
