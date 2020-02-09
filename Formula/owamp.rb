@@ -14,6 +14,7 @@ class Owamp < Formula
     sha256 "6f86a33c176ba1394560b7707466c088930f13db102b7adc159e80e889fdc5cf" => :el_capitan
     sha256 "fce4cc5bf0a9b5355779fb45637651f6a78bb8d3dd93bdc3ff2826b7866617fd" => :yosemite
     sha256 "6c6b6f1f143b929b892c6556db3b06299835326a72c5180c482b2630e62dc543" => :mavericks
+    sha256 "0c0e15d7f9f2c9c1d19660a4aeba9d4789fc2921525e5c491a2e2992ca952159" => :x86_64_linux
   end
 
   depends_on "i2util"
