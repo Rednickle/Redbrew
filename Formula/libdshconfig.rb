@@ -14,6 +14,7 @@ class Libdshconfig < Formula
     sha256 "a26ea1d1cefed24fd890bbc65f9a11d171cdbcb1c00936562255e2adfe29205f" => :el_capitan
     sha256 "7f4e5e77fc14d6920bd212e9c812c7dad51ad1dbe1542f1c0e4999928db9ad3f" => :yosemite
     sha256 "c1c35337d7b2bebb59d07a8f792493f1da89f2701eae58d382bb24edfd2c73d3" => :mavericks
+    sha256 "12664f8d34d9a2f5bcb33dc17b82d35a02a10d0b8ab5c6a201a288dbc59e96d7" => :x86_64_linux
   end
 
   def install
