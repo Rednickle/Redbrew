@@ -11,6 +11,7 @@ class Gambit < Formula
     sha256 "8419c4b938c3ee82df324d4e4fbc0de03302a973ebeb82b917c90be04fa10569" => :high_sierra
     sha256 "1d0324bc5c27cfe5660be48a8d2e7c9d01ac342e5d3ee1ee6d89f30b9c149afa" => :sierra
     sha256 "86626efb984f8bb90daca5421cfdb2cbb2b9669ac26b271d0381219e1374e1b2" => :el_capitan
+    sha256 "da3833e1b7fb260caa8a150e5c22713251b2c7a528949d677b39199cdc2cfe4f" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
