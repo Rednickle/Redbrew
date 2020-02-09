@@ -9,6 +9,7 @@ class GoogleAuthenticatorLibpam < Formula
     sha256 "024679fc7963c416632e422af276ab10bb129740c7d081fadb9ee936695f57da" => :catalina
     sha256 "2317849932e770a926b427589058d6b552326d84376f714199e75aa9c922377d" => :mojave
     sha256 "b94306ade72a66cb67a8d3929f98349a01fd33b2b382a457bfecb8e1dde17380" => :high_sierra
+    sha256 "cc1f39c52e566107b4bbecfccead0a8af6cc7d281f549adb17ede7c7def3695e" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
