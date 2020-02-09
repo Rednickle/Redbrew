@@ -14,6 +14,7 @@ class Mp4v2 < Formula
     sha256 "52d299e61126db288d73a3e6e8b40c3eff25af1c7498c4a74787dce2dda02e9a" => :el_capitan
     sha256 "14ca4b71690959d461d41b4338be70005de4553566996677f973094c1a56c3fb" => :yosemite
     sha256 "bb51275338ca5b157b303fb9d024922c9b73ddcac69973ba2fe9d880ad6dc914" => :mavericks
+    sha256 "e743564b2a70c091cc630f159ebde181c6a84d4674270d0e6bab6d5cfff73824" => :x86_64_linux
   end
 
   conflicts_with "bento4",
