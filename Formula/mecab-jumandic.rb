@@ -13,6 +13,7 @@ class MecabJumandic < Formula
     sha256 "4b821839b99982c506a1e262c9fa8b650620bc546a8725a5eaa1dc54b45e4822" => :sierra
     sha256 "4b821839b99982c506a1e262c9fa8b650620bc546a8725a5eaa1dc54b45e4822" => :el_capitan
     sha256 "4b821839b99982c506a1e262c9fa8b650620bc546a8725a5eaa1dc54b45e4822" => :yosemite
+    sha256 "dc470ff5c8619a3611a80386134a8a849a8ec14723f892959f626a091d63c84e" => :x86_64_linux
   end
 
   depends_on "mecab"
