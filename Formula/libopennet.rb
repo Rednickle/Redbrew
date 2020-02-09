@@ -13,6 +13,7 @@ class Libopennet < Formula
     sha256 "de1cb9622ec3b6501236af7e66367bc5bbaa20dfb8e3ae328a339bea6d708bab" => :el_capitan
     sha256 "abcf105b630a05b8a7d26f1a0ba8defafcf31c0dc23e79c3a5f8a9a14878e6de" => :yosemite
     sha256 "cc3c5f62b47b334019035ab1f34f6f9e8b195f3ea37afa820d8b3dbbb4402eae" => :mavericks
+    sha256 "5fba5d772168f099ea802a9581a753d39540e6f9ae8fc0d0f33d864fe528cb5d" => :x86_64_linux
   end
 
   def install
