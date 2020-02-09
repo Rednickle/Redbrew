@@ -11,6 +11,7 @@ class Libserialport < Formula
     sha256 "36dd828a2eba76bf82a3cd9c2c9ed9b684753c3a38aea33269f82f699762422b" => :high_sierra
     sha256 "e34159ce49ba7c90e2fc0672f99df7b11a6d2de9ceccfc20679918bb87cb9b1e" => :sierra
     sha256 "a2e2cb79d5a3774077c7458b0c131e67d345e8e7b2dc29735302d003fec3379e" => :el_capitan
+    sha256 "8e96b4e32c14b54c93338ca1d5c4bd1dbe41dedc60cafd13247f05cb2b214f9b" => :x86_64_linux
   end
 
   def install
