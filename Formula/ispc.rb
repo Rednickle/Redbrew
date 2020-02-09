@@ -10,6 +10,7 @@ class Ispc < Formula
     sha256 "99109ffe35534e264eea6814b4006a49a1aba2cda154ab2d22d7e0c29da6cfc0" => :catalina
     sha256 "cc7f31ea15ede43f37e40270643d3fa86722bc4ccf9a1bf4c763ad6985a26ffb" => :mojave
     sha256 "17439d6f18ba148e5a912f595240ce5c89a9f951059411217c53db59dbab75d2" => :high_sierra
+    sha256 "9a11e734f805e4927b83d1123ffd906c5e8351c44443c71570aa5781867cafce" => :x86_64_linux
   end
 
   depends_on "bison" => :build
