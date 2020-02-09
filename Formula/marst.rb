@@ -14,6 +14,7 @@ class Marst < Formula
     sha256 "c1a70d467ff3117c2a31bd52a659fbff2293f6f17b11cd4b370e9e8220a483c8" => :el_capitan
     sha256 "6d8834fc64e1da37fce2ed9cae3c9f0e0dbfcb41f213c55c8413c2a522ed8811" => :yosemite
     sha256 "7fddf8023d17c4bfcb6fc4141c6202b3e856ee2ecd684236daef058592b79335" => :mavericks
+    sha256 "b0454e3e833180bc88cbff258db8f9737896d9f22c66180dc562a37aa4eb35ce" => :x86_64_linux
   end
 
   def install
