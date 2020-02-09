@@ -14,6 +14,7 @@ class Libantlr3c < Formula
     sha256 "fea1cde8ae732cdbbffa6a6d329239b1da067d2b69424d53178e60309748c403" => :el_capitan
     sha256 "8026d876b20980138c076cb4008f358deb858204b6399c436cf45e93594274e7" => :yosemite
     sha256 "010c3866a3c183b10dec76f845ce826a26a5a384074f8c56f41abeb9e4aa6e77" => :mavericks
+    sha256 "7ba5de8cbd399bd3a171def488f92250be15a62ca21c12133d5c1645b3d02487" => :x86_64_linux
   end
 
   def install
