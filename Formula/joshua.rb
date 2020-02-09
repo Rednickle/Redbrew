@@ -11,6 +11,7 @@ class Joshua < Formula
     sha256 "17fe13d1fe356578c025aa681f16b6d5f929a986a6f102811332a75bbfdf3d64" => :mojave
     sha256 "17fe13d1fe356578c025aa681f16b6d5f929a986a6f102811332a75bbfdf3d64" => :high_sierra
     sha256 "343ffcd545e812b27b73807070f778e311d62011351be532de355fb85a8e7ed4" => :sierra
+    sha256 "08d2ab5f0f1f3561908949d6b1fb804ea18b553d2d04dbd0d168bc94ef0bddd4" => :x86_64_linux
   end
 
   depends_on :java
