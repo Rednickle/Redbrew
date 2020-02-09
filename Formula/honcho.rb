@@ -11,6 +11,7 @@ class Honcho < Formula
     sha256 "8bc883894e8b6f07ab526e862500f40b7c47101a0f0ee66540cc5451b00b807e" => :mojave
     sha256 "41492a0296ea50b9b93f83e11d2b50bf7bc2a1361cf1da82bf61023f04f1e782" => :high_sierra
     sha256 "41492a0296ea50b9b93f83e11d2b50bf7bc2a1361cf1da82bf61023f04f1e782" => :sierra
+    sha256 "b772e90d13694ffd5d359d4a1a75642cc7b0bd2c3d1824c0212d0b3efb8fbca9" => :x86_64_linux
   end
 
   depends_on "python"
