@@ -13,6 +13,7 @@ class Mp3check < Formula
     sha256 "d63ba27cfd87cf1f8b1871fe8b0531882c037f116933cbc59caf429dfeaab735" => :el_capitan
     sha256 "5fd629e626c6227789c894f1fcf32e076118fd4fe9136e974610ef42135a4ddf" => :yosemite
     sha256 "ef678ca85ee3272b05e442ae13f319a1ab2868bc6ff9aa3cc84ae3bca0f98ad5" => :mavericks
+    sha256 "e14e3e289a38a91289f0070e6edadfad29522f8e55a751123df0ce291a12d959" => :x86_64_linux
   end
 
   def install
