@@ -13,6 +13,7 @@ class Nrg2iso < Formula
     sha256 "fed88dfb217cc0b5fa0a4f7a7aec40342314998624e084921e1b5cc02d08d27d" => :el_capitan
     sha256 "18949f41b9ba386c996a49541875d3320184b88dccb04136846f32b3d681e647" => :yosemite
     sha256 "a46624bc9fc5f7883e923920dbc96aef720e5bb37b4ac71a281d101b96decee6" => :mavericks
+    sha256 "d0fb491c42ca34949c123a0724f0821ec5ef6fc1c328d0f4f7ab54a627791036" => :x86_64_linux
   end
 
   def install
