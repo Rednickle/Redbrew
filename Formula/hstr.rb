@@ -9,6 +9,7 @@ class Hstr < Formula
     sha256 "5b3c9395c5d63b3a75bad4ef78ec8eb7d1e359fd72904feab750bf9d162f44ec" => :catalina
     sha256 "99916c805fb5e557e366c1c0cff89d160148607f0a401084fd555c4ba6619c4d" => :mojave
     sha256 "a8477c9cd9c66f9d9045328615941f0d1366441cf282c2011f71c4f7061302ba" => :high_sierra
+    sha256 "e317274c7c5423b74e298e7418783225fe1e673f967da4d4ac9ca1dc46dc222e" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
