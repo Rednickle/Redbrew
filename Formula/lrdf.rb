@@ -12,6 +12,7 @@ class Lrdf < Formula
     sha256 "27f0d95eed42b70eb6685ffe8608465b0f39b88b544dbee080fe3decf81512ed" => :sierra
     sha256 "f615e775140216eff74cd0fe751ace5993030c00921574da635a44b41d8bba57" => :el_capitan
     sha256 "053602eb98310d03ea0ba7838cd0f746dd34a60759a35fcbae7c41ca08a2919f" => :yosemite
+    sha256 "9fc06a72630afd4dad5ca3bddaa58077fd46c22ff7836c43f12d00e9d5981fa2" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
