@@ -13,6 +13,7 @@ class Lrzsz < Formula
     sha256 "c23cc0b0c9a0a7fae5a2e3d69ba01a7e6d09ad5e5a7d06c76620b72773ffebed" => :high_sierra
     sha256 "997f5b81f84b7814b0f4f78f056404f6c309eba1e62136e5f8ddf4b34d953b59" => :sierra
     sha256 "1d6517842b64582f629f36e469b61ee91563e1ef1a1b1841a8a4634759dcb0f1" => :el_capitan
+    sha256 "a5b6cde48e1f28aaa5c8191787fbadd6dca2e5cbd6eb8b7e1ddbe0b290296015" => :x86_64_linux
   end
 
   patch :p0 do
