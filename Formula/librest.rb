@@ -10,6 +10,7 @@ class Librest < Formula
     sha256 "47fd3f7eeb5c4c540fa9972fce471caaba2fd5006c90ee70b51bc42badd29c67" => :mojave
     sha256 "c8b2c713c6dbbcb18f2b41e4efb97341303406860eb72ac606691a1c67b6e275" => :high_sierra
     sha256 "26b2a7f163a2adb2cec329f83cd6046a2199c26ca38c191e5c20f813851b7a29" => :sierra
+    sha256 "f4cf5fa76e4d03b507a722cca8facc50c6546401c73442fc3d715b2631940ee7" => :x86_64_linux
   end
 
   depends_on "gobject-introspection" => :build
