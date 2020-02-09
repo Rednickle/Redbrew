@@ -12,6 +12,7 @@ class Lout < Formula
     sha256 "2fbc90ffc3f12312dc11e31996ba94da3b8a4ba1c55f33ca60a5d81aef4e137f" => :el_capitan
     sha256 "366023d41536d0220a3d226a9f7a5e65b89fcf8ec212bfd6e53f8c2b4110abce" => :yosemite
     sha256 "7cbcdcbf720e5e93c7e8d41861fedbcb0f1b46233414c7897e94671e4e42a9fa" => :mavericks
+    sha256 "28147b2f510e8022646f42cb505dfa5e44d787f5645c4935e3ffc84428a6bef6" => :x86_64_linux
   end
 
   def install
