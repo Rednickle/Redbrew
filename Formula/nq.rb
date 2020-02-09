@@ -12,6 +12,7 @@ class Nq < Formula
     sha256 "a6d18f2d7f1fafd661a5d145599969707efe71969ccc6ac34593f3f60c59081a" => :high_sierra
     sha256 "0e8d6557f7713be4c1e5074ea909d36cd12e2e17d85a1c0a1141ac64f06953d3" => :sierra
     sha256 "67374f5db8a35f877a16e0fdbd313276fb269db81ce49e7654fb61fa865417cd" => :el_capitan
+    sha256 "6275d5e82b0031b90db56ceb085221afdf23b1fd21744848281bcd6cc07b6212" => :x86_64_linux
   end
 
   depends_on :macos => :yosemite
