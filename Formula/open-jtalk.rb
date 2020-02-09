@@ -10,6 +10,7 @@ class OpenJtalk < Formula
     sha256 "bed36f972fe3dc3d5f286eff5c1b1605a1bcfae6cc755b7b2aee57fc497f7913" => :mojave
     sha256 "cd50656bb81db4528b82b844c773440d6cdfec63e545a64002a473da05a7eb18" => :high_sierra
     sha256 "b015d173b77980d0da3a8eedad02fdff95ac919c790917ba9cb197db91207235" => :sierra
+    sha256 "98eef76812ba433ddb6d0c9772dc22ca699e3a3a6ff2a444dee11364eb82981d" => :x86_64_linux
   end
 
   resource "hts_engine API" do
