@@ -13,6 +13,7 @@ class Libquantum < Formula
     sha256 "14c3e392521c20d45a993639de7f561bc0d2b2718158636074bac6f0a2d41581" => :el_capitan
     sha256 "ce31c2a7df81599bc4930ad4aef206f22e006db41d32d05ef1f2f3e72ff6d29d" => :yosemite
     sha256 "2347b6f64ac6a2463cded1679de4390f5bda4b07a74f304efd4ea3bc536af3df" => :mavericks
+    sha256 "9df87223245ecd05e78cb2a4bf506b731c845208e63b99a734dcccb57bc6fb5a" => :x86_64_linux
   end
 
   def install
