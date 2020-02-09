@@ -14,6 +14,7 @@ class Gpx < Formula
     sha256 "29621a041a78876e963bdd922c6ea5203f102dbbcd87038d3ade22eca6bafb29" => :el_capitan
     sha256 "451eab6ecaf8a42858ae0d71cfa141bc14fd3d0608285bc1a677422fcc8a662e" => :yosemite
     sha256 "d1fdd06431d4efa1043c364c34d1e2f1fd0d904aa58047829ec0beda4aa47340" => :mavericks
+    sha256 "a33f6b008b7e2f3751f367836e005dd88f01d6186d4b75e8f103990c66d209db" => :x86_64_linux
   end
 
   def install
