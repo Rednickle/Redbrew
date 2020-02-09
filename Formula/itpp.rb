@@ -14,6 +14,7 @@ class Itpp < Formula
     sha256 "c9f2f041dbdbea87029180a253fa0cd470aee6a2144a848b10f9fb5c40f01b8e" => :el_capitan
     sha256 "6e772c61104760fcf2c9500fa06fb2d032d4db1f53ef44d090e18aca54ee75f0" => :yosemite
     sha256 "c9e5ed1ab5febb67c61139b451ac70c501e6dd8fe656f7658d9e6aaa3f025e2a" => :mavericks
+    sha256 "ed6c554e6f70e20620eadcd814afdd201f9267fe7863a2616091dea0b8ab54d4" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
