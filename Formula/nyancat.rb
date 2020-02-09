@@ -11,6 +11,7 @@ class Nyancat < Formula
     sha256 "2272aa5028ca779224f68fd25a3c07ff41c71bb7d14511186808a6b59bfe32c3" => :high_sierra
     sha256 "413a6ff99b622e60b0878ca74c3051d0feac094a7eb1fa9e90db715735cdd2bf" => :sierra
     sha256 "2484fb6eabaaa65a988191b9c2f920d7290bc20f73dbf41e4a996e0306827364" => :el_capitan
+    sha256 "2c957decb15264ab51cdf2a8ca3f0a3461024e42fc2731adf46103d18bc7ddcd" => :x86_64_linux
   end
 
   # Makefile: Add install directory option
