@@ -9,6 +9,7 @@ class Libsixel < Formula
     sha256 "520fa6d77af3c6cc84fb84b1a5b8797bb6e44396b70ad7654eb3362d2174d0ab" => :catalina
     sha256 "716d90122f113bd1c6b2ad7e872a476923981b4c26830c94ca68724437e860b1" => :mojave
     sha256 "9e061ce67b22c8ad8760bccc7e954ee46852285bc078087712538e102ce8215c" => :high_sierra
+    sha256 "219b506690cf24fd40e0df9b90f1ecd44ec1e166eb325dade1b914fb0f117718" => :x86_64_linux
   end
 
   depends_on "jpeg"
