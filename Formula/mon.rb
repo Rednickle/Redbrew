@@ -13,6 +13,7 @@ class Mon < Formula
     sha256 "0d22815460538deda7a6a979d0b7dcdf38124ed9473764f6a90d8252cb9bf1aa" => :sierra
     sha256 "4f2d05a85fac75167df3a445a0803f7d5eddb2bacf967b10738db5066955024a" => :el_capitan
     sha256 "b446ffbcff634978ff036de6b5585d29e11a6b38604fa78268c7717819250a0f" => :mavericks
+    sha256 "b5dc95af7db0ef217f36b2d8886390bcede384108ccb51b22a443cfe49a0f288" => :x86_64_linux
   end
 
   def install
