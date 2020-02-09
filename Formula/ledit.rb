@@ -11,6 +11,7 @@ class Ledit < Formula
     sha256 "55df7d80dfcfb5c04274f9a33a5fc03a4a1b9b2b1fb4f3b08c0cef83759c74a3" => :high_sierra
     sha256 "b7e2b19079d843f9704572bf21de6251e7a6619d809ce230e22be5440517ab57" => :sierra
     sha256 "952162580a2542b7038b2702b8a2ed9223e519ca703b221daf054566723ecd59" => :el_capitan
+    sha256 "61348dd368939356df214df67e8bd80791b9e24721058ac134e7f38106e2e168" => :x86_64_linux
   end
 
   depends_on "camlp5"
