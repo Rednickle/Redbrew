@@ -14,6 +14,7 @@ class Lbzip2 < Formula
     sha256 "91c1fb0593205365ff4ada30a34fe7f3afcb1c4e684a3bf239e9168d9fdfc4f7" => :el_capitan
     sha256 "983c8fe1c23dbfdb73d9e7320e776521c4998169a2d17cd1c6f3035674d8a147" => :yosemite
     sha256 "7e521c70fadae71ad2e7807cc844183c05751e4a2433d9f1210069fb2a34333e" => :mavericks
+    sha256 "ebd6b5df54c326d39152c8c845ddbcab27424586e46f7114f23804550c0922c8" => :x86_64_linux
   end
 
   def install
