@@ -12,6 +12,7 @@ class Openslp < Formula
     sha256 "1c19d8355ddda63b9259101a0b7b56ea0fd9fb8f343e2df19f7248542fbf38e5" => :el_capitan
     sha256 "95e41f7f42e80ab3234b460d90196389a0d275877195fe188ffc6249c0b762ce" => :yosemite
     sha256 "883203d7fc5bbd6faefa058bf2f68dad2cc6a485f46599163d000684ae585507" => :mavericks
+    sha256 "4bc594636cf22b11cd255c2db2c046ec4f3af30f3ac5b1e90e665f0c47743f78" => :x86_64_linux
   end
 
   def install
