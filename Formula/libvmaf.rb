@@ -10,6 +10,7 @@ class Libvmaf < Formula
     sha256 "1a11bb8c22c5ffbf56f2963c2cfc82dd4ff9615595d5f870dc4f005dbd323e7b" => :mojave
     sha256 "2480b6f5f5ff58acf9d1c732db8b2a04e408d082a53590bdad15d203e02aa791" => :high_sierra
     sha256 "c5b2cbf13a844a4591e2f1dbf7d20266715130802ba3b030f45e9471da994e86" => :sierra
+    sha256 "db316506f717d7d7c5057a41c415c9ffda54be355e503e7a6b24d3f89fb016ff" => :x86_64_linux
   end
 
   def install
