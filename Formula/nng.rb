@@ -8,6 +8,7 @@ class Nng < Formula
     sha256 "69a1cb10dbefbb9b60a2eb60336a0e87af8f2e5ee259dd132dd42d8418a6a032" => :catalina
     sha256 "44d92029c93a1f446d4dc7ccba56b3eeb1e65ebd26970f61d34d1f782edeab3c" => :mojave
     sha256 "e640d81f238cc1c375b950aa2c1e8a4bbe0c86291d493a0a056d8af7f01ef519" => :high_sierra
+    sha256 "f5a682a2b7b825624623d4e2bf03e486d777832c6817205469ab111a600d8406" => :x86_64_linux
   end
 
   depends_on "asciidoctor" => :build
