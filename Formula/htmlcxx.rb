@@ -9,6 +9,7 @@ class Htmlcxx < Formula
     sha256 "e910595c43c028e25e0e0a44203e3c95b229162ea89678721b4a7f6e22974aca" => :mojave
     sha256 "062a4b1629ab6f28e59ef0ea15c257c8bfd9e3646f3342fbfe14268727be7649" => :high_sierra
     sha256 "4407cb1a50e8d629db9b93bdbbbf2a0892967611f7e579c49c0d084769f8a5ca" => :sierra
+    sha256 "d666adb3eb7e4df1b46006f93b790fdaed21e086e95efc4595af6ec0c6368de6" => :x86_64_linux
   end
 
   def install
