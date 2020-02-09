@@ -11,6 +11,7 @@ class Httperf < Formula
     sha256 "390d46278c9e7bd0f58003ba49bc1a0ab110ab24864029d6ae9fd8d3f491b57c" => :mojave
     sha256 "5c049e4bfc272313e7c1051da7430bc09e712d5a70f1593c5ecf08ac94b3b238" => :high_sierra
     sha256 "015d2ce99b57fa808ae284f44904ca209e11603bf66085bf64a8270c45203490" => :sierra
+    sha256 "6e2c233325a56d3f77a7077072a6cbc2bb2027ff69cfea7cb2a16a4c7b2cac52" => :x86_64_linux
   end
 
   head do
