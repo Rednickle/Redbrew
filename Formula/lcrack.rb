@@ -15,6 +15,7 @@ class Lcrack < Formula
     sha256 "2bd1de3426e4bd4ebfc6fb6026dc9a9fd046a5d9345459700a2361b7fe53f49c" => :el_capitan
     sha256 "443e64bdb0307e12f4ef990abea7941239784cb7c9798929880a7973f86cf5bc" => :yosemite
     sha256 "7ce0dcf84e40ecf7bffc05b068f8c5109d055e654fba8a8c918cbfada447e19e" => :mavericks
+    sha256 "2d68734cf22e26c529c39593b64a85096efeab7304b23f0de4d7dd2f94ba9e03" => :x86_64_linux
   end
 
   def install
