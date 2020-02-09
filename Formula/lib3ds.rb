@@ -14,6 +14,7 @@ class Lib3ds < Formula
     sha256 "e5810afd47dd88fb769e6ef62ef558b4ee4e643d4f5ae3fddb019257642b3375" => :el_capitan
     sha256 "33f5b51953a8d4a583c7d5d6a7796ffaaccf8bf6a303fac300bfdb76dcd0ad60" => :yosemite
     sha256 "3faa2167b32ab4fba667c2fc1d1131411fc3765c7e32a220b16aa62ee433d930" => :mavericks
+    sha256 "3fc16bc23ab20951e579914bc8d3f3ad97c88cd6f204591370cd887be3bfc2c6" => :x86_64_linux
   end
 
   def install
