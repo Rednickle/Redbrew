@@ -11,6 +11,7 @@ class Jsonnet < Formula
     sha256 "51c48fabc272d0fd1affde0bc7025b067913067e68fe5b142815d92270b151a0" => :mojave
     sha256 "5e90257ebfb7be1662553482275a2507a858642659703af00ee339e125edc810" => :high_sierra
     sha256 "3bcb8c5591acc3566d1ed94d2e21b9988d1622e203de62c5fe110996b84564ca" => :sierra
+    sha256 "7096ff06a7ac01d6a570df61cb4b75f893de54940015d9cc199c3aa41633b859" => :x86_64_linux
   end
 
   def install
