@@ -10,6 +10,7 @@ class NumpyAT116 < Formula
     sha256 "6c80a9d89e01c944f4142c95f7239d796c9e0a4915c395e99a30d8b221c89280" => :catalina
     sha256 "eae10fb059b9246e2e106572c0534b33fe5848380b945fb2afe90600b0dc5cb1" => :mojave
     sha256 "d7713fb06785ea6dc8ff901858b7c5155f4ca5624d4c5d380b58c1f254ac6268" => :high_sierra
+    sha256 "9aec8f47e9c77a03823bdcd15834df53f9d82a32624c2d7b2dce1b833f922af2" => :x86_64_linux
   end
 
   depends_on "gcc" => :build # for gfortran
