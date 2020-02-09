@@ -11,6 +11,7 @@ class GstValidate < Formula
     sha256 "1d1b40183962c3ff22122b708b33dfa1d640ac75c48b6dda784b5bbd3eaed7bc" => :catalina
     sha256 "0de1ceef0e0ee0f07a27e01a010094935288f00e890df1cc49159519741ce3c9" => :mojave
     sha256 "d8f1cd16776e2a3b5754513a5b60f7313f29465a90153043e489b1d37497a105" => :high_sierra
+    sha256 "327248222468ae0299f5e61629d06dd2d5bdfda01a785b24bcfbbce42e2c7eb1" => :x86_64_linux
   end
 
   head do
