@@ -11,6 +11,7 @@ class Jrtplib < Formula
     sha256 "afdd30606aacd4cb269b56a21176efcc3cff8f567bf43a48eedc0a54b9c9e4f1" => :high_sierra
     sha256 "8d57a4fbc612f51765e6dc13d47c695494e42f15584ebadc4b4042200e6061ee" => :sierra
     sha256 "1400bec305155882b16aa95fca1db8016011c2f9e39f4b1eb4ea28472072bacb" => :el_capitan
+    sha256 "63e7079c0e837fb2ab9c227ba8722faa344833c79d1c484f5f22e2ef8b7c0593" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
