@@ -11,6 +11,7 @@ class Mdk < Formula
     sha256 "6d9fee5bb70d9423735a441343d8db3c827b495ef1e66c82929fc1048f21231c" => :mojave
     sha256 "250dbb25d43d7e6c6e92096cc679dd62c4025194e4c9d80f084bf9307ac3c71b" => :high_sierra
     sha256 "fdf93789019c0c275ab52e509fc0a3d43048aba6caba3258822451f0126a17ba" => :sierra
+    sha256 "4834911ea09934c176e1afee0fd2afddfcc5784c684f8914eaeed23106f5b670" => :x86_64_linux
   end
 
   depends_on "intltool" => :build
