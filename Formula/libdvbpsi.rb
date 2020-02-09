@@ -10,6 +10,7 @@ class Libdvbpsi < Formula
     sha256 "26298540d01f52628385c83cac4b6666543af4cc059fa7ad5b3a8bd458955628" => :mojave
     sha256 "c6d79686bf05346bc473cc148b68901d99ac447a85542ff68d089c71eda1bc87" => :high_sierra
     sha256 "8bb1f1fff61674756153e8aec744d5d3c726da0c4ecd4bd291cae732e8264af3" => :sierra
+    sha256 "01a3895cbf26835d8cfca2b52db90e1a0ee39efed1662481489e74399ccbad7b" => :x86_64_linux
   end
 
   def install
