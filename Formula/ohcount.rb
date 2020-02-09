@@ -11,6 +11,7 @@ class Ohcount < Formula
     sha256 "b93054a4459a246895a524de21559fc1387e8cc6436d83481c7d85afc10be9e8" => :mojave
     sha256 "2bcddb3687af78d9317be143579afe692f8a3034c51b1e7e07ddd53491792365" => :high_sierra
     sha256 "716a64cf45acdb062651994384e88e74e5bf258a1b70b9b29cf09c5c115084e5" => :sierra
+    sha256 "91e2bfd24a6dc5025bf70842f73ecf1635663a380786a39f4e0f9749e3f42f31" => :x86_64_linux
   end
 
   depends_on "gperf" => :build
