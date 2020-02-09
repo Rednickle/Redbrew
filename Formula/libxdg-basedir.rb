@@ -13,6 +13,7 @@ class LibxdgBasedir < Formula
     sha256 "30b3e34a46470f11d90ca01aebd2b2d1fbaa6cc8a05c1bcec7067d40fdec75d1" => :el_capitan
     sha256 "7e165b0e949f559789981a5c0e0fd68bbf478943a0c9b03ad3778cecb0219691" => :yosemite
     sha256 "5c7bfadf4ca8b26c077eea7480df5a4ca3634b5823860a06ce2756050acbe84a" => :mavericks
+    sha256 "fa14818ebb73407ff98f96f188594a7a2a64915e2c56b7971b0bd2f84f88d551" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
