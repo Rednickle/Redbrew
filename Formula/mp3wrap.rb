@@ -13,6 +13,7 @@ class Mp3wrap < Formula
     sha256 "0471701ab4f6b59423503b7c250376ba597a9f28d9962f6f9b35a107d58411ab" => :sierra
     sha256 "c65886799c1397eec33f48ef73774ad6a509fec44a18dec4a50c8755736f040a" => :el_capitan
     sha256 "50e1b97fa8423acc0c3980c7171544cf248b049d31cb1c6d3ba1214c293bc2eb" => :mavericks
+    sha256 "3adc636d92aaebfbd374697860bdd14df965f70586d845696bb5094afa1ebfd7" => :x86_64_linux
   end
 
   def install
