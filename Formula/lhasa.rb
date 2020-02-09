@@ -14,6 +14,7 @@ class Lhasa < Formula
     sha256 "0d407f1058853c656a4aef717c1e72ff57472e0622fb344a5ef57c4c9ad8c3ee" => :el_capitan
     sha256 "afd0b2c24f4e4103c6ab8e918a972fda1b614890fc527bf314cc253e199013ee" => :yosemite
     sha256 "eecde92149160d0ec03d5b2f88408d67a4bc03b415ed4a78ff12474f6aa965f4" => :mavericks
+    sha256 "6eff66f4de61c01c4d29aeef0e30d23b0e8e217abe58324836ba90035c9d219e" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
