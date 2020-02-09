@@ -13,6 +13,7 @@ class Mjpegtools < Formula
     sha256 "9f5c0eb81540bf70ff8b2352a8ea21117a75c6dbdac58ea8d04d0da47a639cb9" => :sierra
     sha256 "2793d05c642305daeb9cceb10f08484ce57d5210a3918121ab04be1f89224142" => :el_capitan
     sha256 "ba1ec63066197a9bb7fc53f075b17d66f739936b151e90e39a741b33f19eaa9f" => :yosemite
+    sha256 "b57ddde58c27c8780a633c717c657ba913d6fdeee6086fa7b981d1120820606a" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
