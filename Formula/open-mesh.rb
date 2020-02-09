@@ -11,6 +11,7 @@ class OpenMesh < Formula
     sha256 "2b6ca56b68c75abb0599ffb58d8f53479fcf7e523ae5be0d2cd914c4d18bfba6" => :mojave
     sha256 "85e4165e12cbf7ac988c1aebce01509d383665f6f2a775da64965d860f6195af" => :high_sierra
     sha256 "348b75951d4960940111b8abbb352aff0caf1d0fb2ab8a2f8a167aaf326e5db9" => :sierra
+    sha256 "224a1f54c825c4e7612c9326c1920de5fac2fa668ae6992ae9680d308feb1e5b" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
