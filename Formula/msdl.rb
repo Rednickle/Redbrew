@@ -14,6 +14,7 @@ class Msdl < Formula
     sha256 "34ba320e82d1ce97fb0a106abd2c5ec848ba16857730ba51cadd0a030bee62ab" => :el_capitan
     sha256 "5b8ac26e3adbb19386398a5500a8d5631d426b2e0e951433134b5383b80bb568" => :yosemite
     sha256 "a28059bba6256df7233eacbfdadd9eeec2c3c6ec22038cb06ca49745b347a828" => :mavericks
+    sha256 "b01b19503e91ce46bef0f624d11eff53bdfafb686dbae616a9ab21f297240ffd" => :x86_64_linux
   end
 
   # Fixes linker error under clang; apparently reported upstream:
