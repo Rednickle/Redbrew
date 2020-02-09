@@ -15,6 +15,7 @@ class Jerm < Formula
     sha256 "5c8409bfdeba7b55199659f4b82b8df9ec2ca8685435703bf1ddff29f9e027e5" => :el_capitan
     sha256 "bce73bc0790565d58c129116833c2bf6dab677c95287036f4b3717a02792da12" => :yosemite
     sha256 "e7a2ed29af497e459175ac4b7bf9d4e0b9a367c653ee3d7798b316a95d8e5cbe" => :mavericks
+    sha256 "879f68894bf7c8d8c88dd29e4b772e69d0c84eba09ecd43d988aae5edf8961e0" => :x86_64_linux
   end
 
   def install
