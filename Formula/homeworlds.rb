@@ -13,6 +13,7 @@ class Homeworlds < Formula
     sha256 "499e9a94e24c8965b9a31902ab2a14a021c780756451b82ac2313c7c86ac5756" => :sierra
     sha256 "2665c0ed4da2eb399314d044699385250ca5db54e6f8c22287222b7877881d22" => :el_capitan
     sha256 "47251f13fa79c98b3c41d45cafade044bded134256f56e6ee1a118f67eb325d8" => :yosemite
+    sha256 "1711c3c72acb7a7950fb2a79e117ca8dacfbdad7cd3b5652d0d0bfba2bcbd5b4" => :x86_64_linux
   end
 
   depends_on "wxmac"
