@@ -10,6 +10,7 @@ class MupdfTools < Formula
     sha256 "80759203d101cc4b26cf21cfc724a1c0e3b7d896f2ab296d41e0cf829b30e76b" => :catalina
     sha256 "181249c8429832f2831ddadbf27dfc53b0e645f4dcb86b7a6ee237691a5f051e" => :mojave
     sha256 "2896fe7b33448061f1a05d09c8976ee506222d39c7eef06bf1a20467215a2114" => :high_sierra
+    sha256 "43c122ca2cfd3f3d7c4b6762cf6aafe0471fb698b0524be58756ee89c3964286" => :x86_64_linux
   end
 
   conflicts_with "mupdf",
