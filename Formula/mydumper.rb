@@ -9,6 +9,7 @@ class Mydumper < Formula
     sha256 "157bb28e44f0033093c6dc1e46ad6f72e72fb0ae39c9d480e4cff4d90b0a4384" => :catalina
     sha256 "d4a3a359cd266b24313e64204a8c99d8c1bfe0ec71fece2a31b8551bbb904eaa" => :mojave
     sha256 "2f3f2f488038ee040fe619c6f3c35efc414c97a18bfb04885a245528645f8ade" => :high_sierra
+    sha256 "abaf309d00d2d9966daea7672ce58d3fb49fa4d3ac1a2c99a0839baba1392158" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
