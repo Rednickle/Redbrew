@@ -9,6 +9,7 @@ class Mailutils < Formula
     sha256 "d5f8c24411a2dd107635a254fc423fba9aa201ee73c561b8f76b86378abf46a8" => :catalina
     sha256 "799f5be301b6796eac5c33ce501c8045e80e06c875e9d1a5ea4fa1322ead199d" => :mojave
     sha256 "3b7858b384fc0c1a6c97cb1026b45deadd150c9df76011f0c47637241743d34c" => :high_sierra
+    sha256 "2c091c4f44cd2111d565f69a9518db7c21e19f29466fb683b1672b90de3c72b1" => :x86_64_linux
   end
 
   depends_on "gnutls"
