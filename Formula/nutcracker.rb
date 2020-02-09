@@ -14,6 +14,7 @@ class Nutcracker < Formula
     sha256 "1f3714c4459185e9002ea87f4fc4a4de429f028df957615ee9876c61a7c89a6d" => :el_capitan
     sha256 "73698710fa026b8585665a9b730626df444dabe6acf118cc4f0c2f57c27e214c" => :yosemite
     sha256 "8e66691c40fe71934bb5eab848c61ef07f8f427774e253c0065eb64cc5410f9b" => :mavericks
+    sha256 "e668d0660e17566f860e447bb2215ae935bb5aa670cccf18470ee3df50a6beb2" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
