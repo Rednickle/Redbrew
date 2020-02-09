@@ -13,6 +13,7 @@ class H264bitstream < Formula
     sha256 "cb603960e6eb5ab5f78cc41546c6c4f1bdf53f07fcf7c7af7c4e714ad4b14dce" => :el_capitan
     sha256 "3989d4b3baa711dd6e4db74d74be519ef6661f8e93d62e258252f932f7d6699e" => :yosemite
     sha256 "f26e8535f5007317aeda05e886453604c97abc0e0892ce6975fee09a7900c1f8" => :mavericks
+    sha256 "08585a175edc733644595e66f9e8bac35dff5c8a967af9597dda611c505a3cbc" => :x86_64_linux
   end
 
   def install
