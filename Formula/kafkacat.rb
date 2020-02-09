@@ -11,6 +11,7 @@ class Kafkacat < Formula
     sha256 "af4674858fa32d4c39346018f441609647f35071ef9d7615f214ad47594e1b6f" => :catalina
     sha256 "169186d382345c58af1a3a616493ce305f7abb808420ac95a8230e9bcbcec2d9" => :mojave
     sha256 "60bca6aa0aae36980bcd917cb0ff1b042d7cb3317c5e6e6446488c25ac1edf29" => :high_sierra
+    sha256 "872520b884dda485a4440defc603e2155ffb274c53f2e0eef97d989e734be77a" => :x86_64_linux
   end
 
   depends_on "avro-c"
