@@ -13,6 +13,7 @@ class Guetzli < Formula
     sha256 "c059346fa601885f550b50752d6d1a23eced66388b18e1c1db5169a0951dcad6" => :sierra
     sha256 "a77327b3964a88a84879943171e0d10d6661cc72c5ceaa12ee2091f02930da1a" => :el_capitan
     sha256 "04864f5c52c77f2d382247a57bf082052599a2bc9bd8fa28592ab17657342b08" => :yosemite
+    sha256 "8773230c14dd93f68486caef52e012299873c447a4203a652499dbf469528a52" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
