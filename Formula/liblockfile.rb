@@ -8,6 +8,7 @@ class Liblockfile < Formula
     sha256 "e5991a3eac0b5cd41f2850d73643607c33bb41b7014105f0ed80b75c5e7ef866" => :catalina
     sha256 "18663ff713cb46c514546f5a73026deb4e3df5b701b082b5cd68275581b05ba8" => :mojave
     sha256 "bc532693f97e4d14ac59974b80f5a31b121b5cc404efb2aacda1c1607f4bcf5b" => :high_sierra
+    sha256 "7706bb498c44a406364bed062c99f719bbcfae21b49125b1861737d09af50b69" => :x86_64_linux
   end
 
   def install
