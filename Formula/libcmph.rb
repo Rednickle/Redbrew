@@ -14,6 +14,7 @@ class Libcmph < Formula
     sha256 "583c5008fe59058f8bd9166660462acfb583feee646472d546587e3e326059cb" => :el_capitan
     sha256 "4dba37edbd9ec4f32fcb911cbec5cbd457001c3f6a26f14a3ff88a412a42f017" => :yosemite
     sha256 "ba56f5d7f7c750329312dbf4d43d5d937320082ab32fe35ec84b05aecff125ee" => :mavericks
+    sha256 "cbfdbc78698af937754a02521783c69b18621a79a1978fd80686dce1d4e267b1" => :x86_64_linux
   end
 
   def install
