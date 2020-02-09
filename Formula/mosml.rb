@@ -10,6 +10,7 @@ class Mosml < Formula
     sha256 "5dae62ca2034ba70844d684111cec58561895eac39db3177d439747512206002" => :el_capitan
     sha256 "3a0289ba1b1a56cf3c2a598ccbee9b1739c7c35628a173dd00bd2f20fead6703" => :yosemite
     sha256 "97ba76cf36e165dc798bdae33fc06c7c5954b1293686f43d2781b3130e75a119" => :mavericks
+    sha256 "7610a6dbe2f84b3aef14f555f2aa28ef93bb95a5f676b7c1ce34bd670b951e61" => :x86_64_linux
   end
 
   depends_on "gmp"
