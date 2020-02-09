@@ -9,6 +9,7 @@ class OpencvAT3 < Formula
     sha256 "26cdf6eb9124f389db3eaf0df185096b1b225110e16df0b00650d8a3b3efebbc" => :catalina
     sha256 "a0c6ffae49ec4c32c002711f0c5b1573cfbaceeb8b8adb1a25486aed86fd6681" => :mojave
     sha256 "1792e7e2b67a20161371aa0f82c9db509171377a2b32caea30f11f2927851b74" => :high_sierra
+    sha256 "a898c8a0af09d238ef5dd24fc3df12f5287b68253fbb67ad514e77e09178ec33" => :x86_64_linux
   end
 
   keg_only :versioned_formula
