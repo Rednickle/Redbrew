@@ -10,6 +10,7 @@ class Jhead < Formula
     sha256 "1fdaa2ab0e5066688f1d3ff80821447f0957f95ba37c4c1c8d8f40b6d3a38ee9" => :mojave
     sha256 "d62f1ed9f99df061893021df1f5dc8928e52eb6ac73cfe47b41cf50bc2369f49" => :high_sierra
     sha256 "b5af56763e92712207332e51208c918b71c1b46985cb9df44eb1d8a30f59348f" => :sierra
+    sha256 "bb7356ce8f374c32dc2a0ea6cde105254f2f4458c51d963a5450c235080dda84" => :x86_64_linux
   end
 
   # Patch to provide a proper install target to the Makefile. The patch has
