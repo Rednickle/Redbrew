@@ -13,6 +13,7 @@ class I2util < Formula
     sha256 "44f87d48502ae3e34ebfc0882aa689a70e8c92d398247c5a53e2f4b7d7652b39" => :el_capitan
     sha256 "ad1821b2637c75638de2ecd2bd3127a0c8300fe4fbd72c18ae648a131b97b6f7" => :yosemite
     sha256 "b9a22dff1f4a26be02712d17de832a23fc3dbe5eee75ab62b72ffb5b18ecbd99" => :mavericks
+    sha256 "d6e4babf0dc0562a80d284611072e5ade20669dfeed167019e3824001935d821" => :x86_64_linux
   end
 
   def install
