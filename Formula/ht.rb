@@ -12,6 +12,7 @@ class Ht < Formula
     sha256 "8c604066c63fa1eba3bb547626bbc280ea4446bb2961cb54e8b4fc7b829af5c4" => :high_sierra
     sha256 "197a62339202dd45529bbf42b67addc35939dbae43cc9704ff15d75e5ad62d01" => :sierra
     sha256 "4556713b40bfd3846c7c03a02c174bff2a771fba4084721b6faed88437c3c1a2" => :el_capitan
+    sha256 "3c250d340329c3b7061546a92dd70fa740ef8b3c651f44e88fc011cdeeec829e" => :x86_64_linux
   end
 
   depends_on "lzo"
