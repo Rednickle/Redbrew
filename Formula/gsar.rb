@@ -14,6 +14,7 @@ class Gsar < Formula
     sha256 "5cf3fe6d772f95378e2802a6208b8f06524a81b4d881343571dd3af201b69e98" => :el_capitan
     sha256 "6e138e63b868dfbd4d16109cabe60f50dc600fd65cbf14cd3926b1b8c2f3e2dc" => :yosemite
     sha256 "3911e63bccd5deae4101c7c38a84954ad7e205bda69b3eefcee61a4d46e1df8d" => :mavericks
+    sha256 "3e0cdee67e5f45f98f759b505f691b9ea7b6b25dd770fa4d58cc630a54f7a5de" => :x86_64_linux
   end
 
   def install
