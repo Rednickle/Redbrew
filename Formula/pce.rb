@@ -12,6 +12,7 @@ class Pce < Formula
     sha256 "8c0364c490a9b01875ab9c05c7bc5a6cba190e27d941c72bbbb3e17af71ab88a" => :mojave
     sha256 "6c67f811c813423d7380894d6de77aeeeba20d9f18fd36a71653c23b97c433f6" => :high_sierra
     sha256 "ae09a42321608dfa10291d2a2a1afed87a137c9612a54e513360022de8e908b3" => :sierra
+    sha256 "7bd78ce992771dfb3f22f955c4153e7ab463a49224d688ad02ffa1979dfcea92" => :x86_64_linux
   end
 
   depends_on "nasm" => :build if MacOS.version >= :high_sierra
