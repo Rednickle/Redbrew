@@ -13,6 +13,7 @@ class Robodoc < Formula
     sha256 "54532e8e7629f4eeedbdef400f40997c25558b692755b816f6facc37a4975d4d" => :el_capitan
     sha256 "a5c2794eb7e02c27707aad1bbea593ddc0d21fbf197f6b4313f8d0ba84fb34a5" => :yosemite
     sha256 "cea580dd90f87075879dc722262668deac629673ed22dc1e2e5a6cb52e2439ca" => :mavericks
+    sha256 "31de9c95bf3cf9531e2480355d2b001910a19b46c927c953d98813e87b26f507" => :x86_64_linux
   end
 
   head do
