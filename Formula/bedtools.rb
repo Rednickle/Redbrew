@@ -12,6 +12,7 @@ class Bedtools < Formula
     sha256 "65f6f96f78e63ee61fe6789e68ff850953665531a647bc3ededfb3b1da24291c" => :x86_64_linux
   end
 
+  depends_on :macos # Due to Python 2
   depends_on "xz"
   unless OS.mac?
     depends_on "python@2" => :build
