@@ -8,6 +8,7 @@ class Ortp < Formula
     sha256 "f49949830b4e6f09bb69c81ff2e2f8f3653bae1d648bc57db393bb92195fc260" => :catalina
     sha256 "1659170fed5ce087fe92e8bca8f8666ce1a2573220897df535a035582b8bd45b" => :mojave
     sha256 "183386b78f9bb94670265af5b717b604d678b399517e7ee9848b6999209755e6" => :high_sierra
+    sha256 "f3b0cef23a22a6c6bd4a9cb52c694c50f933158b6f5e29443927465b0054a450" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
