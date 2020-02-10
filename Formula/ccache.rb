@@ -23,8 +23,6 @@ class Ccache < Formula
     depends_on "libtool" => :build
   end
 
-  uses_from_macos "zlib"
-
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog" if build.head?
 
