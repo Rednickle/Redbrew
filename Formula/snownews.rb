@@ -9,6 +9,7 @@ class Snownews < Formula
     sha256 "db1d20c1468867a2eeb77b521fdfac4e167393797506afd6bbd603fb40c435bf" => :mojave
     sha256 "0e1eed435b2c94a95e35ee89c3b68be6cfa9867d75dc9fbb46b19a66ff6da915" => :high_sierra
     sha256 "6437a67fb63f92f3c4d57b69505cb5146e2d7325da0d6fd73b57ac0f1461c807" => :sierra
+    sha256 "2497c6cef58124f4ca3b47c1e0eeabd335a15efe125df722c9489ae5452930a1" => :x86_64_linux
   end
 
   depends_on "coreutils" => :build
