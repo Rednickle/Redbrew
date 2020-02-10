@@ -10,6 +10,7 @@ class Movgrab < Formula
     sha256 "957654b8124f982a4cb8001f1ade80de1f145af16b49982267e2867573633cbd" => :catalina
     sha256 "4ee0f911dfa7c740de7299ec27f3015bb8543a70bba6cc2ebe5bc8a500b5932b" => :mojave
     sha256 "b93b158f7774abed4d3ba760afb185798782bf10b257ffbf09954f131387137b" => :high_sierra
+    sha256 "0ba428d0362651c65554fa6a9169fa65a2b7e560de248c39212a7d2320400567" => :x86_64_linux
   end
 
   if OS.mac?
