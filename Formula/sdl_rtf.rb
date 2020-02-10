@@ -14,6 +14,7 @@ class SdlRtf < Formula
     sha256 "6c7e9f7459ff062fbb48ee1a383a4fd4acc2c29f5ee9b57dea93710c94ccda11" => :el_capitan
     sha256 "8dd89df32c9ea02bcab36932c2f22bcb6de58d6002bd6fb9e95f9bbfe5ccf41e" => :yosemite
     sha256 "9d077d10fc0102738e3c7d445cf2c8290150f98b4fb92e1b72bb3e5857dc3b3e" => :mavericks
+    sha256 "387e1a87657e3cd634cd172140c29804a80dc807b2c8487c0680d0d64a81749e" => :x86_64_linux
   end
 
   depends_on "sdl"
