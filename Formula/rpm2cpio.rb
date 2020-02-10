@@ -11,6 +11,7 @@ class Rpm2cpio < Formula
     sha256 "081902485154a2061d890e6421a55d15bfe5072c05109c79e0ef50f2a11b96e5" => :mojave
     sha256 "804dccff2726a9ac18a1002cd8adb06aacd07ce1fff93b995c042d4e78775176" => :high_sierra
     sha256 "05f2a6011c554efb2c2196fdf08bfc6f7c6fd6d4e32530399888aabcc73ca339" => :sierra
+    sha256 "bba23286ffed07f93356651aeec6b1a3908b65eee528f24969fd101b9eafc930" => :x86_64_linux
   end
 
   depends_on "xz"
