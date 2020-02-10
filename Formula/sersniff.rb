@@ -15,6 +15,7 @@ class Sersniff < Formula
     sha256 "abde8af644fecfa883abf597486fd269b379001ae29161fbd21777d0506edc86" => :el_capitan
     sha256 "c0c00897dd19dc6f8dff05b57e961079c8f783ba9afc345cac9f064dd2ae6630" => :yosemite
     sha256 "cd8d98e4360a068975fa25f1816e1a79533b46e5da65e455a0498d334daa1761" => :mavericks
+    sha256 "9400957079dd90421a957e9f5c0d307017c1da1fd171ec083e6baa542633a54d" => :x86_64_linux
   end
 
   def install
