@@ -10,6 +10,7 @@ class Osslsigncode < Formula
     sha256 "9f9d6f343dc0a7e6ecf34a27e97049b62952e5a05319b1f7aa4c235cf793fc5e" => :catalina
     sha256 "cf48ec533b5cc0db3cf56903091936822c422d484371c28b2397bd02bd3bdbbb" => :mojave
     sha256 "5999a97a256941d082e171faceb5cbf7fb54720031d71cc1c086d8d08d18ff01" => :high_sierra
+    sha256 "bccf670be04064edbf2c41fb13f270b591aac307594267b14b05df7c30552562" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
