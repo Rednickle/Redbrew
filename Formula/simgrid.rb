@@ -1,14 +1,13 @@
 class Simgrid < Formula
   desc "Studies behavior of large-scale distributed systems"
   homepage "https://simgrid.org/"
-  url "https://framagit.org/simgrid/simgrid/uploads/ddd14d9e34ee36bc90d9107f12480c28/SimGrid-3.24.tar.gz"
-  sha256 "c976ed1cbcc7ff136f6d1a8eda7d9ccf090e0e16d5239e6e631047ae9e592921"
+  url "https://framagit.org/simgrid/simgrid/uploads/0365f13697fb26eae8c20fc234c5af0e/SimGrid-3.25.tar.gz"
+  sha256 "0b5dcdde64f1246f3daa7673eb1b5bd87663c0a37a2c5dcd43f976885c6d0b46"
 
   bottle do
-    sha256 "c62c2880d97b18feb11bcc8a7b9d3bb4c7c2ed2e40f80d8af1c21c30f3489009" => :catalina
-    sha256 "240af507cf808f15e0fe97b484ad2d355345a528a86c7f9383281ab4e608c53a" => :mojave
-    sha256 "f540615cee13268687c5ea3c3313f9eda95cc641efba5cad506f60fe2c09d321" => :high_sierra
-    sha256 "52f5b18b359c5815def4b74449a8ba43b4d0f335a5292052d70e1f34b86f5552" => :x86_64_linux
+    sha256 "ad770f08175c732a0d41fb8ce9cd0c5522d3276b8f062560cfe2b638529481da" => :catalina
+    sha256 "198a2b92621a35673354f863488168d7daae940f200f319a3565d1b37d021c50" => :mojave
+    sha256 "d458ff1173916ee455577e3873cb46a5c5d2d4194d7146ef945cf5e28908a23f" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -32,10 +31,10 @@ class Simgrid < Formula
     (testpath/"test.c").write <<~EOS
       #include <stdio.h>
       #include <stdlib.h>
-      #include <simgrid/msg.h>
+      #include <simgrid/engine.h>
 
       int main(int argc, char* argv[]) {
-        printf("%f", MSG_get_clock());
+        printf("%f", simgrid_get_clock());
         return 0;
       }
     EOS
