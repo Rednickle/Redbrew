@@ -2,27 +2,26 @@ class Caf < Formula
   # Renamed from libccpa
   desc "Implementation of the Actor Model for C++"
   homepage "https://actor-framework.org/"
-  url "https://github.com/actor-framework/actor-framework/archive/0.17.3.tar.gz"
-  sha256 "af235dbb5001a86d716c19f1b597be81bbcf172b87d42e2a38dc3ac97ea3863d"
-  revision 1
+  url "https://github.com/actor-framework/actor-framework/archive/0.17.4.tar.gz"
+  sha256 "b5a1d80b16561edd3fa13dcda91ad00ae0a2c57b9d839a975c441f7ce63b4d1e"
   head "https://github.com/actor-framework/actor-framework.git"
 
   bottle do
     cellar :any
-    sha256 "3dfc237be96a491a0f27b6e03ec0c0d30a0bc29bd446fbfff40b9cf9379f52fd" => :catalina
-    sha256 "6f838279b270a0cbdecc7e6a5bd13aba2e7bbe83b5374b8a1cd880423c7500d9" => :mojave
-    sha256 "4a0c871ff5848389f01c21d85a6d9b59c6b5d73404329bfa408b732d62b5a2bf" => :high_sierra
-    sha256 "3d018aa4e81d94ec591729452f695397476aa28051b9c8c2078253ad907803e4" => :x86_64_linux
+    sha256 "7381c914063cfdf1bf8bae87db703cd08852d4c4404a1bda1aed0ff61f6e73bf" => :catalina
+    sha256 "62bd03d54ab09b73df5ded4472ef155a010cddce1127cc6e36ba26a766016617" => :mojave
+    sha256 "a7bf159890ed0df47fb59a94ee5d196187cc5ee18a2488516afe0ccb9fc2b948" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "openssl@1.1"
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--no-examples",
-                          "--build-static", "--no-opencl"
-    system "make", "--directory=build"
-    system "make", "--directory=build", "test"
+    system "./configure", "--prefix=#{prefix}",
+                          "--build-static",
+                          "--no-examples",
+                          "--no-unit-tests",
+                          "--no-opencl"
     system "make", "--directory=build", "install"
   end
 
@@ -36,7 +35,6 @@ class Caf < Formula
         self->spawn([] {
           std::cout << "test" << std::endl;
         });
-        self->await_all_other_actors_done();
       }
       CAF_MAIN()
     EOS
