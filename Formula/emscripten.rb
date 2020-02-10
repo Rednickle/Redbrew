@@ -38,6 +38,7 @@ class Emscripten < Formula
     end
   end
 
+  depends_on :macos # Due to Python 2
   depends_on "cmake" => :build
   depends_on "node"
   depends_on "python"
