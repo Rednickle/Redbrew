@@ -9,6 +9,7 @@ class ShadowsocksLibev < Formula
     sha256 "2f7a0dd8fac9bfad68df05138d3fd6ae05262c081a4e9ecf60df361e13dd4323" => :catalina
     sha256 "619f44ab79f243d223d3abba959780649e2eee7f70e1278d1f5dfe905ad210ad" => :mojave
     sha256 "f02604b47b9cbd68c4bc1578955b7587ea53b0e608cb1f4011508659401eae34" => :high_sierra
+    sha256 "8fea1877b463b8515b253fd9808204179ffd52595efc4cd2bfb1af65e98581b9" => :x86_64_linux
   end
 
   head do
