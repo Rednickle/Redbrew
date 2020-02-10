@@ -11,6 +11,7 @@ class Csound < Formula
     sha256 "3983060036956544aebbba3322d76d7d294c97ece23c42c4b5454f82d4d2f6b3" => :high_sierra
   end
 
+  depends_on :macos # Due to Python 2
   depends_on "asio" => :build
   depends_on "cmake" => :build
   depends_on "eigen" => :build
