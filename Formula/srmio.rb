@@ -14,6 +14,7 @@ class Srmio < Formula
     sha256 "9e45cba0daaa89683552f1feb19cd49c42d27a311113ecb204ae8c2e48231f3f" => :el_capitan
     sha256 "e71a6c2fac5115cae2fe1a8b7eea9fb5800b96f908adf357a667b5df70bd7089" => :yosemite
     sha256 "d0c35e531e9defc37adc487e00a18ce46b59181bbdf74d46cbc9f5618153d5e4" => :mavericks
+    sha256 "091c31156bdb1f487a811255982cd6e2ba0cbaa10124d152443c53340c5a6e77" => :x86_64_linux
   end
 
   head do
