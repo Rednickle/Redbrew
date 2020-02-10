@@ -13,6 +13,7 @@ class GitCinnabar < Formula
     sha256 "20af19fe1b26dd5228bc98f543f5a03f57882489d036482ba574e1cb8448bddd" => :x86_64_linux
   end
 
+  depends_on :macos # Due to Python 2
   depends_on "mercurial"
   uses_from_macos "curl"
   uses_from_macos "python@2" => :test
