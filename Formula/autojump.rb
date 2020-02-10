@@ -14,6 +14,7 @@ class Autojump < Formula
     sha256 "922ca87c1c1f1cb50bb7a8d68d06c0709ea5ed6e5aa71ecd5b72eb370fcc7449" => :x86_64_linux
   end
 
+  depends_on :macos # Due to Python 2
   uses_from_macos "python@2"
 
   def install
