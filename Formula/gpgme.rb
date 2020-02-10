@@ -14,6 +14,7 @@ class Gpgme < Formula
     sha256 "c80c4cc886f29beff045c4d90846b4ec96476eac6395d3684b57743032b2b365" => :x86_64_linux
   end
 
+  depends_on :macos # Due to Python 2
   depends_on "python" => [:build, :test]
   depends_on "swig" => :build
   depends_on "gnupg"
