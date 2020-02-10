@@ -12,6 +12,7 @@ class Stuntman < Formula
     sha256 "87375257e1d4c3964587b59ef34a1800e9e9b7e6028a506a22b8cd695f39bf42" => :mojave
     sha256 "b5541fc2478ed4b97cdc5cf97ddbcbc4d76255b0ba9e834666c548612e9b758d" => :high_sierra
     sha256 "51f40332e70148118ca22eb7f393c002188e73fb59c82a44c689430f86b2bf7f" => :sierra
+    sha256 "61829f744b7924f730a735aa65cfb03a77ded3da9e48455714d4db2f70a08083" => :x86_64_linux
   end
 
   depends_on "boost" => :build
