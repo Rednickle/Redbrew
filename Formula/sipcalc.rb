@@ -13,6 +13,7 @@ class Sipcalc < Formula
     sha256 "56aa686252ac703ed3dbe91f5737ec4d4b95d52516f4ab52947df15b77d1c58f" => :el_capitan
     sha256 "6b2fc300755693d382fd5ea971c272a7c8c7bff49614dd88d8db4270aa496012" => :yosemite
     sha256 "7ddf7b200984de97143828faf6385314a2ff3f4436432d810e5aaf7dfe44e78c" => :mavericks
+    sha256 "2b46fe939cfe356d7558edec86f1e7a2f4988d32a92c40ba8c9b4095294c309a" => :x86_64_linux
   end
 
   def install
