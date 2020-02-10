@@ -14,6 +14,7 @@ class Phoon < Formula
     sha256 "ae91a1dc089678416ddeab9bd3dfbe76f0fd9f4789a86b187740167d0658926d" => :el_capitan
     sha256 "d6f259769364eab6cacb4e45301f0ab8cd6edab369da99b4ecfbef7927791adc" => :yosemite
     sha256 "378c1f09dcffbd0a0fd79cbcbe9a988d8505fa9b657fc803e6c0e5bb62545047" => :mavericks
+    sha256 "30f58889eb94968e784c27fe02e28ac5f868559eb9698496be9c8eb7eb79b5ca" => :x86_64_linux
   end
 
   def install
