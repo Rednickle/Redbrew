@@ -14,6 +14,7 @@ class Rapidjson < Formula
     sha256 "d0b949a9bd043535e2ff3e032b45b26de0083d319bc094db7ccc1edfea6cbdb3" => :el_capitan
     sha256 "252ec61e7d5cba129a888bb566d4f2b61bd1bd2886de637f48afa638e6764007" => :yosemite
     sha256 "806e4c788a675bbb0cff3cc9af68f8cdf46ac3d5bf49a47a94b331cc67ca0f4d" => :mavericks
+    sha256 "f086510b72c1c87960df0e6ad707afb46e0d59e6b8298209f20a1ec3d0a2007f" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
