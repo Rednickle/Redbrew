@@ -8,6 +8,7 @@ class Asymptote < Formula
     sha256 "64b808892251efca9174dedbca7c7053771d5f6ea84777562a6a92275ba1b50f" => :catalina
     sha256 "ee051fe8dd1b6162d5686c0a0f8a0fc9dd6268c7befc72952721f6f6ab5f7413" => :mojave
     sha256 "cc10a84f49fd48428e79d8f5792335c5b4f4dcf51be79c1a013f946321c7e82d" => :high_sierra
+    sha256 "871f15e9a66019470dd5376b532859fdd654575b933fa91e2c882212575b456e" => :x86_64_linux
   end
 
   depends_on "fftw"
