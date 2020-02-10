@@ -9,6 +9,7 @@ class Libgee < Formula
     sha256 "f05da401040a1fd6372ebb26550d13b3779309d7e393bb109b9c362e8fcb0a0b" => :catalina
     sha256 "ea8b92ad2fc0f9c4191e83d3a4ace603dd99b2d95da665ac699f0805394595e3" => :mojave
     sha256 "321db1d8698ebe090ee354090920a614d95fb65fa7a38fad01f15fbfc6d2ea53" => :high_sierra
+    sha256 "ecf78c8ae9b1c605ecaaae9358d0f8a407cb3185f41fb9cba26e15ee4ab27f72" => :x86_64_linux
   end
 
   depends_on "gobject-introspection" => :build
