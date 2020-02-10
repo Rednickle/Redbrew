@@ -14,6 +14,7 @@ class Zdelta < Formula
     sha256 "3a186612374b9b2aca2e56f5dd68049c0b1ef952e4cb0b07263faf2ea62f136a" => :el_capitan
     sha256 "2ade2838217be1b9f6bc55be6bf05fa5046ae09a42d17b714b9f2a73f934c993" => :yosemite
     sha256 "86f93c2e260d321d3bf30b34c2313d2cec5bc6d23bfb5a86cf99ab6b5f64f157" => :mavericks
+    sha256 "bd48342dfec250f6b0705fde8cc8e338d7a293409b28d76f86a827569f937c31" => :x86_64_linux
   end
 
   def install
