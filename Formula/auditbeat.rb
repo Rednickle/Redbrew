@@ -14,6 +14,7 @@ class Auditbeat < Formula
     sha256 "8b4147c54fccb985b1b7f97c40f6f9b01193c41148c4af482afe18602bd9f93d" => :x86_64_linux
   end
 
+  depends_on :macos # Due to Python 2
   depends_on "go" => :build
   # https://github.com/elastic/beats/pull/14798
   uses_from_macos "python@2" => :build # does not support Python 3
