@@ -9,6 +9,7 @@ class X8664ElfGcc < Formula
     sha256 "08e58deea0e230490676590c0094dd4c27586d6ef1a5dfdfa808be46508ac81e" => :catalina
     sha256 "eee7d6ac62924a8322ba09687aee4f10f48f32a2caf5497cad3bf67dadfe6e9b" => :mojave
     sha256 "f00c75602affbe7012f22524633b0df235667ab65f91c9bad51ca874305620de" => :high_sierra
+    sha256 "744618f65dbfcd4f9c3b92cdbcc994eeef7b59712f03dd5f69d11660405e23a9" => :x86_64_linux
   end
 
   depends_on "gmp"
