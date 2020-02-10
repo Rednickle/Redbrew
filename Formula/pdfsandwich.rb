@@ -11,6 +11,7 @@ class Pdfsandwich < Formula
     sha256 "2471d2ff0242228e150a825e08b051803ffa96442c2949155d89aa5ab0163e0c" => :high_sierra
     sha256 "55481ac412ee714452c1ef754718e28a215c395106fac5eb25c07d5908c38603" => :sierra
     sha256 "af5eaeb89d1e89eb0fb48d2e1661ddfdc21c3f35f08cbfb4fb3aff594b4ab1da" => :el_capitan
+    sha256 "38d46b5505145978b780a75599550bfc929cec53f285b3e7199ff78fa4b497a8" => :x86_64_linux
   end
 
   depends_on "gawk" => :build
