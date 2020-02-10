@@ -11,6 +11,7 @@ class Stow < Formula
     sha256 "409987564f7779d6a1db75f64e54c4713ecd9b9e006abac931f8e8d645bdac92" => :mojave
     sha256 "409987564f7779d6a1db75f64e54c4713ecd9b9e006abac931f8e8d645bdac92" => :high_sierra
     sha256 "cbc7a61940a343aff46fdb6190dc26a359d26c9c468c05b1dbde2484a066ceb6" => :sierra
+    sha256 "d9c9d729eedfc866f0303dddf4ad36e94cf0e5711846724bebdda4b0e1acbf61" => :x86_64_linux
   end
 
   def install
