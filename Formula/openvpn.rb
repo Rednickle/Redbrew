@@ -9,6 +9,7 @@ class Openvpn < Formula
     sha256 "5d765e9c0b189897133a930ab956c4a861bf36532a225b7d11a4f19cfba91a26" => :catalina
     sha256 "c4216f771502095c9ef56440c4c6061d907100ad9530bd4f3e9ac8beb98a743e" => :mojave
     sha256 "3be2664f28a1df4bd39f4f70b68274efa08d02338572aa857820692a0f50f116" => :high_sierra
+    sha256 "c19c08bf5dcf64b374e39881966e21afac85e1709142cdb4ae17282820ece756" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
