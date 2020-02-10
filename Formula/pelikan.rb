@@ -14,6 +14,7 @@ class Pelikan < Formula
     sha256 "e314ce6288bf76e271bf69ce844e2e846b16cad68ce635faf1e5130c3c6911d0" => :el_capitan
     sha256 "ab04b8488e6272d0000c8e67842c4b286eb23459a6de9e9a392f14aa87c9978e" => :yosemite
     sha256 "80459134cbab7aa94ab55d38488b2058696f7408869306f75e80cfa0350ed40d" => :mavericks
+    sha256 "2c8cd06c6ade8a905139dddaae5a78f71cd4e3c3a143ad1aaf89fde7ca73d630" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
