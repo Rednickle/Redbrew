@@ -8,6 +8,7 @@ class LibgpgError < Formula
     sha256 "23059fb82c2bd698184b74900bcca5e0623a334a1e91f440eeea800c9b56bb59" => :catalina
     sha256 "a00980a1b2d0fe037601aa29b18cd4a36fdfbd63724528a665c20527f39b0e4b" => :mojave
     sha256 "88ca7a9b43458356370ca1d6eb32cef1a57ea79f5275273a68ca3330e55cb67f" => :high_sierra
+    sha256 "6cd765cc790a0c1a7c44190fa3cafca67c4f86117e1b50f1172f2de753252f8d" => :x86_64_linux
   end
 
   def install
