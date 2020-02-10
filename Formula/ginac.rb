@@ -12,6 +12,7 @@ class Ginac < Formula
     sha256 "d1c5e18b66c445eb6afa1370930e896d273975c089dca5ab0a1b633b09c05444" => :x86_64_linux
   end
 
+  depends_on :macos # Due to Python 2
   depends_on "pkg-config" => :build
   depends_on "cln"
   depends_on "readline"
