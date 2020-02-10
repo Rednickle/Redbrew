@@ -11,6 +11,7 @@ class Zeek < Formula
     sha256 "db4d565aa97ae24e5dcfa252500eb5dedd9a01fe9b12ac75498eba3a1be8efa6" => :catalina
     sha256 "afa8d8b9d78ac1a21869422fe67eb9743a37a1c8359937ac7a3760b91d690824" => :mojave
     sha256 "95fd222759604cb74140d9b19305b339ac334221aaae83f2de4e3e6d7ff6a6a9" => :high_sierra
+    sha256 "de3c0d50dc8990f68fc8c1aeeda2eaa5126b8799bac99aa311ffb049fb0f1218" => :x86_64_linux
   end
 
   depends_on "bison" => :build
