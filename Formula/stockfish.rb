@@ -10,6 +10,7 @@ class Stockfish < Formula
     sha256 "f6bcd62e239cdd9779771367e32137045772d90b6ab3dae858a85bfbe104a95e" => :catalina
     sha256 "f6bcd62e239cdd9779771367e32137045772d90b6ab3dae858a85bfbe104a95e" => :mojave
     sha256 "5debb14a1764281072d0ad4c350a1ce4014904a9956dfa5046347965486573c2" => :high_sierra
+    sha256 "0fdc56a0ea2141af8356230ec7fc7ce3acb8b463eb9076594e897c1aa3e95b4f" => :x86_64_linux
   end
 
   def install
