@@ -13,6 +13,7 @@ class Ren < Formula
     sha256 "966876dfcc9f36c4bc3d1358a9a8500c79d9324ebd8697033571146f1e482685" => :el_capitan
     sha256 "e8ca6bb656f8daca43c6ce446dfff66625fabdedda81604745f0960b419e422a" => :yosemite
     sha256 "c7be0857bfd182f310a700521b5989c36e98ea579a2cf14417d42aa4036448dd" => :mavericks
+    sha256 "61968e427310d1ed94551cbe757eeae7defcf310888eb506016b8b0a660cfe72" => :x86_64_linux
   end
 
   def install
