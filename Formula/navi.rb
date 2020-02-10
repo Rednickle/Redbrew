@@ -1,15 +1,14 @@
 class Navi < Formula
   desc "Interactive cheatsheet tool for the command-line"
   homepage "https://github.com/denisidoro/navi"
-  url "https://github.com/denisidoro/navi/archive/v0.17.0.tar.gz"
-  sha256 "6de54da35cd6491c8a516efa78f0c866abc6eb2d81347d7faf6b905aeb443c95"
+  url "https://github.com/denisidoro/navi/archive/v0.18.3.tar.gz"
+  sha256 "2e65f6c8757dd5107c4ac7032e3cc1bfec785cfec84e33b2d1b365a31c8ee17b"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9b632acac9a218b9240665efcbb65004cefc66f756a56b834896d36edb581538" => :catalina
-    sha256 "9b632acac9a218b9240665efcbb65004cefc66f756a56b834896d36edb581538" => :mojave
-    sha256 "9b632acac9a218b9240665efcbb65004cefc66f756a56b834896d36edb581538" => :high_sierra
-    sha256 "f86b082240770b26c53e8f44392d2c8b4aae854185c4801dab8dedb0f013c413" => :x86_64_linux
+    sha256 "64b6dac7d4c689ab6aa5c88ef58369249af2d9a6ac44f56769685569a673dd56" => :catalina
+    sha256 "64b6dac7d4c689ab6aa5c88ef58369249af2d9a6ac44f56769685569a673dd56" => :mojave
+    sha256 "64b6dac7d4c689ab6aa5c88ef58369249af2d9a6ac44f56769685569a673dd56" => :high_sierra
   end
 
   depends_on "fzf"
