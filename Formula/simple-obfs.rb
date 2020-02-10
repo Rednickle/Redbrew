@@ -13,6 +13,7 @@ class SimpleObfs < Formula
     sha256 "08024887dc9fba3f56425181dd34dba1ecf185dad688b85d20a7b70ec07afbae" => :high_sierra
     sha256 "831de4a180d61c801397ead63a0130d8d2eb102afb526ef81bcecb2f9d1d029b" => :sierra
     sha256 "eccfcd8d4016297999d730fd185624b42e903f7dfac43bd6227c337c2b3aafea" => :el_capitan
+    sha256 "1e6100821cd18c5579eb2f55d2ca71d0ee0dda8bf84e062f02387e66036f0c45" => :x86_64_linux
   end
 
   depends_on "asciidoc" => :build
