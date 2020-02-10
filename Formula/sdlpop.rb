@@ -9,6 +9,7 @@ class Sdlpop < Formula
     sha256 "54fd6bcb8f351a98cd38017bb3c2a6df7a607dbd13b32cbd2162ab168a2a7759" => :catalina
     sha256 "136ad2e3a3dfb37fa6e998ebcada2b35f1a41b8b31b4ac404038388bd2d6902b" => :mojave
     sha256 "40e3329a4043ea4da4e71ccfbea3c9f710e9fed5d61e1d91a5390f7505f6c5f5" => :high_sierra
+    sha256 "e18ceeff08920d4edbbf567cc55336bc0273f2e18593825fe57d0a032ba301b8" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
