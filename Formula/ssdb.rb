@@ -13,6 +13,7 @@ class Ssdb < Formula
     sha256 "79903c5f68970f2c92716aa357dc7d02842ab9838aed81eb0d10a84a6b7b3277" => :sierra
     sha256 "ea82ea4a73dca47ff68b7cfaf205373302709946aaecadd8d71d71741ca02f13" => :el_capitan
     sha256 "24f875e83c5457735183542c8c173c01eb08bcf819dc38042f34f0114d220f3f" => :yosemite
+    sha256 "4d6ec37131bda3a3d7fe35673266282df318e1604ff6f124504e5c6e65a2b601" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
