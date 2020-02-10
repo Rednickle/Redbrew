@@ -12,6 +12,7 @@ class Cassandra < Formula
     sha256 "1ced3d3c02b23d3f3bbeecab011156b66c57794f3b415b20f3b63fa2b069f72b" => :x86_64_linux
   end
 
+  depends_on :macos # Due to Python 2
   depends_on "cython" => :build
   depends_on "python"
   unless OS.mac?
