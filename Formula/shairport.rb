@@ -12,6 +12,7 @@ class Shairport < Formula
     sha256 "af28167bdd30a30511476472429673db781b9234cd4c8225a2ed3f10b869588c" => :mojave
     sha256 "c819c407c218e35129dde1d00a0bb78e5cc85cf69cc0920f87f5a3f690e2cab5" => :high_sierra
     sha256 "f3449bbbd695f608673ecf618c55f5d41ac8edad59772888a128185b23395b7b" => :sierra
+    sha256 "824288888cb2b19ec801797561ec6701f90551ac0b8843e59b29d2301377ca71" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
