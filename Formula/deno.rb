@@ -12,6 +12,7 @@ class Deno < Formula
     sha256 "28b955127900481160fdf16a5a76c8bdc9932d750ef9f1b4209d93a10d7f685f" => :high_sierra
   end
 
+  depends_on :macos # Due to Python 2
   depends_on "llvm" => :build if OS.linux? || DevelopmentTools.clang_build_version < 1100
   depends_on "ninja" => :build
   depends_on "rust" => :build
