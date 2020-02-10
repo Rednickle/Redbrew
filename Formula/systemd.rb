@@ -3,11 +3,11 @@ class Systemd < Formula
   homepage "https://wiki.freedesktop.org/www/Software/systemd/"
   url "https://github.com/systemd/systemd/archive/v244.tar.gz"
   sha256 "2207ceece44108a04bdd5459aa74413d765a829848109da6f5f836c25aa393aa"
+  revision 1
   head "https://github.com/systemd/systemd.git"
   # tag "linux"
 
   bottle do
-    sha256 "cf69549f3a8cefabebbb0deeddf2441353c099d54604733be3e046712a2f0eea" => :x86_64_linux
   end
 
   depends_on "coreutils" => :build
@@ -24,6 +24,7 @@ class Systemd < Formula
   depends_on "pkg-config" => :build
   depends_on "expat"
   depends_on "libcap"
+  depends_on "lz4"
   depends_on "util-linux" # for libmount
   depends_on "xz"
 
@@ -46,6 +47,7 @@ class Systemd < Formula
       -Dpamconfdir=#{prefix}/etc/pam.d
       -Dcreate-log-dirs=false
       -Dhwdb=false
+      -Dlz4=true
     ]
 
     mkdir "build" do
