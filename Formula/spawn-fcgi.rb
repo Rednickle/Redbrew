@@ -14,6 +14,7 @@ class SpawnFcgi < Formula
     sha256 "4e6f999ebcad8b7ce84473379b6358ec569559f9e4b772d31ef1a5b0e01fc865" => :el_capitan
     sha256 "7473e3e2cd5322b2f09011e2b5119622e145d136cd0a8d4ce7adcb255a13d83b" => :yosemite
     sha256 "a19a14cae6fbacdc5aa1a8132f5d290743ba7385c2d76903dbd172ca07b38680" => :mavericks
+    sha256 "ee59e74ca0da8cfc5e0aff2d8075e8fc789caec70987e3429b057c195c83b048" => :x86_64_linux
   end
 
   def install
