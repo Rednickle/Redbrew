@@ -11,6 +11,7 @@ class Sylpheed < Formula
     sha256 "744efdd95f6dc3152ab39da781d5cc9ef81a5caa7310097b00a903e1e595e188" => :mojave
     sha256 "0ec10e9ba748c3ce1bbb2502b8f9736fcdd1c72d492fdf4c58e2e3c0f6442f4b" => :high_sierra
     sha256 "df7c4f2ede961688c72b588cb4e08702603caf19ad08d2c00721e95c9a503716" => :sierra
+    sha256 "3a1c2c21503f8e11b8f1cea52e5ce39e1aa627806edc1c10d8dea6aa9b5c78fd" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
