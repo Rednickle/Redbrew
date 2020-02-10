@@ -14,6 +14,7 @@ class Bazaar < Formula
     sha256 "79b5e97e1039d9bc01f9aede661104531f9abcf8c12aace2aeeab3855b41d5a0" => :x86_64_linux
   end
 
+  depends_on :macos # Due to Python 2
   uses_from_macos "python@2"
 
   # CVE-2017-14176
