@@ -12,6 +12,7 @@ class Pacparser < Formula
     sha256 "5a4db686679c753a806fa2e2df5e93263f973f447f9357fcdadc071687c10071" => :mojave
     sha256 "1bb0af844e0cfd58357987f2f9e6f82b0e72a13df961f13ad8b81b3e00a3dff2" => :high_sierra
     sha256 "719e5eadacf71e3a2e863447609322c45f3be3a9d3ee63373c05a9a2ae7f31b8" => :sierra
+    sha256 "b9e6dfaf00279359bdd42ffda10235567fd196c230384cb4c3032b41ded413e9" => :x86_64_linux
   end
 
   def install
