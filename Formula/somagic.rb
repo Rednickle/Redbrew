@@ -13,6 +13,7 @@ class Somagic < Formula
     sha256 "ed8a82423daaabaca0a7ab203edc68b3c0a1a1d617eb24d46486dfa974e9eb4f" => :el_capitan
     sha256 "9c87f9d7a694509b446ce726cedcb731c0185b589a1cdfa96c0346f883a75e5d" => :yosemite
     sha256 "0684417c6e1f1b498d10c5d24171217fb2e70ed0c8f9bacdd7365e8be8af20fc" => :mavericks
+    sha256 "113453858754829930f91f5a86a784975c6e4b7c78065b353b90246349d6122b" => :x86_64_linux
   end
 
   depends_on "libgcrypt"
