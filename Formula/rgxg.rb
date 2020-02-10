@@ -13,6 +13,7 @@ class Rgxg < Formula
     sha256 "e84c6dfcb4195ef84bd4c5373bfa6029ea4d8600f94b58bc97fbee7334bf3f74" => :el_capitan
     sha256 "68a4566c40db42aa298862e8b2cc02dc16dfcb9f373454e48be31e0899dc6a64" => :yosemite
     sha256 "6fc96e2fbf981e67c6374928430dbfd20691d59f6b5dd7b1e255284edeeb6fc5" => :mavericks
+    sha256 "1f03bbc5c7ce9e44a29e93370ec37d2f011aec443d70564fb385aaa2ddaa88c8" => :x86_64_linux
   end
 
   def install
