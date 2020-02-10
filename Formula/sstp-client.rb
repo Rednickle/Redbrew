@@ -8,6 +8,7 @@ class SstpClient < Formula
     sha256 "07d9e21c21591a675d760f059838f26bbbe02a04b27518bce5d3a9b0d0069194" => :catalina
     sha256 "0c32039442cbe0c26bc90660fd99e19940b71677637b60d03350a4c90b3ca35c" => :mojave
     sha256 "cfc794cfd038b84da0b1f329bc7eb6f5c5165e1727ec53c259a5d93ab48d47b0" => :high_sierra
+    sha256 "e8c04923ff3b62df9139a1746604f6129317de2eea38e216b39f0256fbc4eac2" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
