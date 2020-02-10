@@ -11,6 +11,7 @@ class Embree < Formula
     sha256 "eeadbb69a2e0439b9c2d67391dec7ceefc77de75ed0535ec49af93d8ed8c41aa" => :catalina
     sha256 "fd0ce3dbe8248f382168ce9bccf6d31145de02ee062f333cba5eb6a966f4d532" => :mojave
     sha256 "5a5641cf4b93a026bc362ba695a5b92788c92ed975222959797c697e20a8be16" => :high_sierra
+    sha256 "6dafef1d330377d78d4c0e64e2702069f7ce7c1a19904247d74561750bc36e9b" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
