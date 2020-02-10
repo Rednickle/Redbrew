@@ -13,6 +13,7 @@ class Z80asm < Formula
     sha256 "46446e7c3644dc58e1c5cc80b904863298f818d15c4aaad721e36cabae75207c" => :el_capitan
     sha256 "f52e469f9e8ab4c30c6cce5cde41a52bfbdb06e8db88b8be80fb7c54cbb73a21" => :yosemite
     sha256 "ed0e94c25d70c23f537ffbf8440b909b5d652e6000ebacd89be024c7ceee0e3d" => :mavericks
+    sha256 "dd48c941b29262a037c540aeabe4cebbb5b7e0afa5a89a6a72863f79e8ee4fbf" => :x86_64_linux
   end
 
   def install
