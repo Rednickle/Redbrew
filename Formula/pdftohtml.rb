@@ -10,6 +10,7 @@ class Pdftohtml < Formula
     sha256 "d8a6e5bb1d84ee766898543d77307b4a9a6e6f826ebe9cc48ce6db8bb24c8923" => :catalina
     sha256 "c49245634c48c7c24501cfb848a98e4b6a281ff0cf89235bb7a7ce09619e66ad" => :mojave
     sha256 "200be428031e013f58b792b092b56e74743d6362d747b0c883bb95269d7a5e72" => :high_sierra
+    sha256 "b9143a7594d0cfb28d97e49ffdf477649837f481179b74067f997d0a9fe9b14a" => :x86_64_linux
   end
 
   conflicts_with "poppler", :because => "both install `pdftohtml` binaries"
