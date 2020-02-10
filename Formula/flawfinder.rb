@@ -14,6 +14,7 @@ class Flawfinder < Formula
     sha256 "a7f42fb52b0228d5bff2021f9efd3187b4ea48e499694d9492a30ae47120e673" => :x86_64_linux
   end
 
+  depends_on :macos # Due to Python 2
   uses_from_macos "python@2"
 
   resource "flaws" do
