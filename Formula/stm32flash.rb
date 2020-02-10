@@ -11,6 +11,7 @@ class Stm32flash < Formula
     sha256 "2cbbf094a7f2777b674909a5f846bba0cb613a5c2c38e980b67bd769b924e5f5" => :high_sierra
     sha256 "74a92cff8b8099a2b8ee8aa0a2a360639400eb53a24b625c149b052e3f26521e" => :sierra
     sha256 "1e49a9386e4aac0260e3b24872714e59f3984c7f6fb2779e9bd89e0d23bc1655" => :el_capitan
+    sha256 "de118b39545d6fbdacb7e037efd38de3466ac0428b39c06ec476afc139a1b31e" => :x86_64_linux
   end
 
   def install
