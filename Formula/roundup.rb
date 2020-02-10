@@ -14,6 +14,7 @@ class Roundup < Formula
     sha256 "77ff95001e3a2de6eedd4d5702e5e418b7c4ecfa6855af7b479e1e978249882f" => :el_capitan
     sha256 "5dd0f6d1e64f54b3bb389411f95cd823b75e31f073e739d78793fca4b21e8e59" => :yosemite
     sha256 "42a3781280553b56fdd9330f2ef1f930b489c932ac0191313eb1cf6482e9728f" => :mavericks
+    sha256 "25f5948e9290fb0772b643fe0c57af708cfa61bd72bd8802dec570525565de17" => :x86_64_linux
   end
 
   def install
