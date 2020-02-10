@@ -12,6 +12,7 @@ class Syntaxerl < Formula
     sha256 "0e0ac8402dd61720eeca50047b173f7500dc38bd7cceb37915c4425b7492044e" => :sierra
     sha256 "648f30c4fb2db062f4c9f27d3c73cf679181e7183a5b7b83b5670624d88b27d5" => :el_capitan
     sha256 "80ea1737253a2115722350d6a6456ba48ae853674bb91f7a8b685e7b8311eb74" => :yosemite
+    sha256 "836a9b40a7a8ec9cb533091e78a154e1efc85d98591fa64cd16832acbdee1042" => :x86_64_linux
   end
 
   depends_on "erlang"
