@@ -12,6 +12,7 @@ class Ry < Formula
     sha256 "835c360df374f5ca94a753b1ce79ba61dfc9fc14e54a2bf064367b9094909677" => :mojave
     sha256 "3e2e0b1e4104b9856ef6f5ad05caa4100ba209850c84c1db759f788eed042740" => :high_sierra
     sha256 "3e2e0b1e4104b9856ef6f5ad05caa4100ba209850c84c1db759f788eed042740" => :sierra
+    sha256 "3cc9803cede7bbf29016be97d86a7bd03f946eb3390ba20c79bbda540c34be6a" => :x86_64_linux
   end
 
   depends_on "bash-completion"
