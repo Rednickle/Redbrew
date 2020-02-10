@@ -13,6 +13,7 @@ class Rlog < Formula
     sha256 "c95d8998639fd75131f923191eaa857bc3ff8f33ee64ca3b5d459ac1979e6fa2" => :el_capitan
     sha256 "44f3b8ee89802fb13674e3b60e873045a459bf13513b84f3f7b94c8a4444b2eb" => :yosemite
     sha256 "70c1faaac613087604231c7e30ba5dd458183c1dec4cfccb73b25a32fee6c603" => :mavericks
+    sha256 "5a43623a13c9b426ccb0d03fc1f0eb1317bc86d5e1a6ded67a47b7f33293ab75" => :x86_64_linux
   end
 
   patch :DATA
