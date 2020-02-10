@@ -9,6 +9,7 @@ class ReFlex < Formula
     sha256 "075657453a8dc116d425965a5ad8432b3b66b8b9cfd581eabdcaa0c595e5ebf1" => :catalina
     sha256 "caf15bf38d93db054e1f90a9182802b7df688b3266dccd48ccd7550c7d7d50e7" => :mojave
     sha256 "aeee136f831845272ba2e5b67aee5cbe6e93a6d4b77a9991f5bd0bda88f93e76" => :high_sierra
+    sha256 "a61f2773346b37f6273980346f9f973147a30e65360547e169d095c6b6cf2f1e" => :x86_64_linux
   end
 
   def install
