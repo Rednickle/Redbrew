@@ -9,6 +9,7 @@ class ZitaConvolver < Formula
     sha256 "a616c118732c9f2c3775348e598a972abab7ae67b7cb0f283884cddaa55ce93d" => :catalina
     sha256 "e9bfda6d2d3119f93ea0d570b9b3516d44513c3eafc206543f8fb055707db8fd" => :mojave
     sha256 "b8b3326ead45ef0e126488d9c96a181f15888a11b707278c61c2ceeee312b37d" => :high_sierra
+    sha256 "e0b4689d517a824e633441a10057cb061bc608fa33eb5f1c3d02196b9b99d8d1" => :x86_64_linux
   end
 
   depends_on "fftw"
