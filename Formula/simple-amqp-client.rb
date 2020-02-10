@@ -11,6 +11,7 @@ class SimpleAmqpClient < Formula
     sha256 "3afc1f1345a391514200462825dcecf87bde3d25476d5f9bf87b787877c632c5" => :mojave
     sha256 "fa561d92f855cf6613343e33741ac715d3fb42fce6ac2adf1fbc00fc641434df" => :high_sierra
     sha256 "4f9fc0338fe628eaeb02c4cfb377a8f5e90da37896e6ec91968f30649069b129" => :sierra
+    sha256 "f9c60e1a3d7b685c61d49a3ea61d972709911dabf00c7b8dccf7d40924d46efd" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
