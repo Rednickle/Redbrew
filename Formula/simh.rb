@@ -11,6 +11,7 @@ class Simh < Formula
     sha256 "a5a7d3ca7f8a069f8cdd3b25fd1d976c32552c2104fc568894807954fb9a5dd4" => :mojave
     sha256 "47cb949cd8492242b06d6de3a0e61f618edf5313ed5adc3f85fe4e999c5757cc" => :high_sierra
     sha256 "eb9b2f1accc1e5d6804bf3ad340c40ab41d2365049c8a3aba1994d98321944d7" => :sierra
+    sha256 "a97604e437473fc505b1e621102ccc3dd26c86268619eec6145f05dfb741e29f" => :x86_64_linux
   end
 
   def install
