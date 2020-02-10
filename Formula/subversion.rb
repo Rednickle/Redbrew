@@ -21,6 +21,7 @@ class Subversion < Formula
     depends_on "gettext" => :build
   end
 
+  depends_on :macos # Due to Python 2
   depends_on "openjdk" => :build
   depends_on "pkg-config" => :build
   depends_on "scons" => :build # For Serf

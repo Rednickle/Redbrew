@@ -13,6 +13,7 @@ class Libssh < Formula
     sha256 "1d155d0fcd90ad1ac84de13ecffa70b1a1fb7209ec1cc150985c855f59d1ccc6" => :x86_64_linux
   end
 
+  depends_on :macos # Due to Python 2
   depends_on "cmake" => :build
   depends_on "openssl@1.1"
   unless OS.mac?

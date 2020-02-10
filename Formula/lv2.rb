@@ -13,6 +13,7 @@ class Lv2 < Formula
     sha256 "07a10d9b20574de130c8ad619466950c367b0f7219065681c317866caa93d4c6" => :x86_64_linux
   end
 
+  depends_on :macos # Due to Python 2
   depends_on "python@2" => :build unless OS.mac?
 
   def install

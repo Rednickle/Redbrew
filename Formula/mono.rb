@@ -26,6 +26,7 @@ class Mono < Formula
   link_overwrite "lib/mono"
   link_overwrite "lib/cli"
 
+  depends_on :macos # Due to Python 2
   unless OS.mac?
     depends_on "python@2" => :build
     depends_on "unzip" => :build

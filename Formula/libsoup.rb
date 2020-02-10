@@ -11,6 +11,7 @@ class Libsoup < Formula
     sha256 "8b91660669f3936b91122de3ea0bba9adef75c15437ad92ef8de1c1766bf54bc" => :x86_64_linux
   end
 
+  depends_on :macos # Due to Python 2
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build

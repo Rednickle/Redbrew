@@ -18,6 +18,7 @@ class Ledger < Formula
   depends_on "gmp"
   depends_on "mpfr"
 
+  depends_on :macos # Due to Python 2
   uses_from_macos "groff"
   uses_from_macos "python@2"
 

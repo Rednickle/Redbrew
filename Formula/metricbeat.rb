@@ -14,6 +14,7 @@ class Metricbeat < Formula
     sha256 "798e3f6771271c446087b7d78b06df14e5748c84c9b9ff3aa6bb102c0a80a362" => :x86_64_linux
   end
 
+  depends_on :macos # Due to Python 2
   depends_on "go" => :build
   # https://github.com/elastic/beats/pull/14798
   uses_from_macos "python@2" => :build # does not support Python 3

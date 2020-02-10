@@ -13,6 +13,7 @@ class Stgit < Formula
     sha256 "4ba24cc6d6fb561bd886b78eaefdcf8737b4953501eeb76ecffe9fea0e938985" => :x86_64_linux
   end
 
+  depends_on :macos # Due to Python 2
   depends_on "python@2" unless OS.mac?
 
   def install

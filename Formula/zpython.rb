@@ -33,6 +33,7 @@ class Zpython < Formula
     sha256 "0b46e4d77bcdc7041a9aab66fb1d8efafb433d142e0c2c15709ac934a73c4970" => :x86_64_linux
   end
 
+  depends_on :macos # Due to Python 2
   depends_on "autoconf" => :build
   uses_from_macos "python@2"
   depends_on "zsh"

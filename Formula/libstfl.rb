@@ -14,6 +14,7 @@ class Libstfl < Formula
     sha256 "e95c1a585bb6e6b543ea2479bf4ccf31885b4bab91549681139a145b3374726e" => :x86_64_linux
   end
 
+  depends_on :macos # Due to Python 2
   depends_on "swig" => :build
   depends_on "ruby"
   unless OS.mac?

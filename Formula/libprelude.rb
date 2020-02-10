@@ -12,6 +12,7 @@ class Libprelude < Formula
 
   option "without-ruby", "Build without Ruby bindings"
 
+  depends_on :macos # Due to Python 2
   depends_on "libtool" => :build
   depends_on "lua" => [:build, :optional]
   depends_on "perl" => [:build, :optional]

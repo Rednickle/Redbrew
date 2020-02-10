@@ -13,6 +13,7 @@ class Infer < Formula
     sha256 "bd11c69b3a2500c89d678ce36e42cfa4f887ae13f98bd07ce56ddbe3b327b117" => :x86_64_linux
   end
 
+  depends_on :macos # Due to Python 2
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "cmake" => :build

@@ -13,6 +13,7 @@ class Offlineimap < Formula
     sha256 "12da747f2a7d79220e67de7978daafe4092a23bcfe84a48f3abd9bde2387ffdf" => :x86_64_linux
   end
 
+  depends_on :macos # Due to Python 2
   depends_on "asciidoc" => :build
   depends_on "docbook-xsl" => :build
   depends_on "sphinx-doc" => :build

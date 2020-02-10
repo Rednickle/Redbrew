@@ -11,6 +11,7 @@ class Jailkit < Formula
     sha256 "374a530174e1612ba2fd7b0ac512599a625876c6633b6b3b7fb9d9b0e23cea4a" => :x86_64_linux
   end
 
+  depends_on :macos # Due to Python 2
   uses_from_macos "python@2"
 
   def install

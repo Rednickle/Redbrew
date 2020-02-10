@@ -13,6 +13,7 @@ class Rethinkdb < Formula
     sha256 "28cc039c31b7c360f5032048a725ca9067b4c7c16feb1a40c282ca2fbe729cea" => :x86_64_linux
   end
 
+  depends_on :macos # Due to Python 2
   depends_on "boost" => :build
   depends_on "openssl@1.1"
   depends_on "python@2" => :build unless OS.mac?

@@ -17,6 +17,7 @@ class Kcov < Formula
   depends_on "pkg-config" => :build
   depends_on "python@3.8" => :build
 
+  depends_on :macos # Due to Python 2
   unless OS.mac?
     depends_on "curl"
     depends_on "elfutils"

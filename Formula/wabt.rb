@@ -13,6 +13,7 @@ class Wabt < Formula
     sha256 "0150ceef5ecd3180fb336d174299f14eefe91097b497e1c5d4536a68c4568048" => :x86_64_linux
   end
 
+  depends_on :macos # Due to Python 2
   depends_on "cmake" => :build
   depends_on "python@2" => :build unless OS.mac?
 

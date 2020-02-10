@@ -13,6 +13,7 @@ class SyncGateway < Formula
     sha256 "ab4fe6072b033c1106064a8bb4246e863a10a38a6d8131bc837df36aa5a909ea" => :high_sierra
   end
 
+  depends_on :macos # Due to Python 2
   depends_on "gnupg" => :build
   depends_on "go" => :build
   depends_on "python@2" => :build unless OS.mac?

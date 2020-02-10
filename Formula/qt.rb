@@ -20,6 +20,7 @@ class Qt < Formula
 
   keg_only "Qt 5 has CMake issues when linked"
 
+  depends_on :macos # Due to Python 2
   depends_on "pkg-config" => :build
   depends_on :xcode => :build if OS.mac?
   depends_on :macos => :sierra if OS.mac?

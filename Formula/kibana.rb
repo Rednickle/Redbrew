@@ -24,6 +24,7 @@ class Kibana < Formula
     sha256 "d1d9f4a0f16f5ed484e814afeb98f39b82d4728c6c8beaafb5abc99c02db6674"
   end
 
+  depends_on :macos # Due to Python 2
   unless OS.mac?
     depends_on "python@2" => :build
     depends_on "linuxbrew/xorg/libx11"

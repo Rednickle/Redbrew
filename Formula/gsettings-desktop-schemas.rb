@@ -13,6 +13,7 @@ class GsettingsDesktopSchemas < Formula
     sha256 "d77650207e616a12f3fc30bc2de90215642aa8335514616673e8a29719ab6cec" => :x86_64_linux
   end
 
+  depends_on :macos # Due to Python 2
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build

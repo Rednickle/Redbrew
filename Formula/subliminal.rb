@@ -16,6 +16,7 @@ class Subliminal < Formula
     sha256 "a14df3e5c58228d21e12ec50dfd391eff1efadb2b33c69d0f4ff2b7e93de7693" => :x86_64_linux
   end
 
+  depends_on :macos # Due to Python 2
   uses_from_macos "python@2" # does not support Python 3.7
 
   resource "appdirs" do

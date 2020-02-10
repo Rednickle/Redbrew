@@ -14,6 +14,7 @@ class Zeek < Formula
     sha256 "de3c0d50dc8990f68fc8c1aeeda2eaa5126b8799bac99aa311ffb049fb0f1218" => :x86_64_linux
   end
 
+  depends_on :macos # Due to Python 2
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "swig" => :build

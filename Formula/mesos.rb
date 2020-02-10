@@ -16,6 +16,7 @@ class Mesos < Formula
   depends_on "apr-util"
   depends_on :java => "1.8"
 
+  depends_on :macos # Due to Python 2
   depends_on "subversion"
   uses_from_macos "python@2"
 

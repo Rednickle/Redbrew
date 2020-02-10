@@ -13,6 +13,7 @@ class Libgraphqlparser < Formula
     sha256 "451370cc5e18a9420015806109c94f492a787c2743136ca6f1dab4a84739f532" => :x86_64_linux
   end
 
+  depends_on :macos # Due to Python 2
   depends_on "cmake" => :build
   depends_on "python@2" => :build unless OS.mac?
 

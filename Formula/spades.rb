@@ -12,6 +12,7 @@ class Spades < Formula
     sha256 "1eaedf87e51707e0d6d4fe3d7b4a0b9caa7acd038aa7cd848e68941a74796b4f" => :x86_64_linux
   end
 
+  depends_on :macos # Due to Python 2
   depends_on "cmake" => :build
   depends_on "gcc"
   unless OS.mac?

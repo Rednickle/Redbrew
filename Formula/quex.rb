@@ -13,6 +13,7 @@ class Quex < Formula
     sha256 "ef42df0a4413a021056ceb695796065a083651c29f89f9a2f78e707ae3a1b823" => :x86_64_linux
   end
 
+  depends_on :macos # Due to Python 2
   uses_from_macos "python@2"
 
   def install

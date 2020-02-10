@@ -14,6 +14,7 @@ class Libpsl < Formula
     sha256 "1ad10f633ec78f6f3b4ad371d64fa513d7f65938a7ad488fe502d17372214d60" => :x86_64_linux
   end
 
+  depends_on :macos # Due to Python 2
   depends_on "pkg-config" => :build
   depends_on "libidn2"
   depends_on "python@2"

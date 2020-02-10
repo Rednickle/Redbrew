@@ -14,6 +14,7 @@ class Libtcod < Formula
     sha256 "384ab73bea87e65a5d3225f01325d27e1872bdf0dd9c89f301758191d8ec23e1" => :x86_64_linux
   end
 
+  depends_on :macos # Due to Python 2
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build

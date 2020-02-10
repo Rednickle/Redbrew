@@ -14,6 +14,7 @@ class Ibex < Formula
     sha256 "27195fdd9993bc81ce0df3ec19a82933d7cb6d1c9e61769eec6f6119b9e12b9f" => :x86_64_linux
   end
 
+  depends_on :macos # Due to Python 2
   depends_on "bison" => :build
   depends_on "flex" => :build
   depends_on "pkg-config" => [:build, :test]

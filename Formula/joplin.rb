@@ -12,6 +12,7 @@ class Joplin < Formula
     sha256 "43e6b54fa7cf6a0c75fed20730409cdb59cbf010a4a8ed5d792d8eba2fe29cbf" => :high_sierra
   end
 
+  depends_on :macos # Due to Python 2
   depends_on "node"
   uses_from_macos "python@2"
   depends_on "vips" unless OS.mac?

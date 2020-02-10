@@ -13,6 +13,7 @@ class Libpqxx < Formula
     sha256 "90d39bb938222590aea161d88440969cc7fe286f967b7242eb2b0b415894d29c" => :x86_64_linux
   end
 
+  depends_on :macos # Due to Python 2
   depends_on "pkg-config" => :build
   depends_on "xmlto" => :build
   depends_on "libpq"

@@ -14,6 +14,7 @@ class Pwntools < Formula
     sha256 "1ca128b590e98b795770a3ec945cdde1e1ddbb56697cd4ade739a7232ba77bcf" => :x86_64_linux
   end
 
+  depends_on :macos # Due to Python 2
   depends_on "openssl@1.1"
   uses_from_macos "libffi"
   # Has a 4.0 beta release with Python 3 support

@@ -15,6 +15,7 @@ class Molecule < Formula
     sha256 "54bfc9aae617b94ef5f5abd3526fd36104b931b56dd9ecef2b1a916195a0c2f8" => :x86_64_linux
   end
 
+  depends_on :macos # Due to Python 2
   depends_on "openssl@1.1"
   uses_from_macos "python@2" # Does not support Python 3
   unless OS.mac?

@@ -14,6 +14,7 @@ class Ldns < Formula
     sha256 "6b89f084cd0662179238268ba05309685f0f78708a2636eedbf6a3dd3911b2c8" => :x86_64_linux
   end
 
+  depends_on :macos # Due to Python 2
   depends_on "swig" => :build
   depends_on "openssl@1.1"
   uses_from_macos "python@2"
