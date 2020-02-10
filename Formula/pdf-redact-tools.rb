@@ -11,6 +11,7 @@ class PdfRedactTools < Formula
     sha256 "d36fd54bdf0fecba50c0d2e4c8ec7c4702bc626b7228f55482fa04527837e80a" => :catalina
     sha256 "1d5dddb4adc486d89537a5368550c787b9dbae0c6cd9cddba9b2e45820b025e1" => :mojave
     sha256 "1d5dddb4adc486d89537a5368550c787b9dbae0c6cd9cddba9b2e45820b025e1" => :high_sierra
+    sha256 "412188c047811c99761394d7923c209efe43c7ed8c436296a26e580b9993757e" => :x86_64_linux
   end
 
   depends_on "exiftool"
