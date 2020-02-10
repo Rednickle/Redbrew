@@ -14,6 +14,7 @@ class R3 < Formula
     sha256 "6122bbc3566581f130e54cd563ed69f169598f5ce62d6319e7b5a95b10b802ef" => :el_capitan
     sha256 "56a37f8cab8af3833eb52c6fc739027ffd755fb0e60530bd96dc643bdb8e18ed" => :yosemite
     sha256 "26bd4bc4114b54d57d9f39bd00f15914f03eea7407fbcc50df4c1925b412a879" => :mavericks
+    sha256 "cf234e2c2adb20bf5e74b14b92fffa4ad3efd5446a0d68f1cc4810728ad9ba3f" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
