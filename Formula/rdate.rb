@@ -14,6 +14,7 @@ class Rdate < Formula
     sha256 "acb2ae5951a0f32cbdce39e02d86c63cdb85b41fd02aff74aac6ea4939d71d8d" => :el_capitan
     sha256 "553782017635be9c8d80bbf6fd033f294cddcb427a2d83fe82af8c069c60867f" => :yosemite
     sha256 "3a36b6feccd119c90db3373a3de1b67f4aa03fc72aacdf7b11165b538206ae14" => :mavericks
+    sha256 "88d88020b971c87d1b7a64388163350e76924e8cf990c2e0cb88c87906d8fd3b" => :x86_64_linux
   end
 
   def install
