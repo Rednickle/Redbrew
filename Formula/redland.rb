@@ -13,6 +13,7 @@ class Redland < Formula
     sha256 "38eac3bae25aa65cbb7b688ecfaae91ab79c0c292e7505596ffc3b409bc8ca3b" => :el_capitan
     sha256 "6047842b51137c968df4787bbfcf2080b4f32b73bb9d3412fa117ee9c1ff22d2" => :yosemite
     sha256 "06d1c7c81a9803ad37cd40303987b90456fb565f4305965388bc8faff54c6db7" => :mavericks
+    sha256 "cd8a1242b37069da9a0eebff7add5461b7cede87afe747c619737ce4c7c22f32" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
