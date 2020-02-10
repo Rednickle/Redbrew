@@ -11,6 +11,7 @@ class Slrn < Formula
     sha256 "9dcfea5ecabef7b65a480fec81ab5b1dcc7a67d45bb8fab0d35821684ab56d0e" => :mojave
     sha256 "417197dcbd30a8330f2a3a1e5171b2f3c2ed7869cca8d2fb302108ae391f4072" => :high_sierra
     sha256 "dac0b018eb8f1d53b69ae27ca121510806f0eb9bbdcdbdd119295bd022a8faaf" => :sierra
+    sha256 "a86b359e069d47034f6cffd5df3d4198c79360b10411023c8f1da4b86b9616c2" => :x86_64_linux
   end
 
   depends_on "openssl@1.1"
