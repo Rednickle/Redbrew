@@ -14,6 +14,7 @@ class Shntool < Formula
     sha256 "910da256436f55ebf40c487ebd0e74da2979f01bf0adac83272b353c66ba99a8" => :el_capitan
     sha256 "46d99776bb02d9721f30a6cb9b2c44293d3fbc6b4e3f522df869a7106b09a448" => :yosemite
     sha256 "fa745e31b3c2aadb20d5c87f7175f00b3c5a39b6664ea0a9aa9d88d5767781c5" => :mavericks
+    sha256 "d1d999fc86c0dd29e9180c5bb18355378ab70bb94152c1fd952591e843a3beb1" => :x86_64_linux
   end
 
   def install
