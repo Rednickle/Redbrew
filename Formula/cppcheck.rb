@@ -12,6 +12,7 @@ class Cppcheck < Formula
     sha256 "f4a956f577c4848d5e2d24e85cd51278852e602e92407c8bad6e14e9bc4a02bf" => :x86_64_linux
   end
 
+  depends_on :macos # Due to Python 2
   depends_on "pcre"
   depends_on "python@2" => :test unless OS.mac?
 
