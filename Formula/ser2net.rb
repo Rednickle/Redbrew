@@ -9,6 +9,7 @@ class Ser2net < Formula
     sha256 "83435a03046d3e3db9461ae4dcf9357f6809290bf91560f2f3d722cac22ee6ce" => :mojave
     sha256 "9be8a962e23275a1400a60f94b5e98fc311cf9c917320b5c03d13edcebe40f67" => :high_sierra
     sha256 "8b4c2e80e4fd884c9761a18684191f5d508c858330989a492922fdb231e1ea5d" => :sierra
+    sha256 "98d73255946b1d279a9ea4088b660339aedc7f29897573051b47e3ebe608dc81" => :x86_64_linux
   end
 
   depends_on :macos => :sierra # needs clock_gettime
