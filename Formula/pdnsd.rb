@@ -12,6 +12,7 @@ class Pdnsd < Formula
     sha256 "be218973e8fe1d807e7d9ec2762cab2a9968ce302fb46fb89974a686c1afcc43" => :high_sierra
     sha256 "81c4852b1093820909afc140f052f732cbd94e428d9aff261b90d74cb4935b09" => :sierra
     sha256 "1fa2f1f6ba9fc4fe710c1dc1d5bfb2b9663c557f5cdddf3a2fff8394f138a08f" => :el_capitan
+    sha256 "7990afef4fc1b4cfbf5f3f21e2942fdbdbb67e8fa1c82ad97b8ebd17181c5154" => :x86_64_linux
   end
 
   def install
