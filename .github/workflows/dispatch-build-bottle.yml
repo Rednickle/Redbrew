@@ -8,9 +8,9 @@ jobs:
     container:
       image: homebrew/brew
     steps:
+        # Printing these details should always be the first step listed.
       - name: ${{github.event.client_payload.formula}}
-        run: echo
-      - name: Print details
+        id: print_details
         run: |
           echo formula=${{github.event.client_payload.formula}}
           echo sender=${{github.event.sender.login}}
