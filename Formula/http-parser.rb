@@ -9,6 +9,7 @@ class HttpParser < Formula
     sha256 "5553b0b22087bb034e3a1f938d1e3702d978a0d10f23276b614ab44dc9b7fb06" => :catalina
     sha256 "6cc277c477616992456130af984a71e32d0ac28881e9d7110323d5eb234e7911" => :mojave
     sha256 "55293e78decc0e7c3d1c98a942b96eaebf4c0af33973df4269a647c79cc783d3" => :high_sierra
+    sha256 "5884fc8685eda5a8558bb50e714b4b9cf1b6e0a822e98f333a0fd3c289631c9f" => :x86_64_linux
   end
 
   depends_on "coreutils" => :build
