@@ -1,14 +1,15 @@
 class I386ElfGdb < Formula
   desc "GNU debugger for i386-elf cross development"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftp.gnu.org/gnu/gdb/gdb-8.3.tar.xz"
-  sha256 "802f7ee309dcc547d65a68d61ebd6526762d26c3051f52caebe2189ac1ffd72e"
+  url "https://ftp.gnu.org/gnu/gdb/gdb-9.1.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gdb/gdb-9.1.tar.xz"
+  sha256 "699e0ec832fdd2f21c8266171ea5bf44024bd05164fdf064e4d10cc4cf0d1737"
+  head "https://sourceware.org/git/binutils-gdb.git"
 
   bottle do
-    sha256 "78bc76a038e82c274fcbf1acb1a731d3e93e137501f2e93578998f2ad3d69707" => :catalina
-    sha256 "bdecb45d09a045fe1ffaa9e489ca5d5cf4bc52ad317066ddebcc6fef762214b0" => :mojave
-    sha256 "f24d032ddfe38c469592fcd27de1f2cd76748065291003802f63ed2eeefc0802" => :high_sierra
-    sha256 "db2569c5307b05e3806d5fe4072782b8f9601abe60779144b66a45c1fe6abc8b" => :sierra
+    sha256 "8b58be6c0e44cf7b180e7729c47a726ea4e268115f1a77dc24adee9f6963e482" => :catalina
+    sha256 "92cdbf67b36efd307633153414220dd4dbdc732a26e87a19c05f8dbf72d30b3a" => :mojave
+    sha256 "5a173cea39b163dabfd97db3ea26446344ff82bdc3792b3111414d7f5c9ee6de" => :high_sierra
   end
 
   def install

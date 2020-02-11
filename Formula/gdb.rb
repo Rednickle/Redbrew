@@ -1,16 +1,15 @@
 class Gdb < Formula
   desc "GNU debugger"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftp.gnu.org/gnu/gdb/gdb-8.3.1.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gdb/gdb-8.3.1.tar.xz"
-  sha256 "1e55b4d7cdca7b34be12f4ceae651623aa73b2fd640152313f9f66a7149757c4"
+  url "https://ftp.gnu.org/gnu/gdb/gdb-9.1.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gdb/gdb-9.1.tar.xz"
+  sha256 "699e0ec832fdd2f21c8266171ea5bf44024bd05164fdf064e4d10cc4cf0d1737"
   head "https://sourceware.org/git/binutils-gdb.git"
 
   bottle do
-    sha256 "ad116e52174fcb031a0694554ecb46a108b22c5aa7b7f71aa374a0d011805d0c" => :catalina
-    sha256 "832e02507122f99636166486b7fa5b0004f98c3fb967e3c3e6a427b5ecbf81ed" => :mojave
-    sha256 "c6f506f57a95d8ea21635874bfbc8493e3efd9b34f88ea5f8195d1f7cfa62805" => :high_sierra
-    sha256 "4c388be98687dffea79dfc905a2a0cacc5bb35f534ed9869ac7b64bba40b5a8c" => :x86_64_linux
+    sha256 "efa76a0bc52bef935730afb32ab848446d92d7f8c38f2ef694fdcf3d20b67a44" => :catalina
+    sha256 "e3159449ff06712174dae7c3f513196eb02439e83057e2779531ec94b422c278" => :mojave
+    sha256 "4cde626aa5d32dde54d70bd531a06e65051e7ac7371f1970b6b9c838f565239c" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -45,11 +44,13 @@ class Gdb < Formula
       ENV.append "CPPFLAGS", "-I#{Formula["python"].opt_libexec}"
     end
 
-    system "./configure", *args
-    system "make"
+    mkdir "build" do
+      system "../configure", *args
+      system "make"
 
-    # Don't install bfd or opcodes, as they are provided by binutils
-    system "make", "install-gdb"
+      # Don't install bfd or opcodes, as they are provided by binutils
+      system "make", "install-gdb"
+    end
   end
 
   def caveats; <<~EOS
