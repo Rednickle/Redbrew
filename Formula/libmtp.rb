@@ -9,6 +9,7 @@ class Libmtp < Formula
     sha256 "47ef836719d1fc0ddfc64528d93f1892a4b1db55cc73b025d5824a53956b8ff6" => :catalina
     sha256 "dab56fa876053034299e6a5e6ccdc56d8f55b2b6eba89cb7fc402d011f3e5318" => :mojave
     sha256 "89264c49b080c39b588ffa5f4ecad60aaa68aca5baf92a6460defee779c4733e" => :high_sierra
+    sha256 "315fec802423c2c8a280d5761961d2ccaf1a1a2bdb2eb6527e9ba92d909e409f" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
