@@ -1,15 +1,14 @@
 class Run < Formula
   desc "Easily manage and invoke small scripts and wrappers"
   homepage "https://github.com/TekWizely/run"
-  url "https://github.com/TekWizely/run/archive/v0.7.0.tar.gz"
-  sha256 "fd310e3eb61b975e754689731e7b8557c790506a309df80f5cd23a7019f9edc4"
+  url "https://github.com/TekWizely/run/archive/v0.7.1.tar.gz"
+  sha256 "43618d64860c5e962bd0b81e8a3b71085378dff162557dc237fa58595f1a0681"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f4a0ef6fe43ee3a9af1d526ddb07f977b257d6ba6ac544efdc789c4f50dc213c" => :catalina
-    sha256 "f4a0ef6fe43ee3a9af1d526ddb07f977b257d6ba6ac544efdc789c4f50dc213c" => :mojave
-    sha256 "f4a0ef6fe43ee3a9af1d526ddb07f977b257d6ba6ac544efdc789c4f50dc213c" => :high_sierra
-    sha256 "36e576f7d98bf6daabb7253fb4414cd24ddbd672dfa4095ea5078a151da180f5" => :x86_64_linux
+    sha256 "e39cdccf5d5d0e52ab33843265d1e5b8b7b92fce57ad6386fea105b95fd0ac7d" => :catalina
+    sha256 "e39cdccf5d5d0e52ab33843265d1e5b8b7b92fce57ad6386fea105b95fd0ac7d" => :mojave
+    sha256 "e39cdccf5d5d0e52ab33843265d1e5b8b7b92fce57ad6386fea105b95fd0ac7d" => :high_sierra
   end
 
   depends_on "go" => :build
