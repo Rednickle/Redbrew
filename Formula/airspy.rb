@@ -12,6 +12,7 @@ class Airspy < Formula
     sha256 "bfc1393f3efe5b58016fbee40a4048e7c7246203cb72b02261da1045941bcd4f" => :sierra
     sha256 "c86b265ed42d8a976ff4bfc6116e5945d103f22af8ced4b9a9a18827ecf4af06" => :el_capitan
     sha256 "1d6af7e52534bc50625eabcaa2b586e5824a3abbb4c3b42e032e5b4de41c6bfb" => :yosemite
+    sha256 "19a6d6d3aba7c39def8c064fcc57587e3f60d4a944181c9711a1cc6817f5e5eb" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
