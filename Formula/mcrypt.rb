@@ -13,7 +13,8 @@ class Mcrypt < Formula
   end
 
   depends_on "mhash"
-  depends_on "zlib" unless OS.mac?
+
+  uses_from_macos "zlib"
 
   resource "libmcrypt" do
     url "https://downloads.sourceforge.net/project/mcrypt/Libmcrypt/2.5.8/libmcrypt-2.5.8.tar.gz"

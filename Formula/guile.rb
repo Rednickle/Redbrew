@@ -19,7 +19,7 @@ class Guile < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "gettext" => :build
-    depends_on "flex" => :build unless OS.mac?
+    uses_from_macos "flex" => :build
   end
 
   depends_on "gnu-sed" => :build
@@ -30,6 +30,7 @@ class Guile < Formula
   depends_on "libunistring"
   depends_on "pkg-config" # guile-config is a wrapper around pkg-config.
   depends_on "readline"
+
   uses_from_macos "gperf"
 
   def install

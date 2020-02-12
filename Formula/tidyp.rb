@@ -16,7 +16,7 @@ class Tidyp < Formula
     sha256 "a67e93cc14f51fd0ed5668b04f7c7de13c679d3713ea1fa236f35fc7f9f10674" => :x86_64_linux # glibc 2.19
   end
 
-  depends_on "libxslt" => :build unless OS.mac?
+  uses_from_macos "libxslt" => :build
 
   resource "manual" do
     url "https://raw.githubusercontent.com/petdance/tidyp/6a6c85bc9cb089e343337377f76127d01dd39a1c/htmldoc/tidyp1.xsl"

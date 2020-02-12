@@ -14,7 +14,8 @@ class Cmatrix < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "ncurses" unless OS.mac?
+
+  uses_from_macos "ncurses"
 
   def install
     system "autoreconf", "-i"

@@ -12,7 +12,7 @@ class Spin < Formula
     sha256 "e1301a7a73b5dce1a61afc251890ed77fc5b53fa5e8d7a9cea51611c95248ce1" => :x86_64_linux
   end
 
-  depends_on "bison" => :build unless OS.mac?
+  uses_from_macos "bison" => :build
 
   def install
     cd "Src" do

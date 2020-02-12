@@ -8,7 +8,8 @@ class Clojure < Formula
 
   depends_on :java => "1.8+"
   depends_on "rlwrap"
-  depends_on "ruby" => :build unless OS.mac?
+
+  uses_from_macos "ruby" => :build
 
   def install
     system "./install.sh", prefix

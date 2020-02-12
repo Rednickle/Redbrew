@@ -20,7 +20,8 @@ class Swig < Formula
   end
 
   depends_on "pcre"
-  depends_on "ruby" => :test unless OS.mac?
+
+  uses_from_macos "ruby" => :test
 
   def install
     system "./autogen.sh" if build.head?

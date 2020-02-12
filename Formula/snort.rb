@@ -23,8 +23,9 @@ class Snort < Formula
   depends_on "nghttp2"
   depends_on "openssl@1.1"
   depends_on "pcre"
-  depends_on "flex" => :build unless OS.mac?
-  depends_on "bison" => :build unless OS.mac?
+
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
 
   def install
     openssl = Formula["openssl@1.1"]

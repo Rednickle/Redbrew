@@ -13,7 +13,8 @@ class Inlets < Formula
   end
 
   depends_on "go" => :build
-  depends_on "ruby" => :test unless OS.mac?
+
+  uses_from_macos "ruby" => :test
 
   def install
     ENV["GOPATH"] = buildpath

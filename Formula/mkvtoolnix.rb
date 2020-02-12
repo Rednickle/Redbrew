@@ -31,8 +31,9 @@ class Mkvtoolnix < Formula
   depends_on "libmatroska"
   depends_on "libogg"
   depends_on "libvorbis"
-  depends_on "libxslt" => :build unless OS.mac? # for xsltproc
-  depends_on "ruby" => :build unless OS.mac?
+
+  uses_from_macos "libxslt" => :build
+  uses_from_macos "ruby" => :build
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog" unless OS.mac?

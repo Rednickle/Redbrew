@@ -22,9 +22,10 @@ class Aide < Formula
   depends_on "libgcrypt"
   depends_on "libgpg-error"
   depends_on "pcre"
+
   uses_from_macos "curl"
-  depends_on "bison" => :build unless OS.mac?
-  depends_on "flex" => :build unless OS.mac?
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
 
   def install
     system "sh", "./autogen.sh" if build.head?

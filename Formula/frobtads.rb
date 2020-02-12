@@ -13,7 +13,7 @@ class Frobtads < Formula
     sha256 "159a06d3a2af0fa484998319a7430adcc57faea74a8524c7f7b5a7d441eca6ba" => :x86_64_linux
   end
 
-  depends_on "curl" => :build unless OS.mac?
+  uses_from_macos "curl" => :build
 
   def install
     system "./configure", "--disable-dependency-tracking",

@@ -20,7 +20,8 @@ class Spdylay < Formula
   depends_on "pkg-config" => :build
   depends_on "libevent"
   depends_on "openssl@1.1"
-  depends_on "zlib" unless OS.mac?
+
+  uses_from_macos "zlib"
 
   def install
     if MacOS.version == "10.11" && MacOS::Xcode.version >= "8.0"

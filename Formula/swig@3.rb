@@ -14,7 +14,8 @@ class SwigAT3 < Formula
   keg_only :versioned_formula
 
   depends_on "pcre"
-  depends_on "ruby" => :test unless OS.mac?
+
+  uses_from_macos "ruby" => :test
 
   def install
     system "./configure", "--disable-dependency-tracking",

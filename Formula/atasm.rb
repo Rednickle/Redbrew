@@ -13,7 +13,7 @@ class Atasm < Formula
     sha256 "3fed5da64215e63255a1a33dfe370205e21c66e194c957e26610411da56517a2" => :x86_64_linux
   end
 
-  depends_on "zlib" unless OS.mac?
+  uses_from_macos "zlib"
 
   def install
     cd "src" do

@@ -17,7 +17,7 @@ class Miller < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
-  depends_on "flex" => :build unless OS.mac?
+  uses_from_macos "flex" => :build
 
   def install
     # Profiling build fails with Xcode 11, remove it
