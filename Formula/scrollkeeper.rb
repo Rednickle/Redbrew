@@ -14,8 +14,9 @@ class Scrollkeeper < Formula
 
   depends_on "docbook"
   depends_on "gettext"
+
   uses_from_macos "libxslt"
-  depends_on "perl" unless OS.mac?
+  uses_from_macos "perl"
 
   conflicts_with "rarian",
     :because => "scrollkeeper and rarian install the same binaries."
