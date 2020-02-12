@@ -9,6 +9,7 @@ class EyeD3 < Formula
     sha256 "c8cdfbcf1b5ec18ad698d9df2b8e918a8ce9fc29251d63998fec1b78e1913b63" => :catalina
     sha256 "c8cdfbcf1b5ec18ad698d9df2b8e918a8ce9fc29251d63998fec1b78e1913b63" => :mojave
     sha256 "c8cdfbcf1b5ec18ad698d9df2b8e918a8ce9fc29251d63998fec1b78e1913b63" => :high_sierra
+    sha256 "d823c00ed68c27bee890c2c9dcdf20f0156af8074482105bd13571ad370f8ea7" => :x86_64_linux
   end
 
   depends_on "libmagic"
