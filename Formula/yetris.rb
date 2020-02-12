@@ -12,6 +12,7 @@ class Yetris < Formula
     sha256 "cf350d8daaf62f863b7466477aebea02145abf1f14e50ee56ad324c99dcee018" => :sierra
     sha256 "fd08bc62fc0c4687ed7e76fe604c345a647fb52a348c55cf446fcbf52c7af8dd" => :el_capitan
     sha256 "a14c5327ab931d7394b3f617422916eafbc76a936ac77e81a959b38aa223dd5e" => :yosemite
+    sha256 "e315cc19ed59f4fcc842ae5e599f9550423b9fd7948d8f82c953e654e4522152" => :x86_64_linux
   end
 
   uses_from_macos "ncurses"
