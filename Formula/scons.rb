@@ -3,14 +3,13 @@ class Scons < Formula
   homepage "https://www.scons.org/"
   url "https://downloads.sourceforge.net/project/scons/scons/3.1.2/scons-3.1.2.tar.gz"
   sha256 "7801f3f62f654528e272df780be10c0e9337e897650b62ddcee9f39fde13f8fb"
-  revision 1 unless OS.mac?
+  revision OS.mac? ? 1 : 2
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "eacddf72a0a5803c6053eb8bda0f9b1c0a27f8d7bd30c239c56aa3608802ea15" => :catalina
-    sha256 "eacddf72a0a5803c6053eb8bda0f9b1c0a27f8d7bd30c239c56aa3608802ea15" => :mojave
-    sha256 "eacddf72a0a5803c6053eb8bda0f9b1c0a27f8d7bd30c239c56aa3608802ea15" => :high_sierra
-    sha256 "8f2db57a32310db175d458c5aa2317952247c0f9404a27bdb885da7aa4438674" => :x86_64_linux
+    sha256 "d754617c360bfc6701d9b3e345ff08d28530adafb302227ec6fe8eea6760ca28" => :catalina
+    sha256 "d754617c360bfc6701d9b3e345ff08d28530adafb302227ec6fe8eea6760ca28" => :mojave
+    sha256 "d754617c360bfc6701d9b3e345ff08d28530adafb302227ec6fe8eea6760ca28" => :high_sierra
   end
 
   depends_on "python@3.8"
@@ -20,17 +19,17 @@ class Scons < Formula
       inreplace "engine/SCons/Platform/posix.py",
         "env['ENV']['PATH']    = '/usr/local/bin:/opt/bin:/bin:/usr/bin'",
         "env['ENV']['PATH']    = '#{HOMEBREW_PREFIX}/bin:/usr/local/bin:/opt/bin:/bin:/usr/bin'"
+    end
 
-      Dir["**/*"].each do |f|
-        next unless File.file?(f)
-        next unless File.read(f).include?("/usr/bin/env python")
+    Dir["**/*"].each do |f|
+      next unless File.file?(f)
+      next unless File.read(f).include?("/usr/bin/env python")
 
-        inreplace f, %r{#! ?/usr/bin/env python}, "#! /usr/bin/env python3"
-      end
+      inreplace f, %r{#! ?/usr/bin/env python}, "#! #{Formula["python@3.8"].opt_bin/"python3"}"
     end
 
     man1.install gzip("scons-time.1", "scons.1", "sconsign.1")
-    system (OS.mac? ? "/usr/bin/python" : Formula["python@3.8"].opt_bin/"python3"), "setup.py", "install",
+    system Formula["python@3.8"].opt_bin/"python3", "setup.py", "install",
              "--prefix=#{prefix}",
              "--standalone-lib",
              # SCons gets handsy with sys.path---`scons-local` is one place it
