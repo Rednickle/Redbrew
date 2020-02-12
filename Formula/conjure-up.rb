@@ -23,8 +23,9 @@ class ConjureUp < Formula
   depends_on "pwgen"
   depends_on "python@3.8"
   depends_on "redis"
-  depends_on "libffi" unless OS.mac?
   depends_on "pkg-config" => :build unless OS.mac?
+
+  uses_from_macos "libffi"
 
   patch :DATA unless OS.mac?
 

@@ -22,7 +22,8 @@ class Graphviz < Formula
   depends_on "libpng"
   depends_on "libtool"
   depends_on "byacc" => :build unless OS.mac?
-  depends_on "flex" => :build unless OS.mac?
+
+  uses_from_macos "flex" => :build
 
   def install
     args = %W[

@@ -20,9 +20,10 @@ class Cgdb < Formula
   end
 
   depends_on "texinfo" => :build unless OS.mac?
-  depends_on "flex" => :build unless OS.mac?
   depends_on "help2man" => :build
   depends_on "readline"
+
+  uses_from_macos "flex" => :build
 
   def install
     system "sh", "autogen.sh" if build.head?

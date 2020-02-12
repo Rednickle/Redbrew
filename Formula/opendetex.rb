@@ -13,7 +13,7 @@ class Opendetex < Formula
     sha256 "88930dfc7ccdddc125b50163c96e377c632cc6e3484139b8154ccf6ea127ac17" => :x86_64_linux
   end
 
-  depends_on "flex" => :build unless OS.mac?
+  uses_from_macos "flex" => :build
 
   def install
     system "make"

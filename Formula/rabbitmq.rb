@@ -7,7 +7,8 @@ class Rabbitmq < Formula
   bottle :unneeded
 
   depends_on "erlang"
-  depends_on "unzip" => :build unless OS.mac?
+
+  uses_from_macos "unzip" => :build
 
   def install
     # Install the base files
