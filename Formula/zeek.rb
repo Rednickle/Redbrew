@@ -21,9 +21,6 @@ class Zeek < Formula
   depends_on "caf"
   depends_on "geoip"
   depends_on "openssl@1.1"
-  uses_from_macos "flex"
-  uses_from_macos "libpcap"
-  uses_from_macos "python@2"
 
   uses_from_macos "flex"
   uses_from_macos "libpcap"
