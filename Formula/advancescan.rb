@@ -14,6 +14,7 @@ class Advancescan < Formula
     sha256 "0bc4290c65271b84aec455adbaf85795857b19102e6efb152a64623420ae5757" => :sierra
     sha256 "e4295866cda2370aa37cb1144ff1269ada4df6b76145a25efaf072d7a6b09b5c" => :el_capitan
     sha256 "f91cbe31c7c8072fffffcd0cc8766e20df6f728abc73f66140f97c0a49d6f6c8" => :yosemite
+    sha256 "d6272ab6536526d95da8ddde9a57b88a8aa3247a8b50758680de48d750669baa" => :x86_64_linux
   end
 
   def install
