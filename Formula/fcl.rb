@@ -8,6 +8,7 @@ class Fcl < Formula
     sha256 "20a679e735c69b58c4a97da7c03beac0f45ad80fa9230fcb25cf2f0c4a191f1d" => :catalina
     sha256 "7bd24120f684a275154b6275cb9668e3447c2607cbb51c5ca40e6878171a6626" => :mojave
     sha256 "9e4e2abcf7c2ce96c2208e097d27845041788b1a66e3a209756ea0d78ed45389" => :high_sierra
+    sha256 "2853c3221969d9f3df00ad38bf0b4e8223aad41e5f811ea4f1ac9cd835959640" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
