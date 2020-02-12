@@ -10,6 +10,7 @@ class Scons < Formula
     sha256 "d754617c360bfc6701d9b3e345ff08d28530adafb302227ec6fe8eea6760ca28" => :catalina
     sha256 "d754617c360bfc6701d9b3e345ff08d28530adafb302227ec6fe8eea6760ca28" => :mojave
     sha256 "d754617c360bfc6701d9b3e345ff08d28530adafb302227ec6fe8eea6760ca28" => :high_sierra
+    sha256 "e2a7b71e6a79f285b8376ccc76c055f507e3f4bfb4b4ad760d6509efa25b2f3a" => :x86_64_linux
   end
 
   depends_on "python@3.8"
