@@ -13,6 +13,7 @@ class Ahcpd < Formula
     sha256 "b37143ee365a4a3afd9623d5f49eab0bc4bdf9ac3662d22db9671cffa1078224" => :el_capitan
     sha256 "36907bc1aadc9d9d874ebd74624d8c2c2e8b4057181df1e964720a41f72ccae8" => :yosemite
     sha256 "8518f82187d2b8d2bc24648bd072f19073e159abb2bdaf5418ad31e3ab966d0b" => :mavericks
+    sha256 "79e5e2d17a16e516b378a6967e4c243a9a1e6cfcae57a2062d2b21a872561805" => :x86_64_linux
   end
 
   patch :DATA
