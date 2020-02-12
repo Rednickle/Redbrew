@@ -9,6 +9,7 @@ class Libdeflate < Formula
     sha256 "d953614355c76a7aa75c6517fc60b4e5d4163fb5582690a3b00a3b9e1a4fd712" => :catalina
     sha256 "99672ee99b6bc41349c08cf4f047f21f780ad9aa9cf9eb7cca0639da4f79bb48" => :mojave
     sha256 "249ed4a8ee9ba404dd8cce6efff0365158992aecaab4a2923b9b62ad35f1234a" => :high_sierra
+    sha256 "bb370ac506556f2622510e9282c9b4b53d03bb63a6f7db9b8cc448979b1d1e51" => :x86_64_linux
   end
 
   def install
