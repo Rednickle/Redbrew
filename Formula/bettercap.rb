@@ -16,8 +16,9 @@ class Bettercap < Formula
   depends_on "go" => :build
   depends_on "pkg-config" => :build
   depends_on "libusb"
-  depends_on "libpcap" unless OS.mac?
   depends_on "libnetfilter-queue" unless OS.mac?
+
+  uses_from_macos "libpcap"
 
   def install
     unless OS.mac?
