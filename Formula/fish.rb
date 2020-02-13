@@ -9,6 +9,7 @@ class Fish < Formula
     sha256 "af7faf2423941d4dcf226adfd9e765c41cdef1c6eda47ea24d17bce93453da2f" => :catalina
     sha256 "bcd31ec78f934fdc93eb1f06932e0af633c5183ab5af6a07f62c7102d994a4f1" => :mojave
     sha256 "1ae9a0d35982b3df3854bf3eb36365a65a269fbfa686cc0d95a667d20de4b73c" => :high_sierra
+    sha256 "5620a9140694c0a757d2b79a3bfc35e32674f8ba5751447694e6ab7e7f5cbc40" => :x86_64_linux
   end
 
   head do
