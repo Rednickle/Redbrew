@@ -10,6 +10,7 @@ class Tile38 < Formula
     sha256 "4eb930318448d4302ca69361d98b3913891cf8fc76977ff6bdb67dc6780c3251" => :catalina
     sha256 "00d5789489dbe6c29f79ae91c7a51c51d8467c968d7db25eaf6056fbb30f3aa1" => :mojave
     sha256 "ac4e401bad311a885609a71e59fa2965c9bc97d4e4735cec82277da8c0a940f1" => :high_sierra
+    sha256 "3623c46e0d3995f3a06898310425139ab07912857c0bb7ebadce0bca7dcefc5f" => :x86_64_linux
   end
 
   depends_on "go" => :build
