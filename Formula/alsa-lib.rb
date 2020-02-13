@@ -3,11 +3,12 @@ class AlsaLib < Formula
   homepage "https://www.alsa-project.org/"
   url "ftp://ftp.alsa-project.org/pub/lib/alsa-lib-1.2.1.2.tar.bz2"
   sha256 "958e260e3673f1f6ff6b2d2c0df3fc2e469bea5b2957163ce96ce17f23e87943"
-  # tag "linux"
 
   bottle do
     sha256 "8280bb44070d41048d081911ec73782e72cf5739d65997a5d8ee58517cf708f4" => :x86_64_linux
   end
+
+  depends_on :linux
 
   def install
     system "./configure", "--disable-debug",

@@ -5,13 +5,13 @@ class Iotop < Formula
   sha256 "3adea2a24eda49bbbaeb4e6ed2042355b441dbd7161e883067a02bfc8dcef75b"
   revision 1
   head "git://repo.or.cz/iotop.git"
-  # tag "linux"
 
   bottle do
     cellar :any_skip_relocation
     sha256 "e04a07adf72ff53c32d91f9c982b615be8866181d018c03bddf9c47a8c00be53" => :x86_64_linux
   end
 
+  depends_on :linux
   depends_on :macos # Due to Python 2
   depends_on "python@2"
 

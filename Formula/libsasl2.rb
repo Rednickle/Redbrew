@@ -3,12 +3,12 @@ class Libsasl2 < Formula
   homepage "https://www.cyrusimap.org/sasl/"
   url "https://www.cyrusimap.org/releases/cyrus-sasl-2.1.27.tar.gz"
   sha256 "26866b1549b00ffd020f188a43c258017fa1c382b3ddadd8201536f72efb05d5"
-  # tag "linux"
 
   bottle do
     sha256 "fea25c321868478ed2bab0788a188e87d00d90bf423f7c4c11161bcca9eda3b5" => :x86_64_linux
   end
 
+  depends_on :linux
   depends_on "openssl@1.1"
 
   def install

@@ -3,12 +3,12 @@ class AtSpi2Core < Formula
   homepage "https://www.freedesktop.org/wiki/Accessibility/AT-SPI2"
   url "https://download.gnome.org/sources/at-spi2-core/2.34/at-spi2-core-2.34.0.tar.xz"
   sha256 "d629cdbd674e539f8912028512af583990938c7b49e25184c126b00121ef11c6"
-  # tag "linux"
 
   bottle do
     sha256 "218486e16a9dfcce0b1426a8aed933288220fa1fc9080008809400258987c414" => :x86_64_linux
   end
 
+  depends_on :linux
   depends_on "gobject-introspection" => :build
   depends_on "intltool" => :build
   depends_on "meson" => :build

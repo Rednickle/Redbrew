@@ -3,12 +3,13 @@ class LinuxHeaders < Formula
   homepage "https://kernel.org/"
   url "https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.4.80.tar.gz"
   sha256 "291d844619b5e7c43bd5aa0b2c286274fc5ffe31494ba475f167a21157e88186"
-  # tag "linux"
 
   bottle do
     cellar :any_skip_relocation
     sha256 "b9d7edb2760ec070372d6dd37f2dff85c34221cf77d124d4732092447ac2cf9f" => :x86_64_linux # glibc 2.19
   end
+
+  depends_on :linux
 
   def install
     system "make", "headers_install", "INSTALL_HDR_PATH=#{prefix}"

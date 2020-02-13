@@ -3,7 +3,6 @@ class Strace < Formula
   homepage "https://strace.io/"
   url "https://github.com/strace/strace/releases/download/v5.4/strace-5.4.tar.xz"
   sha256 "f7d00514d51290b6db78ad7a9de709baf93caa5981498924cbc9a744cfd2a741"
-  # tag "linux"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,6 +15,7 @@ class Strace < Formula
     depends_on "automake" => :build
   end
 
+  depends_on :linux
   depends_on "linux-headers"
 
   def install

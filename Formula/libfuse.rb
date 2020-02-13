@@ -4,13 +4,13 @@ class Libfuse < Formula
   url "https://github.com/libfuse/libfuse/releases/download/fuse-2.9.8/fuse-2.9.8.tar.gz"
   sha256 "5e84f81d8dd527ea74f39b6bc001c874c02bad6871d7a9b0c14efb57430eafe3"
   head "https://github.com/libfuse/libfuse.git"
-  # tag "linux"
 
   bottle do
     sha256 "1c29503e1008d72d58bc2d6efc4ac38500116b3f5794f4aaf16b81afb25827d9" => :x86_64_linux # glibc 2.19
     sha256 "66e21f1df0e11d0aa6f810f821e8981247e9285d39e6579bd7376ebfc6482a58" => :x86_64_linux
   end
 
+  depends_on :linux
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build

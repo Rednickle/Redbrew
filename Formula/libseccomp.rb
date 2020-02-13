@@ -3,13 +3,13 @@ class Libseccomp < Formula
   homepage "https://github.com/seccomp/libseccomp"
   url "https://github.com/seccomp/libseccomp/releases/download/v2.4.2/libseccomp-2.4.2.tar.gz"
   sha256 "b54f27b53884caacc932e75e6b44304ac83586e2abe7a83eca6daecc5440585b"
-  # tag "linux"
 
   bottle do
     cellar :any_skip_relocation
     sha256 "ab6d430d4c758ce3cc55e5ec6ba8609196655bc03988271c25ad086ff54f823e" => :x86_64_linux
   end
 
+  depends_on :linux
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build

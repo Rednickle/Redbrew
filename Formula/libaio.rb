@@ -3,12 +3,13 @@ class Libaio < Formula
   homepage "https://pagure.io/libaio"
   url "https://pagure.io/libaio/archive/libaio-0.3.111/libaio-libaio-0.3.111.tar.gz"
   sha256 "e6bc17cba66e59085e670fea238ad095766b412561f90b354eb4012d851730ba"
-  # tag "linux"
 
   bottle do
     cellar :any_skip_relocation
     sha256 "95183f63bab7cc5f5f14f7b71c2d47d66aff94faab35ab621acac695e25b257e" => :x86_64_linux
   end
+
+  depends_on :linux
 
   def install
     system "make"

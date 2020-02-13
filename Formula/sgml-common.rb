@@ -3,13 +3,13 @@ class SgmlCommon < Formula
   homepage "https://www.iso.org/cate/d16387.html"
   url "https://sourceware.org/ftp/docbook-tools/new-trials/SOURCES/sgml-common-0.6.3.tgz"
   sha256 "7dc418c1d361123ffc5e45d61f1b97257940a8eb35d0bfbbc493381cc5b1f959"
-  # tag "linux"
 
   bottle do
     cellar :any_skip_relocation
     sha256 "84c412f7c735c7d6d2696f452234c38fe186bfac6c03e42a7edc4d8bbe7c80c9" => :x86_64_linux
   end
 
+  depends_on :linux
   depends_on "autoconf" => :build
   depends_on "automake" => :build
 

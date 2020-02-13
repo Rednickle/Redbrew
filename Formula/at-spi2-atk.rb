@@ -3,13 +3,13 @@ class AtSpi2Atk < Formula
   homepage "https://www.freedesktop.org/wiki/Accessibility/AT-SPI2"
   url "https://download.gnome.org/sources/at-spi2-atk/2.34/at-spi2-atk-2.34.1.tar.xz"
   sha256 "776df930748fde71c128be6c366a987b98b6ee66d508ed9c8db2355bf4b9cc16"
-  # tag "linux"
 
   bottle do
     cellar :any_skip_relocation
     sha256 "84e9aa44ceb2d66828bcfa592b36669027cbec0d27ac33313fb6a0914cd97e78" => :x86_64_linux
   end
 
+  depends_on :linux
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build

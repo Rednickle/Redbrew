@@ -3,12 +3,12 @@ class Libprelude < Formula
   homepage "https://www.prelude-siem.org/"
   url "https://www.prelude-siem.org/attachments/download/1172/libprelude-5.1.0.tar.gz"
   sha256 "a5fa3ca1e428291afe4bb5095f01c05fd0d9ebd517a0ce3d07ca9977abcf41fa"
-  # tag "linux"
 
   bottle do
     sha256 "1ba7de08e4e1bae22f2df8dac21cb6d6966e6f9f32962940c70655582fcd3f6b" => :x86_64_linux
   end
 
+  depends_on :linux
   depends_on "libtool" => :build
   depends_on "perl" => :build
   depends_on "pkg-config" => :build

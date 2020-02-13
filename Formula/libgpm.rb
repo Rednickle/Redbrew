@@ -4,13 +4,13 @@ class Libgpm < Formula
   url "https://www.nico.schottelius.org/software/gpm/archives/gpm-1.20.7.tar.bz2"
   sha256 "f011b7dc7afb824e0a017b89b7300514e772853ece7fc4ee640310889411a48d"
   head "https://github.com/telmich/gpm.git"
-  # tag "linux"
 
   bottle do
     cellar :any
     sha256 "7aec47e93bf034b08d3376ce35e75c87e0dd4995917f5f0727b0297189e02af8" => :x86_64_linux # glibc 2.19
   end
 
+  depends_on :linux
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build

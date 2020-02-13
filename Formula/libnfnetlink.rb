@@ -4,13 +4,13 @@ class Libnfnetlink < Formula
   url "git://git.netfilter.org/libnfnetlink",
     :tag      => "libnfnetlink-1.0.1",
     :revision => "1166116e34af868bc814aea338c246e49a7a8748"
-  # tag "linux"
 
   bottle do
     cellar :any_skip_relocation
     sha256 "6935ad517877f2c838d8d44b87519b0862b586bf5344785e0da55d1460de7417" => :x86_64_linux
   end
 
+  depends_on :linux
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build

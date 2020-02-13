@@ -4,11 +4,12 @@ class Sysstat < Formula
   url "https://github.com/sysstat/sysstat/archive/v12.2.0.tar.gz"
   sha256 "614ab9fe8e7937a3edb7b2b6760792a3764ea3a7310ac540292dd0e3dfac86a6"
   head "https://github.com/sysstat/sysstat.git"
-  # tag "linux"
 
   bottle do
     sha256 "8748787763eb4a6601ef3ba439c9d33ddec179328afaf042e4369cbba8a5d39d" => :x86_64_linux
   end
+
+  depends_on :linux
 
   def install
     system "./configure",

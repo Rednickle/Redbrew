@@ -1,7 +1,6 @@
 class JdkAT7 < Formula
   desc "Java Platform, Standard Edition Development Kit (JDK)"
   homepage "https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html"
-  # tag "linux"
 
   version "1.7.0-80"
   if OS.linux?
@@ -14,6 +13,8 @@ class JdkAT7 < Formula
   bottle :unneeded
 
   keg_only :versioned_formula
+
+  depends_on :linux
 
   def install
     odie "Use 'brew cask install Caskroom/versions/java7' on Mac OS" if OS.mac?

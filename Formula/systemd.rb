@@ -5,12 +5,12 @@ class Systemd < Formula
   sha256 "2207ceece44108a04bdd5459aa74413d765a829848109da6f5f836c25aa393aa"
   revision 1
   head "https://github.com/systemd/systemd.git"
-  # tag "linux"
 
   bottle do
     sha256 "da95450181a9824a810a6ad6a06e691c69327f15c1c2d1f6df13366cfe9cf8b9" => :x86_64_linux
   end
 
+  depends_on :linux
   depends_on "coreutils" => :build
   depends_on "docbook-xsl" => :build
   depends_on "gettext" => :build

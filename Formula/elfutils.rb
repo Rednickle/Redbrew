@@ -3,12 +3,12 @@ class Elfutils < Formula
   homepage "https://fedorahosted.org/elfutils/"
   url "https://sourceware.org/elfutils/ftp/0.177/elfutils-0.177.tar.bz2"
   sha256 "fa489deccbcae7d8c920f60d85906124c1989c591196d90e0fd668e3dc05042e"
-  # tag "linux"
 
   bottle do
     sha256 "8297b1cab94e012e52507b9b733a53599c5d5f928aa6cbe866de9dfb3e5e5e64" => :x86_64_linux
   end
 
+  depends_on :linux
   depends_on "m4" => :build
   depends_on "bzip2"
   depends_on "xz"

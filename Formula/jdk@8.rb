@@ -1,7 +1,6 @@
 class JdkAT8 < Formula
   desc "Java Platform, Standard Edition Development Kit (JDK)"
   homepage "http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html"
-  # tag "linux"
 
   version "1.8.0-181"
   if OS.mac?
@@ -17,6 +16,8 @@ class JdkAT8 < Formula
   bottle :unneeded
 
   keg_only :versioned_formula
+
+  depends_on :linux
 
   def install
     odie "Use 'brew cask install java' on Mac OS" if OS.mac?

@@ -3,12 +3,12 @@ class Avahi < Formula
   homepage "https://avahi.org"
   url "https://github.com/lathiat/avahi/archive/v0.7.tar.gz"
   sha256 "fd45480cef0559b3eab965ea3ad4fe2d7a8f27db32c851a032ee0b487c378329"
-  # tag "linux"
 
   bottle do
     sha256 "48295b3c720629ae91ce5f6c663b49497d6e55fde9d2e605c9c0e9bbb38a6b4c" => :x86_64_linux
   end
 
+  depends_on :linux
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "intltool" => :build

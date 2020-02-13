@@ -3,13 +3,13 @@ class LibcapNg < Formula
   homepage "https://people.redhat.com/sgrubb/libcap-ng"
   url "https://github.com/stevegrubb/libcap-ng/archive/v0.7.10.tar.gz"
   sha256 "c3c156a215e5be5430b2f3b8717bbd1afdabe458b6068a8d163e71cefe98fc32"
-  # tag "linux"
 
   bottle do
     cellar :any_skip_relocation
     sha256 "6edc4b31731eb8dc4a4b09f8cf4042857e23c233181eb42c6f9a3fae186599df" => :x86_64_linux
   end
 
+  depends_on :linux
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build

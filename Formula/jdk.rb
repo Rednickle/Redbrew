@@ -1,7 +1,6 @@
 class Jdk < Formula
   desc "Java Platform, Standard Edition Development Kit (JDK)"
   homepage "http://www.oracle.com/technetwork/java/javase/downloads/index.html"
-  # tag "linux"
 
   version "9.0.4"
   version_scheme 1
@@ -13,6 +12,8 @@ class Jdk < Formula
   end
 
   bottle :unneeded
+
+  depends_on :linux
 
   def install
     odie "Use 'brew cask install java' on Mac OS" if OS.mac?

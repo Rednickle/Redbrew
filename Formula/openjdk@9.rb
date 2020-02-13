@@ -8,7 +8,6 @@ class OpenjdkAT9 < Formula
     url "https://download.java.net/java/GA/jdk9/9.0.4/binaries/openjdk-9.0.4_linux-x64_bin.tar.gz"
     sha256 "39362fb9bfb341fcc802e55e8ea59f4664ca58fd821ce956d48e1aa4fb3d2dec"
   end
-  # tag "linux"
 
   bottle do
     sha256 "32ee918a254ba3059a2b6ef27279bebbf2b8941654338ab55af563442f5fe778" => :x86_64_linux

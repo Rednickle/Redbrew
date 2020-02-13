@@ -4,13 +4,13 @@ class Texlive < Formula
   url "http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz"
   version "20190406"
   sha256 "c7742ea5b0bc22fe2742e9fa2bf9aeb8ff88175722fcfb2b72c00a29c06e2fc9"
-  # tag "linux"
 
   bottle do
     cellar :any_skip_relocation
     sha256 "4e24715e406a78243cc4391aabc6dc7776390b43fd57d21315a002776ea8994a" => :x86_64_linux
   end
 
+  depends_on :linux
   depends_on "wget" => :build
   depends_on "fontconfig"
   depends_on "linuxbrew/xorg/libice"

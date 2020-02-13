@@ -4,13 +4,13 @@ class Libmnl < Formula
   url "git://git.netfilter.org/libmnl",
     :tag      => "libmnl-1.0.4",
     :revision => "0930a63252958f40bb0f9d09de86985c25cea039"
-  # tag "linux"
 
   bottle do
     cellar :any_skip_relocation
     sha256 "b2ea8cee83f8849eb17544ebe72cd17316433cdbf18f9401dab2382bdcf41091" => :x86_64_linux
   end
 
+  depends_on :linux
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build

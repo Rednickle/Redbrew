@@ -4,12 +4,12 @@ class Procps < Formula
   url "https://gitlab.com/procps-ng/procps/repository/archive.tar.gz?ref=v3.3.16"
   sha256 "25eb11aefe6ecf3b4932e04d79b609bb0b9f735f31e15ddce86fcc9040ee48d1"
   head "https://gitlab.com/procps-ng/procps.git"
-  # tag "linux"
 
   bottle do
     sha256 "6a7a75292f1866a0e44e96bfe27325f1196f38a821325b74d400b3ae4279e5b7" => :x86_64_linux
   end
 
+  depends_on :linux
   depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
