@@ -11,6 +11,7 @@ class Micro < Formula
     sha256 "ad978b160088bdcb1101b67d8ef286b663897bb5033a5b40f0459e3ae5186a45" => :catalina
     sha256 "9a0973d51f5a4b7ffcd7049019372c098c28cbad03a293713160a2813bde860a" => :mojave
     sha256 "bc0a4d9f71efd40c43e99117ef950f0c11763e44ef8ce7cb5be2f244a84e44f1" => :high_sierra
+    sha256 "8f8459d062b77f4c65ab5a8469c1e91071e114c39398f01dd6229873a08acffe" => :x86_64_linux
   end
 
   depends_on "go" => :build
