@@ -2,16 +2,15 @@ class Micro < Formula
   desc "Modern and intuitive terminal-based text editor"
   homepage "https://github.com/zyedidia/micro"
   url "https://github.com/zyedidia/micro.git",
-      :tag      => "v2.0.0",
-      :revision => "399c6290768867351813250a6f1d8df7554917a5"
+      :tag      => "v2.0.1",
+      :revision => "7c71995aaf56113a0c23f30829f52b43a6d8376e"
   head "https://github.com/zyedidia/micro.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "00bdd2ff110e3ce9f3200b6c4674138409ffe964c018edc7500bc8fb54d0a762" => :catalina
-    sha256 "5c363d14693ada72f541daf6a6bc2a470ce3b0dd434996250b4723f44b71af93" => :mojave
-    sha256 "413d76c8af75c9647d19d9ab91c5a22f8621a67cb40214cd26085114b34da19d" => :high_sierra
-    sha256 "fb56dd8d44342315255f642167adb6cbd139393c09fb2d456097c256dd372d6e" => :x86_64_linux
+    sha256 "ad978b160088bdcb1101b67d8ef286b663897bb5033a5b40f0459e3ae5186a45" => :catalina
+    sha256 "9a0973d51f5a4b7ffcd7049019372c098c28cbad03a293713160a2813bde860a" => :mojave
+    sha256 "bc0a4d9f71efd40c43e99117ef950f0c11763e44ef8ce7cb5be2f244a84e44f1" => :high_sierra
   end
 
   depends_on "go" => :build

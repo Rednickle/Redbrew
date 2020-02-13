@@ -17,7 +17,9 @@ class NodeAT10 < Formula
   depends_on :macos # Due to Python 2
   depends_on "pkg-config" => :build
   depends_on "icu4c"
-  uses_from_macos "python@2"
+
+  # Will not work with Python 3 without extensive patching. Node 10 will be EOL April 2021
+  uses_from_macos "python@2" => :build
 
   def install
     system "./configure", "--prefix=#{prefix}", "--with-intl=system-icu"

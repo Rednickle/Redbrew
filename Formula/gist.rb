@@ -1,21 +1,18 @@
 class Gist < Formula
   desc "Command-line utility for uploading Gists"
   homepage "https://github.com/defunkt/gist"
-  url "https://github.com/defunkt/gist/archive/v5.0.0.tar.gz"
-  sha256 "28a3ebaad90ede9a59bd4dbe4850a07cc6e3294a92849a0f0b17ebf6a17ea33b"
+  url "https://github.com/defunkt/gist/archive/v5.1.0.tar.gz"
+  sha256 "843cea035c137d23d786965688afc9ee70610ac6c3d6f6615cb958d6c792fbb2"
   head "https://github.com/defunkt/gist.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c2a23dfb483d7647bd8cb99e617e6d667ba5bb7729769a83c09165dfd3cd6850" => :catalina
-    sha256 "75bf2e9361e632351f86b2a0b8a4d2b3bd23eca6c3d6cde254b010e142fb7336" => :mojave
-    sha256 "12b05e5b399458d2d89e91a41d7af8c5f2d6578ecfa4ab941eb5edb103c7448a" => :high_sierra
-    sha256 "7e9a21eaf63bb8063b3ffdc9b7ee93cfb061c8f96df41670325eca555936809d" => :sierra
-    sha256 "7e9a21eaf63bb8063b3ffdc9b7ee93cfb061c8f96df41670325eca555936809d" => :el_capitan
-    sha256 "c69d1911fa0fad6a0191754ddde3f357c891b1adf2ed95293d156f374ea0937b" => :x86_64_linux
+    sha256 "7eb37c0514203306a3e5be9176acca230014a30e07d43d0e9ba72afcc3dc3203" => :catalina
+    sha256 "7eb37c0514203306a3e5be9176acca230014a30e07d43d0e9ba72afcc3dc3203" => :mojave
+    sha256 "7eb37c0514203306a3e5be9176acca230014a30e07d43d0e9ba72afcc3dc3203" => :high_sierra
   end
 
-  depends_on "ruby" if MacOS.version <= :sierra
+  depends_on "ruby" if !OS.mac? || MacOS.version <= :sierra
 
   def install
     system "rake", "install", "prefix=#{prefix}"
@@ -23,6 +20,6 @@ class Gist < Formula
 
   test do
     output = pipe_output("#{bin}/gist", "homebrew")
-    assert_match "Github now requires credentials", output
+    assert_match "GitHub now requires credentials", output
   end
 end
