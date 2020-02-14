@@ -10,6 +10,7 @@ class Starship < Formula
     sha256 "4bb6f827c6f789e27f80ab3c01c22eeb4cf499cb463631d046afbe6650e5b46a" => :catalina
     sha256 "42abe5b068bc465f04762b751d6462f83da06cdecfcbc6c985b88757148ace55" => :mojave
     sha256 "624e74405148da356aa26439b73b46df5e34562fdc7989fe19fec8c12675d2ee" => :high_sierra
+    sha256 "c870c2a54db37f3fef906c5c60ebbc60d8f90c2424c71cf0fb3957a942821ba5" => :x86_64_linux
   end
 
   depends_on "rust" => :build
