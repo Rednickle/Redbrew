@@ -1,15 +1,14 @@
 class Fail2ban < Formula
   desc "Scan log files and ban IPs showing malicious signs"
   homepage "https://www.fail2ban.org/"
-  url "https://github.com/fail2ban/fail2ban/archive/0.10.5.tar.gz"
-  sha256 "a665df6338cf836edd90d1c87dcef28c8cec1aaae5f72e3f2a45ecda89a7ba5f"
+  url "https://github.com/fail2ban/fail2ban/archive/0.11.1.tar.gz"
+  sha256 "71d2a52b66bb0f87ac3812246bdd3819ec561913cd44afd39130a342f043aa6d"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f2605d6a90684a723f5ac164483846d5a97e9b17ec5a8e3e39c34fe7e544275a" => :catalina
-    sha256 "bde88951f2011891000bfb6cba6035d1ec65e021633baf2296c3aaa00260a943" => :mojave
-    sha256 "e80aa92198a8c6144bfda9a286a54a20b5b5c377e6f082120da33d0f9cf9bb35" => :high_sierra
-    sha256 "d4bac5847c43b8021d0b5ddd396ede0d53cb920c0ca9dd53053053569b0d4f1e" => :x86_64_linux
+    sha256 "74818c094f3afe181c5f6870331822d4bb32d99258f31f2dc30cfea89d111051" => :catalina
+    sha256 "01c86b6a7c231710a39884494ab6cca4f1568724bcb3abc3edade9c56207d236" => :mojave
+    sha256 "336d82f86f30d90847910f8ba414b6326104f1109fe7fad3fab1af3d62331be4" => :high_sierra
   end
 
   depends_on "help2man" => :build

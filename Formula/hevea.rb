@@ -1,16 +1,13 @@
 class Hevea < Formula
   desc "LaTeX-to-HTML translator"
   homepage "http://hevea.inria.fr/"
-  url "http://hevea.inria.fr/old/hevea-2.32.tar.gz"
-  sha256 "de55c6809ae077cd9b2cd5c758449907845677258815c96a713764e6e0c59ee8"
+  url "http://hevea.inria.fr/old/hevea-2.33.tar.gz"
+  sha256 "abface4340f80692b4f1143f15dfabc16a263902a5025933020b42638d5d2504"
 
   bottle do
-    rebuild 1
-    sha256 "fc03dd618603653bbf60f56d5ac54609f1c684fba7a8a9aaddddb5c84aac82e7" => :catalina
-    sha256 "f02097ca2ff65b7ee466ba597bb6d1c0a1fbbf381de3c3922cb31150fba941b7" => :mojave
-    sha256 "527209a56a45e2e490978db70e8b2c6343a7e8e283fefeedfc6bb9cfe37843c0" => :high_sierra
-    sha256 "b8b5d9cd3c34fe23a704e143b831284beda8601f6f6d037d37695016dc034a55" => :sierra
-    sha256 "de367aef26a6ba7b8cc30e2a0ec1a6124ca60f1fbbe666b6310230f8e88f4939" => :x86_64_linux
+    sha256 "56225d900e9394a1eaf18cc3ccaa7acc38b91c52afc1d089aab89101ee617064" => :catalina
+    sha256 "660b2a335b60cbf727597ceac10879ff1f563d4ca07dba4ff1a0ff500ecaa8c5" => :mojave
+    sha256 "c814d37b48e369ff326c4ff32dd8d4fd83e41967f28ddc5390033fdd8643f77a" => :high_sierra
   end
 
   depends_on "ocamlbuild" => :build
