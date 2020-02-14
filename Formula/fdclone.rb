@@ -8,6 +8,7 @@ class Fdclone < Formula
     sha256 "6272d033132a7a2c355ab19629241021087c606de3114e2ebe4aa301e6bee840" => :catalina
     sha256 "b3a56f6b62622696f4da6554a487557a57c0875c2aba28705e300b7207f6a8ce" => :mojave
     sha256 "f894bed33d254c5c48341485e835f945b60e632a0ecbf484c818f12c61350122" => :high_sierra
+    sha256 "601dadcaa9134081a7d633f89c3d26824db65f2260a9b31ae374ba98dd13cf4f" => :x86_64_linux
   end
 
   depends_on "nkf" => :build
