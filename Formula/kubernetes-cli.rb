@@ -11,6 +11,7 @@ class KubernetesCli < Formula
     sha256 "e04158043da4f8573ab0a4c51e966291e8e19f710987e41e5e7561fa5c89e364" => :catalina
     sha256 "5a1b0b2ccc3144be4818b09ce659d6a9b1aff349bddf1afdca95a251d24a820c" => :mojave
     sha256 "0d90be2c608189355c8690b77969e22557eea89d33af03bc41f88c3de311c93a" => :high_sierra
+    sha256 "3c9f903153d8c770ed6db486b86f2b3d187fe139fff791abf4a20ba9866f2b84" => :x86_64_linux
   end
 
   depends_on "go" => :build
