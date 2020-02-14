@@ -8,6 +8,7 @@ class Libfixbuf < Formula
     sha256 "39eac22cafeaa515259fe5b8ddd635b98c69ca42699107bd05e5560d285f6724" => :catalina
     sha256 "5c63110b498601708f2669fa1c5c734a4d8d67abbdfdfd5056255c746ef6e6ee" => :mojave
     sha256 "d76d8050c0355326777460e738008b3820b39c53ec38ee759c0c8ddacf0c090e" => :high_sierra
+    sha256 "26ac090f36ef742325efac368bcab065fd1a254be67b7e0ae01a2d25e3da9111" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
