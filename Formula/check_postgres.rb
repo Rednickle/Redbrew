@@ -10,6 +10,7 @@ class CheckPostgres < Formula
     sha256 "2f164aefe3706e144350278db4e9246359a8a58bba1f16fae289344553e33b64" => :catalina
     sha256 "2f164aefe3706e144350278db4e9246359a8a58bba1f16fae289344553e33b64" => :mojave
     sha256 "e0ae2298e162d333e8833ad294906ba369ac5adaf704b8478ebf54c7a134b9f4" => :high_sierra
+    sha256 "2eccb3b3d0b61f22cb4d7e3f0662217ba801a46d754cc8528e011a89a0640e02" => :x86_64_linux
   end
 
   depends_on "postgresql"
