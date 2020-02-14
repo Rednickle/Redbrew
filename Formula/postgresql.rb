@@ -9,6 +9,7 @@ class Postgresql < Formula
     sha256 "9717b8fc90e082cf2ea87150e0b3395855e3ab5696ac70f5466a26586c658587" => :catalina
     sha256 "4176831e3914529b4e37292d4c2de54eae2edbfaadab98fdc1404eea763e41a4" => :mojave
     sha256 "534e6689788d31a06a5064f2bfc992ea6ae03faf2a63588ad280db7f36b9e327" => :high_sierra
+    sha256 "99f4933b61a4b8f63aea048971002cc1bb60e2b6c19f00ce0bf48f3b7544498c" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
