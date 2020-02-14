@@ -1,16 +1,14 @@
 class Postgresql < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v12.1/postgresql-12.1.tar.bz2"
-  sha256 "a09bf3abbaf6763980d0f8acbb943b7629a8b20073de18d867aecdb7988483ed"
+  url "https://ftp.postgresql.org/pub/source/v12.2/postgresql-12.2.tar.bz2"
+  sha256 "ad1dcc4c4fc500786b745635a9e1eba950195ce20b8913f50345bb7d5369b5de"
   head "https://github.com/postgres/postgres.git"
 
   bottle do
-    rebuild 1
-    sha256 "10d46b2d2fba43e24ad03583e3243d928c4dcf8531ded3630c9a942a1ee7e9b6" => :catalina
-    sha256 "c620a1f26b954d2e27b37117dde1ce0c0b8a965879a39398ecabc8e548717fa3" => :mojave
-    sha256 "6eb005a6b35c7637589733eb2ebd932d5e840023bf71322b1a609909d9035390" => :high_sierra
-    sha256 "44027516c21508237a214c40f9652aca1400ca6c71324cb18aeb51a7d1f1d65f" => :x86_64_linux
+    sha256 "9717b8fc90e082cf2ea87150e0b3395855e3ab5696ac70f5466a26586c658587" => :catalina
+    sha256 "4176831e3914529b4e37292d4c2de54eae2edbfaadab98fdc1404eea763e41a4" => :mojave
+    sha256 "534e6689788d31a06a5064f2bfc992ea6ae03faf2a63588ad280db7f36b9e327" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -22,10 +20,11 @@ class Postgresql < Formula
 
   depends_on "openssl@1.1"
   depends_on "readline"
+
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
   uses_from_macos "perl"
-  depends_on "util-linux" unless OS.mac? # for libuuid
+  uses_from_macos "util-linux" # for libuuid
 
   def install
     # avoid adding the SDK library directory to the linker search path
