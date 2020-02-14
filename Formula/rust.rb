@@ -1,7 +1,7 @@
 class Rust < Formula
   desc "Safe, concurrent, practical language"
   homepage "https://www.rust-lang.org/"
-  revision 1 unless OS.mac?
+  revision 1
 
   stable do
     url "https://static.rust-lang.org/dist/rustc-1.41.0-src.tar.gz"
@@ -15,9 +15,9 @@ class Rust < Formula
   end
 
   bottle do
-    sha256 "206d1b304dadc906bfb71f207dd4b14c192704fe8f7ec9801798e019590430a5" => :catalina
-    sha256 "639c844e8c1cb8ee7c48e75b70747de4ef5f0ae7831c7d386bd772dc04db7cd4" => :mojave
-    sha256 "b231b69125b33abfd92e8e83b6fa1800868c9d476372fa480fd690dddb447443" => :high_sierra
+    sha256 "e5aafa87b134aff16659a2b2fb2898cc2ac6b88d1bab32590aa1ab9ed1c8ca8f" => :catalina
+    sha256 "f98f829754ade2e0b17cd8ae339c2a5fdf63699ed5f5e8bb92647c152d658312" => :mojave
+    sha256 "f8ff3fd81fffd4b2e79f8d5af414f88091d7403cacc91224efaeea68af39c440" => :high_sierra
     sha256 "bce86db974b6844e648f1a3cfd9c993051ac76339329906418b291e2b3024aaf" => :x86_64_linux
   end
 
@@ -30,6 +30,7 @@ class Rust < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "python@3.8" => :build
   depends_on "libssh2"
   depends_on "openssl@1.1"
   depends_on "pkg-config"
@@ -37,12 +38,6 @@ class Rust < Formula
   uses_from_macos "binutils"
   uses_from_macos "curl"
   uses_from_macos "zlib"
-
-  if OS.mac?
-    uses_from_macos "python@2"
-  else
-    depends_on "python@3.8"
-  end
 
   resource "cargobootstrap" do
     if OS.mac?
@@ -57,9 +52,7 @@ class Rust < Formula
   end
 
   def install
-    unless OS.mac?
-      ENV.prepend_path "PATH", Formula["python@3.8"].opt_libexec/"bin"
-    end
+    ENV.prepend_path "PATH", Formula["python@3.8"].opt_libexec/"bin"
 
     # Fix build failure for compiler_builtins "error: invalid deployment target
     # for -stdlib=libc++ (requires OS X 10.7 or later)"

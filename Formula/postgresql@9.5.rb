@@ -1,14 +1,13 @@
 class PostgresqlAT95 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v9.5.20/postgresql-9.5.20.tar.bz2"
-  sha256 "925751b375cf975bebbe79753fbcb5fe85d7a62abe516d4c56861a6b877dde0d"
+  url "https://ftp.postgresql.org/pub/source/v9.5.21/postgresql-9.5.21.tar.bz2"
+  sha256 "7eb56e4fa877243c2df78adc5a0ef02f851060c282682b4bb97b854100fb732c"
 
   bottle do
-    sha256 "bf187b380bd75edad88799e4f79a6fac2b6698539a72a5a17617e91f116488b1" => :catalina
-    sha256 "55076f260c28505db9e7850ed5b1079fcc2064cb1941c5c1b3c5f58ac6a6ae3d" => :mojave
-    sha256 "837bb443599d9d1642006bb53177aa2bb7bba4b176b9677af687745162d90248" => :high_sierra
-    sha256 "fe2667e4f3246689118647ac64cfe196b8afb248b9ebc2164a23f91c406404e2" => :x86_64_linux
+    sha256 "6bf4e2ebeeba9aed6717e6f5db24c618573c63d7d1d090bb28a9f9ecf3a3b0e2" => :catalina
+    sha256 "6c8b49985bf1b4bb8d4cb1c8a72744ec858571ef1e6b4c57af53ad7327d88f44" => :mojave
+    sha256 "64a03752aabc7dc24c3486469c36513d1bac3d58181fd73e229d214834f4d3b4" => :high_sierra
   end
 
   keg_only :versioned_formula
