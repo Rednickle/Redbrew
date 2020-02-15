@@ -9,10 +9,10 @@ class Libseccomp < Formula
     sha256 "ab6d430d4c758ce3cc55e5ec6ba8609196655bc03988271c25ad086ff54f823e" => :x86_64_linux
   end
 
-  depends_on :linux
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on :linux
 
   def install
     system "./configure", "--disable-debug",

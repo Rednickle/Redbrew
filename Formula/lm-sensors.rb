@@ -9,9 +9,9 @@ class LmSensors < Formula
     sha256 "bf3fea16c4ebf78f4234e9c7d00088fb4990433d135e5bb958a1c107dcbf63cd" => :x86_64_linux
   end
 
-  depends_on :linux
   depends_on "bison" => :build
   depends_on "flex" => :build
+  depends_on :linux
 
   def install
     args = %W[

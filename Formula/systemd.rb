@@ -10,7 +10,6 @@ class Systemd < Formula
     sha256 "da95450181a9824a810a6ad6a06e691c69327f15c1c2d1f6df13366cfe9cf8b9" => :x86_64_linux
   end
 
-  depends_on :linux
   depends_on "coreutils" => :build
   depends_on "docbook-xsl" => :build
   depends_on "gettext" => :build
@@ -18,16 +17,18 @@ class Systemd < Formula
   depends_on "intltool" => :build
   depends_on "libgpg-error" => :build
   depends_on "libtool" => :build
-  depends_on "libxslt" => :build # for xsltproc
-  depends_on "m4" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "expat"
   depends_on "libcap"
+  depends_on :linux
   depends_on "lz4"
   depends_on "util-linux" # for libmount
   depends_on "xz"
+
+  uses_from_macos "libxslt" => :build
+  uses_from_macos "m4" => :build
+  uses_from_macos "expat"
 
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"

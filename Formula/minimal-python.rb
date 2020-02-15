@@ -11,10 +11,10 @@ class MinimalPython < Formula
 
   keg_only "conflicts with python formula"
 
-  depends_on :linux
   depends_on "pkg-config" => :build
   depends_on "bzip2"
   depends_on "libffi"
+  depends_on :linux
   depends_on "zlib"
 
   skip_clean "bin/pip3", "bin/pip-3.4", "bin/pip-3.5", "bin/pip-3.6", "bin/pip-3.7"

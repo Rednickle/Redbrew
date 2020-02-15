@@ -8,7 +8,6 @@ class Avahi < Formula
     sha256 "48295b3c720629ae91ce5f6c663b49497d6e55fde9d2e605c9c0e9bbb38a6b4c" => :x86_64_linux
   end
 
-  depends_on :linux
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "intltool" => :build
@@ -19,6 +18,7 @@ class Avahi < Formula
   depends_on "dbus"
   depends_on "glib"
   depends_on "libdaemon"
+  depends_on :linux
 
   def install
     # Needed by intltool (xml::parser)

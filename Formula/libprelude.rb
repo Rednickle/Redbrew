@@ -8,7 +8,6 @@ class Libprelude < Formula
     sha256 "1ba7de08e4e1bae22f2df8dac21cb6d6966e6f9f32962940c70655582fcd3f6b" => :x86_64_linux
   end
 
-  depends_on :linux
   depends_on "libtool" => :build
   depends_on "perl" => :build
   depends_on "pkg-config" => :build
@@ -19,6 +18,7 @@ class Libprelude < Formula
   depends_on "gnutls"
   depends_on "libgcrypt"
   depends_on "libgpg-error"
+  depends_on :linux
   depends_on "lua"
 
   def install

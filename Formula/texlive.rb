@@ -10,9 +10,9 @@ class Texlive < Formula
     sha256 "4e24715e406a78243cc4391aabc6dc7776390b43fd57d21315a002776ea8994a" => :x86_64_linux
   end
 
-  depends_on :linux
   depends_on "wget" => :build
   depends_on "fontconfig"
+  depends_on :linux
   depends_on "linuxbrew/xorg/libice"
   depends_on "linuxbrew/xorg/libsm"
   depends_on "linuxbrew/xorg/libx11"

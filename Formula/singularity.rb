@@ -9,10 +9,10 @@ class Singularity < Formula
     sha256 "d736d58bcb753bc0859f43973af2d4952766257a1a23e84bcfb943a8f57027d4" => :x86_64_linux
   end
 
-  depends_on :linux
   depends_on "go" => :build
   depends_on "openssl@1.1" => :build
   depends_on "libarchive"
+  depends_on :linux
   depends_on "pkg-config"
   depends_on "squashfs"
   depends_on "util-linux" # for libuuid

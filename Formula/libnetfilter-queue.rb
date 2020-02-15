@@ -10,13 +10,13 @@ class LibnetfilterQueue < Formula
     sha256 "4d200baefd48b50001521721704ba2970bfba3aed152620e4baea747be5bc967" => :x86_64_linux
   end
 
-  depends_on :linux
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "libmnl"
   depends_on "libnfnetlink"
+  depends_on :linux
 
   def install
     system "./autogen.sh"

@@ -11,8 +11,8 @@ class DeviceMapper < Formula
     sha256 "b9a0ecca9c06b7f9ac4483406452aa241f1429667a1ee41948426b8a5347eb74" => :x86_64_linux
   end
 
-  depends_on :linux
   depends_on "libaio"
+  depends_on :linux
 
   def install
     # https://github.com/NixOS/nixpkgs/pull/52597

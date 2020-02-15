@@ -11,9 +11,9 @@ class NetTools < Formula
     sha256 "d3356573f08d651305f57af733130adabf68f5f13e92ff4db5cdc0c069a94f73" => :x86_64_linux
   end
 
-  depends_on :linux
   depends_on "gettext" => :build
   depends_on "libdnet"
+  depends_on :linux
 
   def install
     system "yes '' | make config"

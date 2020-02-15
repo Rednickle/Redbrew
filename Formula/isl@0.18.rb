@@ -29,8 +29,8 @@ class IslAT018 < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on :linux
   depends_on "gmp"
+  depends_on :linux
 
   def install
     system "./autogen.sh" if build.head?

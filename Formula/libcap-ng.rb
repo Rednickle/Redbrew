@@ -9,13 +9,13 @@ class LibcapNg < Formula
     sha256 "6edc4b31731eb8dc4a4b09f8cf4042857e23c233181eb42c6f9a3fae186599df" => :x86_64_linux
   end
 
-  depends_on :linux
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "m4" => :build
   depends_on "python" => :build
   depends_on "swig" => :build
+  depends_on :linux
 
   # undefined reference to `pthread_atfork'
   # https://github.com/stevegrubb/libcap-ng/pull/10

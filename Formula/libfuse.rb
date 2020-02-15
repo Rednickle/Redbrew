@@ -10,10 +10,10 @@ class Libfuse < Formula
     sha256 "66e21f1df0e11d0aa6f810f821e8981247e9285d39e6579bd7376ebfc6482a58" => :x86_64_linux
   end
 
-  depends_on :linux
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on :linux
 
   def install
     ENV["MOUNT_FUSE_PATH"] = sbin

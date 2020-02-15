@@ -8,9 +8,9 @@ class Elfutils < Formula
     sha256 "8297b1cab94e012e52507b9b733a53599c5d5f928aa6cbe866de9dfb3e5e5e64" => :x86_64_linux
   end
 
-  depends_on :linux
   depends_on "m4" => :build
   depends_on "bzip2"
+  depends_on :linux
   depends_on "xz"
   depends_on "zlib"
 

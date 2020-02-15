@@ -3,7 +3,6 @@ class Apt < Formula
   homepage "https://wiki.debian.org/apt"
   url "https://deb.debian.org/debian/pool/main/a/apt/apt_1.9.3.tar.xz"
   sha256 "f84d5028da78de8b60d80c8639d094422947c8fdc918625ed8f23cbce5e59265"
-  depends_on :linux
 
   bottle do
     sha256 "3ee78dbad649cf2acedacbf8d049001118133d2bdcc94068875024a8b793b27b" => :x86_64_linux
@@ -22,6 +21,7 @@ class Apt < Formula
   depends_on "gcc@6"
   depends_on "gettext"
   depends_on "gnutls"
+  depends_on :linux
   depends_on "lz4"
   depends_on "zlib"
 

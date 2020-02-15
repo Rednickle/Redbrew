@@ -10,10 +10,10 @@ class LinuxPam < Formula
     sha256 "cfd3e88fa210f22cdd7ea27dc997aed320f5c338717cf490cd76cbbfb3c312f1" => :x86_64_linux
   end
 
-  depends_on :linux
   depends_on "pkg-config" => :build
   depends_on "berkeley-db"
   depends_on "libprelude"
+  depends_on :linux
 
   skip_clean :la, "etc"
 

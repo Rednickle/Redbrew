@@ -10,10 +10,10 @@ class Libnfnetlink < Formula
     sha256 "6935ad517877f2c838d8d44b87519b0862b586bf5344785e0da55d1460de7417" => :x86_64_linux
   end
 
-  depends_on :linux
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on :linux
 
   def install
     system "./autogen.sh"

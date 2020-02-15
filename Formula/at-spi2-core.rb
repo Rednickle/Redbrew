@@ -8,7 +8,6 @@ class AtSpi2Core < Formula
     sha256 "218486e16a9dfcce0b1426a8aed933288220fa1fc9080008809400258987c414" => :x86_64_linux
   end
 
-  depends_on :linux
   depends_on "gobject-introspection" => :build
   depends_on "intltool" => :build
   depends_on "meson" => :build
@@ -18,6 +17,7 @@ class AtSpi2Core < Formula
   depends_on "dbus"
   depends_on "gettext"
   depends_on "glib"
+  depends_on :linux
   depends_on "linuxbrew/xorg/libx11"
   depends_on "linuxbrew/xorg/libxtst"
   depends_on "linuxbrew/xorg/xorgproto"

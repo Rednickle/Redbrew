@@ -21,10 +21,10 @@ class GccAT9 < Formula
     satisfy { !OS.mac? || MacOS::CLT.installed? }
   end
 
-  depends_on :linux
   depends_on "gmp"
   depends_on "isl"
   depends_on "libmpc"
+  depends_on :linux
   depends_on "mpfr"
   unless OS.mac?
     depends_on "zlib"

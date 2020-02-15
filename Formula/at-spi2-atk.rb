@@ -9,7 +9,6 @@ class AtSpi2Atk < Formula
     sha256 "84e9aa44ceb2d66828bcfa592b36669027cbec0d27ac33313fb6a0914cd97e78" => :x86_64_linux
   end
 
-  depends_on :linux
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
@@ -17,6 +16,7 @@ class AtSpi2Atk < Formula
   depends_on "at-spi2-core"
   depends_on "atk"
   depends_on "libxml2"
+  depends_on :linux
 
   def install
     ENV.refurbish_args

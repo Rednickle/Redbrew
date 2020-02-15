@@ -9,10 +9,10 @@ class Onedrive < Formula
     sha256 "23866244bcf417302e2602cfd74df7f161930cff8305a460131a4336412c5cd4" => :x86_64_linux
   end
 
-  depends_on :linux
   depends_on "dmd" => :build
   depends_on "pkg-config" => :build
   depends_on "curl-openssl"
+  depends_on :linux
   depends_on "sqlite"
 
   def install

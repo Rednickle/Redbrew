@@ -9,12 +9,12 @@ class Procps < Formula
     sha256 "6a7a75292f1866a0e44e96bfe27325f1196f38a821325b74d400b3ae4279e5b7" => :x86_64_linux
   end
 
-  depends_on :linux
-  depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "gettext" => :build
   depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
+  depends_on :linux
   depends_on "ncurses"
 
   def install

@@ -9,10 +9,10 @@ class PythonDbus < Formula
     sha256 "c20d0729e24a65d7f202377775e92401df849d1bb203785b688e57263aaaba4a" => :x86_64_linux
   end
 
-  depends_on :linux
   depends_on "pkg-config" => :build
   depends_on "dbus"
   depends_on "dbus-glib"
+  depends_on :linux
   depends_on "python"
 
   def install

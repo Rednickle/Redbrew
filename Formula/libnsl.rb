@@ -12,7 +12,6 @@ class Libnsl < Formula
 
   keg_only "it conflicts with glibc"
 
-  depends_on :linux
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "gettext" => :build
@@ -20,6 +19,7 @@ class Libnsl < Formula
   depends_on "m4" => :build
   depends_on "pkg-config" => :build
   depends_on "libtirpc"
+  depends_on :linux
 
   def install
     inreplace "po/Makefile.in.in" do |s|

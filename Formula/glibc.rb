@@ -66,16 +66,12 @@ class Glibc < Formula
 
   option "with-current-kernel", "Compile for compatibility with kernel not older than your current one"
 
-  depends_on :linux
-  depends_on BrewedGlibcNotOlderRequirement
-  depends_on LinuxKernelRequirement
+  depends_on "binutils" => [:build, :recommended] # binutils 2.20 or later is required
   depends_on GawkRequirement => :build
-
-  # binutils 2.20 or later is required
-  depends_on "binutils" => [:build, :recommended]
-
-  # Linux kernel headers 2.6.19 or later are required
-  depends_on "linux-headers" => [:build, :recommended]
+  depends_on "linux-headers" => [:build, :recommended] # Linux kernel headers 2.6.19 or later are required
+  depends_on BrewedGlibcNotOlderRequirement
+  depends_on :linux
+  depends_on LinuxKernelRequirement
 
   # GCC 4.7 or later is required.
   fails_with :gcc => "4.3"

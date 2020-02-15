@@ -10,10 +10,10 @@ class Libmnl < Formula
     sha256 "b2ea8cee83f8849eb17544ebe72cd17316433cdbf18f9401dab2382bdcf41091" => :x86_64_linux
   end
 
-  depends_on :linux
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on :linux
 
   def install
     system "./autogen.sh"
