@@ -16,7 +16,7 @@ class Gmp < Formula
     sha256 "a21f68e8df094a2bccca845911eae1cf52bdefd19ca53cfd04aacf2a8112ece9" => :x86_64_linux
   end
 
-  depends_on "m4" => :build unless OS.mac?
+  uses_from_macos "m4" => :build
 
   def install
     # Work around macOS Catalina / Xcode 11 code generation bug

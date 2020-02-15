@@ -30,7 +30,8 @@ class Makepkg < Formula
   # Reported 19 Jun 2016: https://bugs.archlinux.org/task/49771
   depends_on :macos => :yosemite
   depends_on "openssl@1.1"
-  depends_on "m4" => :build unless OS.mac?
+
+  uses_from_macos "m4" => :build
   uses_from_macos "libxslt"
 
   def install

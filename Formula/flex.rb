@@ -29,10 +29,9 @@ class Flex < Formula
 
   depends_on "help2man" => :build
   depends_on "gettext"
-  unless OS.mac?
-    depends_on "m4"
-    depends_on "bison" => :build
-  end
+  depends_on "bison" => :build unless OS.mac
+
+  uses_from_macos "m4"
 
   def install
     if build.head?

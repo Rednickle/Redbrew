@@ -21,7 +21,7 @@ class ErlangAT21 < Formula
   depends_on "openssl@1.1"
   depends_on "wxmac" # for GUI apps like observer
 
-  depends_on "m4" => :build unless OS.mac?
+  uses_from_macos "m4" => :build
 
   resource "man" do
     url "https://www.erlang.org/download/otp_doc_man_21.3.tar.gz"

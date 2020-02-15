@@ -13,7 +13,7 @@ class LibsigcxxAT2 < Formula
     sha256 "2a2174c441697c5e3b2a14413e615e9b45eae11add6da2c157b4766f6bad3963" => :x86_64_linux
   end
 
-  depends_on "m4" => :build unless OS.mac?
+  uses_from_macos "m4" => :build
 
   def install
     ENV.cxx11
