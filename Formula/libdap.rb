@@ -8,6 +8,7 @@ class Libdap < Formula
     sha256 "41ca77910281671985b9e698d1f6be7fd4943e0b32bf889e39f16ccbb36ab6bc" => :catalina
     sha256 "6aaeaf8fd4959e3cddbb1486d4f1787a6ad8870ad314850311a2c1acedb5382c" => :mojave
     sha256 "7891d895c5a30518351651f6963a6996287c185703487ea6f1ad71de51eb383e" => :high_sierra
+    sha256 "32bc119d368e2b8481c925219c344daf89e515a6fdd36d8c25ac6e80394cb2f4" => :x86_64_linux
   end
 
   head do
