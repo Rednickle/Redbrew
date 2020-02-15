@@ -41,12 +41,13 @@ class PhpAT73 < Formula
   depends_on "webp"
   unless OS.mac?
     depends_on "xz" => :build
-    depends_on "bzip2"
     depends_on "libedit"
-    depends_on "libxml2"
-    depends_on "libxslt"
-    depends_on "zlib"
   end
+
+  uses_from_macos "bzip2"
+  uses_from_macos "libxml2"
+  uses_from_macos "libxslt"
+  uses_from_macos "zlib"
 
   # PHP build system incorrectly links system libraries
   # see https://github.com/php/php-src/pull/3472

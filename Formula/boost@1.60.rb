@@ -17,6 +17,9 @@ class BoostAT160 < Formula
 
   keg_only :versioned_formula
 
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
+
   # Handle compile failure with boost/graph/adjacency_matrix.hpp
   # https://github.com/Homebrew/homebrew/pull/48262
   # https://svn.boost.org/trac/boost/ticket/11880
@@ -29,11 +32,6 @@ class BoostAT160 < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/9e56b45/boost/boost1_60_0_python_class_metadata.diff"
     sha256 "1a470c3a2738af409f68e3301eaecd8d07f27a8965824baf8aee0adef463b844"
-  end
-
-  unless OS.mac?
-    depends_on "bzip2"
-    depends_on "zlib"
   end
 
   def install

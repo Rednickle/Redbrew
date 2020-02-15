@@ -16,9 +16,10 @@ class Blast < Formula
   depends_on "lmdb"
   unless OS.mac?
     depends_on "cpio" => :build
-    depends_on "bzip2"
-    depends_on "zlib"
   end
+
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
 
   conflicts_with "proj", :because => "both install a `libproj.a` library"
 

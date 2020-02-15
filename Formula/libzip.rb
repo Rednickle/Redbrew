@@ -18,11 +18,12 @@ class Libzip < Formula
     :because => "libtcod, libzip and minizip2 install a `zip.h` header"
 
   unless OS.mac?
-    depends_on "bzip2"
-    depends_on "zlib"
     depends_on "openssl@1.1"
     depends_on "xz" # For LZMA
   end
+
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
 
   def install
     system "cmake", ".", *std_cmake_args

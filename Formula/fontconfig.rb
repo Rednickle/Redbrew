@@ -35,10 +35,11 @@ class Fontconfig < Formula
     depends_on "gperf" => :build
     depends_on "gettext" => :build
     depends_on "json-c" => :build
-    depends_on "bzip2"
-    depends_on "expat"
     depends_on "util-linux" # for libuuid
   end
+
+  uses_from_macos "bzip2"
+  uses_from_macos "expat"
 
   def install
     font_dirs = %w[

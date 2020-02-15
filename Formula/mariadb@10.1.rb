@@ -16,10 +16,9 @@ class MariadbAT101 < Formula
   depends_on "pkg-config" => :build
   depends_on "groonga"
   depends_on "openssl@1.1"
-  unless OS.mac?
-    depends_on "bzip2"
-    depends_on "ncurses"
-  end
+
+  uses_from_macos "bzip2"
+  uses_from_macos "ncurses"
 
   def install
     # Set basedir and ldata so that mysql_install_db can find the server

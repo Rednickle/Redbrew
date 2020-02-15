@@ -14,11 +14,10 @@ class Bedtools < Formula
 
   depends_on :macos # Due to Python 2
   depends_on "xz"
-  unless OS.mac?
-    depends_on "python@2" => :build
-    depends_on "bzip2"
-    depends_on "zlib"
-  end
+  depends_on "python@2" => :build unless OS.mac?
+
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
 
   def install
     system "make"

@@ -17,14 +17,15 @@ class Mariadb < Formula
   depends_on "groonga"
   depends_on "openssl@1.1"
   unless OS.mac?
-    depends_on "bison" => :build
     depends_on "gcc@7" => :build
-    depends_on "bzip2"
-    depends_on "ncurses"
     depends_on "libcsv"
     depends_on "linux-pam"
-    depends_on "zlib"
   end
+
+  uses_from_macos "bison" => :build
+  uses_from_macos "bzip2"
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
 
   conflicts_with "mysql", "percona-server",
     :because => "mariadb, mysql, and percona install the same binaries"

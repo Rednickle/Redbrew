@@ -21,12 +21,11 @@ class Graphicsmagick < Formula
   depends_on "libtool"
   depends_on "little-cms2"
   depends_on "webp"
-  unless OS.mac?
-    depends_on "bzip2"
-    depends_on "libxml2"
-    depends_on "zlib"
-    depends_on "linuxbrew/xorg/xorg"
-  end
+  depends_on "linuxbrew/xorg/xorg" unless OS.mac?
+
+  uses_from_macos "bzip2"
+  uses_from_macos "libxml2"
+  uses_from_macos "zlib"
 
   skip_clean :la
 

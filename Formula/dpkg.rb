@@ -21,10 +21,9 @@ class Dpkg < Formula
   depends_on "gpatch"
   depends_on "perl"
   depends_on "xz" # For LZMA
-  unless OS.mac?
-    depends_on "bzip2"
-    depends_on "zlib"
-  end
+
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
 
   def install
     # We need to specify a recent gnutar, otherwise various dpkg C programs will

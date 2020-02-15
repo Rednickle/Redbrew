@@ -15,10 +15,9 @@ class Spades < Formula
   depends_on :macos # Due to Python 2
   depends_on "cmake" => :build
   depends_on "gcc"
-  unless OS.mac?
-    depends_on "bzip2"
-    depends_on "python@2" => :test
-  end
+  depends_on "python@2" => :test unless OS.mac?
+
+  uses_from_macos "bzip2"
 
   fails_with :clang # no OpenMP support
 

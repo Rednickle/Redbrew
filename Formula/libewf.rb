@@ -25,10 +25,9 @@ class Libewf < Formula
 
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
-  unless OS.mac?
-    depends_on "bzip2"
-    depends_on "zlib"
-  end
+
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
 
   def install
     # Workaround bug in gcc-5 that causes the following error:

@@ -15,10 +15,8 @@ class Boost < Formula
 
   depends_on "icu4c" if OS.mac?
 
-  unless OS.mac?
-    depends_on "bzip2"
-    depends_on "zlib"
-  end
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
 
   def install
     # Force boost to compile with the desired compiler

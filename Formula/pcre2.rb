@@ -13,10 +13,8 @@ class Pcre2 < Formula
     sha256 "497ae0c6e7f7e8bb9dd7555cf8a6aec0dd6a84b052751741fe8fb55ec70799db" => :x86_64_linux
   end
 
-  unless OS.mac?
-    depends_on "bzip2"
-    depends_on "zlib"
-  end
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
 
   def install
     system "./configure", "--disable-dependency-tracking",

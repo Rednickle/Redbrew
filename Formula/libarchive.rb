@@ -15,11 +15,10 @@ class Libarchive < Formula
   keg_only :provided_by_macos
 
   depends_on "xz"
-  unless OS.mac?
-    depends_on "bzip2"
-    depends_on "expat"
-    depends_on "zlib"
-  end
+
+  uses_from_macos "bzip2"
+  uses_from_macos "expat"
+  uses_from_macos "zlib"
 
   def install
     system "./configure",
