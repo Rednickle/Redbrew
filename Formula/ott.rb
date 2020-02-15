@@ -1,16 +1,15 @@
 class Ott < Formula
   desc "Tool for writing definitions of programming languages and calculi"
   homepage "https://www.cl.cam.ac.uk/~pes20/ott/"
-  url "https://github.com/ott-lang/ott/archive/0.29.tar.gz"
-  sha256 "42208e47a9dab3ca89da79c4b1063a728532343a4bf5709393bb3d673a9eaeed"
+  url "https://github.com/ott-lang/ott/archive/0.30.tar.gz"
+  sha256 "ffd757e17d618a3162f0822e09b86d3879071e35378f47c9f6cdc16b757274ca"
   head "https://github.com/ott-lang/ott.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "61309aafe923d5ff35914516b48adb21ab3d2aa95a317b8d827cde1166e2252e" => :catalina
-    sha256 "28c5c4755f6e7c34e6ef86009fa839b694ac00136fb822132e38fa06a5361be3" => :mojave
-    sha256 "ed14bf477139c689eaa93ec2d0fb3c6cc73940a04d194621819f417d18bae033" => :high_sierra
-    sha256 "5587fa82ebedaf04f1e648546f1b5813064e3b22d009f6e96cd85a76067d3c5c" => :x86_64_linux
+    sha256 "80fab1963ac50aa74b117b52e1678e1cdbfe86b8a5fa10718ee7d6fca45723b2" => :catalina
+    sha256 "a46f2577ad1d6e7a8a74083f97996f7e6a841698265c3e85ca2c2ad077da85eb" => :mojave
+    sha256 "1a8ec351b4862a9dbfc54741ce2fb75b504c2f5293c4a1aa77504e88b9a3ff4b" => :high_sierra
   end
 
   depends_on "ocaml" => :build
