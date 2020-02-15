@@ -26,7 +26,6 @@ class Gtkx3 < Formula
   depends_on "libepoxy"
   depends_on "pango"
   unless OS.mac?
-    depends_on "libxslt" => :build # for xsltproc
     depends_on "cmake"
     depends_on "at-spi2-atk"
     depends_on "cairo"
@@ -35,6 +34,8 @@ class Gtkx3 < Formula
     depends_on "linuxbrew/xorg/wayland-protocols"
     depends_on "linuxbrew/xorg/xorgproto"
   end
+
+  uses_from_macos "libxslt" => :build # for xsltproc
 
   patch do
     url "https://gitlab.gnome.org/GNOME/gtk/commit/fa07007389c9662b654680464cf88d8894e4e64d.diff"

@@ -15,12 +15,10 @@ class PostgresqlAT94 < Formula
 
   depends_on "openssl@1.1"
   depends_on "readline"
+  depends_on "util-linux" unless OS.mac? # for libuuid
 
-  unless OS.mac?
-    depends_on "libxslt"
-    depends_on "perl"
-    depends_on "util-linux" # for libuuid
-  end
+  uses_from_macos "libxslt"
+  uses_from_macos "perl"
 
   def install
     if OS.mac?

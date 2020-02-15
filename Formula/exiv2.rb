@@ -18,11 +18,9 @@ class Exiv2 < Formula
   depends_on "gettext"
   depends_on "libssh"
 
-  unless OS.mac?
-    depends_on "curl"
-    depends_on "expat"
-    depends_on "zlib"
-  end
+  uses_from_macos "curl"
+  uses_from_macos "expat"
+  uses_from_macos "zlib"
 
   def install
     args = std_cmake_args

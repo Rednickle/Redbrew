@@ -22,12 +22,13 @@ class Kakoune < Formula
     fails_with :gcc => "5"
     fails_with :gcc => "6"
     depends_on "binutils" => :build
-    depends_on "libxslt" => :build
     depends_on "linux-headers" => :build
     depends_on "pkg-config" => :build
     depends_on "gcc@7"
-    depends_on "ncurses"
   end
+
+  uses_from_macos "libxslt" => :build
+  uses_from_macos "ncurses"
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"

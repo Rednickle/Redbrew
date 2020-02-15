@@ -22,11 +22,10 @@ class Emacs < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gnutls"
-  unless OS.mac?
-    depends_on "libxml2"
-    depends_on "ncurses"
-    depends_on "jpeg"
-  end
+  depends_on "jpeg" unless OS.mac?
+
+  uses_from_macos "libxml2"
+  uses_from_macos "ncurses"
 
   def install
     args = %W[

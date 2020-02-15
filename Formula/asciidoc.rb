@@ -23,11 +23,12 @@ class Asciidoc < Formula
   depends_on "docbook"
   depends_on "source-highlight"
   unless OS.mac?
-    depends_on "libxml2" => :build
     depends_on "xmlto" => :build
-    depends_on "libxslt" => :build # for xsltproc
     depends_on "python@2"
   end
+
+  uses_from_macos "libxml2" => :build
+  uses_from_macos "libxslt" => :build # for xsltproc
 
   def install
     ENV.prepend_path "PATH", "/System/Library/Frameworks/Python.framework/Versions/2.7/bin"

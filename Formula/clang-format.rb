@@ -45,10 +45,11 @@ class ClangFormat < Formula
     depends_on "gcc" # needed for libstdc++
     depends_on "glibc" if Formula["glibc"].installed? || OS::Linux::Glibc.system_version < Formula["glibc"].version
     depends_on "libedit" # llvm requires <histedit.h>
-    depends_on "ncurses"
-    depends_on "libxml2"
-    depends_on "zlib"
   end
+
+  uses_from_macos "libxml2"
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
 
   def install
     (buildpath/"projects/libcxx").install resource("libcxx") if OS.mac?

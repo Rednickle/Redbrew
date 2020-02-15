@@ -14,10 +14,9 @@ class Cmake < Formula
   end
 
   depends_on "sphinx-doc" => :build
-  unless OS.mac?
-    depends_on "ncurses"
-    depends_on "openssl@1.1"
-  end
+  depends_on "openssl@1.1" unless OS.mac?
+
+  depends_on "ncurses"
 
   # The completions were removed because of problems with system bash
 

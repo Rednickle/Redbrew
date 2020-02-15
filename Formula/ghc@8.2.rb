@@ -17,12 +17,11 @@ class GhcAT82 < Formula
 
   depends_on "python" => :build
   depends_on "sphinx-doc" => :build
-  unless OS.mac?
-    depends_on "m4" => :build
-    # This dependency is needed for the bootstrap executables.
-    depends_on "gmp" => :build
-    depends_on "ncurses"
-  end
+  # This dependency is needed for the bootstrap executables.
+  depends_on "gmp" => :build unless OS.mac?
+
+  uses_from_macos "m4" => :build
+  uses_from_macos "ncurses"
 
   resource "gmp" do
     url "https://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.xz"

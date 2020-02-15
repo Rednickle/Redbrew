@@ -21,10 +21,11 @@ class Libsoup < Formula
   depends_on "libpsl"
   depends_on "vala"
   unless OS.mac?
-    depends_on "libxml2"
     depends_on "krb5"
     depends_on "python@2" => :build
   end
+
+  uses_from_macos "libxml2"
 
   def install
     mkdir "build" do

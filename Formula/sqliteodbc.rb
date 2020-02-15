@@ -17,10 +17,9 @@ class Sqliteodbc < Formula
 
   depends_on "sqlite"
   depends_on "unixodbc"
-  unless OS.mac?
-    depends_on "libxml2"
-    depends_on "zlib"
-  end
+
+  uses_from_macos "libxml2"
+  uses_from_macos "zlib"
 
   def install
     unless OS.mac?

@@ -17,13 +17,12 @@ class Offlineimap < Formula
   depends_on "asciidoc" => :build
   depends_on "docbook-xsl" => :build
   depends_on "sphinx-doc" => :build
+
+  uses_from_macos "libxml2" => :build # for xmllint
+  uses_from_macos "libxslt" => :build # for xsltproc
   # Will never support Python 3
   # https://github.com/OfflineIMAP/offlineimap/issues/616#issuecomment-491003691
   uses_from_macos "python@2"
-  unless OS.mac?
-    depends_on "libxml2" => :build # for xmllint
-    depends_on "libxslt" => :build # for xsltproc
-  end
 
   resource "rfc6555" do
     url "https://files.pythonhosted.org/packages/58/a8/1dfba2db1f744657065562386069e547eefea9432d3f520d4af5b5fabd28/rfc6555-0.0.0.tar.gz"

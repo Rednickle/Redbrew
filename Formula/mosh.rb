@@ -23,10 +23,9 @@ class Mosh < Formula
   depends_on "pkg-config" => :build
   depends_on "tmux" => :build
   depends_on "protobuf"
-  unless OS.mac?
-    depends_on "ncurses"
-    depends_on "openssl@1.1"
-  end
+  depends_on "openssl@1.1" unless OS.mac?
+
+  uses_from_macos "ncurses"
 
   # Fix mojave build.
   unless build.head?

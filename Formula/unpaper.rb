@@ -30,8 +30,9 @@ class Unpaper < Formula
   unless OS.mac?
     depends_on "autoconf" => :build
     depends_on "automake" => :build
-    depends_on "libxslt" => :build # for xsltproc
   end
+
+  uses_from_macos "libxslt" => :build #for xsltproc
 
   def install
     system "autoreconf", "-i" if build.head? || !OS.mac?
