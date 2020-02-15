@@ -25,8 +25,9 @@ class Libpqxx < Formula
   end
 
   def install
-    ENV.prepend_path "PATH", Formula["python@3.8"].opt_libexec/"bin" unless OS.mac?
+    ENV.prepend_path "PATH", Formula["python@3.8"].opt_libexec/"bin"
     ENV["PG_CONFIG"] = Formula["libpq"].opt_bin/"pg_config"
+
     system "./configure", "--prefix=#{prefix}", "--enable-shared"
     system "make", "install"
   end
