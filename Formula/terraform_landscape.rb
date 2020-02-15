@@ -1,16 +1,14 @@
 class TerraformLandscape < Formula
   desc "Improve Terraform's plan output"
   homepage "https://github.com/coinbase/terraform-landscape"
-  url "https://github.com/coinbase/terraform-landscape/archive/v0.3.2.tar.gz"
-  sha256 "2fef358c16fe58f87e74a7d777ce669b5c2b368b4fcdba98d114948484156532"
+  url "https://github.com/coinbase/terraform-landscape/archive/v0.3.3.tar.gz"
+  sha256 "8594948ebfc0d4f311a2f0a2261a0397b190500f33492c5bf647b3e07b8b625d"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8417c5aba41417a23a373127002cc4f7fc71de6fd037a0d9692bd04a131782d6" => :catalina
-    sha256 "514ab58c4634a439faeac56e08511346b582e0094b2ffb981b837758ee0d2684" => :mojave
-    sha256 "b271788171df1bc43fe3dff81806bbff64ab13796ea561e611e70817f4b74924" => :high_sierra
-    sha256 "5e0989c7315c9d5542d1ebad9db288fc89d9bdfc828a4393a47ed22bb8cfa0f1" => :sierra
-    sha256 "5909be7aa22649c2ad88e9e3315494319100aa86f37df787b7cf53683df218c1" => :x86_64_linux
+    sha256 "e621a330795fc10591b1eccb2048f64b10d38564a2c5cb21823f195fed768239" => :catalina
+    sha256 "c364081610b7d9de7913c77ed10368f843b6c0dfa5c8a19ad069da9594007c7c" => :mojave
+    sha256 "ed113c64ee8bbcf265633ae8b6d5839e2a4b91d003247e42c71b8ff7b6c36cc2" => :high_sierra
   end
 
   depends_on "ruby"

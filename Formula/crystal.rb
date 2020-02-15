@@ -3,8 +3,8 @@ class Crystal < Formula
   homepage "https://crystal-lang.org/"
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/0.32.1.tar.gz"
-    sha256 "66b62d0fb5bfa6547f285eb520f7fd0bc57bc994babf54cb8e7a61e613c79399"
+    url "https://github.com/crystal-lang/crystal/archive/0.33.0.tar.gz"
+    sha256 "88f08685f172e98f01f93f1a83fc3548c6d28df19a39c91859b167a796730289"
 
     resource "shards" do
       url "https://github.com/crystal-lang/shards/archive/v0.8.1.tar.gz"
@@ -13,10 +13,9 @@ class Crystal < Formula
   end
 
   bottle do
-    sha256 "024e5e9c4b1f93863fa2ccfbc8fb98c3e494d6f0e0edfb5da5838826e6e63e0e" => :catalina
-    sha256 "cd590caeb6a39bd3555683e3b642ef19eaa5711740cacf19a67ab86cee4352a4" => :mojave
-    sha256 "cdabfcf0fc44bf640605c56eaa4be42e668acd022a1b62b44ca6405de5a60ad2" => :high_sierra
-    sha256 "9aae9966101bc6d7bf58af2161fe4048c1c6f8aef2cb18ee346db34313ae407e" => :x86_64_linux
+    sha256 "3ee8d5d0e6c6e96e0f54b4a7e0d5795e3c450a346ac208b0b6f1208e34bf1567" => :catalina
+    sha256 "8102e213251723389bab813719ec7a7a54abb5730983ae7d2b47d6f2cfed1463" => :mojave
+    sha256 "1acff2894744122bebae34438a3a32fd0fe79be82e024b62e1cfdda995e96c6a" => :high_sierra
   end
 
   head do
@@ -54,13 +53,13 @@ class Crystal < Formula
 
   resource "boot" do
     if OS.mac?
-      url "https://github.com/crystal-lang/crystal/releases/download/0.31.1/crystal-0.31.1-1-darwin-x86_64.tar.gz"
-      version "0.31.1-1"
-      sha256 "ffc655df0efe8004058f87750949b7a2b165d8baef73c5596193eba1c17efdb5"
+      url "https://github.com/crystal-lang/crystal/releases/download/0.32.1/crystal-0.32.1-1-darwin-x86_64.tar.gz"
+      version "0.32.1-1"
+      sha256 "2901e8709da36a12ce0a94464741c1db8e5b5080f216fb8c1f7016667370bc94"
     else
-      url "https://github.com/crystal-lang/crystal/releases/download/0.31.1/crystal-0.31.1-1-linux-x86_64.tar.gz"
-      version "0.31.1-1"
-      sha256 "308a5891322287852ba492e6e0dcc1484af361c189525349b6b98b531c551a65"
+      url "https://github.com/crystal-lang/crystal/releases/download/0.32.1/crystal-0.32.1-1-linux-x86_64.tar.gz"
+      version "0.32.1-1"
+      sha256 "0c31fd8813e453b6aef77c5c5e502933d94bd8937878ae69d39b841e0fca97d7"
     end
   end
 
@@ -71,7 +70,7 @@ class Crystal < Formula
       ENV["CRYSTAL_CONFIG_BUILD_COMMIT"] = Utils.popen_read("git rev-parse --short HEAD").strip
     end
 
-    ENV["CRYSTAL_CONFIG_PATH"] = prefix/"src:lib"
+    ENV["CRYSTAL_CONFIG_PATH"] = "lib:#{prefix/"src"}"
     ENV["CRYSTAL_CONFIG_LIBRARY_PATH"] = prefix/"embedded/lib"
     ENV.append_path "PATH", "boot/bin"
 
