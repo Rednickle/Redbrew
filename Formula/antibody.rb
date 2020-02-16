@@ -1,15 +1,14 @@
 class Antibody < Formula
   desc "The fastest shell plugin manager"
   homepage "https://getantibody.github.io/"
-  url "https://github.com/getantibody/antibody/archive/v4.3.0.tar.gz"
-  sha256 "ba5be9416a6ae1c88c8bad655306c5d1c8391176c4343c5d25b981b7999cb02c"
+  url "https://github.com/getantibody/antibody/archive/v4.3.1.tar.gz"
+  sha256 "b69b2b90914e03f4a54453d740345cad222b379c366ec3788f4fdf4b1f01ac64"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "08ec6c718e6272123dfcc07a0432a7199ed554626127a84eda62dbf3fcc7ccba" => :catalina
-    sha256 "f1f71667f54ace6451e02b2e9a8daebe74d1e4fb05c7ad638cf5a25796bffa3b" => :mojave
-    sha256 "04328f8b88f378dce0468639471ebb11b42ffaa1ec5bf4ca511737d5940e1bd0" => :high_sierra
-    sha256 "ee5b147b874e05ba10d16965c190b4547def5a459db2e81925faf6af93061c10" => :x86_64_linux
+    sha256 "b9272b167bef22b1e37d9b48be0e8a260569402bd27f69b869f0986b485ac6c3" => :catalina
+    sha256 "0cbe9cd2950a85113caf84ebc4227f8ac9f32c130346ae2ea733c96d7fc7c829" => :mojave
+    sha256 "57a9c27a9c51809d02b6c12c8edd2337ed2cc750cf6d676712b8bb9e6ae6b64f" => :high_sierra
   end
 
   depends_on "go" => :build

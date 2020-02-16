@@ -6,17 +6,16 @@ class Ginac < Formula
 
   bottle do
     cellar :any
-    sha256 "ada6219452caa90db7d3c79970d23a17ee7003b20355d8866356fcf0c5daee19" => :catalina
-    sha256 "2ca093815433050c5f90b5523cdb5360235f63ff484de5be72575d0e953c4b37" => :mojave
-    sha256 "1a3774e043db787f9e4c2882912c345597fabc4a620a4099dd39bbedee516f80" => :high_sierra
-    sha256 "d1c5e18b66c445eb6afa1370930e896d273975c089dca5ab0a1b633b09c05444" => :x86_64_linux
+    rebuild 1
+    sha256 "0a7e5283c3d9a13f52bd640cae0f7876df400cb3f3283d59eaadcf42283edf95" => :catalina
+    sha256 "f7845dbd3403d80af469247432235fbed0f1aec485b047c741f52690985d26ac" => :mojave
+    sha256 "ea3e9acfd79cb540a54788ea1ad0331e5123735bb432e08d5f1d5f5e1e6e0e36" => :high_sierra
   end
 
-  depends_on :macos # Due to Python 2
   depends_on "pkg-config" => :build
   depends_on "cln"
+  depends_on "python@3.8"
   depends_on "readline"
-  uses_from_macos "python@2"
 
   def install
     system "./configure", "--disable-dependency-tracking",
