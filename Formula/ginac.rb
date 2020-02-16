@@ -10,6 +10,7 @@ class Ginac < Formula
     sha256 "0a7e5283c3d9a13f52bd640cae0f7876df400cb3f3283d59eaadcf42283edf95" => :catalina
     sha256 "f7845dbd3403d80af469247432235fbed0f1aec485b047c741f52690985d26ac" => :mojave
     sha256 "ea3e9acfd79cb540a54788ea1ad0331e5123735bb432e08d5f1d5f5e1e6e0e36" => :high_sierra
+    sha256 "a7b77f0a0d9d98babbf8fb7ca1ba035c298927ef2dc9e1bb24ba68e10bc6a623" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
