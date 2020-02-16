@@ -24,7 +24,7 @@ class Bc < Formula
   end
 
   uses_from_macos "bison" => :build
-  uses_from_macos "flex
+  uses_from_macos "flex"
 
   def install
     # prevent user BC_ENV_ARGS from interfering with or influencing the
