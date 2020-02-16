@@ -13,11 +13,9 @@ class Acpica < Formula
     sha256 "c39200d0507c0eb0ff34509e6bb25c3605a6e46037f3b9cc5656e38ca27294bc" => :x86_64_linux
   end
 
-  unless OS.mac?
-    depends_on "bison" => :build
-    depends_on "flex" => :build
-    depends_on "m4" => :build
-  end
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+  uses_from_macos "m4" => :build
 
   def install
     ENV.deparallelize

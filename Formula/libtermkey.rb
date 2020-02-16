@@ -16,10 +16,9 @@ class Libtermkey < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "unibilium"
-  unless OS.mac?
-    depends_on "glib" => :build
-    depends_on "ncurses"
-  end
+  depends_on "glib" => :build unless OS.mac?
+
+  uses_from_macos "ncurses"
 
   def install
     system "make", "PREFIX=#{prefix}"

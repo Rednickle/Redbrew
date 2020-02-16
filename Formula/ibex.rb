@@ -18,10 +18,9 @@ class Ibex < Formula
   depends_on "bison" => :build
   depends_on "flex" => :build
   depends_on "pkg-config" => [:build, :test]
-  unless OS.mac?
-    depends_on "python@2" => :build
-    depends_on "zlib"
-  end
+  depends_on "python@2" => :build unless OS.mac?
+
+  uses_from_macos "zlib"
 
   def install
     ENV.cxx11

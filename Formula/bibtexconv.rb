@@ -15,11 +15,10 @@ class Bibtexconv < Formula
 
   depends_on "cmake" => :build
   depends_on "openssl@1.1"
-  unless OS.mac?
-    depends_on "bison" => :build
-    depends_on "flex" => :build
-    depends_on "curl"
-  end
+
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+  uses_from_macos "curl"
 
   def install
     dylib = OS.mac? ? "dylib" : "so"

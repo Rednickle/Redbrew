@@ -29,18 +29,20 @@ class Pulseaudio < Formula
   depends_on "libtool"
   depends_on "openssl@1.1"
   depends_on "speexdsp"
-
   unless OS.mac?
-    depends_on "m4" => :build
-    depends_on "expat"
     depends_on "glib"
     depends_on "libcap"
+  end
 
+  uses_from_macos "perl" => :build
+  uses_from_macos "expat"
+  uses_from_macos "m4"
+
+  unless OS.mac?
     # Depends on XML::Parser
     # Using the host's Perl interpreter to install XML::Parser fails when using brew's glibc.
     # Use brew's Perl interpreter instead.
     # See Linuxbrew/homebrew-core#8148
-    depends_on "perl" => :build
     resource "XML::Parser" do
       url "https://cpan.metacpan.org/authors/id/T/TO/TODDR/XML-Parser-2.44.tar.gz"
       sha256 "1ae9d07ee9c35326b3d9aad56eae71a6730a73a116b9fe9e8a4758b7cc033216"

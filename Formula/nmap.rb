@@ -15,11 +15,10 @@ class Nmap < Formula
   end
 
   depends_on "openssl@1.1"
-  unless OS.mac?
-    depends_on "flex" => :build
-    depends_on "bison" => :build
-    depends_on "zlib"
-  end
+
+  uses_from_macos "flex" => :build
+  uses_from_macos "bison" => :build
+  uses_from_macos "zlib"
 
   conflicts_with "ndiff", :because => "both install `ndiff` binaries"
 

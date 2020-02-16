@@ -24,11 +24,12 @@ class Virtuoso < Formula
   depends_on "libtool" => :build
   depends_on "openssl@1.1"
   unless OS.mac?
-    depends_on "bison" => :build
-    depends_on "flex" => :build
     depends_on "gperf" => :build
     depends_on "net-tools" => :build
   end
+
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
 
   conflicts_with "unixodbc", :because => "Both install `isql` binaries."
 

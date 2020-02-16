@@ -20,15 +20,8 @@ class Autoconf < Formula
     sha256 "d8a7ca62ed0f84bbdb3c6206fc3d0b7b1222e28dcfffff2a0c7a91193204ccce" => :x86_64_linux
   end
 
-  unless OS.mac?
-    # Fix configure: error: no acceptable m4 could be found in $PATH.
-    depends_on "m4"
-
-    # For autom4te.
-    # Don't use system perl since autoconf requires Data/Dumper.pm which may not
-    # be installed. https://github.com/Linuxbrew/homebrew-core/issues/7522
-    depends_on "perl"
-  end
+  uses_from_macos "m4"
+  uses_from_macos "perl"
 
   def install
     ENV["PERL"] = "/usr/bin/perl" if OS.mac?

@@ -20,6 +20,7 @@ class Zsh < Formula
 
   depends_on "ncurses"
   depends_on "pcre"
+
   uses_from_macos "texinfo"
 
   resource "htmldoc" do

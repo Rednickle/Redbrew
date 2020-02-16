@@ -17,10 +17,9 @@ class Libidl < Formula
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
-  unless OS.mac?
-    depends_on "bison" => :build
-    depends_on "flex" => :build
-  end
+
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
 
   def install
     system "./configure", "--disable-dependency-tracking",

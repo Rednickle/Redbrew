@@ -31,11 +31,12 @@ class W3m < Formula
   depends_on "bdw-gc"
   depends_on "openssl@1.1"
   unless OS.mac?
-    depends_on "ncurses"
     depends_on "libbsd"
-    depends_on "zlib"
     depends_on "gettext"
   end
+
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
 
   def install
     system "./configure", "--prefix=#{prefix}",

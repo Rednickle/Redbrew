@@ -15,9 +15,9 @@ class Perl < Formula
   unless OS.mac?
     depends_on "gdbm"
     depends_on "berkeley-db"
-    # required for XML::Parser
-    depends_on "expat"
   end
+
+  uses_from_macos "expat"
 
   # Prevent site_perl directories from being removed
   skip_clean "lib/perl5/site_perl"

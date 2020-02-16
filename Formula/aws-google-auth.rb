@@ -19,6 +19,7 @@ class AwsGoogleAuth < Formula
   depends_on "jpeg"
   depends_on "python"
   depends_on "pkg-config" => :build unless OS.mac?
+
   uses_from_macos "libffi"
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"

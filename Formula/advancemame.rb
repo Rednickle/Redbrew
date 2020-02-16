@@ -15,10 +15,9 @@ class Advancemame < Formula
   depends_on "pkg-config" => :build
   depends_on "freetype"
   depends_on "sdl"
-  unless OS.mac?
-    depends_on "expat"
-    depends_on "ncurses"
-  end
+
+  uses_from_macos "expat"
+  uses_from_macos "ncurses"
 
   conflicts_with "advancemenu", :because => "both install `advmenu` binaries"
 

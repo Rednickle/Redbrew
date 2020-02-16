@@ -16,11 +16,12 @@ class Gdb < Formula
   depends_on "pkg-config" => :build
   unless OS.mac?
     depends_on "texinfo" => :build
-    depends_on "expat"
-    depends_on "ncurses"
     depends_on "python"
     depends_on "xz"
   end
+
+  uses_from_macos "expat"
+  uses_from_macos "ncurses"
 
   conflicts_with "i386-elf-gdb", :because => "both install include/gdb, share/gdb and share/info"
 

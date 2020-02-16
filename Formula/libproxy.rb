@@ -16,11 +16,9 @@ class Libproxy < Formula
 
   depends_on "cmake" => :build
   depends_on "python"
+  depends_on "glib" unless OS.mac?
 
-  unless OS.mac?
-    depends_on "glib"
-    depends_on "perl"
-  end
+  uses_from_macos "perl"
 
   def install
     args = std_cmake_args + %W[

@@ -20,10 +20,9 @@ class Afflib < Formula
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
   depends_on "python"
-  unless OS.mac?
-    depends_on "curl"
-    depends_on "expat"
-  end
+
+  uses_from_macos "curl"
+  uses_from_macos "expat"
 
   def install
     args = %w[

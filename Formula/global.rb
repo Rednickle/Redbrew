@@ -27,10 +27,9 @@ class Global < Formula
 
   depends_on "python@3.8"
   depends_on "ctags"
-  unless OS.mac?
-    depends_on "libtool"
-    depends_on "ncurses"
-  end
+  depends_on "libtool" unless OS.mac?
+
+  uses_from_macos "ncurses"
 
   skip_clean "lib/gtags"
 

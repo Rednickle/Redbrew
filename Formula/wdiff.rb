@@ -15,10 +15,9 @@ class Wdiff < Formula
   end
 
   depends_on "gettext"
-  unless OS.mac?
-    depends_on "texinfo" => :build
-    depends_on "ncurses"
-  end
+  depends_on "texinfo" => :build unless OS.mac?
+
+  uses_from_macos "ncurses"
 
   conflicts_with "montage", :because => "Both install an mdiff executable"
 

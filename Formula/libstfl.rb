@@ -17,10 +17,9 @@ class Libstfl < Formula
   depends_on :macos # Due to Python 2
   depends_on "swig" => :build
   depends_on "ruby"
-  unless OS.mac?
-    depends_on "perl"
-    depends_on "python@2"
-  end
+
+  uses_from_macos "perl"
+  uses_from_macos "python@2"
 
   def install
     if OS.mac?

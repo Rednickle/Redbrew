@@ -26,11 +26,10 @@ class Libdap < Formula
   depends_on "pkg-config" => :build
   depends_on "libxml2"
   depends_on "openssl@1.1"
-  unless OS.mac?
-    depends_on "curl"
-    depends_on "flex" => :build
-    depends_on "util-linux" # for libuuid
-  end
+  depends_on "util-linux" unless OS.mac? # for libuuid
+
+  uses_from_macos "flex" => :build
+  uses_from_macos "curl"
 
   def install
     args = %W[
