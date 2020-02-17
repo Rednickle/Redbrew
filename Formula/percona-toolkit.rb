@@ -1,21 +1,22 @@
 class PerconaToolkit < Formula
   desc "Percona Toolkit for MySQL"
   homepage "https://www.percona.com/software/percona-toolkit/"
-  url "https://www.percona.com/downloads/percona-toolkit/3.0.13/source/tarball/percona-toolkit-3.0.13.tar.gz"
-  sha256 "21f68d1c5204a9cad7be716fd1e53f0fe6ff7d995292b56dbc7c55e3979432b1"
-  revision 2
+  url "https://www.percona.com/downloads/percona-toolkit/3.1.0/source/tarball/percona-toolkit-3.1.0.tar.gz"
+  sha256 "722593773825efe7626ff0b74de6a2133483c9c89fd7812bfe440edaacaec9cc"
   head "lp:percona-toolkit", :using => :bzr
   revision 1 unless OS.mac?
 
   bottle do
     cellar :any
-    sha256 "e4039124f5a501670a7d625f4af2621c0075673dbe462fbffe955ac5367c15af" => :catalina
-    sha256 "b257017efc776a066319c4c855731c9354f2da80a6a5d884d29b9705f5acc5dd" => :mojave
-    sha256 "581f9d4c2f5cbc87f69c77b8707900122f22370dd4699c857d8225c8a1030ddf" => :high_sierra
+    sha256 "d03904f208a454aa020770ff88daacf5358afd7b445b079aee8a9fd30a392a1c" => :catalina
+    sha256 "d3d044c5015898fcba816d2dc1cb5d92f4f7263373005c0318970682104bbb69" => :mojave
+    sha256 "82c54ae873973d9f1f22217488163ef8d4d4136478f21f72d97854c4fe2ff929" => :high_sierra
   end
 
   depends_on "mysql-client"
   depends_on "openssl@1.1"
+
+  uses_from_macos "perl"
 
   # In Mojave, this is not part of the system Perl anymore
   if MacOS.version >= :mojave
@@ -53,7 +54,7 @@ class PerconaToolkit < Formula
     end
 
     system "perl", "Makefile.PL", "INSTALL_BASE=#{prefix}"
-    system "make", "test", "install"
+    system "make", "install"
     share.install prefix/"man"
     bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
   end
