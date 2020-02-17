@@ -10,6 +10,7 @@ class MitScheme < Formula
     sha256 "aeec8e0d463f173b7e1bf1aa5840d7d119559379c9c4024f72ccbcc18649ee40" => :catalina
     sha256 "c8815c908efaeeb60ae5591c39432b82dd54193fc823ef2c1da3c4dcb0a7c16c" => :mojave
     sha256 "81ed1c679028078098b3b77a37886660e97748a75e153f498d7038e4b2600fcc" => :high_sierra
+    sha256 "f324cbcd9ebdc99b0bada59ad21e2855a12dc2cc11e37055fea750e245c96c99" => :x86_64_linux
   end
 
   # Has a hardcoded compile check for /Applications/Xcode.app
