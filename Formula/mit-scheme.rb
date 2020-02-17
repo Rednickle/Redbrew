@@ -1,16 +1,15 @@
 class MitScheme < Formula
   desc "MIT/GNU Scheme development tools and runtime library"
   homepage "https://www.gnu.org/software/mit-scheme/"
-  url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/9.2/mit-scheme-c-9.2.tar.gz"
-  mirror "https://ftpmirror.gnu.org/mit-scheme/stable.pkg/9.2/mit-scheme-c-9.2.tar.gz"
-  sha256 "4f6a16f9c7d4b4b7bb3aa53ef523cad39b54ae1eaa3ab3205930b6a87759b170"
-  revision 2
+  url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/10.1.10/mit-scheme-10.1.10-svm1.tar.gz"
+  mirror "https://ftpmirror.gnu.org/mit-scheme/stable.pkg/10.1.10/mit-scheme-10.1.10-svm1.tar.gz"
+  version "10.1.10"
+  sha256 "36ad0aba50d60309c21e7f061c46c1aad1dda0ad73d2bb396684e49a268904e4"
 
   bottle do
-    sha256 "7c76aab44ca4bc0c5564fa77440b23d319bcdddc8be2b5793296ec1040d68a1f" => :catalina
-    sha256 "fdfd6d6c6565b5f5f34a50203ee9c661e2126eb23d181b228ef1caf32591d43a" => :mojave
-    sha256 "272a286e40ee02cf625f41f25ba020b87ec07a2da277d1e8b6ca083266595aee" => :high_sierra
-    sha256 "615224425fbdffd71fdb82a14d8b76f20a5d219206be0d0e622fadcb86afddf9" => :x86_64_linux
+    sha256 "aeec8e0d463f173b7e1bf1aa5840d7d119559379c9c4024f72ccbcc18649ee40" => :catalina
+    sha256 "c8815c908efaeeb60ae5591c39432b82dd54193fc823ef2c1da3c4dcb0a7c16c" => :mojave
+    sha256 "81ed1c679028078098b3b77a37886660e97748a75e153f498d7038e4b2600fcc" => :high_sierra
   end
 
   # Has a hardcoded compile check for /Applications/Xcode.app
@@ -44,9 +43,6 @@ class MitScheme < Formula
       compiler/etc/disload.scm
       edwin/techinfo.scm
       edwin/unix.scm
-      swat/c/tk3.2-custom/Makefile
-      swat/c/tk3.2-custom/tcl/Makefile
-      swat/scheme/other/btest.scm
     ].each do |f|
       inreplace f, "/usr/local", prefix
     end
@@ -60,13 +56,12 @@ class MitScheme < Formula
       end
     end
 
-    inreplace "etc/make-liarc.sh" do |s|
-      # Allows us to build without X11
-      # https://savannah.gnu.org/bugs/?47887
-      s.gsub! "run_configure", "run_configure --without-x"
+    inreplace "edwin/compile.sh" do |s|
+      s.gsub! "mit-scheme", "#{bin}/mit-scheme"
     end
 
-    system "etc/make-liarc.sh", "--prefix=#{prefix}", "--mandir=#{man}"
+    system "./configure", "--prefix=#{prefix}", "--mandir=#{man}", "--without-x"
+    system "make"
     system "make", "install"
   end
 
@@ -106,7 +101,7 @@ class MitScheme < Formula
       "#{bin}/mit-scheme --load primes.scm --eval '(primes<= 72)' < /dev/null",
     )
     assert_match(
-      /;Value 2: \(2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71\)/,
+      /;Value: \(2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71\)/,
       output,
     )
   end
