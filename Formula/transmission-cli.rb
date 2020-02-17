@@ -15,10 +15,9 @@ class TransmissionCli < Formula
   depends_on "pkg-config" => :build
   depends_on "libevent"
   depends_on "openssl@1.1"
-  unless OS.mac?
-    depends_on "curl"
-    depends_on "zlib"
-  end
+
+  uses_from_macos "curl"
+  uses_from_macos "zlib"
 
   def install
     ENV.append "LDFLAGS", "-framework Foundation -prebind" if OS.mac?
