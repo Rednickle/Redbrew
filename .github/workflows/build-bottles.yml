@@ -11,7 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: homebrew/brew
-      options: --user linuxbrew
     steps:
       - name: Checkout tap
         uses: actions/checkout@v2
