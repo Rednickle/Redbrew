@@ -9,7 +9,7 @@ on:
 
 jobs:
   request-bottles:
-    if: startsWith(github.event.head_commit.message, 'Merge') == true
+    if: startsWith(github.event.head_commit.message, 'Merge') == true && contains(github.event.head_commit.message, 'Conflicts') == true
     runs-on: ubuntu-latest
     container:
       image: homebrew/brew
