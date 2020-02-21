@@ -12,15 +12,14 @@ class Bedtools < Formula
     sha256 "65f6f96f78e63ee61fe6789e68ff850953665531a647bc3ededfb3b1da24291c" => :x86_64_linux
   end
 
-  depends_on "python" => :build unless OS.mac?
+  depends_on "python@3.8" => :build
   depends_on "xz"
 
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
   def install
-    # Use system Python 2 on macOS and Python 3 on Linux.
-    inreplace "Makefile", "python", "python3" unless OS.mac?
+    inreplace "Makefile", "python", "python3"
 
     system "make"
     system "make", "install", "prefix=#{prefix}"
