@@ -1,15 +1,14 @@
 class Gh < Formula
   desc "GitHub command-line tool"
   homepage "https://github.com/cli/cli"
-  url "https://github.com/cli/cli/archive/v0.5.5.tar.gz"
-  sha256 "7c2cfdafe765a598b70b3e6de839590e8fa30a89bedc85799a43bdbc6fd3277e"
+  url "https://github.com/cli/cli/archive/v0.5.7.tar.gz"
+  sha256 "a1185de36b27bb9831a172b70e60f741aeaa774682f3ac4bccb9df45734f8b5b"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0d659a44a3d0e44f95d5a7d1ec13124d3bc5ecb5097ff37bb92536e884ba1e0f" => :catalina
-    sha256 "bfcfb9a05071948c20daf4f0a72256046c6727895c5a4996cc22c72e81c6dd36" => :mojave
-    sha256 "c69cefd2a1a23b23ee84a02ad1c9844dc136cde83fb625440d3059e5e5cb368d" => :high_sierra
-    sha256 "91a1787eca722e946b0560afdee665b4a5bfc4d926cf30068f01b6573076eb29" => :x86_64_linux
+    sha256 "d3bda982ec4be71d7f414196b39dd8cb1cd711734033ffe20eda56bcd5e185cb" => :catalina
+    sha256 "bf2969b3310e9a8f679f10f9b983e1c98146b88c453943cfb242e05c0952f0cf" => :mojave
+    sha256 "9f81e80da8f47d7f833481e8ac45c6f2adf3d32f838dbf86c9d271e3bca1a244" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -29,7 +28,7 @@ class Gh < Formula
 
   test do
     assert_match "gh version #{version}", shell_output("#{bin}/gh --version")
-    assert_match "Work with GitHub issues.", shell_output("#{bin}/gh issue 2>&1")
-    assert_match "Work with GitHub pull requests.", shell_output("#{bin}/gh pr 2>&1")
+    assert_match "Work with GitHub issues.", shell_output("#{bin}/gh issue 2>&1", 1)
+    assert_match "Work with GitHub pull requests.", shell_output("#{bin}/gh pr 2>&1", 1)
   end
 end
