@@ -10,6 +10,7 @@ class Libstfl < Formula
     sha256 "540ff6bbdcbe0ff3fe2a2cb6e485819374ce5938e9cee284d6087431be3c8b1e" => :catalina
     sha256 "3d70772668a1b05b187c2db04a6ab499919eff506a8f48d2248c36126d840442" => :mojave
     sha256 "533ea07754699c5ca284752d18378ff482f06eee9257c59e5fd49f445c6ff4b9" => :high_sierra
+    sha256 "4e9160028b9c625c6ff1ed87ee29bb58b5ffa4c53ffd4ebca337dfa348ffc071" => :x86_64_linux
   end
 
   depends_on "swig" => :build
