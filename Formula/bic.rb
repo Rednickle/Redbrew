@@ -8,6 +8,7 @@ class Bic < Formula
     sha256 "41d1871d125642f8437b5bb7b74f205b0eee956be0ad46b7677680b76764c0cb" => :catalina
     sha256 "36575a3c3444985140e94eba8fe8f6711fff5433eb7f17141c4b4ae30e1f2bf7" => :mojave
     sha256 "23f308f2bfda3b9ee498680e08565997818570d74d1280137ef940f70801b8d9" => :high_sierra
+    sha256 "77e58c48a6bcb0982874c5a465ee59aeaa79573a61b2bae243afebe5eccfe97c" => :x86_64_linux
   end
 
   head do
