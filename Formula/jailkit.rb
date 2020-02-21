@@ -9,6 +9,7 @@ class Jailkit < Formula
     sha256 "1bdfd57d829a6b90286601b2b13660b53cc14fe6443d0d23fa15636171c79439" => :catalina
     sha256 "43811f3b792ddd4039767cf81882e0c46c2851ba95546c01d7c1a052c3e99f3e" => :mojave
     sha256 "dd348dd5721fc813bb1556f13b196b684f5ef805f3c03c2bab1e3df4eef41376" => :high_sierra
+    sha256 "e4cb72a70cefd633e651e3222937fbba0f45d83a0c317ebc0509beeb39df2f69" => :x86_64_linux
   end
 
   depends_on "python@3.8"
