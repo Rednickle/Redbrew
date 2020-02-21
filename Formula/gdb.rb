@@ -11,6 +11,7 @@ class Gdb < Formula
     sha256 "848a06573870a26ca89fe859fe8d2e159b1781db544841a55c0713f00b7c18bc" => :catalina
     sha256 "24640c71e5cdbb1ccd69e5da454267e3929e0b1d73abf91c162c4658f756d755" => :mojave
     sha256 "d279ccc0f8eefc8a7b3ac5f182290af201345adf4523b3a2671ab752e821d186" => :high_sierra
+    sha256 "c430246d1fcd734be159ab823f83cb4204e3eb5ad921e23d306e293fd7d547f2" => :x86_64_linux
   end
 
   depends_on "python@3.8"
