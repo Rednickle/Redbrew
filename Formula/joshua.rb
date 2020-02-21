@@ -10,6 +10,7 @@ class Joshua < Formula
     sha256 "126f37758cb9f1ace827883911906cab4976bf5f211b200ed0e2f307fae87982" => :catalina
     sha256 "126f37758cb9f1ace827883911906cab4976bf5f211b200ed0e2f307fae87982" => :mojave
     sha256 "126f37758cb9f1ace827883911906cab4976bf5f211b200ed0e2f307fae87982" => :high_sierra
+    sha256 "e7acfaf7a26f9977cea0296e8d1efe3aa525683101a8a1da20cf2544735d287f" => :x86_64_linux
   end
 
   depends_on "openjdk"
