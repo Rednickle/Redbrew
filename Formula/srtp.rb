@@ -10,6 +10,7 @@ class Srtp < Formula
     sha256 "b96d4c3bb159a6f43d5bdd9cc0be0d8deecb06c95df19f2d9cc1f517ffc64ad6" => :catalina
     sha256 "4bbad999b46dd545aa32882e968d441f5d5e709dc8549ef79e3885dd49fcb964" => :mojave
     sha256 "5c70c41484064bbe25c31a19fc2cffc5cbea3de27e837a039b17767aeb1b57b8" => :high_sierra
+    sha256 "6127178b734c7c1a686398eafcaf619219d31d80cc5db73edb477c7a044135ed" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
