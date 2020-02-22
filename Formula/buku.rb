@@ -16,14 +16,10 @@ class Buku < Formula
 
   depends_on "openssl@1.1"
   depends_on "python"
-  unless OS.mac?
-    # libffi is needed for cffi
-    # pkg-config helps "setup.py" find libffi
-    # expect is needed for tests
-    depends_on "pkg-config" => :build
-    depends_on "libffi"
-    depends_on "expect"
-  end
+  depends_on "pkg-config" => :build unless OS.mac?
+
+  uses_from_macos "libffi"
+  uses_from_macos "expect" => :test
 
   resource "asn1crypto" do
     url "https://files.pythonhosted.org/packages/9f/3d/8beae739ed8c1c8f00ceac0ab6b0e97299b42da869e24cf82851b27a9123/asn1crypto-1.3.0.tar.gz"

@@ -19,7 +19,8 @@ class Jupyterlab < Formula
   depends_on "pandoc"
   depends_on "python"
   depends_on "zeromq"
-  depends_on "expect" => :test unless OS.mac?
+
+  uses_from_macos "expect" => :test
 
   if OS.mac?
     resource "appnope" do
