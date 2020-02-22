@@ -10,6 +10,7 @@ class Flawfinder < Formula
     sha256 "a790a4d58403cf16cdba7c243621ddfc5f7b20e47d786d8aceb08598803d2264" => :catalina
     sha256 "a790a4d58403cf16cdba7c243621ddfc5f7b20e47d786d8aceb08598803d2264" => :mojave
     sha256 "a790a4d58403cf16cdba7c243621ddfc5f7b20e47d786d8aceb08598803d2264" => :high_sierra
+    sha256 "78cf1146820ce854bc782c57421e3d596bd5d4208022a7f9682aee982ff691ea" => :x86_64_linux
   end
 
   depends_on "python@3.8" unless OS.mac?
