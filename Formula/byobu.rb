@@ -9,6 +9,7 @@ class Byobu < Formula
     sha256 "39b468dabc1497338b4511f9f565f9adcdd058a99207de345da28b18a0826ae6" => :catalina
     sha256 "39b468dabc1497338b4511f9f565f9adcdd058a99207de345da28b18a0826ae6" => :mojave
     sha256 "39b468dabc1497338b4511f9f565f9adcdd058a99207de345da28b18a0826ae6" => :high_sierra
+    sha256 "d669fa391399dca19080254c209c0b74f3bbf9ae5012db03e17d2272662726f9" => :x86_64_linux
   end
 
   head do
