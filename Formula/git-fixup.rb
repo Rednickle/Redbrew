@@ -10,6 +10,7 @@ class GitFixup < Formula
     sha256 "adb91d6c86a8330a51394a03e20b5d7dc20144ee80426802b1b651766fc2462e" => :catalina
     sha256 "adb91d6c86a8330a51394a03e20b5d7dc20144ee80426802b1b651766fc2462e" => :mojave
     sha256 "adb91d6c86a8330a51394a03e20b5d7dc20144ee80426802b1b651766fc2462e" => :high_sierra
+    sha256 "cc910330abea2784fa0ef9383bc3c76e96e94364727798b7bc34694ce74184b2" => :x86_64_linux
   end
 
   def install
