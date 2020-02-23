@@ -9,6 +9,7 @@ class Ucon64 < Formula
     sha256 "f0bf36d7828e138e2fe1068b4b5bf1b9e70f80cef564c186950a30ab2cb1df85" => :catalina
     sha256 "893570e77b17c3400f391fc0a710958b3599d5ad0c5971897d84c7e4552e2ca6" => :mojave
     sha256 "30d2d85dba7891d5eb5b43c69c5b6ac0ad0606d279c6a30e254f6ffd819356f8" => :high_sierra
+    sha256 "f42d1062bd7c4f5e405b4fc6d9f4d8b556275e1b5cbef6cfe132e4f986255e82" => :x86_64_linux
   end
 
   uses_from_macos "unzip" => [:build, :test]
