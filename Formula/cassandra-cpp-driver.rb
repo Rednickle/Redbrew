@@ -10,6 +10,7 @@ class CassandraCppDriver < Formula
     sha256 "87a85e45ad3f626199da825b1479f1924627560f40cd9d19a79e72f2f2d27035" => :catalina
     sha256 "1b557a5511b6b6cfe63e014c926f410a93c19ab40495f9cfa3cd8d2386b90168" => :mojave
     sha256 "c68d0fefa318bd3409d065bee3ad7b6bb75d86a2f4239e4cebef0f402e8b88e8" => :high_sierra
+    sha256 "72cce7abf14919f0b8155a9108267c00a80be0ac19ec0621dc8b4aaed9ec23d6" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
