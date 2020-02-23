@@ -73,3 +73,4 @@ class Curl < Formula
     assert_predicate testpath/"test.pem", :exist?
     assert_predicate testpath/"certdata.txt", :exist?
   end
+end
