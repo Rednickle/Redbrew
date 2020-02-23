@@ -16,7 +16,6 @@ class Ffmpeg < Formula
   depends_on "nasm" => :build
   depends_on "pkg-config" => :build
   depends_on "texi2html" => :build
-
   depends_on "aom"
   depends_on "fontconfig"
   depends_on "freetype"
@@ -45,6 +44,9 @@ class Ffmpeg < Formula
   depends_on "xvid"
   depends_on "xz"
   depends_on "linuxbrew/xorg/libxv" unless OS.mac?
+
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
 
   uses_from_macos "bzip2"
   uses_from_macos "zlib"

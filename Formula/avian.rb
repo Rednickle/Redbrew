@@ -18,6 +18,7 @@ class Avian < Formula
   end
 
   depends_on :java => "1.8"
+
   uses_from_macos "zlib"
 
   def install

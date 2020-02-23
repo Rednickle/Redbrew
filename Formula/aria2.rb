@@ -14,6 +14,7 @@ class Aria2 < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libssh2"
+
   uses_from_macos "libxml2"
   unless OS.mac?
     depends_on "openssl@1.1"

@@ -22,7 +22,6 @@ class Folly < Formula
   depends_on "glog"
   depends_on "libevent"
   depends_on "lz4"
-
   # https://github.com/facebook/folly/issues/966
   depends_on :macos => :high_sierra if OS.mac?
 

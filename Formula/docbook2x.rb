@@ -18,6 +18,7 @@ class Docbook2x < Formula
   end
 
   depends_on "docbook"
+
   uses_from_macos "libxslt"
   uses_from_macos "perl"
 

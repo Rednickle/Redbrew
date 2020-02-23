@@ -14,6 +14,7 @@ class Assimp < Formula
   end
 
   depends_on "cmake" => :build
+
   uses_from_macos "zlib"
 
   # Fix "unzip.c:150:11: error: unknown type name 'z_crc_t'"

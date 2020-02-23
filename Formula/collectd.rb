@@ -23,6 +23,7 @@ class Collectd < Formula
   depends_on "libtool"
   depends_on "net-snmp"
   depends_on "riemann-client"
+
   uses_from_macos "bison"
   uses_from_macos "flex"
   uses_from_macos "perl"

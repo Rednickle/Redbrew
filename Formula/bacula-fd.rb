@@ -18,6 +18,8 @@ class BaculaFd < Formula
   depends_on "readline"
   uses_from_macos "zlib"
 
+  uses_from_macos "zlib"
+
   conflicts_with "bareos-client",
     :because => "Both install a `bconsole` executable."
 

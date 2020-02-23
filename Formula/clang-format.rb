@@ -51,6 +51,10 @@ class ClangFormat < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
+  uses_from_macos "libxml2"
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
+
   def install
     (buildpath/"projects/libcxx").install resource("libcxx") if OS.mac?
     (buildpath/"tools/clang").install resource("clang")

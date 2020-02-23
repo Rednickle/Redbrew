@@ -15,6 +15,7 @@ class Cgns < Formula
   depends_on "gcc"
   depends_on "hdf5"
   depends_on "szip"
+
   uses_from_macos "zlib"
 
   def install

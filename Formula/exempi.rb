@@ -14,6 +14,7 @@ class Exempi < Formula
   end
 
   depends_on "boost"
+
   uses_from_macos "expat"
 
   def install

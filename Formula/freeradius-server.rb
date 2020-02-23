@@ -14,6 +14,7 @@ class FreeradiusServer < Formula
 
   depends_on "openssl@1.1"
   depends_on "talloc"
+
   uses_from_macos "perl"
   uses_from_macos "readline"
   uses_from_macos "sqlite"

@@ -12,6 +12,8 @@ class Aspell < Formula
     sha256 "656812de17722f98453445ec8d15ae92863dfe33c19b508fc56d233b4bb07943" => :x86_64_linux
   end
 
+  uses_from_macos "ncurses"
+
   resource "en" do
     url "https://ftp.gnu.org/gnu/aspell/dict/en/aspell6-en-2018.04.16-0.tar.bz2"
     mirror "https://ftpmirror.gnu.org/aspell/dict/en/aspell6-en-2018.04.16-0.tar.bz2"

@@ -28,7 +28,8 @@ class Curl < Formula
   keg_only :provided_by_macos
 
   depends_on "pkg-config" => :build
-  uses_from_macos "openssl@1.1"
+
+  uses_from_macos "openssl"
   uses_from_macos "zlib"
 
   def install
@@ -72,4 +73,3 @@ class Curl < Formula
     assert_predicate testpath/"test.pem", :exist?
     assert_predicate testpath/"certdata.txt", :exist?
   end
-end

@@ -19,6 +19,8 @@ class DockerCompose < Formula
   depends_on "python@3.8"
   uses_from_macos "libffi"
 
+  uses_from_macos "libffi"
+
   def install
     ENV.prepend "CPPFLAGS", "-I#{Formula["libffi"].lib}/libffi-#{Formula["libffi"].version}/include" unless OS.mac?
 

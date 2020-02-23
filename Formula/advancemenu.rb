@@ -14,6 +14,7 @@ class Advancemenu < Formula
   end
 
   depends_on "sdl"
+
   uses_from_macos "expat"
   uses_from_macos "zlib"
 

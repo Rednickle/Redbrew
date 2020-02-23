@@ -18,6 +18,8 @@ class Click < Formula
 
   uses_from_macos "expect" => :test
 
+  uses_from_macos "expect" => :test
+
   def install
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
   end

@@ -18,6 +18,9 @@ class Boost < Formula
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
+
   def install
     # Force boost to compile with the desired compiler
     open("user-config.jam", "a") do |file|

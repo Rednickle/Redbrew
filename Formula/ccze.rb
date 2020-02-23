@@ -17,6 +17,8 @@ class Ccze < Formula
   depends_on "pcre"
   uses_from_macos "ncurses"
 
+  uses_from_macos "ncurses"
+
   def install
     # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=823334
     inreplace "src/ccze-compat.c", "#if HAVE_SUBOPTARg", "#if HAVE_SUBOPTARG"

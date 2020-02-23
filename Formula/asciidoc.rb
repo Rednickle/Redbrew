@@ -30,6 +30,9 @@ class Asciidoc < Formula
   uses_from_macos "libxml2" => :build
   uses_from_macos "libxslt" => :build # for xsltproc
 
+  uses_from_macos "libxml2" => :build
+  uses_from_macos "libxslt" => :build
+
   def install
     ENV.prepend_path "PATH", "/System/Library/Frameworks/Python.framework/Versions/2.7/bin"
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
