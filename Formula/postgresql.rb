@@ -82,7 +82,7 @@ class Postgresql < Formula
   def post_install
     (var/"log").mkpath
     (var/"postgres").mkpath
-    if !Process.euid.zero? && !(File.exist? "#{var}/#{name}/PG_VERSION")
+    if !Process.euid.zero? && !(File.exist? "#{var}/postgres/PG_VERSION")
       system "#{bin}/initdb", "--locale=C", "-E", "UTF-8", "#{var}/postgres"
     end
   end
