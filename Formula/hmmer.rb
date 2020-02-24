@@ -9,6 +9,7 @@ class Hmmer < Formula
     sha256 "6cafc97dbddaa66d9e353f161ce402786d887aea8a88f52be3323ffc4cf5733b" => :catalina
     sha256 "544c93b2fc808d5176ac562689afb59785f24ef29f3198b8ca24adf2c5fab422" => :mojave
     sha256 "aac6c2a8264ae6192bff7dd02c57cfe5000e830a0991c9e5be8c0fc27b0daded" => :high_sierra
+    sha256 "9caf124b1d99aaf51490be0c56d06e798b83fa6c4d004037d53ed45def34de17" => :x86_64_linux
   end
 
   def install
