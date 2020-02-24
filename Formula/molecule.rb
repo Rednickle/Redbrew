@@ -11,6 +11,7 @@ class Molecule < Formula
     sha256 "aa6a5fbbce99b418bcfeb8380a313f4cbfa9b7dc59faf63b13d95838ef271c90" => :catalina
     sha256 "b4247ab8a1a108da6371287b39de29906357a4389dd022df5981fde4f3593309" => :mojave
     sha256 "065614a528fee0d3a624409aba80c7adff7df4f9546439e8d757e1d1269e2f0a" => :high_sierra
+    sha256 "1354bc82e2da04f5bf5e7c6d3ea98555f470f23f598922d8ce18d4f3c1901e15" => :x86_64_linux
   end
 
   depends_on "ansible"
