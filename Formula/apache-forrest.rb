@@ -12,6 +12,7 @@ class ApacheForrest < Formula
     sha256 "53aed268e732c00ae5d57d4b98287c59f12c124f5a1b925d02aefacdc6dc5132" => :catalina
     sha256 "53aed268e732c00ae5d57d4b98287c59f12c124f5a1b925d02aefacdc6dc5132" => :mojave
     sha256 "53aed268e732c00ae5d57d4b98287c59f12c124f5a1b925d02aefacdc6dc5132" => :high_sierra
+    sha256 "f256d7ab9229ee3d56602947b73d30c37502a7c464991700efbd635354e71fb2" => :x86_64_linux
   end
 
   depends_on "openjdk"
