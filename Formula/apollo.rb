@@ -12,6 +12,7 @@ class Apollo < Formula
     sha256 "81b2a6a1110da6cf58c6725eb6e2c331668fa39d01644e0a754a2eb9241fdccd" => :catalina
     sha256 "81b2a6a1110da6cf58c6725eb6e2c331668fa39d01644e0a754a2eb9241fdccd" => :mojave
     sha256 "81b2a6a1110da6cf58c6725eb6e2c331668fa39d01644e0a754a2eb9241fdccd" => :high_sierra
+    sha256 "a15ef5095fa59c9a4d87559b752f648f44b722141b8928dd90e1f0817267d696" => :x86_64_linux
   end
 
   depends_on "openjdk"
