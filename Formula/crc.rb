@@ -11,6 +11,7 @@ class Crc < Formula
     sha256 "007777ac043b06fc75d74401119316705139eb876048eb914507e216b3c1d893" => :catalina
     sha256 "4811de8b2aa52a8c14c2005bdb39ffb49ef0acad0c8acbeaf6d3685258d72609" => :mojave
     sha256 "57cf9f856d4ae5859586b975a7eea06a807027dafb2852dd5464822a9b64081f" => :high_sierra
+    sha256 "a5ae77c98661de2698d4713cbd67ffb4bad71c5533fe1f8e4e4338ea7dcc36a8" => :x86_64_linux
   end
 
   depends_on "go" => :build
