@@ -22,6 +22,7 @@ class Hledger < Formula
   else
     depends_on "ghc@8.6" => :build
   end
+
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 

@@ -25,6 +25,8 @@ class Graphviz < Formula
 
   uses_from_macos "flex" => :build
 
+  uses_from_macos "flex" => :build
+
   def install
     args = %W[
       --disable-debug

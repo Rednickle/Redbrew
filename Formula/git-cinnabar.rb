@@ -15,6 +15,7 @@ class GitCinnabar < Formula
 
   depends_on :macos # Due to Python 2
   depends_on "mercurial"
+
   uses_from_macos "curl"
   uses_from_macos "python@2" => :test
 

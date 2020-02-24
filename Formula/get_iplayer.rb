@@ -16,6 +16,7 @@ class GetIplayer < Formula
   depends_on "atomicparsley"
   depends_on "ffmpeg"
   depends_on :macos => :yosemite if OS.mac?
+
   uses_from_macos "libxml2"
   uses_from_macos "perl"
 

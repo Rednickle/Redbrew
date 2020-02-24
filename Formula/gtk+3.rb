@@ -36,6 +36,8 @@ class Gtkx3 < Formula
 
   uses_from_macos "libxslt" => :build # for xsltproc
 
+  uses_from_macos "libxslt" => :build # for xsltproc
+
   def install
     args = %W[
       --prefix=#{prefix}

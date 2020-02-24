@@ -27,6 +27,8 @@ class Isync < Formula
   depends_on "openssl@1.1"
   uses_from_macos "zlib"
 
+  uses_from_macos "zlib"
+
   def install
     # Regenerated for HEAD, and because of our patch
     if build.head?

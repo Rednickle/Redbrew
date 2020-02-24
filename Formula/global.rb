@@ -31,6 +31,8 @@ class Global < Formula
 
   uses_from_macos "ncurses"
 
+  uses_from_macos "ncurses"
+
   skip_clean "lib/gtags"
 
   resource "Pygments" do

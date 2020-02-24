@@ -26,6 +26,7 @@ class Imagemagick < Formula
   depends_on "openjpeg"
   depends_on "webp"
   depends_on "xz"
+
   uses_from_macos "bzip2"
   uses_from_macos "libxml2"
 

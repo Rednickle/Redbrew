@@ -28,7 +28,6 @@ class Kakoune < Formula
   end
 
   uses_from_macos "libxslt" => :build
-  uses_from_macos "ncurses"
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"

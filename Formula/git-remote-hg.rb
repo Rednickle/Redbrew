@@ -18,6 +18,7 @@ class GitRemoteHg < Formula
 
   depends_on :macos # Due to Python 2
   depends_on "asciidoc" => :build
+
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
   uses_from_macos "python@2" # does not support Python 3

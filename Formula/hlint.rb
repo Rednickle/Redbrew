@@ -20,6 +20,8 @@ class Hlint < Formula
   depends_on "ghc" => :build
   uses_from_macos "ncurses"
 
+  uses_from_macos "ncurses"
+
   def install
     install_cabal_package :using => ["alex", "happy"]
     man1.install "data/hlint.1"
