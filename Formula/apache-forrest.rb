@@ -8,14 +8,10 @@ class ApacheForrest < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d73ea48f2d9367f55f3d4be01fca55263d70583d9052f025d498920f19400111" => :catalina
-    sha256 "6128ea9bb47128eddc98787e8c874e100195e9c29062df10395b0fc9159c76f1" => :mojave
-    sha256 "66a6c2fb9f2d6db49bae90431d841378b07925d746d33bb77bfa9b41deff7e9e" => :high_sierra
-    sha256 "9d5b65be3ab328e2861e47e842530cba5d393e7ac2e6a09af0f2f4731fb0e34e" => :sierra
-    sha256 "615ab5a39fcc19a110ebab166c05a614149374e65c5f9a7a4522fa400b8d4118" => :el_capitan
-    sha256 "cd0e4ceeb9e01118fe69bee3f80ccff63a951e01bf76c87146185ae6fe474c09" => :yosemite
-    sha256 "a0e06c41204932f1427e38d47b3c4442dea7f7c3312f959faf1b725d35d85a52" => :mavericks
-    sha256 "b972b46d2ee37dd0b99b80b71a8e30ea1432df8e8cac5570f987eff84eec0db3" => :x86_64_linux # glibc 2.19
+    rebuild 1
+    sha256 "53aed268e732c00ae5d57d4b98287c59f12c124f5a1b925d02aefacdc6dc5132" => :catalina
+    sha256 "53aed268e732c00ae5d57d4b98287c59f12c124f5a1b925d02aefacdc6dc5132" => :mojave
+    sha256 "53aed268e732c00ae5d57d4b98287c59f12c124f5a1b925d02aefacdc6dc5132" => :high_sierra
   end
 
   depends_on "openjdk"
