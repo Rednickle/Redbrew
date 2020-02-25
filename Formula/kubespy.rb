@@ -10,6 +10,7 @@ class Kubespy < Formula
     sha256 "783702f8de5226fb50d35d30ee4f600f3c8ba82006e2ec52c6f643994f97ed65" => :catalina
     sha256 "0793f861231c44c23578b3c6d8faab29c868eb3ca4cc5786ad76536863fb04e0" => :mojave
     sha256 "a39ae5031e190cf58be0863d51738225366da5d36ede449af4146bd782b48e7a" => :high_sierra
+    sha256 "df21ea87c2616cf57643feba3030dfadb39d6d5c59d222db2d73285fd693eefe" => :x86_64_linux
   end
 
   depends_on "go" => :build
