@@ -10,6 +10,7 @@ class N < Formula
     sha256 "7e908d7a75aaa2ee3081243858739e8f6306053dba5ffd4bf3116b5910c7a471" => :catalina
     sha256 "7e908d7a75aaa2ee3081243858739e8f6306053dba5ffd4bf3116b5910c7a471" => :mojave
     sha256 "7e908d7a75aaa2ee3081243858739e8f6306053dba5ffd4bf3116b5910c7a471" => :high_sierra
+    sha256 "4aea3ed1fbeb13d0521f172dabb30cf132b00562c319b8547ffb3878a3f20ab1" => :x86_64_linux
   end
 
   def install
