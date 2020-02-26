@@ -1,15 +1,14 @@
 class Cgal < Formula
   desc "Computational Geometry Algorithms Library"
   homepage "https://www.cgal.org/"
-  url "https://github.com/CGAL/cgal/releases/download/releases%2FCGAL-5.0.1/CGAL-5.0.1.tar.xz"
-  sha256 "66021111fe536268d044e5e01bd26e691d7b493c217a1ca4d9427284dd4b2a02"
+  url "https://github.com/CGAL/cgal/releases/download/releases%2FCGAL-5.0.2/CGAL-5.0.2.tar.xz"
+  sha256 "bb3594ba390735404f0972ece301f369b1ff12646ad25e48056b4d49c976e1fa"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "91b1ca6db31e4132b36c2bf2ef6b1ff812daa78d750fe83664f63b1d8713ce77" => :catalina
-    sha256 "91b1ca6db31e4132b36c2bf2ef6b1ff812daa78d750fe83664f63b1d8713ce77" => :mojave
-    sha256 "91b1ca6db31e4132b36c2bf2ef6b1ff812daa78d750fe83664f63b1d8713ce77" => :high_sierra
-    sha256 "6c8b061703ad470ef0bc2f710f63119d1ef057100d32ce7eecb0e1a1b7342c83" => :x86_64_linux
+    sha256 "642c67e59a4bcfc9e22a15f2f7149045ce037c639eb9a8cf2deb3d3195e69ad0" => :catalina
+    sha256 "642c67e59a4bcfc9e22a15f2f7149045ce037c639eb9a8cf2deb3d3195e69ad0" => :mojave
+    sha256 "642c67e59a4bcfc9e22a15f2f7149045ce037c639eb9a8cf2deb3d3195e69ad0" => :high_sierra
   end
 
   depends_on "cmake" => [:build, :test]
