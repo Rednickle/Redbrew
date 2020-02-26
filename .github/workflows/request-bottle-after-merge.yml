@@ -25,5 +25,4 @@ jobs:
         run: |
           cd $(brew --repo ${{github.repository}})
           git reset --hard ${{github.sha}}
-          brew find-formulae-to-bottle --verbose | tee to-bottle.txt
-          xargs -n1 brew request-bottle <( to-bottle.txt )
+          brew find-formulae-to-bottle | xargs -n1 brew request-bottle
