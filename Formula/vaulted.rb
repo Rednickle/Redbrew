@@ -10,6 +10,7 @@ class Vaulted < Formula
     sha256 "6e28a27d6d1c24b2cd7d3ca0ff147a8309425dcd1d405861378bd40c191af5d2" => :catalina
     sha256 "246a6e46d12ceb79f4406802a72860a4d4e381bf34b8228c10773898b33dbb3e" => :mojave
     sha256 "24f80eafb9d738391a99724915f07a546ebc822d5e3ab725fc90bfa690cc4ee7" => :high_sierra
+    sha256 "fdd37416a9eb4d04734b586477651b275adbcb01d6060bda18e47fc4a75e815e" => :x86_64_linux
   end
 
   depends_on "go" => :build
