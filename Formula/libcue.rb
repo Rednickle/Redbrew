@@ -17,7 +17,7 @@ class Libcue < Formula
   depends_on "cmake" => :build
 
   uses_from_macos "bison" => :build
-  uses_from_macos  "flex" => :build
+  uses_from_macos "flex" => :build
 
   def install
     system "cmake", ".", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args

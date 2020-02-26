@@ -20,6 +20,9 @@ class Lrzip < Formula
   uses_from_macos "zlib"
   uses_from_macos "bzip2"
 
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"

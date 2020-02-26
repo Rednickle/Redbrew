@@ -26,6 +26,8 @@ class Libtool < Formula
     option "without-default-names", "Prepend 'g' to the binaries"
   end
 
+  uses_from_macos "m4" => :build
+
   def install
     ENV["SED"] = "sed" # prevent libtool from hardcoding sed path from superenv
 

@@ -28,6 +28,8 @@ class Libxml2 < Formula
   depends_on "readline"
   uses_from_macos "zlib"
 
+  uses_from_macos "zlib"
+
   # Fix crash when using Python 3 using Fedora's patch.
   # Reported upstream:
   # https://bugzilla.gnome.org/show_bug.cgi?id=789714

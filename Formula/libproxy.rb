@@ -20,6 +20,8 @@ class Libproxy < Formula
 
   uses_from_macos "perl"
 
+  uses_from_macos "perl"
+
   def install
     args = std_cmake_args + %W[
       ..

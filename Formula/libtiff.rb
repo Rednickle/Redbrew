@@ -16,6 +16,8 @@ class Libtiff < Formula
   depends_on "jpeg"
   uses_from_macos "zlib"
 
+  uses_from_macos "zlib"
+
   def install
     args = %W[
       --prefix=#{prefix}

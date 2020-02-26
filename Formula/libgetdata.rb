@@ -18,6 +18,9 @@ class Libgetdata < Formula
   uses_from_macos "perl"
   uses_from_macos "zlib"
 
+  uses_from_macos "perl"
+  uses_from_macos "zlib"
+
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--disable-dependency-tracking",

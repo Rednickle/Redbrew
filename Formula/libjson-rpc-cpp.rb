@@ -22,6 +22,8 @@ class LibjsonRpcCpp < Formula
   depends_on "libmicrohttpd"
   uses_from_macos "curl"
 
+  uses_from_macos "curl"
+
   def install
     system "cmake", ".", *std_cmake_args
     system "make"
