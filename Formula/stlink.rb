@@ -10,6 +10,7 @@ class Stlink < Formula
     sha256 "37847a2056adeb51918e7f660a92c6d13e8959e7527de2f9988c8b3c247c4e3f" => :catalina
     sha256 "afafd4057259f0971e38fc899b86d2543e216e011a384d16396fcdc1126277a3" => :mojave
     sha256 "626bf84c5d2a98f0824b1d2da49047f8587d949b4fe26ad02c0d3211509bbf2b" => :high_sierra
+    sha256 "fc0381369e369cd1014a5f88f1c58cf0aecd38613acd0a530047ca29bbb3dfa7" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
