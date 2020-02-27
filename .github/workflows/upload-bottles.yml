@@ -9,7 +9,7 @@ on:
 
 jobs:
   upload-bottles:
-    if: startsWith(github.event.head_commit.message, 'Merge') == false
+    if: startsWith(github.event.head_commit.message, 'Merge') == false && github.event.pusher.name != 'BrewTestBot'
     runs-on: ubuntu-latest
     container:
       image: homebrew/brew
