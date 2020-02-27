@@ -1,16 +1,15 @@
 class Root < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern.ch/"
-  url "https://root.cern.ch/download/root_v6.18.04.source.tar.gz"
-  version "6.18.04"
-  sha256 "315a85fc8363f8eb1bffa0decbf126121258f79bd273513ed64795675485cfa4"
-  revision 3
+  url "https://root.cern.ch/download/root_v6.20.00.source.tar.gz"
+  version "6.20.00"
+  sha256 "68421eb0434b38b66346fa8ea6053a0fdc9a6d254e4a72019f4e3633ae118bf0"
   head "https://github.com/root-project/root.git"
 
   bottle do
-    sha256 "76899519d3608dba01cca9330c3e657689288b044ba809998bce83cc4baca97e" => :catalina
-    sha256 "5ef5db5c7d28ab66e469eca1fecc36f1c97fa71fce96d4cbb5b3fbb30c98e23d" => :mojave
-    sha256 "c1f9523092c84b853aa6e5afd151727662b90e5299f7b74ddf56b9d4bf7c8caa" => :high_sierra
+    sha256 "b3a40092c12f5c30d7721afdaab6796bea633321c29a60a00c73a69fbea7471a" => :catalina
+    sha256 "fdb493e9c6c830a4c84d2c69c71be68eedadd945d00bf1a3aecdfb196f683aba" => :mojave
+    sha256 "3f45125a2b36540181cff1d96a677f2de97f089e4e3b0a90ef37c16de957de32" => :high_sierra
   end
 
   if OS.mac?

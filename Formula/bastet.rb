@@ -34,4 +34,17 @@ class Bastet < Formula
     bin.install "bastet"
     man6.install "bastet.6"
   end
+
+  test do
+    pid = fork do
+      exec bin/"bastet"
+    end
+    sleep 3
+
+    assert_predicate bin/"bastet", :exist?
+    assert_predicate bin/"bastet", :executable?
+  ensure
+    Process.kill("TERM", pid)
+    Process.wait(pid)
+  end
 end

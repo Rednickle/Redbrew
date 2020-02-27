@@ -1,13 +1,13 @@
-class RubyAT25 < Formula
+class RubyAT26 < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.7.tar.xz"
-  sha256 "201870e8f58957d542233fef588b1d76f7bf962fea44dcbd2237f4a5899a3f95"
+  url "https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.5.tar.xz"
+  sha256 "d5d6da717fd48524596f9b78ac5a2eeb9691753da5c06923a6c31190abe01a62"
 
   bottle do
-    sha256 "0fe6dbff816d7e6ec7db6c79ccfbf76b58b3d4893646b454be6a5483ec503957" => :catalina
-    sha256 "f1a5e413cce2b0ea3c7a1d2b46cce3e10da4598f81a6a3563ad7d90b0bebbb11" => :mojave
-    sha256 "a5cb8f8c3e8fff08f912c688f36a39d2e82b6a572f211070e89f78202ed71c00" => :high_sierra
+    sha256 "29d29d42dd35f2d70fa457851d65c3a8ea6c840c55cac5fd8edd864c6caca34d" => :catalina
+    sha256 "9b4559ee1ab60bd338636361a7f278280a458913b623a5db83e33e8289a2f6de" => :mojave
+    sha256 "758f99bb654673ff0881eddea47d9b94a23743f836d4c3e6686e4062a0fc9f61" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -17,10 +17,8 @@ class RubyAT25 < Formula
   depends_on "openssl@1.1"
   depends_on "readline"
 
-  uses_from_macos "zlib"
-
   def api_version
-    "2.5.0"
+    "2.6.0"
   end
 
   def rubygems_bindir
@@ -41,7 +39,7 @@ class RubyAT25 < Formula
       --with-opt-dir=#{paths.join(":")}
       --without-gmp
     ]
-    args << "--disable-dtrace" if OS.mac? && !MacOS::CLT.installed?
+    args << "--disable-dtrace" unless MacOS::CLT.installed?
 
     system "./configure", *args
 
@@ -70,7 +68,7 @@ class RubyAT25 < Formula
     # instead of in the Cellar, making gems last across reinstalls
     config_file = lib/"ruby/#{api_version}/rubygems/defaults/operating_system.rb"
     config_file.unlink if config_file.exist?
-    config_file.write rubygems_config
+    config_file.write rubygems_config(api_version)
 
     # Create the sitedir and vendordir that were skipped during install
     %w[sitearchdir vendorarchdir].each do |dir|
@@ -78,7 +76,7 @@ class RubyAT25 < Formula
     end
   end
 
-  def rubygems_config; <<~EOS
+  def rubygems_config(api_version); <<~EOS
     module Gem
       class << self
         alias :old_default_dir :default_dir
@@ -96,7 +94,7 @@ class RubyAT25 < Formula
           "#{api_version}"
         ]
 
-        @default_dir ||= File.join(*path)
+        @homebrew_path ||= File.join(*path)
       end
 
       def self.private_dir
@@ -126,9 +124,9 @@ class RubyAT25 < Formula
 
       def self.default_path
         if Gem.user_home && File.exist?(Gem.user_home)
-          [user_dir, default_dir, private_dir]
+          [user_dir, default_dir, old_default_dir, private_dir]
         else
-          [default_dir, private_dir]
+          [default_dir, old_default_dir, private_dir]
         end
       end
 
@@ -138,6 +136,13 @@ class RubyAT25 < Formula
 
       def self.ruby
         "#{opt_bin}/ruby"
+      end
+
+      # https://github.com/Homebrew/homebrew-core/issues/40872#issuecomment-542092547
+      class BasicSpecification
+        def self.default_specifications_dir
+          File.join(Gem.old_default_dir, "specifications", "default")
+        end
       end
     end
   EOS
@@ -157,5 +162,12 @@ class RubyAT25 < Formula
     assert_equal "hello\n", hello_text
     ENV["GEM_HOME"] = testpath
     system "#{bin}/gem", "install", "json"
+
+    (testpath/"Gemfile").write <<~EOS
+      source 'https://rubygems.org'
+      gem 'gemoji'
+    EOS
+    system bin/"bundle", "install", "--binstubs=#{testpath}/bin"
+    assert_predicate testpath/"bin/gemoji", :exist?, "gemoji is not installed in #{testpath}/bin"
   end
 end
