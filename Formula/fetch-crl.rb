@@ -9,6 +9,7 @@ class FetchCrl < Formula
     sha256 "7c4aedc9178b36cf45d9a05ed4213c5c2ede584dc1c2754f2370b91f42a1efe3" => :catalina
     sha256 "7c4aedc9178b36cf45d9a05ed4213c5c2ede584dc1c2754f2370b91f42a1efe3" => :mojave
     sha256 "7c4aedc9178b36cf45d9a05ed4213c5c2ede584dc1c2754f2370b91f42a1efe3" => :high_sierra
+    sha256 "a78a25752c9674989dfb237cd291422a30d115e7f21f7945600d5807de0a6e87" => :x86_64_linux
   end
 
   unless OS.mac?
