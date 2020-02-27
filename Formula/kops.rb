@@ -10,6 +10,7 @@ class Kops < Formula
     sha256 "3eda0d9df8cfb8366430973a7e7102e42f8740c976db0faa684a5c194cfd7110" => :catalina
     sha256 "cf816d4c78b3318f4cfa80542858f07ece2e2bf38741a17c6dd7e486f20fac81" => :mojave
     sha256 "8c010826e2d21041785add51dd9f2de8df67f984d57b5fc96cf8fbb717758a83" => :high_sierra
+    sha256 "a72a9148f6c1162c37d81abc369d74c00a436ae923ee46d132111a1f807962c3" => :x86_64_linux
   end
 
   depends_on "go@1.12" => :build
