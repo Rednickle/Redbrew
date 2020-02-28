@@ -9,6 +9,7 @@ class Latex2html < Formula
     sha256 "67047d5b5d62383ce1aa89f7e686f597cc5681f73f70ff4cbcca7adb501a2fde" => :catalina
     sha256 "09197aae2b56daffdec8b1310524a54bf5f150ba6b01028f9fbd9fc826a024ca" => :mojave
     sha256 "505bfd350877a8cac8dbe37e3fc40eee907b896a1309ec379ba02ceabb32d929" => :high_sierra
+    sha256 "e4085a95b185ce2c37d4e4f11f658858e70fdab56ddeffb14e48de06e6b70b23" => :x86_64_linux
   end
 
   depends_on "ghostscript"
