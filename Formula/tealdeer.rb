@@ -9,6 +9,7 @@ class Tealdeer < Formula
     sha256 "a75bdb28063e5c0c4d1882ecabba461eeb719b7f596ab0131011c5334816c7bb" => :catalina
     sha256 "b10ecb37c597fc4ab8cd5078a2389ea2b6f7a8357a46ab459620b8b5a7492d61" => :mojave
     sha256 "cc51ff0b589a0a8a299ee69689a421092bdbe9e47c23ccad2c0d4f27c85a5b0d" => :high_sierra
+    sha256 "9147987b3616478cdc98869ce285c339761329252f1a070bca6050544489543a" => :x86_64_linux
   end
 
   depends_on "rust" => :build
