@@ -10,6 +10,7 @@ class Wasmer < Formula
     sha256 "eec4528f3e924b39355ae55ef52b49ed5f2943235832d7a8a679f2fff58744d5" => :catalina
     sha256 "64c27de363e8ea456d871088ddcea0ad473f0002a3cf7c3e4a571c4c861144b4" => :mojave
     sha256 "70b309e4cf6e2cc0efca0ba59f771f81e317df5d333363d8ceeb0b7b692b8e0c" => :high_sierra
+    sha256 "59278c224aaa1c3879035b084725d0608d15439c5fb8e3ae2af6cff1bf62b86b" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
