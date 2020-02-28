@@ -9,6 +9,7 @@ class Yq < Formula
     sha256 "9448e0dd427f0454b1d8a5eb13f085e4a26dbc2c08ae65e241540dd2953aa534" => :catalina
     sha256 "786799b833eca9c2ec295436898e6feaa624fa0df2210a1cb6282e3f8dc68eed" => :mojave
     sha256 "79e426d94d0a09a10c46c893cfceef01b1e4df7b86780f632a5302d0d393b5cf" => :high_sierra
+    sha256 "1d7ddeb7fd19a8355a4c29fae49c842a770d2bea0ea75506b88801d3d679398f" => :x86_64_linux
   end
 
   depends_on "go" => :build
