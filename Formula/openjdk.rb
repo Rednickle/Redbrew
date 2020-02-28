@@ -14,7 +14,7 @@ class Openjdk < Formula
     sha256 "68e4b312ecabd1aa36cf2b70b5a1ab4f8de0f77cd1eaf66448af4091db137b6a" => :x86_64_linux
   end
 
-  keg_only :provided_by_macos
+  keg_only "it shadows the macOS `java` wrapper"
 
   depends_on "autoconf" => :build
   unless OS.mac?
