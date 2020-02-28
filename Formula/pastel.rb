@@ -1,16 +1,14 @@
 class Pastel < Formula
   desc "Command-line tool to generate, analyze, convert and manipulate colors"
   homepage "https://github.com/sharkdp/pastel"
-  url "https://github.com/sharkdp/pastel/archive/v0.6.1.tar.gz"
-  sha256 "ece0004d725133bcf552bbfe5508c087513eb52f6c363fbad6eeb9c74769a932"
+  url "https://github.com/sharkdp/pastel/archive/v0.7.0.tar.gz"
+  sha256 "cd567b77087510e3ac4e3b5716905f5d01808adfbf8708e05dff83c39752271d"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "98a1ba143f1675f3c9a24ace7dc3047cd9b80c462b3b57a38448a81414d911a6" => :catalina
-    sha256 "9ff2230b5d4405ca5d889aa6938ebc2d0189e3012fc6e367a6a4c5f4f28ecd3a" => :mojave
-    sha256 "fa282f3adbef4bc3fe48690b0e539bf73b1abbf594c5ea93b9cc26cb25217c3b" => :high_sierra
-    sha256 "46398105b605b2967fde9a5a6d06e4f3ac7882939c002179c3dcbe25a580fcda" => :x86_64_linux
+    sha256 "ec760b913a8be2ef4cd8c69bb37446d0750717ee2d193835a1f09134b1631bc7" => :catalina
+    sha256 "265317c1a66f0db619512ed8c660a465a85b65662c421e37b0d940dc43cecb67" => :mojave
+    sha256 "4310d41ed69f7be84fd11cd5fba26c17db4f1140fdb9ffa91278d44c05982cae" => :high_sierra
   end
 
   depends_on "rust" => :build

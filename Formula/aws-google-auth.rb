@@ -3,16 +3,15 @@ class AwsGoogleAuth < Formula
 
   desc "Acquire AWS credentials using Google Apps"
   homepage "https://github.com/cevoaustralia/aws-google-auth"
-  url "https://github.com/cevoaustralia/aws-google-auth/archive/0.0.33.tar.gz"
-  sha256 "775cc33ad17fdac73f07509edd981a4097308e347c19e2e7cda84ca3b93b1b92"
+  url "https://github.com/cevoaustralia/aws-google-auth/archive/0.0.34.tar.gz"
+  sha256 "d9051cdc91b1499f8ddd0aaf97ee42c9b7f8c5e9e0e0c47b13aa59f942a14a4b"
   head "https://github.com/cevoaustralia/aws-google-auth.git"
 
   bottle do
     cellar :any
-    sha256 "44f635f9ed0028f17542e73f5318040a5848c74ccf54c5aefaef599046674991" => :catalina
-    sha256 "7874bf9cf14dbec7ec8ba2cc1af8e22c72ff693212bcc7b7aa0b0d32a756fec2" => :mojave
-    sha256 "fb7cf1b3aa3897922c22f78e14b3ee98a830ad8f71652740c50c9775511fb8d8" => :high_sierra
-    sha256 "4151db65c6bb6e0cb721ecd451b04af50610a3b321f89959cd0defef111dc31d" => :x86_64_linux
+    sha256 "acfd3813af730b08a308d8cf3334b6f326eaa8ef534fb0b514a00c3da2c48f54" => :catalina
+    sha256 "6ad0f0de1ee577d65c4766a9410d9bca0b1c260a48002f0c5ad7628857222600" => :mojave
+    sha256 "9c1f55e791e73759a47f4800cc62cdd2f3bf6c75654427afd72a752c4a654c8c" => :high_sierra
   end
 
   depends_on "freetype"
