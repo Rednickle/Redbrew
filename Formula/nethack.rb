@@ -9,25 +9,20 @@ class Nethack < Formula
   head "https://github.com/NetHack/NetHack.git"
 
   bottle do
-    sha256 "c2a610788486d8bc25708ad37ccc133fbb1d43f30a1f08c15f989be691a872d2" => :catalina
-    sha256 "d3dd937be7a736b64c8f793aae2ac76e77d4e8cf60886a6decf06dd627d8ff19" => :mojave
-    sha256 "837b7979cf18f3d94ebc518bc14f6c8027bf87540910d778d62fc02a67255ba8" => :high_sierra
+    rebuild 1
+    sha256 "32ce4c30778ee034641e0659aa351b1d8db9ac41fd6bc10bf3de590d600b57ca" => :catalina
+    sha256 "a987ad9df89f765d3d2b8451c4cfbdd6728e64b3fb239d5b2af6da76a706460b" => :mojave
+    sha256 "4ee79f011195859ee87569c6d7080d438d9e7d23e4a096a437187da8479cc126" => :high_sierra
   end
 
   uses_from_macos "ncurses"
 
-  # Don't remove save folder
-  skip_clean "libexec/save"
-
   def install
-    # Build everything in-order
     ENV.deparallelize
 
-    # Disable optimization since it causes a hang in the / command
-    # See issue #48465
+    # Fixes https://github.com/NetHack/NetHack/issues/274
     ENV.O0
 
-    # Generate makefiles for OS X
     cd "sys/unix" do
       if MacOS.version >= :mojave
         hintfile = "macosx10.14"
@@ -38,23 +33,40 @@ class Nethack < Formula
       # Enable wizard mode for all users
       inreplace "sysconf", /^WIZARDS=.*/, "WIZARDS=*"
 
+      # Enable curses interface
+      # Setting VAR_PLAYGROUND preserves saves across upgrades
+      inreplace "hints/#{hintfile}" do |s|
+        s.change_make_var! "HACKDIR", libexec
+        s.gsub! "#WANT_WIN_CURSES=1", "WANT_WIN_CURSES=1\nCFLAGS+=-DVAR_PLAYGROUND='\"#{HOMEBREW_PREFIX}/share/nethack\"'"
+      end
+
       system "sh", "setup.sh", "hints/#{hintfile}"
     end
 
-    # Make the game with curses
-    system "make", "install", "HACKDIR=#{libexec}", "WANT_WIN_CURSES=1"
-    bin.install "src/nethack"
-    (libexec+"save").mkpath
-
-    # Enable `man nethack`
+    system "make", "install"
+    bin.install_symlink libexec/"nethack"
     man6.install "doc/nethack.6"
+  end
 
-    # These need to be group-writable in multi-user situations
-    chmod "g+w", libexec
-    chmod "g+w", libexec+"save"
+  def post_install
+    # These need to exist (even if empty) otherwise nethack won't start
+    savedir = HOMEBREW_PREFIX/"share/nethack"
+    mkdir_p savedir
+    cd savedir do
+      %w[xlogfile logfile perm record].each do |f|
+        touch f
+      end
+      mkdir_p "save"
+      touch "save/.keepme" # preserve on `brew cleanup`
+    end
+    # Set group-writeable for multiuser installs
+    chmod "g+w", savedir
+    chmod "g+w", savedir/"save"
   end
 
   test do
     system "#{bin}/nethack", "-s"
+    assert_match (HOMEBREW_PREFIX/"share/nethack").to_s,
+                 shell_output("#{bin}/nethack --showpaths")
   end
 end
