@@ -12,6 +12,7 @@ class Zydis < Formula
     sha256 "ceffe3459006c374498e06809f8d75e9f512d5a43482d9b4d3973bbe4b2e3944" => :catalina
     sha256 "a51c744f89ed204c66e0699a960a3c58625a5f46f16f3710e68a4746bbc0fb7e" => :mojave
     sha256 "cefab7b097b79ae4c04616c235e572ffc5416296eba2a10bd7b07c6f18148313" => :high_sierra
+    sha256 "2ffa4cbf754f8020fbbcdbee5bc6ea0cd8431d78a3cc4ac0dd40571cfa8f614b" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
