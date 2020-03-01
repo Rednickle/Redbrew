@@ -17,8 +17,8 @@ class Awslogs < Formula
   end
 
   depends_on "python@3.8"
+  depends_on "openssl@1.1" unless OS.mac?
 
-  uses_from_macos "openssl@1.1"
   uses_from_macos "zlib"
 
   resource "boto3" do

@@ -14,10 +14,10 @@ class Mdcat < Formula
 
   depends_on "cmake" => :build
   depends_on "rust" => :build
-  uses_from_macos "openssl@1.1"
   unless OS.mac?
     depends_on "llvm" => :build
     depends_on "pkg-config" => :build
+    depends_on "openssl@1.1"
   end
 
   def install
