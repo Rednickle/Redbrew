@@ -16,6 +16,7 @@ class Metricbeat < Formula
 
   depends_on :macos # Due to Python 2
   depends_on "go" => :build
+
   # https://github.com/elastic/beats/pull/14798
   uses_from_macos "python@2" => :build # does not support Python 3
 

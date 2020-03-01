@@ -38,6 +38,8 @@ class Nghttp2 < Formula
     end
   end
 
+  uses_from_macos "zlib"
+
   def install
     ENV.cxx11
 

@@ -13,7 +13,6 @@ class Mysql < Formula
   end
 
   depends_on "cmake" => :build
-
   # GCC is not supported either, so exclude for El Capitan.
   depends_on :macos => :sierra if OS.mac? && DevelopmentTools.clang_build_version == 800
 

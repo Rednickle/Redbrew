@@ -27,6 +27,8 @@ class Mosh < Formula
 
   uses_from_macos "ncurses"
 
+  uses_from_macos "ncurses"
+
   # Fix mojave build.
   unless build.head?
     patch do

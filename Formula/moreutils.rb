@@ -17,8 +17,8 @@ class Moreutils < Formula
 
   depends_on "docbook-xsl" => :build
 
-  uses_from_macos "libxml2" => :build # for xmllint
-  uses_from_macos "libxslt" => :build # for xsltproc
+  uses_from_macos "libxml2" => :build
+  uses_from_macos "libxslt" => :build
 
   conflicts_with "parallel", :because => "Both install a `parallel` executable."
   conflicts_with "pwntools", :because => "Both install an `errno` executable."

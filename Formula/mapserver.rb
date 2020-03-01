@@ -28,6 +28,8 @@ class Mapserver < Formula
   depends_on "python"
   uses_from_macos "curl"
 
+  uses_from_macos "curl"
+
   def install
     ENV.cxx11
 

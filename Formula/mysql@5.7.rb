@@ -18,6 +18,8 @@ class MysqlAT57 < Formula
   uses_from_macos "libedit"
   depends_on "pkg-config" => :build unless OS.mac?
 
+  uses_from_macos "libedit"
+
   def datadir
     var/"mysql"
   end
