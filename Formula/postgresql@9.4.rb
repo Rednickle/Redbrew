@@ -20,6 +20,9 @@ class PostgresqlAT94 < Formula
   uses_from_macos "libxslt"
   uses_from_macos "perl"
 
+  uses_from_macos "libxslt"
+  uses_from_macos "perl"
+
   def install
     if OS.mac?
       # Fix "configure: error: readline library not found"

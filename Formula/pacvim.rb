@@ -24,6 +24,8 @@ class Pacvim < Formula
     sha256 "9a304c39ddb8a1e9680ec916e92faa291eac7f406f01e76141ab16a1e7051f70" => :x86_64_linux
   end
 
+  uses_from_macos "ncurses"
+
   def install
     ENV.cxx11
     system "make", "install", "PREFIX=#{prefix}"

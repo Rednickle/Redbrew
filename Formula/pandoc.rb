@@ -22,6 +22,9 @@ class Pandoc < Formula
   uses_from_macos "unzip" => :build # for cabal install
   uses_from_macos "zlib"
 
+  uses_from_macos "unzip" => :build # for cabal install
+  uses_from_macos "zlib"
+
   def install
     cabal_sandbox do
       install_cabal_package :flags => ["embed_data_files"]

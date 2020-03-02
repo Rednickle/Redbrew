@@ -18,8 +18,8 @@ class Offlineimap < Formula
   depends_on "docbook-xsl" => :build
   depends_on "sphinx-doc" => :build
 
-  uses_from_macos "libxml2" => :build # for xmllint
-  uses_from_macos "libxslt" => :build # for xsltproc
+  uses_from_macos "libxml2"
+  uses_from_macos "libxslt"
   # Will never support Python 3
   # https://github.com/OfflineIMAP/offlineimap/issues/616#issuecomment-491003691
   uses_from_macos "python@2"

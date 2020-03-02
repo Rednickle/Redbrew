@@ -27,6 +27,12 @@ class Pyenv < Formula
   uses_from_macos "xz"
   uses_from_macos "zlib"
 
+  uses_from_macos "bzip2"
+  uses_from_macos "libffi"
+  uses_from_macos "ncurses"
+  uses_from_macos "xz"
+  uses_from_macos "zlib"
+
   def install
     inreplace "libexec/pyenv", "/usr/local", HOMEBREW_PREFIX
     inreplace "libexec/pyenv-versions", "system pyenv-which python", "system pyenv-which python3"

@@ -31,6 +31,8 @@ class Profanity < Formula
   depends_on "terminal-notifier" if OS.mac?
   uses_from_macos "curl"
 
+  uses_from_macos "curl"
+
   def install
     system "./bootstrap.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",

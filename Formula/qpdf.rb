@@ -15,6 +15,8 @@ class Qpdf < Formula
   depends_on "jpeg"
   uses_from_macos "zlib"
 
+  uses_from_macos "zlib"
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make"

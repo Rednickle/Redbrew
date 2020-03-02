@@ -12,12 +12,12 @@ class Perl < Formula
     sha256 "dc9b4eca8bbcd8209ea3f76581e6b9b127a0b1f19539547c63f28687cb0b4337" => :x86_64_linux
   end
 
+  uses_from_macos "expat"
+
   unless OS.mac?
     depends_on "gdbm"
     depends_on "berkeley-db"
   end
-
-  uses_from_macos "expat"
 
   # Prevent site_perl directories from being removed
   skip_clean "lib/perl5/site_perl"

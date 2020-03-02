@@ -15,9 +15,9 @@ class Progress < Formula
     sha256 "fa3fea33287f1d80a3e61e27c69248a77d24ee9a7a1c9fba6ec1723dd8570885" => :x86_64_linux
   end
 
-  depends_on "pkg-config" => :build unless OS.mac?
-
   uses_from_macos "ncurses"
+
+  depends_on "pkg-config" => :build unless OS.mac?
 
   def install
     system "make", "PREFIX=#{prefix}", "install"
