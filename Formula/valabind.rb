@@ -21,12 +21,6 @@ class Valabind < Formula
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
 
-  patch do
-    # Please remove this patch for valabind > 1.6.0.
-    url "https://github.com/radare/valabind/commit/774707925962fe5865002587ef031048acbe9d89.patch?full_index=1"
-    sha256 "d6a88a7c98ab0e001c4ce2d50e809ed4c4b9258954133434758d1f0c5e26f9e9"
-  end
-
   def install
     unless OS.mac?
       # Valabind depends on the Vala code generator library during execution.

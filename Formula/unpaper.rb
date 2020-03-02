@@ -34,6 +34,8 @@ class Unpaper < Formula
 
   uses_from_macos "libxslt" => :build #for xsltproc
 
+  uses_from_macos "libxslt"
+
   def install
     system "autoreconf", "-i" if build.head? || !OS.mac?
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"

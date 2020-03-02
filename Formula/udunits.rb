@@ -24,6 +24,8 @@ class Udunits < Formula
     end
   end
 
+  uses_from_macos "expat"
+
   def install
     mkdir "build" do
       system "cmake", "..", *std_cmake_args

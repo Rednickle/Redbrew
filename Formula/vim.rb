@@ -20,6 +20,8 @@ class Vim < Formula
   depends_on "ruby"
   uses_from_macos "ncurses"
 
+  uses_from_macos "ncurses"
+
   conflicts_with "ex-vi",
     :because => "vim and ex-vi both install bin/ex and bin/view"
 

@@ -19,6 +19,8 @@ class Wdiff < Formula
 
   uses_from_macos "ncurses"
 
+  uses_from_macos "ncurses"
+
   conflicts_with "montage", :because => "Both install an mdiff executable"
 
   def install

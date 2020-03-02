@@ -16,6 +16,8 @@ class Dbhash < Formula
     sha256 "8b8da9e454b905b4d0f3a2846061367b6d2bf21096017603494b1d2da8bfb498" => :x86_64_linux
   end
 
+  uses_from_macos "sqlite" => :test
+
   def install
     system "./configure", "--disable-debug", "--prefix=#{prefix}"
     system "make", "dbhash"

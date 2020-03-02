@@ -11,8 +11,9 @@ class Vifm < Formula
     sha256 "03b37512da7f4c19a7fd72c73f8e2d623404765d86303a56296d43ec6c44e0a3" => :x86_64_linux
   end
 
-  depends_on "groff" => :build unless OS.mac?
   uses_from_macos "ncurses"
+
+  depends_on "groff" => :build unless OS.mac?
 
   def install
     system "./configure", "--disable-dependency-tracking",

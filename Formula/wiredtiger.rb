@@ -16,6 +16,8 @@ class Wiredtiger < Formula
   depends_on "snappy"
   uses_from_macos "zlib"
 
+  uses_from_macos "zlib"
+
   def install
     system "./configure", "--with-builtins=snappy,zlib",
                           "--with-python",

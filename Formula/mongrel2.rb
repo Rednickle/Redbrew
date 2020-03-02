@@ -29,6 +29,8 @@ class Mongrel2 < Formula
   depends_on "zeromq"
   uses_from_macos "sqlite"
 
+  uses_from_macos "sqlite"
+
   def install
     # Build in serial. See:
     # https://github.com/Homebrew/homebrew/issues/8719

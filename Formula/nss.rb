@@ -16,6 +16,8 @@ class Nss < Formula
   uses_from_macos "sqlite"
   uses_from_macos "zlib"
 
+  uses_from_macos "sqlite"
+
   def install
     ENV.deparallelize
     cd "nss"

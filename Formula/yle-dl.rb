@@ -16,7 +16,7 @@ class YleDl < Formula
   depends_on "python"
   depends_on "rtmpdump"
 
-  uses_from_macos "libxslt" # To be able to build the lxml resource
+  uses_from_macos "libxslt"
 
   resource "AdobeHDS.php" do
     # NOTE: yle-dl always installs the HEAD version of AdobeHDS.php. We use a specific commit.
