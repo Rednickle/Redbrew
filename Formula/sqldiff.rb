@@ -16,6 +16,9 @@ class Sqldiff < Formula
     sha256 "59aa3ea68d2de25aa62adf1aa6aec1caac8be563ddd3337c2108fbd532a78b35" => :x86_64_linux
   end
 
+  uses_from_macos "tcl-tk" => :build
+  uses_from_macos "sqlite" => :test
+
   def install
     system "./configure", "--disable-debug", "--prefix=#{prefix}"
     system "make", "sqldiff"

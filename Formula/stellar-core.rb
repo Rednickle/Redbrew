@@ -34,6 +34,9 @@ class StellarCore < Formula
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+
   def install
     system "./autogen.sh"
     system "./configure", "--disable-debug",

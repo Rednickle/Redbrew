@@ -17,6 +17,8 @@ class Tinc < Formula
   depends_on "openssl@1.1"
   uses_from_macos "zlib"
 
+  uses_from_macos "zlib"
+
   def install
     system "./configure", "--prefix=#{prefix}", "--sysconfdir=#{etc}",
                           "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"

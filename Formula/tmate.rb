@@ -22,6 +22,8 @@ class Tmate < Formula
   depends_on "msgpack"
   uses_from_macos "ncurses"
 
+  uses_from_macos "ncurses"
+
   def install
     system "sh", "autogen.sh"
 

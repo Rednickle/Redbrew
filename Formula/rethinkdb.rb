@@ -19,6 +19,8 @@ class Rethinkdb < Formula
   depends_on "python@2" => :build unless OS.mac?
   uses_from_macos "curl"
 
+  uses_from_macos "curl"
+
   def install
     ENV["PYTHON"] = Formula["python@2"].opt_bin/"python" unless OS.mac?
     args = ["--prefix=#{prefix}"]

@@ -20,6 +20,8 @@ class Stella < Formula
   # Stella is using c++14
   fails_with :gcc => "4.8" unless OS.mac?
 
+  uses_from_macos "zlib"
+
   def install
     sdl2 = Formula["sdl2"]
     libpng = Formula["libpng"]

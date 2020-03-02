@@ -30,6 +30,8 @@ class ShadowsocksLibev < Formula
   depends_on "pcre"
   uses_from_macos "python@2"
 
+  uses_from_macos "python@2"
+
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
     system "./autogen.sh" if build.head?

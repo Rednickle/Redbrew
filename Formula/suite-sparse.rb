@@ -16,6 +16,8 @@ class SuiteSparse < Formula
   depends_on "openblas"
   uses_from_macos "m4"
 
+  uses_from_macos "m4"
+
   conflicts_with "mongoose", :because => "suite-sparse vendors libmongoose.dylib"
 
   def install

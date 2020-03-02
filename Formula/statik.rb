@@ -21,6 +21,8 @@ class Statik < Formula
 
   uses_from_macos "libffi"
 
+  uses_from_macos "libffi"
+
   conflicts_with "go-statik", :because => "both install `statik` binaries"
 
   def install

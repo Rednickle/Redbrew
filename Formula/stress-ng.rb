@@ -15,6 +15,8 @@ class StressNg < Formula
   depends_on :macos => :sierra if OS.mac?
   uses_from_macos "zlib"
 
+  uses_from_macos "zlib"
+
   def install
     inreplace "Makefile", "/usr", prefix
     system "make"

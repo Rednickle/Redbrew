@@ -22,6 +22,8 @@ class Sqliteodbc < Formula
   uses_from_macos "zlib"
 
   def install
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
+
     unless OS.mac?
       # sqliteodbc ships its own version of libtool, which breaks superenv.
       # Therefore, we set the following enviroment to help it find superenv.

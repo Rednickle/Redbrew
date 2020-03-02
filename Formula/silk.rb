@@ -17,6 +17,8 @@ class Silk < Formula
   depends_on "yaf"
   uses_from_macos "libpcap"
 
+  uses_from_macos "libpcap"
+
   def install
     args = %W[
       --prefix=#{prefix}

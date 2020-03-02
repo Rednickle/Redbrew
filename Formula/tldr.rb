@@ -20,6 +20,8 @@ class Tldr < Formula
   depends_on "libzip"
   uses_from_macos "curl"
 
+  uses_from_macos "curl"
+
   conflicts_with "tealdeer", :because => "both install `tldr` binaries"
 
   def install

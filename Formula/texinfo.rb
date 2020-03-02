@@ -18,6 +18,7 @@ class Texinfo < Formula
 
   # Don't use system perl since texinfo requires Encode and Data::Dumper which may not
   # be installed.
+  uses_from_macos "ncurses"
   uses_from_macos "perl"
 
   keg_only :provided_by_macos, <<~EOS

@@ -17,6 +17,8 @@ class Spades < Formula
 
   uses_from_macos "bzip2"
 
+  uses_from_macos "bzip2"
+
   fails_with :clang # no OpenMP support
 
   def install

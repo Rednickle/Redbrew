@@ -23,6 +23,8 @@ class TelegramCli < Formula
   depends_on "readline"
   uses_from_macos "zlib"
 
+  uses_from_macos "zlib"
+
   # Look for the configuration file under /usr/local/etc rather than /etc on OS X.
   # Pull Request: https://github.com/vysheng/tg/pull/1306
   if OS.mac?

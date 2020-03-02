@@ -16,6 +16,8 @@ class Seqtk < Formula
     sha256 "209ca284bed07359cdc9a934f9892bb3e61d0eeb8368b93c500fb6dda55128c1" => :x86_64_linux
   end
 
+  uses_from_macos "zlib"
+
   def install
     system "make"
     bin.install "seqtk"

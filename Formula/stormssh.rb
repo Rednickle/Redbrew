@@ -17,6 +17,8 @@ class Stormssh < Formula
   uses_from_macos "libffi"
   depends_on "pkg-config" => :build unless OS.mac?
 
+  uses_from_macos "libffi"
+
   conflicts_with "storm", :because => "both install 'storm' binary"
 
   resource "click" do

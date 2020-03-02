@@ -37,6 +37,8 @@ class Screen < Formula
   depends_on "automake" => :build
   uses_from_macos "ncurses"
 
+  uses_from_macos "ncurses"
+
   def install
     cd "src" if build.head?
 
