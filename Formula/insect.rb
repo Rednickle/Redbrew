@@ -11,6 +11,7 @@ class Insect < Formula
     sha256 "1a7bbd56f97d661e4e236e8375db1614659cf2a35d2112feab11c258d437b054" => :catalina
     sha256 "8ba4c9bce3fa2fa0dc6546910d0ed7afff432f2e7938e63638c6494a197bba23" => :mojave
     sha256 "d0efc8426a611811210f093f7a91671fd3f741619709ca88f04274ce7f8e9c06" => :high_sierra
+    sha256 "342cf97027601fb236f4420e4292bb762406329f2024552a5c1d9102d4c0161f" => :x86_64_linux
   end
 
   depends_on "psc-package" => :build
