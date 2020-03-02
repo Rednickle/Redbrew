@@ -28,6 +28,7 @@ class Nghttp2 < Formula
   depends_on "libev"
   depends_on "libevent"
   depends_on "openssl@1.1"
+
   uses_from_macos "zlib"
 
   unless OS.mac?
@@ -37,8 +38,6 @@ class Nghttp2 < Formula
       sha256 "0759d448d4b419911c12fa7d5cbf1df2d6d41835c9077bf3accf9eac58f24f12"
     end
   end
-
-  uses_from_macos "zlib"
 
   def install
     ENV.cxx11

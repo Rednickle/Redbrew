@@ -17,7 +17,6 @@ class DockerCompose < Formula
 
   depends_on "libyaml"
   depends_on "python@3.8"
-  uses_from_macos "libffi"
 
   uses_from_macos "libffi"
 

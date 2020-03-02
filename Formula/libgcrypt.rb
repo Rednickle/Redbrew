@@ -14,7 +14,6 @@ class Libgcrypt < Formula
   end
 
   depends_on "libgpg-error"
-  uses_from_macos "libxslt"
 
   uses_from_macos "libxslt"
 

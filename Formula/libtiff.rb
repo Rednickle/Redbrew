@@ -14,7 +14,6 @@ class Libtiff < Formula
   end
 
   depends_on "jpeg"
-  uses_from_macos "zlib"
 
   uses_from_macos "zlib"
 

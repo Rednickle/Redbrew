@@ -29,7 +29,6 @@ class Jack < Formula
   depends_on "berkeley-db"
   depends_on "libsamplerate"
   depends_on "libsndfile"
-  uses_from_macos "util-linux" # for libuuid
 
   uses_from_macos "util-linux"
 

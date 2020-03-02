@@ -20,8 +20,6 @@ class Bettercap < Formula
 
   uses_from_macos "libpcap"
 
-  uses_from_macos "libpcap"
-
   def install
     unless OS.mac?
       ENV.prepend_path "PKG_CONFIG_PATH", Formula["libpcap"].opt_lib/"pkgconfig"

@@ -19,7 +19,6 @@ class Myman < Formula
   depends_on "coreutils" => :build
   depends_on "gnu-sed" => :build
   depends_on "groff" => :build
-  uses_from_macos "ncurses"
 
   uses_from_macos "ncurses"
 
