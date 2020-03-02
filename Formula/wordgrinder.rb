@@ -19,8 +19,6 @@ class Wordgrinder < Formula
 
   uses_from_macos "zlib"
 
-  uses_from_macos "zlib"
-
   def install
     system "make", "OBJDIR=#{buildpath}/wg-build"
     bin.install "bin/wordgrinder-builtin-curses-release" => "wordgrinder"

@@ -19,7 +19,6 @@ class Reminiscence < Formula
   depends_on "libmodplug"
   depends_on "libogg"
   depends_on "sdl2"
-  uses_from_macos "zlib"
 
   uses_from_macos "zlib"
 

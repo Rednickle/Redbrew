@@ -15,7 +15,6 @@ class Lynx < Formula
   end
 
   depends_on "openssl@1.1"
-  uses_from_macos "ncurses"
 
   uses_from_macos "ncurses"
 

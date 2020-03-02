@@ -14,7 +14,6 @@ class SuiteSparse < Formula
   depends_on "cmake" => :build
   depends_on "metis"
   depends_on "openblas"
-  uses_from_macos "m4"
 
   uses_from_macos "m4"
 

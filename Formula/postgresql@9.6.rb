@@ -20,9 +20,6 @@ class PostgresqlAT96 < Formula
   uses_from_macos "libxslt"
   uses_from_macos "perl"
 
-  uses_from_macos "libxslt"
-  uses_from_macos "perl"
-
   def install
     # avoid adding the SDK library directory to the linker search path
     ENV["XML2_CONFIG"] = "xml2-config --exec-prefix=/usr"

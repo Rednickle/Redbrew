@@ -20,7 +20,6 @@ class LibjsonRpcCpp < Formula
   depends_on "hiredis"
   depends_on "jsoncpp"
   depends_on "libmicrohttpd"
-  uses_from_macos "curl"
 
   uses_from_macos "curl"
 

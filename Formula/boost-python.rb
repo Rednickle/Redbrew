@@ -15,7 +15,6 @@ class BoostPython < Formula
 
   depends_on :macos # Due to Python 2
   depends_on "boost"
-  uses_from_macos "python@2"
 
   uses_from_macos "python@2"
 

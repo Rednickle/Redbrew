@@ -22,7 +22,6 @@ class Libstrophe < Formula
 
   uses_from_macos "expat"
   uses_from_macos "libxml2"
-  uses_from_macos "expat"
 
   def install
     system "./bootstrap.sh"

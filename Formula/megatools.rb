@@ -19,7 +19,6 @@ class Megatools < Formula
   depends_on "glib"
   depends_on "glib-networking"
   depends_on "openssl@1.1"
-  uses_from_macos "curl"
 
   uses_from_macos "curl"
 

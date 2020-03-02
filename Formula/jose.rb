@@ -17,7 +17,6 @@ class Jose < Formula
   depends_on "pkg-config" => :build
   depends_on "jansson"
   depends_on "openssl@1.1"
-  uses_from_macos "zlib"
 
   uses_from_macos "zlib"
 

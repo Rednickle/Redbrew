@@ -29,7 +29,6 @@ class Profanity < Formula
   depends_on "openssl@1.1"
   depends_on "readline"
   depends_on "terminal-notifier" if OS.mac?
-  uses_from_macos "curl"
 
   uses_from_macos "curl"
 

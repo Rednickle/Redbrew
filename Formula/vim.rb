@@ -18,7 +18,6 @@ class Vim < Formula
   depends_on "perl"
   depends_on "python"
   depends_on "ruby"
-  uses_from_macos "ncurses"
 
   uses_from_macos "ncurses"
 

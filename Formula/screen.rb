@@ -35,7 +35,6 @@ class Screen < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  uses_from_macos "ncurses"
 
   uses_from_macos "ncurses"
 

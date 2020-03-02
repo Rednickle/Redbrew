@@ -26,7 +26,6 @@ class Libxml2 < Formula
 
   depends_on "python"
   depends_on "readline"
-  uses_from_macos "zlib"
 
   uses_from_macos "zlib"
 

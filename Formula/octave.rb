@@ -53,7 +53,6 @@ class Octave < Formula
   depends_on "suite-sparse"
   depends_on "sundials"
   depends_on "texinfo"
-  uses_from_macos "curl"
 
   uses_from_macos "curl"
 

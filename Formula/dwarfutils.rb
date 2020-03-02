@@ -20,8 +20,6 @@ class Dwarfutils < Formula
 
   uses_from_macos "zlib"
 
-  uses_from_macos "zlib"
-
   def install
     system "./configure"
     system "make"

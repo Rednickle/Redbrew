@@ -27,11 +27,6 @@ class Mariadb < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
-  uses_from_macos "bison" => :build
-  uses_from_macos "bzip2"
-  uses_from_macos "ncurses"
-  uses_from_macos "zlib"
-
   conflicts_with "mysql", "percona-server",
     :because => "mariadb, mysql, and percona install the same binaries"
   conflicts_with "mytop", :because => "both install `mytop` binaries"

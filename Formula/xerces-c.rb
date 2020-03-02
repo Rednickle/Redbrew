@@ -21,7 +21,6 @@ class XercesC < Formula
   end
 
   depends_on "cmake" => :build
-  uses_from_macos "curl"
 
   uses_from_macos "curl"
 

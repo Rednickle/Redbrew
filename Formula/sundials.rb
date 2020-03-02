@@ -17,11 +17,10 @@ class Sundials < Formula
   depends_on "open-mpi"
   depends_on "openblas"
   depends_on "suite-sparse"
-  uses_from_macos "m4"
-  uses_from_macos "python"
 
   uses_from_macos "m4"
   uses_from_macos "libpcap"
+  uses_from_macos "python"
 
   def install
     blas = "-L#{Formula["openblas"].opt_lib} -lopenblas"

@@ -16,7 +16,6 @@ class Libquvi < Formula
 
   depends_on "pkg-config" => :build
   depends_on "lua@5.1"
-  uses_from_macos "curl"
 
   uses_from_macos "curl"
 

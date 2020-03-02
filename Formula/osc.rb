@@ -18,7 +18,6 @@ class Osc < Formula
   depends_on "swig" => :build
   depends_on "openssl@1.1"
   depends_on "python"
-  uses_from_macos "curl"
 
   uses_from_macos "curl"
 

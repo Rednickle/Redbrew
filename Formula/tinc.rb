@@ -15,7 +15,6 @@ class Tinc < Formula
 
   depends_on "lzo"
   depends_on "openssl@1.1"
-  uses_from_macos "zlib"
 
   uses_from_macos "zlib"
 

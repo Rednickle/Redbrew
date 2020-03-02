@@ -49,10 +49,6 @@ class Pulseaudio < Formula
     end
   end
 
-  uses_from_macos "perl" => :build
-  uses_from_macos "expat"
-  uses_from_macos "m4"
-
   def install
     unless OS.mac?
       ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"

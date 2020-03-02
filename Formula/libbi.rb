@@ -19,7 +19,6 @@ class Libbi < Formula
   depends_on "gsl"
   depends_on "netcdf"
   depends_on "qrupdate"
-  uses_from_macos "perl"
 
   uses_from_macos "perl"
 

@@ -15,7 +15,6 @@ class Mruby < Formula
   end
 
   depends_on "bison" => :build
-  uses_from_macos "ruby"
 
   uses_from_macos "ruby"
 

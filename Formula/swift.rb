@@ -22,8 +22,6 @@ class Swift < Formula
 
   uses_from_macos "icu4c"
 
-  uses_from_macos "icu4c"
-
   # This formula is expected to have broken/missing linkage to
   # both UIKit.framework and AssetsLibrary.framework. This is
   # simply due to the nature of Swift's SDK Overlays.

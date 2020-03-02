@@ -17,7 +17,6 @@ class Minizip < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  uses_from_macos "zlib"
 
   uses_from_macos "zlib"
 

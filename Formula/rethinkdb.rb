@@ -17,7 +17,6 @@ class Rethinkdb < Formula
   depends_on "boost" => :build
   depends_on "openssl@1.1"
   depends_on "python@2" => :build unless OS.mac?
-  uses_from_macos "curl"
 
   uses_from_macos "curl"
 

@@ -14,7 +14,6 @@ class Wiredtiger < Formula
   end
 
   depends_on "snappy"
-  uses_from_macos "zlib"
 
   uses_from_macos "zlib"
 

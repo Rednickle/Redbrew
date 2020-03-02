@@ -18,7 +18,6 @@ class MagicWormhole < Formula
   depends_on "libsodium"
   depends_on "openssl@1.1"
   depends_on "python@3.8"
-  uses_from_macos "libffi"
   # pkg-config helps setuptools find libffi
   depends_on "pkg-config" => :build unless OS.mac?
 

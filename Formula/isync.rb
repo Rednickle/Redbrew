@@ -25,7 +25,6 @@ class Isync < Formula
   depends_on "automake" => :build
   depends_on "berkeley-db"
   depends_on "openssl@1.1"
-  uses_from_macos "zlib"
 
   uses_from_macos "zlib"
 

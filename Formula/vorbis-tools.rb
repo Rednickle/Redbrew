@@ -19,7 +19,6 @@ class VorbisTools < Formula
   depends_on "libao"
   depends_on "libogg"
   depends_on "libvorbis"
-  uses_from_macos "curl"
 
   uses_from_macos "curl"
 

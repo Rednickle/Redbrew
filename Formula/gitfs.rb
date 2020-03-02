@@ -23,7 +23,6 @@ class Gitfs < Formula
   end
   depends_on "python"
   depends_on "pkg-config" => :build unless OS.mac?
-  uses_from_macos "libffi"
 
   uses_from_macos "libffi"
 

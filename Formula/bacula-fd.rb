@@ -16,7 +16,6 @@ class BaculaFd < Formula
 
   depends_on "openssl@1.1"
   depends_on "readline"
-  uses_from_macos "zlib"
 
   uses_from_macos "zlib"
 

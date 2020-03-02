@@ -27,7 +27,6 @@ class Mongrel2 < Formula
   end
 
   depends_on "zeromq"
-  uses_from_macos "sqlite"
 
   uses_from_macos "sqlite"
 

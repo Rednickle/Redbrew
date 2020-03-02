@@ -14,7 +14,6 @@ class Openexr < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "ilmbase"
-  uses_from_macos "zlib"
 
   uses_from_macos "zlib"
 

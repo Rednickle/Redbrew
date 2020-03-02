@@ -39,10 +39,6 @@ class Mutt < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
-  uses_from_macos "bzip2"
-  uses_from_macos "ncurses"
-  uses_from_macos "zlib"
-
   conflicts_with "tin",
     :because => "both install mmdf.5 and mbox.5 man pages"
 

@@ -18,7 +18,6 @@ class Certbot < Formula
   depends_on "dialog"
   depends_on "openssl@1.1"
   depends_on "python@3.8"
-  uses_from_macos "libffi"
   depends_on "pkg-config" => :build unless OS.mac?
 
   uses_from_macos "libffi"

@@ -22,8 +22,6 @@ class Ibex < Formula
 
   uses_from_macos "zlib"
 
-  uses_from_macos "zlib"
-
   def install
     ENV.cxx11
 

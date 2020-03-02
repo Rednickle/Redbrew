@@ -18,7 +18,6 @@ class Pianobar < Formula
   depends_on "json-c"
   depends_on "libao"
   depends_on "libgcrypt"
-  uses_from_macos "curl"
 
   uses_from_macos "curl"
 

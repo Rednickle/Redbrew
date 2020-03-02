@@ -28,7 +28,6 @@ class ShadowsocksLibev < Formula
   depends_on "libsodium"
   depends_on "mbedtls"
   depends_on "pcre"
-  uses_from_macos "python@2"
 
   uses_from_macos "python@2"
 

@@ -18,8 +18,6 @@ class Sn0int < Formula
 
   uses_from_macos "sqlite"
 
-  uses_from_macos "sqlite"
-
   def install
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
 

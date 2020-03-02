@@ -23,7 +23,6 @@ class Libssh2 < Formula
   end
 
   depends_on "openssl@1.1"
-  uses_from_macos "zlib"
 
   uses_from_macos "zlib"
 

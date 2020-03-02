@@ -18,7 +18,6 @@ class Hlint < Formula
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
-  uses_from_macos "ncurses"
 
   uses_from_macos "ncurses"
 

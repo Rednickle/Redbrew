@@ -17,7 +17,6 @@ class Gitless < Formula
 
   depends_on "libgit2"
   depends_on "python"
-  uses_from_macos "libffi"
   depends_on "pkg-config" => :build unless OS.mac?
 
   uses_from_macos "libffi"

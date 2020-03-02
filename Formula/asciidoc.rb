@@ -28,9 +28,6 @@ class Asciidoc < Formula
   end
 
   uses_from_macos "libxml2" => :build
-  uses_from_macos "libxslt" => :build # for xsltproc
-
-  uses_from_macos "libxml2" => :build
   uses_from_macos "libxslt" => :build
 
   def install

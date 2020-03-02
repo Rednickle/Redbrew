@@ -19,7 +19,6 @@ class Proj < Formula
   end
 
   depends_on "pkg-config" => :build
-  uses_from_macos "sqlite"
 
   uses_from_macos "sqlite"
 

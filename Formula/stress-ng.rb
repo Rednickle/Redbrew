@@ -13,7 +13,6 @@ class StressNg < Formula
   end
 
   depends_on :macos => :sierra if OS.mac?
-  uses_from_macos "zlib"
 
   uses_from_macos "zlib"
 

@@ -21,9 +21,6 @@ class Blast < Formula
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
-  uses_from_macos "bzip2"
-  uses_from_macos "zlib"
-
   conflicts_with "proj", :because => "both install a `libproj.a` library"
 
   def install

@@ -18,7 +18,6 @@ class Squashfs < Formula
   depends_on "lzo"
   depends_on "xz"
   depends_on "zstd"
-  uses_from_macos "zlib"
 
   uses_from_macos "zlib"
 

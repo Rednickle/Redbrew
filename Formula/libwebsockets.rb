@@ -16,7 +16,6 @@ class Libwebsockets < Formula
   depends_on "libevent"
   depends_on "libuv"
   depends_on "openssl@1.1"
-  uses_from_macos "zlib"
 
   uses_from_macos "zlib"
 

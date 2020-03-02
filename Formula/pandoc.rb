@@ -19,8 +19,6 @@ class Pandoc < Formula
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
-  uses_from_macos "unzip" => :build # for cabal install
-  uses_from_macos "zlib"
 
   uses_from_macos "unzip" => :build # for cabal install
   uses_from_macos "zlib"

@@ -20,7 +20,6 @@ class Tmate < Formula
   depends_on "libevent"
   depends_on "libssh"
   depends_on "msgpack"
-  uses_from_macos "ncurses"
 
   uses_from_macos "ncurses"
 

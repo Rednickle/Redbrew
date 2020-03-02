@@ -13,8 +13,6 @@ class Rsyslog < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libestr"
-  uses_from_macos "curl"
-  uses_from_macos "zlib"
 
   uses_from_macos "curl"
   uses_from_macos "zlib"

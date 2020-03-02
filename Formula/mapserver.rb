@@ -26,7 +26,6 @@ class Mapserver < Formula
   depends_on "proj"
   depends_on "protobuf-c"
   depends_on "python"
-  uses_from_macos "curl"
 
   uses_from_macos "curl"
 

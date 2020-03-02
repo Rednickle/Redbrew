@@ -18,7 +18,6 @@ class Tldr < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libzip"
-  uses_from_macos "curl"
 
   uses_from_macos "curl"
 

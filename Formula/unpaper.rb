@@ -32,8 +32,6 @@ class Unpaper < Formula
     depends_on "automake" => :build
   end
 
-  uses_from_macos "libxslt" => :build #for xsltproc
-
   uses_from_macos "libxslt"
 
   def install

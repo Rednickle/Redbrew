@@ -29,10 +29,6 @@ class IcarusVerilog < Formula
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
-  uses_from_macos "flex" => :build
-  uses_from_macos "bzip2"
-  uses_from_macos "zlib"
-
   def install
     system "autoconf" if build.head?
     system "./configure", "--prefix=#{prefix}"

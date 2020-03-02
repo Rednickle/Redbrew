@@ -14,7 +14,6 @@ class GitAbsorb < Formula
   end
 
   depends_on "rust" => :build
-  uses_from_macos "zlib"
 
   uses_from_macos "zlib"
 

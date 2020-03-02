@@ -15,8 +15,6 @@ class Unzip < Formula
     sha256 "8e4c87b31e3a8ee65eb3ab346d527a256e5081c1504e98d9540f4a0ba7063a84" => :x86_64_linux
   end
 
-  uses_from_macos "bzip2"
-
   keg_only :provided_by_macos
 
   uses_from_macos "bzip2"

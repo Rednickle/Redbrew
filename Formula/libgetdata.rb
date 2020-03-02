@@ -15,8 +15,6 @@ class Libgetdata < Formula
   end
 
   depends_on "libtool"
-  uses_from_macos "perl"
-  uses_from_macos "zlib"
 
   uses_from_macos "perl"
   uses_from_macos "zlib"
