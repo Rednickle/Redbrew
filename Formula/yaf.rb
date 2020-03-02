@@ -21,7 +21,6 @@ class Yaf < Formula
   depends_on "libfixbuf"
   depends_on "libtool"
   depends_on "pcre"
-  uses_from_macos "libpcap"
 
   uses_from_macos "libpcap"
 
