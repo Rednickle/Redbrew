@@ -13,6 +13,7 @@ class Nethack < Formula
     sha256 "32ce4c30778ee034641e0659aa351b1d8db9ac41fd6bc10bf3de590d600b57ca" => :catalina
     sha256 "a987ad9df89f765d3d2b8451c4cfbdd6728e64b3fb239d5b2af6da76a706460b" => :mojave
     sha256 "4ee79f011195859ee87569c6d7080d438d9e7d23e4a096a437187da8479cc126" => :high_sierra
+    sha256 "7fefcad04c06a72ff604478a0114f568dc13d170700cb85edcd5d980d2f290ab" => :x86_64_linux
   end
 
   uses_from_macos "bison" => :build
