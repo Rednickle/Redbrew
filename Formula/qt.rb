@@ -53,7 +53,9 @@ class Qt < Formula
   uses_from_macos "flex"
 
   def install
-    system "/home/linuxbrew/.linuxbrew/bin/brew", "cleanup", "--prune=0"
+    # Workaround for disk space issues on github actions
+    # https://github.com/Homebrew/linuxbrew-core/pull/19595
+    system "/home/linuxbrew/.linuxbrew/bin/brew", "cleanup", "--prune=0" if ENV["CI"]
 
     args = %W[
       -verbose
