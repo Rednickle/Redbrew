@@ -9,6 +9,7 @@ class Libtrng < Formula
     sha256 "b0e5af117a32d265de30662de4d7ef61e412853f262949e86ac1ff91dfd69875" => :catalina
     sha256 "4b753374a4fb6305e417ea5d89237f6e62b47b8c9e2c034c76e26475184de48c" => :mojave
     sha256 "4f269f561d5b8b692189e90cba163578ad68b2fa83a84660d8da4d367c4a2e93" => :high_sierra
+    sha256 "e0acfd3b0411b8cb5cb6257d0716eb209a033ed33fe65e32b08d19e69f5fbb22" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
