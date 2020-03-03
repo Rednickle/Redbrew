@@ -14,6 +14,7 @@ class GitAnnex < Formula
     sha256 "239c0e92dd7f6ab7041907bafb241180ba101849567b23efbeeee96360c07b79" => :catalina
     sha256 "a786c94cf7fda62936e7cc78600bf2134fb51de61ff7312a084bad47f1e48ad6" => :mojave
     sha256 "6096931c26c2790c148a5c9ba4f0e049fc77072a38690b0d74a990a21dd28067" => :high_sierra
+    sha256 "2c80dcf7cf078e1250f76c6be24b634a259b07517f4ecbd6afdc666cfdb176c1" => :x86_64_linux
   end
 
   depends_on "cabal-install" => :build
