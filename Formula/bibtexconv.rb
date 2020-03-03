@@ -10,6 +10,7 @@ class Bibtexconv < Formula
     sha256 "842b74aa1e1479877d0d874391b2c0e1ded01b09ea3ba16116d5048e3da935a3" => :catalina
     sha256 "46269fca6e00ebbe9e21e7344e6fc2f8f32b976fab0b7f55318ed46837d1b894" => :mojave
     sha256 "d733a3d076879577bd69bd11d8624389d1de7e974b1d443981ca3a5a827c2a7b" => :high_sierra
+    sha256 "7379e61c2dc9db5951a9b43d01f6b604e61f521168205d80b4309eb48c8f6b60" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
