@@ -9,6 +9,7 @@ class ArmLinuxGnueabihfBinutils < Formula
     sha256 "207a781d7d5cd45c18138b48c9187ba4315ef78f17d47aec5cf5438841920d6c" => :catalina
     sha256 "347965a02495f6a03b2b3cd35c969c125e58b7cb0a81f7db64cb0ae296471281" => :mojave
     sha256 "247a0b582523ad5a3af119b223ef17a04ed4cdcf37cee118d3a0971944f63e17" => :high_sierra
+    sha256 "2bc8ba3674556b206bb0ca719fd4acb07dae79472642c160896277ac0ab1a232" => :x86_64_linux
   end
 
   uses_from_macos "texinfo"
