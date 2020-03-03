@@ -1,16 +1,15 @@
 class Dune < Formula
   desc "Composable build system for OCaml"
   homepage "https://dune.build/"
-  url "https://github.com/ocaml/dune/releases/download/2.1.0/dune-2.1.0.tbz"
-  sha256 "b26aaa767af0be0720062e4baa5f04b961c39f49e003b5e495618b2e1b60c8c1"
+  url "https://github.com/ocaml/dune/releases/download/2.3.1/dune-2.3.1.tbz"
+  sha256 "b2b3dd9cdfd34ef8c4583ea8c52c3503c2395bf94c264af19d6450547e12f5cb"
   head "https://github.com/ocaml/dune.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4011a6821b7dec0d069a3b7ba3592b0e255524587666af2da2dcc7181734e33c" => :catalina
-    sha256 "ea0e4732220f3c4aff8d3596df6ec50d017cd97fe26578a291c7e90264fe5ba6" => :mojave
-    sha256 "95a8f5f81decf3f31b690556c9d0606d738609b42aad99b712f92a36a211a3a3" => :high_sierra
-    sha256 "75866e51d6eafdcc910fe1c18e77c6a0194f02f03fda4fd9ad0612cfddd613c2" => :x86_64_linux
+    sha256 "85c393b5d58d4532b629f6df77cb4af2e364056d0b6bea15a525c20d73c4fb74" => :catalina
+    sha256 "a944e88c670c15889938f9a4ebc98610df836cf908049240a21767699607cdfb" => :mojave
+    sha256 "b9b25acbd30f617483ca96abe1492b030e2255056d9ab556ef5920230908582a" => :high_sierra
   end
 
   depends_on "ocaml" => [:build, :test]

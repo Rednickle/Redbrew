@@ -3,16 +3,14 @@ class Csvtomd < Formula
 
   desc "CSV to Markdown table converter"
   homepage "https://github.com/mplewis/csvtomd"
-  url "https://files.pythonhosted.org/packages/2f/41/289bedde7fb32d817d5802eff68b99546842cb34df840665ec39b363f258/csvtomd-0.2.1.tar.gz"
-  sha256 "d9fdf166c3c299ad5800b3cb1661f223b98237f38f22e9d253d45d321f70ec72"
-  revision 5
+  url "https://files.pythonhosted.org/packages/9d/59/ea3c8b102f9c72e5d276a169f7f343432213441c39a6eac7a8f444c66681/csvtomd-0.3.0.tar.gz"
+  sha256 "a1fbf1db86d4b7b62a75dc259807719b2301ed01db5d1d7d9bb49c4a8858778b"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "afbc8082fa52c379c904aba4ad436a492bf7568421add34fbceb3fb4cc72790b" => :catalina
-    sha256 "be1e107cde89a22f8c1716b4cfa3e31b3009b6c7d5b79293e378e386dfbd2d80" => :mojave
-    sha256 "70df513c26a7973a3475c3be18c332be4908374a747cec08e305c31656df01d6" => :high_sierra
-    sha256 "33235f6cdc0405a8c2d53107a2b6755a2b9af383bd23017285dc4f5e3f46cadc" => :x86_64_linux
+    sha256 "918cd172ac8636b250cf346f0e5ea4569e9e9f2491607ff631bbe65036f70bb7" => :catalina
+    sha256 "ae7121b0c78dbb3f52159995056a7eaf6c3707ea8b52baa9222fd3eace4cb7f4" => :mojave
+    sha256 "d0d67820b26eec4a770e4b721298792c93dd1239ab78c4f972bf1d657954c852" => :high_sierra
   end
 
   depends_on "python@3.8"

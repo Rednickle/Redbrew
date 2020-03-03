@@ -3,17 +3,15 @@ class Mackup < Formula
 
   desc "Keep your Mac's application settings in sync"
   homepage "https://github.com/lra/mackup"
-  url "https://github.com/lra/mackup/archive/0.8.27.tar.gz"
-  sha256 "b7d84ea661de27b1d4664bb71e6ab52ef30c6ca180a67435c1d4dea073cb3e4c"
-  revision 1
+  url "https://github.com/lra/mackup/archive/0.8.28.tar.gz"
+  sha256 "b4a586d12460df00a8322e0ffc8454fe0816630bd97640cd08b87fa0de6c1ba6"
   head "https://github.com/lra/mackup.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "08e307fb2b1ad49f54d6e042f2aef44ddad7fab38d69eb80d2a31bf4d6b3bc6d" => :catalina
-    sha256 "1e03d73d981c1cbc0d49da9058eb508b58293e6f4ad8bdbaf6dbb832d40d4dab" => :mojave
-    sha256 "8f7d3568073793ef4d511ff7bbb67d8d6b68518af8fd68c862b89c23b53176d7" => :high_sierra
-    sha256 "91b79d5afe82a3bf5cffcd2936c980d71dcda025e6fc51e673d235b1107a9401" => :x86_64_linux
+    sha256 "06bf4f9daac1ea99a2610a8aa999759143910000c99dccba20e026ac996e196d" => :catalina
+    sha256 "b7c11a4fcd021392c3a7f290143f7f971e6c5608f3a1ce03e8f61ea04dc66f8b" => :mojave
+    sha256 "d19deabf63c0518d4733458caa7f7f502ef90e30611836b8d3ffe394a46bfcb6" => :high_sierra
   end
 
   depends_on "python@3.8"
