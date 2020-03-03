@@ -11,6 +11,7 @@ class Circleci < Formula
     sha256 "85b05d15b7bdd086d7b5b3404be93b99e76006f2e535e78dedaaf54e99999b28" => :catalina
     sha256 "362645bf11b14e68ca4b9c5788dc7d2dd1d95d28c391f060ac491162a68cae30" => :mojave
     sha256 "99bc8e083af8cb9cbf62b13acc84b5b9ad01f03c253774b0cfe7cccd66ea38ee" => :high_sierra
+    sha256 "b2dafca746bde7675184aab90ebcfdb7c643e26bb3cdaec0b1b2e14751a39a54" => :x86_64_linux
   end
 
   depends_on "go" => :build
