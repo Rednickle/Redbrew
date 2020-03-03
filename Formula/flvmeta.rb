@@ -10,6 +10,7 @@ class Flvmeta < Formula
     sha256 "bb16f5006d22ffaebba50c0d9c5cc962cf73dfcf1ca51d1e69735908ef9aa8cd" => :catalina
     sha256 "176a5edcfbe2da366e27f67590c45870b59ad250cc7f2a51d7a8d0a18f12632b" => :mojave
     sha256 "2ef376486588157dc4e17914ab8ba62a1689aaf92fe101613f93fd0d05018fee" => :high_sierra
+    sha256 "b05b75b94edc1a9590e8a7994bae81372ff4aa2b11f77d7261801d35e0aa4950" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
