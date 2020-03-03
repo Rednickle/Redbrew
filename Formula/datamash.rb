@@ -9,6 +9,7 @@ class Datamash < Formula
     sha256 "3e742a1c733808b937064edaeb265f7e2646b9e6ca1ddf69fbf55ef2f6fd40d7" => :catalina
     sha256 "dac6b5134854f898d0e5c7eb1bedf21ccd1d9844d4cca17251c3f7bdc97248bd" => :mojave
     sha256 "8b460389cbdda7c0e33d3b34531a88ef9a1311415fcffef40aed15c87c6fa9c7" => :high_sierra
+    sha256 "7b421bccb4fc0a279a505dc4ad517a04d8ab57a40d0e4bbe8d925bba65900c7e" => :x86_64_linux
   end
 
   head do
