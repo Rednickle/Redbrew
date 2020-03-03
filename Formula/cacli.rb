@@ -9,6 +9,7 @@ class Cacli < Formula
     sha256 "9b2d628a0cc4ba4e426cbd5afea64c3ec1af0877aeee605e3536ec57817e7924" => :catalina
     sha256 "ff5f177e8708eeb3567feedf4ff48e5c233b1cc9283153dc6437e6f651da502b" => :mojave
     sha256 "90127c81c2ae488e493ae7aae91d2a783e790fdb4809d9c620a093289f425cb0" => :high_sierra
+    sha256 "05d826420255c994cdf7910ba4528cd745b4f2d90eb33ddefb6effd181244fc4" => :x86_64_linux
   end
 
   depends_on "go" => :build
