@@ -9,6 +9,7 @@ class X8664ElfBinutils < Formula
     sha256 "57141264369389b9c50019aac6bb0f6dcf19935f20ea8fab57b56d4c4451066a" => :catalina
     sha256 "2fa4917e60d82c29d70b90a5a725ecb26a29aa5cf148af16e73af045ee431c59" => :mojave
     sha256 "ed28927581eb4e2a8bfd10134eec40e1b1055161a5fb26580453943fb3bffe72" => :high_sierra
+    sha256 "cee6958f6e16d168dd261d46952a8a36071f2f0fd79f17c0d75b92fe18c389c6" => :x86_64_linux
   end
 
   uses_from_macos "texinfo"
