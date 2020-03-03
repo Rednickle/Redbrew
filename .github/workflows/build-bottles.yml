@@ -1,7 +1,9 @@
-name: 'New CI Testing (Ignore Failures)'
+name: Build bottles.
 
 on:
-  pull_request: []
+  pull_request:
+    paths:
+      - 'Formula/*'
 
 jobs:
   build-bottles:
