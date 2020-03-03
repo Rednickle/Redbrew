@@ -9,6 +9,7 @@ class Rebar3 < Formula
     sha256 "aeb7b608161e8fb26272567152ef69517dea2ad86a0cee79acdea9cd80138c8a" => :catalina
     sha256 "7cac813a4bc54a194f39f397a7c902c6cae975209c00a1e85e50822dafc75a0f" => :mojave
     sha256 "b413261ceea64de954ad755d0b600f3ae75fc064ee45aa6c5e38af6fd35b55b0" => :high_sierra
+    sha256 "66a802eba2f43d3e4eeea7d3c8ab40cc4c5d80a517fe4fd9daa8769189330913" => :x86_64_linux
   end
 
   depends_on "erlang"
