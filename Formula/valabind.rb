@@ -11,6 +11,7 @@ class Valabind < Formula
     sha256 "c5ad6fe97fa944521c3848f282a940aa3f37d22bc96a472d6f320715f679b38b" => :catalina
     sha256 "e120768e4de31c6d5efcfd3e09eacf59c9b8d2388f3a402a296fc13a50c35263" => :mojave
     sha256 "90ee3663f74b52b5efb182792bbb4bd76780929bc7444dd319dcf51d27888390" => :high_sierra
+    sha256 "79291b34f041db65c837dab983807a658bfd715fc9d001673f7597c38276b6f9" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
