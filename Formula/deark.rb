@@ -11,6 +11,7 @@ class Deark < Formula
     sha256 "d659ec48b4737eea12cafa7db3cbf4ef430246827b00b1a621376ccaa3fd8370" => :catalina
     sha256 "3a268374ec97cfe9f745c8e58e23ad7d1ebe3ef5dc8e6c3a81ea3097d84bd501" => :mojave
     sha256 "c6aa781abc7a8c87f5c376223bf46ad9a178131ce35e428beb1ee39ba77a99d6" => :high_sierra
+    sha256 "f75787845ea47dc74d26ad3688b874428222bd961e4768fa13711b251c4daed1" => :x86_64_linux
   end
 
   # Fixes a redefinition of the uint type, which led to build failures
