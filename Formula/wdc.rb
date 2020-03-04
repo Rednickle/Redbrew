@@ -9,6 +9,7 @@ class Wdc < Formula
     sha256 "18365f76dafd05a312e9a7862f2fa747caa8c63e881469719a8ef45d07dce3c6" => :catalina
     sha256 "fbcaccbaa2440ac38f9efa41a342eef4d883e522fa5df7d642aaa1563d38f28b" => :mojave
     sha256 "92dcb68d02f64ff51446052bf5c41fa178cc48ade406a9533199461476f7c849" => :high_sierra
+    sha256 "4c21710c2179857f5e8b45c6090e8ef50cf44cea42ce657c10befa814ff8c839" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
