@@ -9,6 +9,7 @@ class Abyss < Formula
     sha256 "800aa54afd53c585943f86d701ca58a95059577181fdb4a47bf9f08b249e230e" => :catalina
     sha256 "03e6dc19bfb76f35b4b35c5fb65c88ea4fa28b3c3e112727465a7a5e2fd5ee09" => :mojave
     sha256 "9ce078498ce23f6a894ca79dd21bee8c6c7e24aeb0ae95d3ccd7091fc55091a2" => :high_sierra
+    sha256 "bb18910cd175d7d87c8f10abfd3232fd189768563bde0331a95e30358255094a" => :x86_64_linux
   end
 
   head do
