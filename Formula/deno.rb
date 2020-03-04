@@ -1,15 +1,14 @@
 class Deno < Formula
   desc "Command-line JavaScript / TypeScript engine"
   homepage "https://deno.land/"
-  url "https://github.com/denoland/deno/releases/download/v0.34.0/deno_src.tar.gz"
-  version "0.34.0"
-  sha256 "e6439e04b6df8db8d5192f98ee89c7d3ba9e966816fc7bf0d46cb52dc2e797aa"
+  url "https://github.com/denoland/deno/releases/download/v0.35.0/deno_src.tar.gz"
+  sha256 "49a0a0f208c246f08ab5bd00b3d4eb8936b98e19533c164cb11c458f12dde9e5"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1a4bd15ec2777e420d81c2cd68ddb1834a64a2ba37053a30412140b4fcae53be" => :catalina
-    sha256 "cb412afcc5f41f7d6ca8e72bdfd650e89a8fb0e8e08a213b37a429308c42ad5e" => :mojave
-    sha256 "d760ba1b15355725f9a3026dd23acb92bacc31b6aaf82efbfb06731806e52170" => :high_sierra
+    sha256 "1b5e20a4443256c530405056712484a6dc47ad487ffcd481c2c341b56793481b" => :catalina
+    sha256 "20280ff8d3ceb8928a083efc78015a98a4e040da60f0c1bea78c6caf48b0d47d" => :mojave
+    sha256 "036fa380c08bfa1d3490f8a9d151756779c53da79d14010d613f4da9b00b16cc" => :high_sierra
   end
 
   depends_on :macos # Due to Python 2
@@ -22,6 +21,11 @@ class Deno < Formula
   end
 
   depends_on :xcode => ["10.0", :build] if OS.mac? # required by v8 7.9+
+
+  # Does not work with Python 3
+  # https://github.com/denoland/deno/issues/2893
+  uses_from_macos "python@2"
+  uses_from_macos "xz"
 
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
