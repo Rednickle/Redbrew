@@ -10,6 +10,7 @@ class Ccm < Formula
     sha256 "1301713c60ca83ef5a2b1d5b0df50fcb73d57574ce1fb9f34091e549ba969815" => :catalina
     sha256 "93f09667b609d1fe582de827efc3d48b4638717871336697b736cf7b997f1eb3" => :mojave
     sha256 "6f301f55003b0542009458f90cebed245edb4f38abac9a0755552380f2174d12" => :high_sierra
+    sha256 "d56a867e17b5c3a82fe652aa5452749ba0bd791fe667230a3ba557c8c7fb403a" => :x86_64_linux
   end
 
   depends_on "python@3.8"
