@@ -3,16 +3,14 @@ class AstrometryNet < Formula
 
   desc "Automatic identification of astronomical images"
   homepage "https://github.com/dstndstn/astrometry.net"
-  url "https://github.com/dstndstn/astrometry.net/releases/download/0.78/astrometry.net-0.78.tar.gz"
-  sha256 "9eda1b6cab5269b0a0e5d610aec86866cb8b08fb8f56254dc12f1690d69bc649"
-  revision 6
+  url "https://github.com/dstndstn/astrometry.net/releases/download/0.79/astrometry.net-0.79.tar.gz"
+  sha256 "dd5d5403cc223eb6c51a06a22a5cb893db497d1895971735321354f882c80286"
 
   bottle do
     cellar :any
-    sha256 "cb0300becf79b6cfaed610b1a597aad73cc4a01dc7d35c860ada294933a52086" => :catalina
-    sha256 "3cb90e5f8cf720be409d0b1e2562b5efaa874695c67331e48ac2add01ac3fd96" => :mojave
-    sha256 "a85dc3730566d2da35afa3d7730c0db7f2c5d67a94d89f4a17f2d985a16529e2" => :high_sierra
-    sha256 "8c3900d4daefcdb4a7d41822652ae6c4bf00c3e90201fc811f4ecd33585737f1" => :x86_64_linux
+    sha256 "93dcbd208d2afb11894be4485f83cc09f822c34678e7948b8789626e9eb3ce59" => :catalina
+    sha256 "7eb0d105607f39afe691f914070035ca7bfafead82a0516059f306162770bb6b" => :mojave
+    sha256 "e1b335b5eddf5f4715fa00b045d7387361c8e1c9945daba46a21ac3bfb40bc2b" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -28,8 +26,8 @@ class AstrometryNet < Formula
   depends_on "wcslib"
 
   resource "fitsio" do
-    url "https://files.pythonhosted.org/packages/87/c1/be76515a52004b261febf2c2074f0c2fd730b71b331e2cc69480952e1ed3/fitsio-1.0.5.tar.gz"
-    sha256 "db5ac8d8216733f492007f1511dc0f77a8b6c0047aca35eb2148adc4a63a4d5a"
+    url "https://files.pythonhosted.org/packages/d4/51/57074746cb7c9a7f5fe8039563337fbb1edabbc2c742d2acb99b1b7c204c/fitsio-1.1.0.tar.gz"
+    sha256 "b1a8846d11c3919ea75cca611de9f76bfbdf745c4439e89e983d8a6bcfb92183"
   end
 
   def install

@@ -4,12 +4,13 @@ class Root < Formula
   url "https://root.cern.ch/download/root_v6.20.00.source.tar.gz"
   version "6.20.00"
   sha256 "68421eb0434b38b66346fa8ea6053a0fdc9a6d254e4a72019f4e3633ae118bf0"
+  revision 1
   head "https://github.com/root-project/root.git"
 
   bottle do
-    sha256 "b3a40092c12f5c30d7721afdaab6796bea633321c29a60a00c73a69fbea7471a" => :catalina
-    sha256 "fdb493e9c6c830a4c84d2c69c71be68eedadd945d00bf1a3aecdfb196f683aba" => :mojave
-    sha256 "3f45125a2b36540181cff1d96a677f2de97f089e4e3b0a90ef37c16de957de32" => :high_sierra
+    sha256 "625844b0bfc4a2d35639e74c87e221182c8afea93a992dd632815a2b93141af8" => :catalina
+    sha256 "8beda2a5bbdbc3b18517f64c734b4d961fd769099ea2cb566426c1f5aa67b6bd" => :mojave
+    sha256 "f638e12e87af332a5d420ce10f38e8ef418e9f2d1f372b1e517e51a29872146f" => :high_sierra
   end
 
   if OS.mac?
