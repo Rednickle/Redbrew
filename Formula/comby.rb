@@ -1,17 +1,18 @@
 class Comby < Formula
   desc "Tool for changing code across many languages"
   homepage "https://comby.dev"
-  url "https://github.com/comby-tools/comby/archive/0.12.0.tar.gz"
-  sha256 "ec0808c59bb7733dd5ba515147895db5f5820a5333fcd479f3091ea0b6a5519e"
+  url "https://github.com/comby-tools/comby/archive/0.13.1.tar.gz"
+  sha256 "b9d8592070ba9912c82ce9eaf620b78dd92717f422cd94df5d04c9fb443196bd"
 
   bottle do
-    sha256 "9af7377e3a37fbbc19896b40a61dc5718396a080d752c3a9557b0b3e3faf96d7" => :catalina
-    sha256 "d1d4351daf973c806da71fa970986837a6bf2ed0897f6178ad6909a2bc089f78" => :mojave
-    sha256 "2741164707a47a18d9a750420d306730825332098be73f7eb02f29530f8b74aa" => :high_sierra
-    sha256 "c49435fb14187cbb6fafd622b485b44dce71193411b9adf3ba49a29ade3cbb36" => :x86_64_linux
+    cellar :any
+    sha256 "1465b299e04912cc3d1ef18af072e19404687af4b0ac1824d39f201aa13fe4d4" => :catalina
+    sha256 "f252a786ccda897d815bbf7dd84769544252bd5ef77257e5c05403ac4d83d4e1" => :mojave
+    sha256 "05bbe36e5a63af506ba97103a08bec8a95e9f97af15f22678b8254891c09dfa7" => :high_sierra
   end
 
   depends_on "gmp" => :build
+  depends_on "ocaml" => :build
   depends_on "opam" => :build
   depends_on "pcre"
   depends_on "pkg-config"
@@ -26,14 +27,17 @@ class Comby < Formula
     ENV["OPAMROOT"] = opamroot
     ENV["OPAMYES"] = "1"
 
-    system "opam", "init", "--no-setup", "--disable-sandboxing", "--compiler=4.09.0", "--jobs=1"
+    system "opam", "init", "--no-setup", "--disable-sandboxing"
     system "opam", "config", "exec", "--", "opam", "install", ".", "--deps-only", "-y"
+
+    ENV.prepend_path "LIBRARY_PATH", opamroot/"default/lib/hack_parallel" # for -lhp
     system "opam", "config", "exec", "--", "make", "release"
+
     bin.install "_build/default/src/main.exe" => "comby"
   end
 
   test do
-    assert_equal "0.12.0", shell_output("#{bin}/comby -version").strip
+    assert_equal version.to_s, shell_output("#{bin}/comby -version").strip
 
     expect = <<~EXPECT
       --- /dev/null
