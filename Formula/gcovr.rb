@@ -10,6 +10,7 @@ class Gcovr < Formula
     sha256 "64f2de6af39af65e2da0fe0622cf72005110bdafcaecdfb71abd6253dc4cf9d5" => :catalina
     sha256 "6a25bff0607c3ec6e8442a541dfae012678b046e5a1023efc22c5a5063300e1d" => :mojave
     sha256 "182bbf76588334f06561c759dfdd7ded755f913293eb5da0fa2d7a9b53e6ee86" => :high_sierra
+    sha256 "85e875ada9dec8dc356e0f70c6ea4e977b5e400ed4b3283d61cd1e70b90b2bc5" => :x86_64_linux
   end
 
   depends_on "python@3.8"
