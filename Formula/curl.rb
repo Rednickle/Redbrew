@@ -1,15 +1,13 @@
 class Curl < Formula
   desc "Get a file from an HTTP, HTTPS or FTP server"
   homepage "https://curl.haxx.se/"
-  url "https://curl.haxx.se/download/curl-7.68.0.tar.bz2"
-  sha256 "207f54917dd6a2dc733065ccf18d61bb5bebeaceb5df49cd9445483e8623eeb9"
+  url "https://curl.haxx.se/download/curl-7.69.0.tar.bz2"
+  sha256 "668d451108a7316cff040b23c79bc766e7ed84122074e44f662b8982f2e76739"
 
   bottle do
-    cellar :any
-    sha256 "2695c7d41931198debef3736002422c036b36a547e4d6d3098184e90b729f571" => :catalina
-    sha256 "16dd95fdb1997b5ecb0ea9a5d92fad9ad466ca014746cc50b58063dafa521259" => :mojave
-    sha256 "f4cc6f7495b298fd76f86a08887c4927dd2fae526efcf311f831f044a0ff65d0" => :high_sierra
-    sha256 "90f8495c253eccee411204ac859a90a99c145ffd13198b277e7304a2122f6ede" => :x86_64_linux
+    sha256 "24aa9504342f77774aee3567b70b5067bf610fcdb5863cd0791ecaec67a8fa1f" => :catalina
+    sha256 "d0d9389ecd80e156f43bbbec2cdf90a09502f4bd300b74868a9bb82358e80e58" => :mojave
+    sha256 "540af1e3466f38cc2fe0a4d9cde8e3cf11b644dba4bc9aa2e97a0f4ecca142a0" => :high_sierra
   end
 
   pour_bottle? do
