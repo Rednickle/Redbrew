@@ -5,7 +5,6 @@ class Comby < Formula
   sha256 "b9d8592070ba9912c82ce9eaf620b78dd92717f422cd94df5d04c9fb443196bd"
 
   bottle do
-    cellar :any
     sha256 "1465b299e04912cc3d1ef18af072e19404687af4b0ac1824d39f201aa13fe4d4" => :catalina
     sha256 "f252a786ccda897d815bbf7dd84769544252bd5ef77257e5c05403ac4d83d4e1" => :mojave
     sha256 "05bbe36e5a63af506ba97103a08bec8a95e9f97af15f22678b8254891c09dfa7" => :high_sierra
