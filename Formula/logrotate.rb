@@ -9,6 +9,7 @@ class Logrotate < Formula
     sha256 "685db75f3f5c08510db50a7966f2b8d4028709cd02fd586ed21b17e978fd5446" => :catalina
     sha256 "f32319879033d83978b6dbd4dc970880e733ae437df2de5954c3ca2a6708c850" => :mojave
     sha256 "38b4e975405eb2a32b7a0d1c8904846198364036deaec47393e6475dc340ca7b" => :high_sierra
+    sha256 "12369c60345a8b5ade479d12597a0788026d67e728627fc51d7da796ed3b06a2" => :x86_64_linux
   end
 
   depends_on "popt"
