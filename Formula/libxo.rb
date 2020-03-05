@@ -8,6 +8,7 @@ class Libxo < Formula
     sha256 "3dffbef9394a617fa8c901c44ce7b31b8843c947762744a8ea1374780d5c1224" => :catalina
     sha256 "9c137a2e9828de98fb201d4d8da74eda20e6a276d90a83d8d1fa3017ba7059d1" => :mojave
     sha256 "59d5d434c2ec21fb06dd22b87780e82a31b6eebfd9db795fafece858bc1e4755" => :high_sierra
+    sha256 "f5e1ecc093ae16bee17f90be76cd67583385e60d02f3bea571ac51bede86bffd" => :x86_64_linux
   end
 
   depends_on "libtool" => :build
