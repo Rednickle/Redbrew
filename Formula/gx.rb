@@ -10,6 +10,7 @@ class Gx < Formula
     sha256 "f737f5829c0e1ce2ff58c56515e77f3797c30d614a53ebbf663985d5564c62db" => :catalina
     sha256 "bd03f428c3e52561caefaa09c6abc92b21faa226ad02abeeb6c74217ca1dfbbf" => :mojave
     sha256 "e6634c1b68abcb48984a7d681248393ca26824a81496c567ef23029ff9a892f5" => :high_sierra
+    sha256 "2bb95886ac055c55d980e3ac8bb4b080da5fd24ece8d63eb74b68cfd450ac835" => :x86_64_linux
   end
 
   depends_on "go" => :build
