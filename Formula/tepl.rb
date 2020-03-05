@@ -8,6 +8,7 @@ class Tepl < Formula
     sha256 "44584ce28b80e483952c57dbde17254e651ee4b4a52ab544d12ff9ae7a0dd8f0" => :catalina
     sha256 "4678f782bcdc5422680e4284b0fe7773a66a01f0f708a0d056214c5aea4faa7c" => :mojave
     sha256 "95f28281457103728f2a60d408ceef2e0961f90fb9e0b5a972295dde617651fb" => :high_sierra
+    sha256 "003d075599e93822d45f551e56882983e4ca78e4e18fe2226c4d0ce9e099c021" => :x86_64_linux
   end
 
   depends_on "gobject-introspection" => :build
