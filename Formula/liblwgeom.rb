@@ -11,6 +11,7 @@ class Liblwgeom < Formula
     sha256 "2fa994168e7e6080ad8dfa236379ba87a3e5dcebd9f3870224220277d50a90c3" => :catalina
     sha256 "2566c5dffdb062c5c44142b1ec0a6e7b076789fde0a8435b059ed7403a6c0c4d" => :mojave
     sha256 "a09336c7545767fa94e6733acfe07b4473915d5603d4e6a629bb79f6345489a6" => :high_sierra
+    sha256 "10f991dff96f4e1ff2a402d5780138a036f73bf0a06144d4b64dc619cb5947de" => :x86_64_linux
   end
 
   keg_only "conflicts with PostGIS, which also installs liblwgeom.dylib"
