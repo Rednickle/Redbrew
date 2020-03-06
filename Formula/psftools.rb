@@ -12,6 +12,7 @@ class Psftools < Formula
     sha256 "30d2a62f05343fbd172a0b7d094e84755d3441fae6e9a5734793cf363a9e8c40" => :catalina
     sha256 "9a04003b9ff3529c3e1e94f63b062c120b8a5e4af66a99965347d63827004128" => :mojave
     sha256 "cd1682c76f401ff6fc6c4dce3e4c5d31aeb50a2deb4b56a31b8bab5830c6ec4b" => :high_sierra
+    sha256 "63ac33a15174533a0cda7b273b9b9f6b0e84ff35e8c909c9e5da581b53527124" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
