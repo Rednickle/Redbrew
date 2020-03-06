@@ -9,6 +9,7 @@ class Lxc < Formula
     sha256 "df4afb1ff0f1c7e3fabffb20c4e2e9689b0c38781c9089e7b600f15cf0d1e026" => :catalina
     sha256 "488f7f61bd23a50cda921323df8fff73ba4396a10c55d331f52dc20cffdcd49b" => :mojave
     sha256 "824959ccdc2a838326d712974f0cb84d5c6a8bbe34e80d962e9d7a5593c08a42" => :high_sierra
+    sha256 "52ea43ee467a25b949da617989840dea346f72476aa8441e3ffd2317c8011eac" => :x86_64_linux
   end
 
   depends_on "go" => :build
