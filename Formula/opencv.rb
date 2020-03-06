@@ -3,13 +3,12 @@ class Opencv < Formula
   homepage "https://opencv.org/"
   url "https://github.com/opencv/opencv/archive/4.2.0.tar.gz"
   sha256 "9ccb2192d7e8c03c58fee07051364d94ed7599363f3b0dce1c5e6cc11c1bb0ec"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 "ea0fdece123eee89fd81a7604de47b91df5fa3a7b4c2ac867df87fe57b86f2ea" => :catalina
-    sha256 "b232d5040b3c8bf40f7bb9ebfb5ac9d159222af38de00bc685e3a56db37eccff" => :mojave
-    sha256 "e2075eb346e3f43816996631d1c62490459be25c0370bb5c1d9f767f85bf1eb5" => :high_sierra
-    sha256 "13e2aebf6b1bb513a6e0f7ef35d790c5c838b8bf6bed95f7c061007e93cd191b" => :x86_64_linux
+    sha256 "ba6068061d29aa4626365aeb644f0672b942069b51e6c9d7569559182afd7006" => :catalina
+    sha256 "6d3be935f596bb82230c4151d2f1aa8bf3030e6f7d3150d0025bc6e164427e42" => :mojave
+    sha256 "e5cb939cec3458d9d769338594f3776906e5ea7b3870a5b17efe827fba71072f" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -23,9 +22,12 @@ class Opencv < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "numpy"
+  depends_on "openblas"
   depends_on "openexr"
+  depends_on "protobuf"
   depends_on "python"
   depends_on "tbb"
+  depends_on "webp"
 
   uses_from_macos "openblas"
 
@@ -40,6 +42,9 @@ class Opencv < Formula
 
     resource("contrib").stage buildpath/"opencv_contrib"
 
+    # Avoid Accelerate.framework
+    ENV["OpenBLAS_HOME"] = Formula["openblas"].opt_prefix
+
     # Reset PYTHONPATH, workaround for https://github.com/Homebrew/homebrew-science/pull/4885
     ENV.delete("PYTHONPATH")
 
@@ -50,12 +55,14 @@ class Opencv < Formula
     args = std_cmake_args + %W[
       -DCMAKE_OSX_DEPLOYMENT_TARGET=
       -DBUILD_JASPER=OFF
-      -DBUILD_JPEG=ON
+      -DBUILD_JPEG=OFF
       -DBUILD_OPENEXR=OFF
       -DBUILD_PERF_TESTS=OFF
       -DBUILD_PNG=OFF
+      -DBUILD_PROTOBUF=OFF
       -DBUILD_TESTS=OFF
       -DBUILD_TIFF=OFF
+      -DBUILD_WEBP=OFF
       -DBUILD_ZLIB=OFF
       -DBUILD_opencv_hdf=OFF
       -DBUILD_opencv_java=OFF
@@ -63,6 +70,7 @@ class Opencv < Formula
       -DOPENCV_ENABLE_NONFREE=ON
       -DOPENCV_EXTRA_MODULES_PATH=#{buildpath}/opencv_contrib/modules
       -DOPENCV_GENERATE_PKGCONFIG=ON
+      -DPROTOBUF_UPDATE_FILES=ON
       -DWITH_1394=OFF
       -DWITH_CUDA=OFF
       -DWITH_EIGEN=ON
