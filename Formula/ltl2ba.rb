@@ -9,6 +9,7 @@ class Ltl2ba < Formula
     sha256 "453d994d206ec034580146ff6da2661db60c90fd105867fef4be5eb6f7ff062a" => :catalina
     sha256 "c5a444d20a1811bf071cdc9c95ffbc272f68283978cbdd676b588ffd9c58735b" => :mojave
     sha256 "e2d8c66cb983cdcca984048d83a3938158f5286d283cf69df40cc2d8b0c70ff4" => :high_sierra
+    sha256 "0162a0a16e9d98b8490192a29aa0f743fcb3c39c728ad395b942a9c13c16e056" => :x86_64_linux
   end
 
   def install
