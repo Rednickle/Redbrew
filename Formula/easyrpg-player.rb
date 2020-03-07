@@ -9,6 +9,7 @@ class EasyrpgPlayer < Formula
     sha256 "97a6be8f5e6f2c7b782bdbbe92a49a59ac9ad27119dc6b248e7ceb99db5fcfa5" => :catalina
     sha256 "ce83ff05744c75fb5fcbcf681e8e163c8460b778debff28f54422892c970306a" => :mojave
     sha256 "c2dd612a8529a42cc46166728c96fb1430cb3d00e23ce7d9c5fe5e8df999b78d" => :high_sierra
+    sha256 "096c4d841f1cd35e51de13b132390b5f8421372c283f7c4d4087d7c920d56ce7" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
