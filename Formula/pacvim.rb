@@ -5,8 +5,6 @@ class Pacvim < Formula
   sha256 "c869c5450fbafdfe8ba8a8a9bba3718775926f276f0552052dcfa090d21acb28"
   head "https://github.com/jmoon018/PacVim.git"
 
-  uses_from_macos "ncurses"
-
   # Use ncurses.h instead of cursesw.h which is not installed by brew
   unless OS.mac?
     patch do

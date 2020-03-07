@@ -48,9 +48,9 @@ class Qt < Formula
     depends_on "zstd"
   end
 
-  uses_from_macos "sqlite"
   uses_from_macos "bison"
   uses_from_macos "flex"
+  uses_from_macos "sqlite"
 
   def install
     # Workaround for disk space issues on github actions
