@@ -8,6 +8,7 @@ class Gtksourceview4 < Formula
     sha256 "53694c32854d016633b2c8a197afddbf1393a62c49815455517f00448c5c0056" => :catalina
     sha256 "d56cac91c06d4cc30df0c1887376c6134533545906b8a09628a55f0b1412964d" => :mojave
     sha256 "57b7985de12473c23a05b4fc7451cda98bc36547aec1e684474e7c9c4c7ed8a1" => :high_sierra
+    sha256 "8b474598532e291f918e39ed95b02f75ceba32c0a1d225b503ba9955e39994f0" => :x86_64_linux
   end
 
   depends_on "gobject-introspection" => :build
