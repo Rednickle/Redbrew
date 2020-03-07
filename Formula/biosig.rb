@@ -3,13 +3,13 @@ class Biosig < Formula
   homepage "https://biosig.sourceforge.io"
   url "https://downloads.sourceforge.net/project/biosig/BioSig%20for%20C_C%2B%2B/src/biosig4c%2B%2B-2.0.1.src.tar.gz"
   sha256 "b72ff4b67db5491dbe0b795d9328f454cd6ad3d4ac163ce99e12bf5002ff2791"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "7e856fea428089895b7957bb0dea53cb710f664f19ff170ec363144de8e8a052" => :catalina
-    sha256 "ebfbd5a26b263c2b36b6a1edc68baef3323e42258c9c249694c8327ea0b83bb8" => :mojave
-    sha256 "cd7c964993b7b18682119a7803ea5af1d7de0afec98069e8402529ca22c8b247" => :high_sierra
-    sha256 "1a67a9d23c671dfad1d1f30b789fff99201c64b5ceee6fbf60df9188795b9817" => :x86_64_linux
+    sha256 "657d638596e9b430fcd3b94e55c8a4f7fb510363df89951fa24037274512837f" => :catalina
+    sha256 "1872fde2c383eb64a607afe5110666b78cfdee48478a07c9a25fff3c82d3401f" => :mojave
+    sha256 "bb9a88cfbaed06fd3202330cfde11d144687800e99f6f9165f9cdde7b91c66fe" => :high_sierra
   end
 
   depends_on "gawk" => :build
