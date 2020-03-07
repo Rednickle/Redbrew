@@ -52,6 +52,10 @@ class Qt < Formula
   uses_from_macos "flex"
   uses_from_macos "sqlite"
 
+  uses_from_macos "bison"
+  uses_from_macos "flex"
+  uses_from_macos "sqlite"
+
   def install
     # Workaround for disk space issues on github actions
     # https://github.com/Homebrew/linuxbrew-core/pull/19595

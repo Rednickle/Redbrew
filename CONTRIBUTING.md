@@ -42,6 +42,7 @@ brew uninstall --force foo
 brew install --build-from-source foo
 brew test foo
 brew audit --strict foo
+brew style foo
 ```
 
 After testing, if you think it is needed to force the corresponding bottles to be
