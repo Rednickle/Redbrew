@@ -22,7 +22,6 @@ class Xmlto < Formula
   # Doesn't strictly depend on GNU getopt, but macOS system getopt(1)
   # does not support longopts in the optstring, so use GNU getopt.
   depends_on "gnu-getopt"
-  uses_from_macos "libxslt"
 
   uses_from_macos "libxslt"
 

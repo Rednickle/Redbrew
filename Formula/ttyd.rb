@@ -19,9 +19,8 @@ class Ttyd < Formula
   depends_on "libuv"
   depends_on "libwebsockets"
   depends_on "openssl@1.1"
-  uses_from_macos "vim" # needed for xxd
 
-  uses_from_macos "vim"
+  uses_from_macos "vim" # needed for xxd
 
   def install
     system "cmake", ".",

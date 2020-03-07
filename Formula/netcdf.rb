@@ -17,7 +17,6 @@ class Netcdf < Formula
   depends_on "cmake" => :build
   depends_on "gcc" # for gfortran
   depends_on "hdf5"
-  uses_from_macos "curl"
 
   uses_from_macos "curl"
 
