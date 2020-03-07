@@ -8,6 +8,7 @@ class Openexr < Formula
     sha256 "436a68a4101b82d9abe8f21045efa6d5912a4a6bb070614cc04a88487a0b8372" => :catalina
     sha256 "d9cfcbd95203891e434ed18ffba6cc7e3ccf30295258b9335fa75ab385e74311" => :mojave
     sha256 "834e89287ea987db4d6e392dd523c3ef193a991f44e015d54f7b40e1f49b48d0" => :high_sierra
+    sha256 "2cbfb115aa4a7a863550012d7d41c9cb323a9d02df76dc1312b7a564aa7b6925" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
