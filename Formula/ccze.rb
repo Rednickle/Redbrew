@@ -15,7 +15,6 @@ class Ccze < Formula
   end
 
   depends_on "pcre"
-  uses_from_macos "ncurses"
 
   uses_from_macos "ncurses"
 

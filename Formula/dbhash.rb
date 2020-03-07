@@ -5,9 +5,6 @@ class Dbhash < Formula
   version "3.31.1"
   sha256 "f2dc2382855d99a960c363c1e5ae72b49da4c55d49154aa6d100e5970a1fee58"
 
-  uses_from_macos "tcl-tk" => :build
-  uses_from_macos "sqlite" => :test
-
   bottle do
     cellar :any_skip_relocation
     sha256 "7296d5d4f3bccdb153c6a312c0ea65a9868cda646ee4028606ea8a46476d86e1" => :catalina
@@ -16,6 +13,7 @@ class Dbhash < Formula
     sha256 "8b8da9e454b905b4d0f3a2846061367b6d2bf21096017603494b1d2da8bfb498" => :x86_64_linux
   end
 
+  uses_from_macos "tcl-tk" => :build
   uses_from_macos "sqlite" => :test
 
   def install

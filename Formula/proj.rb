@@ -21,8 +21,8 @@ class Proj < Formula
   depends_on "pkg-config" => :build
   depends_on "libtiff"
 
-  uses_from_macos "sqlite"
   uses_from_macos "curl"
+  uses_from_macos "sqlite"
 
   conflicts_with "blast", :because => "both install a `libproj.a` library"
 

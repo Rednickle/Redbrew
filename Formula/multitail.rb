@@ -13,7 +13,7 @@ class Multitail < Formula
   end
 
   depends_on "pkg-config" => :build
-  uses_from_macos "ncurses"
+  depends_on "ncurses"
 
   def install
     system "make", "-f", OS.mac? ? "makefile.macosx" : "Makefile", "multitail", "DESTDIR=#{HOMEBREW_PREFIX}"
