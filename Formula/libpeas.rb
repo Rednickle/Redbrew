@@ -8,6 +8,7 @@ class Libpeas < Formula
     sha256 "ca5e8f34c01f0978fb82601876a7e673fde22286cff4ab74dda6ab90774fe38a" => :catalina
     sha256 "c71f368ce3be0f671cf37f461fba6a7ace93afb62e33b9a43efe8543d2f1e486" => :mojave
     sha256 "c9fcb8d322d5479a50fb13b943c367518b99d5f66d1719df527295988f160af0" => :high_sierra
+    sha256 "7ee7ed3406069dd6fc3ba4f42e610d31abeaa10880bd0babaaf5f21262cdccd0" => :x86_64_linux
   end
 
   depends_on "meson" => :build
