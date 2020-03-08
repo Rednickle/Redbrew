@@ -9,6 +9,7 @@ class AdwaitaIconTheme < Formula
     sha256 "7fdad64a1d6939479fbabd4bbbbd22edb6cffb166f11ffe3080bdeb56d57de73" => :catalina
     sha256 "7fdad64a1d6939479fbabd4bbbbd22edb6cffb166f11ffe3080bdeb56d57de73" => :mojave
     sha256 "7fdad64a1d6939479fbabd4bbbbd22edb6cffb166f11ffe3080bdeb56d57de73" => :high_sierra
+    sha256 "50809de5d3677d395d5f3da7377681c7a7ea6245ce174e9bc67118f15825720c" => :x86_64_linux
   end
 
   depends_on "gettext" => :build
