@@ -2,16 +2,14 @@ class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
   # Note: Please keep these values in sync with git-gui.rb when updating.
-  url "https://www.kernel.org/pub/software/scm/git/git-2.25.0.tar.xz"
-  sha256 "c060291a3ffb43d7c99f4aa5c4d37d3751cf6bca683e7344ea407ea504d9a8d0"
-  revision 1
+  url "https://www.kernel.org/pub/software/scm/git/git-2.25.1.tar.xz"
+  sha256 "222796cc6e3bf2f9fd765f8f097daa3c3999bb7865ac88a8c974d98182e29f26"
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
-    sha256 "9ab68a09b14009dd3c28fcd3e6ef98213f675887615cab5c67d62a026ccc019b" => :catalina
-    sha256 "54508f6ad675b1a3964d8576b9123d1459f6edf4f8847e229b56ec76cf49014b" => :mojave
-    sha256 "cac935cce4729d0cc61ce0b3cda18848d811c6e51a03498b6f44e6f3764b3b9e" => :high_sierra
-    sha256 "bf6ec84bf7db2334df764e74dd146e5a4b3ac8b0d7271723989f1ddc3d2b7b2b" => :x86_64_linux
+    sha256 "d5f4fe130b33cc5f2af441a1031b82fe0d76b6c455fd518b5e82eae15e2b859b" => :catalina
+    sha256 "66d765e7e020ab9b962c2879baedcb0eb2313cbdd2e28c86fc3928b7601c55e0" => :mojave
+    sha256 "b202c14c37b5e3aae4f37722bee4df7dc49a29eb950dd8af2ca645d5d3e4e223" => :high_sierra
   end
 
   depends_on "gettext"
@@ -25,13 +23,13 @@ class Git < Formula
   end
 
   resource "html" do
-    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.25.0.tar.xz"
-    sha256 "a99d83260ff903102bf7556e673c1535e4b0fb276a718a5d2f32b501e39a000d"
+    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.25.1.tar.xz"
+    sha256 "2d8f206f12bfd7d9edd74dea25bc457e4bc9ca6eb1a14e09104b549342fcc377"
   end
 
   resource "man" do
-    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.25.0.tar.xz"
-    sha256 "d396777bdd69dc2db06a49da6971a883fd95fe16ad1dcca7e6b491686658c8bd"
+    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.25.1.tar.xz"
+    sha256 "30886372c1962a5e087f919998b02f816605368201b564d3f519614ee4a9ee96"
   end
 
   resource "Net::SMTP::SSL" do
@@ -202,9 +200,10 @@ class Git < Formula
       %w[foo bar].each { |f| touch testpath/f }
       system bin/"git", "add", "foo", "bar"
       system bin/"git", "commit", "-a", "-m", "Second Commit"
-      assert_match "Authentication Required", shell_output(
-        "#{bin}/git send-email --to=dev@null.com --smtp-server=smtp.gmail.com " \
-        "--smtp-encryption=tls --confirm=never HEAD^ 2>&1", 255
+      assert_match "Authentication Required", pipe_output(
+        "#{bin}/git send-email --from=test@example.com --to=dev@null.com " \
+        "--smtp-server=smtp.gmail.com --smtp-server-port=587 " \
+        "--smtp-encryption=tls --confirm=never HEAD^ 2>&1",
       )
     end
   end
