@@ -9,6 +9,7 @@ class Ldc < Formula
     sha256 "122d9a37cccbd671d223a2ce683ad141489633d2f11fa8f662635f6ba4a49027" => :catalina
     sha256 "67f9bdd412e9ee9e6864f52ae5b52358a01b93de359fe8aad4b9d7bed73a572a" => :mojave
     sha256 "7945dba30bfac0ced442b69a46a477593ee04e3b3f28cc6fdb56b94f58e94706" => :high_sierra
+    sha256 "f422d9aeb3a6be820e49e55a342372a8bc2b08c43798331df374309ecb7774e7" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
