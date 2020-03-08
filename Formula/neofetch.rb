@@ -10,6 +10,7 @@ class Neofetch < Formula
     sha256 "bfb4c9f42eee7659b0028a7d4de28524d5a6eb8f1199f83789fa0242b37c456e" => :catalina
     sha256 "bfb4c9f42eee7659b0028a7d4de28524d5a6eb8f1199f83789fa0242b37c456e" => :mojave
     sha256 "bfb4c9f42eee7659b0028a7d4de28524d5a6eb8f1199f83789fa0242b37c456e" => :high_sierra
+    sha256 "ad35edefef328dd31f22f2afb7b3aa0758a8e3444978a0fbed5e268d919b8e6d" => :x86_64_linux
   end
 
   if OS.mac?
