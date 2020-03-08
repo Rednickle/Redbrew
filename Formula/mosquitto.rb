@@ -3,13 +3,13 @@ class Mosquitto < Formula
   homepage "https://mosquitto.org/"
   url "https://mosquitto.org/files/source/mosquitto-1.6.8.tar.gz"
   sha256 "7df23c81ca37f0e070574fe74414403cf25183016433d07add6134366fb45df6"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8bcc87c919481aba7ce1515effa9fec154c6398edf2ffb4dec1d20a6a6add0f0" => :catalina
-    sha256 "623759637c867ff00bca4808bea2a6a895aaebcaed4b94cf8f6df461f9225015" => :mojave
-    sha256 "a372f6751069c731c84569f14d883363a8effed5326a90681ffe28a910abf9a0" => :high_sierra
-    sha256 "3515160145448fd6f6c54d67ae0f26933f2102ea4a04d5533bf2dfcf7a3014c7" => :x86_64_linux
+    sha256 "96583889267ea41cd9288f14eb6b6f0e9f8a47b78e33067426b00d1387bc57e4" => :catalina
+    sha256 "cea4293afa310a97de010b2b3f4caa94387d847870d21dced8955b0de9a40c03" => :mojave
+    sha256 "cdf3a295a5dce34d0d227c826e9a697b7bf73ba4febcc17dfac97ab37da02f7d" => :high_sierra
   end
 
   depends_on "cmake" => :build
