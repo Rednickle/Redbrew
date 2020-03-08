@@ -9,6 +9,7 @@ class Qp < Formula
     sha256 "a65499deed12110ed5a21f3bbd657acdaaf1452dea48877caac93bda55759370" => :catalina
     sha256 "f119afd6bacbac5af055c398a2dfb5c4f62c8f113bcb9e12dab825800fd8e744" => :mojave
     sha256 "d9c595a53f82ddd9f086fac02a5f8da34e65d9b0e7564fce02148304704457ed" => :high_sierra
+    sha256 "587d90c062d242ba7bf3b632d2339444910cd94904ddedbad3b0cbbee9ed2596" => :x86_64_linux
   end
 
   depends_on "quickjs" => :build
