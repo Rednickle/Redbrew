@@ -10,6 +10,7 @@ class Kallisto < Formula
     sha256 "b4607b4f7c8ab90d206737c8373bdb23f30c2324e06312715562b6316aea7740" => :catalina
     sha256 "e11e83e697ca5c7854b2a8b981f5ab3fb24040b55d4e926aa33051ea792a72ce" => :mojave
     sha256 "afc1a45d8696b4c134a09098bac7641add23116f824f069e79ea9431f1267a37" => :high_sierra
+    sha256 "0369ed36478ffcf3f99546f88047fe22cf2b8dcb32dde3e4b93f11c0860b1a37" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
