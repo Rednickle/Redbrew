@@ -11,6 +11,7 @@ class PreCommit < Formula
     sha256 "19edc7767d3773b8d163e9425c1743929fcd13e8225189b269a8233a1f91388c" => :catalina
     sha256 "71ae720d396e735387c22ff024d224cedb708ef7198cb248c7d065942c03cff2" => :mojave
     sha256 "06e8911ccc3018eca8b39e624c380313ead9d28fbb79f5d7364a7260a3cb27c5" => :high_sierra
+    sha256 "a96d19f4ada1df39f3530618c12b6c7197f5f63cd96e9206b752696a641e9700" => :x86_64_linux
   end
 
   # To avoid breaking existing git hooks when we update Python,
