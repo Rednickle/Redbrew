@@ -11,6 +11,7 @@ class Shogun < Formula
     sha256 "ca1b42563ffeec7d502f0c056d47244cafacb78efac89c858803674aea575160" => :catalina
     sha256 "7ba92fc9c0e9461b20806a9b29932afebbc3fc4889f91fa54497049c2f0a31ee" => :mojave
     sha256 "e0e475b4cb7894ccb1793705598316b8760ec4a61617d2a78c5c9b88ba18b7f2" => :high_sierra
+    sha256 "810175fd8a56b148ee4f30705fa9bd50f77c27d5b98fc0cdf032fa8052a99e27" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
