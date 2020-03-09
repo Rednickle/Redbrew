@@ -3,13 +3,13 @@ class Csound < Formula
   homepage "https://csound.com"
   url "https://github.com/csound/csound/archive/6.14.0.tar.gz"
   sha256 "bef349c5304b2d3431ef417933b4c9e9469c0a408a4fa4a98acf0070af360a22"
-  revision 1
+  revision 2
   head "https://github.com/csound/csound.git", :branch => "develop"
 
   bottle do
-    sha256 "2a7c038f8093c562be38f619f9bb87661df0d0e76d433e0f27a93e9eee610ce0" => :catalina
-    sha256 "b8b156eda0e2aa5b01e3f7e7714be9cb4d42e2eb9fc41c01cc2635a683e5b61c" => :mojave
-    sha256 "88d6cf2045f9b6a77d3a3bf26ba72fc8076500f58f4a19425c617e7d63dbdd39" => :high_sierra
+    sha256 "2e175c39f1333e2edce7a8bad013ea80cf6788d298f06e154a77a7fe48253f03" => :catalina
+    sha256 "f93d84a03a568ebd085ec42aee528d125f86ed2cad11add631636fa3a573fbcb" => :mojave
+    sha256 "312d951ea184c95f9a96f399b6908ebca09071dd0a546178a476acb70c0f4537" => :high_sierra
   end
 
   depends_on :macos # Due to Python 2
@@ -55,6 +55,7 @@ class Csound < Formula
 
   def install
     ENV["JAVA_HOME"] = Formula["openjdk"].opt_libexec/"openjdk.jdk/Contents/Home"
+    ENV.prepend "CFLAGS", "-DH5_USE_110_API -DH5Oget_info_vers=1"
 
     resource("ableton-link").stage { cp_r "include/ableton", buildpath }
     resource("getfem").stage { cp_r "src/gmm", buildpath }

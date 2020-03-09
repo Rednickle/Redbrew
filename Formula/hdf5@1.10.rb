@@ -1,15 +1,17 @@
-class Hdf5 < Formula
+class Hdf5AT110 < Formula
   desc "File format designed to store large amounts of data"
   homepage "https://www.hdfgroup.org/HDF5"
-  url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.12/hdf5-1.12.0/src/hdf5-1.12.0.tar.bz2"
-  sha256 "97906268640a6e9ce0cde703d5a71c9ac3092eded729591279bf2e3ca9765f61"
+  url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.6/src/hdf5-1.10.6.tar.bz2"
+  sha256 "09d6301901685201bb272a73e21c98f2bf7e044765107200b01089104a47c3bd"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "6c68f33613e960a0c9efec780d07d34c2ce9c0795d723af7027ee6b88219abbf" => :catalina
-    sha256 "77cf2db15c52c69da64ca5535eb03e44ec2bd953cbb2166996580739db467241" => :mojave
-    sha256 "88a4048d5d26ccea95574726fd874d8b69409301ed6a0f36d9c695168b3fc144" => :high_sierra
+    cellar :any
+    sha256 "6ae8172b9bf10571a56b56c6571d794cc286df091aad63f2df9d744783cea303" => :catalina
+    sha256 "98ebeaaa440bb42e7fa423e1acb8ed445629010cf1d984fd7d19463b40906235" => :mojave
+    sha256 "41b387396f39f4153a6620cec626b8a5282d18d8bd102985158adf5ba23cdf73" => :high_sierra
   end
+
+  keg_only :versioned_formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -39,7 +41,6 @@ class Hdf5 < Formula
       --enable-fortran
       --enable-cxx
     ]
-    args << "--with-zlib=#{Formula["zlib"].opt_prefix}" unless OS.mac?
 
     system "./configure", *args
     system "make", "install"

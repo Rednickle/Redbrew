@@ -3,13 +3,13 @@ class Ensmallen < Formula
   homepage "https://ensmallen.org"
   url "https://github.com/mlpack/ensmallen/archive/2.11.3.tar.gz"
   sha256 "52ddd26549ae014423d07c5ef8f1f418dc2cdfaa00e093db58392818154ce7f6"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c33c184cdd8ccf1ade8fd456e488bc061a393222cd328d2d14f6613692a4c4bc" => :catalina
-    sha256 "c33c184cdd8ccf1ade8fd456e488bc061a393222cd328d2d14f6613692a4c4bc" => :mojave
-    sha256 "c33c184cdd8ccf1ade8fd456e488bc061a393222cd328d2d14f6613692a4c4bc" => :high_sierra
-    sha256 "73c7e215337a4780b06d0b2e0248827d2a9d5151633dc85e2ac4733333edcfd0" => :x86_64_linux
+    sha256 "e24b5d6fb684fe67805b4f3850cb94c0b544979754528306b50db3f1b447258d" => :catalina
+    sha256 "e24b5d6fb684fe67805b4f3850cb94c0b544979754528306b50db3f1b447258d" => :mojave
+    sha256 "e24b5d6fb684fe67805b4f3850cb94c0b544979754528306b50db3f1b447258d" => :high_sierra
   end
 
   depends_on "cmake" => :build

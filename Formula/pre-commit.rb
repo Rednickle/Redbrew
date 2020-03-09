@@ -3,23 +3,30 @@ class PreCommit < Formula
 
   desc "Framework for managing multi-language pre-commit hooks"
   homepage "https://pre-commit.com/"
-  url "https://github.com/pre-commit/pre-commit/archive/v2.0.1.tar.gz"
-  sha256 "2fd4fc44552d77a1d24e70674550fed7cd26f1c348dbfb3d1f54a722a46f3223"
+  url "https://github.com/pre-commit/pre-commit/archive/v2.1.1.tar.gz"
+  sha256 "0b80e45b4e001f45bade0f1cc2d891eb810de154f1eb703a1f77ac060a9a07ae"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "24692c6d05f9e60b6ffb29ea6f110de52ecf6929bd8b3569e72c10d121059093" => :catalina
-    sha256 "fcba832e25006b372b25d92fecafbfbce3fe415d9aa80973c98c3b1645cf23bb" => :mojave
-    sha256 "239b6b495d41b65e5746d3fce4a4866c5c24d04ff67ddd15d9c2bf7a1a0a5828" => :high_sierra
-    sha256 "2716719d05f943ca8ee5604d7744b97cb673801b5e912e31099b32712aeb8bc5" => :x86_64_linux
+    sha256 "19edc7767d3773b8d163e9425c1743929fcd13e8225189b269a8233a1f91388c" => :catalina
+    sha256 "71ae720d396e735387c22ff024d224cedb708ef7198cb248c7d065942c03cff2" => :mojave
+    sha256 "06e8911ccc3018eca8b39e624c380313ead9d28fbb79f5d7364a7260a3cb27c5" => :high_sierra
   end
 
-  depends_on "python@3.8"
+  # To avoid breaking existing git hooks when we update Python,
+  # we should never depend on a versioned Python formula and
+  # always use the "default".
+  depends_on "python"
 
   def install
+    # Make sure we are actually using Homebrew's Python
+    inreplace "pre_commit/commands/install_uninstall.py",
+              "f'#!/usr/bin/env {py}'",
+              "'#!#{Formula["python"].opt_bin}/python3'"
+
     venv = virtualenv_create(libexec, "python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
-                              "--ignore-installed", "PyYAML==3.13b1", buildpath
+                              "--ignore-installed", buildpath
     system libexec/"bin/pip", "uninstall", "-y", "pre-commit"
     venv.pip_install_and_link buildpath
   end

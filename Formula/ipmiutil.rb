@@ -1,15 +1,14 @@
 class Ipmiutil < Formula
   desc "IPMI server management utility"
   homepage "https://ipmiutil.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/ipmiutil/ipmiutil-3.1.4.tar.gz"
-  sha256 "9938ca13f55d2be157081d49c8c6392391b057c9818e02d5ef231a62e54a8a65"
+  url "https://downloads.sourceforge.net/project/ipmiutil/ipmiutil-3.1.5.tar.gz"
+  sha256 "58ccdbd5755d7dd72478756715af09e9c73330dfad2b91dbf03d2ac504b301a3"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "02ae664c9007d6cea468932d1cc262b18c1bf549c7fb24d9d600437b58fccbae" => :catalina
-    sha256 "83fc42e510001906bfd5d5b18a751f7499f522e36ebeb0eaff84f8bf158df747" => :mojave
-    sha256 "89f8332794bc2c9a9bf15467c4ed1f9ca38ff5588687a569613322af8d185a48" => :high_sierra
-    sha256 "daa87cd34a99b682643a9d49ea80d8fad2ad6e1d61ec2254f4573d91d3573842" => :x86_64_linux
+    sha256 "e2ea930b55754e8e0b27b675ebabdf2c12a73ddd0c8d994484c8b7e351350ec5" => :catalina
+    sha256 "c1d4a86dae7aae9e8ce807741c42e91884156eda9b9004ab2f151e2cfda6b74d" => :mojave
+    sha256 "9e4ae6d909010bcff31df4fcef39a9cb0de2083aded6b960483db942c9e18f0f" => :high_sierra
   end
 
   depends_on "autoconf" => :build

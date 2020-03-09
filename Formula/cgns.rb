@@ -3,12 +3,12 @@ class Cgns < Formula
   homepage "http://cgns.org/"
   url "https://github.com/CGNS/CGNS/archive/v3.4.0.tar.gz"
   sha256 "6372196caf25b27d38cf6f056258cb0bdd45757f49d9c59372b6dbbddb1e05da"
+  revision 1
 
   bottle do
-    sha256 "0ca1705629f5c38e41c5ad47f5855f970c57d146562d869f31d549cf2d2bf56f" => :catalina
-    sha256 "4cc212cbc9216a3611418f406c3e83d5285d8cb42585bff92305c3e8fc75874a" => :mojave
-    sha256 "57ab3d97cbc7267236e557e310c2232028dfd3980716e04ee25dc59673a2031a" => :high_sierra
-    sha256 "f9bc2162136d63d397e5ae2f30cfca28139573df3610c3433a1e61b0699a9c80" => :x86_64_linux
+    sha256 "a54d74618a6b9dc4c9e67345ff9dd0fe32cfcef012f66c407aef0c3bfa8995da" => :catalina
+    sha256 "c529165fc8eb117dd0418ac66790c8668038bcce1795f4e3bd7a9de7f7a0fd25" => :mojave
+    sha256 "a0a565088bce07a85abbefe786af293bc66ea7ed138c19bb35b4e128038e7bbf" => :high_sierra
   end
 
   depends_on "cmake" => :build

@@ -1,16 +1,33 @@
 class Curl < Formula
   desc "Get a file from an HTTP, HTTPS or FTP server"
   homepage "https://curl.haxx.se/"
-  url "https://curl.haxx.se/download/curl-7.69.0.tar.bz2"
-  sha256 "668d451108a7316cff040b23c79bc766e7ed84122074e44f662b8982f2e76739"
-  revision 2 unless OS.mac?
+  revision OS.mac? ? 1 : 3
+
+  stable do
+    url "https://curl.haxx.se/download/curl-7.69.0.tar.bz2"
+    sha256 "668d451108a7316cff040b23c79bc766e7ed84122074e44f662b8982f2e76739"
+
+    # The below three patches all fix critical bugs. Remove them with curl 7.69.1.
+    patch do
+      url "https://github.com/curl/curl/commit/8aa04e9a24932b830bc5eaf6838dea5a3329341e.patch?full_index=1"
+      sha256 "77595ec475e692bd24832e0e6e98de5d68a43bf7199c632ae0443fcb932791fb"
+    end
+
+    patch do
+      url "https://github.com/curl/curl/commit/e040146f22608fd92c44be2447a6505141a8a867.patch?full_index=1"
+      sha256 "f4267c146592067e84eacb62cdb22e0a35636699a8237470ccaf27d68cb17a86"
+    end
+
+    patch do
+      url "https://github.com/curl/curl/commit/64258bd0aa6ad23195f6be32e6febf7439ab7984.patch?full_index=1"
+      sha256 "afeb69e09b3402926acd40d76f6b28d9790ac1f1e080f4eb3f2500d5aaf46971"
+    end
+  end
 
   bottle do
-    cellar :any
-    sha256 "24aa9504342f77774aee3567b70b5067bf610fcdb5863cd0791ecaec67a8fa1f" => :catalina
-    sha256 "d0d9389ecd80e156f43bbbec2cdf90a09502f4bd300b74868a9bb82358e80e58" => :mojave
-    sha256 "540af1e3466f38cc2fe0a4d9cde8e3cf11b644dba4bc9aa2e97a0f4ecca142a0" => :high_sierra
-    sha256 "f28e62c460e95e4fdb177c4512aa5b148269a21d0438684619e132f072fdddde" => :x86_64_linux
+    sha256 "201cb204c2a8fff166af6650d5a1e5a925d77a8edacecbae27a89a98c0acdd15" => :catalina
+    sha256 "b310f1da8a6d86eee7733f0c010ea324c1dbbc3cb817224425fa97fd6c7ae132" => :mojave
+    sha256 "82b4720c1651a98a57a9652ea92fe4f5cd9d5cf6024660ce9acd2d384b2eacb1" => :high_sierra
   end
 
   pour_bottle? do
@@ -32,19 +49,6 @@ class Curl < Formula
   depends_on "openssl@1.1" unless OS.mac?
 
   uses_from_macos "zlib"
-
-  # TODO: Remove with next release after 7.69.0
-  unless OS.mac?
-    patch do
-      url "https://github.com/curl/curl/commit/8aa04e9a24932b830bc5eaf6838dea5a3329341e.patch"
-      sha256 "ea52049e73581acc3e3bf795010c6e11a928ac75380dd6f5dbb32c19b8dd0a4e"
-    end
-
-    patch do
-      url "https://github.com/curl/curl/commit/e040146f22608fd92c44be2447a6505141a8a867.patch"
-      sha256 "22b7faa70902820e447a22c28a830e917359c64d09d92505d728105a3ce4497b"
-    end
-  end
 
   def install
     system "./buildconf" if build.head?

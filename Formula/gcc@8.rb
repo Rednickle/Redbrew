@@ -39,6 +39,16 @@ class GccAT8 < Formula
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
 
+  # Patch for Xcode bug, taken from https://gcc.gnu.org/bugzilla/show_bug.cgi?id=89864#c43
+  # This should be removed in the next release of GCC if fixed by Apple; this is an xcode bug,
+  # but this patch is a work around committed to GCC trunk
+  if OS.mac? && MacOS::Xcode.version >= "10.2"
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/be45d9d34a9b57e0414e2658fe004c07d8ad50a7/gcc/8.3.0-xcode-bug-_Atomic-fix.patch"
+      sha256 "33ee92bf678586357ee8ab9d2faddf807e671ad37b97afdd102d5d153d03ca84"
+    end
+  end
+
   def install
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"

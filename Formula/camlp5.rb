@@ -4,13 +4,13 @@ class Camlp5 < Formula
   url "https://github.com/camlp5/camlp5/archive/rel711.tar.gz"
   version "7.11"
   sha256 "a048b8e0feb2a1058187824fc9cb6b55f2c5b788c43c15d6db090d789c7121ba"
+  revision 1
   head "https://gforge.inria.fr/anonscm/git/camlp5/camlp5.git"
 
   bottle do
-    sha256 "9459b0d978fbf36ab15bbbd21665b4ad7b2f95f2e615c04593ddc9ceffc13bed" => :catalina
-    sha256 "74fc5fc46cb0024df90bf13cfbfc9d97aa7db46169b13a512e7a167e4efa3a55" => :mojave
-    sha256 "761fd3f625d47bd7c4e16dc17c47b58a371361227e76ccf8a79bb012d6a0813c" => :high_sierra
-    sha256 "1fd1ca33ac690211d7cdd64620c4e3a28be819e540fa2dc0d53c996f5450cf2c" => :x86_64_linux
+    sha256 "27dfeccce3f11fd680a3f7d5854ee35779161f099e6e295fe17c036d48636f7f" => :catalina
+    sha256 "59a07c3081aa5f7503036b74cb89f0d854778638b32eaedcc5d00e58c1b1ef30" => :mojave
+    sha256 "137a5bf449780d553bf30c00782c6f07d0fb3815125bce47c0391fc20449d991" => :high_sierra
   end
 
   depends_on "ocaml"

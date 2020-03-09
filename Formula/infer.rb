@@ -7,10 +7,10 @@ class Infer < Formula
       :revision => "99464c01da5809e7159ed1a75ef10f60d34506a4"
 
   bottle do
-    sha256 "b6e5941d9be1c640b2dd0430801be1b59eb91ddc56c9e8e454c45af01c812476" => :catalina
-    sha256 "166a3baf77f343a2bdd43fb772b93bd3610d6baf4f1e39e8fc6aa83e46029ef8" => :mojave
-    sha256 "c7bb9d37a9d77fbc2019ffd6f80ce7e7a3992c4ac0a95235c335ce61f43993e9" => :high_sierra
-    sha256 "bd11c69b3a2500c89d678ce36e42cfa4f887ae13f98bd07ce56ddbe3b327b117" => :x86_64_linux
+    rebuild 1
+    sha256 "1dc9c75c759611c8fe0efa8f63d7e55bbaa35d8dc2863f7a527069b11759f244" => :catalina
+    sha256 "74b2dddff2bea362066395e28a797078d33514774511cc64771d0f89eea2466d" => :mojave
+    sha256 "7630571f8e391ce0ba991ffe7a5d7b2b4a1029cda1d56497800d8ae0a260d4b6" => :high_sierra
   end
 
   depends_on :macos # Due to Python 2
@@ -20,6 +20,8 @@ class Infer < Formula
   depends_on :java => ["1.8", :build, :test]
   depends_on "libtool" => :build
   depends_on "ocaml" => :build
+  depends_on "ocaml-findlib" => :build
+  depends_on "ocaml-num" => :build
   depends_on "opam" => :build
   depends_on "pkg-config" => :build
   depends_on "gmp"
@@ -73,15 +75,22 @@ class Infer < Formula
     # Pin updated dependencies which are required to build on brew ocaml
     # Remove from this when Infer updates their opam.locked to use at least these versions
     pinned_deps = {
+      "mlgmpidl"  => "1.2.12",
       "octavius"  => "1.2.1",
       "parmap"    => "1.0-rc11",
       "ppx_tools" => "5.3+4.08.0",
     }
     pinned_deps.each { |dep, ver| system "opam", "pin", "add", dep, ver, "--locked" }
 
+    # Unfortunately, opam can't cope if a system ocaml-num happens to be installed.
+    # Instead, we depend on Homebrew's ocaml-num and fool opam into using it.
+    # https://github.com/ocaml/opam-repository/issues/14646
+    system "opam", "pin", "add", "ocamlfind", Formula["ocaml-findlib"].version.to_s, "--locked", "--fake"
+    system "opam", "pin", "add", "num", Formula["ocaml-num"].version.to_s, "--locked", "--fake"
+
     # Relax the dependency lock on a specific ocaml
     # Also ignore anything we pinned above
-    ENV["OPAMIGNORECONSTRAINTS"] = "ocaml,#{pinned_deps.keys.join(",")}"
+    ENV["OPAMIGNORECONSTRAINTS"] = "ocaml,ocamlfind,num,#{pinned_deps.keys.join(",")}"
 
     # Remove ocaml-variants dependency (we won't be using it)
     inreplace "opam.locked", /^ +"ocaml-variants" {= ".*?"}$\n/, ""

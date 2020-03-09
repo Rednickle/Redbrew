@@ -1,17 +1,14 @@
 class BaculaFd < Formula
   desc "Network backup solution"
   homepage "https://www.bacula.org/"
-  url "https://downloads.sourceforge.net/project/bacula/bacula/9.4.4/bacula-9.4.4.tar.gz"
-  sha256 "0fe37a02ca768a720099d0d03509c364aff2390c05544d663f4819f8e7fc20be"
-  revision 1
+  url "https://downloads.sourceforge.net/project/bacula/bacula/9.6.2/bacula-9.6.2.tar.gz"
+  sha256 "5c41e5913420a70e16bce63f3993428b41ea66b212c756b2f2befa03dfe68743"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7ff69bac02212b3e43d2dfacd2784447e7709d80fff81b554fa229c360d12704" => :catalina
-    sha256 "26091f267000c57d27c038a05172c7249572f0ddfe1834a8eba154fe00c36b75" => :mojave
-    sha256 "4353cbd80b6f4af021f4be1c6ff5b793a8530263c1c2307caaed962dc7ad9b11" => :high_sierra
-    sha256 "707b08f95a9f5a200a6fdedb47fc9a80c25ebd88004606482ac5aa49ef72d1fa" => :sierra
-    sha256 "2cfda0a3d8b668aae0c1349269362a9095fcab1f89c551f82a07390b5cc8364c" => :x86_64_linux
+    sha256 "5bf67e13cb6ba2434acafdd9cc5c0248783a44fcee52439418d4e560a5aaf8e1" => :catalina
+    sha256 "6ae5f82dc4266b46303d765b837b553403ca2edda9b6afbeafc6a700a3e7aeac" => :mojave
+    sha256 "51e0a36012a4a7a394bfa5444b9cee6c0a059a15401cc6af8f4b004d974b474b" => :high_sierra
   end
 
   depends_on "openssl@1.1"
@@ -23,6 +20,10 @@ class BaculaFd < Formula
     :because => "Both install a `bconsole` executable."
 
   def install
+    # CoreFoundation is also used alongside IOKit
+    inreplace "configure", '"-framework IOKit"',
+                           '"-framework IOKit -framework CoreFoundation"'
+
     # * sets --disable-conio in order to force the use of readline
     #   (conio support not tested)
     # * working directory in /var/lib/bacula, reasonable place that
