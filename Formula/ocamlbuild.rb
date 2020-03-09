@@ -10,6 +10,7 @@ class Ocamlbuild < Formula
     sha256 "8f6fc7e7413b24faa041b7651349a3128f9eadefae5c9aa0c50f0d1a56e010f6" => :catalina
     sha256 "04fed811edb4dd3903f742ec6678643f9959e85c4fcb763972c8779dec059515" => :mojave
     sha256 "e4cd0274f9657874e29add30545055af4ea8697d426ed95f799ddce63aef5cfe" => :high_sierra
+    sha256 "ff6b9bddb52278904dd7ab0ce695da0273f9ede88920e28630c54672af98fdb6" => :x86_64_linux
   end
 
   depends_on "ocaml"
