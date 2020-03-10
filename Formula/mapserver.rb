@@ -10,6 +10,7 @@ class Mapserver < Formula
     sha256 "bdfe998c612593b3e05786252ef35f39c3425a15f44f8ba43d3c49062d60145b" => :catalina
     sha256 "def75156d2f1109c2e06dc7528c311900c358eb00f3d3a4cbef81ac169d8425d" => :mojave
     sha256 "d1b648c28c3a8af8b6d77ee8f0c9b0bc872e70a02e6bff0e19efa4bda8739134" => :high_sierra
+    sha256 "3ffffe9836b098a42f9b57a4a6a0a294ce81aef7b3835148c491949b5e162a24" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
