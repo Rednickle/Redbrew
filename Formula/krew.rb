@@ -11,6 +11,7 @@ class Krew < Formula
     sha256 "530b8df4b6c973f2aa45b8e4ed565979963771b1f5d3638231f8705a97c162b3" => :catalina
     sha256 "e51ee6903e65b289910dbccb11ac8de741a9f52d8ac3adb555a6b5684e6ec938" => :mojave
     sha256 "ee763d27b51175e050bb3bd00335c7f950eaf823d6b73aeb03e8d67f41240227" => :high_sierra
+    sha256 "cbda9b3e0656fd2d273549f39bcb69bb4daf5b550fcaacf1f650f92c570eeeca" => :x86_64_linux
   end
 
   depends_on "go" => :build
