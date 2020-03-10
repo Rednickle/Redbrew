@@ -10,6 +10,7 @@ class Gti < Formula
     sha256 "dc2f7bf9b442294a044b782321689783cd3fd93a465a9604db606b2b420e4443" => :catalina
     sha256 "2e1f996a67020a9bd842b41d0ac7d6e5ef0791fbc7fd57ffe3e9b7aacc1ee6de" => :mojave
     sha256 "9d46e56c0f79ba9d81e40bc1edc7b4ff1a9c9eeb4dbcb087827dec5b84c4f82b" => :high_sierra
+    sha256 "08890282aae29a1ca51af8526a6487763fd94e5a98269d5a348f0c295af677b0" => :x86_64_linux
   end
 
   def install
