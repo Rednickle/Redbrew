@@ -11,6 +11,7 @@ class Fairymax < Formula
     sha256 "8dad1d34ed2ce478abebc9ac986bbf5d7d0bf7af5f8326839da735d8fb3d11c6" => :catalina
     sha256 "5c4d837d9726fd83661fac0703cda7829f2c81e48f69ac98016915f97dad15cf" => :mojave
     sha256 "7da2c1f0d3c9f8cdfd5729c22b16bb3a0c81e0189988e4afe43ccaa69518beda" => :high_sierra
+    sha256 "35ac685db112aea1b99ddba941788d83904f40a8429495fa5d1b9964b9085998" => :x86_64_linux
   end
 
   def install
