@@ -10,6 +10,7 @@ class MongoCxxDriver < Formula
     sha256 "4f361841adbb834ffcdd4bcc828da3ad97f898e893787c379dea0cba1b5c3989" => :catalina
     sha256 "ee201353869f6ec2c55a4af4685697adba15888f830fac8c1f832cd7fcfbe0ae" => :mojave
     sha256 "669e8bc7b3b6e0b5231604a07685539143e021743097d6f15f566cd5f1fa6aa6" => :high_sierra
+    sha256 "cbfb6a451e5b84405319e94f02cd26d2639597f87506f9fd52e6006e108f344f" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
