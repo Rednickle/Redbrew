@@ -9,6 +9,7 @@ class Gambit < Formula
     sha256 "c1bf628cb87dbed50a0bd5299b3921545a001999af7a061343caf6aa75784cf5" => :catalina
     sha256 "849760c07650bf6d240e3d488ed984ef3f1520976cc402ec1afe215ac881aa08" => :mojave
     sha256 "f5d187618279c18de8e290151ba7683a5b68e4b96203db1a05600eb84002d391" => :high_sierra
+    sha256 "e4596df74b88e2d582ed9672effe84a90c6932718bd124457f691f4cb5e8406c" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
