@@ -9,6 +9,7 @@ class MklDnn < Formula
     sha256 "8365520f2ee8245beacd14c63e8c8cf66d90f502a1ec2fe15771810de1e0fe36" => :catalina
     sha256 "6e46c0a7840a076ff108f2d6befc99fa4cb6fbe2b9b44b1592f68966fedaa85a" => :mojave
     sha256 "2ed24a849cfeb4b0a2c5d16376ac1bce5847eb4fd61e32bc18faca487ea32f23" => :high_sierra
+    sha256 "a204b23ef7fd19aa5a11154d5ee1404399c4b6435a60a011cbf7f0ff559523e1" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
