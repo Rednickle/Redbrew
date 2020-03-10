@@ -9,6 +9,7 @@ class Dtc < Formula
     sha256 "3cbdb48bb892f6cce39b9cc381f60a9ad8a785ad3582a4f324be8ec4caed7423" => :catalina
     sha256 "d80813f17abce4b20eb1e656919e9a5ee9d4fd10613b144c61217f3f1febf55c" => :mojave
     sha256 "00273c1cc191558075437f3e1938977cbc22cc84c58bb6b8920acc672d25b85d" => :high_sierra
+    sha256 "486d6f5408439cefdd39be0cea8869992c7b16d3c020cfa65c09a894161e7e69" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
