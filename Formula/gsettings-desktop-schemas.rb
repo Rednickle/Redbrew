@@ -9,6 +9,7 @@ class GsettingsDesktopSchemas < Formula
     sha256 "2fddc49ef9d3b064f1663d98c34a7c9b042dd529da8eb02b490aad3fde21775e" => :catalina
     sha256 "2fddc49ef9d3b064f1663d98c34a7c9b042dd529da8eb02b490aad3fde21775e" => :mojave
     sha256 "2fddc49ef9d3b064f1663d98c34a7c9b042dd529da8eb02b490aad3fde21775e" => :high_sierra
+    sha256 "fd0f71cee039e76670d53a5edc64495a0a40b3cfcc3da59c3023faab60a94235" => :x86_64_linux
   end
 
   depends_on "gobject-introspection" => :build
