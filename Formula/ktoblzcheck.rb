@@ -3,16 +3,17 @@ class Ktoblzcheck < Formula
   homepage "https://ktoblzcheck.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/ktoblzcheck/ktoblzcheck-1.52.tar.gz"
   sha256 "e433da63af7161a6ce8b1e0c9f0b25bd59ad6d81bc4069e9277c97c1320a3ac4"
+  revision 1
 
   bottle do
-    sha256 "4deeacd897afde29f6c83c5567b0a7e840b17239ada9444bf443921b6a473077" => :catalina
-    sha256 "372fe52c862a363de4fa2f28280dc5f13b9dc888150f6f63edbda7e80d9eace4" => :mojave
-    sha256 "520194dad8e62f5e7c089586b6950e7c67558be7462d59a84172c59b734fa294" => :high_sierra
+    sha256 "fe801d5a372699c9a84f63476eb332004cd09461118d019a919c7f3fb1884fe9" => :catalina
+    sha256 "75ffa5ac1e50aee72355cfb41419d88354954f4fd8e9414261037ef7e00a3474" => :mojave
+    sha256 "5c6397edbca81abcd841366fdcb1f8df042376c6f8e996005f2c71bd6ba2b0f0" => :high_sierra
     sha256 "a3f6ba01f506d6d188b3974f1434f1deb69755b53e43fdf26363632e012a9eb5" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.8" unless OS.mac?
+  depends_on "python@3.8"
 
   def install
     system "cmake", ".", *std_cmake_args
