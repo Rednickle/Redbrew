@@ -10,6 +10,7 @@ class Points2grid < Formula
     sha256 "560b0951c7eb7c0d29e69d3a0a1696d6b313b1745bb9621b61b1a2e88539fee5" => :catalina
     sha256 "21bc3459f17617d1202823614575bc75c45f9c9ae38d47054e11bb2d2a66f533" => :mojave
     sha256 "7f573051fa8f7e74d92583359e852c68659ff01f0de9718028f306d979a581f4" => :high_sierra
+    sha256 "3b04d8d54e2408a04055bf80c173ca418818b401e3d553ba259bd0a54b1a68c4" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
