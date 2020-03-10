@@ -9,6 +9,7 @@ class SpiceProtocol < Formula
     sha256 "ac166e2e8a89dfa451a4abe531b31430fb6c3f5b386cf92f39b1a518837ff0ac" => :catalina
     sha256 "ac166e2e8a89dfa451a4abe531b31430fb6c3f5b386cf92f39b1a518837ff0ac" => :mojave
     sha256 "ac166e2e8a89dfa451a4abe531b31430fb6c3f5b386cf92f39b1a518837ff0ac" => :high_sierra
+    sha256 "72fac8f4013aafd36413aa9d61d294835d5ddc62e23d8ed4a1bb0c9854624b31" => :x86_64_linux
   end
 
   def install
