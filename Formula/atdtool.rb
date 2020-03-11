@@ -12,6 +12,7 @@ class Atdtool < Formula
     sha256 "d6b4caae97223c76d2d3f41a45ecb7721aac8f90cbcd54de2412abf60e351e59" => :catalina
     sha256 "b81608e6b0b99684c095c2e0fb88430e4e54f6b285ae85ef1355657a563be373" => :mojave
     sha256 "c0a9496c43531cd2b3d03da346ada7f938118d7dfab91cd276122feb9eb2b478" => :high_sierra
+    sha256 "bd98c7601218e0655140ab6ebeabb1f938e40fbf9875a7bfe998c3c45451ebdb" => :x86_64_linux
   end
 
   depends_on "python@3.8"
