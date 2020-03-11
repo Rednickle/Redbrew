@@ -9,6 +9,7 @@ class Pastel < Formula
     sha256 "a353ed8c114b5a65c2f82bd42d9e0a6e634a416ab852236999ade4e9ede86406" => :catalina
     sha256 "9e3c04c2ae69fb50826e45ae9249f983390dd8791833c074d6e50f10cd52b3e2" => :mojave
     sha256 "361a8200e697ca04c2e348264cda9dfd2caa4133c07a2c261e8ef68be472942d" => :high_sierra
+    sha256 "01645cbfcdbfc25328142160828d004cc8c6a0152607381362c133533b4fb87d" => :x86_64_linux
   end
 
   depends_on "rust" => :build
