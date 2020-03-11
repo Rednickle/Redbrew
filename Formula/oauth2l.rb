@@ -10,6 +10,7 @@ class Oauth2l < Formula
     sha256 "5cc7ab09462ced7fde59421399d9a2eaa6bdc6a7c223f82ea6c2998961ec690d" => :catalina
     sha256 "7273e656e6e6d24e0a2e0a1a2e21e4fc9704b03f0e26e4172c2f51ca851d441b" => :mojave
     sha256 "950e998aeae2d56005f4c4915f05458d1a59715f024811e6a70eaca886aa8aaa" => :high_sierra
+    sha256 "8c54ba0e379799e914b8e08982b7485f3ce17ca278d67cc180ff8a8273dcb46f" => :x86_64_linux
   end
 
   depends_on "go" => :build
