@@ -13,6 +13,7 @@ class HomeassistantCli < Formula
     sha256 "577de4e084789c32b7722a90b83039f1d858729bc18037cb06a45405c5bc9990" => :catalina
     sha256 "8c35c7ac779508f0eef5519c68dd660ab685b1ad799526c1a739eb15bb1fee4a" => :mojave
     sha256 "6161df03584c4230a7b2c671aef41bdf59d8971f9b2cc42fd3e09a210ed67d8e" => :high_sierra
+    sha256 "6160096d790eaee7390b75e38651becd4c2b70e6a26b195a72fef65c10b8f5c3" => :x86_64_linux
   end
 
   depends_on "python@3.8"
