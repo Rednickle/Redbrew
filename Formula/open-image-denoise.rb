@@ -9,6 +9,7 @@ class OpenImageDenoise < Formula
     sha256 "b7f6f3c03baed6abdb8ce8940013c100f8a08fed919b283a6b46d038f8656eed" => :catalina
     sha256 "c59673b0dd7f810cf1d7114f9f8b17849fa61cd6311b2ba17e6ccd6442723f8d" => :mojave
     sha256 "ae4f4112755a30e5350e6546616b1ca6ee25eb9d832158a2e21d0419c0a13f1b" => :high_sierra
+    sha256 "82bb4e589c7a27f25ffadddf7f2b1df7c38d087418324c3240d9e9b7d7cb3b69" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
