@@ -13,6 +13,7 @@ class MongoOrchestration < Formula
     sha256 "d850df4424b4e55814ddc7b881957cf07476810284c495cfa461b342ce0c6534" => :catalina
     sha256 "14ba4c270f31ce76279e5c0072d2962bca3908ff74fab6460cbe424a4e3b6a81" => :mojave
     sha256 "7f750e2e677a1ec32e07c6270c3391ce294ac821d77fd81b7cdf135488917be0" => :high_sierra
+    sha256 "81c2c81a5a70985bd4efa521af5486963fc2b786310eba80b8b91766bdc358dc" => :x86_64_linux
   end
 
   depends_on "python@3.8"
