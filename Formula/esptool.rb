@@ -12,6 +12,7 @@ class Esptool < Formula
     sha256 "0957ff12323413dfd8d106c492c2eae375b4d77d73f085ff36f11404bb9d490e" => :catalina
     sha256 "408cf90221d809ffe687c897ae5ecd510b4cc894348f03a38c4da682f0497cfb" => :mojave
     sha256 "c11b3731a7895ecea413fffb4de8455493f7f9db15066d42f2fcc79971ff4f30" => :high_sierra
+    sha256 "170e1fc2cd9c846d4c3cac35a735f71d5a1b12773ca849f110cd1c1d492d5e6e" => :x86_64_linux
   end
 
   depends_on "python@3.8"
