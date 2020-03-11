@@ -13,6 +13,7 @@ class Watson < Formula
     sha256 "033f41b9a2a5bc31aeaa860c604ff9b553655e772c9403146da47331212fdc17" => :catalina
     sha256 "2e2e4bcf2986efb662cd72a4e323646d1791bf17d729c19a406cbd3212b508f0" => :mojave
     sha256 "4d1a0d8dae1ad2dbed073b67d34e4c34b030a7b2ec096133d69f2b8e62522e1b" => :high_sierra
+    sha256 "b98957650b0e8eefea1173180954623c33787f0864c1c60462e0c4632a6ad064" => :x86_64_linux
   end
 
   depends_on "python@3.8"
