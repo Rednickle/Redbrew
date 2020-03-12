@@ -9,6 +9,7 @@ class GitTrim < Formula
     sha256 "43c93225e3bced1921b69adf6d503bed99909c57945859a69a63b86c7d5b8c1f" => :catalina
     sha256 "d0a4dd74552c09184e17bad80436c180697415482fc8487d6cf3cf6c0ac4101a" => :mojave
     sha256 "78d5690223b4a6124946b5e51aab51190f854a8033d488942484fc38aeb2be82" => :high_sierra
+    sha256 "852d75a561ab15b6fb0c5746df033fd8dac919ef0d4bfbe58cfbd49462e3c80c" => :x86_64_linux
   end
 
   depends_on "rust" => :build
