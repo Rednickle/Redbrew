@@ -10,6 +10,7 @@ class Frps < Formula
     sha256 "71ad026828e9e35c9a54564bd191bce3f7e9cbc17cf40e556064a2fd91eb2d68" => :catalina
     sha256 "bc9302bbc263cc71ec8354b3172a18eecb5a648207c45b9a123343e431e52596" => :mojave
     sha256 "89fb402e20a3afe2d0cd14aedc927d96a2493cbd3f82c5df0fccbe3948c83ba9" => :high_sierra
+    sha256 "54ac6a4fcc3ea1a769e309760b5ef4dda0a2d3ed1f6a3118cc288a3422de098b" => :x86_64_linux
   end
 
   depends_on "go" => :build
