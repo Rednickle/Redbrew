@@ -3,16 +3,14 @@ class Sqlparse < Formula
 
   desc "Non-validating SQL parser"
   homepage "https://github.com/andialbrecht/sqlparse"
-  url "https://files.pythonhosted.org/packages/79/3c/2ad76ba49f9e3d88d2b58e135b7821d93741856d1fe49970171f73529303/sqlparse-0.2.4.tar.gz"
-  sha256 "ce028444cfab83be538752a2ffdb56bc417b7784ff35bb9a3062413717807dec"
-  revision 3
+  url "https://files.pythonhosted.org/packages/67/4b/253b6902c1526885af6d361ca8c6b1400292e649f0e9c95ee0d2e8ec8681/sqlparse-0.3.1.tar.gz"
+  sha256 "e162203737712307dfe78860cc56c8da8a852ab2ee33750e33aeadf38d12c548"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "439ec9e76d4cb0bd66dde0e9bd3cf471d0c067ae19e5ccac0d8fcfaee0f08d62" => :catalina
-    sha256 "a3f4a494651de7aca86d4743e9a54a2ba9209d4ca4785deaf21d6da51512ae63" => :mojave
-    sha256 "73dbdb834b2d5cd10bf0629f7c7fe9631e3eda5b8a704c2b65e278f5ad94b741" => :high_sierra
-    sha256 "6cbb40f574f424352e302ddc687b95b52a0fc08c8742c237a305c0c1e65dc87d" => :x86_64_linux
+    sha256 "a886da74810f4112ac16b08840eac4ebd3ccd3daf5b7219ba1ad84d2981b8478" => :catalina
+    sha256 "cbd26ba6872f20f79ccb9545f2329697e3f2611c124040502cd751fa4efd5432" => :mojave
+    sha256 "c3e7934f912db3b38d16bd6adb86a496568040bcbd66f646822679b233d3d193" => :high_sierra
   end
 
   depends_on "python@3.8"
