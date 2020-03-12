@@ -1,17 +1,14 @@
 class Libtcod < Formula
   desc "API for roguelike developers"
   homepage "https://github.com/libtcod/libtcod"
-  url "https://bitbucket.org/libtcod/libtcod/get/1.8.2.tar.bz2"
-  sha256 "a33aa463e78b6df327d2aceae875edad8dba7a9e5ea0f1299c486b99f4bed31c"
+  url "https://github.com/libtcod/libtcod/archive/1.15.1.tar.gz"
+  sha256 "2713d8719be53db7a529cbf53064e5bc9f3adf009db339d3a81b50d471bc306f"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "6fab34197cacd706fb4b33c822d9827a2812201d8c1c662effcfb3779a48b83c" => :catalina
-    sha256 "4ed64942b836e3bbfe50fa3eb97eeb66acd4d0d1aa7fe253126c2b5b6353d6c8" => :mojave
-    sha256 "961e7dee0e97894c62d382e6ab2454d14cb77a7a3d20ead0fbd965b825957ca4" => :high_sierra
-    sha256 "cf96ee73d811071c9ee411e884d9cd8276f1dcbbd121d9d42284ead55a1dcb6b" => :sierra
-    sha256 "384ab73bea87e65a5d3225f01325d27e1872bdf0dd9c89f301758191d8ec23e1" => :x86_64_linux
+    sha256 "48c1dc06ec54ec78c8f4cda6c7fd15792cf4a2ae6c9b65f015cc243c9cb47649" => :catalina
+    sha256 "29c26abf54281335e0b06960fb8a9c1f99c86f9f1e0a95ef323e3767ecd44898" => :mojave
+    sha256 "8b92b6d780acbdf957141cc30f76f967949bd15519b060a163133a55888c20f1" => :high_sierra
   end
 
   depends_on :macos # Due to Python 2
@@ -19,6 +16,7 @@ class Libtcod < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "python" => :build
   depends_on "sdl2"
   unless OS.mac?
     depends_on "python@2" => :build
@@ -30,7 +28,7 @@ class Libtcod < Formula
     :because => "libtcod, libzip and minizip2 install a `zip.h` header"
 
   def install
-    cd "build/autotools" do
+    cd "buildsys/autotools" do
       system "autoreconf", "-fiv"
       system "./configure"
       system "make"

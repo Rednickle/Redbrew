@@ -69,10 +69,10 @@ class Llvm < Formula
 
   bottle do
     cellar :any
-    sha256 "6964572246daac37b921125f1d8f60da8c2c626b54e289ff9b015725bfa3a9ea" => :catalina
-    sha256 "13848a9e23a94df2468b931ae84ae72bb257fba6d2d67b94db59de308f0735ee" => :mojave
-    sha256 "a68c82c388558bce245e4d7cee532cb7f8d743a02ed77c4add2867b905b6d6b5" => :high_sierra
-    sha256 "bf928d9d86c726e05bbf66e5bbeeb9c47c1a9f8bb9d8e3af09d8a8ff1409920c" => :x86_64_linux
+    rebuild 1
+    sha256 "ded898b5800305985074c1196d79452a92ed2f006a12a99c8cbb727537f36daf" => :catalina
+    sha256 "2c728a1080f7d8816287690e4ce2833a5cbf407f3d01e5a4021eb707ed90fb70" => :mojave
+    sha256 "627f4f1959f9287eecec7abf337058eee08edc10006fe1d82d9ce689eb90da53" => :high_sierra
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -247,6 +247,13 @@ class Llvm < Formula
         f.file? && (f.elf? || f.extname == ".a")
       end)
     end
+
+    # install emacs modes
+    elisp.install Dir["utils/emacs/*.el"] + %w[
+      tools/clang/tools/clang-format/clang-format.el
+      tools/clang/tools/clang-rename/clang-rename.el
+      tools/clang/tools/extra/clang-include-fixer/tool/clang-include-fixer.el
+    ]
   end
 
   def caveats; <<~EOS
