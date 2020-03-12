@@ -12,6 +12,7 @@ class Texmath < Formula
     sha256 "f78d7ac53e087522f2a8dbd1baa05f1f40c462e75185e19e9930aae1f9efefbb" => :catalina
     sha256 "bd0c24bbe1f43ffbe9ecd672a639605cc65a6e6c0799bf9f8428a44b0e13e4bf" => :mojave
     sha256 "416ce61d13a1490a5914eed52fb6f92c441a765ec492ba0a65ce81e22770139d" => :high_sierra
+    sha256 "8522fea5ffd165a3e60a8fba9ac59d29c1a8ad78d3504850a1f2ad2e68d86da9" => :x86_64_linux
   end
 
   depends_on "cabal-install" => :build
