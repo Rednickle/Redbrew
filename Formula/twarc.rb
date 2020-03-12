@@ -11,6 +11,7 @@ class Twarc < Formula
     sha256 "49787a98c77423d79d5e555f0032f5b8b2569c8aa06bb1e7763d4a77b2588bf4" => :catalina
     sha256 "31185173cf88175f16fc4b89b346b1e630dcd6e1e976f0b7982069a5aa65b403" => :mojave
     sha256 "5f7f91b443b4d25845e1e4d765a684c81b3109431b61440b463d25b3275f78eb" => :high_sierra
+    sha256 "3f85e0e21c24da433a729b5d505e3ce7df21bb5dab3eb328641a8ba94096d5be" => :x86_64_linux
   end
 
   depends_on "python@3.8"
