@@ -41,9 +41,7 @@ class CrosstoolNg < Formula
   end
 
   def install
-    if build.head?
-      system "./bootstrap"
-    end
+    system "./bootstrap" if build.head?
 
     make = OS.mac? ? "gmake" : "make"
     ENV["BISON"] = "#{Formula["bison"].opt_bin}/bison"
