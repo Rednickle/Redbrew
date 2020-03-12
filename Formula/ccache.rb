@@ -12,8 +12,6 @@ class Ccache < Formula
     sha256 "30651218d910eb257fd7e0be583381e21a75bba7d2fbbe48a0c010e7c196691f" => :x86_64_linux
   end
 
-  uses_from_macos "zlib"
-
   head do
     url "https://github.com/ccache/ccache.git"
 
@@ -22,6 +20,8 @@ class Ccache < Formula
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
+
+  uses_from_macos "zlib"
 
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog" if build.head?
@@ -37,9 +37,15 @@ class Ccache < Formula
       clang
       clang++
       cc
-      gcc gcc2 gcc3 gcc-3.3 gcc-4.0 gcc-4.2 gcc-4.3 gcc-4.4 gcc-4.5 gcc-4.6 gcc-4.7 gcc-4.8 gcc-4.9 gcc-5 gcc-6 gcc-7 gcc-8 gcc-9
-      c++ c++3 c++-3.3 c++-4.0 c++-4.2 c++-4.3 c++-4.4 c++-4.5 c++-4.6 c++-4.7 c++-4.8 c++-4.9 c++-5 c++-6 c++-7 c++-8 c++-9
-      g++ g++2 g++3 g++-3.3 g++-4.0 g++-4.2 g++-4.3 g++-4.4 g++-4.5 g++-4.6 g++-4.7 g++-4.8 g++-4.9 g++-5 g++-6 g++-7 g++-8 g++-9
+      gcc gcc2 gcc3 gcc-3.3 gcc-4.0
+      gcc-4.2 gcc-4.3 gcc-4.4 gcc-4.5 gcc-4.6 gcc-4.7 gcc-4.8 gcc-4.9
+      gcc-5 gcc-6 gcc-7 gcc-8 gcc-9
+      c++ c++3 c++-3.3 c++-4.0
+      c++-4.2 c++-4.3 c++-4.4 c++-4.5 c++-4.6 c++-4.7 c++-4.8 c++-4.9
+      c++-5 c++-6 c++-7 c++-8 c++-9
+      g++ g++2 g++3 g++-3.3 g++-4.0
+      g++-4.2 g++-4.3 g++-4.4 g++-4.5 g++-4.6 g++-4.7 g++-4.8 g++-4.9
+      g++-5 g++-6 g++-7 g++-8 g++-9
     ].each do |prog|
       libexec.install_symlink bin/"ccache" => prog
     end

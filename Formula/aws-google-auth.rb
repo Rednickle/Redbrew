@@ -200,7 +200,9 @@ class AwsGoogleAuth < Formula
       end
 
       # avoid triggering "helpful" distutils code that doesn't recognize Xcode 7 .tbd stubs
-      ENV.append "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers" if OS.mac? && !MacOS::CLT.installed?
+      unless OS.mac? && MacOS::CLT.installed?
+        ENV.append "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
+      end
       venv.pip_install Pathname.pwd
     end
 
@@ -214,6 +216,7 @@ class AwsGoogleAuth < Formula
   end
 
   test do
-    assert_match /Invalid username or password/, shell_output("echo 'foobar' | #{bin}/aws-google-auth -u foo -I C01111111 -S 111111111111 2>&1", 1)
+    assert_match /Invalid username or password/,
+      shell_output("echo 'foobar' | #{bin}/aws-google-auth -u foo -I C01111111 -S 111111111111 2>&1", 1)
   end
 end

@@ -30,6 +30,7 @@ class Castxml < Formula
         return 0;
       }
     EOS
-    system "#{bin}/castxml", "-c", "-x", "c++", "--castxml-cc-gnu", "clang++", "--castxml-gccxml", "-o", "test.xml", "test.cpp"
+    system "#{bin}/castxml", "-c", "-x", "c++", "--castxml-cc-gnu", "clang++",
+                             "--castxml-gccxml", "-o", "test.xml", "test.cpp"
   end
 end

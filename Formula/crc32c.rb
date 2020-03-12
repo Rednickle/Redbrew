@@ -17,10 +17,14 @@ class Crc32c < Formula
 
   def install
     ENV.cxx11 unless OS.mac?
-    system "cmake", ".", "-DCRC32C_BUILD_TESTS=0", "-DCRC32C_BUILD_BENCHMARKS=0", "-DCRC32C_USE_GLOG=0", *std_cmake_args
+    system "cmake", ".", "-DCRC32C_BUILD_TESTS=0",
+                          "-DCRC32C_BUILD_BENCHMARKS=0", "-DCRC32C_USE_GLOG=0",
+                         *std_cmake_args
     system "make", "install"
     system "make", "clean"
-    system "cmake", ".", "-DBUILD_SHARED_LIBS=ON", "-DCRC32C_BUILD_TESTS=0", "-DCRC32C_BUILD_BENCHMARKS=0", "-DCRC32C_USE_GLOG=0", *std_cmake_args
+    system "cmake", ".", "-DBUILD_SHARED_LIBS=ON", "-DCRC32C_BUILD_TESTS=0",
+                         "-DCRC32C_BUILD_BENCHMARKS=0", "-DCRC32C_USE_GLOG=0",
+                         *std_cmake_args
     system "make", "install"
   end
 
