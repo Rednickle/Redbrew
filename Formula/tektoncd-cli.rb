@@ -10,6 +10,7 @@ class TektoncdCli < Formula
     sha256 "957f2b7fca0ca4dd9771424414d487bf17a99cfec72287ae8ea8f890e7436902" => :catalina
     sha256 "ae2e0d06f6a7469e8203a0116aa134d2cf6d5061acb7cbda4c4d42fa377a2201" => :mojave
     sha256 "a4a0f3b056562799e295f4571058f9139af9783fb7d3fb38a1ae93b912d983ee" => :high_sierra
+    sha256 "0121cee36e64ab69ab8b2d2ef46ead482006bfec2360ce69b529805da39d6cbe" => :x86_64_linux
   end
 
   depends_on "go" => :build
