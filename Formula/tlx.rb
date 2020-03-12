@@ -9,6 +9,7 @@ class Tlx < Formula
     sha256 "5feb247e39d672770af736845dcf642619eaef47816252f085a855e61479b258" => :catalina
     sha256 "d9306942815fa8499df14ad4e5de524acd0fb85ce3055ae344be4bce10720dfb" => :mojave
     sha256 "37a9d67e4cc9a36137d339bd7ebebcc2a351ff3bff631dd0d358db03cf8a6e2a" => :high_sierra
+    sha256 "a5a22896dfac6c622bf17e97f561b1a369f3e54d47481ea6eb922ad0dd9fa447" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
