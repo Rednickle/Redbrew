@@ -55,7 +55,8 @@ class Liberasurecode < Formula
           exit(0);
       }
     EOS
-    system ENV.cxx, "liberasurecode-test.cpp", "-L#{lib}", "-lerasurecode", "-I#{include}/liberasurecode", "-o", "liberasurecode-test"
+    system ENV.cxx, "liberasurecode-test.cpp", "-L#{lib}", "-lerasurecode",
+                    "-I#{include}/liberasurecode", "-o", "liberasurecode-test"
     system "./liberasurecode-test"
   end
 end
