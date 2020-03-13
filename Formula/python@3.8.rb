@@ -334,6 +334,11 @@ class PythonAT38 < Formula
   end
 
   def caveats
+    xy = if prefix.exist?
+      (prefix/"Frameworks/Python.framework/Versions").children.min.basename.to_s
+    else
+      version.to_s.slice(/(3\.\d)/) || "3.8"
+    end
     <<~EOS
       Python has been installed as
         #{opt_bin}/python3
