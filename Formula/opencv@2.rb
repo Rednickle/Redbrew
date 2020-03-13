@@ -63,9 +63,7 @@ class OpencvAT2 < Formula
     args << "-DPYTHON_INCLUDE_DIR=#{py_prefix}/include/python2.7"
     args << "-DCMAKE_PREFIX_PATH=#{py_prefix}"
 
-    if MacOS.version.requires_sse42?
-      args << "-DENABLE_SSE41=ON" << "-DENABLE_SSE42=ON"
-    end
+    args << "-DENABLE_SSE41=ON" << "-DENABLE_SSE42=ON" if MacOS.version.requires_sse42?
 
     mkdir "build" do
       system "cmake", "..", *args

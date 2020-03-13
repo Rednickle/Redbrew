@@ -100,9 +100,7 @@ class PostgresqlAT95 < Formula
   def post_install
     (var/"log").mkpath
     (var/name).mkpath
-    if !Process.euid.zero? && !(File.exist? "#{var}/#{name}/PG_VERSION")
-      system "#{bin}/initdb", "#{var}/#{name}"
-    end
+    system "#{bin}/initdb", "#{var}/#{name}" unless File.exist? "#{var}/#{name}/PG_VERSION"
   end
 
   def caveats; <<~EOS
