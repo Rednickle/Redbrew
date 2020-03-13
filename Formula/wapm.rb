@@ -10,6 +10,7 @@ class Wapm < Formula
     sha256 "4f1c18ce08a6f4a483a50888ad9769898a203bd826b992f877010f38a80ca710" => :catalina
     sha256 "db34bd4d679207ae7d903a4beada8e30e3568f16c55fd610a196931c440716ef" => :mojave
     sha256 "70e4c8f038838547a2e70116567c1042f2f4cec53542e0750d4d061f80dc7b23" => :high_sierra
+    sha256 "2d1f0aefbc0b7f6264e5fb6852edbda5bc9e0235288f7112fae691956b6ee51d" => :x86_64_linux
   end
 
   depends_on "rust" => :build
