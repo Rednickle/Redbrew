@@ -70,7 +70,8 @@ class Root < Formula
 
     py_exe = Utils.popen_read("which python3").strip
     py_prefix = Utils.popen_read("python3 -c 'import sys;print(sys.prefix)'").chomp
-    py_inc = Utils.popen_read("python3 -c 'from distutils import sysconfig;print(sysconfig.get_python_inc(True))'").chomp
+    py_inc =
+      Utils.popen_read("python3 -c 'from distutils import sysconfig;print(sysconfig.get_python_inc(True))'").chomp
     py_lib = Utils.popen_read("python3 -c 'from distutils import sysconfig;print(sysconfig.get_config_var(\"LDLIBRARY\"))'").chomp
 
     args = std_cmake_args + %W[

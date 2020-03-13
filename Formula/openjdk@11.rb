@@ -74,10 +74,11 @@ class OpenjdkAT11 < Formula
       include.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/include/*.h"]
       include.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/include/darwin/*.h"]
     else
-      libexec.install Dir["build/linux-x86_64-normal-server-release/images/jdk/*"]
-      bin.install_symlink Dir["#{libexec}/bin/*"]
-      include.install_symlink Dir["#{libexec}/include/*.h"]
-      include.install_symlink Dir["#{libexec}/include/linux/*.h"]
+      jdk = "build/macosx-x86_64-normal-server-release/images/jdk-bundle/jdk-#{short_version}.jdk"
+      libexec.install jdk => "openjdk.jdk"
+      bin.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/bin/*"]
+      include.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/include/*.h"]
+      include.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/include/darwin/*.h"]
     end
   end
 

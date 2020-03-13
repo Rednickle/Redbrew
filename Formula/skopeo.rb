@@ -39,7 +39,8 @@ class Skopeo < Formula
         "-X github.com/containers/image/v5/docker.systemRegistriesDirPath=#{etc/"containers/registries.d"}",
         "-X github.com/containers/image/v5/internal/tmpdir.unixTempDirForBigFiles=/var/tmp",
         "-X github.com/containers/image/v5/signature.systemDefaultPolicyPath=#{etc/"containers/policy.json"}",
-        "-X github.com/containers/image/v5/pkg/sysregistriesv2.systemRegistriesConfPath=#{etc/"containers/registries.conf"}",
+        "-X github.com/containers/image/v5/pkg/sysregistriesv2.systemRegistriesConfPath=" \
+                                              "#{etc/"containers/registries.conf"}",
       ].join(" ")
 
       system "go", "build", "-v", "-tags", buildtags, "-ldflags", ldflags, "-o", bin/"skopeo", "./cmd/skopeo"
