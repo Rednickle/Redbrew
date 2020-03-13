@@ -12,6 +12,7 @@ class ZabbixCli < Formula
     sha256 "3ce4d420b9ddaf208d8cdc5c1b22358ac39f1cd4e6473bb2765bbedb5eb82c9d" => :catalina
     sha256 "b663824f576794bc31d1d55ebcce1d2352cc1c3675d0c75f957d7f410e8ca766" => :mojave
     sha256 "6158e91d1699b5117714310bdf8850e185eb9b358c70d3a89a6d0fefd7856482" => :high_sierra
+    sha256 "b68b3e142853486a5f3752461312d2a8f0a895b04c57def1a792ca33788942b1" => :x86_64_linux
   end
 
   depends_on "python@3.8"
