@@ -10,6 +10,7 @@ class Hostess < Formula
     sha256 "80480773a167fdcad3fadb3feeb298b51aeb89aec5863204f512f941af7271da" => :catalina
     sha256 "f3f06881067507c0d115209d515e6ebbe4090d7aa8fcff7bc685027c49ea6479" => :mojave
     sha256 "15050f5b2f5936fe74e47937323c8a872ec12b75ed639b3df2c6eac11cf7da6f" => :high_sierra
+    sha256 "515ef98b1abb5cc9acacf89d6771636147886668af0b7fa6eff01e2dc0d91ae4" => :x86_64_linux
   end
 
   depends_on "go" => :build
