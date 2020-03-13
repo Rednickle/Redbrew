@@ -1,17 +1,15 @@
 class Flatbuffers < Formula
   desc "Serialization library for C++, supporting Java, C#, and Go"
   homepage "https://google.github.io/flatbuffers"
-  url "https://github.com/google/flatbuffers/archive/v1.11.0.tar.gz"
-  sha256 "3f4a286642094f45b1b77228656fbd7ea123964f19502f9ecfd29933fd23a50b"
+  url "https://github.com/google/flatbuffers/archive/v1.12.0.tar.gz"
+  sha256 "62f2223fb9181d1d6338451375628975775f7522185266cd5296571ac152bc45"
   head "https://github.com/google/flatbuffers.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a7069d703572d441b912b30f970240f1b047ba5f9f73fce1538a798638cc7fa6" => :catalina
-    sha256 "7d796ffd01ee8b81de0ffba7ef8dd6c5a85111d2007f2bf06096e461cb2f2210" => :mojave
-    sha256 "96246b405f3804a2e0bec7ff4b214fcb009e086a65941018a602f24dfe098c37" => :high_sierra
-    sha256 "1ed87e54f40fc6c1df22d379b7efed9517c4e660a457715ebc9397c3bfb5896a" => :sierra
-    sha256 "fe4e2d151953cdbaaa775a8d3d32a45eb4325c65895d06094182dbb527a4feba" => :x86_64_linux
+    sha256 "6af7ac37134539beb7c1003bd2cf8d1e530606cac616239acf4d2b1df31b0dbc" => :catalina
+    sha256 "270bebda4048754554cd587d48db10ee5fe1a2795ef6e881cafd1b8f90c7af78" => :mojave
+    sha256 "f45982e6ca71b10e59c607b9d984108e1b18fc84b8c52dd23325b6b9211e407f" => :high_sierra
   end
 
   depends_on "cmake" => :build
