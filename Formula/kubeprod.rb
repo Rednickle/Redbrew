@@ -9,6 +9,7 @@ class Kubeprod < Formula
     sha256 "daa316228ff1ca467c076a4cd969799ae246d9b064feaab427624c243cb9657a" => :catalina
     sha256 "1d7781eca77865b507182a289e70f355df4e97aa41f7d1166a8e60bb4dab70f8" => :mojave
     sha256 "c60575857fa610021e8404a0bfe159277fea772024180b841e46d5899faf236f" => :high_sierra
+    sha256 "75e6ed6f85a3cc7251e24ac2d9a33869a0bc68c1d977ee9c5b53650c9e139fc3" => :x86_64_linux
   end
 
   depends_on "go" => :build
