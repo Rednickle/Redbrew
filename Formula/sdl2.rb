@@ -9,6 +9,7 @@ class Sdl2 < Formula
     sha256 "f01b56251f8798f687fc536546a66e18688dc7c1189e83324951e5638ae33657" => :catalina
     sha256 "9e82713279fc1fb81059f1c1070e60ffa6e3f085adc604aaf889a10222a1a7cb" => :mojave
     sha256 "40682e8ed7520c51b598833fd0600b7a0a3c4d027d01ec1ea54a1f119a286b52" => :high_sierra
+    sha256 "6210e2111bd46fffc5ff3d5c46cb8fb86f05183ba8935dd696def93ffe4358a0" => :x86_64_linux
   end
 
   head do
