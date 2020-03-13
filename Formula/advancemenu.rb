@@ -8,6 +8,7 @@ class Advancemenu < Formula
     sha256 "07f9a82231936429257190078d28ec7313b39dfe9ecf3ed9e82b15fbe1615366" => :catalina
     sha256 "36ebf0c6727172fa909b933f801986e483892d5cb10c0a2fb27314880d906bd1" => :mojave
     sha256 "fda952fe67d2c39e57d621b6a1392493a95c8ef62f510f63534f962a97252d26" => :high_sierra
+    sha256 "30a22cc194562e66fd231e2d476de80ebad66477a5f8cf6b86fecca1f98b950e" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
