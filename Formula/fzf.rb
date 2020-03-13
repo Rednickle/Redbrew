@@ -11,6 +11,7 @@ class Fzf < Formula
     sha256 "cb79c395f86a0645cf2bd61e9f216285e063dfb72b2ca1e369618dea5c1e0907" => :catalina
     sha256 "d4f5d3b2b3a60116cc0b21192e57d07b29757add3f03015c6f77a69a24626cca" => :mojave
     sha256 "83fdfd570ee6c67f3012c465f22fac76ff89d6f9541fc53a3404c0660e4a83fe" => :high_sierra
+    sha256 "c14fd47dce3c14c615e3f201bae5a15b3d5746322b8c4a1bc91b391ef5bafdec" => :x86_64_linux
   end
 
   depends_on "go" => :build
