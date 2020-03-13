@@ -9,6 +9,7 @@ class GambitScheme < Formula
     sha256 "cc4d0841423822b27fd424f7eba3a0482f01266ef61c25ec4b1d49d211d6c50e" => :catalina
     sha256 "9fc086d950cb20c99d1d24947a0599fab72525c8a2dbd2d448f94791a5a8f481" => :mojave
     sha256 "8af81a5c228d029402bc150331cb03dc0695eeee8dd5a58ce497a7a49a19fa47" => :high_sierra
+    sha256 "357ae44c4b40b7f10966151026fbd9c547b007b6487bb75f605534cc5aed46c3" => :x86_64_linux
   end
 
   depends_on "openssl@1.1"
