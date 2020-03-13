@@ -337,11 +337,6 @@ class Python < Formula
   end
 
   def caveats
-    xy = if prefix.exist?
-      (prefix/"Frameworks/Python.framework/Versions").children.min.basename.to_s
-    else
-      version.to_s.slice(/(3\.\d)/) || "3.7"
-    end
     <<~EOS
       Python has been installed as
         #{HOMEBREW_PREFIX}/bin/python3
@@ -353,7 +348,7 @@ class Python < Formula
       You can install Python packages with
         pip3 install <package>
       They will install into the site-package directory
-        #{HOMEBREW_PREFIX/"lib/python#{xy}/site-packages"}
+        #{HOMEBREW_PREFIX/"lib/python3.7/site-packages"}
 
       See: https://docs.brew.sh/Homebrew-and-Python
     EOS
