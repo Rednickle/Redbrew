@@ -9,6 +9,7 @@ class WakatimeCli < Formula
     sha256 "6415adc12bbcea7ae69fa5ca29848dac754e9f09cc0f21a2c246d4118e8aa90a" => :catalina
     sha256 "6415adc12bbcea7ae69fa5ca29848dac754e9f09cc0f21a2c246d4118e8aa90a" => :mojave
     sha256 "6415adc12bbcea7ae69fa5ca29848dac754e9f09cc0f21a2c246d4118e8aa90a" => :high_sierra
+    sha256 "52fc6744dbba67d6af6c7a1de84c899e4579a2630109359082cc207a98236c0a" => :x86_64_linux
   end
 
   depends_on "python@3.8"
