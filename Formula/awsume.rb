@@ -12,6 +12,7 @@ class Awsume < Formula
     sha256 "db77dc1971794366c6fb7149ea5a81fdd8a362962e95508c1590d11542ba15bc" => :catalina
     sha256 "40865468a41516ffb9983f8488440fdfa3b31267159b78f15cecab70dff0d97f" => :mojave
     sha256 "1299579a47958e27e1d3cdb4925e8abf346aa048c9a6df4bae8b1abf02fba684" => :high_sierra
+    sha256 "f83dce52f63cb2646f923ef616919a89c53d6b6241062ac5a30967d1c74923cc" => :x86_64_linux
   end
 
   depends_on "openssl@1.1"
