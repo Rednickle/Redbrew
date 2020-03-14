@@ -7,6 +7,8 @@ class Plenv < Formula
 
   bottle :unneeded
 
+  depends_on "perl-build"
+
   def install
     prefix.install "bin", "plenv.d", "completions", "libexec"
 
@@ -25,6 +27,6 @@ class Plenv < Formula
   end
 
   test do
-    system "#{bin}/plenv", "--version"
+    assert_match(/\* system \(set by/, shell_output("#{bin}/plenv versions"))
   end
 end

@@ -1,29 +1,42 @@
 class Spades < Formula
   desc "De novo genome sequence assembly"
   homepage "http://cab.spbu.ru/software/spades/"
-  url "http://cab.spbu.ru/files/release3.13.1/SPAdes-3.13.1.tar.gz"
-  mirror "https://github.com/ablab/spades/releases/download/v3.13.1/SPAdes-3.13.1.tar.gz"
-  sha256 "8da29b72fb56170dd39e3a8ea5074071a8fa63b29346874010b8d293c2f72a3e"
+  url "https://github.com/ablab/spades/releases/download/v3.14.0/SPAdes-3.14.0.tar.gz"
+  mirror "http://cab.spbu.ru/files/release3.14.0/SPAdes-3.14.0.tar.gz"
+  sha256 "18988dd51762863a16009aebb6e873c1fbca92328b0e6a5af0773e2b1ad7ddb9"
 
   bottle do
-    cellar :any
-    sha256 "4761b8cfbaca36fdc4fac08b8122f5519415d86668355224a67c52a5191ae7c5" => :catalina
-    sha256 "f3e29120ab665892ba68d2d7c7522b1fea866a2d405f59547071d8c6c31318c8" => :high_sierra
+    cellar :any_skip_relocation
+    sha256 "57d10f39e017dda291cdcdc3e6b2b3ea41cbfd745c802c2833e4c6e606cc5854" => :catalina
+    sha256 "5ba1f271f5489004b1a2758259164e7cd9319e291893a1aebc68fdba5ab0ba41" => :mojave
+    sha256 "9bec40cdba00c2c4798770cdce92091c209db9e7d4ea97ee1ad167a2cdafb04f" => :high_sierra
   end
 
   depends_on "cmake" => :build
-  depends_on "gcc"
+  depends_on "libomp"
   depends_on "python@3.8"
 
   uses_from_macos "bzip2"
-
-  fails_with :clang # no OpenMP support
+  uses_from_macos "ncurses"
+  uses_from_macos "python@2"
+  uses_from_macos "readline"
+  uses_from_macos "zlib"
 
   def install
     inreplace "spades.py", "/usr/bin/env python", Formula["python@3.8"].opt_bin/"python3"
 
+    # Use libomp due to issues with headers in GCC.
+    libomp = Formula["libomp"]
+    args = std_cmake_args
+    args << "-DOpenMP_C_FLAGS=\"-Xpreprocessor -fopenmp -I#{libomp.opt_include}\""
+    args << "-DOpenMP_CXX_FLAGS=\"-Xpreprocessor -fopenmp -I#{libomp.opt_include}\""
+    args << "-DOpenMP_CXX_LIB_NAMES=omp"
+    args << "-DOpenMP_C_LIB_NAMES=omp"
+    args << "-DOpenMP_omp_LIBRARY=#{libomp.opt_lib}/libomp.dylib"
+    args << "-DAPPLE_OUTPUT_DYLIB=ON"
+
     mkdir "src/build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", *args
       system "make", "install"
     end
   end
