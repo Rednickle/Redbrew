@@ -44,10 +44,11 @@ class Awscli < Formula
     EOS
   end
 
-  def caveats; <<~EOS
-    The "examples" directory has been installed to:
-      #{HOMEBREW_PREFIX}/share/awscli/examples
-  EOS
+  def caveats
+    <<~EOS
+      The "examples" directory has been installed to:
+        #{HOMEBREW_PREFIX}/share/awscli/examples
+    EOS
   end
 
   test do

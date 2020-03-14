@@ -36,10 +36,11 @@ class Cmigemo < Formula
     system "make", "#{os}-install"
   end
 
-  def caveats; <<~EOS
-    See also https://github.com/emacs-jp/migemo to use cmigemo with Emacs.
-    You will have to save as migemo.el and put it in your load-path.
-  EOS
+  def caveats
+    <<~EOS
+      See also https://github.com/emacs-jp/migemo to use cmigemo with Emacs.
+      You will have to save as migemo.el and put it in your load-path.
+    EOS
   end
 end
 

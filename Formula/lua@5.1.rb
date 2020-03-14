@@ -90,10 +90,11 @@ class LuaAT51 < Formula
     end
   end
 
-  def caveats; <<~EOS
-    You may also want luarocks:
-      brew install luarocks
-  EOS
+  def caveats
+    <<~EOS
+      You may also want luarocks:
+        brew install luarocks
+    EOS
   end
 
   test do

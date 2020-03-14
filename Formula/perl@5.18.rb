@@ -29,10 +29,11 @@ class PerlAT518 < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    By default Perl installs modules in your HOME dir. If this is an issue run:
-      #{bin}/cpan o conf init
-  EOS
+  def caveats
+    <<~EOS
+      By default Perl installs modules in your HOME dir. If this is an issue run:
+        #{bin}/cpan o conf init
+    EOS
   end
 
   test do

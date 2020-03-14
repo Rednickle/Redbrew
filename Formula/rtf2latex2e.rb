@@ -18,10 +18,11 @@ class Rtf2latex2e < Formula
     system "make", "install", "prefix=#{prefix}", "CC=#{ENV.cc}"
   end
 
-  def caveats; <<~EOS
-    Configuration files have been installed to:
-      #{opt_pkgshare}
-  EOS
+  def caveats
+    <<~EOS
+      Configuration files have been installed to:
+        #{opt_pkgshare}
+    EOS
   end
 
   test do

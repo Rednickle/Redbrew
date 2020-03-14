@@ -180,10 +180,11 @@ class LlvmAT6 < Formula
     end
   end
 
-  def caveats; <<~EOS
-    To use the bundled libc++ please add the following LDFLAGS:
-      LDFLAGS="-L#{opt_lib} -Wl,-rpath,#{opt_lib}"
-  EOS
+  def caveats
+    <<~EOS
+      To use the bundled libc++ please add the following LDFLAGS:
+        LDFLAGS="-L#{opt_lib} -Wl,-rpath,#{opt_lib}"
+    EOS
   end
 
   test do

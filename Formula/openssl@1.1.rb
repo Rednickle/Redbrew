@@ -36,15 +36,16 @@ class OpensslAT11 < Formula
   # SSLv3 & zlib are off by default with 1.1.0 but this may not
   # be obvious to everyone, so explicitly state it for now to
   # help debug inevitable breakage.
-  def configure_args; %W[
-    --prefix=#{prefix}
-    --openssldir=#{openssldir}
-    no-ssl3
-    no-ssl3-method
-    no-zlib
-    #{[ENV.cppflags, ENV.cflags, ENV.ldflags].join(" ").strip unless OS.mac?}
-    #{"enable-md2" unless OS.mac?}
-  ]
+  def configure_args
+    %W[
+      --prefix=#{prefix}
+      --openssldir=#{openssldir}
+      no-ssl3
+      no-ssl3-method
+      no-zlib
+      #{[ENV.cppflags, ENV.cflags, ENV.ldflags].join(" ").strip unless OS.mac?}
+      #{"enable-md2" unless OS.mac?}
+    ]
   end
 
   def install
@@ -113,14 +114,15 @@ class OpensslAT11 < Formula
     (openssldir/"cert.pem").atomic_write(valid_certs.join("\n") << "\n")
   end
 
-  def caveats; <<~EOS
-    A CA file has been bootstrapped using certificates from the system
-    keychain. To add additional certificates, place .pem files in
-      #{openssldir}/certs
+  def caveats
+    <<~EOS
+      A CA file has been bootstrapped using certificates from the system
+      keychain. To add additional certificates, place .pem files in
+        #{openssldir}/certs
 
-    and run
-      #{opt_bin}/c_rehash
-  EOS
+      and run
+        #{opt_bin}/c_rehash
+    EOS
   end
 
   test do

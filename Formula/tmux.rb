@@ -50,10 +50,11 @@ class Tmux < Formula
     bash_completion.install resource("completion")
   end
 
-  def caveats; <<~EOS
-    Example configuration has been installed to:
-      #{opt_pkgshare}
-  EOS
+  def caveats
+    <<~EOS
+      Example configuration has been installed to:
+        #{opt_pkgshare}
+    EOS
   end
 
   test do

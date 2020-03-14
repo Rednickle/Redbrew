@@ -46,7 +46,7 @@ class GnuIndent < Formula
       If you need to use it as "indent", you can add a "gnubin" directory
       to your PATH from your bashrc like:
 
-        PATH="#{opt_libexec}/gnubin:$PATH"
+          PATH="#{opt_libexec}/gnubin:$PATH"
     EOS
   end
 
