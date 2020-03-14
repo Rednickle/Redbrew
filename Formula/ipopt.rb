@@ -3,15 +3,14 @@ class Ipopt < Formula
   homepage "https://projects.coin-or.org/Ipopt/"
   url "https://www.coin-or.org/download/source/Ipopt/Ipopt-3.12.13.tgz"
   sha256 "aac9bb4d8a257fdfacc54ff3f1cbfdf6e2d61fb0cf395749e3b0c0664d3e7e96"
-  revision 5
+  revision 6
   head "https://github.com/coin-or/Ipopt.git"
 
   bottle do
     cellar :any
-    sha256 "67f9e7a42d22fa3a1116334c6a62a542b459e345a4ebd7075bdd67f47542534a" => :catalina
-    sha256 "7a846d7bd03c43d95540b87e5fde846dd9f1a91653856abe836d3e65c4ce6f19" => :mojave
-    sha256 "1aa7314e1a340aa24ef37937f479d68c472956a5ea7dba0a33caea89704aa3a0" => :high_sierra
-    sha256 "0305e61f418ff23232740181b2fc3a51610a7bd9e32c1756c86360655dac2678" => :x86_64_linux
+    sha256 "e01bf31da58fc38890f1e03589728dca333977d1430c64364e17f6a1a237ab84" => :catalina
+    sha256 "1b1b288dc7a6cecc6b9c8b948cf3e20b31fd07364e0d34bf481eeee6dd1e71c8" => :mojave
+    sha256 "cd33bba49eacdc431c57500683b4e5f61d94d68e72dba56b1c69110fb74c562e" => :high_sierra
   end
 
   depends_on "pkg-config" => [:build, :test]
@@ -25,7 +24,7 @@ class Ipopt < Formula
     if OS.mac?
       # MUMPS does not provide a Makefile.inc customized for macOS.
       patch do
-        url "https://raw.githubusercontent.com/Homebrew/formula-patches/ab96a8b/ipopt/mumps-makefile-inc-generic-seq.patch"
+        url "https://raw.githubusercontent.com/Homebrew/formula-patches/ab96a8b8e510a8a022808a9be77174179ac79e85/ipopt/mumps-makefile-inc-generic-seq.patch"
         sha256 "0c570ee41299073ec2232ad089d8ee10a2010e6dfc9edc28f66912dae6999d75"
       end
     else
@@ -33,7 +32,6 @@ class Ipopt < Formula
         url "https://gist.githubusercontent.com/dawidd6/09f831daf608eb6e07cc80286b483030/raw/b5ab689dea5772e9b6a8b6d88676e8d76224c0cc/mumps-homebrew-linux.patch"
         sha256 "13125be766a22aec395166bf015973f5e4d82cd3329c87895646f0aefda9e78e"
       end
-    end
   end
 
   def install
