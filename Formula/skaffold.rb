@@ -11,6 +11,7 @@ class Skaffold < Formula
     sha256 "9f30f6bf8bca7887fee63f793a27599e4fee02727e2f5d27c5405e78fde2176a" => :catalina
     sha256 "ea94ab192d08264104ba7dab33934435c155dbd314e1acd464690ad3c89d3081" => :mojave
     sha256 "ab839262b9450e55b1c580f571cfd14daa068ad913f0a6ad5ab7ec5d2340edd7" => :high_sierra
+    sha256 "d23724ec0c88a5c747b41b886ca6ad6690286674b1179b31c27dee635ab16f21" => :x86_64_linux
   end
 
   # relates to https://github.com/GoogleContainerTools/skaffold/pull/3775
