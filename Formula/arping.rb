@@ -10,6 +10,7 @@ class Arping < Formula
     sha256 "24cb6f161d06e9f2bc38d819a7d724d3f0d337f322cbb6e5b685118829e6cd32" => :catalina
     sha256 "19a737592d390d0bdf06e03c1a49e22a2d9860e065153e1b84bd325fcfa7640c" => :mojave
     sha256 "5019bb51a8cf372fd070b0b2686a3bbb2b7c262e2d39c8cae83d0c384971a82c" => :high_sierra
+    sha256 "0bc9f5957334c0520a50c51d324d0249aeba08626e578c4d8e8924e6fcac77f8" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
