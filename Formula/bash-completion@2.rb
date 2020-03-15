@@ -3,13 +3,13 @@ class BashCompletionAT2 < Formula
   homepage "https://github.com/scop/bash-completion"
   url "https://github.com/scop/bash-completion/releases/download/2.10/bash-completion-2.10.tar.xz"
   sha256 "123c17998e34b937ce57bb1b111cd817bc369309e9a8047c0bcf06ead4a3ec92"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "457ae745fa3c9ad6cda7f497cd312bcc70f469a723e1a9b0d59af87234a9b3d3" => :catalina
-    sha256 "457ae745fa3c9ad6cda7f497cd312bcc70f469a723e1a9b0d59af87234a9b3d3" => :mojave
-    sha256 "457ae745fa3c9ad6cda7f497cd312bcc70f469a723e1a9b0d59af87234a9b3d3" => :high_sierra
-    sha256 "493b4603290cade6ee6c6ede6e996f45d38e76ce347edca176000e4e0fa6c12d" => :x86_64_linux
+    sha256 "b162bc315662861c84f428b262c9883d34ff7eab80ddff09148f81aef4d5d7ff" => :catalina
+    sha256 "b162bc315662861c84f428b262c9883d34ff7eab80ddff09148f81aef4d5d7ff" => :mojave
+    sha256 "b162bc315662861c84f428b262c9883d34ff7eab80ddff09148f81aef4d5d7ff" => :high_sierra
   end
 
   head do
@@ -24,7 +24,11 @@ class BashCompletionAT2 < Formula
   conflicts_with "bash-completion", :because => "Differing version of same formula"
 
   def install
-    inreplace "bash_completion", "readlink -f", "readlink"
+    inreplace "bash_completion" do |s|
+      s.gsub! "readlink -f", "readlink"
+      # Automatically read Homebrew's existing v1 completions
+      s.gsub! ":-/etc/bash_completion.d", ":-#{etc}/bash_completion.d"
+    end
 
     system "autoreconf", "-i" if build.head?
     system "./configure", "--prefix=#{prefix}"
@@ -34,11 +38,8 @@ class BashCompletionAT2 < Formula
 
   def caveats
     <<~EOS
-      Add the following to your ~/.bash_profile:
+      Add the following line to your ~/.bash_profile:
         [[ -r "#{etc}/profile.d/bash_completion.sh" ]] && . "#{etc}/profile.d/bash_completion.sh"
-
-      If you'd like to use existing homebrew v1 completions, add the following before the previous line:
-        export BASH_COMPLETION_COMPAT_DIR="#{etc}/bash_completion.d"
     EOS
   end
 
