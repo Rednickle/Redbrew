@@ -9,6 +9,7 @@ class Libnet < Formula
     sha256 "0ecfbf2539a6e051ca8aa5962c0ee7cb57ffd173cf654b0eec8152c1a3fbf133" => :catalina
     sha256 "cadba638a54f4d5646a3510439ab89317ed23df3c45b12704b78065bb127fbc4" => :mojave
     sha256 "44e7b11e8f900f9d6f8e0d1a5deed99c46078dd2dbc997937f713ce5a1ac0f38" => :high_sierra
+    sha256 "41583b0b290ff95aa1b8c8721c767577c5f4a86dbc9737fbe8fc76fc15d5006e" => :x86_64_linux
   end
 
   depends_on "doxygen" => :build
