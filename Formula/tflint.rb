@@ -11,6 +11,7 @@ class Tflint < Formula
     sha256 "066c49fbb28286a56e5885123b1a2d8e097fdf0cf391af6323f29d958e80f6d2" => :catalina
     sha256 "32496bbcdc496b29567a4d323a9dac7d6e81bad4c60df5d0ce597133ab4c3274" => :mojave
     sha256 "5efa186459f81013173f3cf5bd21ae1a3982efa8a502b6b459c4e97e46f565bf" => :high_sierra
+    sha256 "eeea3e66f4c669c7ad315c7906a804a071c147253ee5575e6efecdf657b8e503" => :x86_64_linux
   end
 
   depends_on "go" => :build
