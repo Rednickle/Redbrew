@@ -53,7 +53,7 @@ class AescryptPacketizer < Formula
   end
 
   test do
-    aescrypt = bin/"#{build.without?("default-names") ? "p" : ""}aescrypt"
+    aescrypt = bin/"paescrypt"
     path = testpath/"secret.txt"
     original_contents = "What grows when it eats, but dies when it drinks?"
     path.write original_contents
