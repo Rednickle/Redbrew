@@ -14,6 +14,7 @@ class Pushpin < Formula
 
   depends_on "pkg-config" => :build
   depends_on "mongrel2"
+  depends_on "python@3.8"
   depends_on "qt"
   depends_on "zeromq"
   depends_on "zurl"
