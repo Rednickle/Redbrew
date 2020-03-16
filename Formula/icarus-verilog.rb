@@ -1,9 +1,10 @@
 class IcarusVerilog < Formula
   desc "Verilog simulation and synthesis tool"
   homepage "http://iverilog.icarus.com/"
-  url "ftp://icarus.com/pub/eda/verilog/v10/verilog-10.3.tar.gz"
+  url "https://github.com/steveicarus/iverilog/archive/v10_3.tar.gz"
   mirror "https://deb.debian.org/debian/pool/main/i/iverilog/iverilog_10.3.orig.tar.gz"
-  sha256 "86bd45e7e12d1bc8772c3cdd394e68a9feccb2a6d14aaf7dae0773b7274368ef"
+  sha256 "4b884261645a73b37467242d6ae69264fdde2e7c4c15b245d902531efaaeb234"
+  head "https://github.com/steveicarus/iverilog.git"
 
   bottle do
     sha256 "bf40a384b8432dfb72276e31e87d550b9b47515dc68bdfb25f0cde9becd4ac10" => :catalina
@@ -13,11 +14,7 @@ class IcarusVerilog < Formula
     sha256 "7454e7de194a151cf86970f7ec401344eb023c5314221ebaabe728048a51ee79" => :x86_64_linux
   end
 
-  head do
-    url "https://github.com/steveicarus/iverilog.git"
-    depends_on "autoconf" => :build
-  end
-
+  depends_on "autoconf" => :build
   # parser is subtly broken when processed with an old version of bison
   depends_on "bison" => :build
   unless OS.mac?
@@ -30,7 +27,7 @@ class IcarusVerilog < Formula
   uses_from_macos "zlib"
 
   def install
-    system "autoconf" if build.head?
+    system "autoconf"
     system "./configure", "--prefix=#{prefix}"
     # https://github.com/steveicarus/iverilog/issues/85
     ENV.deparallelize
