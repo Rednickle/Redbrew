@@ -12,6 +12,7 @@ class Appium < Formula
     sha256 "4b0eeb09e38fb06cd3401f4a95c70b08e2d9748edfbc55ceec2f483771d540bc" => :catalina
     sha256 "86ae515d092cea8edcbfeee53a4544bbcf65a2ff17b1ed4e4cf40df031e0a0e7" => :mojave
     sha256 "ee63e2d9fc264b568cff21ad3e448af5f5741fae4859b8eb4d0fa2eebf8247c2" => :high_sierra
+    sha256 "c92faa93cecee14c56c430df42d227a36050377c3e52852b4eee89bb05f6f381" => :x86_64_linux
   end
 
   depends_on "node"
