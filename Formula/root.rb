@@ -1,17 +1,15 @@
 class Root < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern.ch/"
-  url "https://root.cern.ch/download/root_v6.20.00.source.tar.gz"
-  version "6.20.00"
-  sha256 "68421eb0434b38b66346fa8ea6053a0fdc9a6d254e4a72019f4e3633ae118bf0"
-  revision 3
+  url "https://root.cern.ch/download/root_v6.20.02.source.tar.gz"
+  version "6.20.02"
+  sha256 "0997586bf097c0afbc6f08edbffcebf5eb6a4237262216114ba3f5c8087dcba6"
   head "https://github.com/root-project/root.git"
 
   bottle do
-    sha256 "dd86e7f683b6a126b932eb0983f06100d839a9f48468d26b4bb04ed426c8952f" => :catalina
-    sha256 "eff0deae994f85ea2e577b45849cce64a988a23f9b522a9518523589d16efaf7" => :mojave
-    sha256 "c1ddd7c0dddf8e8dbe311e28b1881120b65a6a0eb6ef997fb92a64bf0e46df85" => :high_sierra
-    sha256 "5d9f713bb2d7dfc404113ea4a661ca8a0a691aaf94cd6774be69d9a73c0fb8e3" => :x86_64_linux
+    sha256 "7039d454dd5f7b05048e5e91ce89b09e9f89f50ccee9eb33e4c3ddc1b654f1dd" => :catalina
+    sha256 "7b4a332b4c1c9d0093d6a47fa0d82eafdf1e491159c65c6008af2b2ff0cd5489" => :mojave
+    sha256 "15d70277f4afd728de9f16ce02fd69a6c2af1cb4c247f63e267f5537d14fff63" => :high_sierra
   end
 
   if OS.mac?
