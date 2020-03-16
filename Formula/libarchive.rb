@@ -10,6 +10,7 @@ class Libarchive < Formula
     sha256 "fea6de0e1c64faa83966a1bb23dc15275766940d9d25057bfd2d5bb9993792f3" => :catalina
     sha256 "ba1e2a44af82b21ad9ddcc906bb9b6f0073797b79a1a2d41758d253609c95628" => :mojave
     sha256 "b881cb42a16895795baea1137e3313de8ed632d8db241e0e4d2c361fbc5fc8bd" => :high_sierra
+    sha256 "7193b00618c54e7e30f0f60678281ba4b6fab2a27e8d7926459446eaff843fd9" => :x86_64_linux
   end
 
   keg_only :provided_by_macos
