@@ -11,6 +11,7 @@ class Nativefier < Formula
     sha256 "adfcf431764c0601a520a0e7d2a3fe36b02767790af07301123ce8e8f95d1b6f" => :catalina
     sha256 "3029f92446746edfcc368a2f2d7bef1ff85b3f96b0ca112eb73db59b10e3c6ae" => :mojave
     sha256 "2e9d8e425b818fde62dbf3a6180974ac4a2472eb61cec5a9bb2dbc5f168f8972" => :high_sierra
+    sha256 "71f750c42ad1964e7becc60b6aef7485f4dc21cbe7cd3b649ebf93fe8e40c6ea" => :x86_64_linux
   end
 
   depends_on "node"
