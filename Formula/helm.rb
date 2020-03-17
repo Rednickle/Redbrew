@@ -12,6 +12,7 @@ class Helm < Formula
     sha256 "9204dc532c352ea7cb1a05d8d9d0cdfd8f6ef0f35638c0bb3e3513f19a41abf0" => :catalina
     sha256 "d1357b2635d0fb7cd9b4f4bc75236e7e6de4de18255d8eaf870353bdd29d2453" => :mojave
     sha256 "508018eceefe9a91ecbd0be678ddac8d12699c52864ae698f7b1354e6498f04a" => :high_sierra
+    sha256 "3d27d621ba045419ef2a73a77d6267daabeedea597a4d4d5e71e283e0ce38c43" => :x86_64_linux
   end
 
   depends_on "go@1.13" => :build
