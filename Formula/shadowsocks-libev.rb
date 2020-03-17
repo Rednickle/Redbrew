@@ -6,10 +6,10 @@ class ShadowsocksLibev < Formula
 
   bottle do
     cellar :any
-    sha256 "2f7a0dd8fac9bfad68df05138d3fd6ae05262c081a4e9ecf60df361e13dd4323" => :catalina
-    sha256 "619f44ab79f243d223d3abba959780649e2eee7f70e1278d1f5dfe905ad210ad" => :mojave
-    sha256 "f02604b47b9cbd68c4bc1578955b7587ea53b0e608cb1f4011508659401eae34" => :high_sierra
-    sha256 "8fea1877b463b8515b253fd9808204179ffd52595efc4cd2bfb1af65e98581b9" => :x86_64_linux
+    rebuild 1
+    sha256 "db9d4bd66d39b269b41325581a94bcbe8507d806af3fbf99f793a8e02963b090" => :catalina
+    sha256 "02469b1937cf8739d142ffa8c7d56d5ba3e1e9d64505fe48c8c81edfb51be088" => :mojave
+    sha256 "ac2d53fb71b30a8cf8da51487b48806d8897f9cdc0ab0d1e8a75b7514ff804df" => :high_sierra
   end
 
   head do
@@ -53,7 +53,7 @@ class ShadowsocksLibev < Formula
     system "make", "install"
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/shadowsocks-libev/bin/ss-local -c #{HOMEBREW_PREFIX}/etc/shadowsocks-libev.json -u"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/shadowsocks-libev/bin/ss-local -c #{HOMEBREW_PREFIX}/etc/shadowsocks-libev.json"
 
   def plist
     <<~EOS
@@ -68,7 +68,6 @@ class ShadowsocksLibev < Formula
             <string>#{opt_bin}/ss-local</string>
             <string>-c</string>
             <string>#{etc}/shadowsocks-libev.json</string>
-            <string>-u</string>
           </array>
           <key>RunAtLoad</key>
           <true/>

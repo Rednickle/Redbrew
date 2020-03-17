@@ -1,47 +1,31 @@
 class KnotResolver < Formula
   desc "Minimalistic, caching, DNSSEC-validating DNS resolver"
   homepage "https://www.knot-resolver.cz"
-  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-3.2.1.tar.xz"
-  sha256 "d1396888ec3a63f19dccdf2b7dbcb0d16a5d8642766824b47f4c21be90ce362b"
-  revision 1
+  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-5.0.1.tar.xz"
+  sha256 "4a93264ad0cda7ea2252d1ba057e474722f77848165f2893e0c76e21ae406415"
   head "https://gitlab.labs.nic.cz/knot/knot-resolver.git"
 
   bottle do
-    rebuild 1
-    sha256 "f5f6c40bd0aca777361059a501fc30a1d8485bd9e9735acdb6ab0f5ee056860b" => :catalina
-    sha256 "ce9df928898820cb0e9af1115d1064307fc2a41a39029b924ee063e0cbd5945b" => :mojave
-    sha256 "7160763c1178ddcb9d44a4c062d75c816e7607abaf2569915757afcc7b8d8d7a" => :high_sierra
+    sha256 "1e2851bf1b4e68ebaf899d5480a8b8bd3607dea5a8fed6c3dd22e00a46893fa5" => :catalina
+    sha256 "3755a6c5acbbeebcea53daaa8c8a1f0fcf32dd4a06e66f2ac863419465070037" => :mojave
+    sha256 "b210aeaab6b74d3058474d53151a8b97a24facfa5fb8a86192fc7be518026198" => :high_sierra
   end
 
-  depends_on "cmocka" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "gnutls"
   depends_on "knot"
   depends_on "libuv"
   depends_on "lmdb"
   depends_on "luajit"
-  depends_on "nettle"
 
   def install
-    # Since we don't run `make install` or `make etc-install`, we need to
-    # install root.hints manually before running `make check`.
-    cp "etc/root.hints", buildpath
-    (etc/"kresd").install "root.hints"
-
-    %w[all lib-install daemon-install client-install modules-install
-       check].each do |target|
-      system "make", target, "PREFIX=#{prefix}", "ETCDIR=#{etc}/kresd"
+    mkdir "build" do
+      system "meson", "--prefix=#{prefix}", "--default-library=static", ".."
+      system "ninja"
+      system "ninja", "install"
     end
-
-    cp "etc/config.personal", "config"
-    inreplace "config", /^\s*user\(/, "-- user("
-    (etc/"kresd").install "config"
-
-    (etc/"kresd").install "etc/root.hints"
-    (etc/"kresd").install "etc/icann-ca.pem"
-
-    (buildpath/"root.keys").write(root_keys)
-    (var/"kresd").install "root.keys"
   end
 
   # DNSSEC root anchor published by IANA (https://www.iana.org/dnssec/files)
