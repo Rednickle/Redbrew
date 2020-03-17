@@ -15,10 +15,9 @@ jobs:
       image: homebrew/brew
     steps:
       - name: Get artifact data
-        uses: actions/github-script@0.4.0
+        uses: actions/github-script@0.8.0
         id: artifact
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
           result-encoding: string
           script: |
             const prs = await github.repos.listPullRequestsAssociatedWithCommit({
@@ -33,57 +32,6 @@ jobs:
             }
             const pr = prs.data[0]
             console.log("first pr head ref=" + pr.head.ref)
-
-            // register needed endpoints since the github action is too old
-            github.registerEndpoints({
-              actions: {
-                listWorkflowRuns: {
-                  method: "GET",
-                  url: "/repos/:owner/:repo/actions/workflows/:workflow_id/runs",
-                  headers: {
-                    accept: "application/vnd.github.groot-preview+json"
-                  },
-                  params: {
-                    owner: {
-                      required: true,
-                      type: "string"
-                    },
-                    repo: {
-                      required: true,
-                      type: "string"
-                    },
-                    workflow_id: {
-                      required: true,
-                      type: "string",
-                    },
-                    branch: {
-                      type: "string",
-                    }
-                  }
-                },
-                listWorkflowRunArtifacts: {
-                  method: "GET",
-                  url: "/repos/:owner/:repo/actions/runs/:run_id/artifacts",
-                  headers: {
-                    accept: "application/vnd.github.groot-preview+json"
-                  },
-                  params: {
-                    owner: {
-                      required: true,
-                      type: "string"
-                    },
-                    repo: {
-                      required: true,
-                      type: "string"
-                    },
-                    run_id: {
-                      required: true,
-                      type: "integer",
-                    }
-                  }
-                }
-              }
-            });
 
             const runs = await github.actions.listWorkflowRuns({
               owner: context.repo.owner,
@@ -159,3 +107,36 @@ jobs:
             fi
           done
           exit 1
+      - name: Post comment on failure
+        if: failure()
+        uses: actions/github-script@0.8.0
+        with:
+          script: |
+            const run_id = process.env.GITHUB_RUN_ID
+            const actor = process.env.GITHUB_ACTOR
+            console.log("run_id=" + run_id)
+            console.log("actor=" + actor)
+
+            const prs = await github.repos.listPullRequestsAssociatedWithCommit({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              commit_sha: context.payload.head_commit.id
+            })
+            console.log(prs.data.length + " prs")
+            if (prs.data.length === 0) {
+              console.log("No pull requests are associated with this merge commit.")
+              return 0
+            }
+            const pr = prs.data[0]
+
+            console.log("pr=" + pr.number)
+
+            const repository = context.repo.owner + '/' + context.repo.repo
+            const url = 'https://github.com/' + repository + '/actions/runs/' + run_id
+
+            github.issues.createComment({
+              issue_number: pr.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '@' + actor + ' upload bottles job failed: ' + url
+            })
