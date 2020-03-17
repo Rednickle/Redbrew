@@ -16,6 +16,7 @@ jobs:
           echo sender=${{github.event.sender.login}}
           echo name=${{github.event.client_payload.name}}
           echo ignore-errors=${{github.event.client_payload.ignore_errors}}
+          echo issue=${{github.event.client_payload.issue}}
       - name: Build bottles
         run: |
           mkdir ~/bottles
