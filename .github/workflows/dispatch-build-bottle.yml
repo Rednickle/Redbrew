@@ -60,3 +60,24 @@ jobs:
             fi
           done
           exit 1
+      - name: Post comment on failure
+        if: failure() && github.event.client_payload.issue > 0
+        uses: actions/github-script@0.8.0
+        env:
+          ISSUE_NUMBER: ${{github.event.client_payload.issue}}
+        with:
+          script: |
+            const run_id = process.env.GITHUB_RUN_ID
+            const actor = process.env.GITHUB_ACTOR
+            const issue = process.env.ISSUE_NUMBER
+            console.log("run_id=" + run_id)
+            console.log("actor=" + actor)
+            console.log("issue=" + issue)
+            const repository = context.repo.owner + '/' + context.repo.repo
+            const url = 'https://github.com/' + repository + '/actions/runs/' + run_id
+            github.issues.createComment({
+              issue_number: issue,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '@' + actor + ' upload bottles job failed: ' + url
+            })
