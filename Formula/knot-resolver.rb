@@ -3,12 +3,13 @@ class KnotResolver < Formula
   homepage "https://www.knot-resolver.cz"
   url "https://secure.nic.cz/files/knot-resolver/knot-resolver-5.0.1.tar.xz"
   sha256 "4a93264ad0cda7ea2252d1ba057e474722f77848165f2893e0c76e21ae406415"
+  revision 1
   head "https://gitlab.labs.nic.cz/knot/knot-resolver.git"
 
   bottle do
-    sha256 "1e2851bf1b4e68ebaf899d5480a8b8bd3607dea5a8fed6c3dd22e00a46893fa5" => :catalina
-    sha256 "3755a6c5acbbeebcea53daaa8c8a1f0fcf32dd4a06e66f2ac863419465070037" => :mojave
-    sha256 "b210aeaab6b74d3058474d53151a8b97a24facfa5fb8a86192fc7be518026198" => :high_sierra
+    sha256 "044564e3cf60e137b105aaeea9cb82bfe687f3a33df9e6f76197016960b9b28d" => :catalina
+    sha256 "b3d71ec2cb19c7b80a945c664824cde1b0b6756232b2b5a496e74fc2534e0f8b" => :mojave
+    sha256 "f3f2b97e386374eccd8c21385491adf5cbfc1fe9f700ae910a72c4c5762fd770" => :high_sierra
   end
 
   depends_on "meson" => :build
