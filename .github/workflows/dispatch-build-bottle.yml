@@ -65,19 +65,30 @@ jobs:
         uses: actions/github-script@0.8.0
         env:
           ISSUE_NUMBER: ${{github.event.client_payload.issue}}
+          SENDER: ${{github.event.sender.login}}
+          FORMULA: ${{github.event.client_payload.formula}}
         with:
           script: |
             const run_id = process.env.GITHUB_RUN_ID
             const actor = process.env.GITHUB_ACTOR
+            const sender = process.env.SENDER
             const issue = process.env.ISSUE_NUMBER
+            const formula = process.env.FORMULA
             console.log("run_id=" + run_id)
             console.log("actor=" + actor)
+            console.log("sender=" + sender)
             console.log("issue=" + issue)
+            console.log("formula=" + formula)
+
+            let source_str = '@' + sender
+            if (sender != actor) source_str += ' (via @' + actor + ')'
+
             const repository = context.repo.owner + '/' + context.repo.repo
             const url = 'https://github.com/' + repository + '/actions/runs/' + run_id
+
             github.issues.createComment({
               issue_number: issue,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: '@' + actor + ' upload bottles job failed: ' + url
+              body: source_str + ' bottle request for ' + formula + ' failed: ' + url
             })
