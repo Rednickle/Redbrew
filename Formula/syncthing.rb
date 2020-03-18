@@ -11,6 +11,7 @@ class Syncthing < Formula
     sha256 "6a6fbe1c0385d3a8a01b5e7458d783e9d845d21866595098c5e300db6f1979ae" => :catalina
     sha256 "4f15171d0237c7082b569b936c199c05e92515ad262eb7e4c0d224ae5a962037" => :mojave
     sha256 "508bb4a04bf7d7b3eaeedcea83a58cedb7da7939d3bd6b0297582643807a85b1" => :high_sierra
+    sha256 "982b710fe714387b4ce4fb82f16a170ab20e8cda09f4609194f12496848a27ac" => :x86_64_linux
   end
 
   depends_on "go" => :build
