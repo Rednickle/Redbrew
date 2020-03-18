@@ -94,7 +94,7 @@ jobs:
                 issue_number: issue_number
             })
 
-            # Ping the issue owner if the requestor is BrewTestBot
+            // Ping the issue owner if the requestor is BrewTestBot
             const ping = (actor == "BrewTestBot") ? issue.user.login : actor
 
             const repository = context.repo.owner + '/' + context.repo.repo
