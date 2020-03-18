@@ -9,6 +9,7 @@ class Grpcurl < Formula
     sha256 "7f7f6d9e80f75adfaf051590b1476abb815557ae8db105cd48930618af5203ef" => :catalina
     sha256 "7f46a463a4ccfdd698d5ab95930b8abe3e192269dc4515ac9ffbde9be8a10c7b" => :mojave
     sha256 "39e5de8eef5dc83992ce90b7ede25463fc184065bd2d53e92bcbed60d00d5041" => :high_sierra
+    sha256 "86d82001cb7d9a922e930fc34892ba7ef4fe080c5b0be8ad8fb647890948552f" => :x86_64_linux
   end
 
   depends_on "go" => :build
