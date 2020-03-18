@@ -88,7 +88,7 @@ jobs:
             console.log("issue=" + issue_number)
             console.log("formula=" + formula)
 
-            const issue = github.issues.get({
+            const issue = await github.issues.get({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: issue_number
@@ -100,7 +100,7 @@ jobs:
             const repository = context.repo.owner + '/' + context.repo.repo
             const url = 'https://github.com/' + repository + '/actions/runs/' + run_id
 
-            github.issues.createComment({
+            await github.issues.createComment({
               issue_number: issue_number,
               owner: context.repo.owner,
               repo: context.repo.repo,
