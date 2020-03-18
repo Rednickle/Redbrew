@@ -11,6 +11,7 @@ class GitGui < Formula
     sha256 "6586362ef6a2ce3ccb02de4ca4865054271f5be7779b07c470d48d70c958d0c2" => :catalina
     sha256 "6586362ef6a2ce3ccb02de4ca4865054271f5be7779b07c470d48d70c958d0c2" => :mojave
     sha256 "6586362ef6a2ce3ccb02de4ca4865054271f5be7779b07c470d48d70c958d0c2" => :high_sierra
+    sha256 "97842c5d37d00a9190b1cf94767a401870459b16b1f05ab03c8cc9bfa634fb3c" => :x86_64_linux
   end
 
   depends_on "tcl-tk"
