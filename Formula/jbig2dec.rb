@@ -9,6 +9,7 @@ class Jbig2dec < Formula
     sha256 "fcf5e2f4d25c553c6cdada4364e37d08850eea59cda5e2177503d8eb7ecf0aef" => :catalina
     sha256 "e437d5f1391cb3b85a1f11246fa87ab9b3396ce10f3b25801d2a614b79d09cfc" => :mojave
     sha256 "7bbc9569c46647373ca333801e335d8839078eb61c94e36a3d53e1e2c323c58c" => :high_sierra
+    sha256 "a6d96cd6f8d2205e1df26417895801b5bb705472f6784dca5073ce7fd4528e09" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
