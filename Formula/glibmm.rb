@@ -9,6 +9,7 @@ class Glibmm < Formula
     sha256 "58d32353ac5e6708051f89ba92494c08e823838ae1e80b5cc98a546772c4b36e" => :catalina
     sha256 "62ae5a9c423c9f87db4005c7f368bd3c20fdaf26c8e3e989315651338d483de6" => :mojave
     sha256 "6a5f0cef59b6d13b8f1b29d92c283e204e4f87176008384cb87b881bf3da009d" => :high_sierra
+    sha256 "4ae91b5c2dd002e4d35a85f18d539c5907b1722bb25b980c1f93a02a2f3f3fd1" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
