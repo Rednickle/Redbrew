@@ -94,9 +94,7 @@ jobs:
                 issue_number: issue_number
             })
 
-            console.log(issue)
-            console.log(JSON.stringify(issue, null, 2))
-            const ping = (actor == "BrewTestBot") ? issue.user.login : actor
+            const ping = (actor == "BrewTestBot") ? issue.data.user.login : actor
 
             const repository = context.repo.owner + '/' + context.repo.repo
             const url = 'https://github.com/' + repository + '/actions/runs/' + run_id
