@@ -1,23 +1,21 @@
 class Igraph < Formula
   desc "Network analysis package"
   homepage "https://igraph.org/"
-  url "https://github.com/igraph/igraph/releases/download/0.8.0/igraph-0.8.0.tar.gz"
-  sha256 "72637335600cf4758fd718009b16d92489b58a2f5dd96d884740d20cd5769649"
+  url "https://github.com/igraph/igraph/releases/download/0.8.1/igraph-0.8.1.tar.gz"
+  sha256 "266e1bf9e81305b368fbaa2218a8416c51ae85ea164e3657c574dc3898ca7b71"
 
   bottle do
     cellar :any
-    sha256 "5d618ed756944bd280ae27236aaa5f428e2b6f676cab1f9f71675c89273be18d" => :catalina
-    sha256 "84d4d17b1345904c0ec6048d98eea4b26d510e7e4bb69ac5e30ece8ee11caf14" => :mojave
-    sha256 "9d205ed06f1f601ca9aa5138ce8f8f8aa62f723488d87aa536a433b51c6bf0d0" => :high_sierra
-    sha256 "8d63ec83b1b1c7b3847b7587f8b33e73148f13f246f7223e31e9432ae7325450" => :x86_64_linux
+    sha256 "e0ff16ce74b2fb424db6ca1bb1974bfe047143dea608687433172b989671ac7f" => :catalina
+    sha256 "ddccb3cfc32f42d88ef243d0eea3bfd5254e60e427cabb45675551fd934cf3f9" => :mojave
+    sha256 "31fa14d8819baacf7be455cecc5f233f618f856e2fc2bc3ef924d1ce248e4f33" => :high_sierra
   end
 
   depends_on "glpk"
   depends_on "gmp"
-  unless OS.mac?
-    depends_on "libxml2"
-    depends_on "openblas"
-  end
+
+  uses_from_macos "libxml2"
+  uses_from_macos "openblas"
 
   def install
     system "./configure", "--disable-debug",

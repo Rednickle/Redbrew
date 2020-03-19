@@ -1,15 +1,14 @@
 class Tor < Formula
   desc "Anonymizing overlay network for TCP"
   homepage "https://www.torproject.org/"
-  url "https://www.torproject.org/dist/tor-0.4.2.6.tar.gz"
-  mirror "https://www.torservers.net/mirrors/torproject.org/dist/tor-0.4.2.6.tar.gz"
-  sha256 "0500102433849bbe3231c590973d126c2d2d6b3943b4b9f9962bdb108436e6c4"
+  url "https://www.torproject.org/dist/tor-0.4.2.7.tar.gz"
+  mirror "https://www.torservers.net/mirrors/torproject.org/dist/tor-0.4.2.7.tar.gz"
+  sha256 "06a1d835ddf382f6bca40a62e8fb40b71b2f73d56f0d53523c8bd5caf9b3026d"
 
   bottle do
-    sha256 "de7823c452fb173472993e6307995d2f22040d065d2cd52fb8fd1a781f2853d8" => :catalina
-    sha256 "cf063382b289a6310c3c82e1c4bfdffc30eaa8f125b5d967632b0dc4f64b521f" => :mojave
-    sha256 "0e8a6f45490c1e617dc0809493fb3cf0e31f12b2f5d96dff364cc6c0b94cd87e" => :high_sierra
-    sha256 "e64ff84b2029d9262c666cee6b5e72ae755dec85b19d7ff7566c9eb6cb332005" => :x86_64_linux
+    sha256 "e66d5fd20255c03d532cec0c31e750b81c93e048bf3ae0f88bc787578a2844e4" => :catalina
+    sha256 "fbf0241e0cead767d2b977c43c56e39492ad0159dbe647b119e0dc47eb6a4f91" => :mojave
+    sha256 "2e97cc960eae30d69030b9cb577342eda531350bb65eba35571fb30be7cae6ae" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
