@@ -11,6 +11,7 @@ class Serverless < Formula
     sha256 "0844bc87c45eab3658592978a007f27a53a0aafc12174d2b231b57806ecef698" => :catalina
     sha256 "1ca1915c74e77515534a172f077f04554b4be56a4f093f871fd07d2c82ec2224" => :mojave
     sha256 "506f5b32407406b906b1b043222f08d9db401c3439d39fc8b97c3ab6037a5adc" => :high_sierra
+    sha256 "174b54ae879a0541679a3ab1556c8dd5b1cd6ece38945fc4567f2233b8ac1d39" => :x86_64_linux
   end
 
   depends_on "node"
