@@ -11,6 +11,7 @@ class Unrtf < Formula
     sha256 "b038c53ba7341cc9365db6cf9d46c6f7c3feba843643168e24a12856a29a6dbb" => :mojave
     sha256 "9abc63bdeae500637c8e1d6d31c72be013d0f2cf8ad8e3f1cb6e3babe5b6d94a" => :high_sierra
     sha256 "4c9e869dad1a76bf4077d9e19cabf9d383ed914b5a1c348dadc1eb0961c23b0a" => :sierra
+    sha256 "135d610d2247d621362c4d39e73ee9ea1153948313a4f39c24bf92258c67a499" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
