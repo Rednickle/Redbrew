@@ -9,6 +9,7 @@ class Meilisearch < Formula
     sha256 "de2e8239674770701b5d722f841fb99a7f162a503af2c03094d26c824e43cd32" => :catalina
     sha256 "b41b15f7869f474545a238efbe7d5b9cdb83a94b649bc7259f707e825cc081f2" => :mojave
     sha256 "0fd1d4e3c8ea26d1427140cc4fb94dacf817eec19288c9ffc6ff9ec417512aa0" => :high_sierra
+    sha256 "4cb9d2052dca4123d0b1f302bec85c91ab263a2c4b6d6f6735f163248659cbd0" => :x86_64_linux
   end
 
   depends_on "rust" => :build
