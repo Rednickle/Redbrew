@@ -9,6 +9,7 @@ class Ccheck < Formula
     sha256 "edc3a16f072eeca5647916de805bc80a753d00548b860a052f670b4698464632" => :catalina
     sha256 "4afea0fa685001ecf5777cb37975074cc382f2282bfe7fbaf9543c3b520272df" => :mojave
     sha256 "564171a220f9f031bd04044319b1e99e0a294208b3e804513ee0fe607525fe81" => :high_sierra
+    sha256 "130c5a25ecfddaf42d7d5c6a0a4ff3e48a1b51505ddb4bf6c644c83053498cce" => :x86_64_linux
   end
 
   depends_on "go" => :build
