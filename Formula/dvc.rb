@@ -3,15 +3,14 @@ class Dvc < Formula
 
   desc "Git for data science projects"
   homepage "https://dvc.org"
-  url "https://github.com/iterative/dvc/archive/0.90.0.tar.gz"
-  sha256 "8fe146e334f07bc023a2bf3c3afc2245e161c70f83786efe334d67cca781cd9a"
+  url "https://github.com/iterative/dvc/archive/0.90.2.tar.gz"
+  sha256 "387c6436c92990b4dbcb0e8818877a1a519e1dea6bf82c7792e618a9da209ce8"
 
   bottle do
     cellar :any
-    sha256 "045a838dff8a8fa135b0f4cb42a9256ad88be59fe0db4d16952c55238c35394c" => :catalina
-    sha256 "dd4c525bd18bf5d331929f598a26e5d73afd22e297728987f4af3bf091271fc6" => :mojave
-    sha256 "ccd76d19bf973aabf67d7f5d12aabb65f56a8c301677c10d1586c1d2e34a9c38" => :high_sierra
-    sha256 "e552bec7a73103cb656704795baeb3a8ef94b67a9d498c7d5fdbf0eaf530b725" => :x86_64_linux
+    sha256 "3771c4d558ec5304167b642444da616c2024412638806140e34e16b878fe9c96" => :catalina
+    sha256 "66886fc79b1fcf86edec3c053eae216e7da103011bfae5d67da8f9a031f22144" => :mojave
+    sha256 "3ccbfca1dc420bb989d0e31c49e669154a522d33c30862b1315b921061052207" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

@@ -2,11 +2,11 @@ class Gitversion < Formula
   desc "Easy semantic versioning for projects using Git"
   homepage "https://github.com/GitTools/GitVersion"
   if OS.mac?
-    url "https://github.com/GitTools/GitVersion/releases/download/5.2.0/gitversion-osx-5.2.0.tar.gz"
-    sha256 "5fa276054e46c21a0b0cc052ded2fc1a598979a887e6b21d17000d0915c42462"
+    url "https://github.com/GitTools/GitVersion/releases/download/5.2.4/gitversion-osx-5.2.4.tar.gz"
+    sha256 "a06ae6cf8062a2b26b858feab01fceb94951627cc732f7422472785ff3ccde4c"
   else
-    url "https://github.com/GitTools/GitVersion/releases/download/5.2.0/gitversion-linux-5.2.0.tar.gz"
-    sha256 "8dad2624bdf2be5330ae37ead9aca912322d02e49a82df17c29906a779ba6e93"
+    url "https://github.com/GitTools/GitVersion/releases/download/5.2.4/gitversion-linux-5.2.4.tar.gz"
+    sha256 "d406fa3b1e289c0621ae70408a6254b6eeac9d1658c85cef6f1704da9a544c0c"
   end
 
   bottle :unneeded

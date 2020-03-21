@@ -1,16 +1,15 @@
 class CassandraAT22 < Formula
   desc "Eventually consistent, distributed key-value db"
   homepage "https://cassandra.apache.org"
-  url "https://www.apache.org/dyn/closer.lua?path=cassandra/2.2.15/apache-cassandra-2.2.15-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/cassandra/2.2.15/apache-cassandra-2.2.15-bin.tar.gz"
-  sha256 "7109f50a5a12f62b41e692521622344ba1e79381d713fc578e60e554f7c83334"
+  url "https://www.apache.org/dyn/closer.lua?path=cassandra/2.2.16/apache-cassandra-2.2.16-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/cassandra/2.2.16/apache-cassandra-2.2.16-bin.tar.gz"
+  sha256 "827474c965242be4788beefa3e28d05d909e0bb068e03b65c73f1669796ddb84"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "efe044b667e3479966bb5a29802a1fcca724d36d07f1eddc29baf59b9f887d0b" => :catalina
-    sha256 "b969cfce702ad4dd02f6495abee2370a3ababd44cc82a567169b8af930fab85e" => :mojave
-    sha256 "1a2aa9db7744896b53bf01ffca7214cc2cd0ef5f026546873c9c02f4bb7471fe" => :high_sierra
-    sha256 "4d883e2c11044f125c1c53086a6d1a25d073d078a659d83f04817f36ecb5f908" => :x86_64_linux
+    sha256 "da62e2b0ecaecaa18153a41a4dfd7e4d3430e46e6b8b48fcc1e8af70e01a60dd" => :catalina
+    sha256 "4dd86f0e2a8966109ea77ac5003898c604f1c1239138588c2fded53eb9ac7302" => :mojave
+    sha256 "34f2cf7cd565fbfabfbea6137859835dad092935c47df06391eca2824f9c4552" => :high_sierra
   end
 
   keg_only :versioned_formula
