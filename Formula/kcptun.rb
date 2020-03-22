@@ -10,6 +10,7 @@ class Kcptun < Formula
     sha256 "fe133e37201fb3eefc7da0be3e4bb3f8ff5544e18560101a67142e16e4ef5a21" => :catalina
     sha256 "0aade89e5e2d12ec2258d026579c1b68b9211efa6aa0bfa2b30a5c72bdc390cb" => :mojave
     sha256 "37190ecd3026ebdd4db09d31e2c86eb907a7368ac26338db0e65ece806ac4737" => :high_sierra
+    sha256 "b79f60ba466fbc710307f92b40f5e831bb826743d14ff942a3d9b8d3efdec798" => :x86_64_linux
   end
 
   depends_on "go" => :build
