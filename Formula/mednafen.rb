@@ -8,6 +8,7 @@ class Mednafen < Formula
     sha256 "05d5e089426ad7855d7676b98cddd627bd4c0d9c1805612e3bcd7e9d4667c6c8" => :catalina
     sha256 "8f424aa04340125fe6b0556bc8554a145b43e4f7319b316f3179794628ccf40d" => :mojave
     sha256 "99b51ff663598acb7a178119a1510bf86f1d1002960f7b6c121911eec618650b" => :high_sierra
+    sha256 "22aa99843864ac77a7ccfcfa65f80cc4a851f5c0d662ff3ca8c6954654f2c47c" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
