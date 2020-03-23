@@ -1,15 +1,14 @@
 class Mmark < Formula
   desc "Powerful markdown processor in Go geared towards the IETF"
   homepage "https://mmark.miek.nl/"
-  url "https://github.com/mmarkdown/mmark/archive/v2.2.4.tar.gz"
-  sha256 "71155187f2d3c9257a48d01c51ffafc9f6efa30d2225e1c8ca1670c42e384d69"
+  url "https://github.com/mmarkdown/mmark/archive/v2.2.5.tar.gz"
+  sha256 "9fec3da78b75bf49d98885d178123617df7d516630a1255e54c9e9a7a41eb057"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1536009b228227d98a590ee92a8106ba4a5e5bab9c16d72b2686cb8f88a19d49" => :catalina
-    sha256 "1536009b228227d98a590ee92a8106ba4a5e5bab9c16d72b2686cb8f88a19d49" => :mojave
-    sha256 "1536009b228227d98a590ee92a8106ba4a5e5bab9c16d72b2686cb8f88a19d49" => :high_sierra
-    sha256 "c2fd9216e48382dc31f3f386a6acbab99b07ad4c115c580399d390572e889728" => :x86_64_linux
+    sha256 "35874a678154992f4c120de3a560d063935117ac1a8132c23efb91c5b8450cdd" => :catalina
+    sha256 "35874a678154992f4c120de3a560d063935117ac1a8132c23efb91c5b8450cdd" => :mojave
+    sha256 "35874a678154992f4c120de3a560d063935117ac1a8132c23efb91c5b8450cdd" => :high_sierra
   end
 
   depends_on "go" => :build

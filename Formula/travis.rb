@@ -3,13 +3,13 @@ class Travis < Formula
   homepage "https://github.com/travis-ci/travis.rb/"
   url "https://github.com/travis-ci/travis.rb/archive/v1.8.11.tar.gz"
   sha256 "f69f71f7634c1495c516f820571bdeec2e759c617ecaf9c83b3bf478ceb54cd4"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0b374c59a0c5fe2de8c14f11c1d6e20513d889eed4b884ef887066b441f26453" => :catalina
-    sha256 "286b2c03f76017b47eecf7e0e7942f17f9ce34af0ba1a553d18d2666d51fac41" => :mojave
-    sha256 "9628e3997873674ca6cbd06cb4421b4f2816499706d472d16695c1f7a25a8ab3" => :high_sierra
-    sha256 "ec617f96e58baf0ce472d0c633476f64aa46f432d707b6051774f2a83354945d" => :x86_64_linux
+    sha256 "9f6882ebcbdf19b09c8d6df646a311af4701fb199edd9217f87f18d597ff0669" => :catalina
+    sha256 "9e91311041f2796ad8617190c25e5e2d3d7f769c9d3b7d4b7c3ee64d7682934a" => :mojave
+    sha256 "a936e17a173655248f81918176934a648e3211335f18a9321ae8c0cc6cd2b0dd" => :high_sierra
   end
 
   depends_on "ruby" if !OS.mac? || MacOS.version <= :sierra
@@ -32,13 +32,13 @@ class Travis < Formula
   end
 
   resource "faraday" do
-    url "https://rubygems.org/gems/faraday-0.9.2.gem"
-    sha256 "0662e5caa257c256cff4b073deef5c73e3469d3ed0b8d6e9a05e6861efc4f4ce"
+    url "https://rubygems.org/gems/faraday-0.17.3.gem"
+    sha256 "c27a8fd7614f1abe9889d8b797246a8e0e5aa6e9d7f1e34ba05a445bf5844f8d"
   end
 
   resource "faraday_middleware" do
-    url "https://rubygems.org/gems/faraday_middleware-0.9.2.gem"
-    sha256 "15d1e22157e8a0704ae7ac0156e12304368c1695f009c292b28a034d49824ad4"
+    url "https://rubygems.org/gems/faraday_middleware-0.14.0.gem"
+    sha256 "4cb37ddd656b2c4de0bd684b72b08c34486f70560c31cb303cd506faef7ef2f4"
   end
 
   resource "ffi" do
@@ -47,13 +47,13 @@ class Travis < Formula
   end
 
   resource "gh" do
-    url "https://rubygems.org/gems/gh-0.13.3.gem"
-    sha256 "0857f24464dbcdaa71a43c34f21fce77faf5bf661a3b6a903739c82ab1884fa8"
+    url "https://rubygems.org/gems/gh-0.15.1.gem"
+    sha256 "ef733f81c17846f217f5ad9616105e9adc337775d41de1cc330133ad25708d3c"
   end
 
   resource "highline" do
-    url "https://rubygems.org/gems/highline-1.6.21.gem"
-    sha256 "c136298eee86ceff87baadc71d764ea07986f89805636e4a6a305b2d5da07519"
+    url "https://rubygems.org/gems/highline-1.7.10.gem"
+    sha256 "1e147d5d20f1ad5b0e23357070d1e6d0904ae9f71c3c49e0234cf682ae3c2b06"
   end
 
   if MacOS.version <= :sierra
@@ -64,8 +64,8 @@ class Travis < Formula
   end
 
   resource "launchy" do
-    url "https://rubygems.org/gems/launchy-2.1.2.gem"
-    sha256 "5a47c249e18fcd46a093210530e68911ab595575aa69d16e3613f740bcc50d2c"
+    url "https://rubygems.org/gems/launchy-2.4.3.gem"
+    sha256 "42f52ce12c6fe079bac8a804c66522a0eefe176b845a62df829defe0e37214a4"
   end
 
   resource "multi_json" do
