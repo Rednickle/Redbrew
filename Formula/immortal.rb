@@ -10,6 +10,7 @@ class Immortal < Formula
     sha256 "4b1f289dbe2b0998f091ebf9fbf6df2894f0eb3d447df2b5840915a53cdb3c09" => :catalina
     sha256 "c35c0718289bac0d3557ac5d17af6895765557d2c5a7124f389653163b40bb36" => :mojave
     sha256 "702cb544d23450cf258ef7b9287e99925e8cf715e1708513694f9068233a5cba" => :high_sierra
+    sha256 "989ed6f49f91539e8c4c36c557b9d4c57595d722f37729f93df7470b5b48fe4b" => :x86_64_linux
   end
 
   depends_on "go" => :build
