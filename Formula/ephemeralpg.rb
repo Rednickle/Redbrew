@@ -10,6 +10,7 @@ class Ephemeralpg < Formula
     sha256 "bd7129fa7c2635627e6c78b0dd96e9fe7f51fcb58fcaaefc1a8f549275275173" => :catalina
     sha256 "fbd15290717e762090d699ea2ca7ed649124b4fbcb702bc5873ab629dd00f0af" => :mojave
     sha256 "875913b4e09b30348a651db65afa6049ed659aec192f32b8564f465fcaf5bfaf" => :high_sierra
+    sha256 "8f249f5f8356a7b5ef1ccd8bea70ebdfdcd38563d4e607744bfc7ecf7a7a8dc5" => :x86_64_linux
   end
 
   depends_on "postgresql"
