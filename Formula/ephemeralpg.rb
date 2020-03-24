@@ -6,10 +6,10 @@ class Ephemeralpg < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c02e04cf822d9a12c30126152a1003c2fe545e6c0dbda9c893ef5d165a342722" => :catalina
-    sha256 "b880f6d03f12cc1c0f0c9b4a4726bbc0870cfa2c14e4eacc8a62f8a7ddfa0082" => :mojave
-    sha256 "b3c09234c2cfd5739e55758c0ff0516b4776213fbe0b157b25a7f60010977bb2" => :high_sierra
-    sha256 "e2b24c6fef652dfff2370141ecac264385845a029930e5d0b506d1327bfd5ce1" => :x86_64_linux
+    rebuild 1
+    sha256 "bd7129fa7c2635627e6c78b0dd96e9fe7f51fcb58fcaaefc1a8f549275275173" => :catalina
+    sha256 "fbd15290717e762090d699ea2ca7ed649124b4fbcb702bc5873ab629dd00f0af" => :mojave
+    sha256 "875913b4e09b30348a651db65afa6049ed659aec192f32b8564f465fcaf5bfaf" => :high_sierra
   end
 
   depends_on "postgresql"
@@ -19,6 +19,8 @@ class Ephemeralpg < Formula
   end
 
   test do
+    return if ENV["CI"]
+
     system "#{bin}/pg_tmp", "selftest"
   end
 end
