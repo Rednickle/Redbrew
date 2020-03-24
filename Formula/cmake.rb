@@ -1,16 +1,15 @@
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
-  url "https://github.com/Kitware/CMake/releases/download/v3.16.5/cmake-3.16.5.tar.gz"
-  sha256 "5f760b50b8ecc9c0c37135fae5fbf00a2fef617059aa9d61c1bb91653e5a8bfc"
+  url "https://github.com/Kitware/CMake/releases/download/v3.17.0/cmake-3.17.0.tar.gz"
+  sha256 "b74c05b55115eacc4fa2b77a814981dbda05cdc95a53e279fe16b7b272f00847"
   head "https://gitlab.kitware.com/cmake/cmake.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "96f40b538d48f62df61a68353bcd8303f0e9a97e19e9557790701e8e52e7c0b2" => :catalina
-    sha256 "b44b7a3e594321bd9492a89ae985390389a35b9e67868bb8c1541401901e26d8" => :mojave
-    sha256 "bb4d0aaea67e5b4d8eeaeadc109ff200ab94b94442d986c86884987404c036ed" => :high_sierra
-    sha256 "9fef5a04bfef98f22e325e8d7dd316c239dc0b9c60e23ac0523157673cd4e4cd" => :x86_64_linux
+    sha256 "abfd3a6d924a79f7c1872b1bedc0af44be391d28f54681158e3e57689a39affd" => :catalina
+    sha256 "e4db1daf08332b94998bf3af0fa90d0753e0724a2694b977e21a908b6ae12ffd" => :mojave
+    sha256 "8540be0338aaefd8515e4f0369be0e7d5346656e7af81d755d6073892a4a501f" => :high_sierra
   end
 
   depends_on "sphinx-doc" => :build
@@ -47,7 +46,7 @@ class Cmake < Formula
     # See https://bugs.python.org/issue18378#msg215215 for explanation
     ENV["LC_ALL"] = "en_US.UTF-8"
 
-    system "./bootstrap", *args, "--", "-DCMAKE_BUILD_TYPE=Release"
+    system "./bootstrap", *args, "--", *std_cmake_args
     system "make"
     system "make", "install"
 

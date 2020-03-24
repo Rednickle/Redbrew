@@ -3,12 +3,13 @@ class Bazel < Formula
   homepage "https://bazel.build/"
   url "https://github.com/bazelbuild/bazel/releases/download/2.2.0/bazel-2.2.0-dist.zip"
   sha256 "9379878a834d105a47a87d3d7b981852dd9f64bc16620eacd564b48533e169a7"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8aeeb7493f11cfdfaa119f75d8d342a548d97a29460aa46653a709c80393d943" => :catalina
-    sha256 "2b3f486f6c65fb311675a025945a33c8befc23a69d93a154d2d05814b8f42aeb" => :mojave
-    sha256 "9a564791d72d672671f0ced58f343ab84a345374cf44badbdbbc73a18332e95d" => :high_sierra
+    sha256 "efcb511e145934583bd890874f7f46e4d07755e07d160e7345633bd303caf391" => :catalina
+    sha256 "087ce9d26b67f254f9a4cdca9eb6319e75aa857b3cf5dbfb6b7e50144fea8631" => :mojave
+    sha256 "54790f257823b8e226a718cd323301340714223b30c31f912c77b3dbdb4cea31" => :high_sierra
   end
 
   depends_on "python@3.8" => :build
@@ -38,7 +39,7 @@ class Bazel < Formula
              "scripts:bash_completion"
 
       bin.install "scripts/packages/bazel.sh" => "bazel"
-      ln_s bin/"bazel", bin/"bazel-#{version}"
+      ln_s libexec/"bin/bazel-real", bin/"bazel-#{version}"
       (libexec/"bin").install "output/bazel" => "bazel-real"
       bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
 
@@ -76,5 +77,18 @@ class Bazel < Formula
            "--javabase=@bazel_tools//tools/jdk:jdk",
            "//:bazel-test"
     assert_equal "Hi!\n", pipe_output("bazel-bin/bazel-test")
+
+    # Verify that `bazel` invokes Bazel's wrapper script, which delegates to
+    # project-specific `tools/bazel` if present. Invoking `bazel-VERSION`
+    # bypasses this behavior.
+    (testpath/"tools"/"bazel").write <<~EOS
+      #!/bin/bash
+      echo "stub-wrapper"
+      exit 1
+    EOS
+    (testpath/"tools/bazel").chmod 0755
+
+    assert_equal "stub-wrapper\n", shell_output("#{bin}/bazel --version", 1)
+    assert_equal "bazel #{version}-homebrew\n", shell_output("#{bin}/bazel-#{version} --version")
   end
 end

@@ -1,26 +1,19 @@
 class Openfortivpn < Formula
   desc "Open Fortinet client for PPP+SSL VPN tunnel services"
   homepage "https://github.com/adrienverge/openfortivpn"
-  url "https://github.com/adrienverge/openfortivpn/archive/v1.12.0.tar.gz"
-  sha256 "ecad7d9998ee1be6cd263637333568f9b9fa72ba51f329a937f9e7db4bb3168a"
+  url "https://github.com/adrienverge/openfortivpn/archive/v1.13.1.tar.gz"
+  sha256 "aa3cfe512bdcdbf8d4587dbb0543ee76bb3aebadb478bbbd94d87e174a61f011"
 
   bottle do
-    sha256 "4cd992babeb67a972fd9696a77102171848ae0b8fc7539882c58df23acae4963" => :catalina
-    sha256 "8a23a02cd67cb8d8fe0698bf083d85a92e3a5106548af4d57dcf97e5979e94d3" => :mojave
-    sha256 "5481b7effe505f9974db9b8e6f948a7b07356db887bcef53a0ee560ff1c2222d" => :high_sierra
-    sha256 "930ec25bc63de5bb65006f589bbb8019b756b1f39c593922813aeffd601164f1" => :x86_64_linux
+    sha256 "d09a71f63744c214c2ebac8aff8126a72de33ef770f329674239844f84549208" => :catalina
+    sha256 "775d46fd3f2e309e8659b3967835895b0faf176a9f7ff1f5e556a5de85d1cabb" => :mojave
+    sha256 "6f4841b1e3ac036deafd19bec83ac24fd800fc95400297c2aa7b3398ca742bf4" => :high_sierra
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
-
-  # Fix incompatibility with macOS sed. Remove with next release.
-  patch do
-    url "https://github.com/adrienverge/openfortivpn/commit/527265ea58dee643a8f2890e1ed021558b95fdea.patch?full_index=1"
-    sha256 "8e73a74399a6331b9eb2e136a9f5e65e25c52a59fd2ac5aa4a4141baf81e14f1"
-  end
 
   def install
     system "./autogen.sh"
