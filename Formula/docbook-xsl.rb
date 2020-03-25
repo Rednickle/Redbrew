@@ -10,6 +10,7 @@ class DocbookXsl < Formula
     sha256 "65a5442556a88a865ef377cb73df0b3edf9ab2240e6f4bb2d71a71eabc74fa26" => :catalina
     sha256 "65a5442556a88a865ef377cb73df0b3edf9ab2240e6f4bb2d71a71eabc74fa26" => :mojave
     sha256 "65a5442556a88a865ef377cb73df0b3edf9ab2240e6f4bb2d71a71eabc74fa26" => :high_sierra
+    sha256 "6b52c47bc47c4a19699fb52277f477d27bfb519d9b7e01d94ad6c566cf27f873" => :x86_64_linux
   end
 
   depends_on "docbook"
