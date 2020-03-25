@@ -3,14 +3,15 @@ class Algernon < Formula
   homepage "https://algernon.roboticoverlords.org/"
   url "https://github.com/xyproto/algernon/archive/1.12.7.tar.gz"
   sha256 "1e04be1274b875a90f3ca1b5685f0e2c2df79ae3b798a1c56395d0b5b5b686b3"
+  version_scheme 1
   head "https://github.com/xyproto/algernon.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9ba1670ae654b3d9d09ce08b8df8a0ffe0e86c851525c02c4c967597586c5a2c" => :catalina
-    sha256 "d1243c6079bd0d55bc2d2444d03aeb5a32cbdb0b05a9f6324fdbd6ce4622a84c" => :mojave
-    sha256 "31f05cef895112f71f7dd0665761f0e8006ef5cc75f3f3658e1456471ba1550a" => :high_sierra
-    sha256 "5827c86d2bbb0562b1e59849491f772fa2bbf1dc2c730ab4bd50b357ff84d587" => :x86_64_linux
+    rebuild 1
+    sha256 "9f58bb11a8790a99e8fc93cf70e772cc97bae24f5ec86e9811f43be34b563258" => :catalina
+    sha256 "1da54e8872f2d5e98524c1d546e9c409dc5b8b705c6e2752ac8658dc8d8a3d07" => :mojave
+    sha256 "956560cc8c147107a176d827e8ddb48637be59b9318d906c3bfcc33fc0020d20" => :high_sierra
   end
 
   depends_on "go" => :build
