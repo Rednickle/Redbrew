@@ -1,24 +1,22 @@
 class Rust < Formula
   desc "Safe, concurrent, practical language"
   homepage "https://www.rust-lang.org/"
-  revision 3 unless OS.mac?
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.41.1-src.tar.gz"
-    sha256 "38c93d016e6d3e083aa15e8f65511d3b4983072c0218a529f5ee94dd1de84573"
+    url "https://static.rust-lang.org/dist/rustc-1.42.0-src.tar.gz"
+    sha256 "d2e8f931d16a0539faaaacd801e0d92c58df190269014b2360c6ab2a90ee3475"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          :tag      => "0.42.0",
-          :revision => "626f0f40efd32e6b3dbade50cd53fdfaa08446ba"
+          :tag      => "0.43.0",
+          :revision => "9d32b7b01409024b165545c568b1525d86e2b7cb"
     end
   end
 
   bottle do
-    sha256 "cb6f748139b5a6b36cb859840183bbe295734d11cdfa4bf91f2f4b213aa706cf" => :catalina
-    sha256 "8e02732d6b8337d03422c206c8644975ae3e31caa41686c1e298494d0e45ccc2" => :mojave
-    sha256 "0b7a0246cbb9364eae54df7e182bcfbb35542c3feb5f3c166ba1535ffcf58432" => :high_sierra
-    sha256 "ba4781c0e702dc69bf125df6d5f208e19184473f17857b2bd828a543579adaeb" => :x86_64_linux
+    sha256 "0841e6ba7120d37e8191e3f84f11b362a1c43a471cd4002bf201bfbfe1b739a3" => :catalina
+    sha256 "064407ccb9e4f033c998db2637c6ede24b7696d660cbefb7ad1e8e903a880960" => :mojave
+    sha256 "771825953fe2fb4a96a7732d70fefec21847da8d38ca9c1dab29c2bb04376486" => :high_sierra
   end
 
   head do
@@ -42,12 +40,12 @@ class Rust < Formula
   resource "cargobootstrap" do
     if OS.mac?
       # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
-      url "https://static.rust-lang.org/dist/2019-12-19/cargo-0.41.0-x86_64-apple-darwin.tar.gz"
-      sha256 "1ef77a6be5e697bb7dde40854651fc67e91f119d5a9ddf747a25e30c1179fbe1"
+      url "https://static.rust-lang.org/dist/2020-02-27/cargo-0.42.0-x86_64-apple-darwin.tar.gz"
+      sha256 "9633707ec7d83c02664e74040601e4d78488d8521de4400e9881d7c57594e49f"
     elsif OS.linux?
       # From: https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
-      url "https://static.rust-lang.org/dist/2019-12-19/cargo-0.41.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "699d5ecc8589211b44858ae164613a1054c0ec000184d0514ea1a0348a483861"
+      url "https://static.rust-lang.org/dist/2020-02-27/cargo-0.42.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "3d36590adfe3a62bac02dd114f7262fcd4114b9755ef97cf9ce492cdb6c9d0f6"
     end
   end
 
