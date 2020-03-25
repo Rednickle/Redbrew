@@ -5,13 +5,13 @@ class CfnLint < Formula
   homepage "https://github.com/aws-cloudformation/cfn-python-lint/"
   url "https://files.pythonhosted.org/packages/a1/55/1ca7d08b2e37a2e5fe3b9663dec97dc1f6283132e1e4a1a9ec6dd3146a6e/cfn-lint-0.29.0.tar.gz"
   sha256 "bceff7ce8556b1e6ea129e9cbf89834561820f63ed1fc96b250015498a041c03"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "36e591c17e94d196d8bea105f72ef8aad1e8aa3bce5d8100eb78309aafa95466" => :catalina
-    sha256 "937085336cfa6cc2e0f65116fffe239d0feeac63a0225420cb147f009b9bb6f8" => :mojave
-    sha256 "eaec022d1311811d3e5c45c980e80e9d6c23cf37710fc5b289f1982237c7bcd1" => :high_sierra
-    sha256 "ec3494839b90c4804923ffe01c35bfe5a434c781bb1090a0a19047173819968e" => :x86_64_linux
+    sha256 "41919faa296582d6f41c3d09e821bacc1341252ff6440066fad59b08755e5131" => :catalina
+    sha256 "8b7aa7236ec9c6c1320f124bcf1153d4cbbd53e5dc62629acdc97b10a75a60dd" => :mojave
+    sha256 "779a4de8b8df7a67f5b28107d608990fd78ff81c68c941f285bffc01cbb7f7ac" => :high_sierra
   end
 
   depends_on "python@3.8"
@@ -44,6 +44,11 @@ class CfnLint < Formula
   resource "chardet" do
     url "https://files.pythonhosted.org/packages/fc/bb/a5768c230f9ddb03acc9ef3f0d4a3cf93462473795d18e9535498c8f929d/chardet-3.0.4.tar.gz"
     sha256 "84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae"
+  end
+
+  resource "decorator" do
+    url "https://files.pythonhosted.org/packages/da/93/84fa12f2dc341f8cf5f022ee09e109961055749df2d0c75c5f98746cfe6c/decorator-4.4.2.tar.gz"
+    sha256 "e3a62f0520172440ca0dcc823749319382e377f37f140a0b99ef45fecb84bfe7"
   end
 
   # dependency constraint, docutils<0.16,>=0.10
@@ -85,6 +90,11 @@ class CfnLint < Formula
   resource "more-itertools" do
     url "https://files.pythonhosted.org/packages/a0/47/6ff6d07d84c67e3462c50fa33bf649cda859a8773b53dc73842e84455c05/more-itertools-8.2.0.tar.gz"
     sha256 "b1ddb932186d8a6ac451e1d95844b382f55e12686d51ca0c68b6f61f2ab7a507"
+  end
+
+  resource "networkx" do
+    url "https://files.pythonhosted.org/packages/bf/63/7b579dd3b1c49ce6b7fd8f6f864038f255201410905dd183cf7f4a3845cf/networkx-2.4.tar.gz"
+    sha256 "f8f4ff0b6f96e4f9b16af6b84622597b5334bf9cae8cf9b2e42e7985d5c95c64"
   end
 
   resource "pyrsistent" do
