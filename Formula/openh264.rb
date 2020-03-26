@@ -10,6 +10,7 @@ class Openh264 < Formula
     sha256 "b8aa9f0ebd8396177e501d5b792b29b335cf3ee08e314de2a373c5bd67b37268" => :catalina
     sha256 "f1d5931a104f30c0dc9b36201a3997e8fdca2bddb70cba90e6ddd83ba4fcd8e9" => :mojave
     sha256 "2eb6051056e35bba0b2e0c36cedc671605d5c1e05c87164dd6a971b01e95f674" => :high_sierra
+    sha256 "6b7328a6b9e7e49a41fc427533e9ca2b4d48635a576efd4d9e270222afa9f007" => :x86_64_linux
   end
 
   depends_on "nasm" => :build
