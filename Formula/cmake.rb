@@ -11,6 +11,7 @@ class Cmake < Formula
     sha256 "e3d804107690769114dff9f807666f7b2aad6a9610423b99188207b3eef03682" => :catalina
     sha256 "f2c6d8483a8a1e07087590b06cdfba7081dc82c9c84c0c38cf932be4e9d9fd94" => :mojave
     sha256 "d9f491b97fed02181a094e2dc96d42b7e01f7f086f88384371279382057dec7b" => :high_sierra
+    sha256 "a56bf6428687e2726a097789d0a879f42cfb8045108f35233315b76d85dc547f" => :x86_64_linux
   end
 
   depends_on "sphinx-doc" => :build
