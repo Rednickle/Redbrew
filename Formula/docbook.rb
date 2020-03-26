@@ -10,6 +10,7 @@ class Docbook < Formula
     sha256 "8152e5356c47a7b8282f3ed84ee3f29565e8ce620bddeaeaf23dfd1f5ef111a3" => :catalina
     sha256 "8152e5356c47a7b8282f3ed84ee3f29565e8ce620bddeaeaf23dfd1f5ef111a3" => :mojave
     sha256 "8152e5356c47a7b8282f3ed84ee3f29565e8ce620bddeaeaf23dfd1f5ef111a3" => :high_sierra
+    sha256 "465a79c737b1a8dc5f8726607820f9e0424dbfe8d47e0a946f9fb3fdc1e5c36d" => :x86_64_linux
   end
 
   uses_from_macos "libxml2"
