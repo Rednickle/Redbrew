@@ -91,9 +91,8 @@ jobs:
             console.log("formula=" + formula)
 
             const issue = await github.issues.get({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: issue_number
+              ...context.repo,
+              issue_number: issue_number
             })
 
             const ping = (actor == "BrewTestBot") ? issue.data.user.login : actor
@@ -102,8 +101,7 @@ jobs:
             const url = 'https://github.com/' + repository + '/actions/runs/' + run_id
 
             await github.issues.createComment({
+              ...context.repo,
               issue_number: issue_number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
               body: '@' + ping + ' bottle request for ' + formula + ' failed: ' + url
             })
