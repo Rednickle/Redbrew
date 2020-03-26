@@ -1,16 +1,15 @@
 class TraefikAT1 < Formula
   desc "Modern reverse proxy (v1.7)"
   homepage "https://traefik.io/"
-  url "https://github.com/containous/traefik/releases/download/v1.7.21/traefik-v1.7.21.src.tar.gz"
-  version "1.7.21"
-  sha256 "94a30fffba6d25aa1375a538c211838862e0ea1294625dd3553a36b27a263b0f"
+  url "https://github.com/containous/traefik/releases/download/v1.7.23/traefik-v1.7.23.src.tar.gz"
+  version "1.7.23"
+  sha256 "35c9e906754042a37ae2939533852610548f4ee810ee0fcdf3fa01846581225e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4559498035b165719a77290c05c9574d9bfd03d13574b303d66357075bc5f6ec" => :catalina
-    sha256 "ae7f6c0772a9da08494b7325dc14f5059051c83219117d710908acbb36cb18f7" => :mojave
-    sha256 "de4df87817715eafccd9730d6b2bb12b882f2775626b5bf58c3c6afac586d703" => :high_sierra
-    sha256 "b20adcecfa8ff2fddd4661abd59cdf66545d9ad2af9072d5191890c23a717f66" => :x86_64_linux
+    sha256 "2a782d38977f8ea44a7d655afec743299468723ca9cf8c3e34917c6b94c0d7fe" => :catalina
+    sha256 "0a1f29a5e54825cfcdee97d13dc2fd27012384059889d30dcdef7fd6c0fe7f50" => :mojave
+    sha256 "2e0801bb0831531981f9a934ff72851191a4de14608a9b8dce96e0a7158eb7db" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -81,10 +80,9 @@ class TraefikAT1 < Formula
 
     (testpath/"traefik.toml").write <<~EOS
       [web]
-      address = ":#{web_port}"
-
+        address = ":#{web_port}"
       [entryPoints.http]
-      address = ":#{http_port}"
+        address = ":#{http_port}"
     EOS
 
     begin
@@ -92,10 +90,14 @@ class TraefikAT1 < Formula
         exec bin/"traefik", "--configfile=#{testpath}/traefik.toml"
       end
       sleep 5
+      cmd = "curl -sIm3 -XGET http://127.0.0.1:#{http_port}/"
+      assert_match /404 Not Found/m, shell_output(cmd)
+      sleep 1
       cmd = "curl -sIm3 -XGET http://localhost:#{web_port}/dashboard/"
       assert_match /200 OK/m, shell_output(cmd)
     ensure
-      Process.kill("HUP", pid)
+      Process.kill(9, pid)
+      Process.wait(pid)
     end
   end
 end
