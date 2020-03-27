@@ -27,7 +27,7 @@ jobs:
             if (prs.data.length === 0) {
               throw "No pull requests are associated with this merge commit."
             }
-            core.setOutput("number", prs.data[0].number)
+            core.setOutput("number", prs.data[0].number.toString())
             core.setOutput("head_sha", prs.data[0].head.sha)
       - name: Download workflow artifacts
         uses: Homebrew/actions/download-artifact@master
