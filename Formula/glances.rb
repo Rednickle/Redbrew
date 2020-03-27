@@ -9,6 +9,7 @@ class Glances < Formula
     sha256 "3bc1dc122d7ed7542795ac6b390dea5e7645528439295d29f8f127148425b5c2" => :catalina
     sha256 "4f1c3d51bf77bb95586c81bdf5170f5fd2b53d544f06a311d9152c00f4abb038" => :mojave
     sha256 "27db703a8a6fd3decc1d96ebed0c0d991c41a74e5a25d1c708a843671be072fd" => :high_sierra
+    sha256 "06bfce814bf4652ab0cb2d8cebc2002ee111b427ef36991da9ea5a8ed7cfc27f" => :x86_64_linux
   end
 
   depends_on "python@3.8"
