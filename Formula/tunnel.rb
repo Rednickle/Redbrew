@@ -12,7 +12,7 @@ class Tunnel < Formula
     sha256 "3653605deb9dbcfdfc837bb3f8065feb0837c14608c6a4c4b26788bfbf15e9b3" => :x86_64_linux
   end
 
-  depends_on "go" => :build
+  depends_on "go@1.13" => :build
 
   def install
     system "go", "build", "-o", bin/"tunnel", "./cmd/tunnel"

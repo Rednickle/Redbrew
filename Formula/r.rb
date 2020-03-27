@@ -57,6 +57,13 @@ class R < Formula
     # don't remember Homebrew's sed shim
     args << "SED=/usr/bin/sed" if File.exist?("/usr/bin/sed")
 
+    if OS.mac?
+      args << "--without-cairo"
+      args << "--without-tcltk"
+      args << "--without-x"
+      args << "--with-aqua"
+    end
+
     unless OS.mac?
       args << "--libdir=#{lib}" # avoid using lib64 on CentOS
       args << "--with-cairo"
