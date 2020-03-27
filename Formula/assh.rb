@@ -1,28 +1,22 @@
 class Assh < Formula
   desc "Advanced SSH config - Regex, aliases, gateways, includes and dynamic hosts"
-  homepage "https://github.com/moul/advanced-ssh-config"
-  url "https://github.com/moul/advanced-ssh-config/archive/v2.8.0.tar.gz"
-  sha256 "17656a6ac562707d6e85df44c1ccd04276fb1c08f1ff6a002291f4cb88880069"
-  revision 1
-  head "https://github.com/moul/advanced-ssh-config.git"
+  homepage "https://manfred.life/assh"
+  url "https://github.com/moul/assh/archive/v2.9.1.tar.gz"
+  sha256 "fed8876c574061c239a1d159d9c7197e8bda94f6610f6e29e682d8b6dde60852"
+  head "https://github.com/moul/assh.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "152fbbe9914afa34c2261b207075ab6b369e449b861122968e642f3c245d3061" => :catalina
-    sha256 "992f04a214504314d7693517a30044664a877e8ce1708c733048e68aeaf9efe4" => :mojave
-    sha256 "0760e5a1c0f3316155569944d7e71dc61ff02a5e6ce321fdc77fbc5fd90730f1" => :high_sierra
-    sha256 "764c59cc52b1d72c07360b1ec1286a5d23bd0c1a5a8155c576b8a37ed5de07ab" => :x86_64_linux
+    sha256 "210b380b1af14b7f4ea11f3c0f9546d7def3694f2adc5fcdaee31ab13112a5e8" => :catalina
+    sha256 "cfa4b2e02ad1806a693f8a2474db2d0ea14c9613f86d961f9c7de3574547af2a" => :mojave
+    sha256 "2564d6cb2cc3d52adc1db3ea4f74c1c73bded0cecfdd1079ac0dd6b88ddbe1c1" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/moul/advanced-ssh-config").install Dir["*"]
-    cd "src/github.com/moul/advanced-ssh-config/cmd/assh" do
-      system "go", "build", "-o", bin/"assh"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"assh"
+    prefix.install_metafiles
   end
 
   test do
@@ -31,6 +25,7 @@ class Assh < Formula
       hosts:
         hosta:
           Hostname: 127.0.0.1
+      asshknownhostfile: /dev/null
     EOS
 
     output = "hosta assh ping statistics"
