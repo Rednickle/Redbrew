@@ -43,7 +43,7 @@ jobs:
           HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
         if: steps.pr.outputs.number != 0
         run: |
-          cd ~/bottles
+          cd bottles
           brew update-reset $(brew --repo ${{github.repository}})
           brew test-bot \
             --tap=homebrew/core \
