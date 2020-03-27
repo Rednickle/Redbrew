@@ -3,15 +3,14 @@ class Godep < Formula
   homepage "https://godoc.org/github.com/tools/godep"
   url "https://github.com/tools/godep/archive/v80.tar.gz"
   sha256 "029adc1a0ce5c63cd40b56660664e73456648e5c031ba6c214ba1e1e9fc86cf6"
-  revision 30
+  revision 31
   head "https://github.com/tools/godep.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5a03bc24dd82746a6bccdd2daefcc56439f9421362dfcb3566e917b150141900" => :catalina
-    sha256 "a96dd501bdd4ce866f3eeb9917af93eeb079e83f3bdb76dfd926507af46584ee" => :mojave
-    sha256 "22b98ea2b02444b4261292164c71ec9ae615f5e475605dfac24458fe295ba538" => :high_sierra
-    sha256 "2930a37dd8fe46d0a6f15841f1c82aaa78fc765a5efa825b9aee9fd2fff3f648" => :x86_64_linux
+    sha256 "f525b9456ee3bd7ae2d7e82afa071583978d1c699e136c9572f9101d17ccc733" => :catalina
+    sha256 "ef51b2adb1da7e84cb5103c6322eff1e4ce4dbdd556712e0b5b524aa43702829" => :mojave
+    sha256 "a04c4bcce6ab260efa0536bfd890abbfbb68ef8541a480b3e98ebed670eb70d3" => :high_sierra
   end
 
   depends_on "go"

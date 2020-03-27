@@ -2,15 +2,14 @@ class HelmAT2 < Formula
   desc "The Kubernetes package manager"
   homepage "https://helm.sh/"
   url "https://github.com/helm/helm.git",
-      :tag      => "v2.16.4",
-      :revision => "5e135cc465d4231d9bfe2c5a43fd2978ef527e83"
+      :tag      => "v2.16.5",
+      :revision => "89bd14c1541fa93a09492010030fd3699ca65a97"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3abf0d63c749d1db41de3298b913f80d63b56e51b510fe79a4e2d9fbff3b6ab6" => :catalina
-    sha256 "e97e5f714a1fad868db5b2f0761c006391242917f068830f237379ea0fbe054e" => :mojave
-    sha256 "83016ca2f3bbb90c136f9748e800ee43f52511421b2a4a34773475b22a23ba74" => :high_sierra
-    sha256 "501bc87b879f20e342b57ffdcf0fdf448ac38ce513e35fed8d15f9c148748ca2" => :x86_64_linux
+    sha256 "bde48a20c099114118e3c41c2bd1273ff1676375899c24ce26d12a695c45cbf7" => :catalina
+    sha256 "36d8479ab5013f3e736c9e51d3b3f80851d9c6abde490d423c3d18090896ce5d" => :mojave
+    sha256 "322938ad3e773e54b609d6815b059061521676bef15b119537597f2ec4e08dc4" => :high_sierra
   end
 
   keg_only :versioned_formula
