@@ -34,9 +34,8 @@ class TerraformAT011 < Formula
       os = OS.mac? ? "darwin" : "linux"
       ENV["XC_OS"] = os
       ENV["XC_ARCH"] = "amd64"
-      # Tests fail to build on linux: FAIL: TestFmt_check
-      # See https://github.com/Homebrew/linuxbrew-core/pull/13309
-      system "make", "tools", *("test" if OS.mac?), "bin"
+      system "go", "mod", "vendor" # Needed for Go 1.14+
+      system "make", "tools", "bin"
 
       bin.install "pkg/#{os}_amd64/terraform"
       prefix.install_metafiles

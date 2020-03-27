@@ -3,16 +3,14 @@ class GimmeAwsCreds < Formula
 
   desc "CLI to retrieve AWS credentials from Okta"
   homepage "https://github.com/Nike-Inc/gimme-aws-creds"
-  url "https://files.pythonhosted.org/packages/00/37/404f6114b07c1b08fc9c83cd99c5330cd0496c99b9bf9b11c579131a69ef/gimme%20aws%20creds-2.3.1.tar.gz"
-  sha256 "6bf78df68353ba86c0490aee6439d4fdf394c400a81b7d788ad722c550842564"
-  revision 1
+  url "https://files.pythonhosted.org/packages/e2/a7/53d5f021a1b41a680d5c558c683e37e3000085c1a4132695e3378e4b477d/gimme%20aws%20creds-2.3.3.tar.gz"
+  sha256 "b7bc10cd09faf995e44063bb6125b910ee85cf2f3e95ddb2908afade4bbd3973"
 
   bottle do
     cellar :any
-    sha256 "c9e13bca884634326430de7d4695cab7bd02521fd0ec3f8bb8e69377df52bfdf" => :catalina
-    sha256 "6cfa1c0c00adbe19a5dff9fca00f900b1b781d04532a48430036cf9221adf743" => :mojave
-    sha256 "1ccccf741140716020eef7ecb3cf003eedacda58e0d7edbddf98f7d3678f2dd1" => :high_sierra
-    sha256 "eef607019fe940dce62a0e8b39cf76b8d7947b327b6224743d106632cd5eb9d5" => :x86_64_linux
+    sha256 "39c425c5154301eaa51798245adcd223abee150249b09d4da49fa655b3d60119" => :catalina
+    sha256 "5789360170f0ae9e5dc213c19483facb08b028cf1d8794d04dda847650758506" => :mojave
+    sha256 "3dede56e3653d34088e14852ca7ed76be11c5639b801cbb0f70597c6c4b5772e" => :high_sierra
   end
 
   depends_on "python@3.8"
