@@ -11,6 +11,7 @@ class AnycableGo < Formula
     sha256 "2d37c08d9889afb6475b800b11f428860c1609ca4d4bcab7f98bef2aeee06578" => :catalina
     sha256 "4ea94e2657ed7d593601ceee6d499debb3b91a22c5af1f63ddb0dfa0e8aff288" => :mojave
     sha256 "63b38c851a6bff06de8d7e229c4d91e0b775f47d76c48517ce6be33cf1c095c5" => :high_sierra
+    sha256 "eb913ce83587f03930074fa395cd40f82f63aafd33af1abfd686ca972a82e622" => :x86_64_linux
   end
 
   depends_on "go" => :build
