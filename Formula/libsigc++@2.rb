@@ -9,6 +9,7 @@ class LibsigcxxAT2 < Formula
     sha256 "bcf678faa58639056292bb201143fe4add755d9f6da6a65f4b7d10cff0ccfe17" => :catalina
     sha256 "034cb3a54d796e4b9ec4619a15612fc64fc7e7cbddf189f71bb5342f7b631a3d" => :mojave
     sha256 "c8cccc56cfb07d96e339af416c7a2449673c5303f15f99c5f668fc4c5f792695" => :high_sierra
+    sha256 "5048d7caa6a3a6d55888e9bdcbad60635dbbc1bc5f8c09c30016993f6ceb6f81" => :x86_64_linux
   end
 
   uses_from_macos "m4" => :build
