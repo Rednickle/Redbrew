@@ -3,16 +3,14 @@ class Tox < Formula
 
   desc "Generic Python virtualenv management and test command-line tool"
   homepage "https://tox.readthedocs.org/"
-  url "https://files.pythonhosted.org/packages/5b/e1/138ed5fa49ca20fdc05ab52f260276f9d0a1b464af831b43231f9df1f185/tox-3.14.5.tar.gz"
-  sha256 "676f1e3e7de245ad870f956436b84ea226210587d1f72c8dfb8cd5ac7b6f0e70"
-  revision 1
+  url "https://files.pythonhosted.org/packages/c0/7f/46ff5bae3cef87400719e65de5f6b488699687a2e8a3a02f91c89c775aeb/tox-3.14.6.tar.gz"
+  sha256 "a4a6689045d93c208d77230853b28058b7513f5123647b67bf012f82fa168303"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1dbb3025cb109262125c0b36cb24867ee1f1aa9030de75103968ec9b71f43e23" => :catalina
-    sha256 "36bd039b64519a823fdff9bf8cf6f4ef134d4b0fdea9dfade0addab7cb4c4a8e" => :mojave
-    sha256 "ecfaca7917af12bc5601c1bfd4ae1d2d3ed5fb629bdd14a123758d0dfca9a5fc" => :high_sierra
-    sha256 "9444e1ae3060230b4ad00aafae0dbc0742754a7aab0c354f9403b8259889094e" => :x86_64_linux
+    sha256 "5d87c680cd5a3201480c28fa3703275564ce75f17e5859c5867ead3e04fa8be5" => :catalina
+    sha256 "3660909850f58c4a48ff8c271c2425c8be9949536a3fcc61c182268f4af6fa1f" => :mojave
+    sha256 "13e5972d0aaefed0b4abc5279c7ff745f6278394e77e713ce74d6e6c5235e55c" => :high_sierra
   end
 
   depends_on "python@3.8"
@@ -63,8 +61,8 @@ class Tox < Formula
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/d0/b6/2c6da6a79279023c305c4b1d974daec075d5e59cddd88d820d136976ad8a/virtualenv-20.0.10.tar.gz"
-    sha256 "8512e83f1d90f8e481024d58512ac9c053bf16f54d9138520a0929396820dd78"
+    url "https://files.pythonhosted.org/packages/98/30/13ec6895dd1e2aaef956cc587e19c88fca00b2be52bb29cc4b09995aded5/virtualenv-20.0.15.tar.gz"
+    sha256 "9e81279f4a9d16d1c0654a127c2c86e5bca2073585341691882c1e66e31ef8a5"
   end
 
   def install
