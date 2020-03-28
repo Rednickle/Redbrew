@@ -1,17 +1,17 @@
 class SwiftFormat < Formula
   desc "Formatting technology for Swift source code"
   homepage "https://github.com/apple/swift-format"
-  url "https://github.com/apple/swift-format.git", :revision => "fc5a3da1d5d03143d7a31b12514349e2bf1aba8f"
-  version "5.1"
+  url "https://github.com/apple/swift-format.git", :revision => "5cdf916a09ee8b581ff348c0e395b221d02d253b"
+  version "5.2"
   head "https://github.com/apple/swift-format.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "78116d711e3e5b5fc5bc08ee95db22583636a9bb17932a59236e02b1ffa3f3da" => :catalina
-    sha256 "bab43b73e8322b8acf5478f282bc6b8f019632569dfb0f487715c2633ba869c8" => :mojave
+    sha256 "7e83034b8389fcc1a6a72874771246e79a0d49990fde28a14c906f9cdcb2a4be" => :catalina
+    sha256 "cbb6b0aca421587fad3aad6ce5341ff98513ef0899cdd6aa8c9b6713d670315e" => :mojave
   end
 
-  depends_on :xcode => ["11.0", :build]
+  depends_on :xcode => ["11.4", :build]
 
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"
