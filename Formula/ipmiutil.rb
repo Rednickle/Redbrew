@@ -9,6 +9,7 @@ class Ipmiutil < Formula
     sha256 "d9c1f45ad31e61093e3ba002c3494d61e762666733c6f5d03c53e6860e9aaf14" => :catalina
     sha256 "e1862f31ab6cc95f37dda09ff7250e8b7f84750b075428e517779d37066f3c01" => :mojave
     sha256 "e6d9bf95fd37500104f94fb640f6ac71d922227190b05b4ccbbf70abc942612c" => :high_sierra
+    sha256 "36fd47a5812d8fc9e7fa8dca7b339cebe683e735e47bebe37fc69a5ad29468ce" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
