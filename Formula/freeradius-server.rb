@@ -9,6 +9,7 @@ class FreeradiusServer < Formula
     sha256 "c3174a08eaeabce252f16224d93fcb1503584ac6b2d7733a6e80eb558cfefee5" => :catalina
     sha256 "4c4dc47fe8af598594c4dd24184f7b5400e383e7649c6f6aa98f1663997b04ec" => :mojave
     sha256 "2c8d33eddc1311f098175f2854173bbd4181d9f20fa0d1807950a84198fca6e1" => :high_sierra
+    sha256 "67907844fd264fccc9d4016ad6462f40b3e9b1c7389611c1a6ba9fb6ad8b678c" => :x86_64_linux
   end
 
   depends_on "openssl@1.1"
