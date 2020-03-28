@@ -1,16 +1,14 @@
 class Mapserver < Formula
   desc "Publish spatial data and interactive mapping apps to the web"
   homepage "https://mapserver.org/"
-  url "https://download.osgeo.org/mapserver/mapserver-7.4.3.tar.gz"
-  sha256 "c8cc4dc994b61d7bc5767419da40d7af9e7566669d6800e4c2d4e11a91656f45"
-  revision 2
+  url "https://download.osgeo.org/mapserver/mapserver-7.4.4.tar.gz"
+  sha256 "61385746b4a7755d60efe9bb61e41eee90c9103f6fa4fbbc02d1f993ddba17d8"
 
   bottle do
     cellar :any
-    sha256 "bdfe998c612593b3e05786252ef35f39c3425a15f44f8ba43d3c49062d60145b" => :catalina
-    sha256 "def75156d2f1109c2e06dc7528c311900c358eb00f3d3a4cbef81ac169d8425d" => :mojave
-    sha256 "d1b648c28c3a8af8b6d77ee8f0c9b0bc872e70a02e6bff0e19efa4bda8739134" => :high_sierra
-    sha256 "3ffffe9836b098a42f9b57a4a6a0a294ce81aef7b3835148c491949b5e162a24" => :x86_64_linux
+    sha256 "85dea0b3a776407c45b2b62e1d109a56805f29d74ac712f10460599df6e4d8f1" => :catalina
+    sha256 "b325e063357bd45611f5214e93ffbc3a6bbdcd58c926fa6675659b5174c2ec82" => :mojave
+    sha256 "d0fd9a7514065bfa3f4561d159d494f5c68f448bb107f5ea24126514e22bc5b3" => :high_sierra
   end
 
   depends_on "cmake" => :build
