@@ -8,6 +8,7 @@ class Bmake < Formula
     sha256 "32698f51f0ef6bd8802a01ab1df69cb24d194d6fc4e494dbfaa6f33cb8f7ce2a" => :catalina
     sha256 "ed6b38e57d7f544cb6adafa9b77ba2b1672d6759bcb3f9f40560d9b134806075" => :mojave
     sha256 "53a30848b6959e2ade0adccdb7fe714d229f34fc71feb18be2bde3e42848717a" => :high_sierra
+    sha256 "449453e1b7d465fee583af273b3d681b5a5a6e7e272011adcf875342b6a7e9c9" => :x86_64_linux
   end
 
   def install
