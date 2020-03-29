@@ -9,6 +9,7 @@ class Dialog < Formula
     sha256 "23d7541b2fbba5903eafedde0a4182a3bfe11542139e35fa39d308c9464d62c6" => :catalina
     sha256 "73aa99c7e00983a9fdefedd5fec29cd77d2825529aa64a10367b7e9f7bb7e1a1" => :mojave
     sha256 "ef79f4d596a4ebfcb5bde2ac34d0e27e67092263a05b54e110ecc783cfffa4fd" => :high_sierra
+    sha256 "c401f64732a2120fa8ea87a32ba240c234fa0c75d322f51fabf5fdc46531aac2" => :x86_64_linux
   end
 
   uses_from_macos "ncurses"
