@@ -1,14 +1,14 @@
 class Viewvc < Formula
   desc "Browser interface for CVS and Subversion repositories"
   homepage "http://www.viewvc.org"
-  url "https://github.com/viewvc/viewvc/releases/download/1.2.0/viewvc-1.2.0.tar.gz"
-  sha256 "6b273a987a6f4362983bac5ffc80255c7be686b76365b795afe7a4071d64f089"
+  url "https://github.com/viewvc/viewvc/releases/download/1.2.1/viewvc-1.2.1.tar.gz"
+  sha256 "afbc2d35fc0469df90f5cc2e855a9e99865ae8c22bf21328cbafcb9578a23e49"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9e4e8185a678846f8a70254a737166aca533ccb6604a116f59a2e1ae43ba3176" => :catalina
-    sha256 "5308cdd92703103eb52482215269d3d6df53689908701ecd204120b533e1512b" => :mojave
-    sha256 "5308cdd92703103eb52482215269d3d6df53689908701ecd204120b533e1512b" => :high_sierra
+    sha256 "18ef8237be4eb2ad2578b31e21ad74f226bb7d4c92075474c92619547047a0f2" => :catalina
+    sha256 "709c0f7f7badc7bce0b5e18edf1372a6c1ef3bfb01006d38a51d596a069fd516" => :mojave
+    sha256 "709c0f7f7badc7bce0b5e18edf1372a6c1ef3bfb01006d38a51d596a069fd516" => :high_sierra
   end
 
   depends_on :macos # Due to python@2, https://github.com/viewvc/viewvc/issues/138
