@@ -8,6 +8,7 @@ class FileRoller < Formula
     sha256 "5fc1561ec2aa492049da91c0dd4b86ea9b4d1142d7e2ffdfb9091c6619b6aea1" => :catalina
     sha256 "6499dc55f09537c26f7131b7268a42437fb995cb6e411633996bd6a07d976198" => :mojave
     sha256 "770aeadb901a95ccfa2faa766e5f37e76ff00e246148d298422c41359ca01961" => :high_sierra
+    sha256 "7cb617aa7a79d3dccdb86170225651a444aa3b3f336a8069f7ef3355051a8df2" => :x86_64_linux
   end
 
   depends_on "itstool" => :build
