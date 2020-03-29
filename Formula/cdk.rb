@@ -10,6 +10,7 @@ class Cdk < Formula
     sha256 "f6af3de91a67f7bec4481770831733635e80467dde908806b7f236c4a367fec1" => :catalina
     sha256 "d14ec66c67dd3cfeea5679661a1c6341ac1efa6d5090bbe72def80529051d9b4" => :mojave
     sha256 "c3576b57b44eba4148477a0e987197c9f7d766ba6652280aa915989dcee441ad" => :high_sierra
+    sha256 "ba4b3922f6a41117b8e3ff1203e6a01451331f739155cb4fd4ce9e360d2517fb" => :x86_64_linux
   end
 
   uses_from_macos "ncurses"
