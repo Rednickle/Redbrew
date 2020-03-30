@@ -8,6 +8,7 @@ class IrcdHybrid < Formula
     sha256 "4f9af65b03a153f6f6ff92f96b6fe7a14784f8dce6852656cc0f130c88b2eebc" => :catalina
     sha256 "68d2fafdf7448feee3fb0e04ff613205ddbee4e8beb45b179b526e44397d4de7" => :mojave
     sha256 "c352eba478cec35087af2da77fe3408626c1634621a4be30db75ca48382a9873" => :high_sierra
+    sha256 "9a508954dd40372f68a3ec7db1c4a6008c1ababa33dbb439584bc57aa3796046" => :x86_64_linux
   end
 
   depends_on "openssl@1.1"
