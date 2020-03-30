@@ -10,6 +10,7 @@ class EulerPy < Formula
     sha256 "e6bdba6e4de38fad5949439b3699fd81784f51c6e7ef211697e04c805e9a1264" => :catalina
     sha256 "e6bdba6e4de38fad5949439b3699fd81784f51c6e7ef211697e04c805e9a1264" => :mojave
     sha256 "e6bdba6e4de38fad5949439b3699fd81784f51c6e7ef211697e04c805e9a1264" => :high_sierra
+    sha256 "b1cca05cf81de6f3dd99eebe981c14638a6ad97e15d6c9b673e009b40a35355c" => :x86_64_linux
   end
 
   depends_on "python@3.8"
