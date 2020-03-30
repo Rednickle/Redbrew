@@ -1,14 +1,13 @@
 class Comby < Formula
   desc "Tool for changing code across many languages"
   homepage "https://comby.dev"
-  url "https://github.com/comby-tools/comby/archive/0.14.1.tar.gz"
-  sha256 "7ea08dc4dda5304314940cd0dfc2647d21ee0feae77918e3031f0b558572cae3"
+  url "https://github.com/comby-tools/comby/archive/0.15.0.tar.gz"
+  sha256 "6f7304c1644f6212c3b86542f8325e6f76cd268b787fbfbbe3cc0de61ddec14a"
 
   bottle do
-    sha256 "bc1641a42390a8431d2023cbb18baf14738975f5a2470e89cf09a7be1ff5a83f" => :catalina
-    sha256 "f5d7287edcd674fe6a68ba144d97863b2f986dcf845f1615852be4a58ebcc129" => :mojave
-    sha256 "3fdf189f9e57d38ed3f5a590c315fbd94c035447d2fd9af8f09ea96fe12b1f56" => :high_sierra
-    sha256 "4137a60b36b2f2de29994d60646af093984b41edfc412906a0cf5f7d3828351d" => :x86_64_linux
+    sha256 "64591a0ced2e6ecd71e43e773ec1ae8dd8f0a1fe3507ecb121e665db02a8f21c" => :catalina
+    sha256 "7f8b23196d449a572f0e7061d33a509c479c7f526fae9a9754388f645e601bcc" => :mojave
+    sha256 "87c8b380a96b5f9cfe0ee6de72f837ee5f1b61fc5777a0cb35d538b262f4ba01" => :high_sierra
   end
 
   depends_on "gmp" => :build
@@ -37,8 +36,6 @@ class Comby < Formula
   end
 
   test do
-    assert_equal version.to_s, shell_output("#{bin}/comby -version").strip
-
     expect = <<~EXPECT
       --- /dev/null
       +++ /dev/null

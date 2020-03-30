@@ -3,12 +3,13 @@ class Kpcli < Formula
   homepage "https://kpcli.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/kpcli/kpcli-3.3.pl"
   sha256 "04de984d6b79bdeb84689bf8eaa0e2e3aa8756b7cca9ffdf36e1a9d1c0f1cdfc"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "5f59575c4711bcc72d546ce158c202fdd38bc548471ff35067bce662d071a8a2" => :catalina
-    sha256 "6911dd04b9f3bbe7dc2cfc4c6fc53079e4a71b40c1718c64291d3f1086fc4c8b" => :mojave
-    sha256 "c1b3100690e04b1b00e9034c6a65e2117e088788efc0d849f8cc9cb350219a0e" => :high_sierra
+    sha256 "6a8a73548b402f3cff3920c895576f31236f9f8afc2f5f016f7642f2f50c2757" => :catalina
+    sha256 "4bcd613cfa172e05c9b296e7fb2ee7dd861ee20c84c7d3db9861a3c60f07cfbf" => :mojave
+    sha256 "8f0a4d3077344f69258d19b07b4cd732a86782c12106a8536b874c1585971586" => :high_sierra
   end
 
   depends_on "readline"
@@ -44,13 +45,13 @@ class Kpcli < Formula
   end
 
   resource "Clipboard" do
-    url "https://cpan.metacpan.org/authors/id/K/KI/KING/Clipboard-0.13.tar.gz"
-    sha256 "eebf1c9cb2484be850abdae017147967cf47f8ccd99293771517674b0046ec8a"
+    url "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/Clipboard-0.22.tar.gz"
+    sha256 "9fdb4dfc2e9bc2f3990b5b71649094dfe83aa12172c5a1809cf7e8b3be295ca7"
   end
 
   resource "Mac::Pasteboard" do
-    url "https://cpan.metacpan.org/authors/id/W/WY/WYANT/Mac-Pasteboard-0.009.tar.gz"
-    sha256 "85b1d5e9630973b997c3c1634e2df964d6a8d6cb57d9abe1f7093385cf26cf54"
+    url "https://cpan.metacpan.org/authors/id/W/WY/WYANT/Mac-Pasteboard-0.011.tar.gz"
+    sha256 "bd8c4510b1e805c43e4b55155c0beaf002b649fe30b6a7841ff05e7399ba02a9"
   end
 
   resource "Capture::Tiny" do

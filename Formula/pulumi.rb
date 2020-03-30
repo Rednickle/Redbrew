@@ -2,15 +2,14 @@ class Pulumi < Formula
   desc "Cloud native development platform"
   homepage "https://pulumi.io/"
   url "https://github.com/pulumi/pulumi.git",
-      :tag      => "v1.13.0",
-      :revision => "a09e87a5d0627089bb6a4f624fc60efb49298eb7"
+      :tag      => "v1.13.1",
+      :revision => "f43a9522cb824e6c11fe51b5da82a44b54b3acc4"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e414977bca03f121827db68255a65ee9fc3afb28d022733f897e39d46cac94a6" => :catalina
-    sha256 "6b5f311b5f15de4c16816ee7c26578acd70fbb37312f3aa9c4492cbf2aa77800" => :mojave
-    sha256 "0abd410c3bb246e15d931fe722a39bcbe28f82a320fb1d4c83af603d6e8f4081" => :high_sierra
-    sha256 "a43b11bff1cd3f7ed88dcca3aced6cfcef62e9619c88274aa69c926638504697" => :x86_64_linux
+    sha256 "bd43751ca252f0fb63684d81080aa784e915034b0776bd7cc4afa5e656edfc62" => :catalina
+    sha256 "3c67c60917863db16281bf1b875d7c200bd25425b85d3104a14ff54c88562cf2" => :mojave
+    sha256 "6462b2a1164315ef8e92a051367893afbe2299db746a17fdc2bba3a4899399ff" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -23,7 +22,12 @@ class Pulumi < Formula
     dir.install buildpath.children
 
     cd dir do
-      system "go", "mod", "vendor"
+      cd "./sdk" do
+        system "go", "mod", "download"
+      end
+      cd "./pkg" do
+        system "go", "mod", "download"
+      end
       system "make", "dist"
       bin.install Dir["#{buildpath}/bin/*"]
       prefix.install_metafiles

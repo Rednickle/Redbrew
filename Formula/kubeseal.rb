@@ -2,25 +2,22 @@ class Kubeseal < Formula
   desc "Kubernetes controller and tool for one-way encrypted Secrets"
   homepage "https://github.com/bitnami-labs/sealed-secrets"
   url "https://github.com/bitnami-labs/sealed-secrets.git",
-      :tag      => "v0.11.0",
-      :revision => "bfb03e8f4cd10b34c944a7fd02931fea6c4a5507"
+      :tag      => "v0.12.0",
+      :revision => "dc76a4419e7d984734c0c979e6eeca0de6e3136d"
   sha256 "753f9084a0bf5dfccfe84dff036e87b899a3be921c1d33a497a4b44ac582f00d"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4475a99fcd98e8a4cdbcddd760203b0166384d5ac6f5c201a97c39b2e7b52601" => :catalina
-    sha256 "8ea939d6d895a204fa083e93387a1c815bec92925585dd8b533c136180cc1f41" => :mojave
-    sha256 "cafbfc8a594470de428f170d94569b7c3512b37f6997e57adf65a52318d8971b" => :high_sierra
-    sha256 "2978a268a84b5f3adf8fbed43b1bdfdf91d81f6f2d5bd3d5408d995f479583f0" => :x86_64_linux
+    sha256 "97bc08b35dcf27baac665d87d1f934c656b7b2274f7a9ce398a9c49eb85a9249" => :catalina
+    sha256 "6d8424aaf0b954eeb5d91850c53d1dee4e6508dbb6a4e06faf1b4da2981707e9" => :mojave
+    sha256 "f9f24c5e5d1190eb6c9b3a6bff0348c53e3637d721138574648d3225f8eccb55" => :high_sierra
   end
 
   depends_on "go" => :build
 
   def install
-    cd buildpath do
-      system "make", "kubeseal"
-      bin.install "kubeseal"
-    end
+    system "make", "kubeseal", "DIRTY="
+    bin.install "kubeseal"
   end
 
   test do

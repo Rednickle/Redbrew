@@ -1,15 +1,14 @@
 class GitTrim < Formula
   desc "Trim your git remote tracking branches that are merged or gone"
   homepage "https://github.com/foriequal0/git-trim"
-  url "https://github.com/foriequal0/git-trim/archive/v0.2.4.tar.gz"
-  sha256 "7c3c386cdca7eeec8a8a3d959e80ec088be9db5300d9db21d639878b725cf64f"
+  url "https://github.com/foriequal0/git-trim/archive/v0.3.1.tar.gz"
+  sha256 "e8363a4123f39d2dc1aa99cc0030c012adb8057563cb880a7b69fc634edb0f74"
 
   bottle do
     cellar :any
-    sha256 "43c93225e3bced1921b69adf6d503bed99909c57945859a69a63b86c7d5b8c1f" => :catalina
-    sha256 "d0a4dd74552c09184e17bad80436c180697415482fc8487d6cf3cf6c0ac4101a" => :mojave
-    sha256 "78d5690223b4a6124946b5e51aab51190f854a8033d488942484fc38aeb2be82" => :high_sierra
-    sha256 "852d75a561ab15b6fb0c5746df033fd8dac919ef0d4bfbe58cfbd49462e3c80c" => :x86_64_linux
+    sha256 "299010c734f65b31c9114a5c3f59603910ba9d54a3e754e54549c1d059a3af3c" => :catalina
+    sha256 "8c6410e3846f5ae8cc7f45213484611bf6e980f0c18a21e1679be50379029101" => :mojave
+    sha256 "a38597f8f12b97c20b080ee67589cdf3c6d1e391d3420cfe8c9af307d326bd5b" => :high_sierra
   end
 
   depends_on "rust" => :build
@@ -20,7 +19,7 @@ class GitTrim < Formula
 
   def install
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
-    man1.install "docs/git-trim.md.1" => "git-trim.1"
+    man1.install "docs/git-trim.man" => "git-trim.1"
   end
 
   test do
