@@ -5,15 +5,15 @@ class DhallYaml < Formula
 
   desc "Convert between Dhall and YAML"
   homepage "https://github.com/dhall-lang/dhall-haskell/tree/master/dhall-yaml"
-  url "https://hackage.haskell.org/package/dhall-yaml-1.0.1/dhall-yaml-1.0.1.tar.gz"
-  sha256 "4ed4351c1850363607ed025a035f973db5c375b4650da692f69652837935a3de"
+  url "https://hackage.haskell.org/package/dhall-yaml-1.0.3/dhall-yaml-1.0.3.tar.gz"
+  sha256 "b6314d2e189d72dc56ad277c1bdef0fcfd12515b163635852befbf85b9b8ddd2"
   head "https://github.com/dhall-lang/dhall-haskell.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8d7d9ac00313fb6ce4c24ee1eca28cf9d30d3e1c4f67010fb78385665105055e" => :catalina
-    sha256 "f96cc310eb0e8b387def35b3b3736d8c0062ae51ad306f7bf68acaea6849724b" => :mojave
-    sha256 "0f22a381aa9e6093aeac60aa5dc70c692dabc1c91014501fe9294deea410d423" => :high_sierra
+    sha256 "4e7aa075a5d21a38a08d1942195888c866d0f63588a3d7b02cefa7868e6b042f" => :catalina
+    sha256 "9559fb18526197b0d82025e9736a94025059a39de2d37b1a18434c24775005a4" => :mojave
+    sha256 "b8d8413255a6ec06b3f5c2ca3dfcb2ae134c534e38af4d42a54a0f12d525a50f" => :high_sierra
   end
 
   depends_on "cabal-install" => :build

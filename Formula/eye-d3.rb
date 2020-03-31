@@ -1,15 +1,14 @@
 class EyeD3 < Formula
   desc "Work with ID3 metadata in .mp3 files"
   homepage "https://eyed3.nicfit.net/"
-  url "https://eyed3.nicfit.net/releases/eyeD3-0.9.4.tar.gz"
-  sha256 "11099464e438c11a1d701e723a5065c1556fb59878ad9dce29f924dac3a07a96"
+  url "https://eyed3.nicfit.net/releases/eyeD3-0.9.5.tar.gz"
+  sha256 "faf5806197f2093e82c2830d41f2378f07b3a9da07a16fafb14fc6fbdebac50a"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0d4361b728d9ec9589598c7f00d77f64c2818e983116543752aa176e2791892c" => :catalina
-    sha256 "0d4361b728d9ec9589598c7f00d77f64c2818e983116543752aa176e2791892c" => :mojave
-    sha256 "0d4361b728d9ec9589598c7f00d77f64c2818e983116543752aa176e2791892c" => :high_sierra
-    sha256 "a14aa756228b39c883fb32c6228fed58701d87d4e9dbc2e0baaae79fbf33824e" => :x86_64_linux
+    sha256 "df989613941c9c28f35b5efea82752fac9d0efeda871955ee833e688d0566a80" => :catalina
+    sha256 "df989613941c9c28f35b5efea82752fac9d0efeda871955ee833e688d0566a80" => :mojave
+    sha256 "df989613941c9c28f35b5efea82752fac9d0efeda871955ee833e688d0566a80" => :high_sierra
   end
 
   depends_on "libmagic"
