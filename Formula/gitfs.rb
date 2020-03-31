@@ -5,14 +5,14 @@ class Gitfs < Formula
   homepage "https://www.presslabs.com/gitfs"
   url "https://github.com/presslabs/gitfs/archive/0.5.2.tar.gz"
   sha256 "921e24311e3b8ea3a5448d698a11a747618ee8dd62d5d43a85801de0b111cbf3"
+  revision 1
   head "https://github.com/presslabs/gitfs.git"
 
   bottle do
     cellar :any
-    sha256 "46b9f946ecb8009dc86e20230314c21d17f270f516410094a4efe7e4bd49125b" => :catalina
-    sha256 "b3c0185053026036e2cb08fb9eeacc896a690f3b86a6fb9e319fa72213c215eb" => :mojave
-    sha256 "e15109dbbfebea22a1f90b35ad2a93769cf581eda07d29c7cc7eb8c8b6982b43" => :high_sierra
-    sha256 "49e9e19065718f66fb76abb04c7e1de48ddbfa4a0e41362d8b7463fe4eea363d" => :x86_64_linux
+    sha256 "d385ea70db9456cc456048016a3cf256c9438d94a4b9f411eb6da649821695fb" => :catalina
+    sha256 "19881e949d2586d9f3678468455b599a0dba2cb6f65fec2c59fa9ff4edecb6d3" => :mojave
+    sha256 "1f2565c4d019650a0ab9cd8ccf5375aa8d163dbbfd571d890f53cfa4fb853fc6" => :high_sierra
   end
 
   depends_on "libgit2"
@@ -31,6 +31,11 @@ class Gitfs < Formula
     sha256 "cb1378c4cd676d6f243641c50e277504abf45f70f1ea76e446efcdbb69624bbe"
   end
 
+  resource "cached-property" do
+    url "https://files.pythonhosted.org/packages/57/8e/0698e10350a57d46b3bcfe8eff1d4181642fd1724073336079cb13c5cf7f/cached-property-1.5.1.tar.gz"
+    sha256 "9217a59f14a5682da7c4b8829deadbfc194ac22e9908ccf7c8820234e80a1504"
+  end
+
   resource "cffi" do
     url "https://files.pythonhosted.org/packages/93/1a/ab8c62b5838722f29f3daffcc8d4bd61844aa9b5f437341cc890ceee483b/cffi-1.12.3.tar.gz"
     sha256 "041c81822e9f84b1d9c401182e174996f0bae9991f33725d059b771744290774"
@@ -42,8 +47,8 @@ class Gitfs < Formula
   end
 
   resource "pygit2" do
-    url "https://files.pythonhosted.org/packages/4c/64/88c2a4eb2d22ca1982b364f41ff5da42d61de791d7eb68140e7f8f7eb721/pygit2-0.28.2.tar.gz"
-    sha256 "4d8c3fbbf2e5793a9984681a94e6ac2f1bc91a92cbac762dbdfbea296b917f86"
+    url "https://files.pythonhosted.org/packages/1d/c4/e0ba65178512a724a86b39565d7f9286c16d7f8e45e2f665973065c4a495/pygit2-1.1.1.tar.gz"
+    sha256 "9255d507d5d87bf22dfd57997a78908010331fc21f9a83eca121a53f657beb3c"
   end
 
   resource "six" do

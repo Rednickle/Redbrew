@@ -1,16 +1,14 @@
 class Libgit2Glib < Formula
   desc "Glib wrapper library around libgit2 git access library"
   homepage "https://github.com/GNOME/libgit2-glib"
-  url "https://download.gnome.org/sources/libgit2-glib/0.28/libgit2-glib-0.28.0.1.tar.xz"
-  sha256 "e70118481241a841d5261bdd4caa3158b2ffcb5ccf9d4f32b6cf6563b83a0f28"
+  url "https://download.gnome.org/sources/libgit2-glib/0.99/libgit2-glib-0.99.0.1.tar.xz"
+  sha256 "e05a75c444d9c8d5991afc4a5a64cd97d731ce21aeb7c1c651ade1a3b465b9de"
   head "https://github.com/GNOME/libgit2-glib.git"
 
   bottle do
-    sha256 "207156e6776f3c33dc2b3d3360c4d07b6ff06d63eecd1307c3e890b9192e1179" => :catalina
-    sha256 "f82b96ed9c95745467ee9aff18b2d6ba0156d51f68801a781bee67d6b2b2923a" => :mojave
-    sha256 "0b66cc16cda70882208b1f82be0a715fb3994054ea336c847e78189eb09dee97" => :high_sierra
-    sha256 "e05260bd33fb4ff96ba9669ab65930bef977219bc455717ca6bdd97eb77e3bd6" => :sierra
-    sha256 "93fcb381766ef3caba6413c4e9729bdf215d6d780a47b98ad6241de5b164e2cc" => :x86_64_linux
+    sha256 "5c25dc11f5ece68ba259cc2a7833a06448e9a760af2da879878da4331b7445d5" => :catalina
+    sha256 "ae7bdeaf32d9b2ad8750f334322c0259787d4e5a67bf1f408613320dac9e882f" => :mojave
+    sha256 "d814e394b79a6a34e8d36d9445d5ba3d28be87bbef079f09b2a5e45c798e5f33" => :high_sierra
   end
 
   depends_on "gobject-introspection" => :build
