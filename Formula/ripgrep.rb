@@ -1,15 +1,15 @@
 class Ripgrep < Formula
   desc "Search tool like grep and The Silver Searcher"
   homepage "https://github.com/BurntSushi/ripgrep"
-  url "https://github.com/BurntSushi/ripgrep/archive/12.0.0.tar.gz"
-  sha256 "3c84c3a4c80cee961a2b0d00a4e5d1bc9eb58ba587cf69c06d84aff72fedbeff"
+  url "https://github.com/BurntSushi/ripgrep/archive/12.0.1.tar.gz"
+  sha256 "5be34aa77a36ac9d8f1297a0d97069e4653e03f61c67d192cee32944cd2b6329"
   head "https://github.com/BurntSushi/ripgrep.git"
 
   bottle do
     cellar :any
-    sha256 "b81f5baed031c2081dfce0a05a4d442aa7232bf4b637882236ccd68560baee3a" => :catalina
-    sha256 "d1e4b4394918bdf1e15f2de73e978b23574e4b05f134b01373e30d637fd7ada7" => :mojave
-    sha256 "bcdd5dbf707adad635d5b765247d839d89a5f48eb3a025dca3480b2ce77c0e40" => :high_sierra
+    sha256 "61b5686741206e584aa2f94746ecdd68bea29ad381b2a6c0ce2076cacb8408ca" => :catalina
+    sha256 "1203664c55ee33d9b668cc9e8f4fe06b2cfe48ae7bc1374b3576104defc279ac" => :mojave
+    sha256 "7a0ff676fe9bfc33f3c4279856c45238e3cc61a396cbd5e266d23796a5003e72" => :high_sierra
   end
 
   depends_on "asciidoc" => :build
