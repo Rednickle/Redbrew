@@ -3,17 +3,17 @@ class Oclgrind < Formula
   homepage "https://github.com/jrprice/Oclgrind"
   url "https://github.com/jrprice/Oclgrind/archive/v19.10.tar.gz"
   sha256 "f9a8f22cb9f6d88670f2578c46ba0d728ba8eaee5c481c2811129dc157c43dc0"
+  revision 1
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "ffb53cf7c25cab8764915b0569964de90f16c3486c4b88c1c604467af7211001" => :catalina
-    sha256 "5e22e8e0cd96a5bbc198f9df7f2eb9c1ec4489d693d40ec913a42592f891f5cc" => :mojave
-    sha256 "a87183acf599c5fe68f8bd43c978234af6ecae7ec0cbc33ff50e79548ff438c5" => :high_sierra
+    sha256 "aef4dfe9f041df8a4abdea326d14eb7667f26a74a13507941864bd09564f50b3" => :catalina
+    sha256 "e95a98235701ab7c461ee3ef77f9ec9736f6a29c6855c462f3c39400336ef756" => :mojave
+    sha256 "a8521e5f16b460c7ea637971baba7e089e1a7aaf101f9482423eba21aff0c7b6" => :high_sierra
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm"
+  depends_on "llvm@9"
 
   def install
     system "cmake", ".", *std_cmake_args
