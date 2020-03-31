@@ -12,6 +12,7 @@ class LiterateGit < Formula
     sha256 "629418d9774247493fb7ab2b6f9d94bfcf4a069de8b8db94dcdde8e6c8bd17e3" => :catalina
     sha256 "82b42b2678dd4d8df1a9f8f65b747cfe30d48d78d8386b895c84aaa7e5ef9e67" => :mojave
     sha256 "8752cc843eda2f524b781d972d6cdab1136ac862c5f246dd94fea447c40598e9" => :high_sierra
+    sha256 "9f1f381a0bc54910cfac6cac25a40d98e4dccf7fe128a05a607afeea2478dd33" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build unless OS.mac?
