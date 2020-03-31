@@ -11,6 +11,7 @@ class TclTk < Formula
     sha256 "4740b30b97f0308ecc59c1308945c38ddca5d3da528d779f38199a2dad905fa1" => :catalina
     sha256 "1851fee12a3ee44648845d8663a192712ce6827ef8fe167301d2638ac9ddb96c" => :mojave
     sha256 "d1d689cc3e9cf08b2a42d487db3c4142e7ee4ff322bef22d6187fc67a5b776b7" => :high_sierra
+    sha256 "0de2a7527b765b2cc4de33d8c9ee8676b33116bbda67eeb40bbcfce9d96e35c1" => :x86_64_linux
   end
 
   keg_only :provided_by_macos,
