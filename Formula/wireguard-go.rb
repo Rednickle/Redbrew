@@ -10,6 +10,7 @@ class WireguardGo < Formula
     sha256 "783b1eeb0aba2c336e91fe59ef9e8d5d449e51ef3a5ed313f96666c7d055fb02" => :catalina
     sha256 "baf1cc2e7f0795747bcaed6856ce3a4075083356cc557497adf06ceaf28e0514" => :mojave
     sha256 "23d0d338dddebcecc58aa5f1e651fbde03494b0d49071937c4cff0b4d19961c2" => :high_sierra
+    sha256 "168b97cf56b028ecf953768dcd06bd894aa1fc2daedb63a5074bfb5b60df99e5" => :x86_64_linux
   end
 
   depends_on "go" => :build
