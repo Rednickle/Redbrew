@@ -1,15 +1,14 @@
 class TerraformDocs < Formula
   desc "Tool to generate documentation from Terraform modules"
   homepage "https://github.com/segmentio/terraform-docs"
-  url "https://github.com/segmentio/terraform-docs/archive/v0.8.2.tar.gz"
-  sha256 "005957c5c5d56a27e60ca735128231f68c3f099b433a7041a0f1591bee59fbd0"
+  url "https://github.com/segmentio/terraform-docs/archive/v0.9.0.tar.gz"
+  sha256 "3c8eefa94d1b27e70414cdc67b28b0b3a17362a07323add973351070cc03c323"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8edd1c9030c04c543dc9037ba72e823244df698354c215cdc2cc641118604733" => :catalina
-    sha256 "14a659de338369d451d4acc7a5728d6024c6451bed3d6545d049e9666b4fee68" => :mojave
-    sha256 "84ccd0e515ee00082978d67aa64bf5cd231f268785a19c95c18ce3cd648f6ba9" => :high_sierra
-    sha256 "3fabcbdb5d8afd06223a87d616f9492145cf02cdffd851382fe8028140d2c0dc" => :x86_64_linux
+    sha256 "9e068af4229d4a5aa4d79f5542d3c3bc2ae21909c49b2956c8036a0744b01417" => :catalina
+    sha256 "1caea5080281d5f54844cd57798aff040d112e937d2a9b535f4b27e045217397" => :mojave
+    sha256 "81724e99c6dd57657e009222b685b72da30359b942e78c7052bd1cc0666da809" => :high_sierra
   end
 
   depends_on "go" => :build

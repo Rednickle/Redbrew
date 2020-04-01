@@ -1,17 +1,15 @@
 class Neon < Formula
   desc "HTTP and WebDAV client library with a C interface"
-  homepage "https://web.archive.org/web/webdav.org/neon/"
-  url "https://mirrorservice.org/sites/distfiles.macports.org/neon/neon-0.30.2.tar.gz"
-  mirror "https://fossies.org/linux/www/neon-0.30.2.tar.gz"
-  sha256 "db0bd8cdec329b48f53a6f00199c92d5ba40b0f015b153718d1b15d3d967fbca"
-  revision 1
+  homepage "http://www.webdav.org/neon/"
+  url "http://www.webdav.org/neon/neon-0.31.0.tar.gz"
+  mirror "https://fossies.org/linux/www/neon-0.31.0.tar.gz"
+  sha256 "80556f10830431476d1394c1f0af811f96109c4c4d119f0a9569b28c7526bda5"
 
   bottle do
     cellar :any
-    sha256 "d87da64331ca21f48fa61b518e701654781008d46c5ca33840a34c41dda4a9e2" => :catalina
-    sha256 "4c264a2164f7bb4f080a701b4fcc31c2bba54031ad574f25c33931abf7f205f0" => :mojave
-    sha256 "96799d3568d37f8c2da6333d4bccaa23fa13e75d6ef1e75f993f18c53e525306" => :high_sierra
-    sha256 "5f173cc83a291cb756046e94f09eb4031d5ec316988a757a6b5e2a92c310037d" => :sierra
+    sha256 "2e2ef2abe3ecc7665a45c17e94a2f164e9d3c08e278d1d62ca2d322b5768d9c5" => :catalina
+    sha256 "b457ca7dbc51c2eeccc0d13bdb724bbc49b84c3b56803b044342b68b3bfd39a6" => :mojave
+    sha256 "38e7be8f574a6bc0a7d5a275a1181f80a62441a8bf811a410c7ca1795bce60d6" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
