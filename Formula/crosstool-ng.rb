@@ -32,13 +32,11 @@ class CrosstoolNg < Formula
   depends_on "make"
   depends_on "ncurses" if !OS.mac? || DevelopmentTools.clang_build_version >= 1000
   depends_on "xz"
+  depends_on "gperf" => :build unless OS.mac?
 
-  unless OS.mac?
-    depends_on "flex" => :build
-    depends_on "gperf" => :build
-    depends_on "texinfo" => :build
-    depends_on "unzip" => :build
-  end
+  uses_from_macos "flex" => :build
+  uses_from_macos "texinfo" => :build
+  uses_from_macos "unzip" => :build
 
   def install
     system "./bootstrap" if build.head?

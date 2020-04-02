@@ -5,8 +5,6 @@ class Gengetopt < Formula
   mirror "https://ftpmirror.gnu.org/gengetopt/gengetopt-2.23.tar.xz"
   sha256 "b941aec9011864978dd7fdeb052b1943535824169d2aa2b0e7eae9ab807584ac"
 
-  depends_on "texinfo" unless OS.mac?
-
   bottle do
     cellar :any_skip_relocation
     sha256 "7134042a80bb314db08216b1de2d293b5925ab729ba87649fdab4dc6298256f4" => :catalina
@@ -15,6 +13,8 @@ class Gengetopt < Formula
     sha256 "57acd0ca20988a1b4f0f16383edb985549597b8a5266316e3a314b7775bab3c0" => :sierra
     sha256 "23b4bfb4be143ee387849515276205a351fd8ef55c4b083d26d69942e6a2355d" => :x86_64_linux
   end
+
+  uses_from_macos "texinfo"
 
   def install
     system "./configure", "--disable-dependency-tracking",

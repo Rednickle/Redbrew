@@ -15,8 +15,8 @@ class GnuIndent < Formula
   end
 
   depends_on "gettext"
-  # Fix WARNING: 'makeinfo' is missing on your system.
-  depends_on "texinfo" => :build unless OS.mac?
+
+  uses_from_macos "texinfo" => :build
 
   def install
     args = %W[

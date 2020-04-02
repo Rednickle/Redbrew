@@ -13,11 +13,11 @@ class Udunits < Formula
   end
 
   depends_on "cmake" => :build
+
   uses_from_macos "expat"
+  uses_from_macos "texinfo"
 
   unless OS.mac?
-    depends_on "texinfo"
-
     patch :p1 do
       url "https://github.com/Unidata/UDUNITS-2/commit/0bb56200221ad960bc2da11fc0b4a70ec3c5d7c9.diff?full_index=1"
       sha256 "302fc33a7df84d8a60a21a0024d2676d5d16c08d3eb61d48e04d70f9499616f2"
