@@ -8,6 +8,7 @@ class RubyAT24 < Formula
     sha256 "0af834c6be2b5b377eb53b27895d0eb5cfcf9298b7613197f4d3cc83bc3fdad5" => :catalina
     sha256 "160204426fc18dfead0ceeb0be27eba371a68996792d6a8258b30bdfca8ef5f6" => :mojave
     sha256 "c8f457842cfc697ead2e961539742995bf1a6782de9cecd0b293c9fe6107b9d3" => :high_sierra
+    sha256 "dcf80fc8465820e72219a8b62c617279befb73ebbaccff0215faf3d86ca32f12" => :x86_64_linux
   end
 
   keg_only :versioned_formula
