@@ -10,6 +10,7 @@ class Kepubify < Formula
     sha256 "4354d7623d0cb61775d45d8d06b1cdf990ffc3d0719d894bb275b6b760b91d0c" => :catalina
     sha256 "55cab7e4b6847c8a0301416b41e2e24f1a9ec1bf532e642d61f92ff86df581ad" => :mojave
     sha256 "3a9e181d2e5c4b382950443be49d096ed0257cf9d697c6177060d9d5086967fa" => :high_sierra
+    sha256 "0a52bc93ab0eefbad0e11e81ab41c862ca0694fbccb9b1b39ddb34087be7bd89" => :x86_64_linux
   end
 
   depends_on "go" => :build
