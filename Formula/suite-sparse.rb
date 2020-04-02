@@ -3,17 +3,18 @@ class SuiteSparse < Formula
   homepage "http://faculty.cse.tamu.edu/davis/suitesparse.html"
   url "https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v5.7.1.tar.gz"
   sha256 "5ba5add1663d51a1b6fb128b50fe869b497f3096765ff7f8212f0ede044b9557"
+  revision 1
 
   bottle do
-    sha256 "9d6feb2e2feb55df212703fd30a766676fa9e71f0ed9bdff49a120b9fe60396d" => :catalina
-    sha256 "ce6d357d71455dc59dec5ec7e9739c6f8b6d981c6c0359eaf78df1308b0f246d" => :mojave
-    sha256 "cb174cb7a53753f331d52422cf548262d014b26f7d50c0a13ff1141195b7d922" => :high_sierra
-    sha256 "b5c0745e50fcb6b8e2c4472eb4ae8348cb7347f34aa467425f2c584719ea568c" => :x86_64_linux
+    sha256 "5c3ce3ea482f6f46b7b012c21a1998a8eccb1b9261e6a06afe6b5900d2c55f19" => :catalina
+    sha256 "cc77c74d00061555f536afa554d088395a75c405b364d1093c39122fbf2af352" => :mojave
+    sha256 "1b9f2d0df61c59594115a70a1cafd849904244a1ac00cbdc7b7fc67b689cc69b" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "metis"
   depends_on "openblas"
+  depends_on "tbb"
 
   uses_from_macos "m4"
 

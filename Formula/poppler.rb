@@ -1,16 +1,14 @@
 class Poppler < Formula
   desc "PDF rendering library (based on the xpdf-3.0 code base)"
   homepage "https://poppler.freedesktop.org/"
-  url "https://poppler.freedesktop.org/poppler-0.86.1.tar.xz"
-  sha256 "af630a277c8e194c31339c5446241834aed6ed3d4b4dc7080311e51c66257f6c"
-  revision 1
+  url "https://poppler.freedesktop.org/poppler-0.87.0.tar.xz"
+  sha256 "6f602b9c24c2d05780be93e7306201012e41459f289b8279a27a79431ad4150e"
   head "https://anongit.freedesktop.org/git/poppler/poppler.git"
 
   bottle do
-    sha256 "f1f4a95d8b5fe2b9b663e003eb5766953fb9ed053e50398d7adfc06e166239b0" => :catalina
-    sha256 "ed48d79176e1b14827657f5761cad278080b54730debcd5020db8712cd08859d" => :mojave
-    sha256 "3c092acf7818351a6234bfd640f6b343bef22ada2351c55bf9c49124ca86ddd2" => :high_sierra
-    sha256 "79ad105d2d25f97547bf738fe2d4d844126112d7402bf5497749e565f4526611" => :x86_64_linux
+    sha256 "3a65e7c9e1066882c8d37158f54e8ad998d3db5dbd40d41b3a83d77c70753afd" => :catalina
+    sha256 "d83dd3e16516b27784a8410a6d47f637a6c7af87b01835261f9f2dc44a310646" => :mojave
+    sha256 "ebf7730079b09d038dd9347357232629a60828fe9a686c9946f4077b1213bca6" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -37,13 +35,6 @@ class Poppler < Formula
   resource "font-data" do
     url "https://poppler.freedesktop.org/poppler-data-0.4.9.tar.gz"
     sha256 "1f9c7e7de9ecd0db6ab287349e31bf815ca108a5a175cf906a90163bdbe32012"
-  end
-
-  # Fixes crash issues in various downstream projects, such as pdfpc.
-  # Remove with the next version.
-  patch do
-    url "https://gitlab.freedesktop.org/poppler/poppler/-/commit/68b6dd2ecd868c1a757cb8b9273e2e26687e5229.diff"
-    sha256 "28dbc041981b2cb13d4fb18ce370496c4fa5c7c48bc688ffc10ae34c49c65349"
   end
 
   def install
