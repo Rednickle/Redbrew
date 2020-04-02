@@ -5,15 +5,14 @@ class Mitmproxy < Formula
   homepage "https://mitmproxy.org"
   url "https://github.com/mitmproxy/mitmproxy/archive/v5.0.1.tar.gz"
   sha256 "1fe41a6e5b2eec818f457a28772cf2924571078ff1150f928e8bd543a7d3999e"
-  revision 2
+  revision 3
   head "https://github.com/mitmproxy/mitmproxy.git"
 
   bottle do
     cellar :any
-    sha256 "2f86b864c98a08413287b05471c1adc0cb8e06ae687c290c5e91014ecd859072" => :catalina
-    sha256 "128d7843b37b5fad2cb41f4825c5e7e72eadde0b1aed3a0ea5b3f7aa2339b485" => :mojave
-    sha256 "381f6c495e9a196ac54e675054f520b705efad947864ff8f661a621ef1da9a13" => :high_sierra
-    sha256 "b8dea3c17d9b5da31d27d4df781afd84af60d8ac2c5123cc0cb7c559dc071cba" => :x86_64_linux
+    sha256 "274d02ce3fc23b4726087312315facff8df3894c7c7c71c7221e1fdbb0bcaf07" => :catalina
+    sha256 "f18459983737e730ee86d5541245919ca5196f4ba203cdff3e0985d80da95a6f" => :mojave
+    sha256 "49a6f70d06e0b8ea223e88925384bc77188cbe53c1178611225ca10a4a947b89" => :high_sierra
   end
 
   depends_on "openssl@1.1"
@@ -193,6 +192,13 @@ class Mitmproxy < Formula
   resource "zstandard" do
     url "https://files.pythonhosted.org/packages/71/bb/dbd6b2f27b94574b51e6055abd753b1f4b211933d478329e37eaae76f721/zstandard-0.12.0.tar.gz"
     sha256 "a110fb3ad1db344fbb563942d314ec5f0f3bdfd6753ec6331dded03ad6c2affb"
+  end
+
+  # Apply patch on 5.0.1 (#3779). Remove after next release
+  # https://github.com/mitmproxy/mitmproxy/pull/3779
+  patch do
+    url "https://github.com/mitmproxy/mitmproxy/pull/3779/commits/d7f43e72ca643ac16e48f58d511cd2a4e6043b88.patch?full_index=1"
+    sha256 "af2e5ba4416d5b53fc17dd123e2a31ef0ce94afed89645aad14ac8a2b455438f"
   end
 
   def install

@@ -1,14 +1,13 @@
 class RubyAT26 < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.5.tar.xz"
-  sha256 "d5d6da717fd48524596f9b78ac5a2eeb9691753da5c06923a6c31190abe01a62"
+  url "https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.6.tar.xz"
+  sha256 "5db187882b7ac34016cd48d7032e197f07e4968f406b0690e20193b9b424841f"
 
   bottle do
-    sha256 "29d29d42dd35f2d70fa457851d65c3a8ea6c840c55cac5fd8edd864c6caca34d" => :catalina
-    sha256 "9b4559ee1ab60bd338636361a7f278280a458913b623a5db83e33e8289a2f6de" => :mojave
-    sha256 "758f99bb654673ff0881eddea47d9b94a23743f836d4c3e6686e4062a0fc9f61" => :high_sierra
-    sha256 "8ddda51cb679f3c2cd5ce22ec47456233c17455095befb28dc3e6ea2fbf5a30b" => :x86_64_linux
+    sha256 "469dd5dc27e9fab71d9feb49d2ba24d9c60e3db3b842d489afc4eb3904bc2bc8" => :catalina
+    sha256 "1ad5b2401ab8976c430bc61c482e8a92caaa20526f255c86fc5efc6289880f55" => :mojave
+    sha256 "2988f1185754d635c35dad72b6466f18471c02516c0a9ace326e300b866d25e9" => :high_sierra
   end
 
   keg_only :versioned_formula
