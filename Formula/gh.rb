@@ -9,6 +9,7 @@ class Gh < Formula
     sha256 "a0fbd53a580d32c326f1e3a17410446e2b5f265adfad77f7e2b06c4c93781e60" => :catalina
     sha256 "34b836aea96868c452aeb32a7d1ad447807eae8d21294ba9fc901f662fd6f698" => :mojave
     sha256 "821d0d7d77e6464e7fb2377600fc94a94103811caaf599ef410df8049ec82070" => :high_sierra
+    sha256 "f44af6d371941af1c4ca3439bd9157e260d06497727bb0ac21ca18be993cc622" => :x86_64_linux
   end
 
   depends_on "go" => :build
