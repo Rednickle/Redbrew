@@ -11,6 +11,7 @@ class Etcd < Formula
     sha256 "7d9dafd2ebe797210e2a747f0890fe10778fbf4f0eeca4a46757fcf753a59aff" => :catalina
     sha256 "c22614e8106fd78ebe0ffb1019c1e2cf3eba9ac54b9ad8d208139b73bc2ba21f" => :mojave
     sha256 "ce7ecb594df8bad1272a230ad5b7e9c07d17cf21afc5a25e94860519bdeea041" => :high_sierra
+    sha256 "ca09f9bf507ca88dd687a4bb1b23f7ae2c6ba97fe45555a219ef164b493865fc" => :x86_64_linux
   end
 
   depends_on "go" => :build
