@@ -12,6 +12,7 @@ class ContentfulCli < Formula
     sha256 "161095d140e336af5a4991f353a95996d48a4785dc835aaefa16b6be246ee609" => :catalina
     sha256 "3c885fb410e0800287007014ab5d90ea43f026701c2cff5bbe023850596ff6b9" => :mojave
     sha256 "25e1c1122d8d251567280416c8deaa8373abbd5e2e214faa47942baf30147b07" => :high_sierra
+    sha256 "5caa05512dc4600973d28e8dc927d6e1d893000af20929c084c90d3342217c9d" => :x86_64_linux
   end
 
   depends_on "node"
