@@ -8,6 +8,7 @@ class Atk < Formula
     sha256 "1065293046ab2984940dfa0b9c9e724439838e63f685c932d508ccd74bcf921b" => :catalina
     sha256 "68c7b621339c03964036877987db69806f663612ba275e68554a97d218a2b5b4" => :mojave
     sha256 "fa8f525bfeacab676f795bac37f622fc100e63c9e9661fbd6ddd3e1725ebd097" => :high_sierra
+    sha256 "757c817c1b9c5452175b1719ed8c9da934883f3d6657e98fdde3de5ce0f58301" => :x86_64_linux
   end
 
   depends_on "gobject-introspection" => :build
