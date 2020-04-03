@@ -9,6 +9,7 @@ class Ffsend < Formula
     sha256 "7c735529d5526478a1077b6cc8a3a516de8a3a3f701ef00159f99a17a30434c9" => :catalina
     sha256 "de48fc060b6a5160359b97ddf7e0a8be4c280c2cfc0ffdecce6fe540b56bc94a" => :mojave
     sha256 "87ed1c7fbfc9d11d8e341d54021dd7241cf00c7606ae1cb049dbf8de8a11ff65" => :high_sierra
+    sha256 "fa2d338cc0a1f67ee97b93722ad20a92abcd8bba644f6e239a438c595c204ca0" => :x86_64_linux
   end
 
   depends_on "rust" => :build
