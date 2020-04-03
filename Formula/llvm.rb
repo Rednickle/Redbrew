@@ -155,7 +155,7 @@ class Llvm < Formula
       # gcc that can't build compiler-rt. This fixes the problem and, unlike
       # setting the main project's cmake option -DGCC_INSTALL_PREFIX, avoid
       # hardcoding the gcc path into the binary
-      inreplace "projects/compiler-rt/CMakeLists.txt", /(cmake_minimum_required.*\n)/,
+      inreplace "compiler-rt/CMakeLists.txt", /(cmake_minimum_required.*\n)/,
         "\\1add_compile_options(\"--gcc-toolchain=#{Formula["gcc"].opt_prefix}\")"
     end
 
