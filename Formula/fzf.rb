@@ -1,17 +1,15 @@
 class Fzf < Formula
   desc "Command-line fuzzy finder written in Go"
   homepage "https://github.com/junegunn/fzf"
-  url "https://github.com/junegunn/fzf/archive/0.21.0-1.tar.gz"
-  version "0.21.0-1"
-  sha256 "f647ff8c8828a38f5fa10c9f831a5e5e58321bba1e26abdb249f1af48ffd97db"
+  url "https://github.com/junegunn/fzf/archive/0.21.1.tar.gz"
+  sha256 "47adf138f17c45d390af81958bdff6f92157d41e2c4cb13773df078b905cdaf4"
   head "https://github.com/junegunn/fzf.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cb79c395f86a0645cf2bd61e9f216285e063dfb72b2ca1e369618dea5c1e0907" => :catalina
-    sha256 "d4f5d3b2b3a60116cc0b21192e57d07b29757add3f03015c6f77a69a24626cca" => :mojave
-    sha256 "83fdfd570ee6c67f3012c465f22fac76ff89d6f9541fc53a3404c0660e4a83fe" => :high_sierra
-    sha256 "c14fd47dce3c14c615e3f201bae5a15b3d5746322b8c4a1bc91b391ef5bafdec" => :x86_64_linux
+    sha256 "733f79496c3246979ca05eeb5677a5fd9e8ec532e69e8b2012102cacddba8ae6" => :catalina
+    sha256 "3c03bb9715be153a0f776d06cf4acd436ad4faa4266f7bd875a0d37594291516" => :mojave
+    sha256 "d15a616156eb92071f1cfc50f10366532af92ca1635d309162141ad67f785865" => :high_sierra
   end
 
   depends_on "go" => :build
