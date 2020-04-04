@@ -1,16 +1,15 @@
 class Openimageio < Formula
   desc "Library for reading, processing and writing images"
   homepage "https://openimageio.org/"
-  url "https://github.com/OpenImageIO/oiio/archive/Release-2.1.11.2.tar.gz"
-  version "2.1.11"
-  sha256 "0982f46a6a3107045c06ca825cc1637e023d7e7f16075523a85b10de9acedf55"
+  url "https://github.com/OpenImageIO/oiio/archive/Release-2.1.13.0.tar.gz"
+  version "2.1.13"
+  sha256 "f0653582eaf386db40dc30e2d822f3235592803223079ea3b3e30e46b3dc3acf"
   head "https://github.com/OpenImageIO/oiio.git"
 
   bottle do
-    sha256 "5862ca53604ed40fc670cc003361c29a9a7e2338f0ad6309573a395d2458761d" => :catalina
-    sha256 "09d75bd3f959c2f948921542249892dac3b47df4612e397729611aee6301fd45" => :mojave
-    sha256 "b903ed19e0cf028704d11f1ce99856d37c48fc1366c45d8efbb148a30164ff9e" => :high_sierra
-    sha256 "5f10827763a591604edde45d87aa27b4e5c660e1a0381d2682f5080d6a26cb65" => :x86_64_linux
+    sha256 "bfc7936ff81c9d088c736b15428b49ade2d029f2b1236b4b6c10bd52ee9036dc" => :catalina
+    sha256 "460e2d033325d0a8ed7f4246dbe77ad681c335b225ddbd1937fd11ebf73f8cc5" => :mojave
+    sha256 "0fa72ee976c6b06a9b3802d43c1fd869e20efd22481c710ae8d5c9f552b28389" => :high_sierra
   end
 
   depends_on "cmake" => :build
