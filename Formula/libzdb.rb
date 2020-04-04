@@ -9,6 +9,7 @@ class Libzdb < Formula
     sha256 "114982357474fdd8af3df7d11a3575e81686ff55d6c2018b5385c7f5acfee7ed" => :catalina
     sha256 "bc52a04fe2ae5500200c1521f4e32497c9eee2d2c4087e60c9ed11a09b2cac67" => :mojave
     sha256 "123039235efee305797c3252e0e4b07c93989785165c044eefa9f86eae73f9b0" => :high_sierra
+    sha256 "11571183ea966c810f1dae1d777b4599cc3a0e3d2a3ccb08d68d1f39d433a468" => :x86_64_linux
   end
 
   depends_on :macos => :high_sierra # C++ 17 is required
