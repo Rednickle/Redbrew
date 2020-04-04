@@ -10,6 +10,7 @@ class Recode < Formula
     sha256 "541408c872b2c16e999cb6f74fc94e8c340dfb1e2eb3a89aa21d3f118554219d" => :mojave
     sha256 "65d9921e28f36fe7a0755d1cab44e4c2d2e5752ab25ed6c35cc7ee9e9072aee3" => :high_sierra
     sha256 "d8d1838e5484c1bbdde1a1f4f57907a601ee32b6577c3c9364dde06e095a5605" => :sierra
+    sha256 "1d1f189414a5bff84e787a811f1b973de0f1d9ffbf68f911c161d607d481a9ba" => :x86_64_linux
   end
 
   depends_on "libtool" => :build
