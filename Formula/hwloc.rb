@@ -9,6 +9,7 @@ class Hwloc < Formula
     sha256 "dd1fcb52fa8c513dc264d359d2b71c847dfbc9c65d817ddc4254d2af97cf6e60" => :catalina
     sha256 "06104c9e69d96e85f4c914ef6bcae0a3275a0910a6a592b9d6ba1b20d2ad6301" => :mojave
     sha256 "05558ada03d18ac4e4a232ead53eb9f59ac5889a899dce4670cc3fe273438d10" => :high_sierra
+    sha256 "bca5d2a07166afe83a2a2d8e2d0b5d458c022ea2dd6ba98aae8f09a6202db069" => :x86_64_linux
   end
 
   head do
