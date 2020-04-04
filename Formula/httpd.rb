@@ -9,6 +9,7 @@ class Httpd < Formula
     sha256 "016ec294067375e0a0080d1c06812e4323b9d834452e937057e3c84387c44f02" => :catalina
     sha256 "628617d2cc60534dc6cb78cc971de32b9724757498f194dc900ad5e5d1e6f56a" => :mojave
     sha256 "71ab239430eb1709ff16ecc0a991e6e10f8bdd320889515f5ba88cf018f91255" => :high_sierra
+    sha256 "c536aaa2b1b0396f6c80d22b4923ae03dbd182c500028dfc61ba8f92162f2a44" => :x86_64_linux
   end
 
   depends_on "apr"
