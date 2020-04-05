@@ -18,6 +18,7 @@ class Bind < Formula
     sha256 "f9e1a8039cf1ee1a38bedc48f9926cea641f6b0bcba97611836e3c1f7fde3d95" => :catalina
     sha256 "b3942cae835a7e0b3299b272630a06199f3cb35dce0595101e70e82d3dfe93ea" => :mojave
     sha256 "efc27f8f2679a47c4df251616c753d67f12e23369b97e83e47602fcc2e4d1d6f" => :high_sierra
+    sha256 "c3f65704e86e72d042c274f28131c6012314396cc42d1ace6802e088b9e04919" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
