@@ -11,6 +11,7 @@ class Itstool < Formula
     sha256 "73238debce4f4c1e9922427a22312161d0400d70f22b642137689b4431ba0a20" => :catalina
     sha256 "73238debce4f4c1e9922427a22312161d0400d70f22b642137689b4431ba0a20" => :mojave
     sha256 "73238debce4f4c1e9922427a22312161d0400d70f22b642137689b4431ba0a20" => :high_sierra
+    sha256 "98e3a52afa6e9be8dea0191dd0402ab09d5d3b0fe9c1bae01a210d0f45448e0f" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
