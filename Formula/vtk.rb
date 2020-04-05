@@ -25,6 +25,7 @@ class Vtk < Formula
     sha256 "94b4c410f2ec94624607d56f10f8b72c08678a41e5177ea86517a8b37a145be2" => :catalina
     sha256 "825383fc6ff17588d76d397972fcf84e696827b6ef2fd9c539de240113a1e6cb" => :mojave
     sha256 "af193dbade0bdf2acdc716e501452c985c8abaf693270f793a2a3189e28159d4" => :high_sierra
+    sha256 "3a7c5cc3a87c6df161e6d98aa9905f8be54c6a41534d6de23639953326b2f1c8" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
