@@ -54,6 +54,6 @@ class Pyqt < Formula
       Xml
     ]
     m << "WebEngineWidgets" if OS.mac?
-    ].each { |mod| system Formula["python@3.8"].opt_bin/"python3", "-c", "import PyQt5.Qt#{mod}" }
+    m.each { |mod| system Formula["python@3.8"].opt_bin/"python3", "-c", "import PyQt5.Qt#{mod}" }
   end
 end
