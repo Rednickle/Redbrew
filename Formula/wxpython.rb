@@ -6,12 +6,13 @@ class Wxpython < Formula
   url "https://files.pythonhosted.org/packages/b9/8b/31267dd6d026a082faed35ec8d97522c0236f2e083bf15aff64d982215e1/wxPython-4.0.7.post2.tar.gz"
   version "4.0.7.post2"
   sha256 "5a229e695b64f9864d30a5315e0c1e4ff5e02effede0a07f16e8d856737a0c4e"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "efbbe3dbd7c67ee29154ea478760322c8bfd78d6f47b3bd0cb7e60444393d5c0" => :catalina
-    sha256 "ec81f44d7a30fd52f1fbdf2493a124c22e225cd1a4042489fcac5605599c9597" => :mojave
-    sha256 "5a487d33cdd6493079b0e937a38565c7af94bcbe653f23d1b9e5411cb9539856" => :high_sierra
+    sha256 "7e3a70eb66502508bbcad970815aea6373012c0aa9ef632d12d20127cefba693" => :catalina
+    sha256 "77a519db391a01f82c11b6a887671d610c58f579eb676bfcbd013afd644cc6fc" => :mojave
+    sha256 "6b9ab4453cc2db1490b13c8449519fa9e067ffdeaed843603ad9dc9d87ff3db2" => :high_sierra
   end
 
   depends_on "freetype"
@@ -19,7 +20,7 @@ class Wxpython < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "numpy"
-  depends_on "python"
+  depends_on "python@3.8"
   unless OS.mac?
     depends_on "pkg-config" => :build
     depends_on "gtk+3"
@@ -50,7 +51,7 @@ class Wxpython < Formula
               /^( +)(wxpy_configure_opts.append\("--disable-qtkit"\))/,
               "\\1\\2\n\\1wxpy_configure_opts.append(\"--disable-precomp-headers\")"
 
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
 
     resource("Pillow").stage do
       inreplace "setup.py" do |s|
@@ -81,10 +82,10 @@ class Wxpython < Formula
   end
 
   test do
-    xy = Language::Python.major_minor_version "python3"
+    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
     ENV.prepend_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
 
-    output = shell_output("python3 -c 'import wx ; print(wx.__version__)'")
+    output = shell_output("#{Formula["python@3.8"].opt_bin}/python3 -c 'import wx ; print(wx.__version__)'")
     assert_match version.to_s, output
   end
 end

@@ -5,21 +5,21 @@ class Pympress < Formula
   homepage "https://github.com/Cimbali/pympress/"
   url "https://files.pythonhosted.org/packages/d1/cf/a81c579fa9b65daa7b159220038adaaeb144d21616dc83868ed7c42589d9/pympress-1.5.2.tar.gz"
   sha256 "3f19236897ba7b3106b0b8ccd04ca32aee42fe3a604ea1d7ced305abcceeecf2"
+  revision 1
   head "https://github.com/Cimbali/pympress.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7de5bf805963538a6f4b231fdde746355bde224732ea5e4609d8365f66dce6f5" => :catalina
-    sha256 "a4d24dbf2a8c82c770b2f16819cb2608f8a865a27382b4718c9b88d28c4a4cce" => :mojave
-    sha256 "3a0dd078b6b55626c91c59a3e540d391903362561591c8432fdd9fe58234b04e" => :high_sierra
-    sha256 "75aaa6a306beba9d306cae10ee2b01391a1f9e945cbeebdb06a8ad8d5a3a2cfa" => :x86_64_linux
+    sha256 "8487b99dfd1f70e1e7704f89a602c5cad17959f4d7df19c718b937a2120527c7" => :catalina
+    sha256 "be26e5f8a140083f387e58269a7da6d54a84f18996adb74af3ed855e9a4a619c" => :mojave
+    sha256 "1b26a67b3c2104c26634f86faf363c893433abc0461962ed785f92dac9c07d37" => :high_sierra
   end
 
   depends_on "gobject-introspection"
   depends_on "gtk+3"
   depends_on "poppler"
   depends_on "pygobject3"
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "argh" do
     url "https://files.pythonhosted.org/packages/e3/75/1183b5d1663a66aebb2c184e0398724b624cecd4f4b679cb6e25de97ed15/argh-0.26.2.tar.gz"

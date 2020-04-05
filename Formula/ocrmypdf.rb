@@ -5,13 +5,13 @@ class Ocrmypdf < Formula
   homepage "https://github.com/jbarlow83/OCRmyPDF"
   url "https://files.pythonhosted.org/packages/50/d5/67ada5ade12fc0021f17932f43888999e0e06e5f36351e914381d56435b5/ocrmypdf-9.6.1.tar.gz"
   sha256 "0c84eabe943f385d0c869fa1e1383207778455661ba16775039de2e2acca6b6b"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "c32af11e3a351e43dbab9e07ecc4dd1413fcfd370145810782ef0874df7b7c63" => :catalina
-    sha256 "ff8aca4f42685a5264f0768a265500af7aa23a9ca99ceb3fcc06c130738af19a" => :mojave
-    sha256 "aa4c2b610168e0ccd7ec648ede689526dd659155e34a9cc34c41deeafa85a219" => :high_sierra
-    sha256 "c02f970e73a73272d26bcde8fbbee677ca3062afa50e2e1e810ded046bf9726e" => :x86_64_linux
+    sha256 "00df5b454cc300e19289b5c42f97e7d3fc7b901560ce0d1244ea8e5a9186faad" => :catalina
+    sha256 "12bcf9c65473d57981841f19a5846ae4672e58a3ada0946a786d60b67585987f" => :mojave
+    sha256 "18a3034108e662248f2b45540c7cfb5d1921cfe1e4677f914b07265dce7d0294" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -24,7 +24,7 @@ class Ocrmypdf < Formula
   depends_on "libxml2"
   depends_on "pngquant"
   depends_on "pybind11"
-  depends_on "python"
+  depends_on "python@3.8"
   depends_on "qpdf"
   depends_on "tesseract"
   depends_on "unpaper"
@@ -95,7 +95,7 @@ class Ocrmypdf < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, Formula["python@3.8"].bin/"python3")
 
     resource("Pillow").stage do
       inreplace "setup.py" do |s|

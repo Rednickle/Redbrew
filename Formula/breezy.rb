@@ -5,19 +5,19 @@ class Breezy < Formula
   homepage "https://www.breezy-vcs.org"
   url "https://files.pythonhosted.org/packages/6b/81/ae2ddb07ef93d62689a98b6b711394bfbe3e35c719253b18e6b84221d500/breezy-3.0.2.tar.gz"
   sha256 "50f16bc7faf299f98fe58573da55b0664078f94b1a0e7f0ce9e1e6a0d47e68e0"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e06627d654c6610734e326fe0ef7203b5bb37bfd60af14dbda48e755ccec4372" => :catalina
-    sha256 "1c37188d399bcc580b85b4d433831c3efc1241ba79e4af173ad3d896e236ac77" => :mojave
-    sha256 "e1b965da5e13778f78f29d2835954f2aa15eba430dc9a928339ad9834783d73f" => :high_sierra
-    sha256 "102f3f2c319c47789314a8a5f71bbab61a8915ec039ce12d4227d6ca222b6811" => :x86_64_linux
+    sha256 "db4650b8d106f2b8f5f09d5cedb950e6c6956c32169d59e5132523cdde59b848" => :catalina
+    sha256 "10855340b0adf9467386e45466e039801d5a25561894e6e42d1e83ba230d40fc" => :mojave
+    sha256 "bb807fed61ea5ec609bd3e36644f35b618b190e49f728906231b83b1a0d86aa2" => :high_sierra
   end
 
   depends_on "cython" => :build
   depends_on "gettext" => :build
   depends_on "openssl@1.1"
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "configobj" do
     url "https://files.pythonhosted.org/packages/64/61/079eb60459c44929e684fa7d9e2fdca403f67d64dd9dbac27296be2e0fab/configobj-5.0.6.tar.gz"

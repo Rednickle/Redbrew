@@ -7,15 +7,15 @@ class Tbb < Formula
 
   bottle do
     cellar :any
-    sha256 "2c274ad5ed9235da8048b62fedc2ebc4af029514ee44a0895950e7dfe87c6829" => :catalina
-    sha256 "9d23cbb2154a7290b27204af92d0ee5be838363f1dee303ab64ad26809d255b2" => :mojave
-    sha256 "ccab552dda7a18648f67a7cec6671d545d63a9ca9fb29ce12024bd30df750f5b" => :high_sierra
-    sha256 "ac194124a821b57121e9840c9de6e5a0ba05a156dd0179ccae94dc0b3b52721e" => :x86_64_linux
+    rebuild 1
+    sha256 "d601aa195a3baf397390550894de8d39e6602a082154fa5facdfcbe64e3abffc" => :catalina
+    sha256 "2e1004341c9ea81972212ce180a258bc162528b6eac46e67c8bc03538c3cfe40" => :mojave
+    sha256 "e1efb8aec2b87e2facdb824971718d6fa531caa5043b10e811dc86a6c5e1e797" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "swig" => :build
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     compiler = (ENV.compiler == :clang) ? "clang" : "gcc"
@@ -39,7 +39,7 @@ class Tbb < Formula
 
     cd "python" do
       ENV["TBBROOT"] = prefix
-      system "python3", *Language::Python.setup_install_args(prefix)
+      system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
     end
 
     system "cmake", *std_cmake_args,

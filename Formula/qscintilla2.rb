@@ -3,16 +3,17 @@ class Qscintilla2 < Formula
   homepage "https://www.riverbankcomputing.com/software/qscintilla/intro"
   url "https://www.riverbankcomputing.com/static/Downloads/QScintilla/2.11.4/QScintilla-2.11.4.tar.gz"
   sha256 "723f8f1d1686d9fc8f204cd855347e984322dd5cd727891d324d0d7d187bee20"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "889b907f0384a161d9bb30d11c02e12f23dadb48b68bfcadcd5a6a42f994954e" => :catalina
-    sha256 "889b907f0384a161d9bb30d11c02e12f23dadb48b68bfcadcd5a6a42f994954e" => :mojave
-    sha256 "72baf9be5f0709256faaac3363d152f63153aae6e2b2679e2c13b532a9bb775b" => :high_sierra
+    sha256 "d6bae2002c7d20b9db3b9d22411db1d2ea5a7391baeb4231ccecb71e8f983b3c" => :catalina
+    sha256 "7ae90f4af154cdd22237db4f6679bf62165de120ca488594afd09902ff86bf38" => :mojave
+    sha256 "2ba039eea909559f93920e34719f176e3cbaf5a7456dd5d816c86dcbc6333f9f" => :high_sierra
   end
 
   depends_on "pyqt"
-  depends_on "python"
+  depends_on "python@3.8"
   depends_on "qt"
   depends_on "sip"
 
@@ -44,9 +45,9 @@ class Qscintilla2 < Formula
 
     cd "Python" do
       (share/"sip").mkpath
-      version = Language::Python.major_minor_version "python3"
+      version = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
       pydir = "#{lib}/python#{version}/site-packages/PyQt5"
-      system "python3", "configure.py", "-o", lib, "-n", include,
+      system Formula["python@3.8"].opt_bin/"python3", "configure.py", "-o", lib, "-n", include,
                         "--apidir=#{prefix}/qsci",
                         "--destdir=#{pydir}",
                         "--stubsdir=#{pydir}",
@@ -70,6 +71,6 @@ class Qscintilla2 < Formula
       assert("QsciLexer" in dir(PyQt5.Qsci))
     EOS
 
-    system "python3", "test.py"
+    system Formula["python@3.8"].opt_bin/"python3", "test.py"
   end
 end

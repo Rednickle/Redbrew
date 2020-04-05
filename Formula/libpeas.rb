@@ -3,12 +3,12 @@ class Libpeas < Formula
   homepage "https://developer.gnome.org/libpeas/stable/"
   url "https://download.gnome.org/sources/libpeas/1.26/libpeas-1.26.0.tar.xz"
   sha256 "a976d77e20496479a8e955e6a38fb0e5c5de89cf64d9f44e75c2213ee14f7376"
+  revision 1
 
   bottle do
-    sha256 "ca5e8f34c01f0978fb82601876a7e673fde22286cff4ab74dda6ab90774fe38a" => :catalina
-    sha256 "c71f368ce3be0f671cf37f461fba6a7ace93afb62e33b9a43efe8543d2f1e486" => :mojave
-    sha256 "c9fcb8d322d5479a50fb13b943c367518b99d5f66d1719df527295988f160af0" => :high_sierra
-    sha256 "7ee7ed3406069dd6fc3ba4f42e610d31abeaa10880bd0babaaf5f21262cdccd0" => :x86_64_linux
+    sha256 "651336617036378ee99c5c7115a03d3f77c08b8f6bd6d58af3b8ac942663a70f" => :catalina
+    sha256 "e29d6d1f62ff47096b8e112b20c894dd5d96fdc52527636b3d1337b7b0be805a" => :mojave
+    sha256 "85b98c01fe647be16fd635743a4a14e48423da2bafeabd2aff32bfcd087de45c" => :high_sierra
   end
 
   depends_on "meson" => :build
@@ -19,7 +19,7 @@ class Libpeas < Formula
   depends_on "gobject-introspection"
   depends_on "gtk+3"
   depends_on "pygobject3"
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     # Needed by intltool (xml::parser)

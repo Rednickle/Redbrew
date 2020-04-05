@@ -3,12 +3,12 @@ class GobjectIntrospection < Formula
   homepage "https://wiki.gnome.org/Projects/GObjectIntrospection"
   url "https://download.gnome.org/sources/gobject-introspection/1.64/gobject-introspection-1.64.0.tar.xz"
   sha256 "eac05a63091c81adfdc8ef34820bcc7e7778c5b9e34734d344fc9e69ddf4fc82"
+  revision 1
 
   bottle do
-    sha256 "f081afaeb6049797416d98e59cc32b8e71106b810f019070e1d976bdd117a497" => :catalina
-    sha256 "ab8f1700a297f0d8ca832beb55de151ac1d048bfbe74800e42585a9fca50404e" => :mojave
-    sha256 "795abd489df458381dfd550e35cbbbd2139a86fa1521a3bf7bdefd12e526e5de" => :high_sierra
-    sha256 "7a85bbff0215b489ed02d2c2d18e14e2fe5d0d18e41472244d1bcac06446b236" => :x86_64_linux
+    sha256 "44455cd9bb1e2e120c66b465447bea4a34af5a38b75fae44eb64f6e723fd5f4d" => :catalina
+    sha256 "1d5606b9c7a59d0fc46ec7d20c85d27d1f6d3d4b15a41b23ac8ead7b74b698cf" => :mojave
+    sha256 "42b61027444baaf96272c439d2e2c1bbc39400414d74a2a9f9767288c963660b" => :high_sierra
   end
 
   depends_on "bison" => :build
@@ -18,7 +18,7 @@ class GobjectIntrospection < Formula
   depends_on "glib"
   depends_on "libffi"
   depends_on "pkg-config"
-  depends_on "python"
+  depends_on "python@3.8"
 
   unless OS.mac?
     depends_on "bison"
@@ -31,6 +31,8 @@ class GobjectIntrospection < Formula
   end
 
   def install
+    Language::Python.rewrite_python_shebang(Formula["python@3.8"].opt_bin/"python3")
+
     ENV["GI_SCANNER_DISABLE_CACHE"] = "true"
     inreplace "giscanner/transformer.py", "/usr/share", "#{HOMEBREW_PREFIX}/share"
     inreplace "meson.build",
@@ -39,11 +41,12 @@ class GobjectIntrospection < Formula
 
     args = %W[
       --prefix=#{prefix}
-      -Dpython=#{Formula["python"].opt_bin}/python3
+      -Dpython=#{Formula["python@3.8"].opt_bin}/python3
     ]
 
     mkdir "build" do
       system "meson", *args, ".."
+      Language::Python.rewrite_python_shebang(Formula["python@3.8"].opt_bin/"python3")
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end

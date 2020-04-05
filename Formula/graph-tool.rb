@@ -5,10 +5,11 @@ class GraphTool < Formula
   homepage "https://graph-tool.skewed.de/"
   url "https://downloads.skewed.de/graph-tool/graph-tool-2.31.tar.bz2"
   sha256 "fbb4a7aee8baa9a9f7ded082e4976ebb3035f04bdf504eb3f9e7fbb2664fd67c"
+  revision 1
 
   bottle do
-    sha256 "f203b08b9da13db53620d18d3d507fe7c8d1435471becc6eb4805254b3437260" => :catalina
-    sha256 "048c36957e8360463bff7e1e9bc4e0b489754960ba94cfd6dddc0264ba7df08d" => :mojave
+    sha256 "1adbceca0c22595bb8ac366d87f18c3f7e7e4d23306d39b31f8a443948aedf88" => :catalina
+    sha256 "3a95bb91a3d6a19e9cf6b8c70993464ac7ae5f8a707616396f0aea12bb88faae" => :mojave
   end
 
   depends_on "autoconf" => :build
@@ -26,7 +27,7 @@ class GraphTool < Formula
   depends_on "numpy"
   depends_on "py3cairo"
   depends_on "pygobject3"
-  depends_on "python"
+  depends_on "python@3.8"
   depends_on "scipy"
 
   resource "Cycler" do
@@ -66,8 +67,8 @@ class GraphTool < Formula
 
   def install
     system "autoreconf", "-fiv"
-    xy = Language::Python.major_minor_version "python3"
-    venv = virtualenv_create(libexec, "python3")
+    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
 
     resources.each do |r|
       venv.pip_install_and_link r
@@ -104,6 +105,6 @@ class GraphTool < Formula
       assert g.num_edges() == 1
       assert g.num_vertices() == 2
     EOS
-    system "python3", "test.py"
+    system Formula["python@3.8"].opt_bin/"python3", "test.py"
   end
 end

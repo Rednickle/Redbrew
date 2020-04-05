@@ -4,13 +4,13 @@ class Root < Formula
   url "https://root.cern.ch/download/root_v6.20.02.source.tar.gz"
   version "6.20.02"
   sha256 "0997586bf097c0afbc6f08edbffcebf5eb6a4237262216114ba3f5c8087dcba6"
+  revision 1
   head "https://github.com/root-project/root.git"
 
   bottle do
-    sha256 "7039d454dd5f7b05048e5e91ce89b09e9f89f50ccee9eb33e4c3ddc1b654f1dd" => :catalina
-    sha256 "7b4a332b4c1c9d0093d6a47fa0d82eafdf1e491159c65c6008af2b2ff0cd5489" => :mojave
-    sha256 "15d70277f4afd728de9f16ce02fd69a6c2af1cb4c247f63e267f5537d14fff63" => :high_sierra
-    sha256 "a0ba581ab98c3cc9725841cb275a4eee0e9cc2fc2a0125b7b9c8af99b34dbb3c" => :x86_64_linux
+    sha256 "3aeb2401063eb4329e5f7c1941b4fe14cdaa146c381d3ca163ccae2501275083" => :catalina
+    sha256 "c38f01d9ff39d49fff500944a5a1068e8db1309b0316c75a7556fb9b9c590719" => :mojave
+    sha256 "24785964f500c20ab876599e4d104e83346b2448cd726bdea850338d776335dc" => :high_sierra
   end
 
   if OS.mac?
@@ -41,7 +41,7 @@ class Root < Formula
   depends_on "numpy" # for tmva
   depends_on "openssl@1.1"
   depends_on "pcre"
-  depends_on "python"
+  depends_on "python@3.8"
   depends_on "tbb"
   depends_on "xrootd"
   depends_on "xz" # for LZMA
@@ -67,18 +67,9 @@ class Root < Formula
               "http://lcgpackages",
               "https://lcgpackages"
 
-    py_exe = Utils.popen_read("which python3").strip
-    py_prefix = Utils.popen_read("python3 -c 'import sys;print(sys.prefix)'").chomp
-    py_inc =
-      Utils.popen_read("python3 -c 'from distutils import sysconfig;print(sysconfig.get_python_inc(True))'").chomp
-    py_lib = Utils.popen_read(
-      "python3 -c 'from distutils import sysconfig;print(sysconfig.get_config_var(\"LDLIBRARY\"))'",
-    ).chomp
-
     args = std_cmake_args + %W[
       -DCMAKE_INSTALL_ELISPDIR=#{elisp}
-      -DPYTHON_EXECUTABLE=#{py_exe}
-      -DPYTHON_INCLUDE_DIR=#{py_inc}
+      -DPYTHON_EXECUTABLE=#{Formula["python@3.8"].opt_bin}/python3
       -Dbuiltin_cfitsio=OFF
       -Dbuiltin_freetype=ON
       -Ddavix=ON
@@ -188,6 +179,6 @@ class Root < Formula
 
     # Test Python module
     ENV["PYTHONPATH"] = lib/"root"
-    system "python3", "-c", "import ROOT; ROOT.gSystem.LoadAllLibraries()"
+    system Formula["python@3.8"].opt_bin/"python3", "-c", "import ROOT; ROOT.gSystem.LoadAllLibraries()"
   end
 end

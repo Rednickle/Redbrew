@@ -10,21 +10,21 @@ class Bind < Formula
 
   url "https://downloads.isc.org/isc/bind9/9.16.1/bind-9.16.1.tar.xz"
   sha256 "a913d7e78135b9123d233215b58102fa0f18130fb1e158465a1c2b6f3bd75e91"
+  revision 1
   version_scheme 1
   head "https://gitlab.isc.org/isc-projects/bind9.git"
 
   bottle do
-    sha256 "0e6a63b7868105f659f4bc6642471e38e6b93635b129e92a9acc40bde6442e6b" => :catalina
-    sha256 "ed118b5f61519dab1f66da208121c6125f2e557652dd752800ef63fd3c9967f2" => :mojave
-    sha256 "8cff3d6ff5a9b5814ab056e697e49bbc31b6f850c0b33bcf20b9334cc5372350" => :high_sierra
-    sha256 "16f08d7b5553e2eb3499d95489346ba68f03bf7c88e2efd4891c79e6a4394493" => :x86_64_linux
+    sha256 "f9e1a8039cf1ee1a38bedc48f9926cea641f6b0bcba97611836e3c1f7fde3d95" => :catalina
+    sha256 "b3942cae835a7e0b3299b272630a06199f3cb35dce0595101e70e82d3dfe93ea" => :mojave
+    sha256 "efc27f8f2679a47c4df251616c753d67f12e23369b97e83e47602fcc2e4d1d6f" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "json-c"
   depends_on "libuv"
   depends_on "openssl@1.1"
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "ply" do
     url "https://files.pythonhosted.org/packages/e5/69/882ee5c9d017149285cab114ebeab373308ef0f874fcdac9beb90e0ac4da/ply-3.11.tar.gz"
@@ -32,12 +32,12 @@ class Bind < Formula
   end
 
   def install
-    xy = Language::Python.major_minor_version "python3"
+    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
     vendor_site_packages = libexec/"vendor/lib/python#{xy}/site-packages"
     ENV.prepend_create_path "PYTHONPATH", vendor_site_packages
     resources.each do |r|
       r.stage do
-        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
+        system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
@@ -47,9 +47,10 @@ class Bind < Formula
     system "./configure", "--prefix=#{prefix}",
                           "--with-json-c",
                           "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}",
+                          "--with-libjson=#{Formula["json-c"].opt_prefix}",
                           "--with-python-install-dir=#{vendor_site_packages}",
                           "--without-lmdb",
-                          "--with-python=#{Formula["python"].opt_bin}/python3",
+                          "--with-python=#{Formula["python@3.8"].opt_bin}/python3",
                           *("--disable-linux-caps" unless OS.mac?)
 
     system "make"

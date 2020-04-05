@@ -3,11 +3,12 @@ class Evince < Formula
   homepage "https://wiki.gnome.org/Apps/Evince"
   url "https://download.gnome.org/sources/evince/3.36/evince-3.36.0.tar.xz"
   sha256 "851d9b5234d479ab4c8f7c5cbaceb0e91ad79ccba1a7b733cde72dacc928fba8"
+  revision 1
 
   bottle do
-    sha256 "c372ef0d0575ac0300002e12f0861a01c7c5336b0211df820d49dc6b250d594d" => :catalina
-    sha256 "620822d240845f9c74bbf9763bfa62f9815d49d71f088833eb67827967ff7dda" => :mojave
-    sha256 "9f46f2023c40ecf6d5c09c90e50ad1703fcbf8404f0476b40460db6d1eabb5ba" => :high_sierra
+    sha256 "41e60cec069fd5c6588bf1b6024fb7d4c52c1e737c6386792009ef15fdfdb0ca" => :catalina
+    sha256 "78a8c9be450e8141d421236e81591e11c505431e63c19e96d68a739282b164e5" => :mojave
+    sha256 "a8ddd4a7714d10a905a71340d4aa8b73c825e6d126562cc5f30ddc03a5cd9a08" => :high_sierra
   end
 
   depends_on "appstream-glib" => :build
@@ -25,7 +26,7 @@ class Evince < Formula
   depends_on "libspectre"
   depends_on "libxml2"
   depends_on "poppler"
-  depends_on "python"
+  depends_on "python@3.8"
 
   def install
     ENV["GETTEXTDATADIR"] = "#{Formula["appstream-glib"].opt_share}/gettext"
@@ -45,7 +46,7 @@ class Evince < Formula
     # to gtk3-update-icon-cache in order to avoid a collision between gtk+ and gtk+3.
     inreplace "data/Makefile.in", "gtk-update-icon-cache", "gtk3-update-icon-cache"
 
-    xy = Language::Python.major_minor_version "python3"
+    xy = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
     ENV.append_path "PYTHONPATH", "#{Formula["libxml2"].opt_lib}/python#{xy}/site-packages"
 
     system "./configure", "--disable-debug",
