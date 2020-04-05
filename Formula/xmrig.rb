@@ -10,6 +10,7 @@ class Xmrig < Formula
     sha256 "2889415b044fe14ce8bbffc115db0c7bd0e8c17dff863f87912d1ac317bb2aec" => :catalina
     sha256 "de085127e360b1761d2fd11abef7ddf631c8b1d2baf9fa136599bc3a077aefdd" => :mojave
     sha256 "0925619e2433afce92c8f592e1c816c214947c5cc3fd4b708bcbad95f50f8767" => :high_sierra
+    sha256 "5faaafa2f2a5c04bacf9a187fa09e39403c5389a25e041319d512256b5e76d8d" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
