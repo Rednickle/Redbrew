@@ -11,6 +11,7 @@ class Zim < Formula
     sha256 "0fe8bbcf6c161c62dad791f42dea75495d9cf0b9e21822d8c6a7b5bbe6e0ab92" => :catalina
     sha256 "0fe8bbcf6c161c62dad791f42dea75495d9cf0b9e21822d8c6a7b5bbe6e0ab92" => :mojave
     sha256 "0fe8bbcf6c161c62dad791f42dea75495d9cf0b9e21822d8c6a7b5bbe6e0ab92" => :high_sierra
+    sha256 "4df25116dfff7eda1e930d2a7c9c8c2a2a3e926b87f2bb3a2db98b495aba8aae" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
