@@ -12,6 +12,7 @@ class BoostPython3 < Formula
     sha256 "dbb68300aafb7dc618ed08e91ba34d07e8d2e80a28988a68ebb9fccba4e0e11e" => :catalina
     sha256 "3c02bc31d2de7b3df8379ee24f70b9740c9fcd07f0d7ea5fcbf8de59be9edb1e" => :mojave
     sha256 "ba57a38cc8bd70c95bc62b0c41dea57a931fbf4ee1b3601e4406f8f537129006" => :high_sierra
+    sha256 "79e100e0c3f158a42557a7b80c4c7b1eb072aefaa3132b2abd08093f1854303d" => :x86_64_linux
   end
 
   depends_on "numpy" => :build
