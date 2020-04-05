@@ -10,6 +10,7 @@ class Adios2 < Formula
     sha256 "971ce295562d8f85e1e38ca3bac385b9c52ec3439d4d0d2602f890d7821c25d9" => :catalina
     sha256 "debd58d76b849e606db057cf48ed134d35a58a6d72c9c7129c5bdc8c885336b0" => :mojave
     sha256 "13af65be2cf41a0a58359f032c59d97a1b34caad7589ec4bc4de6f0ab9c3a7f8" => :high_sierra
+    sha256 "feac11ed00a1a41f032c1aad8be47b82d68bfd4973009cccace87baec854ff46" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
