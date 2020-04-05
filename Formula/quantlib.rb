@@ -9,6 +9,7 @@ class Quantlib < Formula
     sha256 "1e89efdb70a7a64b10a475202070d39390fffabc0801227acf8723b6194037c4" => :catalina
     sha256 "f2bab0408cf9d6f412d6c6a9eeeab9e1ca776257eb2a6d30496bf4646eb76af3" => :mojave
     sha256 "ff0934abb2b65d970b00c7217d8563bd6757cf9cb8a02c5e9e5cec8428ecd661" => :high_sierra
+    sha256 "705e9c6126b10a9e74cbe338fd5a6100a5abae7f81ff7d6da7147ccbf5731cd3" => :x86_64_linux
   end
 
   head do
