@@ -9,6 +9,7 @@ class Pygobject3 < Formula
     sha256 "075757fd61db80931583784a9c277bf02639995a4ed9c3773ff8cc7576d64b80" => :catalina
     sha256 "bb6c6e6116e560a190e2d5e68d1b70d23351fe6c431ffeaaacf87df00651e8f2" => :mojave
     sha256 "99ac464e907ad4e5afd6982d661b44723ec73e77257cca034e0eb654d2b99a4b" => :high_sierra
+    sha256 "443498d520db48ba60bb80f73428ff3e652e09f6cee7ce0ddae90bd9e67a4ab5" => :x86_64_linux
   end
 
   depends_on "meson" => :build
