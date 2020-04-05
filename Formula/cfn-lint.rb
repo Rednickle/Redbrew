@@ -3,15 +3,14 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-python-lint/"
-  url "https://files.pythonhosted.org/packages/a4/76/434a2b3709c9dffa072d1bf49712722f393b4735371bd8b42dc0838d44f1/cfn-lint-0.29.3.tar.gz"
-  sha256 "98d5b2187eff9d40e742dbd4289bd3053907d50d6e72a69e22d7066fa6972f83"
+  url "https://files.pythonhosted.org/packages/42/3d/782904a76f11cb468a0f09b9f7b5419f394f6a7ae0b311c9ff42d783be8d/cfn-lint-0.29.4.tar.gz"
+  sha256 "58652622b28732223a9a4c2b5625c5f4f4d9509bbf8d06b1b891a1ef9782f1fd"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d7dce1c4e0e5689bfc6a4b03d43969b56e1c7b71bedcf8f9809252a785a7b680" => :catalina
-    sha256 "6f62228e9908fc7abb997203ca682ecb8af636ac05b66612f353678fcb829a5b" => :mojave
-    sha256 "3b916df96fc0099dac4a2be46ec3be68190e5537523ed3b571ebf34e7e0daded" => :high_sierra
-    sha256 "14899388e6e750bbf26d47980adc3c4b3bc62ea9eb9fad6613460853e13ed97d" => :x86_64_linux
+    sha256 "e302aa9ed50e2ca2a2cffd840d86d65c4c52347c3341d9e4e9242850424de2ed" => :catalina
+    sha256 "fcc424a63fa71dd2ffb2cadd571306d7c302fbc721121278e1afab4624af1b19" => :mojave
+    sha256 "65b0972d0f60055fae4a6c12cc8ddc0fbfc3d39025f858162d95fb6d9be29132" => :high_sierra
   end
 
   depends_on "python@3.8"
@@ -27,13 +26,13 @@ class CfnLint < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/ce/da/c6978371ccbbdafe6e682f0a616e14c918a58d6aa24d3ccc6a34746aa64c/boto3-1.12.34.tar.gz"
-    sha256 "5246caf509baa4716065e6bb78bdc516fdd6b0dfbd9098cc2a0f779fad789c6c"
+    url "https://files.pythonhosted.org/packages/62/99/46ddb8bcca174d9c0ec87217cab44152a58c0f13b46602421f9a9725bc0d/boto3-1.12.36.tar.gz"
+    sha256 "911994ef46595e8ab9f08eee6b666caea050937b96d54394292e958330cd7ad5"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/78/96/50959e7dda82e1adef5fd783bffa43f80cc33c09048fa976c3936056c531/botocore-1.15.34.tar.gz"
-    sha256 "c799623598d04c66b0be4cb990c01a24bd3c06023f0c7221adead38a7431c994"
+    url "https://files.pythonhosted.org/packages/cd/af/3a02532cd87ca06ae905c9496ef6d982230f46c05e86f42c43f06495aadc/botocore-1.15.36.tar.gz"
+    sha256 "5fc5e8629b5375d591a47d05baaff6ccdf5c3b617aad1e14286be458092c9e53"
   end
 
   resource "certifi" do

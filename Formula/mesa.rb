@@ -2,16 +2,16 @@ class Mesa < Formula
   include Language::Python::Virtualenv
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://mesa.freedesktop.org/archive/mesa-20.0.2.tar.xz"
-  mirror "https://www.mesa3d.org/archive/mesa-20.0.2.tar.xz"
-  sha256 "aa54f1cb669550606aab8ceb475105d15aeb814fca5a778ce70d0fd10e98e86f"
+  url "https://mesa.freedesktop.org/archive/mesa-20.0.4.tar.xz"
+  mirror "https://www.mesa3d.org/archive/mesa-20.0.4.tar.xz"
+  sha256 "c4ed491517a94118a7a611810eeb92645d42ffd82280dcd51be8cc2ba1aabba5"
   head "https://gitlab.freedesktop.org/mesa/mesa.git"
 
   bottle do
     cellar :any
-    sha256 "ac53539ca15ff7424684d66c60cd936087fd09fe22581fcb291c75e5fc8de16a" => :catalina
-    sha256 "2ec403b7dc05931f1a6494b88a8b5a96e67c531ffd13afaea203d34e4880e763" => :mojave
-    sha256 "5add0b795f62ee9425d7eebe04ad6889589b3d947d5d3f9f911524321ff445cf" => :high_sierra
+    sha256 "98ba23493b0ca35a6245fb5d01c68ca250b3738a8ed5a99302ed7fb71af3647e" => :catalina
+    sha256 "3e4cdaf1b9d2e23955c614bbbf87e4e4318385db8436f33e22b482adfb791a94" => :mojave
+    sha256 "8be0035971d8416ee9d9d6445d34b71822b6c44bbf5fdaeec356856854c3ab2e" => :high_sierra
   end
 
   depends_on "meson-internal" => :build
@@ -23,8 +23,8 @@ class Mesa < Formula
   depends_on "gettext"
 
   resource "Mako" do
-    url "https://files.pythonhosted.org/packages/28/03/329b21f00243fc2d3815399413845dbbfb0745cff38a29d3597e97f8be58/Mako-1.1.1.tar.gz"
-    sha256 "2984a6733e1d472796ceef37ad48c26f4a984bb18119bb2dbc37a44d8f6e75a4"
+    url "https://files.pythonhosted.org/packages/42/64/fc7c506d14d8b6ed363e7798ffec2dfe4ba21e14dda4cfab99f4430cba3a/Mako-1.1.2.tar.gz"
+    sha256 "3139c5d64aa5d175dbafb95027057128b5fbd05a40c53999f3905ceb53366d9d"
   end
 
   resource "gears.c" do
@@ -43,8 +43,8 @@ class Mesa < Formula
     resource("gears.c").stage(pkgshare.to_s)
 
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", "-Dbuildtype=plain", "-Db_ndebug=true",
-                      "-Dplatforms=surfaceless", "-Dglx=disabled", ".."
+      system "meson", "--prefix=#{prefix}", "..", "-Dbuildtype=plain", "-Db_ndebug=true",
+                      "-Dplatforms=surfaceless", "-Dglx=disabled"
       system "ninja"
       system "ninja", "install"
     end

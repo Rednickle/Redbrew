@@ -1,18 +1,18 @@
 class Deno < Formula
   desc "Command-line JavaScript / TypeScript engine"
   homepage "https://deno.land/"
-  url "https://github.com/denoland/deno/releases/download/v0.36.0/deno_src.tar.gz"
-  sha256 "23de3e13b87e40ac4cbd0d8f0362cf1afc50980f5226f381d3f44c67e603727e"
+  url "https://github.com/denoland/deno/releases/download/v0.39.0/deno_src.tar.gz"
+  sha256 "d2ed15722d7e114870979709bf1606e0da42ba5a3972c5838540b94909414efc"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4006e817ebad2c841a57690aadcdd1f0d18ad44257ec81656823f96d3d65046b" => :catalina
-    sha256 "e8b528fa2002fbc34385331c3891db8ccac0474c31139930d84f1d0d0c56e903" => :mojave
-    sha256 "d224a3b29b291ccea3fb0a6ed0fda61e0c45049b94f0b6fcd917fb140881ae4a" => :high_sierra
+    sha256 "db63590039606a7259560b7da611fb01f7cf356db942c394958719ade694340a" => :catalina
+    sha256 "a38c87a58364f5c8b778fa732ace8402e846e247cff82711b45881ea1697fd3a" => :mojave
+    sha256 "46f03447bed1d48a99afb3cd1512c97f41842460d6787a5f2e3ecf48d2a79bfc" => :high_sierra
   end
 
   depends_on :macos # Due to Python 2
-  depends_on "llvm" => :build if OS.linux? || DevelopmentTools.clang_build_version < 1100
+  depends_on "llvm" => :build
   depends_on "ninja" => :build
   depends_on "rust" => :build
   unless OS.mac?
@@ -29,7 +29,7 @@ class Deno < Formula
 
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-      :revision => "a5bcbd726ac7bd342ca6ee3e3a006478fd1f00b5"
+      :revision => "fd3d768bcfd44a8d9639fe278581bd9851d0ce3a"
   end
 
   def install
@@ -42,13 +42,13 @@ class Deno < Formula
 
     # env args for building a release build with our clang, ninja and gn
     ENV["GN"] = buildpath/"gn/out/gn"
-    if OS.linux? || DevelopmentTools.clang_build_version < 1100
-      # build with llvm and link against system libc++ (no runtime dep)
-      ENV["CLANG_BASE_PATH"] = Formula["llvm"].prefix
-      ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
-    else # build with system clang
-      ENV["CLANG_BASE_PATH"] = "/usr/"
-    end
+    # build rusty_v8 from source
+    ENV["V8_FROM_SOURCE"] = "1"
+    # overwrite Chromium minimum sdk version of 10.15
+    ENV["FORCE_MAC_SDK_MIN"] = "10.13"
+    # build with llvm and link against system libc++ (no runtime dep)
+    ENV["CLANG_BASE_PATH"] = Formula["llvm"].prefix
+    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
 
     unless OS.mac?
       system "core/libdeno/build/linux/sysroot_scripts/install-sysroot.py", "--arch=amd64"

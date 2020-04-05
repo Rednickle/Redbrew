@@ -2,15 +2,15 @@ class Openrct2 < Formula
   desc "Open source re-implementation of RollerCoaster Tycoon 2"
   homepage "https://openrct2.io/"
   url "https://github.com/OpenRCT2/OpenRCT2.git",
-      :tag      => "v0.2.4",
-      :revision => "d645338752fbda54bed2cf2a4183ae8b44be6e95"
+      :tag      => "v0.2.5",
+      :revision => "4f6e77e30ac8e81fd873f1c4041105395fed1327"
   head "https://github.com/OpenRCT2/OpenRCT2.git", :branch => "develop"
 
   bottle do
     cellar :any
-    sha256 "40527c354be56c735286b5a9a5e8f7d58de0d510190e0a1da09da552a44f877a" => :catalina
-    sha256 "0aba8b54f6f4d5022c3a2339bbb12dd8bd3ada5894e9bdc0a2cfeb973facca63" => :mojave
-    sha256 "6065b8ac863f4634f38d51dc444c2b68a361b1e9135b959c1be23321976f821d" => :high_sierra
+    sha256 "0a0541d674d5244bbaff7c2aeb4eaf936be8ddc138ce6129062d3018a55d12a1" => :catalina
+    sha256 "f8d9bfa00c863e695388552a60099a248bb60d31413696c81f4ebd2ffaec24f9" => :mojave
+    sha256 "8c12255546d873041c260554e8027c79dce76c2cb411d86bcf070091af3ff31a" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -27,13 +27,13 @@ class Openrct2 < Formula
   depends_on "speexdsp"
 
   resource "title-sequences" do
-    url "https://github.com/OpenRCT2/title-sequences/releases/download/v0.1.2a/title-sequence-v0.1.2a.zip"
-    sha256 "7536dbd7c8b91554306e5823128f6bb7e94862175ef09d366d25e4bce573d155"
+    url "https://github.com/OpenRCT2/title-sequences/releases/download/v0.1.2c/title-sequences.zip"
+    sha256 "5284333fa501270835b5f0cf420cb52155742335f5658d7889ea35d136b52517"
   end
 
   resource "objects" do
-    url "https://github.com/OpenRCT2/objects/releases/download/v1.0.10/objects.zip"
-    sha256 "4f261964f1c01a04b7600d3d082fb4d3d9ec0d543c4eb66a819eb2ad01417aa0"
+    url "https://github.com/OpenRCT2/objects/releases/download/v1.0.13/objects.zip"
+    sha256 "0279874ad5a4c07f1fca5c62d2d5c3aa12bd849d7b643e3c7d93cfda88df7c6a"
   end
 
   def install

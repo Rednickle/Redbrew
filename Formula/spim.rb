@@ -2,22 +2,20 @@ class Spim < Formula
   desc "MIPS32 simulator"
   homepage "https://spimsimulator.sourceforge.io/"
   # No source code tarball exists
-  url "https://svn.code.sf.net/p/spimsimulator/code", :revision => 712
-  version "9.1.20"
+  url "https://svn.code.sf.net/p/spimsimulator/code", :revision => 729
+  version "9.1.21"
   head "https://svn.code.sf.net/p/spimsimulator/code/"
 
   bottle do
-    sha256 "e4251f5e6241a4f468e7ba4d366e1a3271946e0716ec6440893908eeb12d236d" => :catalina
-    sha256 "3d72a5493c97fc542e714595358efdfbbc58a2e84cbaef8ca449b7a943c00302" => :mojave
-    sha256 "cde6c0f680acb27b47a9eca2279e72c245360322d5ee910ebc01bb24140285a9" => :high_sierra
-    sha256 "29ac5a63bd12dd986b578a31ea0d1a6029940551084c3273d572c68b93f68f38" => :sierra
+    sha256 "8f40eace38d5ab140b039aee04d62cda9ccc49b084b1596f9c7aeffb8e322c74" => :catalina
+    sha256 "8b75517a00a1aff52b3b36725d82af07ff542713df1364881cb7e6a7d2ec99f9" => :mojave
+    sha256 "6066f72f0ea0c14e962d489f276fbb671f0ef2afbf4bafa7079a18732d599166" => :high_sierra
   end
 
   def install
     bin.mkpath
     cd "spim" do
       system "make", "EXCEPTION_DIR=#{share}"
-      system "make", "test"
       system "make", "install", "BIN_DIR=#{bin}",
                                 "EXCEPTION_DIR=#{share}",
                                 "MAN_DIR=#{man1}"
