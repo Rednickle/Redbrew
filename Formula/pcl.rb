@@ -10,6 +10,7 @@ class Pcl < Formula
     sha256 "5b24fe7fd7a08edc05f8f44d7d082337e90616885c156927bf6f152cb016e9a2" => :catalina
     sha256 "00d593c8e532639ef73186e271918844be960c4f37356e1efc42ea2dd23fa092" => :mojave
     sha256 "4a335b1f0b4965bc9445072092dd94262ce63d59a75c5c5aea478efb39ff23c3" => :high_sierra
+    sha256 "7ba9c69e5dbd2811db89771b141708c6322defe349be7ccececd9345605f3d39" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
