@@ -11,6 +11,7 @@ class GitCola < Formula
     sha256 "19a7ebd59027db6aca8e2cf018f2b9bab33d418066fca381cba99640c23a5126" => :catalina
     sha256 "19a7ebd59027db6aca8e2cf018f2b9bab33d418066fca381cba99640c23a5126" => :mojave
     sha256 "19a7ebd59027db6aca8e2cf018f2b9bab33d418066fca381cba99640c23a5126" => :high_sierra
+    sha256 "7a8a2c9f8d9669236381c607a630c3750ce3d4b135a0a21bd9e9780734622630" => :x86_64_linux
   end
 
   depends_on "sphinx-doc" => :build
