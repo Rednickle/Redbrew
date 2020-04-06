@@ -1,13 +1,13 @@
 class Netdata < Formula
   desc "Distributed real-time performance and health monitoring"
   homepage "https://my-netdata.io/"
-  url "https://github.com/netdata/netdata/releases/download/v1.20.0/netdata-v1.20.0.tar.gz"
-  sha256 "dc51869e3e541ca569e75d601133a413a8e56ce2b606dbfe84b35b1d7806216e"
+  url "https://github.com/netdata/netdata/releases/download/v1.21.0/netdata-v1.21.0.tar.gz"
+  sha256 "0acee2a121ebea3390670312141cfb7fafd4b517d325bc071b99d25b09314dd4"
 
   bottle do
-    sha256 "11269705756d55fc3dffeab2c08b283180382a3111be2682fd7e189476317a63" => :catalina
-    sha256 "7f7c7090ee9efec5e62ddb7f9450abf385d7efc39216a261de8b2dda16c58a29" => :mojave
-    sha256 "62c4263ee9ecf4bfe2bfdfc29fb03704f57fd168e8ea5fdf19dab2879774901f" => :high_sierra
+    sha256 "88e5dc7f83acb355fc265264243444b4bfb2a14c3cc237b37a81efab28234bc1" => :catalina
+    sha256 "79bd5c0c01be05cf8b53fe288b88a18f5836f1af01018ae7c4b03edf42021e34" => :mojave
+    sha256 "cb3643d1d3d519bec6f82700dfc7c98e30e5743e31a830ed54a9422489efb2fe" => :high_sierra
   end
 
   depends_on "autoconf" => :build

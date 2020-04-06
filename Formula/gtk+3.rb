@@ -1,14 +1,13 @@
 class Gtkx3 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
-  url "https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.16.tar.xz"
-  sha256 "0d5e1e1494101b8c0c63c0526180780559eee469f021ca0d714018b20fa3d8e8"
+  url "https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.17.tar.xz"
+  sha256 "f210255b221cb0f0db3e7b21399983b715c9dda6eb1e5c2f7fdf38f4f1b6bac0"
 
   bottle do
-    sha256 "5067a6ee1972d99e095ce89474c9261a70b70f0ae5d4fae4924c0f39c59a53dd" => :catalina
-    sha256 "dd86aacf5435b7ff343c2dae2c3601c8041e5b075b544f20514a94d3079d470b" => :mojave
-    sha256 "cbcd3f9044afd43c383d0bd4f52a8e7cabc723574970a8a6d6142122f230cfe9" => :high_sierra
-    sha256 "9e7585a16a62e8ca86f8d3bf162880aace34ded8ca41060b6aa77f2178bbc073" => :x86_64_linux
+    sha256 "91b85a98d656b651ffa92fdb69a0def2535b820878bb1d2eb82a7259d9ffbd60" => :catalina
+    sha256 "3af2d875d6d129778e3f23ef75bd8ee58e1d907255197a834cfb5b46517e9898" => :mojave
+    sha256 "7b25eea37e84a721d670bf19ed3002db3d5ba3f6611b470c291e3a2ebf6357ea" => :high_sierra
   end
 
   depends_on "docbook" => :build
