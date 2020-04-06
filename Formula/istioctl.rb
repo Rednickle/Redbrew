@@ -4,13 +4,13 @@ class Istioctl < Formula
   url "https://github.com/istio/istio.git",
       :tag      => "1.5.1",
       :revision => "9d07e185b0dd50e6fb1418caa4b4d879788807e3"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f12671b853ba1a12be44d2d78beeb7b880fa158be33b426e1785998d02726735" => :catalina
-    sha256 "f12671b853ba1a12be44d2d78beeb7b880fa158be33b426e1785998d02726735" => :mojave
-    sha256 "f12671b853ba1a12be44d2d78beeb7b880fa158be33b426e1785998d02726735" => :high_sierra
-    sha256 "ab4fc45008ce4a642251e54c48e9443d286dd285066ddd677672b2724998cd90" => :x86_64_linux
+    sha256 "614b3333aa28d767fdc3b50226c0a7f059b2eb4b9b7ea832008f8df54f34eab9" => :catalina
+    sha256 "a812d92615ab47160842ec7a688eb108210fa2b956ea5407354262998cc72530" => :mojave
+    sha256 "a812d92615ab47160842ec7a688eb108210fa2b956ea5407354262998cc72530" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -26,9 +26,11 @@ class Istioctl < Formula
     srcpath.install buildpath.children
 
     cd srcpath do
-      system "make", "istioctl"
+      system "make", "istioctl", "istioctl.completion"
       prefix.install_metafiles
       bin.install outpath/"istioctl"
+      bash_completion.install outpath/"release/istioctl.bash"
+      zsh_completion.install outpath/"release/_istioctl"
     end
   end
 

@@ -1,15 +1,14 @@
 class Coq < Formula
   desc "Proof assistant for higher-order logic"
   homepage "https://coq.inria.fr/"
-  url "https://github.com/coq/coq/archive/V8.11.0.tar.gz"
-  sha256 "eea101eff5217dba6d11a8eb13033ed62acb4ee8a64d5cb15fd142e7fc5dc248"
+  url "https://github.com/coq/coq/archive/V8.11.1.tar.gz"
+  sha256 "994c9f5e0b1493c1682946f6154ef8853c9ddeb614902a7fa8403a3650d5377a"
   head "https://github.com/coq/coq.git"
 
   bottle do
-    sha256 "5f6213ba7cb1f3b2dd519f3ca52f9fd4dcb95646b2a6bbd675309ca8b06ca74e" => :catalina
-    sha256 "eb1a691cb35a950f4806d5a6eb93660e4337d3ccbb422d55a7b7e6dbeb87bd88" => :mojave
-    sha256 "e814994eccc672358885772c71d279e41741d431eaadda392f5d6b43e6cb947b" => :high_sierra
-    sha256 "1a67f9b4ab2851896adef61b97b7b89936447ce9f63a431df6190d58ad385236" => :x86_64_linux
+    sha256 "eb9ac2272a0eba9bcf3334e311c09e5d55b844fe8599f52cd624769d4b883017" => :catalina
+    sha256 "d6cef670b28d6969ea2ba1515e0e066069ab994ce53911d36e288f233b29ae54" => :mojave
+    sha256 "3e72f1e82e7a271ab962c275434810d27b67404881ef870933a962d6252fa4ed" => :high_sierra
   end
 
   depends_on "ocaml-findlib" => :build
