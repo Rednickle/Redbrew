@@ -11,6 +11,7 @@ class GmtAT5 < Formula
     sha256 "42047f5797aaec99cd71f4509bdbfa6842d284e0cd5fab09c5e6bed13a136952" => :catalina
     sha256 "b2b9e02af2e7d18f62c93fdd8e70a876222abe9835cb6d190675fb249226c4d4" => :mojave
     sha256 "fb5d8cef36d4d56d37e09ddac7fd16b1b03845e347393571571655d84eab3191" => :high_sierra
+    sha256 "ef4f28c1d4ec45ed3e4e54061b5645656c043cab39da647399f0ef9830da5842" => :x86_64_linux
   end
 
   keg_only :versioned_formula
