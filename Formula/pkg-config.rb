@@ -11,6 +11,7 @@ class PkgConfig < Formula
     sha256 "4a2e91af708c59447cced59a5f2df26570c9534dc89333acf7e3d965858c5718" => :catalina
     sha256 "f284f811f88f8741b88d7bf607fd6d7791fcfa6559802c81f687bb5852376241" => :mojave
     sha256 "b41d6ea88bfcacc5ce62bdf2ba97028ecc6864043875cfde9669125ba2af7d13" => :high_sierra
+    sha256 "03db721e0ae227ea16f4d45d96d60faa8022aa03ec79045001cd6a53c125c48a" => :x86_64_linux
   end
 
   def install
