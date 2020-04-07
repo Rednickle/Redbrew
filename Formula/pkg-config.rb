@@ -14,14 +14,14 @@ class PkgConfig < Formula
   end
 
   def install
-    if OS.mac?
-      pc_path = %W[
+    pc_path = if OS.mac?
+      %W[
         /usr/local/lib/pkgconfig
         /usr/lib/pkgconfig
         #{HOMEBREW_LIBRARY}/Homebrew/os/mac/pkgconfig/#{MacOS.version}"
       ].uniq.join(File::PATH_SEPARATOR)
     else
-      pc_path = %W[
+      %W[
         #{HOMEBREW_PREFIX}/lib/pkgconfig
         #{HOMEBREW_PREFIX}/share/pkgconfig
         #{HOMEBREW_LIBRARY}/Homebrew/os/linux/pkgconfig
