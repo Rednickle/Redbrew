@@ -60,7 +60,7 @@ class Crystal < Formula
       url "https://github.com/crystal-lang/crystal/releases/download/0.33.0/crystal-0.33.0-1-linux-x86_64.tar.gz"
       version "0.33.0-1"
       sha256 "9b9e078e9ba24fb97ee591d5f0a57c88cd018bd85ed6bdde9a30e5834b158128"
-    enda
+    end
   end
 
   def install
