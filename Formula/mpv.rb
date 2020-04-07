@@ -15,6 +15,7 @@ class Mpv < Formula
   depends_on "docutils" => :build
   depends_on "pkg-config" => :build
   depends_on "python" => :build
+  depends_on :xcode => :build
 
   depends_on "ffmpeg"
   depends_on "jpeg"
@@ -47,6 +48,7 @@ class Mpv < Formula
       --mandir=#{man}
       --docdir=#{doc}
       --zshdir=#{zsh_completion}
+      --lua=51deb
     ]
 
     system "python3", "bootstrap.py"
