@@ -10,6 +10,7 @@ class Ripgrep < Formula
     sha256 "61b5686741206e584aa2f94746ecdd68bea29ad381b2a6c0ce2076cacb8408ca" => :catalina
     sha256 "1203664c55ee33d9b668cc9e8f4fe06b2cfe48ae7bc1374b3576104defc279ac" => :mojave
     sha256 "7a0ff676fe9bfc33f3c4279856c45238e3cc61a396cbd5e266d23796a5003e72" => :high_sierra
+    sha256 "8f4535a204a982262d7080bfb2edeef7683e59ceb401237e0053fa75a8768d7f" => :x86_64_linux
   end
 
   # Dependencies for man page
