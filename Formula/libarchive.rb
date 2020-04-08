@@ -20,6 +20,8 @@ class Libarchive < Formula
   depends_on "xz"
   depends_on "zstd"
 
+  depends_on "iconv" unless OS.mac?
+
   uses_from_macos "bzip2"
   uses_from_macos "expat"
   uses_from_macos "zlib"
