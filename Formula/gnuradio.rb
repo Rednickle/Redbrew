@@ -12,7 +12,7 @@ class Gnuradio < Formula
     sha256 "ae53bf0abbdda23f25a45829483a6d1e03f096447289f2df72a6855be7af1619" => :high_sierra
   end
 
-  depends_on :macos # Due to Python 2
+  depends_on :macos # Due to Python 2 (does not support Python 3)
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "pkg-config" => :build
