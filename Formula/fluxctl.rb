@@ -2,15 +2,14 @@ class Fluxctl < Formula
   desc "Command-line tool to access Weave Flux, the Kubernetes GitOps operator"
   homepage "https://github.com/weaveworks/flux"
   url "https://github.com/weaveworks/flux.git",
-      :tag      => "1.18.0",
-      :revision => "32a60f735385d570243f8c15f5b2b5ff460845fa"
+      :tag      => "1.19.0",
+      :revision => "873fb9300996aa371dabfbab1f853efd9d6650ca"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c5ad883cfc41d1e6a4c92f89856ada73a1cf0fb20a1f5a54f6d5bdc151d10e23" => :catalina
-    sha256 "8c4dcb4cd50455cc9928f13fe9151df3daafe631c80d2ab843f3cc3080060532" => :mojave
-    sha256 "163c3fbf008299ca24c3997c3c7e5499faf1d580b4db0e555bccbcb9d86d18e6" => :high_sierra
-    sha256 "7fe3064da2345c33ad6d11b886b226caf1e40be516b374be9307e3f428ccad97" => :x86_64_linux
+    sha256 "da417f17fc62357716eb3030f0661531ebbcc3abf65a627d555ff05541968109" => :catalina
+    sha256 "6b57426d070a0049ec7578fe1aeb7a2cb90863c76019a7056ad406d67e731b9b" => :mojave
+    sha256 "de762c286e68c2870a6eb1d93bd8dcfb4f85c9d294efb469c7c09a2e0c3b7807" => :high_sierra
   end
 
   depends_on "go" => :build

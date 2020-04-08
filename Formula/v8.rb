@@ -2,14 +2,14 @@ class V8 < Formula
   desc "Google's JavaScript engine"
   homepage "https://github.com/v8/v8/wiki"
   # Track V8 version from Chrome stable: https://omahaproxy.appspot.com
-  url "https://github.com/v8/v8/archive/8.0.426.27.tar.gz"
-  sha256 "de34a09d47074345fab2fcb2920f732b6d44bff028dbb81329fe1fa7556a96fd"
+  url "https://github.com/v8/v8/archive/8.1.307.28.tar.gz"
+  sha256 "09665555e7f9bcc5beedac12843b6d9467efcb2d25946b62b3ba21c2165a0a50"
 
   bottle do
     cellar :any
-    sha256 "1bc2bd2ad9751f37b6a147dc6d50c0df75cad06e0cfcd61263052a79b0bdaff6" => :catalina
-    sha256 "c44b9711d8cefdbcbc286d8f50cb81547e3f99ccd3bb7059c547200ec1e4a311" => :mojave
-    sha256 "f398c1d86ed4af0d2ee558d157c01ed448734828d4df05308a60dd95444476f3" => :high_sierra
+    sha256 "9187839914a55710702fa4d95d81ca26edb20db5430e40b7d64b9b64c86e2524" => :catalina
+    sha256 "05562e821143f1197f273e8706ecdee9ab5ecb76fe72555c530545f275e9921f" => :mojave
+    sha256 "9686c45c2ef9fd787faa7414fbf7f2fdd105bf1d4987dbb93231ebecb4a097a4" => :high_sierra
   end
 
   depends_on "llvm" => :build if DevelopmentTools.clang_build_version < 1100
@@ -21,13 +21,13 @@ class V8 < Formula
   # e.g. for CIPD dependency gn: https://github.com/v8/v8/blob/7.6.303.27/DEPS#L15
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-      :revision => "ad9e442d92dcd9ee73a557428cfc336b55cbd533"
+      :revision => "97cc440d84f050f99ff0161f9414bfa2ffa38f65"
   end
 
   # e.g.: https://github.com/v8/v8/blob/7.6.303.27/DEPS#L60 for the revision of build for v8 7.6.303.27
   resource "v8/build" do
     url "https://chromium.googlesource.com/chromium/src/build.git",
-      :revision => "e35470d98289c1f82179839d7657d45b59e982c9"
+      :revision => "2f17606c25956e800b6c4670c294a03620e78551"
   end
 
   resource "v8/third_party/icu" do
@@ -37,12 +37,12 @@ class V8 < Formula
 
   resource "v8/base/trace_event/common" do
     url "https://chromium.googlesource.com/chromium/src/base/trace_event/common.git",
-      :revision => "5e4fce17a9d2439c44a7b57ceecef6df9287ec2f"
+      :revision => "bd79231eb1f9e7de2efb4ad79e530d9a7e70d9a5"
   end
 
   resource "v8/third_party/googletest/src" do
     url "https://chromium.googlesource.com/external/github.com/google/googletest.git",
-      :revision => "5395345ca4f0c596110188688ed990e0de5a181c"
+      :revision => "306f3754a71d6d1ac644681d3544d06744914228"
   end
 
   resource "v8/third_party/jinja2" do
@@ -57,7 +57,7 @@ class V8 < Formula
 
   resource "v8/third_party/zlib" do
     url "https://chromium.googlesource.com/chromium/src/third_party/zlib.git",
-      :revision => "e77e1c06c8881abff0c7418368d147ff4a474d08"
+      :revision => "b9b9a5af7cca2e683e5f2aead8418e5bf9d5a7d5"
   end
 
   def install
