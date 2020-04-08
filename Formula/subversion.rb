@@ -38,6 +38,11 @@ class Subversion < Formula
   depends_on "sqlite"
   depends_on "utf8proc"
 
+  unless OS.mac?
+    depends_on "libtool"
+    depends_on "util-linux"
+  end
+
   uses_from_macos "expat"
   uses_from_macos "krb5"
   uses_from_macos "ruby"
