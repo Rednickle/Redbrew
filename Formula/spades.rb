@@ -22,6 +22,7 @@ class Spades < Formula
   # Performing Test HAVE_CPU_SPINWAIT
   # Performing Test HAVE_CPU_SPINWAIT - Failed
   depends_on "jemalloc" unless OS.mac?
+  depends_on "readline" unless OS.mac?
 
   uses_from_macos "bzip2"
   uses_from_macos "ncurses"
