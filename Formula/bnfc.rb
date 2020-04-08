@@ -22,6 +22,8 @@ class Bnfc < Formula
   depends_on "antlr" => :test
   depends_on "openjdk" => :test
 
+  depends_on "make" => [:build, :test] unless OS.mac?
+
   uses_from_macos "bison" => :test
   uses_from_macos "flex" => :test
 
