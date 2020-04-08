@@ -14,12 +14,10 @@ class NodeAT10 < Formula
 
   keg_only :versioned_formula
 
+  # Will not work with Python 3 without extensive patching. Node 10 will be EOL April 2021
   depends_on :macos # Due to Python 2
   depends_on "pkg-config" => :build
   depends_on "icu4c"
-
-  # Will not work with Python 3 without extensive patching. Node 10 will be EOL April 2021
-  uses_from_macos "python@2" => :build
 
   def install
     system "./configure", "--prefix=#{prefix}", "--with-intl=system-icu"
