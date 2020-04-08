@@ -20,6 +20,8 @@ class Glib < Formula
   depends_on "pcre"
   depends_on "python@3.8"
 
+  depends_on "util-linux" unless OS.mac? # for libmount.so
+
   # https://bugzilla.gnome.org/show_bug.cgi?id=673135 Resolved as wontfix,
   # but needed to fix an assumption about the location of the d-bus machine
   # id file.
