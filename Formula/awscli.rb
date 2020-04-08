@@ -14,6 +14,7 @@ class Awscli < Formula
     sha256 "2a6637c98e3d8a05d264c1d0519dad3b1aabee87f3dfd2b1c6e41a787b783f18" => :x86_64_linux
   end
 
+  depends_on "libyaml" unless OS.mac?
   # Some AWS APIs require TLS1.2, which system Python doesn't have before High
   # Sierra
   depends_on "python@3.8"
