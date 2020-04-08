@@ -9,6 +9,7 @@ class Mksh < Formula
     sha256 "0b85206a01c3305020f2cfc49fdabf071c8f95ad9afbbe5cf05c4666aabd50ed" => :catalina
     sha256 "12dfdb2d357a00d2fcd8b36f15e6b49c5935f5f38ed8d1aac98318df102da353" => :mojave
     sha256 "f06b7c34f7a3e2bf5c363b95fbede1e68bffb1c72519e91c16fa55151e2aba8c" => :high_sierra
+    sha256 "3e059e693d53f802b6e2c45bf23b1f6d617ede7c2f8fc7cb72cac43fc867b7fd" => :x86_64_linux
   end
 
   def install
