@@ -11,7 +11,8 @@ class Deno < Formula
     sha256 "46f03447bed1d48a99afb3cd1512c97f41842460d6787a5f2e3ecf48d2a79bfc" => :high_sierra
   end
 
-  depends_on :macos # Due to Python 2
+  # https://github.com/denoland/deno/issues/2893
+  depends_on :macos # Due to Python 2 (does not work with Python 3)
   depends_on "llvm" => :build
   depends_on "ninja" => :build
   depends_on "rust" => :build
