@@ -24,7 +24,7 @@ class Bic < Formula
   end
 
   depends_on "gmp"
-  depends_on "readline" uness OS.mac?
+  depends_on "readline" unless OS.mac?
 
   def install
     system "autoreconf", "-fi" if build.head?
