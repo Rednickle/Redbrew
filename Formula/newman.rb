@@ -11,6 +11,7 @@ class Newman < Formula
     sha256 "0e39baebd3452e9e34841a656e7ba5a28b96a3c107182423a6c714fa63064776" => :catalina
     sha256 "adf8dbea2004ec95c76c7ee6058888fd1424f1bff0f96eae388d3dcd14280137" => :mojave
     sha256 "163a61aa08668ae4c797c7e4e65e47765913e2c7a9699621b86f5c8ad95e0c54" => :high_sierra
+    sha256 "ae9c965969dcb10a2ea5505e2574703224eddc2e0ca47eb92e5536e688573d9f" => :x86_64_linux
   end
 
   depends_on "node"
