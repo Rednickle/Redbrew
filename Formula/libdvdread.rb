@@ -9,6 +9,7 @@ class Libdvdread < Formula
     sha256 "83bebe58015f6f34973afa003934f183e7ac9202f5e579cfd12536f9ceac1719" => :catalina
     sha256 "7405838fee2b93209c2bd0834db89c2a2334a94f7d368feb87599da1b08062f6" => :mojave
     sha256 "c881a8c1c872d922f45bf8a692b9d79b5f6ade1a2f4a48d470d05491bc017436" => :high_sierra
+    sha256 "0c5f9b444bdf360b956450b1f5cfa5e1a700abfb084fc7a472846774495c1fec" => :x86_64_linux
   end
 
   head do
