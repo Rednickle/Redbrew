@@ -16,6 +16,8 @@ class B2sum < Formula
     sha256 "a5f9feb74faf0b52d943244061d1c16b8b4af39d00576289a532d01f2f8878b7" => :x86_64_linux
   end
 
+  conflicts_with "coreutils", :because => "both install `b2sum` binaries"
+
   def install
     cd "b2sum" do
       system "make", "NO_OPENMP=1"

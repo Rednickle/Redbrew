@@ -17,6 +17,8 @@ class Delta < Formula
     sha256 "7e5e52d7dc76e51b87d66da63bbd2ce30941fad5041509bdbd38722da81e31c8" => :x86_64_linux
   end
 
+  conflicts_with "git-delta", :because => "both install a `delta` binary"
+
   def install
     system "make"
     bin.install "delta", "multidelta", "topformflat"

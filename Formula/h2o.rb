@@ -38,11 +38,11 @@ class H2o < Formula
   end
 
   # This is simplified from examples/h2o/h2o.conf upstream.
-  def conf_example
+  def conf_example(port = 8080)
     <<~EOS
-      listen: 8080
+      listen: #{port}
       hosts:
-        "127.0.0.1.xip.io:8080":
+        "127.0.0.1.xip.io:#{port}":
           paths:
             /:
               file.dir: #{var}/h2o/
@@ -83,13 +83,15 @@ class H2o < Formula
   end
 
   test do
+    port = free_port
+    (testpath/"h2o.conf").write conf_example(port)
     pid = fork do
-      exec "#{bin}/h2o -c #{etc}/h2o/h2o.conf"
+      exec "#{bin}/h2o -c #{testpath}/h2o.conf"
     end
     sleep 2
 
     begin
-      assert_match "Welcome to H2O", shell_output("curl localhost:8080")
+      assert_match "Welcome to H2O", shell_output("curl localhost:#{port}")
     ensure
       Process.kill("SIGINT", pid)
       Process.wait(pid)

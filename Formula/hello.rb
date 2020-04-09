@@ -16,7 +16,7 @@ class Hello < Formula
     sha256 "f81d7c0a3eee9fd62ebdecf685fbc5284e40d4a61c372d554fd45719e52a43cc" => :x86_64_linux # glibc 2.19
   end
 
-  conflicts_with "camlistore", :because => "both install `hello` binaries"
+  conflicts_with "perkeep", :because => "both install `hello` binaries"
 
   def install
     system "./configure", "--disable-debug",

@@ -17,6 +17,8 @@ class Truncate < Formula
     sha256 "41e96e4e675dec121553ea5ecae40f39d3495610c5c35632c7862b7731488107" => :x86_64_linux
   end
 
+  conflicts_with "coreutils", :because => "both install `truncate` binaries"
+
   def install
     system "make"
     bin.install "truncate"
