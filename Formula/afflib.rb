@@ -10,6 +10,7 @@ class Afflib < Formula
     sha256 "70a2d09ba44f7a032689728e5d57ca403360a0316a12ddbacb800b36f6f3d5e1" => :catalina
     sha256 "06e421180af02a47847f009f721ca91f7b0d03ed954995a1f12171f9d6467665" => :mojave
     sha256 "172586f837d2cd9dba9b700758ca855e44af02d524d3fc2ce26e693a5006105a" => :high_sierra
+    sha256 "544f99f04d25a910507d13de702aed15019d21dbf9e44f4e23ba556b56683068" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
