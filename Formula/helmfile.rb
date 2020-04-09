@@ -1,15 +1,14 @@
 class Helmfile < Formula
   desc "Deploy Kubernetes Helm Charts"
   homepage "https://github.com/roboll/helmfile"
-  url "https://github.com/roboll/helmfile/archive/v0.106.3.tar.gz"
-  sha256 "5c76c49b07ba6735d9b0e138d69487e41915e61e231b4b825c5362e05a950461"
+  url "https://github.com/roboll/helmfile/archive/v0.107.0.tar.gz"
+  sha256 "921653bdf356ec2bbf0d83fe65cd562efffbda7fd1f29407ee489362f6ad8d9a"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "79842d5a51d91ee8e6469bb4ec49c77f1554d6b661dc53ed13b1345dcb244906" => :catalina
-    sha256 "ecd91f3a60cccb41d92e8691423300f8023938f42b42269e58ff8e8c1026ef29" => :mojave
-    sha256 "0017b5d958cfe8a54de4dec1f9048359b4cb1116efc67e510b23c6c765bd9061" => :high_sierra
-    sha256 "af545c50042b636be3aac64c01ab7da5e362405ac313a5daf5c7688bc7b74573" => :x86_64_linux
+    sha256 "40667c7fa905fefd1ddd98b87cc6afdec2de69fa6119fcf90d7765d7b0a3a297" => :catalina
+    sha256 "1000ba42e59d720fcf12ce8678799c4b006906720fb205272aa31cf9ee5e2121" => :mojave
+    sha256 "4649258ef77c7b2c093c959fb52e0bb68ed46a2609834c743588e7b991ae25df" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -27,7 +26,12 @@ class Helmfile < Formula
       url: https://kubernetes-charts.storage.googleapis.com/
 
     releases:
-    - name: test
+    - name: vault                            # name of this release
+      namespace: vault                       # target namespace
+      labels:                                # Arbitrary key value pairs for filtering releases
+        foo: bar
+      chart: roboll/vault-secret-manager     # the chart being installed to create this release, referenced by `repository/chart` syntax
+      version: ~1.24.1                       # the semver of the chart. range constraint is supported
     EOS
     system Formula["helm"].opt_bin/"helm", "create", "foo"
     output = "Adding repo stable https://kubernetes-charts.storage.googleapis.com"
