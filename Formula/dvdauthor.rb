@@ -10,6 +10,7 @@ class Dvdauthor < Formula
     sha256 "669b5fe5348ceb668f9ff55c4942c240f585eb5167e2dfbe1142442fcf7b776b" => :catalina
     sha256 "3e4e46c56905c289d31d167e75ee3b033a197fc0dda4b6b56dec752ac9773c51" => :mojave
     sha256 "55cee6a535eec67fc4f1ea65c2283d69c420d32933d9bcd6106168796ba1af9a" => :high_sierra
+    sha256 "9ade5a5edb37f54854bf606072d350546422a8473320cf79fc0e64e91a4b0ba2" => :x86_64_linux
   end
 
   # Dvdauthor will optionally detect ImageMagick or GraphicsMagick, too.
