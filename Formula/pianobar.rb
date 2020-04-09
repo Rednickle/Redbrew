@@ -1,16 +1,15 @@
 class Pianobar < Formula
   desc "Command-line player for https://pandora.com"
   homepage "https://github.com/PromyLOPh/pianobar/"
-  url "https://6xq.net/pianobar/pianobar-2019.02.14.tar.bz2"
-  sha256 "c0bd0313b31492ed266d1932d319cfe2a4be7024686492c458bb5e4ceb0ee21f"
+  url "https://6xq.net/pianobar/pianobar-2020.04.05.tar.bz2"
+  sha256 "6c173b6b29ccc1f432e0013fb425e8f9cb4261539b58d344e0b2274963726480"
   head "https://github.com/PromyLOPh/pianobar.git"
 
   bottle do
     cellar :any
-    sha256 "0e9129214de23a285f6fbe90ee3a078435fa74d86a0b0890bd89a466283edcda" => :catalina
-    sha256 "f8e2e06461658017ffa0cc6a6c06d49cfed91cbf359b7d23875512e657fd027f" => :mojave
-    sha256 "aee9b756146a2440ea1c370b11d165088a68d733bf17be413232a88106e8df6f" => :high_sierra
-    sha256 "3ef71e6eb89d6dffd2e2d38e9c7c487cf0195174f3d8ceab5f3aae8426fb1312" => :x86_64_linux
+    sha256 "72960248085d1258e84a2d864bff4a93f0b4f16aac3f8dff3a9d593fdcf0244f" => :catalina
+    sha256 "8169c7859a1dc35bd9c7eb1d353517fed364511cf875477d321b0e20313f665a" => :mojave
+    sha256 "e397752de16144f63aaed8e1341a602ee5ca5e4f7f02d5669091ecae1f8f02c3" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

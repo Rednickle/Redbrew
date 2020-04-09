@@ -1,14 +1,14 @@
 class Ortp < Formula
   desc "Real-time transport protocol (RTP, RFC3550) library"
   homepage "https://www.linphone.org/technical-corner/ortp"
-  url "https://www.linphone.org/releases/sources/ortp/ortp-1.0.2.tar.gz"
-  sha256 "a51551194332ac62b47865dc1e60893ece4922c489a7b0a780b8be562978d804"
+  url "https://gitlab.linphone.org/BC/public/ortp/-/archive/4.3.2/ortp-4.3.2.tar.bz2"
+  sha256 "1796a7faaaced1278fae55657686e7b9fee66ca4d9dabd8f1c83f21957fc002b"
+  head "https://gitlab.linphone.org/BC/public/ortp.git"
 
   bottle do
-    sha256 "f49949830b4e6f09bb69c81ff2e2f8f3653bae1d648bc57db393bb92195fc260" => :catalina
-    sha256 "1659170fed5ce087fe92e8bca8f8666ce1a2573220897df535a035582b8bd45b" => :mojave
-    sha256 "183386b78f9bb94670265af5b717b604d678b399517e7ee9848b6999209755e6" => :high_sierra
-    sha256 "f3b0cef23a22a6c6bd4a9cb52c694c50f933158b6f5e29443927465b0054a450" => :x86_64_linux
+    sha256 "942d93781ca52a133ae19952fb044a6b02060cff30177a8525ab2a5e4a0991d4" => :catalina
+    sha256 "231dc8ca885b103e360e347498277f41c2fc0d446420b8c1324e00e301a8eedd" => :mojave
+    sha256 "ea6fc0e9626908e8a62b22cc86a2f87d513716c2091cfa52bac39c5c9c7a5d79" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -16,8 +16,8 @@ class Ortp < Formula
   depends_on "mbedtls"
 
   resource "bctoolbox" do
-    url "https://www.linphone.org/releases/sources/bctoolbox/bctoolbox-0.6.0.tar.gz"
-    sha256 "4657e1970df262f77e47dee63b1135a5e063b63b0c42cfe7f41642b22e3831a8"
+    url "https://gitlab.linphone.org/BC/public/bctoolbox/-/archive/4.3.1/bctoolbox-4.3.1.tar.bz2"
+    sha256 "1b7ec1a7fa2af2a6741ebda7602c82996752aa46fb17d6c9ddb2ed0846872384"
   end
 
   def install
@@ -30,16 +30,11 @@ class Ortp < Formula
       system "make", "install"
     end
 
-    if OS.mac?
-      libbctoolbox = (libexec/"lib/libbctoolbox.dylib").readlink
-      MachO::Tools.change_dylib_id("#{libexec}/lib/libbctoolbox.dylib",
-                                   "#{libexec}/lib/#{libbctoolbox}")
-    end
-
     ENV.prepend_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
 
     args = std_cmake_args + %W[
       -DCMAKE_PREFIX_PATH=#{libexec}
+      -DCMAKE_C_FLAGS=-I#{libexec}/include
       -DENABLE_DOC=NO
     ]
     mkdir "build" do
