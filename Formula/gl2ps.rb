@@ -9,6 +9,7 @@ class Gl2ps < Formula
     sha256 "9892a2bca2e64d36ba64d136aabb4113096c85d986b39c37291c1ad4a54b1cf4" => :catalina
     sha256 "4975b6204df6681770a50e56ad8c689b1a3f8ba1ab1156054210afe60d1cee68" => :mojave
     sha256 "e4ce5d49e23926babfc2a0de59d2cefc06ead02408848430be975c51e49fa210" => :high_sierra
+    sha256 "9a3d51abc72351a190df939403e757884a9b1effe7246ef52977c6425af6ecad" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
