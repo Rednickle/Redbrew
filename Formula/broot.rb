@@ -10,6 +10,7 @@ class Broot < Formula
     sha256 "a9854899ce658d45148ce8f194d9bdda84799a7d552e4d264a0118b49ea707d4" => :catalina
     sha256 "221d7097a8d1f731c10a7b498d76886e5b46238ce9b4fe94f38deafe1247b0d4" => :mojave
     sha256 "619d04bce458d7adccdddfe222fa0bfc600556337a870def65ab4e7406a43d99" => :high_sierra
+    sha256 "e0114f353384fe4391709f21bcbee6f85cd17509b817e9f99dcce14d42e78b85" => :x86_64_linux
   end
 
   depends_on "rust" => :build
