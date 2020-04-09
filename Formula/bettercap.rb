@@ -9,6 +9,7 @@ class Bettercap < Formula
     sha256 "0192a46b91f28d89d61618b0d54ebf00b0edcd0e588a3fd4b24e02a2ccb39460" => :catalina
     sha256 "cc3475e1afc9dbf17081bd9ba3f6912396ad91eccb6033205f7ab46c0fccc3bc" => :mojave
     sha256 "0349b47109618dce84895f6a6230065bdd4ae0ee08c950bbb2560060ef2fa650" => :high_sierra
+    sha256 "340dc79ed02fa0090bc7974955e37b001e581c4bbf5d907e793eb0cb728da830" => :x86_64_linux
   end
 
   depends_on "dep" => :build
