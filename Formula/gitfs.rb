@@ -13,6 +13,7 @@ class Gitfs < Formula
     sha256 "01205b29c991e751cf6be6964df1f9398860606e3c284257c60d25fd13ec360f" => :catalina
     sha256 "d9ff9a6216fa90698e730e0a3b3603e1a58726c6f603fb83e7ee5b5d6d9b7ae0" => :mojave
     sha256 "cf5b89f294c252fea0862b1f5b14420a7077d3f02eecc21eda8e02f701ddf4a3" => :high_sierra
+    sha256 "44e43fed128a69f04e340e9b988417f20810cc76b556afa258e66a07dc879b3f" => :x86_64_linux
   end
 
   depends_on "libgit2"
