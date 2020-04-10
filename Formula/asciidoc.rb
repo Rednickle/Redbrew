@@ -21,6 +21,7 @@ class Asciidoc < Formula
   depends_on "autoconf" => :build
   depends_on "docbook-xsl" => :build
   depends_on "docbook"
+  depends_on :macos # Due to Python 2 (will never support Python 3)
   depends_on "source-highlight"
   unless OS.mac?
     depends_on "xmlto" => :build

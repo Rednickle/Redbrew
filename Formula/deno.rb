@@ -11,16 +11,10 @@ class Deno < Formula
     sha256 "2ea2c7d7653481d1e6fe3c674f5dbb0f760f0aa28df88000e11b77a36e4d34b2" => :high_sierra
   end
 
-  # https://github.com/denoland/deno/issues/2893
-  depends_on :macos # Due to Python 2 (does not work with Python 3)
+  depends_on :macos # Due to Python 2 (see https://github.com/denoland/deno/issues/2893)
   depends_on "llvm" => :build
   depends_on "ninja" => :build
   depends_on "rust" => :build
-  unless OS.mac?
-    depends_on "xz" => :build
-    depends_on "python@2"
-  end
-
   depends_on :xcode => ["10.0", :build] if OS.mac? # required by v8 7.9+
 
   uses_from_macos "xz"
