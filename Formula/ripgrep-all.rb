@@ -1,17 +1,15 @@
 class RipgrepAll < Formula
   desc "Wrapper around ripgrep that adds multiple rich file types"
   homepage "https://github.com/phiresky/ripgrep-all"
-  url "https://github.com/phiresky/ripgrep-all/archive/0.9.3.tar.gz"
-  sha256 "06259e7c1734a9246c2d113bf5e914f4d418e53c201efc697bfc041a713fbef3"
+  url "https://github.com/phiresky/ripgrep-all/archive/v0.9.5.tar.gz"
+  sha256 "7939a9cb5ee8944f5a62f96b72507241647287b1f6257f3123c525ffb7e38c44"
   head "https://github.com/phiresky/ripgrep-all.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "687b7bf509f088bdb9cd0058e6346d7aa66fdddd35fe9f1095085ffc59040b69" => :catalina
-    sha256 "8b0b3bb348853c51a99826d326d3bdd1ff52bab521fd6e37deaaaf0004ff77e5" => :mojave
-    sha256 "ef28f16cb59908b17a4e07a39ca3804173204f2ccf333262bab3988866d5c741" => :high_sierra
-    sha256 "c5a2a9fe976f70eb3151ad471862f997d8c97cad0b35ddfc9c58b67eec95ffbf" => :x86_64_linux
+    sha256 "fa8041bd45eba089f3cf80bcf83c75a02bdfb4d1f1fe195d86d0d444438d06a1" => :catalina
+    sha256 "6c5f1e7b0f4cdf65750e65800e9030144180f6cf605292104fe67c775f65b82b" => :mojave
+    sha256 "fb87b9ac0643c4530ce5528469b9502a564fa36f29cdc37f92d90b8030494ae2" => :high_sierra
   end
 
   depends_on "rust" => :build

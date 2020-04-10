@@ -1,21 +1,22 @@
 class Diffoscope < Formula
+  include Language::Python::Virtualenv
+
   desc "In-depth comparison of files, archives, and directories"
   homepage "https://diffoscope.org"
-  url "https://files.pythonhosted.org/packages/33/21/d4345882ef516243bcb9e1227e161ba6ab9f27fdad5dce13b7105c0e465d/diffoscope-138.tar.gz"
-  sha256 "b75dd3f391f223ade205934df3b6932c35325e0f17368285abb2352ba0153911"
+  url "https://files.pythonhosted.org/packages/7a/f4/3bc3eb50a7d1d3ec8f8dad6d1abc148dfdfea4597fb0e874842920554fc9/diffoscope-139.tar.gz"
+  sha256 "1c69ed2272523c676e719d44596ae52f7725bf2760e36dd2164255e56293eabd"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "079ca43f404133ef9ffa7d3506d628311fe3f5ba3b1aa9e1e308a7b3aed04c09" => :catalina
-    sha256 "079ca43f404133ef9ffa7d3506d628311fe3f5ba3b1aa9e1e308a7b3aed04c09" => :mojave
-    sha256 "079ca43f404133ef9ffa7d3506d628311fe3f5ba3b1aa9e1e308a7b3aed04c09" => :high_sierra
-    sha256 "fa2b5f1268542088647de6151f87bbf3e816a9ee2cca1da5a8334b31acefcc73" => :x86_64_linux
+    sha256 "74989f947a07bddb3b3ca995ae9d3b7486c8a29bdb737edc4c350e29015a8d31" => :catalina
+    sha256 "3fa79506418275d525d4de6fd26e26787ec3376b3e0c3919a296c09f528c60fa" => :mojave
+    sha256 "d7f6ca8c0d949bc9579134643aec84d5923fd7655de55ce1b9ef77fd0dab169a" => :high_sierra
   end
 
   depends_on "gnu-tar"
   depends_on "libarchive"
   depends_on "libmagic"
-  depends_on "python"
+  depends_on "python@3.8"
 
   resource "libarchive-c" do
     url "https://files.pythonhosted.org/packages/63/fe/9e6c78db381934e28c7ec3d30d4f209fe24442d17f1bd8c56d13ae185cf6/libarchive-c-2.9.tar.gz"
@@ -33,23 +34,13 @@ class Diffoscope < Formula
   end
 
   def install
-    ENV.delete("PYTHONPATH") # play nice with libmagic --with-python
+    venv = virtualenv_create(libexec, Formula["python@3.8"].opt_bin/"python3")
+    venv.pip_install resources
+    venv.pip_install buildpath
 
-    pyver = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{pyver}/site-packages"
-
-    resources.each do |r|
-      r.stage do
-        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{pyver}/site-packages"
-    system "python3", *Language::Python.setup_install_args(libexec)
-    bin.install Dir[libexec/"bin/*"]
+    bin.install libexec/"bin/diffoscope"
     libarchive = Formula["libarchive"].opt_lib/"libarchive.#{OS.mac? ? "dylib" : "so"}"
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"],
-                                            :LIBARCHIVE => libarchive)
+    bin.env_script_all_files(libexec/"bin", :LIBARCHIVE => libarchive)
   end
 
   test do
