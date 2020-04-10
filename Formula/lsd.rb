@@ -9,6 +9,7 @@ class Lsd < Formula
     sha256 "7522117f464233363dc65128ba98dd51863e86acab321326c687a0fe8a7e2541" => :catalina
     sha256 "a53f4d8e3bbfdbd9382fc17e770a1a050efd020bd92d84fcfe17542df42af785" => :mojave
     sha256 "9ee5f02f84c89b1c430339831f7de094dbb38874cb47f6832b23e2b30c2af2d9" => :high_sierra
+    sha256 "54bd02c1d0a669188b8e517f9f668d3b9f6f97478544342061fc96c2ba9e6fd0" => :x86_64_linux
   end
 
   depends_on "rust" => :build
