@@ -9,6 +9,7 @@ class Velero < Formula
     sha256 "4966b57d66b7d8485bda2597dda2312152b2a0538a279a8a75529d429a7bf8d5" => :catalina
     sha256 "3890637cfa96fb28545846a2826dea5704c0e79b6b5bf4bdc5114d8063806afc" => :mojave
     sha256 "8b1b6d2788c04f3838bceb069e060517bc9f477c89343d19093d431b661915e8" => :high_sierra
+    sha256 "ca1bdaaa5027f43a36ad0c58eed044c566bd72ef19fbdd1995bd34f22d0567c7" => :x86_64_linux
   end
 
   depends_on "go" => :build
