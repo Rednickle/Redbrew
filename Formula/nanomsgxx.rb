@@ -16,6 +16,7 @@ class Nanomsgxx < Formula
 
   depends_on :macos # Due to Python 2
   depends_on "pkg-config" => :build
+  depends_on :macos # Due to Python 2
   depends_on "nanomsg"
   depends_on "python@2" => :build unless OS.mac?
 

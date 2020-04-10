@@ -12,11 +12,10 @@ class Ibex < Formula
     sha256 "91500e1cd76da6db5afa6e5c0ac70ccf09b2ce3036d4544b2abd21a4ec3beb78" => :high_sierra
   end
 
-  depends_on :macos # Due to Python 2
   depends_on "bison" => :build
   depends_on "flex" => :build
   depends_on "pkg-config" => [:build, :test]
-  depends_on "python@2" => :build unless OS.mac?
+  depends_on :macos # Due to Python 2
 
   uses_from_macos "zlib"
 

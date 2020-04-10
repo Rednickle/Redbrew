@@ -14,8 +14,7 @@ class Metricbeat < Formula
   end
 
   depends_on "go" => :build
-  # https://github.com/elastic/beats/pull/14798
-  depends_on :macos # Due to Python 2 (does not support Python 3)
+  depends_on :macos # Due to Python 2 (https://github.com/elastic/beats/pull/14798)
 
   # Newer virtualenvs are not compatible with Python 2.7.10 on high sierra, use an old version
   resource "virtualenv" do

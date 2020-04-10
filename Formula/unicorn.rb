@@ -19,6 +19,8 @@ class Unicorn < Formula
   depends_on :macos # Due to Python 2
 
   depends_on "pkg-config" => :build
+  depends_on :macos # Due to Python 2 (Might work with Python 3 with next release (1.0.2)
+  # See https://github.com/Homebrew/linuxbrew-core/pull/19728
 
   def install
     ENV["PREFIX"] = prefix

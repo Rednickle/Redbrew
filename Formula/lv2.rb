@@ -14,7 +14,6 @@ class Lv2 < Formula
   end
 
   depends_on :macos # Due to Python 2
-  depends_on "python@2" => :build unless OS.mac?
 
   def install
     system "./waf", "configure", "--prefix=#{prefix}", "--no-plugins", "--lv2dir=#{lib}"

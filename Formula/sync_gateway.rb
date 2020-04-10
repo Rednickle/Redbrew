@@ -13,10 +13,9 @@ class SyncGateway < Formula
     sha256 "82751dbdc0c8efa02c3694f9482d9678539414387427a173b0a85eede93c6c6a" => :high_sierra
   end
 
-  depends_on :macos # Due to Python 2
   depends_on "gnupg" => :build
   depends_on "go" => :build
-  depends_on "python@2" => :build unless OS.mac?
+  depends_on :macos # Due to Python 2
 
   resource "depot_tools" do
     url "https://chromium.googlesource.com/chromium/tools/depot_tools.git",

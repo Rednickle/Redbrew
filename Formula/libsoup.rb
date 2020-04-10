@@ -18,6 +18,7 @@ class Libsoup < Formula
   depends_on "glib-networking"
   depends_on "gnutls"
   depends_on "libpsl"
+  depends_on :macos # Due to Python 2
   depends_on "vala"
   unless OS.mac?
     depends_on "krb5"

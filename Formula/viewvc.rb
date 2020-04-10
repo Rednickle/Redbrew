@@ -13,6 +13,7 @@ class Viewvc < Formula
 
   depends_on :macos # Due to python@2, https://github.com/viewvc/viewvc/issues/138
   depends_on "subversion"
+  depends_on :macos # Due to Python 2 (https://github.com/viewvc/viewvc/issues/138)
 
   def install
     system "python", "./viewvc-install", "--prefix=#{libexec}", "--destdir="
