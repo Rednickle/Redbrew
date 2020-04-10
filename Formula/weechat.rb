@@ -3,13 +3,13 @@ class Weechat < Formula
   homepage "https://www.weechat.org"
   url "https://weechat.org/files/src/weechat-2.8.tar.xz"
   sha256 "553ea295edad3b03cf88e6029c21e7bde32ff1cc026d35386ba9da3e56a6018c"
+  revision 1
   head "https://github.com/weechat/weechat.git"
 
   bottle do
-    sha256 "60b72321ee167483c30f4b8f41b30f3da8a36ae02fc58bd35fc55a265d2725d7" => :catalina
-    sha256 "f8a9685d17d5d8a0bb32af3d0625a33fa8003251859aa8ab0c73fa81da9d4a65" => :mojave
-    sha256 "01c768ce156a997b6d6d6fbd93c95ebd389f32682d2988f11eba04e93bf8dde5" => :high_sierra
-    sha256 "8c41b18b3bb81f1e70fd3878871a53ad646b6c5c18432faca57ec80781dd43f9" => :x86_64_linux
+    sha256 "d2b4aeb0d4349ec46fd27d92f2c1038d13af574308da9ac2b684851ccf3ee958" => :catalina
+    sha256 "77a4fe0ef4ccd5da236df05319d113949c24a5f1bf063b0e18ce7c48e31cde7b" => :mojave
+    sha256 "5d83bb60e84a70bac570ad4075049683dbd29c69baaff6c2304ede19b51996c2" => :high_sierra
   end
 
   depends_on "asciidoctor" => :build

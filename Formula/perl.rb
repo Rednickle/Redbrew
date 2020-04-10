@@ -1,15 +1,14 @@
 class Perl < Formula
   desc "Highly capable, feature-rich programming language"
   homepage "https://www.perl.org/"
-  url "https://www.cpan.org/src/5.0/perl-5.30.1.tar.gz"
-  sha256 "bf3d25571ff1ee94186177c2cdef87867fd6a14aa5a84f0b1fb7bf798f42f964"
+  url "https://www.cpan.org/src/5.0/perl-5.30.2.tar.gz"
+  sha256 "66db7df8a91979eb576fac91743644da878244cf8ee152f02cd6f5cd7a731689"
   head "https://github.com/perl/perl5.git", :branch => "blead"
 
   bottle do
-    sha256 "c67104091d5328aadb95532ceb7aa4b25544c2505acd11522b5615b67953d38f" => :catalina
-    sha256 "38e242ca4adaad6c0ef271e8e7d77030998f5809daf1b90c208d81b8b75fb5c9" => :mojave
-    sha256 "73e7650fd86f600e3342cd14491e632c0bae0c541476ab5c30b4409deedf7664" => :high_sierra
-    sha256 "dc9b4eca8bbcd8209ea3f76581e6b9b127a0b1f19539547c63f28687cb0b4337" => :x86_64_linux
+    sha256 "8a9d19e3d6f308b5976318d644ba11ec95b2c2be502cee4c8514060690ddb923" => :catalina
+    sha256 "632cbd8c42fd270ae4e1458e5dbb7927dbf69d5bd6ef36bb0dc981c0b2eb6759" => :mojave
+    sha256 "302bcddce16aa19d9009b63daad9d4e7d128c9df8f0973daa96e7de80a430266" => :high_sierra
   end
 
   uses_from_macos "expat"
@@ -45,10 +44,6 @@ class Perl < Formula
     system "./Configure", *args
 
     system "make"
-    # On Linux (in travis / docker container), the op/getppid.t fails too, disable the tests:
-    # https://rt.perl.org/Public/Bug/Display.html?id=130143
-    system "make", "test" if OS.mac?
-
     system "make", "install"
 
     # expose libperl.so to ensure we aren't using a brewed executable
