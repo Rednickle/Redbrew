@@ -1,21 +1,18 @@
 class NodeAT10 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v10.19.0/node-v10.19.0.tar.gz"
-  sha256 "db85b9992f1ec66629731d82f690987883dd2989abb4cc136eb65dd720b1bda8"
+  url "https://nodejs.org/dist/v10.20.0/node-v10.20.0.tar.xz"
+  sha256 "d14116ef2ba9cbcfb5d1c286706de665081dc06ecb5a3507f79a4d0ea8e57233"
 
   bottle do
     cellar :any
-    sha256 "2340eeada3e44d29f118f7d7381f6c1bc1c6c58dbf246cff7d83a88346f2d93f" => :catalina
-    sha256 "021c43ebaa85ac1d763fa453e98b5f9bfff750b032fdc2b627f545fcd18247a1" => :mojave
-    sha256 "80138dde9c1c0b7f1b0dfb6ce7c209d7dac07f4dae37d2b2e398f6018ae3c56f" => :high_sierra
-    sha256 "2e97fdfcc2fb030de583274de7acdd5a68fa3b9768f54066e72aa19bbf9bc733" => :x86_64_linux
+    sha256 "f3a38d10f3c3f0dd672a84495029fc9384fae9ac3204c0b7f99a516c7359585d" => :catalina
+    sha256 "0b6a4c058fb45750c2cc11eff7fe3d28e94f64f9ab0331b19d0408352ffb4ad1" => :mojave
+    sha256 "9f543ec59c8cb70aea0095a2c54037e502e44643475402cdeef1799fdd8b4749" => :high_sierra
   end
 
   keg_only :versioned_formula
 
-  # Will not work with Python 3 without extensive patching. Node 10 will be EOL April 2021
-  depends_on :macos # Due to Python 2
   depends_on "pkg-config" => :build
   depends_on "icu4c"
   depends_on :macos # Due to Python 2 (Will not work with Python 3 without extensive patching)
