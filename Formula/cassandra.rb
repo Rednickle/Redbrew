@@ -18,9 +18,6 @@ class Cassandra < Formula
   depends_on "python@3.8"
   depends_on :java => ["1.8+", :test] unless OS.mac?
 
-  # https://issues.apache.org/jira/browse/CASSANDRA-10190
-  uses_from_macos "python@2" # Does not support Python 3
-
   # Only >=Yosemite has new enough setuptools for successful compile of the below deps.
   resource "setuptools" do
     url "https://files.pythonhosted.org/packages/c2/f7/c7b501b783e5a74cf1768bc174ee4fb0a8a6ee5af6afa92274ff964703e0/setuptools-40.8.0.zip"
