@@ -9,6 +9,7 @@ class AwsEsProxy < Formula
     sha256 "45a608977ee8179e9a3356a6aec67ac28fb45a2eaa220f12ed14ab3502786671" => :catalina
     sha256 "75ef7d6a9a21e85cc0686eb218eb22c571222432751ecc10fbb53761e17c4977" => :mojave
     sha256 "57b9c927fbf351bf8b2b7b87bd21496ce473cd6058615cf8639621fd8d39a32d" => :high_sierra
+    sha256 "b98bcd2f3f89a378d1bbaa70af1afc4509bfeefadf3460a228adc9e16ffa5159" => :x86_64_linux
   end
 
   depends_on "go" => :build
