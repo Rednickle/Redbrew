@@ -9,6 +9,7 @@ class NodeAT12 < Formula
     sha256 "2fa5ade50ce58a7b881a3f175b0a0b01a8af8c5f6fd851c06dfa490da1d2acdf" => :catalina
     sha256 "006029e3bc4e0cf1700054995beef7e2e3b294b1f00bb846d4a18e6b0ed49e36" => :mojave
     sha256 "3c823b2028194e6be1775ba27fb6c93bd5cbda9bda6fd6d96e1603bbb00d5a8b" => :high_sierra
+    sha256 "97fbfc9c7b2e0618e53173c5599b755bbee0d8c7721add2016966c37bbfd2081" => :x86_64_linux
   end
 
   keg_only :versioned_formula
