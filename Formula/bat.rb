@@ -3,13 +3,13 @@ class Bat < Formula
   homepage "https://github.com/sharkdp/bat"
   url "https://github.com/sharkdp/bat/archive/v0.13.0.tar.gz"
   sha256 "f4aee370013e2a3bc84c405738ed0ab6e334d3a9f22c18031a7ea008cd5abd2a"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7a3940396b74afc976f97c19194dbbdcbe93268f6eb657fd4b3422ce60f03e8f" => :catalina
-    sha256 "67a235ef3a22a87d17333d44f547146b2d0c13fc1ec9b076133770b565176f51" => :mojave
-    sha256 "1dc30e4059defc1475a2969236fc058a218561d930ef3d7253f53f271d0f4c40" => :high_sierra
-    sha256 "e0dec0beb387c6b2be9e6372718db5c949c45d63a9340f79451e1e49f630640b" => :x86_64_linux
+    sha256 "4d4d8e88d1ebff5c953dff489973597015cb742a89c8c102e79f8598e239f0c9" => :catalina
+    sha256 "044cba23fd3e9a556a27cce1a61db22d854f46a11fed5f04c244873cd9a273ac" => :mojave
+    sha256 "d755b9524e5ad50d9bbf687ee1e42697d9c39c95bb2edfbffd7c6d82c78dfb6d" => :high_sierra
   end
 
   depends_on "rust" => :build
@@ -22,13 +22,9 @@ class Bat < Formula
     ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
     system "cargo", "install", "--locked", "--root", prefix, "--path", "."
 
-    # In https://github.com/sharkdp/bat/pull/673,
-    # documentation and fish autocompletion got parameterized
-    inreplace "assets/manual/bat.1.in", "{{PROJECT_EXECUTABLE | upcase}}", "bat"
-    inreplace "assets/manual/bat.1.in", "{{PROJECT_EXECUTABLE}}", "bat"
-    inreplace "assets/completions/bat.fish.in", "{{PROJECT_EXECUTABLE}}", "bat"
-    man1.install "assets/manual/bat.1.in" => "bat.1"
-    fish_completion.install "assets/completions/bat.fish.in" => "bat.fish"
+    assets_dir = Dir["target/release/build/bat-*/out/assets"].first
+    man1.install "#{assets_dir}/manual/bat.1"
+    fish_completion.install "#{assets_dir}/completions/bat.fish"
   end
 
   test do
