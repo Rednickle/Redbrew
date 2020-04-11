@@ -15,7 +15,7 @@ class Algol68g < Formula
     sha256 "e6df75baac2f1d858939d509465a0c04cc99b167f60d9790857038c74e2fb74b" => :x86_64_linux
   end
 
-  uses_from_macos "postgresql"
+  depends_on "postgresql" unless OS.mac?
 
   def install
     system "./configure", "--prefix=#{prefix}"
