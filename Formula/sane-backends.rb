@@ -21,7 +21,6 @@ class SaneBackends < Formula
   depends_on "libusb"
   depends_on "net-snmp"
   depends_on "openssl@1.1"
-  uses_from_macos "libpng"
 
   def install
     # malloc lives in malloc/malloc.h instead of just malloc.h on macOS.
