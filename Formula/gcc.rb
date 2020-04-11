@@ -38,10 +38,10 @@ class Gcc < Formula
   depends_on "isl" if OS.mac?
   depends_on "libmpc"
   depends_on "mpfr"
-  uses_from_macos "isl@0.18"
   unless OS.mac?
     depends_on "binutils" if build.with? "glibc"
     depends_on "glibc" => (Formula["glibc"].installed? || OS::Linux::Glibc.system_version < Formula["glibc"].version) ? :recommended : :optional
+    depends_on "isl@0.18"
   end
 
   uses_from_macos "zlib"
