@@ -13,7 +13,7 @@ class Msmtp < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gnutls"
-  uses_from_macos "libsecret"
+  depends_on "libsecret" unless OS.mac?
 
   def install
     args = %W[

@@ -19,7 +19,7 @@ class Pinentry < Formula
   depends_on "pkg-config" => :build
   depends_on "libassuan"
   depends_on "libgpg-error"
-  uses_from_macos "libsecret"
+  depends_on "libsecret" unless OS.mac?
 
   def install
     args = %W[
