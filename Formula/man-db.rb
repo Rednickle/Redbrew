@@ -13,8 +13,8 @@ class ManDb < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "gdbm" unless OS.mac?
 
-  uses_from_macos "gdbm"
   uses_from_macos "groff"
   uses_from_macos "zlib"
 
