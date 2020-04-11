@@ -11,6 +11,7 @@ class Linkerd < Formula
     sha256 "c2524d3d7e38131d29fe508341fd9e019457d93ee90813523af37d534404e365" => :catalina
     sha256 "d6aedab76f0ccf04f286c2d595b2fccd6808bbd7a635d6db9d9facae6b00cb71" => :mojave
     sha256 "ca2e21fce5fe672a7587ea31724e8945ed5928c138692e31a8078754021d24a2" => :high_sierra
+    sha256 "ab8684523d03c371036dbdc537bfe75ff6b06cf1921c8e1955f862864037da42" => :x86_64_linux
   end
 
   depends_on "go" => :build
