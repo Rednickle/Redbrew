@@ -17,7 +17,7 @@ class Mujs < Formula
     sha256 "566ef0c41673e99ddd21626bc3fb192a8ecc3045c2b11bbd473aa429fb5bff62" => :x86_64_linux
   end
 
-  uses_from_macos "readline"
+  depends_on "readline" unless OS.mac?
 
   def install
     system "make", "release"

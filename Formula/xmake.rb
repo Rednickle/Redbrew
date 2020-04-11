@@ -12,7 +12,7 @@ class Xmake < Formula
     sha256 "64b7f43e8db1406158be9939f33d102578bbd18b01c9f5a94285e51bd244de83" => :high_sierra
   end
 
-  uses_from_macos "readline"
+  depends_on "readline" unless OS.mac?
 
   def install
     system "make", "build"

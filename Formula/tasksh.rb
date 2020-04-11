@@ -18,7 +18,7 @@ class Tasksh < Formula
 
   depends_on "cmake" => :build
   depends_on "task"
-  uses_from_macos "readline"
+  depends_on "readline" unless OS.mac?
 
   def install
     system "cmake", ".", *std_cmake_args
