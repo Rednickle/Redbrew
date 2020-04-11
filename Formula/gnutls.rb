@@ -22,7 +22,7 @@ class Gnutls < Formula
   depends_on "nettle"
   depends_on "p11-kit"
   depends_on "unbound"
-  uses_from_macos "autogen"
+  depends_on "autogen" unless OS.mac?
 
   def install
     args = %W[
