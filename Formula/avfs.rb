@@ -18,7 +18,7 @@ class Avfs < Formula
   depends_on "openssl@1.1"
   depends_on :osxfuse if OS.mac?
   depends_on "xz"
-  uses_from_macos "libfuse"
+  depends_on "libfuse" unless OS.mac?
 
   def install
     args = %W[
