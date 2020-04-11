@@ -3,15 +3,14 @@ class Ddgr < Formula
 
   desc "DuckDuckGo from the terminal"
   homepage "https://github.com/jarun/ddgr"
-  url "https://github.com/jarun/ddgr/archive/v1.8.tar.gz"
-  sha256 "882972441fcbcc94b52387e8ede8d3dd4e9dee47c83619b9d0b55357819682a9"
+  url "https://github.com/jarun/ddgr/archive/v1.8.1.tar.gz"
+  sha256 "d223a3543866e44e4fb05df487bd3eb23d80debc95f116493ed5aad0d091149e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7598603fec8bf5d0ff47eb2602d56232ec288a2cdc4c228d596858e97b6e13e0" => :catalina
-    sha256 "7598603fec8bf5d0ff47eb2602d56232ec288a2cdc4c228d596858e97b6e13e0" => :mojave
-    sha256 "7598603fec8bf5d0ff47eb2602d56232ec288a2cdc4c228d596858e97b6e13e0" => :high_sierra
-    sha256 "10798b2a1ab6a294457bf83110ad8e083e10a5ecab3777011e8df499b818a8eb" => :x86_64_linux
+    sha256 "ba751df7de76dd4c286e8502cf5e46f406f1e6b1467689f98158bc92f7df42b2" => :catalina
+    sha256 "ba751df7de76dd4c286e8502cf5e46f406f1e6b1467689f98158bc92f7df42b2" => :mojave
+    sha256 "ba751df7de76dd4c286e8502cf5e46f406f1e6b1467689f98158bc92f7df42b2" => :high_sierra
   end
 
   depends_on "python@3.8"
