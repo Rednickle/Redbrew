@@ -24,7 +24,7 @@ class GdkPixbuf < Formula
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
-  uses_from_macos "shared-mime-info"
+  depends_on "shared-mime-info" unless OS.mac?
 
   # gdk-pixbuf has an internal version number separate from the overall
   # version number that specifies the location of its module and cache
