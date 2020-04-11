@@ -24,8 +24,7 @@ class Volatility < Formula
   depends_on :macos # Due to Python 2 (Python 3 support will come with volatility 3)
   # https://github.com/volatilityfoundation/volatility3
   depends_on "yara"
-
-  uses_from_macos "gmp" # for pycrypto
+  depends_on "gmp" unless OS.mac? # for pycrypto
 
   resource "distorm3" do
     url "https://files.pythonhosted.org/packages/2c/e3/84a3a99904c368daa1de5e85a6e9cc07189e7f66cb1338a9ebf93fa051bd/distorm3-3.4.1.tar.gz"
