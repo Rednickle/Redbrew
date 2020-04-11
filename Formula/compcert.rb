@@ -1,26 +1,19 @@
 class Compcert < Formula
   desc "Formally verified C compiler"
   homepage "http://compcert.inria.fr"
-  url "https://github.com/AbsInt/CompCert/archive/v3.6.tar.gz"
-  sha256 "7a77839f6b990ab632ba14feccf4f17da189f0e3b95d6ce2ef0986e4caebc575"
+  url "https://github.com/AbsInt/CompCert/archive/v3.7.tar.gz"
+  sha256 "ceee1b2ed6c2576cb66eb7a0f2669dcf85e65c0fc68385f0781b0ca4edb87eb0"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "7c09396cc678b8a62fec2baac29a470d0dbbe4c1b32ab0cb4dcca494c5473b42" => :catalina
-    sha256 "367a724e0c91c3e10ae23a0e8967b2e9138ac772f62d496aef9ea321ed33353d" => :mojave
-    sha256 "b4f5ed998f34cd4d16537c580f8bf5ada8a95730ac0645bab208652c2a3057ce" => :high_sierra
+    sha256 "17f934c5729de5f71d95fe9f472a78186f35d455982dd109f3b5d14ce3a67987" => :catalina
+    sha256 "f72c448646a2921274a3b19db0d98091fb61e87b455dda595200e6db9e3ad412" => :mojave
+    sha256 "8ea21321fb2535bbe20829f3de21f5c598a78abef0cac91d3f311102d9f87861" => :high_sierra
   end
 
   depends_on "coq" => :build
   depends_on "menhir" => :build
   depends_on "ocaml" => :build
-
-  # coq 8.11 compatibility. Remove with the next release.
-  patch do
-    url "https://github.com/AbsInt/CompCert/commit/b7374d225af55ecc6f5d6aa8f3684bfae99ff465.patch?full_index=1"
-    sha256 "a873dcbf7855935e4b5087883ef07b3fb0c17b6e62a1a0c266a009e0bbd3c794"
-  end
 
   def install
     # We pass -ignore-coq-version, otherwise every new version of coq
