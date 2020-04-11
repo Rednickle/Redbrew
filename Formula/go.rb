@@ -1,6 +1,7 @@
 class Go < Formula
   desc "Open source programming language to build simple/reliable/efficient software"
   homepage "https://golang.org"
+  revision 1
 
   stable do
     url "https://dl.google.com/go/go1.14.2.src.tar.gz"
@@ -15,10 +16,9 @@ class Go < Formula
   end
 
   bottle do
-    sha256 "0fbaa5421fb65918d0c34fdd2247109094e8e95249c9f4345caddcfe66ad96e7" => :catalina
-    sha256 "93fc6b42c0f94a9b0102ed7b35f9cc1c23458449079d899e464ecc1a25be4586" => :mojave
-    sha256 "47b0fb863b009ada965b293b82bf2ed5a93815d07bd6007d41b8409e8dff3b45" => :high_sierra
-    sha256 "1f9b2c320823017d81d6cdc7bd8260788184ea7025d90aee07205ab115772469" => :x86_64_linux
+    sha256 "15b5623471330edcc681d7f9d57b449660e6d4b98c7f67af67f4991fc75d61fc" => :catalina
+    sha256 "fa65e7dabe514e65ae625ed3c84a6bf58df01aceffc6e9aa99752ca8c320ce69" => :mojave
+    sha256 "0997f6f5cda0e3bdb7789a80b53621cb588202ab37fd89bcd269f8dfafd23351" => :high_sierra
   end
 
   head do
