@@ -14,9 +14,9 @@ class Igraph < Formula
 
   depends_on "glpk"
   depends_on "gmp"
+  depends_on "openblas" unless OS.mac?
 
   uses_from_macos "libxml2"
-  uses_from_macos "openblas"
 
   def install
     system "./configure", "--disable-debug",

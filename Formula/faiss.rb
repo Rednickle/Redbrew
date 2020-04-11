@@ -13,8 +13,7 @@ class Faiss < Formula
   end
 
   depends_on "libomp"
-
-  uses_from_macos "openblas"
+  depends_on "openblas" unless OS.mac?
 
   def install
     system "./configure", "--without-cuda",
