@@ -16,9 +16,7 @@ class Ccls < Formula
   depends_on "rapidjson" => :build
   depends_on "llvm"
   depends_on :macos => :high_sierra # C++ 17 is required
-
-  # C++17 is required
-  uses_from_macos "gcc@9"
+  depends_on "gcc@9" unless OS.mac? # C++17 is required
 
   fails_with :gcc => "4"
   fails_with :gcc => "5"
