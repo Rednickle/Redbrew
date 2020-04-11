@@ -9,6 +9,7 @@ class Libupnp < Formula
     sha256 "2343d98fde1cf6ff2cb529f08d609b9685e85e72cdb75916daf5fb21345c5baf" => :catalina
     sha256 "7d05f24f8bcb7e0edaaa35bce6f94208d05e9157c0b8897205bd0df84e9e845f" => :mojave
     sha256 "b67bb447214ba6622325b0b0932ae2366a7ea4d6b9342d723ec9c027515cadbc" => :high_sierra
+    sha256 "30efcd2c2824ccd7ccdd40f107b2263f0fa25c78fc7b34dd67f4dd4e4f0cd143" => :x86_64_linux
   end
 
   def install
