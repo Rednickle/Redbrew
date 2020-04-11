@@ -9,6 +9,7 @@ class Remind < Formula
     sha256 "cb1470b7207336fee89f03b6a7d540ff21720ec27f3a18abb0c938a815efca05" => :catalina
     sha256 "09c627b85760732ba5a9e52e184458e1ea6be7b69d35cad34fe1c0e2d6189d4c" => :mojave
     sha256 "2c99a0b697e0b93cd8d43c39fd81f4c220c280ee2c260e573c39ff2f749e01b6" => :high_sierra
+    sha256 "ad31f15edae645fe6bffe6e3bd69ff2ddcf213c2ab23e5501484f8599f596400" => :x86_64_linux
   end
 
   conflicts_with "rem", :because => "both install `rem` binaries"
