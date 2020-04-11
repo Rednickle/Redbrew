@@ -13,6 +13,7 @@ class Pympress < Formula
     sha256 "24540ab0f775af92de2f95429dec877d5a97dc1ef61bb9aded8fa4ad356c2e99" => :catalina
     sha256 "fc7a914b18e0b2be1ecef5a05ef60299b70c09b77774aa4cdf5410c6fb0bebb5" => :mojave
     sha256 "7af17f84c899bc000d09c62a4a5658c943a13c0cf56a07a512ab96eaae76b8bf" => :high_sierra
+    sha256 "81ced877990676c56b0511f2938f9a3b5ae5817f67b2750fbfcc755adced389e" => :x86_64_linux
   end
 
   depends_on "gobject-introspection"
