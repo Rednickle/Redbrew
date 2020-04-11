@@ -15,7 +15,7 @@ class Acmetool < Formula
   end
 
   depends_on "go" => :build
-  uses_from_macos "libcap"
+  depends_on "libcap" unless OS.mac?
 
   def install
     ENV["GOPATH"] = buildpath
