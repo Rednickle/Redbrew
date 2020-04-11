@@ -18,8 +18,6 @@ class Unixodbc < Formula
   conflicts_with "libiodbc", :because => "both install 'odbcinst.h' header"
   conflicts_with "virtuoso", :because => "Both install `isql` binaries."
 
-  uses_from_macos "libtool"
-
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
