@@ -29,8 +29,7 @@ class Guile < Formula
   depends_on "libunistring"
   depends_on "pkg-config" # guile-config is a wrapper around pkg-config.
   depends_on "readline"
-
-  uses_from_macos "gperf"
+  depends_on "gperf" unless OS.mac?
 
   def install
     # Work around Xcode 11 clang bug
