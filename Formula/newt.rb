@@ -16,7 +16,7 @@ class Newt < Formula
   depends_on "gettext"
   depends_on "popt"
   depends_on "s-lang"
-  uses_from_macos "python"
+  depends_on "python" unless OS.mac?
 
   def install
     args = ["--prefix=#{prefix}", "--without-tcl"]
