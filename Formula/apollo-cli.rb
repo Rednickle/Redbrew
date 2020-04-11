@@ -11,6 +11,7 @@ class ApolloCli < Formula
     sha256 "3308b4f23353a8e02dfd4b71348f32c7abe0a96104f56d524956fafb33b17a5b" => :catalina
     sha256 "0c175579350f6b0a9846062d75e7e2c4d4e24485f45d061156281002afc46877" => :mojave
     sha256 "5bd36a99e0dc384ba786435d65a4d694c13651d9183e5922ae309952aaf4d598" => :high_sierra
+    sha256 "52d5e60eb5947e3ecb2638cc885f147c33b73a32167b8a85bc6e077533f83d42" => :x86_64_linux
   end
 
   depends_on "node"
