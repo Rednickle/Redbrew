@@ -16,7 +16,7 @@ class Ykpers < Formula
   depends_on "pkg-config" => :build
   depends_on "json-c"
   depends_on "libyubikey"
-  uses_from_macos "libusb"
+  depends_on "libusb" unless OS.mac?
 
   def install
     backend = OS.mac? ? "osx" : "libusb-1.0"
