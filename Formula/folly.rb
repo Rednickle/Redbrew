@@ -29,9 +29,10 @@ class Folly < Formula
   depends_on "snappy"
   depends_on "xz"
   depends_on "zstd"
-  depends_on "jemalloc" unless OS.mac?
-
-  uses_from_macos "python"
+  unless OS.mac?
+    depends_on "jemalloc"
+    depends_on "python"
+  end
 
   def install
     mkdir "_build" do
