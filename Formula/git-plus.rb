@@ -3,17 +3,15 @@ class GitPlus < Formula
 
   desc "Git utilities: git multi, git relation, git old-branches, git recent"
   homepage "https://github.com/tkrajina/git-plus"
-  url "https://files.pythonhosted.org/packages/72/75/5de42fceb6a7feb50386f29bd2a9d5391c90ba4e74ab78d86c095edd9f21/git-plus-v0.3.3.tar.gz"
-  sha256 "54fa88f82e52863dcf5f2d44c258a22e8d31232473300a4384eba8e2f71df1ea"
-  revision 2
+  url "https://files.pythonhosted.org/packages/af/bd/0a60e89ff992a52ae519e1b849256f964dd75f00f12061c185ff177afe44/git-plus-v0.4.0.tar.gz"
+  sha256 "12b048f0d0e3bc6af3ac2acd04cfd11f56f1a67d6c13a93fc4caa176102364c5"
   head "https://github.com/tkrajina/git-plus.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "468fa18f8d027cf6218c48d2ca2a593c70bea13a0138ef5a10c0e8f02ce673ff" => :catalina
-    sha256 "603af1693567409c616a81e382176dc22ab9623404e78ca2b024668ca3a6e17e" => :mojave
-    sha256 "fdf09b61e60b1e9b8bbd880f8ab39163c8caf07e545fb88adea90823b36eda3d" => :high_sierra
-    sha256 "c09b15d3473727362c484f01cb5958c04d8c0a71e4a637c86e8f4810e329ddcd" => :x86_64_linux
+    sha256 "390aa755f2b485bebe65cda7a44d01a0d172b8b80298b1f853ef15c0a3be158d" => :catalina
+    sha256 "a445dc8b3427c5cfb1d4c5643c1a717e2a4e5c88ec40691618c70f88ae3776e1" => :mojave
+    sha256 "f32c1d766633e5a057f3ede7fb6f70d165bb9494461d56f4201b56e40946506f" => :high_sierra
   end
 
   depends_on "python@3.8"
