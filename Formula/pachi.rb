@@ -1,16 +1,15 @@
 class Pachi < Formula
   desc "Software for the Board Game of Go/Weiqi/Baduk"
   homepage "https://pachi.or.cz/"
-  url "https://github.com/pasky/pachi/archive/pachi-12.40.tar.gz"
-  sha256 "f523d23aa855f78a171df334b9712bca540d3ef4ef69b7306b84e4c35446d097"
+  url "https://github.com/pasky/pachi/archive/pachi-12.45.tar.gz"
+  sha256 "3fc8f47fdb92d67374cf6953d45b71153d477ffe92382e845fc570e5112ff210"
   head "https://github.com/pasky/pachi.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "68178d442f276e166ee301a8e92531c9dc13e338af3f1cf7ec645287a015cef1" => :catalina
-    sha256 "eb9d538220d7b2e18242db23ef2ab568d4e139b57c6d4ee1ac1f0b63a2c58f50" => :mojave
-    sha256 "f8e699003d58a6b8da8401ba6ed75228448b7922c0de6f1fc23db655cd61e2f0" => :high_sierra
-    sha256 "99d1ebc79e6095314906cf10c82e00ae9702d1a2aa4a1dabf4dbe8f6ee32baf8" => :x86_64_linux
+    sha256 "8481a1aaa57deb0b0899eaa4f9457d46407e289e8bf5e9206dc94921eb24215b" => :catalina
+    sha256 "3112537672262b5497287087fd355e368a695148b409a8aa8b98f92f061f4d56" => :mojave
+    sha256 "8fd665e94fcaab1a1c0bacce23eade2182be7a3bd3010bd53af5a1e2b8bb57b4" => :high_sierra
   end
 
   fails_with :clang if MacOS.version == :mavericks

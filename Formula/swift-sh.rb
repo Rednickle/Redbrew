@@ -1,15 +1,15 @@
 class SwiftSh < Formula
   desc "Scripting with easy zero-conf dependency imports"
   homepage "https://github.com/mxcl/swift-sh"
-  url "https://github.com/mxcl/swift-sh/archive/1.17.0.tar.gz"
-  sha256 "6e48fc5697bb19826ecd29ae01167299a5ab1fcece0453fba9318e51020f936d"
+  url "https://github.com/mxcl/swift-sh/archive/1.17.1.tar.gz"
+  sha256 "90c2d8ca708922fdb36b26d81dac768183ff65f0cd00698937fb89435c53dcfb"
   head "https://github.com/mxcl/swift-sh.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "68c8b7cb7f45913c9f88eb0efe967de0d8cfe07031cf74b81034acce58ab2057" => :catalina
-    sha256 "7fe23e7ff8ce08c82d6a70f9dc7c1d4acbf5434368b6fbe0fcfcca1b7f10b928" => :mojave
-    sha256 "fe8094429de496751358f55f961908072256d586783026ac653395df90b17f5c" => :high_sierra
+    sha256 "7cc9e2b7184a01b5271d7bcc9b6e6e11361e41dd1dec3bb720ad98000cde827d" => :catalina
+    sha256 "e30adca6e2e45dd7c47eeeff3118316ad05585fbfa3828b44643a6319d3e8c81" => :mojave
+    sha256 "5672c1000adbcb0e97e2c1fcdc60469c5979648082a1e23bb93176b5435930d9" => :high_sierra
   end
 
   depends_on :xcode => ["10.0", :build]
