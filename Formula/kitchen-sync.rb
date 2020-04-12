@@ -10,6 +10,7 @@ class KitchenSync < Formula
     sha256 "112496221f7512274f46170b41765a2e933802e0e8bbc612715fb30dcffb54f9" => :catalina
     sha256 "62925a19ef8b0bc3dd701cb392cc41b21079af0b47ea978d9c9e2870ec725d05" => :mojave
     sha256 "9ccae36b21cc293c6db76a5974c4dc313d2e9e25659c5b067cc56082cb0b2ff6" => :high_sierra
+    sha256 "1fd8ccaab8b23ab2768105cd29fb57dccfb6ccc2a7a8b41f20b20f609c36ed07" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
