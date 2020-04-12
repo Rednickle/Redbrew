@@ -1,16 +1,15 @@
 class Kcptun < Formula
   desc "Stable & Secure Tunnel based on KCP with N:M multiplexing and FEC"
   homepage "https://github.com/xtaci/kcptun"
-  url "https://github.com/xtaci/kcptun/archive/v20200321.tar.gz"
-  sha256 "450e586528bd7b2e586605e3a664f77ebd9baa869918fcc6d6a41f84d4cfb4fd"
+  url "https://github.com/xtaci/kcptun/archive/v20200409.tar.gz"
+  sha256 "312b8f438549225dfd1eac95444dd6a4c50610578ddcf7ff21e19c73a855d4bc"
   head "https://github.com/xtaci/kcptun.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fe133e37201fb3eefc7da0be3e4bb3f8ff5544e18560101a67142e16e4ef5a21" => :catalina
-    sha256 "0aade89e5e2d12ec2258d026579c1b68b9211efa6aa0bfa2b30a5c72bdc390cb" => :mojave
-    sha256 "37190ecd3026ebdd4db09d31e2c86eb907a7368ac26338db0e65ece806ac4737" => :high_sierra
-    sha256 "b79f60ba466fbc710307f92b40f5e831bb826743d14ff942a3d9b8d3efdec798" => :x86_64_linux
+    sha256 "5267f9a75abdb00a6ada00b008818fc66ee3cad4b0659d36bff9e0e7712604ab" => :catalina
+    sha256 "a83769bd3e3dfb00debbe53a9dd8610e7bd87d232a7925a5aaac54c9c3e0a325" => :mojave
+    sha256 "8214eae17ccafb7662c51e7a4b1a812ca3720ed03d9ca94770e63763c84265d8" => :high_sierra
   end
 
   depends_on "go" => :build

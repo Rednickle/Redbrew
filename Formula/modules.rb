@@ -1,15 +1,14 @@
 class Modules < Formula
   desc "Dynamic modification of a user's environment via modulefiles"
   homepage "https://modules.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/modules/Modules/modules-4.4.1/modules-4.4.1.tar.bz2"
-  sha256 "f4dc6b7055897382d6b655506c1a74d9ff33e9831d64082d03acdff4ba8521fa"
+  url "https://downloads.sourceforge.net/project/modules/Modules/modules-4.5.0/modules-4.5.0.tar.bz2"
+  sha256 "9f2a12bf2f32ff69148117bb154d17c3e6b9b816c4907fef7127d65ce60f1c73"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0c7b11dae0311e6f6f4f97981f01baf80086d1ec1101a045ae834b8410002038" => :catalina
-    sha256 "300b211f01eb7db1ae80bd74f5de3711ac4b856159dacb1de2758ea6f831710f" => :mojave
-    sha256 "86e28621fc7fb9b35fb9b4f82616ec31190ba7bbbb0a096d288ae79cd485c01c" => :high_sierra
-    sha256 "9ef9c454574a6de40c7898b8efc00889d9df7ca5e6348b0a369abdfe2f8bab8f" => :x86_64_linux
+    sha256 "dc8e1339ea1fa2265c680c0a29e96cb9b3dbdcc7ce789e3708989ed1ccfd3af5" => :catalina
+    sha256 "6ac40d686f229d8374e185a1487551a84c6fba4a71c37d319cbd5e44051ed869" => :mojave
+    sha256 "af783a47bae2302f93142b1980ba3d05b49583c28b0ddf71dcc6dbf9c2705cd5" => :high_sierra
   end
 
   unless OS.mac?

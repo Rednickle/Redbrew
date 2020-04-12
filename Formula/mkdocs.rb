@@ -3,16 +3,14 @@ class Mkdocs < Formula
 
   desc "Project documentation with Markdown"
   homepage "https://www.mkdocs.org/"
-  url "https://github.com/mkdocs/mkdocs/archive/1.0.4.tar.gz"
-  sha256 "c9a0e1637c1e92b663d290a74ed1370ee7d50c6af165f49215df3a0c10b5bafa"
-  revision 3
+  url "https://files.pythonhosted.org/packages/07/7f/07d0f92c9debe9ffe621c9a8f5de351a3c47614c93c3ba3c0344def4ea2d/mkdocs-1.1.tar.gz"
+  sha256 "9243291392f59e20b655e4e46210233453faf97787c2cf72176510e868143174"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0c09ad3efe25fbf040db6b5028311a1f63d84f326dba2583a4564a9be69783fe" => :catalina
-    sha256 "7a7c7bf5645567cb775a90156da26705f31ed7b4f3981e91dda8266dd2137c31" => :mojave
-    sha256 "7395cd3eea2efb8a58c42bd5b53fb2debb0b263f9874d62c9818b46ed2797227" => :high_sierra
-    sha256 "53d21491e82ce58e685a63e61b147094ed6598e4d30872ea1a890e5f8f68e48d" => :x86_64_linux
+    sha256 "b65a09b5522567f318a750443f1470b8859cf2dc693615b8b32a0c555801af63" => :catalina
+    sha256 "f967c60bc8154dc0e28475891c6148e50e6dc6f37b1a99f7778aa2733b73d02f" => :mojave
+    sha256 "80196ec89ffe059a03f03c05d5f1401e6a8514d7b314c7d24f1838e26d8d1975" => :high_sierra
   end
 
   depends_on "python@3.8"
@@ -58,8 +56,8 @@ class Mkdocs < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/3d/d9/ea9816aea31beeadccd03f1f8b625ecf8f645bd66744484d162d84803ce5/PyYAML-5.3.tar.gz"
-    sha256 "e9f45bd5b92c7974e59bcd2dcc8631a6b6cc380a904725fce7bc08872e691615"
+    url "https://files.pythonhosted.org/packages/64/c2/b80047c7ac2478f9501676c988a5411ed5572f35d1beff9cae07d321512c/PyYAML-5.3.1.tar.gz"
+    sha256 "b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d"
   end
 
   resource "six" do
