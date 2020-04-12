@@ -9,6 +9,7 @@ class Ensmallen < Formula
     sha256 "4fab2ea09493f415baac196e372ce84cd20de4c84d2fd880dc58e886b2a1b94b" => :catalina
     sha256 "4fab2ea09493f415baac196e372ce84cd20de4c84d2fd880dc58e886b2a1b94b" => :mojave
     sha256 "4fab2ea09493f415baac196e372ce84cd20de4c84d2fd880dc58e886b2a1b94b" => :high_sierra
+    sha256 "d9fbe23db9d8d20ea935faea77bbd6abaf4f6c5c2a7d401ec35e2b6afa632b67" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
