@@ -10,6 +10,7 @@ class Frpc < Formula
     sha256 "d4e9d35b54e69b7aebba2e4096d698fef26458b59346d8b54741ff3e6d7dd9ac" => :catalina
     sha256 "81b80f20cffec9875b8fb599043c4b9f83c8959a0be1114f37d6359b0c670acc" => :mojave
     sha256 "20f0519116b35d87808e81bbb20dbc664d474125c5f02f3e1ae508be94d4e154" => :high_sierra
+    sha256 "756b5a2202433756ae2eb278c6e4ea9f0a950f9665f6f3c2fb032de0a82d688f" => :x86_64_linux
   end
 
   depends_on "go" => :build
