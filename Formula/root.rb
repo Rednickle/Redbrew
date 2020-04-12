@@ -11,6 +11,7 @@ class Root < Formula
     sha256 "1ca7ad236fb7dd679e05c67de244e3b543aee4f5a1f339a4696cb5a8fd0e039f" => :catalina
     sha256 "860c572ff58fe06359ea953b9df387454080131289b5c81aca21b7a39a918e59" => :mojave
     sha256 "ddad01a197626587c16422fff0a1afd9dde8f15df3fe295107b757bf50231a94" => :high_sierra
+    sha256 "638d46f0ff096a6de3c95bb40e5d890315fcf1caf1976ef9748f4ac44c4de7c2" => :x86_64_linux
   end
 
   if OS.mac?
