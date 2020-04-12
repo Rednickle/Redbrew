@@ -1,15 +1,14 @@
 class Gl2ps < Formula
   desc "OpenGL to PostScript printing library"
   homepage "https://www.geuz.org/gl2ps/"
-  url "https://geuz.org/gl2ps/src/gl2ps-1.4.1.tgz"
-  sha256 "7362034b3d00ceef5601ff2d3dadb232c6678924e2594f32d73dfc9b202d5d3b"
+  url "https://geuz.org/gl2ps/src/gl2ps-1.4.2.tgz"
+  sha256 "8d1c00c1018f96b4b97655482e57dcb0ce42ae2f1d349cd6d4191e7848d9ffe9"
 
   bottle do
     cellar :any
-    sha256 "9892a2bca2e64d36ba64d136aabb4113096c85d986b39c37291c1ad4a54b1cf4" => :catalina
-    sha256 "4975b6204df6681770a50e56ad8c689b1a3f8ba1ab1156054210afe60d1cee68" => :mojave
-    sha256 "e4ce5d49e23926babfc2a0de59d2cefc06ead02408848430be975c51e49fa210" => :high_sierra
-    sha256 "9a3d51abc72351a190df939403e757884a9b1effe7246ef52977c6425af6ecad" => :x86_64_linux
+    sha256 "dbdfe5d8458e1224941d6e5707b725ab6872333112dc408dbf35202eddbc8d15" => :catalina
+    sha256 "bc857ec44c73448acf748dea7a699e1018a874196dec19659a63aa70a7b5e970" => :mojave
+    sha256 "6c36dc780b0579f44057cadddb9e1a2e369e2ba9205b68d6c81ebd79defc45b4" => :high_sierra
   end
 
   depends_on "cmake" => :build
