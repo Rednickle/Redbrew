@@ -11,6 +11,7 @@ class Khard < Formula
     sha256 "077ace786816be18db01618f82524bcaa63713f769588cdec5c3a7db7dc5db98" => :catalina
     sha256 "ccfb049a7e5887d37f3c7359b700ac36769422afe56f6422e326adf214dcda89" => :mojave
     sha256 "0b9d4ed54176ca9340d9605fdb9eb5fa19a96c461de05d6767ebe7fdf342c535" => :high_sierra
+    sha256 "c83704544427e456610183b9e7efb01420d1469c65fa1b3efb69ac546fb6289d" => :x86_64_linux
   end
 
   depends_on "python@3.8"
