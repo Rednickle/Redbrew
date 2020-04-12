@@ -8,6 +8,7 @@ class Dnsmasq < Formula
     sha256 "e46052d3d5ae49135b80d383a9d891d58148f47a62ccd054633614ce02c35ed6" => :catalina
     sha256 "773bdf846730a553e63613d73f9488f3d946b2cd3fdc024fa2d9dbd6d659b09f" => :mojave
     sha256 "ff6cfbbe9a2bb3caf6e079d62db676f459c882bff835717dbfc443ec920cfe77" => :high_sierra
+    sha256 "46120a8a063aa26ee639ad85a00ef565a8bf9a4f3c35399d89d3a92486651838" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
