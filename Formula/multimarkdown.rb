@@ -10,6 +10,7 @@ class Multimarkdown < Formula
     sha256 "fda293b3a57480609f06eee55ec2ba8d65799577df2be38c0af1cc70e22fcd9d" => :catalina
     sha256 "ce5d41628cd36556b2e6375a88dce78d90da7502033fe147fff90c3d542bd7c9" => :mojave
     sha256 "fde9097e38d1fdb2161d71eb81758e25c1a1a39120a27c931e2d408ac8338fd6" => :high_sierra
+    sha256 "82b8390e31aea457303cbb1fbc6de68c6c335aa081677c5485dc174346719f08" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
