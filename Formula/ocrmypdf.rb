@@ -5,13 +5,13 @@ class Ocrmypdf < Formula
   homepage "https://github.com/jbarlow83/OCRmyPDF"
   url "https://files.pythonhosted.org/packages/4d/13/a9969946ee6a02a3dfc89fb487b8039bd93940036c43715f35760beb18eb/ocrmypdf-9.7.1.tar.gz"
   sha256 "fd029b97463e054d95eed361843397a76b2aa35913ac96c57cf8c15a15411971"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "3fcc1397b1eedc69d4872b597b0a14aebc3bf550d137f798ff7b7fb7c65f00f2" => :catalina
-    sha256 "038db0d1ca8d6ddd2cfbcbcbed57b02096250262a77d4b744f342981aa944d78" => :mojave
-    sha256 "bf76f8525db807654dec27f1e45790fc4612a7198be9ad40e69d98c4de91d0bf" => :high_sierra
-    sha256 "bedf830a471fd2d10d4f27e8a73f0f8f60156ef96bfd97bc5e9f140962862fc6" => :x86_64_linux
+    sha256 "a2bbdc326806920a37d9f139f1eeff625b9229fe7f4d6232751af1378d586d67" => :catalina
+    sha256 "5a385c360f961bcbd64d5d3b29e876754cb2bc93aeb7980257fadd466956d35e" => :mojave
+    sha256 "003d2a9ac04361630f7ce04f50fa69ee5f056c2eb1bb1c7e8efa4d06fbcda307" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -58,8 +58,8 @@ class Ocrmypdf < Formula
   end
 
   resource "pikepdf" do
-    url "https://files.pythonhosted.org/packages/7c/36/12fa475b50ad6740c78873b9a801c3c29e2212eb18a2847f39fcef3c1ed7/pikepdf-1.10.4.tar.gz"
-    sha256 "33cb95de843947222686d584852152e95a1a4e40f80f9fbd9c87e82f2993c15a"
+    url "https://files.pythonhosted.org/packages/96/6b/fa2619a014453b67c3152222a1fdaeda84d6ce30dd9bf799760fe6946456/pikepdf-1.11.0.tar.gz"
+    sha256 "bad914a8b1d9be0a7451feba29f25dbc47e14aed85fdb11bfa1b3405a3ca3a6d"
   end
 
   resource "Pillow" do
