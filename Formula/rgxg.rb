@@ -9,6 +9,7 @@ class Rgxg < Formula
     sha256 "4a07550d93bedfa3b2ac3cb77a8484951321697ca9384d2c2a0301ea261aa954" => :catalina
     sha256 "b410fe9ea150e0fb52326e4f7ce6642f946098b0713c5741c64699de3f55f762" => :mojave
     sha256 "286318be76fc55c094da739c44176d5babd814df1e4f0462711aea283db042f5" => :high_sierra
+    sha256 "ce534f086b07694e981db59a833fbf360004a5a1a01143d6e4231890c3f2ba18" => :x86_64_linux
   end
 
   def install
