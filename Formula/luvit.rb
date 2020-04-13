@@ -10,6 +10,7 @@ class Luvit < Formula
     sha256 "a1210dda91aa024d11bd4d15a67b71654dcbbbc2ba14a87d1d34ab012f4d5c2a" => :catalina
     sha256 "a3a37fdf8f0e99efdfc1736978ea9d8cdea74e939b42696fe771c3c5c9914f8f" => :mojave
     sha256 "2c704b1f98b965c0b6010a897a0c951f47cb896bbbf5381e7d4ee80238692033" => :high_sierra
+    sha256 "6b2183d92f67900345d15d7740c25d65c9a386667e17b9f3b77df889f1993742" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
