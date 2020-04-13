@@ -10,6 +10,7 @@ class Epstool < Formula
     sha256 "3ef026d6cc575da86e43741df6a9f5419269bea22e8db6c6296811112678c690" => :catalina
     sha256 "497608077aea90c569aab7929a8a9ea19d91ba70f4743d982bcb63c1d3a48d7b" => :mojave
     sha256 "47ab226f0e5d93a3b91b43d519de370d046410946e280958ef9106fdbc4ef115" => :high_sierra
+    sha256 "2cfb5dcc505aedf5e1882bd9f0307b772d5d6eb1033856709470bf81c201372c" => :x86_64_linux
   end
 
   depends_on "ghostscript"
