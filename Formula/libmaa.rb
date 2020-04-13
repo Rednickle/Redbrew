@@ -9,6 +9,7 @@ class Libmaa < Formula
     sha256 "d9ad37a60f4f1f2eac61cf6a5b85ea1948eda86c65adb26a82c11f8abf70bb0c" => :catalina
     sha256 "5f06991bd6aa87dbd9c82db5d7cf701cb6431dcf8debd7404dfb611fa07a5e69" => :mojave
     sha256 "5741f3bb649eeb3b6371eaa13dcda342227d8b2f86bc547d1a0abe97561f8521" => :high_sierra
+    sha256 "29a772851528ee9263e6271c3542519fb1bf854f9b9196104f4eade34a6d8d1c" => :x86_64_linux
   end
 
   depends_on "bmake" => :build
