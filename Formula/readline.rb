@@ -27,8 +27,6 @@ class Readline < Formula
     sha256 "46da47db3da04b2f248e3cf2d6d14c55aa543555d1134f6cbbf07787a5bf0bd6" => :x86_64_linux
   end
 
-  uses_from_macos "ncurses"
-
   keg_only :shadowed_by_macos, "macOS provides BSD libedit"
 
   uses_from_macos "ncurses"

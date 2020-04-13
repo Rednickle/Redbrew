@@ -25,7 +25,7 @@ class FlintChecker < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/flint --version", 0)
+    assert_match version.to_s, shell_output("#{bin}/flint --version")
 
     shell_output("#{bin}/flint", 2)
     (testpath/"README.md").write("# Readme")
@@ -36,6 +36,6 @@ class FlintChecker < Formula
     (testpath/"script").mkpath
     (testpath/"script/bootstrap").write("Bootstrap Script")
     (testpath/"script/test").write("Test Script")
-    shell_output("#{bin}/flint", 0)
+    shell_output("#{bin}/flint")
   end
 end
