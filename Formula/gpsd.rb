@@ -10,6 +10,7 @@ class Gpsd < Formula
     sha256 "e73790ec49d1c4f079e0584596d2126447422c3f569281eb092afc77ece1bc3a" => :catalina
     sha256 "cf9997d1456a9ec3fa49fee4cbc189af1a60cbeb0afb1abfb59c75ede967864c" => :mojave
     sha256 "0e4110bedb2dd77d37e116fc32f1c45775f387df1a3eb21fc870f0a86ce04262" => :high_sierra
+    sha256 "6e5339ef744fb26030bc28d75dfd72112ec0b5f6ceb0ea0234a7b6a31660a06c" => :x86_64_linux
   end
 
   depends_on "scons" => :build
