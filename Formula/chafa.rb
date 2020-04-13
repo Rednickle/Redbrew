@@ -9,6 +9,7 @@ class Chafa < Formula
     sha256 "f8285220cba2737c58bea611f3c0b653b3c5e1306b8cef3ff33642ed26260fb8" => :catalina
     sha256 "a483480366443ac91c52ebab6a06d0995a541098ce163a03c6cef71c0829be1c" => :mojave
     sha256 "272891299f7962a49755de583274a21a49759e020418586fa0e7cdfe7c8e2202" => :high_sierra
+    sha256 "d58a4f786612b2f204f4f80088c24338be9c0136343cf8a87173bd0184a935c4" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
