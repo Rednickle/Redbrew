@@ -8,6 +8,7 @@ class Softhsm < Formula
     sha256 "6191b8427b45b0d497df2442326a1ef771d780528a1af630283921314631d7f5" => :catalina
     sha256 "b3df4c2a1b79e2f741a364be111653d49cf096335ce81597a1fed376368c19ee" => :mojave
     sha256 "a6b0ca9197123c0e13bbcf8e29e42a2b8bb6b3288b8b953be244ce9d3d0cb920" => :high_sierra
+    sha256 "f4392ff6abefa9387bb0cf778113db2d36edca764dd1b3fd1bb15c06d4569fb5" => :x86_64_linux
   end
 
   depends_on "openssl@1.1"
