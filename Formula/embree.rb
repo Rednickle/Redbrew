@@ -1,17 +1,15 @@
 class Embree < Formula
   desc "High-performance ray tracing kernels"
   homepage "https://embree.github.io/"
-  url "https://github.com/embree/embree/archive/v3.8.0.tar.gz"
-  sha256 "ae42c08fe05672942083c0b272bfa6915b209eb8c76ae53c8948e2f1f7491e68"
-  revision 1 unless OS.mac?
+  url "https://github.com/embree/embree/archive/v3.9.0.tar.gz"
+  sha256 "53855e2ceb639289b20448ae9deab991151aa5f0bc7f9cc02f2af4dd6199d5d1"
   head "https://github.com/embree/embree.git"
 
   bottle do
     cellar :any
-    sha256 "eeadbb69a2e0439b9c2d67391dec7ceefc77de75ed0535ec49af93d8ed8c41aa" => :catalina
-    sha256 "fd0ce3dbe8248f382168ce9bccf6d31145de02ee062f333cba5eb6a966f4d532" => :mojave
-    sha256 "5a5641cf4b93a026bc362ba695a5b92788c92ed975222959797c697e20a8be16" => :high_sierra
-    sha256 "6dafef1d330377d78d4c0e64e2702069f7ce7c1a19904247d74561750bc36e9b" => :x86_64_linux
+    sha256 "d3af66c824bcdf6f41d071ab0ba85fcd25c7c47a93ec486d2c786a9c4b5ad259" => :catalina
+    sha256 "af00b9ecf7ee6413524396682bf1c5c9277139ac9a040ef6ff8616d2db99ea99" => :mojave
+    sha256 "0a18aacad8ec4a9c1bc4c84fd8427375266e8f514d69ebea067bae0a12b7d9df" => :high_sierra
   end
 
   depends_on "cmake" => :build
