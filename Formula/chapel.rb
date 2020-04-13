@@ -8,6 +8,7 @@ class Chapel < Formula
     sha256 "296700c3496e0d1a1c9f15089da47a6fb6cd30a9ece155d7da217a106655b800" => :catalina
     sha256 "d787423d5898b796670e2cbe00280c5262d680e7ce422654ea259e47fe2777a4" => :mojave
     sha256 "89ce0beba7d80139b4f35c475b5a0fdc20c54fb9c5e2c18d5fb8c426ecaad5f5" => :high_sierra
+    sha256 "6ccb343396c2e3014acb4d320e86cb0de98127b1adb41c4bcc24e284f8988eb3" => :x86_64_linux
   end
 
   depends_on "python@3.8" unless OS.mac?
