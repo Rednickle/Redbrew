@@ -10,6 +10,7 @@ class Sundials < Formula
     sha256 "09aeb5e0b4d6aac87785626f133b5fe25118dc9c9d163551dd46ce730f66c481" => :catalina
     sha256 "89fabca832a6aa0b3017b2c7252beb2e6cb8955358c975d99fdb063c39a7291b" => :mojave
     sha256 "54784d6070e0d0eddfda4258992085d0b6ef3c683d26539c04f0f8a85ebdb9ef" => :high_sierra
+    sha256 "08dea7103d11cdb9fa2f62d5dcd1ab6421dd26ecacb4ca6fc11f1c778437ba7a" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
