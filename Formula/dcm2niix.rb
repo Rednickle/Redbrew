@@ -10,6 +10,7 @@ class Dcm2niix < Formula
     sha256 "d6087edcd6fc5bd534295bbb5d909764b0f83ecc50812e58923a8200a22f3b65" => :catalina
     sha256 "bd5449e4418187c4882e2b32afa857632dd8119f2583f5741272f74d65d82603" => :mojave
     sha256 "072d6b24939de3dd5202142398083a4e9759c7adfc2c34d323b4b76fcecb542f" => :high_sierra
+    sha256 "e49a56f40cba1ec1fd94180224d97c81402b64723d871901944c405f152c9608" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
