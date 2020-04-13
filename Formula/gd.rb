@@ -9,6 +9,7 @@ class Gd < Formula
     sha256 "ebc4192da4580942545084cf2f5c36dc4645a5c83244224905e01dee4e50837e" => :catalina
     sha256 "c014efe5f692b3146a4416c0acdaad3c632064d50aad2c18598cfb32fb31ee69" => :mojave
     sha256 "0bd97ae0be0bfaa7554d0628a69b5fd8cba27de7ff5bde0533d4a1b6445be614" => :high_sierra
+    sha256 "e5f575fb7f72b3568d51f38285b3b729a4a45567620f1fa0d0c6c4f0aead278f" => :x86_64_linux
   end
 
   head do
