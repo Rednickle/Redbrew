@@ -1,14 +1,13 @@
 class MariadbConnectorOdbc < Formula
   desc "Database driver using the industry standard ODBC API"
   homepage "https://downloads.mariadb.org/connector-odbc/"
-  url "https://downloads.mariadb.org/f/connector-odbc-3.1.6/mariadb-connector-odbc-3.1.6-ga-src.tar.gz"
-  sha256 "fbad8430cc728609f4c6b0aac5acb27d0b0a1315be45fb697f9e16919b3cbb71"
+  url "https://downloads.mariadb.org/f/connector-odbc-3.1.7/mariadb-connector-odbc-3.1.7-ga-src.tar.gz"
+  sha256 "699c575e169d770ccfae1c1e776aa7725d849046476bf6579d292c89e8c8593e"
 
   bottle do
-    sha256 "5fd19dc3d304d20bfe9c20e57880eb07d5a687206c3ac02828bb6dc42f29b2a0" => :catalina
-    sha256 "31c692b9b55d557f35c9d543b8ff9d40bc1b7e251d03de00f0797cadb2d9cd9f" => :mojave
-    sha256 "641e2bd8da691dfa203fa925a3d89feaca715d724bd4cf75323b76a0675b1828" => :high_sierra
-    sha256 "cbbb8c1d92c6970ff32ad29c25700c2e2570eebbe102325f14c727d089842296" => :x86_64_linux
+    sha256 "98bfc0e11134fa8958aa38810c9c16eb12bda27f4b319ebf8cb218845bec7a89" => :catalina
+    sha256 "28fb8b7089115c8be14b968ab3a604f2a3c2642a8592272bc4caf3812b6e25ba" => :mojave
+    sha256 "84ddb76363d80231117b6a026e1371463478e5d8d15733c0ba786e141c3b8667" => :high_sierra
   end
 
   depends_on "cmake" => :build
