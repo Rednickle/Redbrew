@@ -22,7 +22,6 @@ class Rethinkdb < Formula
   uses_from_macos "curl"
 
   def install
-    ENV["PYTHON"] = Formula["python@2"].opt_bin/"python" unless OS.mac?
     args = ["--prefix=#{prefix}"]
 
     # rethinkdb requires that protobuf be linked against libc++
