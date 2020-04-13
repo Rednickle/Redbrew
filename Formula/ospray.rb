@@ -9,6 +9,7 @@ class Ospray < Formula
     cellar :any
     sha256 "de27725e3305a8f9967a087451a5dac1dd78f2a9e79ae64a474234ae683c0b69" => :catalina
     sha256 "b33ef0dc21b85759bffab6233bb76e2fbf35c2a194a99bed7a175fe8eb85a153" => :mojave
+    sha256 "c924373e71727fecd98dd861f1092a3c5594faf6abf3576b3489055f7a0a185e" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
