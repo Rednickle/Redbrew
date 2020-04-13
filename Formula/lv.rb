@@ -14,6 +14,7 @@ class Lv < Formula
     sha256 "49ad4ebf6830c1ef3f6899486e711f99bc293d422317f8851f174cf18de2a98f" => :el_capitan
     sha256 "f31281558dc9da38402a86b2b3c03efb10ab471561bf72dd556c3cd8df23ba14" => :yosemite
     sha256 "6e1894088a741aba921e77a4935d6ad2d11f06f03a4ff775c45e4256728511a4" => :mavericks
+    sha256 "2f1645287ed31f8ff3b947ad9a382c4325a07a70292c95d0f21b7468ba236121" => :x86_64_linux
   end
 
   depends_on "gzip" unless OS.mac?
