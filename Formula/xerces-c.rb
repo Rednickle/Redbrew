@@ -10,6 +10,7 @@ class XercesC < Formula
     sha256 "8bcfddab9276b6f09c9af5bd8be60d500cd5107795c25495b53ef5e0734ae617" => :catalina
     sha256 "502d34b51931ead6b1db27ca1a71eed465ecd4da5dbdeaa51c0ae77e77dc25ea" => :mojave
     sha256 "8b30ad6819fc3628b706a18193d45b96c13749e7d1e27f5392cf91e48fe7d63b" => :high_sierra
+    sha256 "a30bc66ae894454e16e3f0d7aa7b5c0a76bb4f50585dd26cf29d93b8918e503e" => :x86_64_linux
   end
 
   pour_bottle? do
