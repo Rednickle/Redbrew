@@ -1,16 +1,15 @@
 class Pypy < Formula
   desc "Highly performant implementation of Python 2 in Python"
   homepage "https://pypy.org/"
-  url "https://bitbucket.org/pypy/pypy/downloads/pypy2.7-v7.3.0-src.tar.bz2"
-  sha256 "b0b25c7f8938ab0fedd8dedf26b9e73c490913b002b484c1b2f19d5844a518de"
+  url "https://bitbucket.org/pypy/pypy/downloads/pypy2.7-v7.3.1-src.tar.bz2"
+  sha256 "fa3771514c8a354969be9bd3b26d65a489c30e28f91d350e4ad2f4081a9c9321"
   head "https://foss.heptapod.net/pypy/pypy", :using => :hg
 
   bottle do
     cellar :any
-    sha256 "50da6ab456d0fdacb2c341d22ec076a71b17604d2e8064816533351da740dd9a" => :catalina
-    sha256 "a627136e148de7908a716d249b7364e041a39ec3d9bccf5f17ce019b670bfc05" => :mojave
-    sha256 "c1fb435418a17ffc1f0c26284ff702fe350df1de28501d37f161bdd5182003dc" => :high_sierra
-    sha256 "9421179dc0e93d36292d70f852b1cafb92c947da1adac140f0a0adf28047fcb6" => :x86_64_linux
+    sha256 "8fe21e711869c62e75b783a98f7c3228439598eb7fc53748ff10728a0a6995e5" => :catalina
+    sha256 "450d0146d1a3c7c96eeb51c723d1697b873f1cf84dbc0166f88df23146478352" => :mojave
+    sha256 "ecef513881fc2671911e60c0f0b9a54eab821808c08254f452ad69320884e88a" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -39,13 +38,13 @@ class Pypy < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/b0/f3/44da7482ac6da3f36f68e253cb04de37365b3dba9036a3c70773b778b485/setuptools-44.0.0.zip"
-    sha256 "e5baf7723e5bb8382fc146e33032b241efc63314211a3a120aaa55d62d2bb008"
+    url "https://files.pythonhosted.org/packages/b5/96/af1686ea8c1e503f4a81223d4a3410e7587fd52df03083de24161d0df7d4/setuptools-46.1.3.zip"
+    sha256 "795e0475ba6cd7fa082b1ee6e90d552209995627a2a227a47c6ea93282f4bfb1"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/ce/ea/9b445176a65ae4ba22dce1d93e4b5fe182f953df71a145f557cffaffc1bf/pip-19.3.1.tar.gz"
-    sha256 "21207d76c1031e517668898a6b46a9fb1501c7a4710ef5dfd6a40ad9e6757ea7"
+    url "https://files.pythonhosted.org/packages/8e/76/66066b7bc71817238924c7e4b448abdb17eb0c92d645769c223f9ace478f/pip-20.0.2.tar.gz"
+    sha256 "7db0c8ea4c7ea51c8049640e8e6e7fde949de672bfa4949920675563a5a6967f"
   end
 
   def install

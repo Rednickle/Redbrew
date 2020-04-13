@@ -1,14 +1,14 @@
 class Ospray < Formula
   desc "Ray-tracing-based rendering engine for high-fidelity visualization"
   homepage "https://www.ospray.org/"
-  url "https://github.com/ospray/ospray/archive/v1.8.5.tar.gz"
-  sha256 "6d85e103280aa4c8d0032a2cc3082f08a6021a79d22cf4a8e38b09f152f35f53"
+  url "https://github.com/ospray/ospray/archive/v2.1.0.tar.gz"
+  sha256 "ab38106beac3868cb39ef35f5564d51277641ecd982afc45e463aada6a124502"
   head "https://github.com/ospray/ospray.git"
 
   bottle do
     cellar :any
-    sha256 "b9b5016940568986207bc383505a8e8742252bd7c42e9f072647bdecea849865" => :mojave
-    sha256 "b1b9136e50e01b6223b53ba9f255b61d8ea4769517027ae8b3975f2eb857e0f6" => :x86_64_linux
+    sha256 "de27725e3305a8f9967a087451a5dac1dd78f2a9e79ae64a474234ae683c0b69" => :catalina
+    sha256 "b33ef0dc21b85759bffab6233bb76e2fbf35c2a194a99bed7a175fe8eb85a153" => :mojave
   end
 
   depends_on "cmake" => :build
@@ -17,7 +17,29 @@ class Ospray < Formula
   depends_on :macos => :mojave # Needs embree bottle built with SSE4.2.
   depends_on "tbb"
 
+  resource "ospcommon" do
+    url "https://github.com/ospray/ospcommon/archive/v1.3.0.tar.gz"
+    sha256 "23f17fd930e63af9dd0f76ea3505e5d11f91a138b8e8bdec50efd51162544042"
+  end
+
+  resource "openvkl" do
+    url "https://github.com/openvkl/openvkl/archive/v0.9.0.tar.gz"
+    sha256 "06aa82c8c3ff68ab93fb8240f4881a1bc238b3de681812e71145f8a1629d3fee"
+  end
+
   def install
+    resources.each do |r|
+      r.stage do
+        mkdir "build" do
+          system "cmake", "..", *std_cmake_args,
+                                "-DBUILD_EXAMPLES=OFF",
+                                "-DBUILD_TESTING=OFF"
+          system "make"
+          system "make", "install"
+        end
+      end
+    end
+
     args = std_cmake_args + %W[
       -DCMAKE_INSTALL_NAME_DIR=#{opt_lib}
       -DCMAKE_INSTALL_RPATH=#{opt_lib}
