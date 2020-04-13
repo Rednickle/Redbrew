@@ -11,6 +11,7 @@ class StellarCore < Formula
     sha256 "286f0cc4b6b43001b4bbe20b02a8eadb6aaed057e30f2ad770728ea604f8d4c4" => :catalina
     sha256 "ddae2a56f3d655eb5cf46c08d0425e56cee674b7d12f612105a9dce9be9581b7" => :mojave
     sha256 "80a5a5834c08dd54a08b336f081d5232d613e4e427400e8e107c2db544544f74" => :high_sierra
+    sha256 "9792cba906ae07aa645fcf9ebc99be473e9d2aa662c4ab3ee71ed0642c7fba77" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
