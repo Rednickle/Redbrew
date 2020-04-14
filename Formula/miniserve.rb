@@ -9,6 +9,7 @@ class Miniserve < Formula
     sha256 "e8955f888b8c0828d741d5541a2ae6567704d78db99600d59b3d9a02dc571089" => :mojave
     sha256 "8711ae0bb727abd3ed3ad8d1335275d26fbc473f19bacfbad76b10b5a0bf4efc" => :high_sierra
     sha256 "a00b82cfce9fecd067b62ec3135a0e9cc59d3133f97ed3c0e7b815e4921c32d0" => :sierra
+    sha256 "567ea39868cd884189324c9a8558cd84af45e3b252631d9df3083ebfed5d3d47" => :x86_64_linux
   end
 
   depends_on "rust"
