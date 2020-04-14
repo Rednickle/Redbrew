@@ -3,13 +3,13 @@ class K3d < Formula
   homepage "https://github.com/rancher/k3d"
   url "https://github.com/rancher/k3d/archive/v1.7.0.tar.gz"
   sha256 "e741809eb27f707c0f22c19a41ebbd6be7c20ec275285bb12bbf437a675aafb7"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ad3eae311a48f86e63d4e058c8f9c99304d16f831e4bdb54f3dc21c3341863da" => :catalina
-    sha256 "d1a7179fc1131f32ab2715d1263587fcff17515f63c3b677f10422d4dc6a6de4" => :mojave
-    sha256 "c4d632801264948010813712a907061f26782f09f91f01e2cf0f92633e129b05" => :high_sierra
-    sha256 "ba64a83f3b7ad65c77afa20acc5c189873c0c3612903f727621933517b27b47f" => :x86_64_linux
+    sha256 "3c1dd20b30c4a51347c2c01a5dc4346e4aa4ffc9162cb9f187df43d333192c28" => :catalina
+    sha256 "0039236f61e40518ebfc684b45a5f13aa3ac9c6da15128b7a67fb020961e1605" => :mojave
+    sha256 "3e63ce46a496a7fe264aa10583115f4fa5e51eaa04020ffbe1c73962fe55b755" => :high_sierra
   end
 
   depends_on "go" => :build
@@ -17,8 +17,7 @@ class K3d < Formula
   def install
     system "go", "build",
            "-mod", "vendor",
-           "-ldflags", "-s -w -X github.com/rancher/k3d/version.Version=v#{version} " \
-                       "-X github.com/rancher/k3d/version.K3sVersion=v1.0.1",
+           "-ldflags", "-s -w -X github.com/rancher/k3d/version.Version=v#{version}",
            "-trimpath", "-o", bin/"k3d"
     prefix.install_metafiles
   end

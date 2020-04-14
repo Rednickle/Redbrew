@@ -1,25 +1,19 @@
 class B3sum < Formula
   desc "The BLAKE3 cryptographic hash function"
   homepage "https://github.com/BLAKE3-team/BLAKE3"
-  url "https://github.com/BLAKE3-team/BLAKE3/archive/0.3.1.tar.gz"
-  sha256 "200587a49098957b5c119936ebee248cae4fb437827e444c7708e92ddf55836c"
+  url "https://github.com/BLAKE3-team/BLAKE3/archive/0.3.2.tar.gz"
+  sha256 "be9c7a1fd79be5821a2b073036a860fcf518737948db776af2aef79f47d6e292"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "242cb591b1c1508de78f07837eacfc3cfc998380475a96e2e55e0038ea0fa169" => :catalina
-    sha256 "68f37fc80b6eaa9621f944548f76c43942d4bde6b54489e1b0c7577261d9b3fc" => :mojave
-    sha256 "1bd0a9cddba682167b84e8ea52eaf1a5f3303ca477fd0bbcae75ade764a1acba" => :high_sierra
-    sha256 "ad52d41e58ad39f30bc95cf3cf83408d42e8863b75a3b447afcdcbd843a235f3" => :x86_64_linux
+    sha256 "96f6ab17edaf5c0bd014e4650da92a1afeee5b19890802ede4638259491cf0d4" => :catalina
+    sha256 "3326d2e6ed59e1601e431e49c4a66551aaf07fb27be9552b77363ed289d7479b" => :mojave
+    sha256 "7a1a71bd06e2a1d245c787b85650eb6be8ef279d1440e4a9323d9bb020850bb8" => :high_sierra
   end
 
-  depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1000
   depends_on "rust" => :build
 
   def install
-    if DevelopmentTools.clang_build_version <= 1000
-      ENV["HOMEBREW_CC"] = "llvm_clang"
-      ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
-    end
     system "cargo", "install", "--locked", "--root", prefix, "--path", "./b3sum/"
   end
 
