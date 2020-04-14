@@ -1,15 +1,13 @@
 class Otf2 < Formula
   desc "Open Trace Format 2 file handling library"
   homepage "https://www.vi-hps.org/projects/score-p/"
-  url "https://www.vi-hps.org/cms/upload/packages/otf2/otf2-2.1.1.tar.gz"
-  sha256 "01591b42e76f396869ffc84672f4eaa90ee8ec2a8939755d9c0b5b8ecdcf47d3"
+  url "https://www.vi-hps.org/cms/upload/packages/otf2/otf2-2.2.tar.gz"
+  sha256 "d0519af93839dc778eddca2ce1447b1ee23002c41e60beac41ea7fe43117172d"
 
   bottle do
-    sha256 "24d03eef4fee4e1cf533f4f015a51d04ceb0d086f96f5f7d070b329b44938819" => :catalina
-    sha256 "cd45334e8b465b0405d641311b000de22e99eb93abe863da642307144ad8122c" => :mojave
-    sha256 "66e9193d40e126c83d98bca06d30bd18815fb4aebbd486ff8d59ad27724935aa" => :high_sierra
-    sha256 "70db1872735f904393ff8b3d1395c40eed3201072c5f08ca1ca5235d40688d07" => :sierra
-    sha256 "5f24aff503c5199271f6d4c97e51b0b4b99eb4a3d324b3ceb36835fbbea4c61d" => :x86_64_linux
+    sha256 "e3641f75553e24a7911b5e0128efdc2dd13ef805a121f66c3fe91fa0f97f4362" => :catalina
+    sha256 "5fb7225b511d644ce51efb6af3aad6c6f27734819dcd4bd7f279f5d55d438c4f" => :mojave
+    sha256 "78b7fbc8852274826fd0eb4eff03822c8d6c4dbe842cec29999b8bdc17935947" => :high_sierra
   end
 
   depends_on "sphinx-doc" => :build
@@ -18,8 +16,8 @@ class Otf2 < Formula
   depends_on "python"
 
   resource "future" do
-    url "https://files.pythonhosted.org/packages/90/52/e20466b85000a181e1e144fd8305caf2cf475e2f9674e797b222f8105f5f/future-0.17.1.tar.gz"
-    sha256 "67045236dcfd6816dc439556d009594abf643e5eb48992e36beac09c2ca659b8"
+    url "https://files.pythonhosted.org/packages/45/0b/38b06fd9b92dc2b68d58b75f900e97884c45bedd2ff83203d933cf5851c9/future-0.18.2.tar.gz"
+    sha256 "b1bead90b70cf6ec3f0710ae53a525360fa360d306a86583adc6bf83a4db537d"
   end
 
   def install
@@ -41,7 +39,7 @@ class Otf2 < Formula
   end
 
   test do
-    if !OS.mac? && ENV["CI"]
+    if Process.uid.zero?
       ENV["OMPI_ALLOW_RUN_AS_ROOT"] = "1"
       ENV["OMPI_ALLOW_RUN_AS_ROOT_CONFIRM"] = "1"
     end

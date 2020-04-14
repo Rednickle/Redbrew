@@ -3,19 +3,25 @@ class Ntopng < Formula
   homepage "https://www.ntop.org/products/traffic-analysis/ntop/"
 
   stable do
-    url "https://github.com/ntop/ntopng/archive/3.8.1.tar.gz"
-    sha256 "1dbd6600d3f86c0553f38a98439837ef6cc39bf0cec2511fe755ab6939651378"
+    url "https://github.com/ntop/ntopng/archive/4.0.tar.gz"
+    sha256 "caf3aeec5c66eca7ddc3a1d4edc4a109b6c963a22bfcf6843e402a569c8e12a1"
 
     resource "nDPI" do
-      url "https://github.com/ntop/nDPI/archive/3.0.tar.gz"
-      sha256 "69fb8003f00e9b9be3d06925398e15a83ac517cd155b6768f5f0e9342471c164"
+      url "https://github.com/ntop/nDPI/archive/3.2.tar.gz"
+      sha256 "6808c8c4495343e67863f4d30bb261c1e2daec5628ae0be257ba2a2dea7ec70a"
+
+      # Contains an API change which ntopng 4.0 uses.
+      patch do
+        url "https://github.com/ntop/nDPI/commit/e4512dbcb9e1db0500290b712257e501d1440d71.patch?full_index=1"
+        sha256 "b753532c7c4e68bd20ac432e4ea2159b38609ee7bf6296e96b511222813cc633"
+      end
     end
   end
 
   bottle do
-    sha256 "8873e29f3d1884c8ef73a4908a942c66b5f12eb4587843742831fd41cb45d33b" => :catalina
-    sha256 "f046d1443aa95c5cd34dc6666560211bea5456b7adeba71559997baa4d809822" => :mojave
-    sha256 "b70730c924903d018a4c870c4813d36c6bac0cad0e5f439b6c8aaf4202083cf1" => :high_sierra
+    sha256 "d08132368d27fea0ff63c81b4db8932b2d735e71810e8127415f805bf0d9147c" => :catalina
+    sha256 "2f59d60faccbcf2fff0da313b62e9d705fd88c239b3adf19a1c25575570da1c1" => :mojave
+    sha256 "3eb0fbddd488fa3368f7eab4fe574ac2598530f9393d5b08cf5d49a5151c6d62" => :high_sierra
   end
 
   head do

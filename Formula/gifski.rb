@@ -1,15 +1,14 @@
 class Gifski < Formula
   desc "Highest-quality GIF encoder based on pngquant"
   homepage "https://gif.ski/"
-  url "https://github.com/ImageOptim/gifski/archive/0.10.2.tar.gz"
-  sha256 "3ec058c9d62c5411155d1c9a59fe23d282eb569b480cf8aeeaba522ead82b250"
+  url "https://github.com/ImageOptim/gifski/archive/0.10.4.tar.gz"
+  sha256 "0fd4b6beb880bb7719a3fb707f8f42678a62c8cf9bbb90f369f043864bbcc5ed"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "30437a900fa860afeac551709a312459786bb6c865d12ab59fa2b21b1d99232d" => :catalina
-    sha256 "99bea8a44dd6fb7bcd6f1a8e97633f51d3908cd4552ccdf06ee6565a6d8bdcc7" => :mojave
-    sha256 "b21e3d6c483d981b05b57cf09b26c5f41ffe5f3ac4a7d759db5258c1fd5c88dc" => :high_sierra
-    sha256 "07def468163bce0fa5616f32f8c429be236787be29d642856639a27403e628af" => :x86_64_linux
+    sha256 "e00f209f81a6ae5e7b5f75427480776298d8cf4f9d8b5261e7c1a38e19858076" => :catalina
+    sha256 "a654fc60bf8ff9e29499f3514c4ab85227886380cd9126591cfd1c1afb137dfa" => :mojave
+    sha256 "a9e6089442617d5df7aa8b6e0baf11e5a5152adff89bb3d6cb018b61a8e3d387" => :high_sierra
   end
 
   depends_on "pkg-config" => :build

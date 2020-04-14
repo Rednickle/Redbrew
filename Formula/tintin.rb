@@ -1,25 +1,18 @@
 class Tintin < Formula
   desc "MUD client"
   homepage "https://tintin.mudhalla.net/"
-  url "https://github.com/scandum/tintin/releases/download/2.02.01/tintin-2.02.01.tar.gz"
-  sha256 "decc933d18f91e0d890e13325d8e9e60eff4238bdf3f431a647dac0c9ad15295"
+  url "https://github.com/scandum/tintin/releases/download/2.02.02/tintin-2.02.02.tar.gz"
+  sha256 "c5d8b6c930ec0beb9f45de434e079dddb17b48f8a3acff08acbc9d1bd15dd487"
 
   bottle do
     cellar :any
-    sha256 "4f08321d1f4ad35d1ad4eb635527ecd48321eea3c0346ac639d702ed917f63fe" => :catalina
-    sha256 "884e881629347145c24b34887ead7ecb59d5f82c80d35f5003d3aa8507ed47b7" => :mojave
-    sha256 "07cfe88a3b77d6788ed0afa72ac65dbc3b86db90eac39e6ceaabc1d1b758bb9f" => :high_sierra
-    sha256 "9f98cb58a3bbf815d995be1c8112d0e63a875f0fec76850dac63b72c53bab555" => :x86_64_linux
+    sha256 "895be37bb90b25cdc58591aa166bd464538715c3104901c7159d3c58906a485b" => :catalina
+    sha256 "ecdd874018dd20cd4d8807a8c2adc5a8955622f8c97277a3a6fdc79e3d8a4198" => :mojave
+    sha256 "29c68a3db90dee5cef629f629629d50469f2dd0ef9426b4bd8aaa374d2b6334e" => :high_sierra
   end
 
   depends_on "gnutls"
   depends_on "pcre"
-
-  # fix for https://github.com/scandum/tintin/pull/7, included in next version
-  patch do
-    url "https://github.com/scandum/tintin/commit/259d33ae40c601dc2fd2ce23c10928b08a9b1c15.diff?full_index=1"
-    sha256 "85b9f6f263b16836cd1619d22f039aa37da4e4661c167d5aff020475868d5354"
-  end
 
   def install
     # find Homebrew's libpcre
@@ -35,9 +28,6 @@ class Tintin < Formula
   end
 
   test do
-    # Errno::EIO: Input/output error @ io_fread - /dev/pts/0
-    return if ENV["CI"]
-
-    shell_output("#{bin}/tt++ -e \"#nop; #info system; #end;\"")
+    assert_match version.to_s, shell_output("#{bin}/tt++ -V", 1)
   end
 end
