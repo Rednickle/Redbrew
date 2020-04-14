@@ -10,6 +10,7 @@ class K3d < Formula
     sha256 "3c1dd20b30c4a51347c2c01a5dc4346e4aa4ffc9162cb9f187df43d333192c28" => :catalina
     sha256 "0039236f61e40518ebfc684b45a5f13aa3ac9c6da15128b7a67fb020961e1605" => :mojave
     sha256 "3e63ce46a496a7fe264aa10583115f4fa5e51eaa04020ffbe1c73962fe55b755" => :high_sierra
+    sha256 "b7609dae46d203f44594ca04aa8e1ffe2e9fd947bd28a6a29dd56fce1df3dfac" => :x86_64_linux
   end
 
   depends_on "go" => :build
