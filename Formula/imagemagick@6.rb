@@ -7,13 +7,13 @@ class ImagemagickAT6 < Formula
   url "https://dl.bintray.com/homebrew/mirror/imagemagick%406-6.9.11-6.tar.xz"
   mirror "https://www.imagemagick.org/download/releases/ImageMagick-6.9.11-6.tar.xz"
   sha256 "fc7405ad33e50f97c7961b0ca548e9fbf4bf7cdb68e36b0266a9eead0244ecef"
+  revision 1
   head "https://github.com/imagemagick/imagemagick6.git"
 
   bottle do
-    sha256 "22f12ad6187b8d90c8dde23cc7f7b3669a86ef9d26bcfbdd3c0f02d24bba8602" => :catalina
-    sha256 "ea16aae1b41b3721e7ce3bfa6be81b18575cb6acd187e33e6d803023c71cbf33" => :mojave
-    sha256 "f525d02a16e04145748528b5e336bf19e1f04b36dc3d2cb689f913cefbe47984" => :high_sierra
-    sha256 "958696f4c8ae50a5dfab52322f485d0f4dd5c9dc3096335ccadb643c199dc4b5" => :x86_64_linux
+    sha256 "d5e104af6be6872b193e762481f01c13bbec830d63dd14abb9b1d5bb25b1af1f" => :catalina
+    sha256 "c0e1b52f4ae8a5a3c384a221a661c7ada1733d1c0f9f88d075b063b24b506868" => :mojave
+    sha256 "da3d451c01b996746681d71ece278fda7bf1b0c58e1474ea780c5bf0b704214b" => :high_sierra
   end
 
   keg_only :versioned_formula
@@ -33,6 +33,9 @@ class ImagemagickAT6 < Formula
   skip_clean :la
 
   def install
+    # Avoid references to shim
+    inreplace Dir["**/*-config.in"], "@PKG_CONFIG@", Formula["pkg-config"].opt_bin/"pkg-config"
+
     args = %W[
       --disable-osx-universal-binary
       --prefix=#{prefix}
