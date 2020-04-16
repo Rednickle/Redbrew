@@ -9,6 +9,7 @@ class Gettext < Formula
     sha256 "90adf1ef48f8ba71c73b03db871551b5ff3e9704ce6fe5d6532df0056223de80" => :catalina
     sha256 "f79ca95c2216e5b599d57f96fe99081af8780c31bd013f60c296bc7d3800845a" => :mojave
     sha256 "f6248b134438427eec73cbe099fb19dc20dbce1119d02b23ec7a0c8f0f34da7e" => :high_sierra
+    sha256 "6ccfea69264fce672585e28e7837c03db4a1acbebb0c9de4356a70d6bd237389" => :x86_64_linux
   end
 
   keg_only :shadowed_by_macos, "macOS provides BSD gettext"
