@@ -10,6 +10,7 @@ class Snort < Formula
     sha256 "41f8545fadaf23b86aaa02fe5d3e3e6904eae8055f7ca9b766fc377dfa4f1678" => :catalina
     sha256 "bd3fce63dafd1dc91b9fcffb184f6e3a5719998dd003860915db92aa810490c0" => :mojave
     sha256 "fbf46b9ec8c98e6b1cab4828f392168ca51086e63ccc5d67bbe41b108854cdd0" => :high_sierra
+    sha256 "523082b75e62cb47c216cf441c26a4a4845d35b3be000e41264830533e0e8c92" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
