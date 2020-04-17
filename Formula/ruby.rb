@@ -3,12 +3,12 @@ class Ruby < Formula
   homepage "https://www.ruby-lang.org/"
   url "https://cache.ruby-lang.org/pub/ruby/2.7/ruby-2.7.1.tar.xz"
   sha256 "b224f9844646cc92765df8288a46838511c1cec5b550d8874bd4686a904fcee7"
+  revision 1
 
   bottle do
-    sha256 "7f5ed2afb15b25f9616b617ecca2ee376eb67cf6c105790df22221b7be9c1ef9" => :catalina
-    sha256 "cc995a06e761acc8a807b040d8e7fe301902a4fc63d2beaaae40e04c710e7338" => :mojave
-    sha256 "2605ad1636e40d747878a8df7d1ef51a15e58e70ce03510b9ea582c02a448e26" => :high_sierra
-    sha256 "bcf6ad258d596eaa6c75bf38f01937d471a75339828957a88b873a4ee02e298b" => :x86_64_linux
+    sha256 "6eb292b04eff387c224ad7325c8b1b17d849af611e67a3dfae9af6e50551668b" => :catalina
+    sha256 "1ddc699cc9630468dc21bcd56f326c18981eaf435c73a844dd7b4c059e7f05f0" => :mojave
+    sha256 "db64bf12f44269864d5f26f75528306361fda314ec9de8a2c76b9b6d47a2baae" => :high_sierra
   end
 
   head do
@@ -69,6 +69,9 @@ class Ruby < Formula
       --without-gmp
     ]
     args << "--disable-dtrace" if OS.mac? && !MacOS::CLT.installed?
+
+    # Correct MJIT_CC to not use superenv shim
+    args << "MJIT_CC=/usr/bin/clang"
 
     system "./configure", *args
 
