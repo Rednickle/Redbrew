@@ -38,11 +38,7 @@ class Perl < Formula
       -Duselargefiles
       -Dusethreads
     ]
-    if OS.mac?
-      args << "-Dsed=/usr/bin/sed"
-    else
-      args << "-Dsed=/bin/sed"
-    end
+    args << "-Dsed=/usr/bin/sed" if OS.mac?
 
     args << "-Dusedevel" if build.head?
     # Fix for https://github.com/Linuxbrew/homebrew-core/issues/405

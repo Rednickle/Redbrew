@@ -26,11 +26,7 @@ class PerlAT518 < Formula
       -Duselargefiles
       -Dusethreads
     ]
-    if OS.mac?
-      args << "-Dsed=/usr/bin/sed"
-    else
-      args << "-Dsed=/bin/sed"
-    end
+    args << "-Dsed=/usr/bin/sed" if OS.mac?
 
     system "./Configure", *args
     system "make"
