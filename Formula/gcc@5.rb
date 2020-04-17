@@ -15,6 +15,7 @@ class GccAT5 < Formula
   # gcc is designed to be portable.
   bottle do
     sha256 "7fc31bed73398ba401db3107151a3b0ae301ddc60e017a45bd3d69ac1b400235" => :high_sierra
+    sha256 "c2083636a45129a71c8ba9aba51f7536e976aa8a031eb899ec396c310dc6ec43" => :x86_64_linux
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
