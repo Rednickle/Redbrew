@@ -1,16 +1,15 @@
 class OpenjdkAT11 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://hg.openjdk.java.net/jdk-updates/jdk11u/archive/jdk-11.0.6+10.tar.bz2"
-  version "11.0.6+10"
-  sha256 "b42915ad92d8b23dfe40faed00096cec0b303447869766292aa86f22b0c67601"
+  url "https://hg.openjdk.java.net/jdk-updates/jdk11u/archive/jdk-11.0.7+10.tar.bz2"
+  version "11.0.7+10"
+  sha256 "e86d27cc3119be2178fc20c0115f8863fa86ac3ffd0c825fef7d16683f78b852"
 
   bottle do
     cellar :any
-    sha256 "985e0fc09118eeabd6d4542c7dd129baaebf240b1ee71d00f0617e8aa1d97cca" => :catalina
-    sha256 "9946a2c9f65a38e2b6e49c08c6da80947e7d18654bd5c68c4fdca4d3b4c0091b" => :mojave
-    sha256 "54f064ad1a7ee8a0c9d42270ebce38941b1aa80989fc2fa09b07d59322c1b6f4" => :high_sierra
-    sha256 "1bbe1974a3a146fb161992c03e7a898ced2a9561fb8eec91ebe309bb4adad777" => :x86_64_linux
+    sha256 "1cef37f5566ca7c60c03bad337c81516525459a7c4892519bc9badf90633a935" => :catalina
+    sha256 "5bb229b65beda25d23ffee46f02bc8a921ad21c9312716e20ea4eba2cfb27901" => :mojave
+    sha256 "2ee32dada456c7c8560ebda3d6b182a80a83b015cd91a30e82602ae0b5e4ce0a" => :high_sierra
   end
 
   keg_only :versioned_formula

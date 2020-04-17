@@ -6,16 +6,14 @@ class GccAT6 < Formula
   url "https://ftp.gnu.org/gnu/gcc/gcc-6.5.0/gcc-6.5.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-6.5.0/gcc-6.5.0.tar.xz"
   sha256 "7ef1796ce497e89479183702635b14bb7a46b53249209a5e0f999bebf4740945"
-  revision 4
+  revision 5
 
   # gcc is designed to be portable.
   # reminder: always add 'cellar :any'
   bottle do
-    cellar :any
-    sha256 "7c319573ebe9a6234ef5f0672fee30a9a5d6f7a6d31db0ef7621fdd7587ef713" => :catalina
-    sha256 "7d28d93f7ea639423da60681f6259c0a69a926fc2e008fbd0a5a41ded2172bcb" => :mojave
-    sha256 "9a65db1f7d36cfe7be6e9a3c08d3ec7a3d5c6b0d03b3dc4328cb1d319e6c5f58" => :high_sierra
-    sha256 "d67445571d72bd8696dfb4a019b3204be46e6705a7d8ed1113ed02887303c66a" => :x86_64_linux
+    sha256 "59e24c6441d4ebd6e6462406d07a4722f765b81aa96b0c81117376cf342641b0" => :catalina
+    sha256 "2280bb37e05ca20d3d797a4b75695ea6d57196c2f4b4003d43ba191883558073" => :mojave
+    sha256 "e3ab3cd2f05c00351825fb0a6bf2b4e57e959400d8f7931d47b9c81a3e5b6ad3" => :high_sierra
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -135,23 +133,21 @@ class GccAT6 < Formula
     # Xcode 10 dropped 32-bit support
     args << "--disable-multilib" if OS.mac? && DevelopmentTools.clang_build_version >= 1000
 
+    # System headers may not be in /usr/include
+    sdk = MacOS.sdk_path_if_needed
+    if sdk
+      args << "--with-native-system-header-dir=/usr/include"
+      args << "--with-sysroot=#{sdk}"
+    end
+
+    # Avoid reference to sed shim
+    args << "SED=/usr/bin/sed"
+
     # Ensure correct install names when linking against libgcc_s;
     # see discussion in https://github.com/Homebrew/homebrew/pull/34303
     inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}" if OS.mac?
 
     mkdir "build" do
-      if OS.mac?
-        if !MacOS::CLT.installed?
-          # For Xcode-only systems, we need to tell the sysroot path
-          args << "--with-native-system-header-dir=/usr/include"
-          args << "--with-sysroot=#{MacOS.sdk_path}"
-        elsif MacOS.version >= :mojave
-          # System headers are no longer located in /usr/include
-          args << "--with-native-system-header-dir=/usr/include"
-          args << "--with-sysroot=/Library/Developer/CommandLineTools/SDKs/MacOSX#{MacOS.version}.sdk"
-        end
-      end
-
       system "../configure", *args
       system "make", "bootstrap"
       system "make", OS.mac? ? "install" : "install-strip"

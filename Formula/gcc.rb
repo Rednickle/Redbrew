@@ -3,7 +3,7 @@ require "os/linux/glibc"
 class Gcc < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-  revision 7 unless OS.mac?
+  revision OS.mac? ? 1 : 7
   head "https://gcc.gnu.org/git/gcc.git" if OS.mac?
 
   if OS.mac?
@@ -21,9 +21,9 @@ class Gcc < Formula
   # reminder: always add 'cellar :any'
   bottle do
     cellar :any
-    sha256 "6b84b7dcd0fe04ca70e7cac5dcf35f8a256f5620ddb671a91e10b0bb692f587e" => :catalina
-    sha256 "af7aa4f1aee84374500b1150fe6ce58c381e0f133b4f8cd674955b9d4d22efe8" => :mojave
-    sha256 "75c2a1e504d82b82d0cbbab4be731004077794d4ed7f5f102123001a50909a48" => :high_sierra
+    sha256 "57e53d66ad43fe05b5a2f93d6a7cfd472713ac03e9d9c9d0d0187cdc7a273153" => :catalina
+    sha256 "de8319322428721741a0dc41dfdf2eece80e0215a7a4a861e0e206a9bfbca583" => :mojave
+    sha256 "e50b9cfee063619515a8f164485b3f730077f21b49b7bb30cc5a600ddf577a83" => :high_sierra
     sha256 "8cae5e1f1e2074f46bfeda826313afb7b823879d190f27dbcd6b00fbfd8daedd" => :x86_64_linux
   end
 
@@ -133,21 +133,21 @@ class Gcc < Formula
     # Xcode 10 dropped 32-bit support
     args << "--disable-multilib" if OS.linux? || DevelopmentTools.clang_build_version >= 1000
 
+    # System headers may not be in /usr/include
+    sdk = MacOS.sdk_path_if_needed
+    if sdk
+      args << "--with-native-system-header-dir=/usr/include"
+      args << "--with-sysroot=#{sdk}"
+    end
+
+    # Avoid reference to sed shim
+    args << "SED=/usr/bin/sed"
+
     # Ensure correct install names when linking against libgcc_s;
     # see discussion in https://github.com/Homebrew/legacy-homebrew/pull/34303
     inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}" if OS.mac?
 
     mkdir "build" do
-      if OS.mac? && !MacOS::CLT.installed?
-        # For Xcode-only systems, we need to tell the sysroot path
-        args << "--with-native-system-header-dir=/usr/include"
-        args << "--with-sysroot=#{MacOS.sdk_path}"
-      elsif MacOS.version >= :mojave
-        # System headers are no longer located in /usr/include
-        args << "--with-native-system-header-dir=/usr/include"
-        args << "--with-sysroot=/Library/Developer/CommandLineTools/SDKs/MacOSX#{MacOS.version}.sdk"
-      end
-
       system "../configure", *args
 
       # Use -headerpad_max_install_names in the build,
