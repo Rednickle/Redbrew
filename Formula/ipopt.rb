@@ -11,6 +11,7 @@ class Ipopt < Formula
     sha256 "56da0a54b5c1eb644e881a508886601674c73105a29451f1ca50ba9f9fa9d517" => :catalina
     sha256 "b4c05741141600b85ee8b1ca5c075d8ffcd2c031804ef7830017f16fbb16fa26" => :mojave
     sha256 "d7d32a074eafdcb5e1b4c50e1b4c0cd76cfb09718eaf5ae8f7e5cecbded70b91" => :high_sierra
+    sha256 "37c0b0481fc650c580c5e2ad933f5b5c4c3efbc3d5c70c763c63a9c5e22a8f3f" => :x86_64_linux
   end
 
   depends_on "pkg-config" => [:build, :test]
