@@ -9,6 +9,7 @@ class Libyaml < Formula
     sha256 "ef608bb9aca1f1ea62a17b677792756fb4e7d00c58630343f3104f76857bd329" => :catalina
     sha256 "78f6be95d9fb51354384daa626d9c6b04e018ecad09ba8c4e7f9d245808d38c8" => :mojave
     sha256 "3b889799f48267e17944f31c73d20baf43a71c4d8901b57ba3401c7c845bf091" => :high_sierra
+    sha256 "0428519aa68ec459bc326d9fad185c39e31ad163f45e2f9c4189b9da41ab735d" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
