@@ -9,6 +9,7 @@ class PerlAT518 < Formula
     sha256 "45b388773570fd4ef892caa7a0bb0312fd05dfcb3f73245a03eed16bf9187cc9" => :catalina
     sha256 "3e80537039afd47db55b42a09f34c2b1e6fc2a24581c16d09d76b5ad85997ed6" => :mojave
     sha256 "4ebffdb24ede27bf2fb4f844c87f4adc962942d399c6762b3c6cf90b929fa50a" => :high_sierra
+    sha256 "ca240d036e5c65e2240d744848d56c60fa37c0f95f43e3ead4b34f56d8885921" => :x86_64_linux
   end
 
   keg_only :versioned_formula
