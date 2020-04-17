@@ -40,7 +40,7 @@ class Perl < Formula
     if OS.mac?
       args << "-Dsed=/usr/bin/sed"
     else
-      args << "-Dsed=/bin/sed
+      args << "-Dsed=/bin/sed"
     end
 
     args << "-Dusedevel" if build.head?
