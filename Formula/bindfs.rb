@@ -9,6 +9,7 @@ class Bindfs < Formula
     sha256 "337dfe5746991f1a87fc48fca513913fed424ab5fa9315a06d0cdc87861b324f" => :catalina
     sha256 "bc1a6449cd2ee6bef18dfdf345ae789e3c55c61d61cc23f021ddebaedf193b66" => :mojave
     sha256 "df05d7fdce285b10df1f62c9f1827e63c2aa49e4d170ce5fe12ae43ec10673fb" => :high_sierra
+    sha256 "1fb6d84935d4ca92e9df871e70e000017385be3f6b380197d48f6b4a68e366c4" => :x86_64_linux
   end
 
   head do
