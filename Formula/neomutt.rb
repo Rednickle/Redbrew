@@ -1,16 +1,17 @@
 class Neomutt < Formula
   desc "E-mail reader with support for Notmuch, NNTP and much more"
   homepage "https://neomutt.org/"
-  url "https://github.com/neomutt/neomutt/archive/20200320.tar.gz"
-  sha256 "69daf2e0633dee7e8bdba74ab714adfa70e8f078028b56d612228c2aa836aafa"
+  url "https://github.com/neomutt/neomutt/archive/20200417.tar.gz"
+  sha256 "6ed358053ae17694b580f3b5b13eec9f00f5a7320e76fae6fba767607c40cc48"
   head "https://github.com/neomutt/neomutt.git"
 
   bottle do
-    sha256 "d94a815731036b63fbafd703c9db76e16d242e0217fad9ba4483ee65d37c3dd6" => :catalina
-    sha256 "e0b0f137b739258e461e27956866eb37ae787d942f6b82685da5b9f01e880a2b" => :mojave
-    sha256 "3423fe201ef33bb8d77644aa40773c9d5d7c93cd4c228a4b52b772d2fcbc5aae" => :high_sierra
+    sha256 "af6a0dfa14c50a67f1b41d9221ac54086574e363fe01337d29708560ac038e43" => :catalina
+    sha256 "106dcf1f1357e7a11bcbcdb0a138c5f263720bdfa8f11a4528c56632c0fc5372" => :mojave
+    sha256 "2199a7a481944e7d5404320d84736318f1577a1d8a0ebefcf7630c6f3ba967f5" => :high_sierra
   end
 
+  depends_on "docbook-xsl" => :build
   depends_on "gettext"
   depends_on "gpgme"
   depends_on "libidn"
@@ -26,7 +27,6 @@ class Neomutt < Formula
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
     system "./configure", "--prefix=#{prefix}",
-                          "--disable-doc",
                           "--enable-gpgme",
                           "--with-gpgme=#{Formula["gpgme"].opt_prefix}",
                           "--gss",
