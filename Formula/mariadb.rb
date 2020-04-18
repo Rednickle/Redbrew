@@ -8,6 +8,7 @@ class Mariadb < Formula
     sha256 "eaaf500f730bfed25cf8015e80ba224b9873be9706e6eca21d9ca53711c0bcd8" => :catalina
     sha256 "5bd71c3904a522667fbe441b6bb1c3cf8544fb44fd321e4c5d6b511129a83f58" => :mojave
     sha256 "17f341bec7258535a90747a3b79db8465deb5949589100c497e27d605c645782" => :high_sierra
+    sha256 "421b6cb18428c6270d2820267031ac987aa03f243be6c7fd994ed614b7bcfccc" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
