@@ -12,9 +12,9 @@ class Swiftlint < Formula
     sha256 "c4fc10277d46c406277491003e5d5bbdfe526890c39b30eb924749696ed56d40" => :mojave
   end
 
+  depends_on :macos
   depends_on :xcode => ["10.2", :build]
   depends_on :xcode => "8.0"
-  depends_on :macos
 
   def install
     system "make", "prefix_install", "PREFIX=#{prefix}", "TEMPORARY_FOLDER=#{buildpath}/SwiftLint.dst"
