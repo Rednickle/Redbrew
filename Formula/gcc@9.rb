@@ -115,7 +115,9 @@ class GccAT9 < Formula
 
     # Ensure correct install names when linking against libgcc_s;
     # see discussion in https://github.com/Homebrew/homebrew/pull/34303
-    inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}" if OS.mac?
+    if OS.mac?
+      inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
+    end
 
     mkdir "build" do
       if OS.mac? && !MacOS::CLT.installed?
@@ -130,9 +132,7 @@ class GccAT9 < Formula
       make_args = []
       # Use -headerpad_max_install_names in the build,
       # otherwise lto1 load commands cannot be edited on El Capitan
-      if MacOS.version == :el_capitan
-        make_args << "BOOT_LDFLAGS=-Wl,-headerpad_max_install_names"
-      end
+      make_args << "BOOT_LDFLAGS=-Wl,-headerpad_max_install_names" if MacOS.version == :el_capitan
 
       system "make", *make_args
       system "make", OS.mac? ? "install" : "install-strip"
@@ -163,10 +163,10 @@ class GccAT9 < Formula
       glibc_installed = glibc.any_version_installed?
 
       # Symlink crt1.o and friends where gcc can find it.
-      if glibc_installed
-        crtdir = glibc.opt_lib
+      crtdir = if glibc_installed
+        glibc.opt_lib
       else
-        crtdir = Pathname.new(Utils.popen_read("/usr/bin/cc", "-print-file-name=crti.o")).parent
+        Pathname.new(Utils.popen_read("/usr/bin/cc", "-print-file-name=crti.o")).parent
       end
       ln_sf Dir[crtdir/"*crt?.o"], libgcc
 

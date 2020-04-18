@@ -58,9 +58,7 @@ class Arangodb < Formula
 
       args << "-DCMAKE_OSX_DEPLOYMENT_TARGET=#{MacOS.version}" if OS.mac?
 
-      if ENV.compiler == "gcc-6"
-        ENV.append "V8_CXXFLAGS", "-O3 -g -fno-delete-null-pointer-checks"
-      end
+      ENV.append "V8_CXXFLAGS", "-O3 -g -fno-delete-null-pointer-checks" if ENV.compiler == "gcc-6"
 
       system "cmake", "..", *args
       system "make", "install"

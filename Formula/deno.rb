@@ -42,9 +42,7 @@ class Deno < Formula
     ENV["CLANG_BASE_PATH"] = Formula["llvm"].prefix
     ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
 
-    unless OS.mac?
-      system "core/libdeno/build/linux/sysroot_scripts/install-sysroot.py", "--arch=amd64"
-    end
+    system "core/libdeno/build/linux/sysroot_scripts/install-sysroot.py", "--arch=amd64" unless OS.mac?
 
     cd "cli" do
       system "cargo", "install", "-vv", "--locked", "--root", prefix, "--path", "."

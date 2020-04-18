@@ -55,10 +55,10 @@ class Boost < Formula
       --prefix=#{prefix}
       --libdir=#{lib}
     ]
-    if OS.mac?
-      bootstrap_args << "--with-icu=#{icu4c_prefix}"
+    bootstrap_args << if OS.mac?
+      "--with-icu=#{icu4c_prefix}"
     else
-      bootstrap_args << "--without-icu"
+      "--without-icu"
     end
 
     # Handle libraries that will not be built.

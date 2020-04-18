@@ -19,8 +19,6 @@ class IslAT018 < Formula
     sha256 "3ef95686496676a3c73c57db6eee32a9f039e9c2b7ccf173c3b1941124ef6f78" => :x86_64_linux
   end
 
-  keg_only :versioned_formula
-
   head do
     url "http://repo.or.cz/r/isl.git"
 
@@ -28,6 +26,8 @@ class IslAT018 < Formula
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
+
+  keg_only :versioned_formula
 
   depends_on "gmp"
   depends_on :linux

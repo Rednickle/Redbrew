@@ -16,7 +16,6 @@ class GitRemoteHg < Formula
     sha256 "3002a1399ffdbcfb086d8d0ed29822fe68107cf2cca283f1aecd4448a7d41168" => :x86_64_linux
   end
 
-  depends_on :macos # Due to Python 2 (does not support Python 3)
   depends_on "asciidoc" => :build
   depends_on :macos # Due to Python 2
 

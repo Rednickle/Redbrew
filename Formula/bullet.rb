@@ -55,10 +55,10 @@ class Bullet < Formula
       }
     EOS
 
-    if OS.mac?
-      cxx_lib = "-lc++"
+    cxx_lib = if OS.mac?
+      "-lc++"
     else
-      cxx_lib = "-lstdc++"
+      "-lstdc++"
     end
 
     system ENV.cc, "test.cpp", "-I#{include}/bullet", "-L#{lib}",

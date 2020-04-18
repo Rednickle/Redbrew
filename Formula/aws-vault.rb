@@ -26,6 +26,7 @@ class AwsVault < Formula
   end
 
   test do
-    assert_match("aws-vault: error: required argument 'profile' not provided, try --help", shell_output("#{bin}/aws-vault login 2>&1", 1))
+    assert_match("aws-vault: error: required argument 'profile' not provided, try --help",
+      shell_output("#{bin}/aws-vault login 2>&1", 1))
   end
 end
