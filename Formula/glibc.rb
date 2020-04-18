@@ -120,7 +120,6 @@ class Glibc < Formula
         # Fix error: selinux/selinux.h: No such file or directory
         "--without-selinux",
       ]
-      kernel_version = `uname -r`.chomp.split("-")[0]
       args << "--with-binutils=#{Formula["binutils"].bin}" if build.with? "binutils"
       args << "--with-headers=#{Formula["linux-headers"].include}" if build.with? "linux-headers"
       system "../configure", *args
