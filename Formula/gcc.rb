@@ -40,7 +40,6 @@ class Gcc < Formula
   depends_on "mpfr"
   unless OS.mac?
     depends_on "binutils"
-    depends_on "glibc" if (Formula["glibc"].installed? || OS::Linux::Glibc.system_version < Formula["glibc"].version)
     depends_on "isl@0.18"
   end
 
@@ -105,26 +104,9 @@ class Gcc < Formula
       ln_s Utils.popen_read(ENV.cc, "-print-file-name=libstdc++.so.6").strip, lib
       ln_s Utils.popen_read(ENV.cc, "-print-file-name=libgcc_s.so.1").strip, lib
 
-      if build.with? "glibc"
-        args += [
-          "--with-native-system-header-dir=#{HOMEBREW_PREFIX}/include",
-          # Pass the specs to ./configure so that gcc can pickup brewed glibc.
-          # This fixes the building failure if the building system uses brewed gcc
-          # and brewed glibc. Document on specs can be found at
-          # https://gcc.gnu.org/onlinedocs/gcc/Spec-Files.html
-          # Howerver, there is very limited document on `--with-specs` option,
-          # which has certain difference compared with regular spec file.
-          # But some relevant information can be found at https://stackoverflow.com/a/47911839
-          "--with-specs=%{!static:%x{--dynamic-linker=#{HOMEBREW_PREFIX}/lib/ld.so} %x{-rpath=#{HOMEBREW_PREFIX}/lib}}",
-        ]
-        # Set the search path for glibc libraries and objects.
-        # Fix the error: ld: cannot find crti.o: No such file or directory
-        ENV["LIBRARY_PATH"] = Formula["glibc"].opt_lib
-      else
-        # Set the search path for glibc libraries and objects, using the system's glibc
-        # Fix the error: ld: cannot find crti.o: No such file or directory
-        ENV.prepend_path "LIBRARY_PATH", Pathname.new(Utils.popen_read(ENV.cc, "-print-file-name=crti.o")).parent
-      end
+      # Set the search path for glibc libraries and objects, using the system's glibc
+      # Fix the error: ld: cannot find crti.o: No such file or directory
+      ENV.prepend_path "LIBRARY_PATH", Pathname.new(Utils.popen_read(ENV.cc, "-print-file-name=crti.o")).parent
     end
 
     # Fix cc1: error while loading shared libraries: libisl.so.15
