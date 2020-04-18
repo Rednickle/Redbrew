@@ -23,7 +23,7 @@ class Libtool < Formula
   def install
     ENV["SED"] = "sed" # prevent libtool from hardcoding sed path from superenv
 
-    if OS.linux? && build.bottle?
+    if OS.linux?
       # prevent libtool from hardcoding GCC 4.8
       ENV["CC"] = "cc"
       ENV["CXX"] = "c++"
