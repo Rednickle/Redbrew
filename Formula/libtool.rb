@@ -35,7 +35,7 @@ class Libtool < Formula
                           "--enable-ltdl-install"
     system "make", "install"
 
-    if build.with? "default-names"
+    if OS.mac?
       bin.install_symlink "libtool" => "glibtool"
       bin.install_symlink "libtoolize" => "glibtoolize"
     end
