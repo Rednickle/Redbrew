@@ -64,9 +64,9 @@ class Glibc < Formula
     sha256 "654794e9e18c2401f1101a3fcf0a85eda448b4b969e9a99782a3f4f4659feda4" => :x86_64_linux
   end
 
-  depends_on "binutils" => [:build, :recommended] # binutils 2.20 or later is required
+  depends_on "binutils" => :build # binutils 2.20 or later is required
   depends_on GawkRequirement => :build
-  depends_on "linux-headers" => [:build, :recommended] # Linux kernel headers 2.6.19 or later are required
+  depends_on "linux-headers" => :build # Linux kernel headers 2.6.19 or later are required
   depends_on BrewedGlibcNotOlderRequirement
   depends_on :linux
   depends_on LinuxKernelRequirement
@@ -120,8 +120,8 @@ class Glibc < Formula
         # Fix error: selinux/selinux.h: No such file or directory
         "--without-selinux",
       ]
-      args << "--with-binutils=#{Formula["binutils"].bin}" if build.with? "binutils"
-      args << "--with-headers=#{Formula["linux-headers"].include}" if build.with? "linux-headers"
+      args << "--with-binutils=#{Formula["binutils"].bin}"
+      args << "--with-headers=#{Formula["linux-headers"].include}"
       system "../configure", *args
 
       system "make" # Fix No rule to make target libdl.so.2 needed by sprof
