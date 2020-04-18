@@ -39,7 +39,7 @@ class Gcc < Formula
   depends_on "libmpc"
   depends_on "mpfr"
   unless OS.mac?
-    depends_on "binutils" if build.with? "glibc"
+    depends_on "binutils"
     depends_on "glibc" if (Formula["glibc"].installed? || OS::Linux::Glibc.system_version < Formula["glibc"].version)
     depends_on "isl@0.18"
   end

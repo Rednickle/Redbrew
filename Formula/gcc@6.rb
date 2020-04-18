@@ -27,7 +27,7 @@ class GccAT6 < Formula
 
   unless OS.mac?
     depends_on "zlib"
-    depends_on "binutils" if build.with? "glibc"
+    depends_on "binutils"
     depends_on "glibc" if (Formula["glibc"].installed? || OS::Linux::Glibc.system_version < Formula["glibc"].version)
   end
   depends_on "gmp"
