@@ -36,8 +36,6 @@ class LlvmAT9 < Formula
     depends_on "libxml2"
     depends_on "zlib"
     depends_on "python@3.8"
-
-    conflicts_with "clang-format", :because => "both install `clang-format` binaries"
   end
 
   resource "clang" do
