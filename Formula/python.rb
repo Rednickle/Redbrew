@@ -280,10 +280,10 @@ class Python < Formula
     library_dirs = [HOMEBREW_PREFIX/"lib", Formula["openssl@1.1"].opt_lib,
                     Formula["sqlite"].opt_lib]
 
-    if OS.mac?
-      cfg = prefix/"Frameworks/Python.framework/Versions/#{xy}/lib/python#{xy}/distutils/distutils.cfg"
+    cfg = if OS.mac?
+      prefix/"Frameworks/Python.framework/Versions/#{xy}/lib/python#{xy}/distutils/distutils.cfg"
     else
-      cfg = lib_cellar/"distutils/distutils.cfg"
+      lib_cellar/"distutils/distutils.cfg"
     end
 
     cfg.atomic_write <<~EOS
