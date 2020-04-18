@@ -5,13 +5,13 @@ class Duplicity < Formula
   homepage "https://launchpad.net/duplicity"
   url "https://code.launchpad.net/duplicity/0.8-series/0.8.12/+download/duplicity-0.8.12.1612.tar.gz"
   sha256 "074cf847b273644459c840253bc39f5ed3d0a7f8545339d98b6e9a87f945c51a"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "fedcb582f700a4d75829c0f60692fa251494b2214f53224a6ff7c17cb41f2539" => :catalina
-    sha256 "5b063178a94cdde24d63776c369fc071484baf9bb0c272edd0f5d2fb370fd921" => :mojave
-    sha256 "9a90225fbd02bfad98caeb1fd927dee3348ebed4f4c37b199135bc167a9c5eb8" => :high_sierra
-    sha256 "e10059b556e0b4d3d3c552c028bb2f775b39cc3755ba0b16b436f0ac895c96f9" => :x86_64_linux
+    sha256 "220d4073a81f13508c7135ba009903607109edba059950afcc81bc70593901b4" => :catalina
+    sha256 "9878858b7437c368fcd20d8b2dd0f44e953f27fbc77cf51fbd037022d633d0ee" => :mojave
+    sha256 "fe1d327ad7c24586c8c81c362cb778fa1b334a81e882e48b7cdc81b21740d4e5" => :high_sierra
   end
 
   depends_on "gnupg"

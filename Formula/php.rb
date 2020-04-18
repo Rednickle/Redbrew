@@ -4,12 +4,12 @@ class Php < Formula
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
   url "https://www.php.net/distributions/php-7.4.5.tar.xz"
   sha256 "d059fd7f55bdc4d2eada15a00a2976697010d3631ef6f83149cc5289e1f23c2c"
+  revision 1
 
   bottle do
-    sha256 "ecc5b99761bd6b6a69afce07909638999f08bc3e18585a992e675246e0548230" => :catalina
-    sha256 "2e0e7d9b1e2f5115262eb97511c903b8ba1ea1586a7c29ae1503f4e10cde1479" => :mojave
-    sha256 "f105dc25c94420589262df41b75075173087dcef2fa2dd08ca7022afed700a4c" => :high_sierra
-    sha256 "c6499ce55690290cb8bdb5446fd06e9f0321d43cf7f240eb3a005c4591fa5bdb" => :x86_64_linux
+    sha256 "3596c9b801e2b1990c667a85095cb80d15555b47ed9a0943e2de2c0cc6e6503b" => :catalina
+    sha256 "8f3eadf8d81a23039ba3ab1b76cd06203367b07d3938c61d7dc32c1d65836cdf" => :mojave
+    sha256 "a1b55effcd432c854bcca24a8512eb5188d2309d92af8b082c98f130fa8c46e3" => :high_sierra
   end
 
   head do

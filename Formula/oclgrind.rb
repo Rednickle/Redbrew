@@ -3,13 +3,13 @@ class Oclgrind < Formula
   homepage "https://github.com/jrprice/Oclgrind"
   url "https://github.com/jrprice/Oclgrind/archive/v19.10.tar.gz"
   sha256 "f9a8f22cb9f6d88670f2578c46ba0d728ba8eaee5c481c2811129dc157c43dc0"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "aef4dfe9f041df8a4abdea326d14eb7667f26a74a13507941864bd09564f50b3" => :catalina
-    sha256 "e95a98235701ab7c461ee3ef77f9ec9736f6a29c6855c462f3c39400336ef756" => :mojave
-    sha256 "a8521e5f16b460c7ea637971baba7e089e1a7aaf101f9482423eba21aff0c7b6" => :high_sierra
+    sha256 "3414baf7844a7b6e6aa1d77fb3d8a1b36807978443bd7fba73298bd2e02cd3d0" => :catalina
+    sha256 "dcaae22e664000d14272219e3e59a764a73941246c293884fcc816900f13705c" => :mojave
+    sha256 "8f0c07e1b106445f4ecd5b4835578a554dbde2ecd7d133af4cf7b8bee2919647" => :high_sierra
   end
 
   depends_on "cmake" => :build

@@ -5,14 +5,14 @@ class Conan < Formula
   homepage "https://github.com/conan-io/conan"
   url "https://github.com/conan-io/conan/archive/1.24.0.tar.gz"
   sha256 "fe7fc766d3ff4997a700d141485ba7dd2768cf78eb710fed413a6ccea8b7f9a1"
+  revision 1
   head "https://github.com/conan-io/conan.git"
 
   bottle do
     cellar :any
-    sha256 "c94656d8f672123aa1d562eb238bc4d6e7582b81968991dbde15bfcedfc0ff9c" => :catalina
-    sha256 "4ca95babad6857f5c7d248e3d22920f1ea3736a8da9c60cfb134896d502da2f2" => :mojave
-    sha256 "4d43c3c1a6d8e463314b9a2da3a4e1e0b51d2289be03179368a5c28ddb349bd0" => :high_sierra
-    sha256 "88685bd9198096889a515d2997c9b5cacc254323d005c9d680c2ab3338238bbf" => :x86_64_linux
+    sha256 "ac7b328b561f305c935dd39aa832b0267fc8bc2d86c5754e20d0118ed04d46cf" => :catalina
+    sha256 "43a9d12b8fbc9e2ca5afd5d2d6d65690cfc23346aa4b2ae34dfd57186019d4b4" => :mojave
+    sha256 "0590eb392a4345dcb34675bc0825eb150094e2335c3270d9a56d32b7f0d0b93c" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
