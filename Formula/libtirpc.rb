@@ -10,14 +10,13 @@ class Libtirpc < Formula
   end
 
   depends_on :linux
-  depends_on "krb5" => :optional unless OS.mac?
+  depends_on "krb5"
 
   def install
     system "./configure",
       "--disable-dependency-tracking",
       "--disable-silent-rules",
-      "--prefix=#{prefix}",
-      *("--disable-gssapi" if build.without? "krb5")
+      "--prefix=#{prefix}"
     system "make", "install"
   end
 
