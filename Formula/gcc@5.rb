@@ -36,7 +36,7 @@ class GccAT5 < Formula
     depends_on "isl@0.18"
     depends_on "zlib"
     depends_on "binutils" if build.with? "glibc"
-    depends_on "glibc" => (Formula["glibc"].installed? || OS::Linux::Glibc.system_version < Formula["glibc"].version) ? :recommended : :optional
+    depends_on "glibc" if (Formula["glibc"].installed? || OS::Linux::Glibc.system_version < Formula["glibc"].version)
   end
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
