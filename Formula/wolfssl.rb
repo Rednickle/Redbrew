@@ -81,9 +81,7 @@ class Wolfssl < Formula
     # Extra flag is stated as a needed for the Mac platform.
     # https://wolfssl.com/wolfSSL/Docs-wolfssl-manual-2-building-wolfssl.html
     # Also, only applies if fastmath is enabled.
-    if OS.mac?
-      ENV.append_to_cflags "-mdynamic-no-pic"
-    end
+    ENV.append_to_cflags "-mdynamic-no-pic" if OS.mac?
 
     system "./autogen.sh"
     system "./configure", *args
