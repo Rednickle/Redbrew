@@ -64,8 +64,6 @@ class Glibc < Formula
     sha256 "654794e9e18c2401f1101a3fcf0a85eda448b4b969e9a99782a3f4f4659feda4" => :x86_64_linux
   end
 
-  option "with-current-kernel", "Compile for compatibility with kernel not older than your current one"
-
   depends_on "binutils" => [:build, :recommended] # binutils 2.20 or later is required
   depends_on GawkRequirement => :build
   depends_on "linux-headers" => [:build, :recommended] # Linux kernel headers 2.6.19 or later are required
@@ -123,7 +121,6 @@ class Glibc < Formula
         "--without-selinux",
       ]
       kernel_version = `uname -r`.chomp.split("-")[0]
-      args << "--enable-kernel=#{kernel_version}" if build.with? "current-kernel"
       args << "--with-binutils=#{Formula["binutils"].bin}" if build.with? "binutils"
       args << "--with-headers=#{Formula["linux-headers"].include}" if build.with? "linux-headers"
       system "../configure", *args
