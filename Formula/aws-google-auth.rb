@@ -195,8 +195,11 @@ class AwsGoogleAuth < Formula
         else
           s.gsub! "ZLIB_ROOT = None", "ZLIB_ROOT = ('#{Formula["zlib"].opt_prefix}/lib', '#{Formula["zlib"].opt_prefix}/include')"
         end
-        s.gsub! "JPEG_ROOT = None", "JPEG_ROOT = ('#{Formula["jpeg"].opt_prefix}/lib', '#{Formula["jpeg"].opt_prefix}/include')"
-        s.gsub! "FREETYPE_ROOT = None", "FREETYPE_ROOT = ('#{Formula["freetype"].opt_prefix}/lib', '#{Formula["freetype"].opt_prefix}/include')"
+        free_pre = Formula["freetype"].opt_prefix
+        s.gsub! "JPEG_ROOT = None",
+                "JPEG_ROOT = ('#{Formula["jpeg"].opt_prefix}/lib', '#{Formula["jpeg"].opt_prefix}/include')"
+        s.gsub! "FREETYPE_ROOT = None",
+                "FREETYPE_ROOT = ('#{free_pre}/lib', '#{free_pre}/include')"
       end
 
       # avoid triggering "helpful" distutils code that doesn't recognize Xcode 7 .tbd stubs
