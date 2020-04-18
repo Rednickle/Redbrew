@@ -2,15 +2,15 @@ class Openrct2 < Formula
   desc "Open source re-implementation of RollerCoaster Tycoon 2"
   homepage "https://openrct2.io/"
   url "https://github.com/OpenRCT2/OpenRCT2.git",
-      :tag      => "v0.2.5",
-      :revision => "4f6e77e30ac8e81fd873f1c4041105395fed1327"
+      :tag      => "v0.2.6",
+      :revision => "6c3c857dfa5cd0d267b89a9d70930fbacdfbaea4"
   head "https://github.com/OpenRCT2/OpenRCT2.git", :branch => "develop"
 
   bottle do
     cellar :any
-    sha256 "0a0541d674d5244bbaff7c2aeb4eaf936be8ddc138ce6129062d3018a55d12a1" => :catalina
-    sha256 "f8d9bfa00c863e695388552a60099a248bb60d31413696c81f4ebd2ffaec24f9" => :mojave
-    sha256 "8c12255546d873041c260554e8027c79dce76c2cb411d86bcf070091af3ff31a" => :high_sierra
+    sha256 "54ab3742241952e3009aaa1df957f5d0787c9c08cd9cfc601b511197bec8615c" => :catalina
+    sha256 "a73c42a5778f9403ad85713ec4b990fd4da68f93fa39a04ffecff8a6db5eb872" => :mojave
+    sha256 "0537b8acec4c4588941549dbf844bec7c1102a15456694c4826205f5e2299035" => :high_sierra
   end
 
   depends_on "cmake" => :build
@@ -32,8 +32,8 @@ class Openrct2 < Formula
   end
 
   resource "objects" do
-    url "https://github.com/OpenRCT2/objects/releases/download/v1.0.13/objects.zip"
-    sha256 "0279874ad5a4c07f1fca5c62d2d5c3aa12bd849d7b643e3c7d93cfda88df7c6a"
+    url "https://github.com/OpenRCT2/objects/releases/download/v1.0.14/objects.zip"
+    sha256 "574477ddcdfdd4d827ce1a0fbc4971cbb56df561dcfff7151c62a9878d3bbb54"
   end
 
   def install
