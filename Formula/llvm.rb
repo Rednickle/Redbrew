@@ -4,7 +4,6 @@ class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
   revision OS.mac? ? 3 : 5
-  head "https://github.com/llvm/llvm-project.git"
 
   stable do
     url "https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.0/llvm-10.0.0.src.tar.xz"
