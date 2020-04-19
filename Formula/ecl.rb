@@ -10,6 +10,7 @@ class Ecl < Formula
     sha256 "1b22aba62174f0ee17ddbc8913522463d25647daab83f02de3c924230e61b66b" => :catalina
     sha256 "4e28aab0c72dbb411b27b7b0bc92c6277c02170fab0dfe96c0ad84c19fbd0381" => :mojave
     sha256 "315810b954020ffde49b5386e789d49640f4a3018fac98e8f2f76aab8b3b0258" => :high_sierra
+    sha256 "f84d2b7195607c8f10e3599bb058f511fa5ff6eb441b5643070d6aa070f4ff3f" => :x86_64_linux
   end
 
   depends_on "bdw-gc"
