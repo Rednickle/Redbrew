@@ -9,6 +9,7 @@ class Chromaprint < Formula
     sha256 "a708aa303446e28fb91b940714eef17db93dbbdb7e164b6623762c80829bd10f" => :catalina
     sha256 "7459da9ccc704fe6033e76da92c7c26df0da349caf7c2f18f5b987d5991378a9" => :mojave
     sha256 "a7c304145c854c03a8016d8ec9bd48d5d967d786eb2e37013eaa07e75085a9aa" => :high_sierra
+    sha256 "1e45f479ae0cd33d9743b9544a27db0683f69e5a4a82251badb20fb9854591b1" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
