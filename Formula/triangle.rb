@@ -1,16 +1,14 @@
 class Triangle < Formula
   desc "Convert images to computer generated art using Delaunay triangulation"
   homepage "https://github.com/esimov/triangle"
-  url "https://github.com/esimov/triangle/archive/v1.0.4.tar.gz"
-  sha256 "f9a143dd36e69fa4ff321ba04223d9517c5b4ad57b17b30da649da90dce897b4"
+  url "https://github.com/esimov/triangle/archive/v1.0.5.tar.gz"
+  sha256 "3e3e4338ae2b55a21cc742bd5c1c542a778fa0764b17a8f599099f7bf1eb257b"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3a9e5e8a21de66fb0c65c1926c9e47cf9994fa7ff9087c68500bec3bb9d5045d" => :catalina
-    sha256 "132a796ede448b5f82b5c07ced752c52330cb562f0c6a38e632cf03fa746084e" => :mojave
-    sha256 "cab32e0bb1b7679d9fd01ac10fd417ebbc2372c36f946d2a702365c783d6dcb7" => :high_sierra
-    sha256 "56cbb9d5869a4de632e195ec7617e5747fbec961a152d375b5fa22fbac4d3e77" => :sierra
-    sha256 "4e3fd902b979f0ad41ad0f70017637c405ef9ac0666f5d29dbc4e896eead5a1a" => :x86_64_linux
+    sha256 "4fb744b3878eb0a3b661b939155929dd3e24050b6bdf79a21926309b9e37c030" => :catalina
+    sha256 "e9028dc0560174e50099fdb6efc3dcbb8ed75a8cfc983e2b923a18f54acb1807" => :mojave
+    sha256 "aca7f95503e929a3bc8b585e64177dec4d8625bd3d365b18d8fecc8fa463a859" => :high_sierra
   end
 
   depends_on "go" => :build

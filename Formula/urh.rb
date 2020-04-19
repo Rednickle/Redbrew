@@ -1,15 +1,14 @@
 class Urh < Formula
   desc "Universal Radio Hacker"
   homepage "https://github.com/jopohl/urh"
-  url "https://files.pythonhosted.org/packages/81/6e/730980db1ea8066a46923f58184e235ff89bb786bb677d290a1d48249a25/urh-2.8.4.tar.gz"
-  sha256 "64a85cd3b0407276fc1751623284c8ebcf48fa657a1eee330163d3a5f1505f7f"
-  revision 1
+  url "https://files.pythonhosted.org/packages/ee/51/ff68e10f00b29eaea34c03306e4a5cacb3e4564bf1e64c04e2558f0daa53/urh-2.8.6.tar.gz"
+  sha256 "b5d1b54c25b2cfa888d6d03c522975f1d0b429fbca1fa423df21b3d916ed59f4"
   head "https://github.com/jopohl/urh.git"
 
   bottle do
-    sha256 "50d090a38284fcd59d7b3b2218d6a64461745c1700ba24ba37ade3c37d686608" => :catalina
-    sha256 "750de1056776961721988e21ce8338e287016b9fd17ab7623ce2018e39749f2e" => :mojave
-    sha256 "2f4457228d8ac25725c8726599521b4103c5e5b2b234cd10e8f042e1d21bd477" => :high_sierra
+    sha256 "70c5347962da15060498ea2f1c9b942ae9ef60a2c6339460da408fb7bb56c55a" => :catalina
+    sha256 "17de55c697689911d35f981668922abf2c502631f4cca0034cf46e417bd18c9a" => :mojave
+    sha256 "70862e140a92a1ac6e484bd1ada77dc742393be1764115d957ec0ccbab1ae696" => :high_sierra
   end
 
   depends_on "pkg-config" => :build
@@ -20,8 +19,8 @@ class Urh < Formula
   depends_on "zeromq"
 
   resource "Cython" do
-    url "https://files.pythonhosted.org/packages/d9/82/d01e767abb9c4a5c07a6a1e6f4d5a8dfce7369318d31f48a52374094372e/Cython-0.29.15.tar.gz"
-    sha256 "60d859e1efa5cc80436d58aecd3718ff2e74b987db0518376046adedba97ac30"
+    url "https://files.pythonhosted.org/packages/49/8a/6a4135469372da2e3d9f88f71c6d00d8a07ef65f121eeca0c7ae21697219/Cython-0.29.16.tar.gz"
+    sha256 "232755284f942cbb3b43a06cd85974ef3c970a021aef19b5243c03ee2b08fa05"
   end
 
   resource "psutil" do
